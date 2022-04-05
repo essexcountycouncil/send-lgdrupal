@@ -1,0 +1,25 @@
+uuid: 54eb5852-3233-43a2-806d-3633f60ec8eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.localgov_services_landing
+  module:
+    - text
+_core:
+  default_config_hash: H_lWH5Ig-cVIo7dwv0IJ-hoSDn7aGzbeB3goAxdiwOk
+id: node.localgov_services_landing.body
+field_name: body
+entity_type: node
+bundle: localgov_services_landing
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+field_type: text_with_summary

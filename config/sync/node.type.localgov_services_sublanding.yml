@@ -1,0 +1,13 @@
+uuid: 9d13d15e-a0c2-4ef0-9bf2-e7b91ce8fbf8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FmwfwwF7lh0T_I5dZrBNHHx3k-DfEdGcsx3f8FGILvE
+name: 'Service sub-landing page'
+type: localgov_services_sublanding
+description: 'Pages for detail and links to specific pages within a service.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: 0a1d594f-0ed1-4ab5-a28f-b09c69f20c46
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: 5iBJpjUdfEqVXzn583BgsAGeV3sUhXG7cWoZ46kFzX4
+id: paragraph.localgov_contact_subheading
+field_name: localgov_contact_subheading
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,12 @@
+uuid: 84bb3756-135c-4fec-b0b2-b88e52d9a690
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3iFwwPfcPLCMffistfhIPQ1Axz0unwMT1SGsQpPuRUs
+id: localgov_image
+label: Image
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,17 @@
+uuid: 6eddf8f9-534d-442f-b9f8-4cf4d6c31469
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'use text format wysiwyg'
+  - 'view media'

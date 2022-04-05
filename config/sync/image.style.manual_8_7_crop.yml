@@ -1,0 +1,20 @@
+uuid: 0047176b-5e2b-4098-a52c-c7254624bd73
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.8_7
+  module:
+    - crop
+_core:
+  default_config_hash: edm9B3O7-mslBaKskBAx9oN2Rniur3d6Wl3DyyWrhyg
+name: manual_8_7_crop
+label: 'Manual 8:7 crop'
+effects:
+  b4623fbb-89ce-498f-9f9d-b2b991143d2c:
+    uuid: b4623fbb-89ce-498f-9f9d-b2b991143d2c
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: '8_7'
+      automatic_crop_provider: null

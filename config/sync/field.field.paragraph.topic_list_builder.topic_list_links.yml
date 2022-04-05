@@ -1,0 +1,25 @@
+uuid: 57edc26a-a0fe-42b2-af91-ada083bdd235
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.topic_list_links
+    - paragraphs.paragraphs_type.topic_list_builder
+  module:
+    - link
+_core:
+  default_config_hash: IBdxHdTHqIMjBH9eUM9SJw1smb6LOJRifS5CSgkQLmg
+id: paragraph.topic_list_builder.topic_list_links
+field_name: topic_list_links
+entity_type: paragraph
+bundle: topic_list_builder
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

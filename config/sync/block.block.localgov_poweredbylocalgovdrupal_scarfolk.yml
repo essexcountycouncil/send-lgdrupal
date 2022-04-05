@@ -1,0 +1,22 @@
+uuid: b3b5c6ac-75cd-4b54-97a3-1cb0c342ad3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: _rLbHDXkhDWmFVzav5liiDU56NLoRKtMPaN4iMX-p-M
+id: localgov_poweredbylocalgovdrupal_scarfolk
+theme: localgov_scarfolk
+region: footer_second
+weight: 0
+provider: null
+plugin: localgov_powered_by_block
+settings:
+  id: localgov_powered_by_block
+  label: 'Powered by LocalGovDrupal'
+  label_display: '0'
+  provider: localgov_core
+visibility: {  }

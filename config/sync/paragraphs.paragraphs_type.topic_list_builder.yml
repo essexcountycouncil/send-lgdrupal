@@ -1,0 +1,12 @@
+uuid: 2546d2ec-8a5d-4eba-874f-54c5d623f5d4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HAFEPY6xzRk6d-DdBpE65wzaaKw6auW0lX60cp-Oh54
+id: topic_list_builder
+label: 'Topic list builder'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
