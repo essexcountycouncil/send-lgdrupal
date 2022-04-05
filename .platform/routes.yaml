@@ -1,0 +1,21 @@
+https://www.{default}/:
+  cache:
+    cookies: ["/^SSESS.*/"]
+    default_ttl: 2000
+    enabled: true
+    headers:
+    - Accept
+    - Accept-Language
+  redirects:
+    expires: -1s
+    paths: {}
+  ssi:
+    enabled: false
+  type: upstream
+  upstream: app:http
+https://{default}/:
+  redirects:
+    expires: -1s
+    paths: {}
+  to: https://www.{default}/
+  type: redirect

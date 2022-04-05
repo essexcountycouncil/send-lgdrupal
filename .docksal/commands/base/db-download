@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+## Downloads DB from specified environment.
+##
+## Usage: fin db-download [environment]
+##         --fetch Force download
+##
+
+source $PROJECT_ROOT/.docksal/command-settings
+
+# Check for set vars
+if [[ -z $1 || $1 == "--fetch" ]]; then
+  echo-red "Command failed: You must include the environment to download from"
+  exit
+fi
+
+# If there is no db directory
+if [ ! -d ${PROJECT_ROOT}/db ]; then
+  echo-green "Creating directory db"
+  mkdir ${PROJECT_ROOT}/db
+fi
+
+env=$1
+
+if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; then
+  cd ${PROJECT_ROOT}
+  echo-green "Downloading ${env} DB"
+
+  $PLATFORM_CMD db:dump --gzip -p ${PLATFORM_ID} -e ${env} -y -f db/${env}.sql.gz
+else
+  echo-green "Using local copy of ${env} DB"
+fi

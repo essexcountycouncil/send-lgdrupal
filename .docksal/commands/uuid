@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Get the UUID for the installed project
+##
+## Usage: fin uuid
+##
+
+drush config-get --format=string 'system.site' uuid

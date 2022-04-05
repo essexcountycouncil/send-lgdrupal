@@ -1,0 +1,19 @@
+# Allows adding or updating software in CLI image,
+# example below updates platformsh-cli to latest version.
+# To use, update FROM and RUN as needed, then copy following to docksal.yml under services:
+  # cli:
+  #   volumes:
+  #     # Project root volume
+  #     - project_root:/var/www:rw,nocopy,cached
+  #     # Shared ssh-agent socket
+  #     - docksal_ssh_agent:/.ssh-agent:ro
+  #   environment:
+  #     - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
+  #   # Run Dockerfile to add or udpdate software.
+  #   build: services/cli
+
+# Use a stock Docksal php7.4 image as the base
+FROM docksal/cli:php7.4-3.0
+
+RUN set -e; \
+    platform self:update -y || echo "Please update the platform.sh CLI on your host sytem as well by doing a platform self:update"

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+## Download and setup Adminer into the container for easier SQL access.
+##
+## Usage: dsh adminer
+##
+
+source ${DOCKSAL_PATH}/.docksal/command-settings
+
+ensure_containers_up
+
+echo-green "Setting up Adminer"
+cd ${DOCROOT_PATH}
+echo-yellow "I need to alter the .htaccess file to allow adminer, which is a PHP script, to execute."
+fin run sed -i '/Deny access to any other PHP files that do not match the rules above/ i \ \ #Allow access to adminer\n\ \ RewriteCond %{REQUEST_URI} !/adminer/index.php$' .htaccess
+rm -rf adminer
+mkdir adminer
+cd adminer
+wget -O index.php https://gist.githubusercontent.com/TLyngeJ/42195aefee585d5637944ee93e3d8792/raw/530eb310c871957e0d029b51cf88ed1be76dca81/index.php  &> /dev/null
+wget -O adminer.php https://www.adminer.org/static/download/4.2.5/adminer-4.2.5-mysql-en.php &> /dev/null
+echo-green "You can now access you database from http://${SITE_DOMAIN}/adminer"

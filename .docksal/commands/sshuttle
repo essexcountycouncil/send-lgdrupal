@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Checks if there's an override in place, and runs that if there is.
+
+source ${DOCKSAL_PATH}/.docksal/command-settings
+
+SCRIPT_NAME=sshuttle
+
+if [[ ! -f ${DOCKSAL_PATH}/.docksal/commands/override/${SCRIPT_NAME} ]]; then
+  SCRIPT_FOLDER=base
+else
+  SCRIPT_FOLDER=override
+fi
+
+fin ${SCRIPT_FOLDER}/${SCRIPT_NAME} $@

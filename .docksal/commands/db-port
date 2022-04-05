@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+## Displays the port number for the current project
+##
+## Usage: fin db-port
+##
+
+source ${DOCKSAL_PATH}/.docksal/command-settings
+
+ensure_containers_up
+
+fin ps | grep -o '0:\([0-9]*\)' | awk -F ':' '{print $2}'

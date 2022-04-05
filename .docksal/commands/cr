@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Run 'drush cr' for the project
+##
+## Usage: fin cr
+##
+
+drush cr

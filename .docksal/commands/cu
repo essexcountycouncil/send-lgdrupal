@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Run 'composer update' for project, packages or specific drupal module.
+##
+## Usage: fin cu [package/module_name] (optional)
+##    If [module_name] or drupal/[module_name] provided, runs drush updb, cex, and git status
+##    Otherwise updates specified package (with dependencies) or project.
+##
+
+module_name=$1
+
+cd ${PROJECT_ROOT}
+
+if [[ -z $1 ]]; then
+  echo "Update all packages"
+  composer update
+  git status
+  exit
+elif [[ $1 =~ .*drupal\//* ]]; then
+  echo "Update drupal module: ${1/drupal\//}"
+  composer update $1 --with-dependencies
+  drush cr
+  drush updb
+  drush cex
+  git status
+elif [[ $1 =~ .*\//*. ]]; then
+  echo "Update package: $1"
+  composer update $1 --with-dependencies
+  git status
+else
+  echo "Update drupal module: ${1}"
+  composer update drupal/${module_name} --with-dependencies
+  drush cr
+  drush updb
+  drush cex
+  git status
+fi

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+## Run npm in the theme folder to Compile CSS.
+##
+## Usage: fin compile-css
+##          --clean  Re-installs dependencies (optional)
+##
+
+source ${DOCKSAL_PATH}/.docksal/command-settings
+
+ensure_containers_up
+
+cd ${THEME_PATH}
+
+if [ -e ./_assets/config.rb ]; then
+  # Compile using Compass.
+  cd _assets/
+  echo-green 'Checking for installed Ruby bundles'
+  fin exec bundle install
+  echo-green 'Compiling CSS'
+  fin exec bundle exec compass compile
+
+elif [ -e ./package.json ]; then
+  # Install npm.
+  fin exec nvm install
+  # Set the theme's Node.JS version as default.
+  if [ -e ./.nvmrc ]; then
+    fin exec nvm alias default $(cat ./.nvmrc)
+  fi
+  fin exec nvm use
+
+  if [[ ! -d "node_modules" || $1 == "--clean" ]]; then
+    echo-yellow "Installing dependencies…"
+    fin exec npm ci
+  fi
+  if [ -d "node_modules" ]; then
+    echo-green "All set up; ready to compile!"
+  fi
+
+  echo-green 'Compiling CSS'
+  if [ -e ./gulpfile.js || -e ./gulpfile.esm.js ]; then
+    fin exec npx gulp styles
+  else
+    fin exec npm run build:css
+  fi
+
+  # Provide useful message if the compilation fails.
+  if [ $? -eq 1 ]; then
+    echo-red "Check theme package.json & see https://knowledge.annertech.com/coding/build-tools/"
+  fi
+
+else
+  echo-red "The base css-compile script cannot compile this project's CSS; please create a .docksal/commands/override/css-compile script."
+  exit 1
+
+fi
+
+fin cr
