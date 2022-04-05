@@ -64,5 +64,8 @@
 # Ignore Lando overrides
 .lando.local.yml
 
+# Ignore local docksal files
+.docksal/docksal-local*
+
 # Ignore temp files
 /.phpunit.result.cache
