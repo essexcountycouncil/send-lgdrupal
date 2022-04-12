@@ -1,0 +1,13 @@
+uuid: d565fe58-c3db-4b77-98df-cb54b5a457bc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-LoEbQrvqOBYG1UMlsby5bRRe4nfZa3c6znjEohpYXw'
+name: 'Directory channel'
+type: localgov_directory
+description: 'Main directory landing page.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

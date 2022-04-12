@@ -1,0 +1,24 @@
+uuid: 444a0747-1924-47c4-90fc-4e54b7a8541c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_step_by_step_overview
+_core:
+  default_config_hash: covkisivuKWnV5qo6Je4nCQ3ZQkjHGI2ayxPbxYQ1Ks
+id: node.localgov_step_by_step_overview.promote
+field_name: promote
+entity_type: node
+bundle: localgov_step_by_step_overview
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,12 @@
+uuid: cd8bc585-3f55-487c-bfb2-c9c0db5169d6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CdpIjdex7QuKgv1YAwUTIN86piryzDZo-r0luAdBEbg
+id: localgov_ia_block
+label: 'IA block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

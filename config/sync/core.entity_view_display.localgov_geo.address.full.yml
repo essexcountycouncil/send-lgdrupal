@@ -1,0 +1,111 @@
+uuid: 6eeccb9b-19f8-4568-bb2a-ec8cd4a137c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.localgov_geo.full
+    - field.field.localgov_geo.address.accessibility
+    - field.field.localgov_geo.address.external_id
+    - field.field.localgov_geo.address.location
+    - field.field.localgov_geo.address.postal_address
+    - localgov_geo.localgov_geo_type.address
+  module:
+    - address
+    - leaflet
+    - text
+_core:
+  default_config_hash: DJrjVAOg92eHpOMC6CVnZFo6yb27ExT01rkHb47ANXc
+id: localgov_geo.address.full
+targetEntityType: localgov_geo
+bundle: address
+mode: full
+content:
+  accessibility:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  location:
+    weight: 0
+    label: visually_hidden
+    settings:
+      multiple_map: false
+      popup_content: ''
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      fullscreen_control: true
+      reset_map:
+        position: topright
+        control: false
+      map_position:
+        center:
+          lat: !!float 0
+          lon: !!float 0
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+        force: false
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+        iconSize:
+          x: null
+          'y': null
+        iconAnchor:
+          x: null
+          'y': null
+        shadowSize:
+          x: null
+          'y': null
+        shadowAnchor:
+          x: null
+          'y': null
+        popupAnchor:
+          x: null
+          'y': null
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
+      geocoder:
+        settings:
+          position: topright
+          input_size: 25
+          providers:
+            localgov_default_osm:
+              weight: 0
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+          popup: false
+        control: false
+      popup: false
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+    third_party_settings: {  }
+    type: leaflet_formatter_default
+    region: content
+  postal_address:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+hidden:
+  created: true
+  external_id: true
+  search_api_excerpt: true
+  status: true
+  uid: true

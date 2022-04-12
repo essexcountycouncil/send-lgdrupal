@@ -1,0 +1,19 @@
+uuid: 7c137fb9-39c5-4c51-9bce-af2e4d0c102f
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+_core:
+  default_config_hash: g_eGPNgj7foP0Ae3OJ8wFksNoKEZ8QQStjZqwxWr-ts
+id: localgov_directories_default
+name: Directories
+description: 'Default directories search server. For convenience of installation. Can be used or replaced.'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: prefix
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

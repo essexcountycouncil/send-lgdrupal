@@ -1,0 +1,62 @@
+uuid: 01c232b2-2ec1-48d5-81f6-a2a8200de0a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.localgov_alert_banner.localgov_alert_banner.link
+    - field.field.localgov_alert_banner.localgov_alert_banner.short_description
+    - field.field.localgov_alert_banner.localgov_alert_banner.type_of_alert
+    - field.field.localgov_alert_banner.localgov_alert_banner.visibility
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - condition_field
+    - link
+    - text
+  enforced:
+    module:
+      - localgov_alert_banner
+_core:
+  default_config_hash: NLcYhbd673ygziDfGPBWnFEr_bS4HIOIn5koRIm20qg
+id: localgov_alert_banner.localgov_alert_banner.default
+targetEntityType: localgov_alert_banner
+bundle: localgov_alert_banner
+mode: default
+content:
+  link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  short_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  visibility:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: condition_field_string
+    region: content
+hidden:
+  content_moderation_control: true
+  type_of_alert: true
+  uid: true

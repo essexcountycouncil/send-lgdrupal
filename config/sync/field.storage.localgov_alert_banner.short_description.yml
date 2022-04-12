@@ -1,0 +1,24 @@
+uuid: 4ef1df2c-f14f-4cd1-aefe-9dd0a7631c6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_alert_banner
+    - text
+  enforced:
+    module:
+      - localgov_alert_banner
+_core:
+  default_config_hash: eZqojn8JqOCwQdT71Lhvf8BQAOm7nnarCK6s2vcpI00
+id: localgov_alert_banner.short_description
+field_name: short_description
+entity_type: localgov_alert_banner
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

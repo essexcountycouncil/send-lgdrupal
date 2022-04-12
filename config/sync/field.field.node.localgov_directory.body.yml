@@ -1,0 +1,25 @@
+uuid: 1039e9f4-de20-44b7-ad3a-9d4e47c0b6b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.localgov_directory
+  module:
+    - text
+_core:
+  default_config_hash: tQ7X7YO_ePRWvxHt-4WSUirV5eR0vWy448fMO7ztnOE
+id: node.localgov_directory.body
+field_name: body
+entity_type: node
+bundle: localgov_directory
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

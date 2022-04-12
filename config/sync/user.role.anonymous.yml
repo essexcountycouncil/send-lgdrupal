@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
+    - localgov_alert_banner
+    - localgov_geo
     - media
     - system
 _core:
@@ -13,4 +15,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'view all localgov alert banner entities'
+  - 'view geo'
+  - 'view localgov alert banner localgov_alert_banner entities'
   - 'view media'

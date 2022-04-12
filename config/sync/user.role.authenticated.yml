@@ -2,7 +2,13 @@ uuid: 6eddf8f9-534d-442f-b9f8-4cf4d6c31469
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
+    - fontawesome
+    - localgov_alert_banner
+    - localgov_geo
     - media
     - system
 _core:
@@ -13,5 +19,9 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'access fontawesome additional settings'
   - 'use text format wysiwyg'
+  - 'view all localgov alert banner entities'
+  - 'view geo'
+  - 'view localgov alert banner localgov_alert_banner entities'
   - 'view media'
