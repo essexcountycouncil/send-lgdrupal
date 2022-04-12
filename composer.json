@@ -20,7 +20,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
-        "drush/drush": "^11.0",
+        "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",
         "platformsh/config-reader": "^2.4"
     },
