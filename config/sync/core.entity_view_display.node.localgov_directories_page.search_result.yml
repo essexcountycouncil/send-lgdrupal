@@ -33,15 +33,15 @@ third_party_settings:
         - localgov_directory_email
         - localgov_directory_address
         - localgov_directory_website
+      label: Enquiries
       parent_name: ''
+      region: hidden
       weight: 1
       format_type: fieldset
-      region: hidden
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
-      label: Enquiries
 _core:
   default_config_hash: e6U6E8sPINBySE8owTb8nBAYBJCbBT9ZNL2oRte7StQ
 id: node.localgov_directories_page.search_result
@@ -50,12 +50,12 @@ bundle: localgov_directories_page
 mode: search_result
 content:
   body:
-    label: hidden
     type: text_summary_or_trimmed
-    weight: 0
+    label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   links: true

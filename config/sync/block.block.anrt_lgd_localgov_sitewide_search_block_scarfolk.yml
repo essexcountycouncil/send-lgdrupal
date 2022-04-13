@@ -1,0 +1,22 @@
+uuid: 667c3d91-ab72-4890-a0a9-a643268e1ec3
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_search
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: JoaPjqtHO4LkjJZwk13yGbqxhzg7fmFiv2tgOdNJ4r8
+id: anrt_lgd_localgov_sitewide_search_block_scarfolk
+theme: anrt_lgd
+region: search
+weight: -16
+provider: null
+plugin: localgov_sitewide_search_block
+settings:
+  id: broken
+  label: 'Sitewide search block'
+  label_display: '0'
+  provider: localgov_search
+visibility: {  }

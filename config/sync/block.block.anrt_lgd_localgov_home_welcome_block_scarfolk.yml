@@ -1,0 +1,28 @@
+uuid: d50c0b60-c9e3-4625-b99a-379b005e30c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov
+    - system
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: G3wwIAYo1fyw5qaQywazqr-r0a6zdt08kvzHhgCYTVs
+id: anrt_lgd_localgov_home_welcome_block_scarfolk
+theme: anrt_lgd
+region: content_top
+weight: 0
+provider: null
+plugin: localgov_home_welcome_block
+settings:
+  id: localgov_home_welcome_block
+  label: 'Home welcome block'
+  label_display: '0'
+  provider: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

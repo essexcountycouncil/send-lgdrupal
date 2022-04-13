@@ -14,45 +14,45 @@ type: content_moderation
 type_settings:
   states:
     draft:
-      published: false
-      default_revision: false
       label: Draft
       weight: 0
+      published: false
+      default_revision: false
     published:
       label: Published
+      weight: 1
       published: true
       default_revision: true
-      weight: 1
     unpublished:
       label: Unpublished
+      weight: 2
       published: false
       default_revision: true
-      weight: 2
   transitions:
     create_new_draft:
       label: 'Create New Draft'
+      from:
+        - draft
+        - published
+        - unpublished
       to: draft
       weight: 0
-      from:
-        - draft
-        - published
-        - unpublished
     publish:
       label: Publish
+      from:
+        - draft
+        - published
+        - unpublished
       to: published
       weight: 1
-      from:
-        - draft
-        - published
-        - unpublished
     unpublish:
       label: Unpublish
-      to: unpublished
-      weight: 2
       from:
         - draft
         - published
         - unpublished
+      to: unpublished
+      weight: 2
   entity_types:
     localgov_alert_banner:
       - localgov_alert_banner

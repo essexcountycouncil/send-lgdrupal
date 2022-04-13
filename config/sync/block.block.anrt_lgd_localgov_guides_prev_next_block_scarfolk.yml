@@ -1,0 +1,22 @@
+uuid: 8a281f61-31ee-4400-8219-a1580c33cabc
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: VHCMno_qHX2fv3-pxQuxfJRTyjPz57Guv4sRJ7Y1-ds
+id: anrt_lgd_localgov_guides_prev_next_block_scarfolk
+theme: anrt_lgd
+region: content_bottom
+weight: -6
+provider: null
+plugin: localgov_guides_prev_next_block
+settings:
+  id: localgov_guides_prev_next_block
+  label: 'Guides prev next block'
+  label_display: '0'
+  provider: localgov_guides
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: cf2a16a4-72eb-460c-9017-9bc55f0cf5fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: cGQX48mjw70XY9gxwrTgcrYtPnq2iAIPiqUVk5t5Otg
+id: anrt_lgd_localgov_servicescalltoaction_scarfolk
+theme: anrt_lgd
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_cta_block
+settings:
+  id: localgov_service_cta_block
+  label: 'Services call to action'
+  label_display: '0'
+  provider: localgov_services
+visibility: {  }

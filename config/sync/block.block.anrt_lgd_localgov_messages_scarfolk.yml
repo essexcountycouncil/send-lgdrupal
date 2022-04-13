@@ -1,0 +1,22 @@
+uuid: 05b2f608-23c3-420e-a265-5be8f0c3bea2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: XqdhRTIfjgkSTBL-WtfsStngpA1B7I9_ajAh3cVOk5s
+id: anrt_lgd_localgov_messages_scarfolk
+theme: anrt_lgd
+region: messages
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

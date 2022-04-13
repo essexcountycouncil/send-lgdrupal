@@ -25,6 +25,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  localgov_directory_map:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
   localgov_directory_view:
     settings: {  }
     third_party_settings: {  }

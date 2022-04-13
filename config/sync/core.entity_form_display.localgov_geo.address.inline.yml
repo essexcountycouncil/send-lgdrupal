@@ -29,51 +29,53 @@ content:
       placeholder: ''
     third_party_settings: {  }
   location:
+    type: geofield_map
     weight: 1
+    region: content
     settings:
-      map_geocoder:
-        settings:
-          providers:
-            localgov_default_osm:
-              checked: true
-              weight: 0
-          min_terms: 4
-          delay: 800
-          options: ''
-        control: 0
-      map_google_places:
-        places_additional_options: ''
-        places_control: false
+      html5_geolocation: false
+      default_value:
+        lat: !!float 0
+        lon: !!float 0
       map_library: leaflet
-      map_type_google: roadmap
-      map_type_leaflet: OpenStreetMap_Mapnik
-      map_type_selector: true
+      map_google_api_key: ''
+      map_google_places:
+        places_control: false
+        places_additional_options: ''
       map_dimensions:
         width: 100%
         height: 450px
+      map_type_google: roadmap
+      map_type_leaflet: OpenStreetMap_Mapnik
+      map_type_selector: true
+      zoom_level: 5
       zoom:
         start: 6
         focus: 12
         min: 0
         max: 22
-      geoaddress_field:
-        field: '0'
-        disabled: true
-        hidden: false
-      default_value:
-        lat: !!float 0
-        lon: !!float 0
       click_to_find_marker: false
       click_to_place_marker: false
       hide_coordinates: false
-      html5_geolocation: false
-      map_google_api_key: ''
-      zoom_level: 5
+      geoaddress_field:
+        field: '0'
+        hidden: false
+        disabled: true
+      map_geocoder:
+        control: 0
+        settings:
+          providers:
+            localgov_default_osm:
+              weight: 0
+              checked: true
+          min_terms: 4
+          delay: 800
+          options: ''
     third_party_settings: {  }
-    type: geofield_map
-    region: content
   postal_address:
+    type: localgov_geo_address
     weight: 0
+    region: content
     settings:
       providers:
         localgov_default_osm:
@@ -81,8 +83,6 @@ content:
           weight: 0
       geocode_geofield: location
     third_party_settings: {  }
-    type: localgov_geo_address
-    region: content
 hidden:
   created: true
   external_id: true

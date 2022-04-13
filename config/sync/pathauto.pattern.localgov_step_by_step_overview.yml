@@ -13,12 +13,12 @@ pattern: 'step-by-step/[node:title]'
 selection_criteria:
   b7733dd9-c007-410f-94cb-896af2a94006:
     id: node_type
-    bundles:
-      localgov_step_by_step_overview: localgov_step_by_step_overview
     negate: false
+    uuid: b7733dd9-c007-410f-94cb-896af2a94006
     context_mapping:
       node: node
-    uuid: b7733dd9-c007-410f-94cb-896af2a94006
+    bundles:
+      localgov_step_by_step_overview: localgov_step_by_step_overview
 selection_logic: and
 weight: -5
 relationships: {  }

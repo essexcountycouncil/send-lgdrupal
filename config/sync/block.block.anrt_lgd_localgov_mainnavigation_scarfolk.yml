@@ -1,0 +1,27 @@
+uuid: 62fc12d7-bc01-4e09-956d-62e27e59aff1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: wTuUnaKnGKQiwFQ9bz_B1kDs3FfXc_ujSdtvk4tF88g
+id: anrt_lgd_localgov_mainnavigation_scarfolk
+theme: anrt_lgd
+region: primary_menu
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

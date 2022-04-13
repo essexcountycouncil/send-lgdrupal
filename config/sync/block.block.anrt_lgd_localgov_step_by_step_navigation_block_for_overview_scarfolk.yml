@@ -1,0 +1,35 @@
+uuid: d8a8ac5d-fc74-4f04-8123-7802b5701ad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_step_by_step_navigation
+  module:
+    - node
+    - views
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: rFh6rf29ur98FNXBMtrNB2fq29OKfHGeldf9Ko_P93g
+id: anrt_lgd_localgov_step_by_step_navigation_block_for_overview_scarfolk
+theme: anrt_lgd
+region: content_bottom
+weight: 200
+provider: null
+plugin: 'views_block:localgov_step_by_step_navigation-steps_for_overview'
+settings:
+  id: 'views_block:localgov_step_by_step_navigation-steps_for_overview'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_step_by_step_overview: localgov_step_by_step_overview
