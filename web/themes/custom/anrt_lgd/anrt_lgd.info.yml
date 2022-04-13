@@ -6,6 +6,7 @@ base theme: "localgov_base"
 
 libraries:
   - anrt_lgd/variables
+  - anrt_lgd/overrides
 
 regions:
   tabs: "Tabs"
