@@ -69,3 +69,9 @@
 
 # Ignore temp files
 /.phpunit.result.cache
+
+# Ignore node_modules folder
+/node_modules
+
+# Ignore development config files
+web/sites/default/development*
