@@ -1,0 +1,36 @@
+uuid: 36755b2a-5877-44a6-8f01-b8b635d82e04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_accordion_pane.localgov_body_text
+    - field.field.paragraph.localgov_accordion_pane.localgov_heading_level
+    - field.field.paragraph.localgov_accordion_pane.localgov_title
+    - paragraphs.paragraphs_type.localgov_accordion_pane
+  module:
+    - text
+_core:
+  default_config_hash: 7cuBBf7_c2pGCPxuJlhD7TCBLrmvPQfv3CGtMTpZ8oA
+id: paragraph.localgov_accordion_pane.default
+targetEntityType: paragraph
+bundle: localgov_accordion_pane
+mode: default
+content:
+  localgov_body_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  localgov_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  localgov_heading_level: true
+  search_api_excerpt: true

@@ -1,0 +1,29 @@
+uuid: 7a88da13-8078-4cb2-a4b5-4093d56b1cc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: K4AZLcis2eW0O8DHKaLJ0osoEuTQfKhH5zvCKBiQAmI
+id: paragraph.localgov_background
+field_name: localgov_background
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fade-red-blue
+      label: 'Fade red to blue'
+    -
+      value: fact-box-light
+      label: 'Fact Box Light'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 1798de25-7c11-46e4-982d-6fe91632efde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_above_text
+    - paragraphs.paragraphs_type.localgov_fact_box
+_core:
+  default_config_hash: F0OpEvoxlF91RrwYV-3tSs4yorsiEGuCxexVbr-ePs8
+id: paragraph.localgov_fact_box.localgov_above_text
+field_name: localgov_above_text
+entity_type: paragraph
+bundle: localgov_fact_box
+label: 'Above text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

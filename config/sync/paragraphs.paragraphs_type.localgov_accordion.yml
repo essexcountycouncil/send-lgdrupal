@@ -1,0 +1,12 @@
+uuid: d78e21d6-3550-489a-9f3b-13fedb61a55d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vFEoAwB0p2xiUfX4y40EbKEzsqusuMqX5GGpv4c6c_M
+id: localgov_accordion
+label: Accordion
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
