@@ -217,6 +217,8 @@ display:
               localgov_directory: search_result
               localgov_guides_overview: search_result
               localgov_guides_page: search_result
+              localgov_news_article: search_result
+              localgov_newsroom: search_result
               localgov_services_landing: search_result
               localgov_services_page: search_result
               localgov_services_sublanding: search_result

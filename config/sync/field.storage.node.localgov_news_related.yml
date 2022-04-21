@@ -1,0 +1,24 @@
+uuid: 6f92e551-5b30-4c33-99f1-4dde9784ee69
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - localgov_news
+_core:
+  default_config_hash: k_toP1K4Q1pZvBlWp5uYmIg9zWXrG-vAsmR7pOQxIHE
+id: node.localgov_news_related
+field_name: localgov_news_related
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

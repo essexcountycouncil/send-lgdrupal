@@ -2,8 +2,12 @@ uuid: 3d008aa0-8c37-4946-b96b-7b69adbf0145
 langcode: en
 status: true
 dependencies:
+  config:
+    - workflows.workflow.localgov_alert_banners
   module:
+    - content_moderation
     - localgov_alert_banner
+    - scheduled_transitions
     - system
   enforced:
     module:
@@ -17,8 +21,11 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access localgov alert banner listing page'
+  - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'manage all localgov alert banner entities'
+  - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'use localgov_alert_banners transition publish'
   - 'use localgov_alert_banners transition unpublish'
   - 'view all localgov alert banner entities'
   - 'view all localgov alert banner entity pages'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'

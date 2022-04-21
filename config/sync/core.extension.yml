@@ -18,12 +18,15 @@ module:
   datetime: 0
   dbal: 0
   dblog: 0
+  diff: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_hierarchy: 0
   entity_hierarchy_breadcrumb: 0
+  entity_reference_facet_link: 0
   entity_reference_revisions: 0
   entity_usage: 0
   facets: 0
@@ -65,6 +68,7 @@ module:
   localgov_homepage_paragraphs: 0
   localgov_media: 0
   localgov_menu_link_group: 0
+  localgov_news: 0
   localgov_page_components: 0
   localgov_paragraphs: 0
   localgov_roles: 0
@@ -78,10 +82,12 @@ module:
   localgov_subsites: 0
   localgov_subsites_paragraphs: 0
   localgov_topics: 0
+  localgov_workflows: 0
   media: 0
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  metatag: 0
   node: 0
   office_hours: 0
   options: 0
@@ -89,10 +95,16 @@ module:
   paragraphs_library: 0
   path: 0
   path_alias: 0
+  preview_link: 0
   quickedit: 0
   responsive_image: 0
+  responsive_preview: 0
   role_delegation: 0
+  scheduled_transitions: 0
+  schema_article: 0
+  schema_metatag: 0
   search_api: 0
+  search_api_autocomplete: 0
   search_api_db: 0
   simple_sitemap: 0
   system: 0
@@ -116,5 +128,4 @@ theme:
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0
-  anrt_lgd: 0
 profile: localgov

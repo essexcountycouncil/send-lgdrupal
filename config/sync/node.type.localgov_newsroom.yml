@@ -1,0 +1,23 @@
+uuid: 736fc765-a696-4c51-982c-9f10ef6f0a7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+  enforced:
+    module:
+      - localgov_news
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: fEivF5JhNRsqti-V-PF7JASMmGOk3zz3h32uXG2eyA8
+name: Newsroom
+type: localgov_newsroom
+description: 'A page for listing and featuring news articles.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

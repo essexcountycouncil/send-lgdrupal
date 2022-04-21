@@ -17,13 +17,16 @@ dependencies:
     - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - entity_browser
     - media
     - node
     - paragraphs
     - paragraphs_library
     - path
+    - scheduled_transitions
     - system
     - toolbar
   enforced:
@@ -41,6 +44,17 @@ permissions:
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
   - 'access toolbar'
+  - 'add scheduled transitions node localgov_directories_page'
+  - 'add scheduled transitions node localgov_directories_venue'
+  - 'add scheduled transitions node localgov_guides_overview'
+  - 'add scheduled transitions node localgov_guides_page'
+  - 'add scheduled transitions node localgov_services_landing'
+  - 'add scheduled transitions node localgov_services_page'
+  - 'add scheduled transitions node localgov_services_sublanding'
+  - 'add scheduled transitions node localgov_step_by_step_overview'
+  - 'add scheduled transitions node localgov_step_by_step_page'
+  - 'add scheduled transitions node localgov_subsites_overview'
+  - 'add scheduled transitions node localgov_subsites_page'
   - 'create document media'
   - 'create image media'
   - 'create localgov_directories_page content'
@@ -91,8 +105,25 @@ permissions:
   - 'edit own localgov_subsites_page content'
   - 'edit own remote_video media'
   - 'edit paragraph library item'
+  - 'reschedule scheduled transitions node localgov_directories_page'
+  - 'reschedule scheduled transitions node localgov_directories_venue'
+  - 'reschedule scheduled transitions node localgov_guides_overview'
+  - 'reschedule scheduled transitions node localgov_guides_page'
+  - 'reschedule scheduled transitions node localgov_services_landing'
+  - 'reschedule scheduled transitions node localgov_services_page'
+  - 'reschedule scheduled transitions node localgov_services_sublanding'
+  - 'reschedule scheduled transitions node localgov_step_by_step_overview'
+  - 'reschedule scheduled transitions node localgov_step_by_step_page'
+  - 'reschedule scheduled transitions node localgov_subsites_overview'
+  - 'reschedule scheduled transitions node localgov_subsites_page'
   - 'update media'
+  - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition reject'
+  - 'use localgov_editorial transition submit_for_review'
   - 'view all revisions'
+  - 'view all scheduled transitions'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
   - 'view localgov_guides_overview revisions'
@@ -106,5 +137,16 @@ permissions:
   - 'view localgov_subsites_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view scheduled transitions node localgov_directories_page'
+  - 'view scheduled transitions node localgov_directories_venue'
+  - 'view scheduled transitions node localgov_guides_overview'
+  - 'view scheduled transitions node localgov_guides_page'
+  - 'view scheduled transitions node localgov_services_landing'
+  - 'view scheduled transitions node localgov_services_page'
+  - 'view scheduled transitions node localgov_services_sublanding'
+  - 'view scheduled transitions node localgov_step_by_step_overview'
+  - 'view scheduled transitions node localgov_step_by_step_page'
+  - 'view scheduled transitions node localgov_subsites_overview'
+  - 'view scheduled transitions node localgov_subsites_page'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
