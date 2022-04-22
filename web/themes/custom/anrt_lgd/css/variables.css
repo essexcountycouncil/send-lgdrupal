@@ -39,6 +39,7 @@ body {
   --font-primary: Calibri, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: 'Mulish', var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
+  --header-logo-width: 15rem;
 
   /* Apply Variables */
   --breadcrumbs-divider: ">";
