@@ -128,4 +128,5 @@ theme:
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0
+  anrt_lgd: 0
 profile: localgov
