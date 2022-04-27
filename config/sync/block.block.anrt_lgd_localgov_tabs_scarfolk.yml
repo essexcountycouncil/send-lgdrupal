@@ -1,0 +1,22 @@
+uuid: 78ff0b42-2fdd-4695-907f-6895df103b73
+langcode: en
+status: true
+dependencies:
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: 18k4pNekX8og7ZyuFH_4h0qPH5lm4OKpF5OXvHB2JGc
+id: anrt_lgd_localgov_tabs_scarfolk
+theme: anrt_lgd
+region: tabs
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

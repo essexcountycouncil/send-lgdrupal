@@ -1,0 +1,24 @@
+uuid: 3c7036d3-ed44-4313-a04a-d86fe9b536e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: 6Ym-6L6xacL_oJFqjwSxQf9n3FZRn1T0wCueJCxJVtI
+id: anrt_lgd_localgov_subsite_navigation_scarfolk
+theme: anrt_lgd
+region: sidebar_second
+weight: -4
+provider: null
+plugin: localgov_subsite_navigation
+settings:
+  id: localgov_subsite_navigation
+  label: 'Subsite navigation'
+  label_display: '0'
+  provider: localgov_subsites
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility: {  }

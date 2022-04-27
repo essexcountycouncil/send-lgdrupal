@@ -1,0 +1,24 @@
+uuid: a22fbde1-4e65-4f3e-b59f-88a511968a9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: Jr3czF44B5B-KsLZ4z7mqCtfroGwlbRRLZglQV6Xd0c
+id: anrt_lgd_localgov_subsite_banner_scarfolk
+theme: anrt_lgd
+region: banner
+weight: 0
+provider: null
+plugin: localgov_subsite_banner
+settings:
+  id: localgov_subsite_banner
+  label: 'Subsite banner'
+  label_display: '0'
+  provider: localgov_subsites
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility: {  }

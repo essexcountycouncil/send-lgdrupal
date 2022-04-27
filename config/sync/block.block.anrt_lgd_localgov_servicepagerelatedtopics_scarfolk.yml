@@ -1,0 +1,22 @@
+uuid: 5b325358-b252-4735-bb5e-4f7bd8c6c02b
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: PVdTznuKPvuCBQyC2dbF8BYAHgpc0PTD0kSIpbSzyrc
+id: anrt_lgd_localgov_servicepagerelatedtopics_scarfolk
+theme: anrt_lgd
+region: sidebar_second
+weight: 1
+provider: null
+plugin: localgov_services_related_topics_block
+settings:
+  id: localgov_services_related_topics_block
+  label: 'Service page related topics'
+  label_display: '0'
+  provider: localgov_services_page
+visibility: {  }

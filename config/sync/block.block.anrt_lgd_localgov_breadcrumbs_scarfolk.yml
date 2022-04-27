@@ -1,0 +1,22 @@
+uuid: 3dbbdc2d-74f5-4732-92aa-0201b53649dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - anrt_lgd
+_core:
+  default_config_hash: HMT0p1pe6D6hsYTqyWbzK2nquVWT6anaDXoNu7WYvPI
+id: anrt_lgd_localgov_breadcrumbs_scarfolk
+theme: anrt_lgd
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }
