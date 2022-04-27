@@ -35,7 +35,7 @@
 body {
   /* Set Variables */
   --color-accent: #e40037;
-  --color-accent-alt: #729d4d;
+  --color-accent-alt: #e40037;
   --font-primary: Calibri, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: 'Mulish', var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
@@ -44,7 +44,7 @@ body {
   /* Apply Variables */
   --breadcrumbs-divider: ">";
   --breadcrumbs-background-color: var(--color-accent-alt);
-  --breadcrumbs-link-color: var(--color-black);
+  --breadcrumbs-link-color: var(--color-white);
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
 
