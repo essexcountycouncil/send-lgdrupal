@@ -40,6 +40,7 @@ weight: 4
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access localgov_geo_library entity browser pages'
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'

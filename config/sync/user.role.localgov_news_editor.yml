@@ -5,7 +5,9 @@ dependencies:
   config:
     - media.type.image
     - node.type.localgov_news_article
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - media
     - node
     - system
