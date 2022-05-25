@@ -9,7 +9,10 @@
 # Abort if anything fails
 set -e
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override
 
 if [[ $1 == "--no-cache" || $2 == "--no-cache" ]]; then
   fin no-cache-config

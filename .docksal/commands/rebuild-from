@@ -8,7 +8,9 @@
 ##           --fe           Front-end friendly settings and defaults.
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override
 
 if [ -z $1 ] || [[ $1 == "--fetch" ]]; then
   echo-green "Environment not specified. Using checked out Git branch."

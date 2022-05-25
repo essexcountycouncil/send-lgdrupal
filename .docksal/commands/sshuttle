@@ -1,15 +1,53 @@
 #!/usr/bin/env bash
 
-# Checks if there's an override in place, and runs that if there is.
+## Creates a connection to the remote server.
+##
+## Usage: fin sshuttle [open|close] [username]
+##    -- e.g. fin sshuttle open mike@aegir.annertech.com
+##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
 
-SCRIPT_NAME=sshuttle
+check_override
 
-if [[ ! -f ${DOCKSAL_PATH}/.docksal/commands/override/${SCRIPT_NAME} ]]; then
-  SCRIPT_FOLDER=base
-else
-  SCRIPT_FOLDER=override
+pid_name="$PROJECT_ROOT/.docksal/sshuttle.pid"
+remote_server='SERVER_NAME_OR_IP_MUST_GO_HERE'
+
+# Check for set vars
+if [[ -z $1 ]]; then
+  echo-red "Command failed: You must include an action for sshuttle to take."
+  echo-green "fin open OR fin close"
+  exit
+elif [[ $1 == "open" ]]; then
+  if [[ -z $2 ]]; then
+    echo-red "=== Connection failed ==="
+    echo-yellow "You need to include a username to open the connection."
+    echo-green "fin open mike@aegir.annertech.com"
+    exit
+  elif [[ -f $pid_name ]]; then
+    echo-red "=== Command failed: Process already running. ==="
+    echo-yellow "Use:"
+    echo-yellow "  fin sshuttle close"
+    exit
+  fi
+
+  echo-yellow "=== Creating connection ==="
+  if sshuttle --daemon --remote=$2 --pidfile=$pid_name $remote_server; then
+    echo-green "=== Connection established ==="
+  else
+    echo-red "=== Connection failed ==="
+  fi
+elif [[ $1 == "close" ]]; then
+  echo-yellow "=== Closing existing connection ==="
+  if [[ -f $pid_name ]]; then
+    conn_id=$(head -n 1 $pid_name)
+    if kill $conn_id; then
+      echo-green "=== Connection terminated ==="
+    else
+      echo-red "=== Command failed ==="
+    fi
+  else
+    echo-red "=== Command failed: Nothing to do ==="
+    echo-yellow "Connection doesn't seem to be running"
+  fi
 fi
-
-fin ${SCRIPT_FOLDER}/${SCRIPT_NAME} $@

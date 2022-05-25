@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-#: exec_target = cli
-
 ## Run 'drush sqlq 'TRUNCATE `watchdog`' for the project
 ## Also clears cache
 ##
 ## Usage: fin trunwatch
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
 
+check_override
+
 cd "${DOCROOT_PATH}" || exit
-drush sqlq 'TRUNCATE watchdog;'
-drush cr
+fin drush sqlq 'TRUNCATE watchdog;'
+fin drush cr

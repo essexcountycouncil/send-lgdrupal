@@ -1,0 +1,8 @@
+# Ignore Docksal files pulled-in by composer
+commands/
+addons/
+etc/
+services/
+templates/
+example*
+helpers

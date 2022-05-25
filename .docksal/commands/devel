@@ -6,10 +6,10 @@
 ##           enable      Enable developer tools known to the site
 ##           disable     Disable developer tools
 
-
-source ${DOCKSAL_PATH}/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 cd ${DOCROOT_PATH}
 

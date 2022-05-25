@@ -6,9 +6,10 @@
 ##         --fetch Force download
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 sanitize_db() {
   echo-green "Automatic sanitization of data…"

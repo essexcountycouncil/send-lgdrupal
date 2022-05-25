@@ -4,6 +4,11 @@
 ##
 ## Usage: fin backstop
 
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override
+
 # Console colors
 red='\033[0;31m'
 green='\033[0;32m'

@@ -8,8 +8,9 @@
 ##           remove      Remove the current integration
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
 
+check_override
 # Check for set vars
 if [[ $1 == "remove" ]]; then
   echo-red "About to remove integration."
@@ -36,6 +37,10 @@ if [[ $1 == "remove" ]]; then
    exit 1;
   fi
 elif [[ $1 == "integrate" ]]; then
+  echo-yellow "Provide GitLab Access Token"
+  echo "See 1Password, or create in GitLab project settings > Access Tokens."
+  read -r -p "Token: " GITLAB_ACCESS_TOKEN
+  echo
   echo-yellow "About to integrate with Gitlab"
   read -r -p "Are you sure? [y/N] " response
 

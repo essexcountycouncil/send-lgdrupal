@@ -5,14 +5,20 @@
 ## Usage: fin files-download [public|private]
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
 
-ensure_containers_up
+check_override
 
 cd ${DOCROOT_PATH}
 
+# Forces this to be run on the host machine
+PLATFORM_CMD="platform"
+
+# Grab the default branch for this project
+DEFAULT_BRANCH="$(${PLATFORM_CMD} project:info -p ${PLATFORM_ID} default_branch)"
+
 # Grab the ssh URL for the project (master environment)
-PF_SSH=$($PLATFORM_CMD ssh --pipe -p ${PLATFORM_ID} -e master)
+PF_SSH="$(${PLATFORM_CMD} ssh --pipe -p ${PLATFORM_ID} -e ${DEFAULT_BRANCH})"
 
 # Public or Private files?
 if [[ -z $1 || ! $1 == "public" && ! $1 == 'private' ]]; then

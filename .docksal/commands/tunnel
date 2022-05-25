@@ -5,7 +5,9 @@
 ## Usage: fin tunnel [environment] [command: open/close]
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override
 
 # Check for set vars
 if [[ -z $1 ]]; then

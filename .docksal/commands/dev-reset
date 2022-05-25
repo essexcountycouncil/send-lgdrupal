@@ -10,9 +10,10 @@
 ##                  password: User 1 password (Default: Annertech123) Best use whats in passpack or only use on lcoal.
 ##
 
-source "${DOCKSAL_PATH}/.docksal/command-settings"
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 if [ -z "$1" ]; then
   SHORTHAND=anrt

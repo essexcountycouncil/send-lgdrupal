@@ -1,15 +1,35 @@
 #!/usr/bin/env bash
 
-# Checks if there's an override in place, and runs that if there is.
+## Downloads DB from specified environment.
+##
+## Usage: fin db-download [environment]
+##         --fetch Force download
+##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
 
-SCRIPT_NAME=db-download
+check_override
 
-if [[ ! -f ${DOCKSAL_PATH}/.docksal/commands/override/${SCRIPT_NAME} ]]; then
-  SCRIPT_FOLDER=base
-else
-  SCRIPT_FOLDER=override
+# Check for set vars
+if [[ -z $1 || $1 == "--fetch" ]]; then
+  echo-red "Command failed: You must include the environment to download from"
+  exit
 fi
 
-fin ${SCRIPT_FOLDER}/${SCRIPT_NAME} $@
+# If there is no db directory
+if [ ! -d ${PROJECT_ROOT}/db ]; then
+  echo-green "Creating directory db"
+  mkdir ${PROJECT_ROOT}/db
+fi
+
+env=$1
+
+if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; then
+  cd ${PROJECT_ROOT}
+  echo-green "Downloading ${env} DB"
+
+  $PLATFORM_CMD db:dump --gzip -p ${PLATFORM_ID} -e ${env} -y -f db/${env}.sql.gz
+else
+  echo-green "Using local copy of ${env} DB"
+fi
