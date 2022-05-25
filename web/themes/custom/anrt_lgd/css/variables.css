@@ -36,8 +36,8 @@ body {
   /* Set Variables */
   --color-accent: #e40037;
   --color-accent-alt: #e40037;
-  --font-primary: arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
-  --font-secondary: 'Mulish', var(--font-primary);
+  --font-primary: 'Lexend-Variable', arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --font-secondary: var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
   --color-link: #004c94;

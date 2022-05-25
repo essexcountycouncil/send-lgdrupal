@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Lexend-Variable';
+  src: url('../fonts/Lexend-Variable.woff2') format('woff2-variations');
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 20deg;
+}
+ 
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
