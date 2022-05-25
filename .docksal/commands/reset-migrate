@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
-#: exec_target = cli
-
-
 ## Resets a specific migration.
 ##
 ## Usage: reset-migrate {module} {migration} {debug}
 ##
 
-source "${DOCKSAL_PATH}"/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 cd "${DOCROOT_PATH}" || exit
 
@@ -30,13 +28,13 @@ if [ -z "$2" ]; then
   exit 1
 fi
 
-drush cr
-drush migrate:rollback $2
-drush config-devel-import $1
+fin drush cr
+fin drush migrate:rollback $2
+fin drush config-devel-import $1
 if [ "${debugOption}" = 1 ] || [ "${debugOption}" = "TRUE" ] || [ "${debugOption}" = "true" ]; then
-  drush migrate:import --migrate-debug --migrate-debug-pre $2
+  fin drush migrate:import --migrate-debug --migrate-debug-pre $2
 else
-  drush migrate:import $2
+  fin drush migrate:import $2
 fi
 
-drush cr
+fin drush cr

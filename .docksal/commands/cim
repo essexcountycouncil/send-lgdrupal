@@ -5,9 +5,10 @@
 ## Usage: fin cim
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 cd ${DOCROOT_PATH}
 fin drush cim

@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-# Checks if there's an override in place, and runs that if there is.
+## Run npm in the theme folder to Compile CSS.
+##
+## Usage: fin compile-css
+##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
 
-SCRIPT_NAME=css-compile
+check_override
 
-if [[ ! -f ${DOCKSAL_PATH}/.docksal/commands/override/${SCRIPT_NAME} ]]; then
-  SCRIPT_FOLDER=base
-else
-  SCRIPT_FOLDER=override
-fi
+cd ${THEME_PATH}
 
-fin ${SCRIPT_FOLDER}/${SCRIPT_NAME} $@
+# Install npm
+fin npm install
+fin exec ./node_modules/.bin/gulp styles
+fin cr

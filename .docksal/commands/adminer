@@ -5,9 +5,10 @@
 ## Usage: dsh adminer
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
-
+source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
+
+check_override
 
 echo-green "Setting up Adminer"
 cd ${DOCROOT_PATH}

@@ -5,7 +5,9 @@
 ## Commits the compiled files.
 ##
 
-source ${DOCKSAL_PATH}/.docksal/command-settings
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override
 
 cd ${THEME_PATH}
 

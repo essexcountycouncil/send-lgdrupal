@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#: exec_target = cli
-
 ## Run Code Sniffer (phpcs) against given path
 ##
 ## Usage: fin phpcs <path>
@@ -9,6 +7,11 @@
 ## Uses Drupal standards.
 ##
 ## Includes extensions:	php, module, inc, install, test, profile, theme
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override
 
 if [[ "$1" == "" ]]; then
 	echo "Path argument omitted. Using modules folder."
@@ -18,7 +21,7 @@ else
 fi
 
 cd $PROJECT_ROOT
-phpcs \
+fin phpcs \
 	--standard=Drupal -n \
 	--extensions="php,module,inc,install,test,profile,theme" \
 	$path

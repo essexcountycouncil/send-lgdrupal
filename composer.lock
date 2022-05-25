@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:anrt-tools/docksal-configuration.git",
-                "reference": "4fb3d909cd8558a23553b15154aa578ccabb2f69"
+                "reference": "fe952f1f0fcc9b85be18b4e6993ff9fca9862acf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/anrt-tools%2Fdocksal-configuration/repository/archive.zip?sha=4fb3d909cd8558a23553b15154aa578ccabb2f69",
-                "reference": "4fb3d909cd8558a23553b15154aa578ccabb2f69",
+                "url": "https://gitlab.com/api/v4/projects/anrt-tools%2Fdocksal-configuration/repository/archive.zip?sha=fe952f1f0fcc9b85be18b4e6993ff9fca9862acf",
+                "reference": "fe952f1f0fcc9b85be18b4e6993ff9fca9862acf",
                 "shasum": ""
             },
             "require": {
@@ -38,9 +38,10 @@
             ],
             "description": "Rolling docksal config",
             "support": {
-                "issues": "https://gitlab.com/api/v4/projects/17539469/issues"
+                "source": "https://gitlab.com/anrt-tools/docksal-configuration/-/tree/master",
+                "issues": "https://gitlab.com/anrt-tools/docksal-configuration/-/issues"
             },
-            "time": "2022-03-11T20:03:59+00:00"
+            "time": "2022-05-25T09:53:49+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -16761,5 +16762,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
