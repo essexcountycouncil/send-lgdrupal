@@ -34,13 +34,20 @@
 */
 body {
   /* Set Variables */
-  --color-accent: #e40037;
+  --color-accent: #fff;
   --color-accent-alt: #e40037;
   --font-primary: 'Lexend-Variable', arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
   --color-link: #004c94;
+  --color-black: #1a191a;
+  --header-search-input-border: 1px solid var(var(--color-black));
+  --border-radius: var(--spacing-smaller);
+  --call-out-box-bg-color: var(--color-grey-lighter);
+  --call-out-box-text-color: var(--color-black);
+  --header-search-input-border: 1px solid var(--color-black);
+  --header-search-button-color: var(--color-black);
 
   /* Apply Variables */
   --breadcrumbs-divider: ">";

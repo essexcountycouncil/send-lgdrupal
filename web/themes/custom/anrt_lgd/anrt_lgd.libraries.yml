@@ -16,3 +16,13 @@ overrides:
 #   css:
 #     theme:
 #       css/overrides.css: {}
+
+call-out-box:
+  css:
+    theme:
+      css/components/call-out-box.css: {}
+
+media-with-text:
+  css:
+    theme:
+      css/components/localgov-media-with-text.css: {}
