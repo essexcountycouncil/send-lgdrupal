@@ -1,4 +1,22 @@
 .call-out-box {
   border-radius: var(--border-radius);
+}
 
+.call-out-box__content {
+  border-radius: var(--border-radius);
+}
+
+.call-out-box__link {
+  color: var(--color-white);
+  background-color: var(--color-accent-alt);
+  padding: var(--spacing-small);
+  text-decoration: none;
+  border-radius: var(--spacing);
+}
+
+.call-out-box__link::after {
+  font-family: arial unicode ms, lucida sans unicode, sans-serif;
+  content: "￫";
+  font-size: var(--font-size-larger);
+  vertical-align: sub;
 }

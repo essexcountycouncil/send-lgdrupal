@@ -7,7 +7,7 @@ variables:
       # on other libraries we create.
       css/variables.css: { weight: 200 }
     component:
-      css/components/call-out-box.css: {}
+      css/components/call-out-box.css: { weight: 400 }
       css/components/localgov-media-with-text.css: {}
 
 overrides:
