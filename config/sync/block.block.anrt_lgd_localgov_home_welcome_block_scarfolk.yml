@@ -21,7 +21,7 @@ settings:
   label_display: '0'
   provider: localgov
   localgov_home_welcome_message:
-    value: "<h2>Services and support for special educational needs and disability</h2>\r\n"
+    value: "<h1>Services and support for special educational needs and disability</h1>\r\n"
     format: wysiwyg
 visibility:
   request_path:
