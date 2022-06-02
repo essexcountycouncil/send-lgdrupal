@@ -1,4 +1,5 @@
 .media-with-text--featured {
   border-radius: var(--border-radius);
-  background-color: var(--color-grey-light);
+  background-color: var(--color-grey-lighter);
+  padding: var(--spacing-large);
 }

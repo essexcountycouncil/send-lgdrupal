@@ -6,6 +6,9 @@ variables:
       # the base theme's variables. We should not need to set this weight option
       # on other libraries we create.
       css/variables.css: { weight: 200 }
+    component:
+      css/components/call-out-box.css: {}
+      css/components/localgov-media-with-text.css: {}
 
 overrides:
   css:
@@ -16,13 +19,3 @@ overrides:
 #   css:
 #     theme:
 #       css/overrides.css: {}
-
-call-out-box:
-  css:
-    theme:
-      css/components/call-out-box.css: {}
-
-media-with-text:
-  css:
-    theme:
-      css/components/localgov-media-with-text.css: {}
