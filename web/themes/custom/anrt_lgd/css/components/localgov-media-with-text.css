@@ -1,0 +1,4 @@
+.media-with-text--featured {
+  border-radius: var(--border-radius);
+  background-color: var(--color-grey-light);
+}
