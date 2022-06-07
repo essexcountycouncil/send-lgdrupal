@@ -13,3 +13,35 @@
 .menu--main>.menu-item a {
   color: var(--color-black);
 }
+
+.layout--twocol>.layout__region--first {
+  flex: 0 1 60%;
+}
+
+.layout--twocol>.layout__region--second {
+  flex: 0 1 40%;
+}
+
+.layout--threecol-33-34-33 {
+  flex-wrap: nowrap;
+  gap: var(--spacing);
+}
+
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
+  background-color: var(--color-grey-lighter);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-larger);
+}
+
+.ia-block {
+  background-color: unset;
+}
+
+.link-block__title-wrapper {
+  align-items: stretch;
+}
+
+.link-block__title-icon {
+  padding-top: var(--spacing-smaller);
+}

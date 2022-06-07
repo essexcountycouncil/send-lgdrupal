@@ -1,3 +1,28 @@
+.media-with-text--media-right {
+  flex-wrap: wrap;
+}
+
+.media-with-text__title {
+  width: 100%;
+}
+
+.media-with-text__body,
+.media-with-text__media {
+  flex: 1;
+}
+
+.media-with-text--media-top {
+  padding: var(--spacing-large);
+  border: 1px solid var(--color-grey-lighter);
+  border-radius: var(--border-radius);
+  background-color: var(--color-grey-lightest);
+}
+
+.media-with-text--media-top .field--name-field-media-image {
+  width: 60%;
+  margin: auto;
+}
+
 .media-with-text--featured {
   border-radius: var(--border-radius);
   background-color: var(--color-grey-lighter);
