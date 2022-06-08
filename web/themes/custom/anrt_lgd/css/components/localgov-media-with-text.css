@@ -8,7 +8,7 @@
 
 .media-with-text__body,
 .media-with-text__media {
-  flex: 1;
+  /* flex: 1; */
 }
 
 .media-with-text--media-top {
@@ -16,6 +16,7 @@
   border: 1px solid var(--color-grey-lighter);
   border-radius: var(--border-radius);
   background-color: var(--color-grey-lightest);
+  text-align: center;
 }
 
 .media-with-text--media-top .field--name-field-media-image {
@@ -27,4 +28,14 @@
   border-radius: var(--border-radius);
   background-color: var(--color-grey-lighter);
   padding: var(--spacing-large);
+}
+
+.media-with-text--media-left, 
+.media-with-text--media-right {
+  justify-content: unset;
+  align-content: center;
+}
+
+.media-with-text--media-right .media-with-text__body {
+  padding: 0;
 }

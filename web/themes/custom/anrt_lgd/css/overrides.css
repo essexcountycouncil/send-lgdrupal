@@ -6,6 +6,16 @@
   font-style: oblique 0deg 20deg;
 }
 
+.main::before {
+  clip-path: ellipse(75% 100% at 50% 100%);
+  height: 66vh;
+  background-color: #f5f5f5;
+  content: "";
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  z-index: -1;
+}
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
@@ -15,16 +25,22 @@
 }
 
 .layout--twocol>.layout__region--first {
+  display: flex; /* makes the regions equal heights */
   flex: 0 1 60%;
 }
 
 .layout--twocol>.layout__region--second {
+  display: flex; /* makes the regions equal heights */
   flex: 0 1 40%;
 }
 
 .layout--threecol-33-34-33 {
   flex-wrap: nowrap;
   gap: var(--spacing);
+}
+
+.paragraph--type--page-section + .paragraph--type--page-section {
+  margin-bottom: var(--spacing-largest);
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
@@ -44,4 +60,15 @@
 
 .link-block__title-icon {
   padding-top: var(--spacing-smaller);
+}
+
+.block-localgov-home-welcome-block {
+  max-width: var(--width-medium);
+}
+
+.paragraph--type--localgov-text {
+  max-width: var(--width-medium);
+}
+.block-localgov-home-welcome-block h1 {
+  margin-top: var(--spacing-large);
 }

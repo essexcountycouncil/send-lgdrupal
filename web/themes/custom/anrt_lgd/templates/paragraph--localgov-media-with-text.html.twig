@@ -73,13 +73,20 @@
         <div class="media-with-text__title">
           {{ heading }}
         </div>
-        <div class="media-with-text__body">
+        <div class="lgd-row">
+          <div class="lgd-row__two-thirds">
+            <div class="media-with-text__body">
 
-          {{ content.localgov_text }}
-          {{ link }}
-        </div>
-        <div class="media-with-text__media">
-          {{ content.localgov_media_item }}
+              {{ content.localgov_text }}
+              {{ link }}
+            </div>
+          </div>
+          <div class="lgd-row__one-third">
+            <div class="media-with-text__media">
+              {{ content.localgov_media_item }}
+            </div>
+          </div>
+
         </div>
       {% endif %}
     {% endblock %}
