@@ -80,8 +80,13 @@
   max-width: var(--width-medium);
 }
 
+.layout__region--top .paragraph--type--localgov-text {
+  max-width: var(--width-medium);
+}
+
 .layout__region--first .paragraph--type--localgov-text,
-.layout__region--second .paragraph--type--localgov-text {
+.layout__region--second .paragraph--type--localgov-text,
+.layout__region--third .paragraph--type--localgov-text {
   /* max-width: var(--width-medium); */
   width: 100%;
   background-color: var(--color-grey-lighter);

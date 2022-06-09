@@ -8,7 +8,7 @@
 
 .call-out-box__link {
   color: var(--color-white);
-  background-color: var(--color-accent-alt);
+  background-color: var(--color-grey-dark);
   padding: var(--spacing-small);
   text-decoration: none;
   border-radius: var(--spacing);
