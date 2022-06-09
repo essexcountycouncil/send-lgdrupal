@@ -48,11 +48,6 @@
   /* flex: 0 1 40%; */
 }
 
-.layout--threecol-33-34-33 {
-  flex-wrap: nowrap;
-  gap: var(--spacing);
-}
-
 .paragraph--type--page-section+.paragraph--type--page-section {
   margin-bottom: var(--spacing-largest);
 }
