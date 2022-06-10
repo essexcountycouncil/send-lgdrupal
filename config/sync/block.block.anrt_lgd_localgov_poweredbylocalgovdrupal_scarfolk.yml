@@ -1,15 +1,15 @@
-uuid: b3b5c6ac-75cd-4b54-97a3-1cb0c342ad3a
+uuid: 65271955-4603-455f-80b6-4eecfcfa6262
 langcode: en
 status: true
 dependencies:
   module:
     - localgov_core
   theme:
-    - localgov_scarfolk
+    - anrt_lgd
 _core:
   default_config_hash: _rLbHDXkhDWmFVzav5liiDU56NLoRKtMPaN4iMX-p-M
-id: localgov_poweredbylocalgovdrupal_scarfolk
-theme: localgov_scarfolk
+id: anrt_lgd_localgov_poweredbylocalgovdrupal_scarfolk
+theme: anrt_lgd
 region: footer_second
 weight: 0
 provider: null
