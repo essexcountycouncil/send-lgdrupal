@@ -16,7 +16,7 @@ overrides:
     theme:
       css/overrides.css: { weight: 200 }
 
-# sample-library
-#   css:
-#     theme:
-#       css/overrides.css: {}
+footer:
+  css:
+    theme:
+      css/components/footer.css: {}

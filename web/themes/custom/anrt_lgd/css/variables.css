@@ -57,4 +57,10 @@ body {
   --button-bg-color: var(--color-grey-light);
   --button-border-color: var(--color-grey-medium);
 
+  /* Footer Items */
+  --color-section-footer-bg: var(--color-grey-dark);
+  --color-footer-text: var(--color-white);
+  --color-footer-link: var(--color-white);
+  --section-spacing-vertical-footer: var(--spacing-largest);
+
 }

@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'lgd-region',
+    'lgd-region--' ~ region|clean_class,
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+
+{{ attach_library('anrt_lgd/footer') }}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    
+    <div class="lgd-container padding-horizontal">
+
+      <div class="lgd-row lgd-row--vertically-centered">
+        <div class="lgd-row__three-quarters region-footer__grid-item">
+          <div class="lgd-region__inner lgd-region__inner--{{ region|clean_class }}">
+            {{ content }}
+          </div>
+        </div>
+        <div class="lgd-row__one-quarter region-footer__grid-item">
+          <ul class="menu footer-social-links">
+            <li class="menu-item">
+              <a href="https://facebook.com">
+                <span class="visually-hidden">{{ 'Follow us on Facebook'|t }}</span>
+                {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                    icon_name: 'facebook-square',
+                    icon_classes: 'lgd-icon--larger',
+                  }
+                %}
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="https://twitter.com">
+                <span class="visually-hidden">{{ 'Follow us on twitter'|t }}</span>
+                {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                    icon_name: 'twitter',
+                    icon_classes: 'lgd-icon--larger',
+                  }
+                %}
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="https://youtube.com">
+                <span class="visually-hidden">{{ 'Follow us on youtube'|t }}</span>
+                {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                    icon_name: 'youtube',
+                    icon_classes: 'lgd-icon--larger',
+                  }
+                %}
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="https://linkedin.com">
+                <span class="visually-hidden">{{ 'Follow us on linkedin'|t }}</span>
+                {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                    icon_name: 'linkedin',
+                    icon_classes: 'lgd-icon--larger',
+                  }
+                %}
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+
+      <hr class="region-footer__rule">
+      <div class="lgd-row">
+        <div class="lgd-row__one-half">
+          <div class="region-footer__notice region-footer__notice--copyright">
+            ©{{ 'Copyright Essex County Council'|t }} {{ now|date("Y") }}
+          </div>
+        </div>
+        <div class="lgd-row__one-half">
+          <div class="region-footer__notice region-footer__notice--credit">
+            {{ 'Built by the Service Design Team'|t }}
+          </div>
+        </div>
+      </div>
+
+    </div> 
+
+  </div>
+{% endif %}

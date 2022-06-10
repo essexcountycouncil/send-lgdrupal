@@ -6,6 +6,14 @@
   font-style: oblique 0deg 20deg;
 }
 
+/* 
+  Remove this when https://github.com/localgovdrupal/localgov_base/pull/219 
+  gets merged 
+*/
+.lgd-row--vertically-centered {
+  align-items: center;
+}
+
 /* .main::before {
   clip-path: ellipse(75% 100% at 50% 100%);
   height: 66vh;
@@ -90,6 +98,7 @@
   padding: var(--spacing-large);
 }
 
+.block-localgov-home-welcome-block h1,
 .block-localgov-home-welcome-block h2 {
   margin-top: var(--spacing-large);
 }
