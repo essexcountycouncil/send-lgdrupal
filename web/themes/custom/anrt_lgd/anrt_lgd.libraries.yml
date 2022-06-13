@@ -10,6 +10,7 @@ variables:
       css/components/call-out-box.css: { weight: 400 }
       css/components/localgov-media-with-text.css: {}
       css/layouts/threecol_33_34_33.css: {}
+      css/layouts/twocol.css: {}
 
 overrides:
   css:
