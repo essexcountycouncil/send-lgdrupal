@@ -278,6 +278,7 @@ display:
     display_plugin: embed
     position: 2
     display_options:
+      enabled: false
       fields:
         title:
           id: title
@@ -594,6 +595,18 @@ display:
         type: none
       defaults:
         cache: false
+        header: false
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
