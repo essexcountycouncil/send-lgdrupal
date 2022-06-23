@@ -6,6 +6,7 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.localgov_directories_org
     - node.type.localgov_directories_page
     - node.type.localgov_directories_venue
     - node.type.localgov_guides_overview
@@ -61,6 +62,7 @@ permissions:
   - 'create document media'
   - 'create geo'
   - 'create image media'
+  - 'create localgov_directories_org content'
   - 'create localgov_directories_page content'
   - 'create localgov_directories_venue content'
   - 'create localgov_guides_overview content'
@@ -79,6 +81,7 @@ permissions:
   - 'delete media'
   - 'delete own document media'
   - 'delete own image media'
+  - 'delete own localgov_directories_org content'
   - 'delete own localgov_directories_page content'
   - 'delete own localgov_directories_venue content'
   - 'delete own localgov_guides_overview content'
@@ -97,6 +100,7 @@ permissions:
   - 'edit layout paragraphs plugin config'
   - 'edit own document media'
   - 'edit own image media'
+  - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_page content'
   - 'edit own localgov_directories_venue content'
   - 'edit own localgov_guides_overview content'
@@ -142,6 +146,7 @@ permissions:
   - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view latest version'
+  - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
   - 'view localgov_guides_overview revisions'
