@@ -1,0 +1,49 @@
+{% set content_type = node.bundle %}
+
+{{ attach_library('localgov_base/full') }}
+{{ attach_library('localgov_base/directories') }}
+
+{%
+  set classes = [
+    content_type|clean_class,
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    content_type in restricted_width_content_types ? 'node--with-restricted-width',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+
+  {{ title_prefix }}
+  {% if label and not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('lgd-row', content_type|clean_class ~ '__content', 'node__content') }}>
+    <div class="lgd-row__two-thirds localgov-directories-page__content-body">
+      {{ content|without('group_venue', 'group_enquiries') }}
+    </div>
+    <div class="lgd-row__one-third localgov-directories-page__content-contacts">
+      {{ content.group_venue }}
+      {{ content.group_enquiries }}
+    </div>
+  </div>
+
+</article>
