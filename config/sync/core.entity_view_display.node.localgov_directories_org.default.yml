@@ -23,8 +23,6 @@ third_party_settings:
   field_group:
     group_enquiries:
       children:
-        - localgov_directory_name
-        - localgov_directory_job_title
         - localgov_directory_phone
         - localgov_directory_email
         - localgov_directory_website
@@ -40,7 +38,6 @@ third_party_settings:
     group_organisation:
       children:
         - localgov_location
-        - localgov_directory_opening_times
         - localgov_directory_notes
       label: Venue
       parent_name: ''
@@ -63,6 +60,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
   localgov_directory_email:
@@ -78,7 +80,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   localgov_directory_notes:
     type: text_default
@@ -94,11 +96,6 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 7
-    region: content
-  localgov_directory_search:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
     region: content
   localgov_directory_website:
     type: link
@@ -125,4 +122,5 @@ hidden:
   links: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true
+  localgov_directory_search: true
   search_api_excerpt: true
