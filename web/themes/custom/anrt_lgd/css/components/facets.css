@@ -1,0 +1,5 @@
+.sidebar .facet-group__title ~ .facet-group__title {
+  margin-top: var(--spacing-largest);
+  padding-top: var(--spacing-largest);
+  border-top: var(--border);
+}

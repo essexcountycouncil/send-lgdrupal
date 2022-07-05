@@ -10,6 +10,10 @@ libraries-extend:
     - anrt_lgd/overrides
   localgov_base/footer:
     - anrt_lgd/footer
+  localgov_base/facets:
+    - anrt_lgd/facets
+  localgov_base/directories:
+    - anrt_lgd/directories
 
 regions:
   tabs: "Tabs"

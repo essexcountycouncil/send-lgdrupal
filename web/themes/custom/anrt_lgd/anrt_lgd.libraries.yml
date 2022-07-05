@@ -18,7 +18,18 @@ footer:
     theme:
       css/components/footer.css: {}
 
+facets:
+  css:
+    theme:
+      css/components/facets.css: {}
+
 content-top:
   css:
     theme:
       css/components/content-top.css: {}
+
+
+directories:
+  css:
+    theme:
+      css/components/directories.css: {}
