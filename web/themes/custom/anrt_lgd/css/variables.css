@@ -55,6 +55,8 @@ body {
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
   --button-bg-color: var(--color-grey-light);
+  --button-text-color-hover: var(--color-accent-alt);
+  --header-search-button-color-hover: var(--color-accent-alt);
   --button-border-color: var(--color-grey-medium);
 
   /* Footer Items */

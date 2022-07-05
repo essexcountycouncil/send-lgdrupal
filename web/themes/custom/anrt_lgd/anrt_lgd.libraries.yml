@@ -1,13 +1,9 @@
 variables:
   css:
     base:
-      # We set a weight here to make sure that our variables for this subtheme
-      # are called _after_ the variables for the base theme, so they can override
-      # the base theme's variables. We should not need to set this weight option
-      # on other libraries we create.
-      css/variables.css: { weight: 200 }
+      css/variables.css: {}
     component:
-      css/components/call-out-box.css: { weight: 400 }
+      css/components/call-out-box.css: {}
       css/components/localgov-media-with-text.css: {}
       css/layouts/threecol_33_34_33.css: {}
       css/layouts/twocol.css: {}
@@ -15,9 +11,14 @@ variables:
 overrides:
   css:
     theme:
-      css/overrides.css: { weight: 200 }
+      css/overrides.css: {}
 
 footer:
   css:
     theme:
       css/components/footer.css: {}
+
+content-top:
+  css:
+    theme:
+      css/components/content-top.css: {}
