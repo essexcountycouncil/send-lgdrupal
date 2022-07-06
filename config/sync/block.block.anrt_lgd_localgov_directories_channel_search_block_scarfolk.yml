@@ -11,7 +11,7 @@ _core:
   default_config_hash: 2Li2uh4PXOvzomlmgSEefUuULCgHinPybwTIrjwK-gI
 id: anrt_lgd_localgov_directories_channel_search_block_scarfolk
 theme: anrt_lgd
-region: content_top
+region: sidebar_first
 weight: 0
 provider: null
 plugin: localgov_directories_channel_search_block

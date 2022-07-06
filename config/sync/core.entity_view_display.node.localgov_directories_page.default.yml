@@ -41,8 +41,7 @@ third_party_settings:
       weight: 2
       format_type: fieldset
       format_settings:
-        classes: localgov-directories-page__group-enquiries
-        show_empty_fields: false
+        classes: ''
         id: ''
         description: ''
 _core:
@@ -58,11 +57,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
     region: content
   localgov_directory_address:
     type: address_default

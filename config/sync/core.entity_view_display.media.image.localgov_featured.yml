@@ -21,6 +21,8 @@ content:
     settings:
       image_style: localgov_248x181
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     type: image
     weight: 1
@@ -28,5 +30,6 @@ content:
 hidden:
   created: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
