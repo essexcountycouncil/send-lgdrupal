@@ -1,8 +1,9 @@
-# Ignore Docksal files pulled-in by composer
-commands/
-addons/
-etc/
-services/
-templates/
+# Ignore project .docksal files pulled-in by composer
+commands/*
+!commands/override/
+addons/*
+etc/*
+templates/*
+!templates/settings.project.php
 example*
 helpers

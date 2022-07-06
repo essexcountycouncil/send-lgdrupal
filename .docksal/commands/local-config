@@ -9,7 +9,7 @@
 
 source ${DOCKSAL_PATH}/.docksal/helpers
 
-check_override
+check_override $@
 
 # Copy environment config
 copy_environment_configuration $1 $2

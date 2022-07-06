@@ -10,7 +10,7 @@
 
 source ${DOCKSAL_PATH}/.docksal/helpers
 
-check_override
+check_override $@
 # Check for set vars
 if [[ $1 == "remove" ]]; then
   echo-red "About to remove integration."

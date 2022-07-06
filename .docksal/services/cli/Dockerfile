@@ -9,6 +9,8 @@
   #     - docksal_ssh_agent:/.ssh-agent:ro
   #   environment:
   #     - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
+  #     - XDEBUG_CONFIG=client_host=${DOCKSAL_HOST_IP} client_port=9000
+  #     - XDEBUG_MODE=debug
   #   # Run Dockerfile to add or udpdate software.
   #   build: services/cli
 

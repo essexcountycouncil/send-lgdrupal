@@ -11,7 +11,7 @@
 source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
 
-check_override
+check_override $@
 
 if [[ "$1" == "" ]]; then
 	echo "Path argument omitted. Using modules folder."

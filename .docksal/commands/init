@@ -12,7 +12,7 @@ set -e
 source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
 
-check_override
+check_override $@
 
 if [[ $1 == "--no-cache" || $2 == "--no-cache" ]]; then
   fin no-cache-config
@@ -20,10 +20,10 @@ else
   fin local-config
 fi
 
-ensure_containers_up
+fin composer install
 
-# Get latest master database.
-fin remote-db master --fetch
+# Get latest default branch/env database.
+fin remote-db $DEFAULT_BRANCH --fetch
 
 # If dev flag enable development tools.
 if [[ $1 == "--dev" || $2 == "--dev" ]]; then

@@ -8,7 +8,7 @@
 
 source ${DOCKSAL_PATH}/.docksal/helpers
 
-check_override
+check_override $@
 
 # Copy environment no-cache config
 copy_environment_no_cache_configuration $1 $2

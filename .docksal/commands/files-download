@@ -7,7 +7,7 @@
 
 source ${DOCKSAL_PATH}/.docksal/helpers
 
-check_override
+check_override $@
 
 cd ${DOCROOT_PATH}
 

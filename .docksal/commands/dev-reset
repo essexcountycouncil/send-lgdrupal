@@ -13,7 +13,7 @@
 source ${DOCKSAL_PATH}/.docksal/helpers
 ensure_containers_up
 
-check_override
+check_override $@
 
 if [ -z "$1" ]; then
   SHORTHAND=anrt

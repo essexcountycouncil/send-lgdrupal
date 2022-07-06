@@ -13,7 +13,7 @@ set -eo pipefail
 
 source ${DOCKSAL_PATH}/.docksal/helpers
 
-check_override
+check_override $@
 
 if command -v fzf >/dev/null; then
   git checkout "$(git branch -a | fzf | cut -c 3-)"
