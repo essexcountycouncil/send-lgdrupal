@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - localgov_core
+    - node
   theme:
     - anrt_lgd
 _core:
@@ -19,4 +20,11 @@ settings:
   label: 'Page header block'
   label_display: '0'
   provider: localgov_core
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_directory: localgov_directory
