@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_location
     - node.type.localgov_directories_org
   module:
+    - field_formatter_class
     - field_group
     - link
     - telephone
@@ -32,7 +33,8 @@ third_party_settings:
       weight: 4
       format_type: fieldset
       format_settings:
-        classes: ''
+        classes: localgov-directories-page__group-enquiries
+        show_empty_fields: false
         id: ''
         description: ''
     group_organisation:
@@ -45,7 +47,8 @@ third_party_settings:
       weight: 3
       format_type: fieldset
       format_settings:
-        classes: ''
+        classes: localgov-directories-page__group-venue
+        show_empty_fields: false
         id: ''
         description: ''
 _core:
@@ -113,9 +116,11 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: default
+      view_mode: embed
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 2
     region: content
 hidden:

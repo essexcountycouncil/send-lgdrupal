@@ -14,6 +14,7 @@
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
+
 %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
@@ -38,10 +39,11 @@
 
   <div{{ content_attributes.addClass('lgd-row', content_type|clean_class ~ '__content', 'node__content') }}>
     <div class="lgd-row__two-thirds localgov-directories-page__content-body">
-      {{ content|without('group_venue', 'group_enquiries') }}
+      {{ content|without('group_venue', 'group_enquiries', 'group_organisation') }}
     </div>
     <div class="lgd-row__one-third localgov-directories-page__content-contacts">
       {{ content.group_venue }}
+      {{ content.group_organisation }}
       {{ content.group_enquiries }}
     </div>
   </div>
