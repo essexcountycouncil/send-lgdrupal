@@ -214,14 +214,22 @@ display:
             operator: search_api_fulltext_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: search_api_fulltext
+            identifier: s
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_editor: '0'
+              localgov_author: '0'
+              localgov_contributor: '0'
+              localgov_news_editor: '0'
+              localgov_user_manager: '0'
+            expose_fields: false
             placeholder: ''
+            searched_fields_id: ''
           is_grouped: false
           group_info:
             label: ''
@@ -496,7 +504,6 @@ display:
           height_unit: px
           hide_empty_map: true
           disable_wheel: false
-          fullscreen_control: true
           gesture_handling: false
           reset_map:
             control: false
@@ -547,6 +554,7 @@ display:
               zoom: 16
               popup: false
               options: ''
+          fullscreen_control: true
       row:
         type: search_api
         options:
@@ -606,7 +614,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: 'Displaying @start - @end of @total'
+          content: '@total number of results found'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
