@@ -614,7 +614,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: '@total number of results found'
+          content: '@total results found'
       display_extenders: {  }
     cache_metadata:
       max-age: -1
