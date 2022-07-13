@@ -1,0 +1,9 @@
+uuid: 370b4410-a201-4e35-b02e-ef1cad4b3407
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_embed__localgov_directory_channel__node_embed
+name: 'search_api:views_embed__localgov_directory_channel__node_embed'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

@@ -216,7 +216,7 @@ display:
             operator_list: {  }
             identifier: s
             required: false
-            remember: true
+            remember: false
             multiple: false
             remember_roles:
               emergency_publisher: '0'
