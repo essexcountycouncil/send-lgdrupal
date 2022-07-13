@@ -214,7 +214,7 @@ display:
             operator: search_api_fulltext_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: s
+            identifier: k
             required: false
             remember: false
             multiple: false
