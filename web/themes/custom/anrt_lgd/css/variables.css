@@ -47,10 +47,11 @@ body {
   --call-out-box-bg-color: var(--color-white);
   --call-out-box-text-color: var(--color-accent);
   --header-search-input-border: 1px solid var(--color-black);
+  --color-text: var(--color-accent);
 
   /* Apply Variables */
   --breadcrumbs-divider: ">";
-  --breadcrumbs-background-color: var(--color-accent-alt);
+  --breadcrumbs-background-color: var(--color-accent);
   --breadcrumbs-link-color: var(--color-white);
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
@@ -63,7 +64,7 @@ body {
   --button-border-color: var(--color-white);
 
   /* Footer Items */
-  --color-section-footer-bg: var(--color-grey-dark);
+  --color-section-footer-bg: var(--color-accent);
   --color-footer-text: var(--color-white);
   --color-footer-link: var(--color-white);
   --section-spacing-vertical-footer: var(--spacing-largest);
