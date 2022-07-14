@@ -1,5 +1,6 @@
 .call-out-box {
   border-radius: var(--border-radius);
+  border: 3px solid var(--color-accent);
 }
 
 .call-out-box__content {
