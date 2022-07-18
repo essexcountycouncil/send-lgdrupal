@@ -1,4 +1,4 @@
-uuid: 6ae2b5ef-19fc-464b-92bd-f16ad396fb1d
+uuid: 8b471e99-55c0-489b-914f-b2878764a678
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,13 @@ dependencies:
     - localgov
     - system
   theme:
-    - localgov_base
+    - anrt_lgd
 _core:
   default_config_hash: rn5QKJ4Bk6yVFHk_82zWUr4BcrqIlkJVvX2fItYOKG0
-id: localgov_home_welcome_block_base
-theme: localgov_base
-region: content_top
-weight: 0
+id: anrt_lgd_localgov_home_welcome_block_base
+theme: anrt_lgd
+region: disabled
+weight: -12
 provider: null
 plugin: localgov_home_welcome_block
 settings:

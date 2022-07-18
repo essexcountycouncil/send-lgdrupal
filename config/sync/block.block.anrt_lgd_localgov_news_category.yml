@@ -1,4 +1,4 @@
-uuid: 8fe98113-7e83-4f81-a5bf-52fd3ec12e78
+uuid: a2d3faad-84ef-44f1-bef4-5eb67077e2f0
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   theme:
     - anrt_lgd
 _core:
-  default_config_hash: aCGODMuIsJl3ZjGSYh2br8HJA2Fsk_ILYLJ9IwxFusM
+  default_config_hash: Sc5QpCi72swDDTBa7rcTzJ5s_iiNZFJV8heVw2puL3Y
 id: anrt_lgd_localgov_news_category
 theme: anrt_lgd
 region: sidebar_second

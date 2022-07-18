@@ -1,4 +1,4 @@
-uuid: 42816ea8-728b-4eee-ad62-5220f6c7605a
+uuid: f101e8e7-fca2-4b6a-8f31-b1c9b69179e7
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   theme:
     - anrt_lgd
 _core:
-  default_config_hash: JeSlkVpjM_YmQGGqgy5iViMTF4-0WOvZW9iTfCFUXCA
+  default_config_hash: 3AKuNtipOjCqMJ1GJwTwfaa9y0zxo5C7JV7ZIxMaq_w
 id: anrt_lgd_localgov_news_date
 theme: anrt_lgd
 region: sidebar_second

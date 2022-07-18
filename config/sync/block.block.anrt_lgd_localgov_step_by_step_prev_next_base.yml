@@ -1,4 +1,4 @@
-uuid: b766562a-81ff-4749-a358-81aad86c7ef3
+uuid: a251cd4a-efca-4314-8c92-b45859b1cd08
 langcode: en
 status: true
 dependencies:
@@ -10,15 +10,15 @@ dependencies:
   theme:
     - anrt_lgd
 _core:
-  default_config_hash: cATuMpivYgjYZThJAk4DnJzZtzaVE0Ni2aVbya4zuag
-id: anrt_lgd_localgov_step_by_step_navigation_scarfolk
+  default_config_hash: OTSL_-gJGNUG6OsB0K58WfRT4MO_X8ka6crf8t-zmbA
+id: anrt_lgd_localgov_step_by_step_prev_next_base
 theme: anrt_lgd
-region: sidebar_second
-weight: 200
+region: content_bottom
+weight: 100
 provider: null
-plugin: 'views_block:localgov_step_by_step_navigation-steps'
+plugin: 'views_block:localgov_step_by_step_navigation-prev_next'
 settings:
-  id: 'views_block:localgov_step_by_step_navigation-steps'
+  id: 'views_block:localgov_step_by_step_navigation-prev_next'
   label: ''
   label_display: '0'
   provider: views

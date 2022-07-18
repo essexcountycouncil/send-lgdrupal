@@ -1,4 +1,4 @@
-uuid: 1edd2d96-5dde-4855-b40c-629be5c8410c
+uuid: c2110763-30b2-47ec-8380-e597eaaecbd0
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,10 @@ dependencies:
   theme:
     - anrt_lgd
 _core:
-  default_config_hash: 2Li2uh4PXOvzomlmgSEefUuULCgHinPybwTIrjwK-gI
-id: anrt_lgd_localgov_directories_channel_search_block_scarfolk
+  default_config_hash: aVJQTfRDCa64UZEFneWj9unJfaDRWew6I_XoKIK9L-Q
+id: anrt_lgd_localgov_directories_channel_search_block
 theme: anrt_lgd
-region: content_top
+region: sidebar_first
 weight: 0
 provider: null
 plugin: localgov_directories_channel_search_block
@@ -23,10 +23,13 @@ settings:
   context_mapping:
     node: '@node.node_route_context:node'
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
+  node_type:
+    id: node_type
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
       localgov_directory: localgov_directory
+      localgov_directories_page: localgov_directories_page
+      localgov_directories_venue: localgov_directories_venue
+      localgov_directories_org: localgov_directories_org

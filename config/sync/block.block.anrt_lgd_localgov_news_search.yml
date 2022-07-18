@@ -1,4 +1,4 @@
-uuid: 42869b79-7030-45a3-aeda-8f20cc4b7308
+uuid: e30eeef8-cf09-4f70-8e86-b5cc175887a9
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
     module:
       - localgov_news
 _core:
-  default_config_hash: cocReOc2q_vZjd6n2UosxlvtDTAJP_k-_v9yDaFHPes
+  default_config_hash: 6ZJ9cY3_HhnNJ151f5We5kztrqSoAUdJxhnsWJE1A7A
 id: anrt_lgd_localgov_news_search
 theme: anrt_lgd
 region: sidebar_second

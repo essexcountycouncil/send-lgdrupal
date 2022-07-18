@@ -1,4 +1,4 @@
-uuid: 5d666382-abbb-47f6-9ad7-a31cf88b6f28
+uuid: 2040cea1-4995-44d9-971d-76817f539ae5
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - system
     - views
   theme:
-    - localgov_base
+    - anrt_lgd
 _core:
   default_config_hash: g-DpFip7aayyXEp10FDBKyM4CgPGDCfIsGnMXVHSjgs
-id: views_block__services_block_service_list_base
-theme: localgov_base
+id: anrt_lgd_views_block__services_block_service_list_base
+theme: anrt_lgd
 region: disabled
 weight: -13
 provider: null

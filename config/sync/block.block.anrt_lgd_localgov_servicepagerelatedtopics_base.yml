@@ -1,4 +1,4 @@
-uuid: df1079dd-5f35-42fc-aa9c-fbde9e69a983
+uuid: bc17a8ba-87be-4878-8190-dfdcd99d041c
 langcode: en
 status: true
 dependencies:
@@ -7,8 +7,8 @@ dependencies:
   theme:
     - anrt_lgd
 _core:
-  default_config_hash: PVdTznuKPvuCBQyC2dbF8BYAHgpc0PTD0kSIpbSzyrc
-id: anrt_lgd_localgov_servicepagerelatedtopics_scarfolk
+  default_config_hash: L2GOA4ZY9yBkEx5K8m-IBYwG8Ku_T9Q7xUZhmKOPfBc
+id: anrt_lgd_localgov_servicepagerelatedtopics_base
 theme: anrt_lgd
 region: sidebar_second
 weight: 1
