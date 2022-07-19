@@ -67,8 +67,7 @@
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
-  /* background-color: var(--color-grey-lighter); */
-  border: 3px solid var(--color-accent);
+  border: var(--border);
   border-radius: var(--border-radius);
   padding: var(--spacing-larger);
 }

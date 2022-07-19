@@ -38,12 +38,15 @@ body {
   --color-accent-alt: #e40037;
   --font-primary: 'Lexend-Variable', arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
+  --line-height: 1.25;
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
   --color-link: var(--color-accent);
   --color-black: #1a191a;
   --color-brand-red: #910563;
   --border-radius: var(--spacing-smaller);
+  --border-width: 3px;
+  --border-color: var(--color-accent);
   --call-out-box-bg-color: var(--color-white);
   --call-out-box-text-color: var(--color-accent);
   --header-search-input-border: 1px solid var(--color-black);
@@ -57,11 +60,15 @@ body {
   --color-section-pre-footer-bg: var(--color-accent);
   --button-bg-color: var(--color-grey-light);
   --button-text-color-hover: var(--color-accent-alt);
+  --input-border-color: var(--border-color);
 
   --header-search-button-bg-color: var(--color-brand-red);
   --header-search-button-color: var(--color-white);
   --header-search-button-color-hover: var(--color-white);
   --button-border-color: var(--color-white);
+
+  /* Page Title */
+  --page-title-border: 0;
 
   /* Footer Items */
   --color-section-footer-bg: var(--color-accent);
