@@ -11,8 +11,8 @@ _core:
   default_config_hash: aVJQTfRDCa64UZEFneWj9unJfaDRWew6I_XoKIK9L-Q
 id: anrt_lgd_localgov_directories_channel_search_block
 theme: anrt_lgd
-region: sidebar_first
-weight: 0
+region: content_top
+weight: -12
 provider: null
 plugin: localgov_directories_channel_search_block
 settings:

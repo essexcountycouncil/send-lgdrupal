@@ -208,7 +208,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: Search
+            label: ''
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -228,7 +228,7 @@ display:
               localgov_news_editor: '0'
               localgov_user_manager: '0'
             expose_fields: false
-            placeholder: ''
+            placeholder: 'e.g. ''autism'', ''Chelmsford'', ''playcentre'''
             searched_fields_id: ''
           is_grouped: false
           group_info:
@@ -504,6 +504,7 @@ display:
           height_unit: px
           hide_empty_map: true
           disable_wheel: false
+          fullscreen_control: true
           gesture_handling: false
           reset_map:
             control: false
@@ -554,7 +555,6 @@ display:
               zoom: 16
               popup: false
               options: ''
-          fullscreen_control: true
       row:
         type: search_api
         options:
