@@ -21,6 +21,7 @@ fresh_db() {
   fin db-download ${env} --fetch
   echo-green "Importing ${env} database"
   zcat <  ${PROJECT_ROOT}/db/${env}.sql.gz | fin db import --progress
+  fin drush cr
 }
 
 # Check for set vars

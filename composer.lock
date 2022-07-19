@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:anrt-tools/docksal-configuration.git",
-                "reference": "cd8c9c986ad9b1a66fe8f30dcbeba2bc3998306f"
+                "reference": "b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/anrt-tools%2Fdocksal-configuration/repository/archive.zip?sha=cd8c9c986ad9b1a66fe8f30dcbeba2bc3998306f",
-                "reference": "cd8c9c986ad9b1a66fe8f30dcbeba2bc3998306f",
+                "url": "https://gitlab.com/api/v4/projects/anrt-tools%2Fdocksal-configuration/repository/archive.zip?sha=b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e",
+                "reference": "b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e",
                 "shasum": ""
             },
             "require": {
@@ -38,10 +38,10 @@
             ],
             "description": "Rolling docksal config",
             "support": {
-                "source": "https://gitlab.com/anrt-tools/docksal-configuration/-/tree/master",
+                "source": "https://gitlab.com/anrt-tools/docksal-configuration/-/tree/7.x",
                 "issues": "https://gitlab.com/anrt-tools/docksal-configuration/-/issues"
             },
-            "time": "2022-06-27T22:23:34+00:00"
+            "time": "2022-07-13T14:40:18+00:00"
         },
         {
             "name": "asm89/stack-cors",
