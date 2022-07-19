@@ -20,6 +20,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/devel": "^4.1",
         "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",
         "platformsh/config-reader": "^2.4"
@@ -44,7 +45,7 @@
         "sort-packages": true,
         "bin-dir": "bin/",
         "gitlab-token": {
-            "gitlab.com": "xL4XGnTyQvzp8-NFr2P5"
+            "gitlab.com": "glpat-VC_Nwq-xMRyGej5a-7ZA"
         },
         "allow-plugins": {
             "composer/installers": true,
