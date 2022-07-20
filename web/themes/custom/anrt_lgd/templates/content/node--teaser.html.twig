@@ -90,6 +90,8 @@
   {{ attach_library('localgov_base/teaser') }}
 {% endif %}
 
+{{ attach_library('anrt_lgd/teaser') }}
+
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
 
   {# 
@@ -115,11 +117,25 @@
     {{ title_suffix }}
 
   {% set directories_content_types = [
-      'localgov_directories_org'
+      'localgov_directories_org',
+      'localgov_directories_page',
+      'localgov_directories_venue',
     ] 
   %}
     {% if content_type in directories_content_types %}
-      <p>Location Icon + Location</p>
+      {% if node.localgov_location.value %}
+        <div class="lgd-teaser__location-container">
+          <div class="lgd-teaser__location-icon">
+            {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                icon_name: 'map-marker-alt',
+              }
+            %}
+          </div>
+          <div class="lgd-teaser__location">
+            {{ node.localgov_location.entity.postal_address.locality }}
+          </div>
+        </div>
+      {% endif %}
     {% endif %}
 
     {# 

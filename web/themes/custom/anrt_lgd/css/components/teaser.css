@@ -1,0 +1,12 @@
+.lgd-teaser__location-container {
+  display: flex;
+  margin-bottom: var(--spacing);
+}
+
+.lgd-teaser__location-icon {
+  margin-right: var(--spacing-smaller);
+}
+
+.lgd-teaser__location-icon svg path {
+  fill:  var(--color-accent);
+}

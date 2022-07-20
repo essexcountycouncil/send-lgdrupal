@@ -39,3 +39,8 @@ breadcrumbs:
   css:
     theme:
       css/components/breadcrumbs.css: {}
+
+teaser:
+  css:
+    theme:
+      css/components/teaser.css: {}
