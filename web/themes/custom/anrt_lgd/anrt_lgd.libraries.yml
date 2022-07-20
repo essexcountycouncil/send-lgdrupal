@@ -28,8 +28,12 @@ content-top:
     theme:
       css/components/content-top.css: {}
 
-
 directories:
   css:
     theme:
       css/components/directories.css: {}
+
+breadcrumbs:
+  css:
+    theme:
+      css/components/breadcrumbs.css: {}
