@@ -4,26 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44cc6544422c48fb2bc44c938b7d9146",
+    "content-hash": "dd2dab1bdd0b964f164e0de1d3c1eb96",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:anrt-tools/docksal-configuration.git",
-                "reference": "b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e"
+                "url": "https://code.anner.ie/annertech/infra/docksal-configuration.git",
+                "reference": "ef0bbf3bbd9934c9ee31a3705a6c9c7e1b087574"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/anrt-tools%2Fdocksal-configuration/repository/archive.zip?sha=b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e",
-                "reference": "b27f0fd4d5e9fd279d30df8a85ea8071ae80aa5e",
+                "url": "https://code.anner.ie/api/v4/projects/8/packages/composer/archives/anrt-tools/docksal-configuration.zip?sha=ef0bbf3bbd9934c9ee31a3705a6c9c7e1b087574",
+                "reference": "ef0bbf3bbd9934c9ee31a3705a6c9c7e1b087574",
                 "shasum": ""
             },
             "require": {
                 "symfony/filesystem": "^3.0 || ^4.0 || ^5.0"
             },
-            "default-branch": true,
             "type": "project",
             "autoload": {
                 "psr-4": {
@@ -36,12 +35,7 @@
                     "email": "mike@annertech.com"
                 }
             ],
-            "description": "Rolling docksal config",
-            "support": {
-                "source": "https://gitlab.com/anrt-tools/docksal-configuration/-/tree/7.x",
-                "issues": "https://gitlab.com/anrt-tools/docksal-configuration/-/issues"
-            },
-            "time": "2022-07-13T14:40:18+00:00"
+            "description": "Rolling docksal config"
         },
         {
             "name": "asm89/stack-cors",
@@ -3821,20 +3815,20 @@
         },
         {
             "name": "drupal/facets",
-            "version": "2.0.2",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/facets.git",
-                "reference": "2.0.2"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "17afc46d3f4e4300e8e69f23b3b01a4935b57104"
+                "url": "https://ftp.drupal.org/files/projects/facets-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "8be11b5bca088212270603cd3f3e69185022e379"
             },
             "require": {
-                "drupal/core": "^9.2 || ^10.0"
+                "drupal/core": "^9.3 || ^10.0"
             },
             "conflict": {
                 "drupal/search_api": "<1.14"
@@ -3842,7 +3836,7 @@
             "require-dev": {
                 "drupal/jquery_ui_slider": "~1.1",
                 "drupal/jquery_ui_touch_punch": "~1.0",
-                "drupal/search_api": "~1.21"
+                "drupal/search_api": "^1.25||1.x-dev"
             },
             "suggest": {
                 "drupal/jquery_ui_slider": "Required for the 'Facets Range Widget' module to work",
@@ -3851,8 +3845,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1649151557",
+                    "version": "2.0.5",
+                    "datestamp": "1658315614",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3869,20 +3863,20 @@
                     "homepage": "https://www.drupal.org/node/2348769/committers"
                 },
                 {
-                    "name": "StryKaizer",
-                    "homepage": "https://www.drupal.org/user/462700"
-                },
-                {
-                    "name": "borisson_",
-                    "homepage": "https://www.drupal.org/user/2393360"
-                },
-                {
                     "name": "drunken monkey",
                     "homepage": "https://www.drupal.org/user/205582"
                 },
                 {
                     "name": "mkalkbrenner",
                     "homepage": "https://www.drupal.org/user/124705"
+                },
+                {
+                    "name": "Nick_vh",
+                    "homepage": "https://www.drupal.org/user/122682"
+                },
+                {
+                    "name": "StryKaizer",
+                    "homepage": "https://www.drupal.org/user/462700"
                 }
             ],
             "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
@@ -4195,27 +4189,27 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.40.0",
+            "version": "1.41.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.40"
+                "reference": "8.x-1.41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.40.zip",
-                "reference": "8.x-1.40",
-                "shasum": "7ab34cd7bda6c4bb9a9ab621d807264242b2a418"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.41.zip",
+                "reference": "8.x-1.41",
+                "shasum": "dba35ddfa782cdd59ed07a1b105ee8d104fe59b2"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10",
-                "phayes/geophp": "^1.2"
+                "itamair/geophp": "^1.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.40",
-                    "datestamp": "1655934637",
+                    "version": "8.x-1.41",
+                    "datestamp": "1657834871",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4224,23 +4218,23 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
+                    "name": "Italo Mairo",
+                    "homepage": "https://www.drupal.org/u/itamair",
+                    "role": "Drupal 8+ Maintainer"
+                },
+                {
                     "name": "Brandon Morrison",
                     "homepage": "https://www.drupal.org/u/brandonian",
-                    "role": "Maintainer"
+                    "role": "Drupal 7 Maintainer"
                 },
                 {
                     "name": "Pablo López",
                     "homepage": "https://www.drupal.org/u/plopesc",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Italo Mairo",
-                    "homepage": "https://www.drupal.org/u/itamair",
-                    "role": "Maintainer"
+                    "role": "Drupal 7 Maintainer"
                 },
                 {
                     "name": "phayes",
@@ -4628,20 +4622,20 @@
         },
         {
             "name": "drupal/inline_entity_form",
-            "version": "1.0.0-rc11",
+            "version": "1.0.0-rc12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/inline_entity_form.git",
-                "reference": "8.x-1.0-rc11"
+                "reference": "8.x-1.0-rc12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc11.zip",
-                "reference": "8.x-1.0-rc11",
-                "shasum": "67a92ec1482be19b2f2091ca9498f585e34072b9"
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-rc12.zip",
+                "reference": "8.x-1.0-rc12",
+                "shasum": "eddee2964823b7da2ec7032ddb871f247ba7ed7a"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9",
+                "drupal/core": "^8.8 || ^9 || ^10",
                 "php": ">=7.1"
             },
             "require-dev": {
@@ -4650,8 +4644,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc11",
-                    "datestamp": "1648748863",
+                    "version": "8.x-1.0-rc12",
+                    "datestamp": "1658308069",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -4664,12 +4658,12 @@
             ],
             "authors": [
                 {
-                    "name": "Centarro",
-                    "homepage": "https://www.drupal.org/user/3661446"
-                },
-                {
                     "name": "bojanz",
                     "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "Centarro",
+                    "homepage": "https://www.drupal.org/user/3661446"
                 },
                 {
                     "name": "dawehner",
@@ -4943,17 +4937,17 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.19.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.19"
+                "reference": "8.x-1.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.19.zip",
-                "reference": "8.x-1.19",
-                "shasum": "d70f59c034e971885ed4969a11bb392f6ab447ee"
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.21.zip",
+                "reference": "8.x-1.21",
+                "shasum": "677ff7384b557390d4d1a36f335452e8172f741d"
             },
             "require": {
                 "drupal/core": "^9",
@@ -4972,8 +4966,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.19",
-                    "datestamp": "1641496014",
+                    "version": "8.x-1.21",
+                    "datestamp": "1657971667",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5009,17 +5003,17 @@
         },
         {
             "name": "drupal/office_hours",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/office_hours.git",
-                "reference": "8.x-1.6"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/office_hours-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "97f46cdc0673d3354496888b71aaf330715d94d0"
+                "url": "https://ftp.drupal.org/files/projects/office_hours-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "00d9fdbb1825dfe2707cb36425b31caa5cfc995b"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -5027,8 +5021,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1648134032",
+                    "version": "8.x-1.7",
+                    "datestamp": "1657202675",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5042,16 +5036,16 @@
             "authors": [
                 {
                     "name": "John Voskuilen",
-                    "homepage": "https://www.drupal.org/user/167994",
+                    "homepage": "https://www.drupal.org/user/591042",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "johnv",
-                    "homepage": "https://www.drupal.org/user/591042"
                 },
                 {
                     "name": "mikl",
                     "homepage": "https://www.drupal.org/user/58679"
+                },
+                {
+                    "name": "Ozeuss",
+                    "homepage": "https://www.drupal.org/user/167994"
                 },
                 {
                     "name": "skwashd",
@@ -5253,10 +5247,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sam152",
-                    "homepage": "https://www.drupal.org/user/1485048"
-                },
-                {
                     "name": "acbramley",
                     "homepage": "https://www.drupal.org/user/1036766"
                 },
@@ -5271,6 +5261,10 @@
                 {
                     "name": "larowlan",
                     "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
                 }
             ],
             "description": "Allows anyone to preview unpublished content with a unique link.",
@@ -5557,20 +5551,20 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.23.0",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.23"
+                "reference": "8.x-1.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.23.zip",
-                "reference": "8.x-1.23",
-                "shasum": "7de5425bba5b8daa37e98d47b677459dfb1abbe7"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.25.zip",
+                "reference": "8.x-1.25",
+                "shasum": "823bf5a6010cd08c7d1b287fcd855fbf81140e39"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^9.2 || ^10.0"
             },
             "conflict": {
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
@@ -5588,8 +5582,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.23",
-                    "datestamp": "1642935837",
+                    "version": "8.x-1.25",
+                    "datestamp": "1658149514",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5945,6 +5939,117 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/viewsreference",
                 "issues": "https://www.drupal.org/project/issues/viewsreference"
+            }
+        },
+        {
+            "name": "drupal/webform",
+            "version": "6.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform.git",
+                "reference": "6.1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform-6.1.3.zip",
+                "reference": "6.1.3",
+                "shasum": "efd032eadc10a4752b9b0203152a5d20eefac175"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "require-dev": {
+                "drupal/address": "~1.0",
+                "drupal/bootstrap": "~3.0",
+                "drupal/captcha": "~1.0",
+                "drupal/chosen": "~3.0",
+                "drupal/clientside_validation": "~3.0",
+                "drupal/clientside_validation_jquery": "*",
+                "drupal/devel": "~3.0",
+                "drupal/entity": "~1.0",
+                "drupal/entity_print": "~2.0",
+                "drupal/gnode": "*",
+                "drupal/group": "1.0",
+                "drupal/jquery_ui": "~1.0",
+                "drupal/jquery_ui_checkboxradio": "~1.0",
+                "drupal/jquery_ui_datepicker": "~1.0",
+                "drupal/lingotek": "~3.0",
+                "drupal/mailsystem": "~4.0",
+                "drupal/paragraphs": "~1.0",
+                "drupal/select2": "~1.0",
+                "drupal/smtp": "~1.0",
+                "drupal/styleguide": "~1.0",
+                "drupal/telephone_validation": "~2.0",
+                "drupal/token": "~1.0",
+                "drupal/variationcache": "~1.0",
+                "drupal/webform_access": "*",
+                "drupal/webform_attachment": "*",
+                "drupal/webform_clientside_validation": "*",
+                "drupal/webform_devel": "*",
+                "drupal/webform_entity_print": "*",
+                "drupal/webform_group": "*",
+                "drupal/webform_node": "*",
+                "drupal/webform_options_limit": "*",
+                "drupal/webform_scheduled_email": "*",
+                "drupal/webform_share": "*",
+                "drupal/webform_ui": "*"
+            },
+            "suggest": {
+                "drupal/jquery_ui_checkboxradio": "Provides jQuery UI Checkboxradio library. Required by the Webform jQueryUI Buttons module. The Webform jQueryUI Buttons module is deprecated because jQueryUI is no longer maintained.",
+                "drupal/jquery_ui_datepicker": "Provides jQuery UI Datepicker library. Required to support datepickers. The Webform jQueryUI Datepicker module is deprecated because jQueryUI is no longer maintained."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "6.1.3",
+                    "datestamp": "1644940723",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Rockowitz (jrockowitz)",
+                    "homepage": "https://www.drupal.org/u/jrockowitz",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Alexander Trotsenko (bucefal91)",
+                    "homepage": "https://www.drupal.org/u/bucefal91",
+                    "role": "Co-maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/7404/committers",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "torotil",
+                    "homepage": "https://www.drupal.org/user/865256"
+                }
+            ],
+            "description": "Enables the creation of webforms and questionnaires.",
+            "homepage": "https://drupal.org/project/webform",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform",
+                "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
+                "docs": "https://www.drupal.org/docs/8/modules/webform",
+                "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
             }
         },
         {
@@ -6814,6 +6919,52 @@
             "time": "2022-06-20T21:43:03+00:00"
         },
         {
+            "name": "itamair/geophp",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itamair/geoPHP.git",
+                "reference": "d7bccf9902a62430ceb2ac0771bb1e9d1deac4e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itamair/geoPHP/zipball/d7bccf9902a62430ceb2ac0771bb1e9d1deac4e9",
+                "reference": "d7bccf9902a62430ceb2ac0771bb1e9d1deac4e9",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.* || 9.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "geoPHP.inc"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Italo Mairo",
+                    "homepage": "https://www.linkedin.com/in/italomairo/",
+                    "role": "Maintanier of this Library Repo"
+                },
+                {
+                    "name": "Patrick Hayes",
+                    "homepage": "https://www.linkedin.com/in/patrickdhayes/",
+                    "role": "Maintanier of original Repositary/Library (https://github.com/phayes/geoPHP)"
+                }
+            ],
+            "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
+            "homepage": "https://github.com/itamair/geoPHP",
+            "support": {
+                "source": "https://github.com/itamair/geoPHP/tree/1.3"
+            },
+            "time": "2022-07-04T23:09:18+00:00"
+        },
+        {
             "name": "laminas/laminas-diactoros",
             "version": "2.11.3",
             "source": {
@@ -7191,16 +7342,16 @@
         },
         {
             "name": "localgovdrupal/localgov",
-            "version": "2.3.10",
+            "version": "2.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov.git",
-                "reference": "3f96c90849de9c24c049235399bf10f4fb986a4d"
+                "reference": "0b03a8ca0a659525b67b22e3c5891e12da5649cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/3f96c90849de9c24c049235399bf10f4fb986a4d",
-                "reference": "3f96c90849de9c24c049235399bf10f4fb986a4d",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/0b03a8ca0a659525b67b22e3c5891e12da5649cd",
+                "reference": "0b03a8ca0a659525b67b22e3c5891e12da5649cd",
                 "shasum": ""
             },
             "require": {
@@ -7249,9 +7400,6 @@
                     },
                     "drupal/gin_login": {
                         "Fix schema for gin_toolbar, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
-                    },
-                    "drupal/search_api": {
-                        "Fix schema for search_api views, see https://www.drupal.org/project/search_api/issues/3196990": "https://www.drupal.org/files/issues/2021-11-13/3196990-15-wrong_query_type.patch"
                     }
                 }
             },
@@ -7263,27 +7411,26 @@
             "homepage": "https://github.com/localgovdrupal/localgov",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov/issues",
-                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.10"
+                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.11"
             },
-            "time": "2022-06-23T15:26:08+00:00"
+            "time": "2022-07-08T12:19:39+00:00"
         },
         {
             "name": "localgovdrupal/localgov_alert_banner",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_alert_banner.git",
-                "reference": "3e8acf240df86f033349574be86cba50a76e2841"
+                "reference": "badb441b17e39a56094e0d23f13e581da830ad75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_alert_banner/zipball/3e8acf240df86f033349574be86cba50a76e2841",
-                "reference": "3e8acf240df86f033349574be86cba50a76e2841",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_alert_banner/zipball/badb441b17e39a56094e0d23f13e581da830ad75",
+                "reference": "badb441b17e39a56094e0d23f13e581da830ad75",
                 "shasum": ""
             },
             "require": {
-                "drupal/condition_field": "^2.0",
-                "drupal/field_group": "~3.1"
+                "drupal/condition_field": "^2.0"
             },
             "require-dev": {
                 "drupal/scheduled_transitions": "^2.1"
@@ -7301,22 +7448,22 @@
             "homepage": "https://github.com/localgovdrupal/localgov_alert_banner",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_alert_banner/issues",
-                "source": "https://github.com/localgovdrupal/localgov_alert_banner/tree/1.4.1"
+                "source": "https://github.com/localgovdrupal/localgov_alert_banner/tree/1.5.0"
             },
-            "time": "2022-06-06T13:16:51+00:00"
+            "time": "2022-07-11T13:29:00+00:00"
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.2.15",
+            "version": "1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "5525dc14dd34357476e5bde29af47800b5e6f12e"
+                "reference": "4147e337540583e662fc0ee66db53f6477085cfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/5525dc14dd34357476e5bde29af47800b5e6f12e",
-                "reference": "5525dc14dd34357476e5bde29af47800b5e6f12e",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/4147e337540583e662fc0ee66db53f6477085cfc",
+                "reference": "4147e337540583e662fc0ee66db53f6477085cfc",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -7328,9 +7475,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.2.15"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.2.16"
             },
-            "time": "2022-06-27T15:24:50+00:00"
+            "time": "2022-07-18T13:55:19+00:00"
         },
         {
             "name": "localgovdrupal/localgov_core",
@@ -7416,16 +7563,16 @@
         },
         {
             "name": "localgovdrupal/localgov_directories",
-            "version": "2.1.6",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_directories.git",
-                "reference": "f3cf9b22a3636d18440ef932626edafee16fcad0"
+                "reference": "e3d958667e70fddad0b7483d2214c68a414e8551"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_directories/zipball/f3cf9b22a3636d18440ef932626edafee16fcad0",
-                "reference": "f3cf9b22a3636d18440ef932626edafee16fcad0",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_directories/zipball/e3d958667e70fddad0b7483d2214c68a414e8551",
+                "reference": "e3d958667e70fddad0b7483d2214c68a414e8551",
                 "shasum": ""
             },
             "require": {
@@ -7438,10 +7585,12 @@
             },
             "require-dev": {
                 "localgovdrupal/localgov_openreferral": "^1.0",
+                "localgovdrupal/localgov_paragraphs": "^2.0",
                 "localgovdrupal/localgov_services": "^2.0"
             },
             "suggest": {
-                "localgovdrupal/localgov_openreferral": "Enables Open Referral output of Directories"
+                "localgovdrupal/localgov_openreferral": "Enables Open Referral output of Directories",
+                "localgovdrupal/localgov_paragraphs": "For Directory Promo Page content type in Directories"
             },
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -7452,9 +7601,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_directories",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_directories/issues",
-                "source": "https://github.com/localgovdrupal/localgov_directories/tree/2.1.6"
+                "source": "https://github.com/localgovdrupal/localgov_directories/tree/2.2.0"
             },
-            "time": "2022-06-06T13:49:39+00:00"
+            "time": "2022-07-20T11:58:28+00:00"
         },
         {
             "name": "localgovdrupal/localgov_events",
@@ -7614,16 +7763,16 @@
         },
         {
             "name": "localgovdrupal/localgov_news",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_news.git",
-                "reference": "1d944402df3e24a1539f4d8d4b7609c64523519c"
+                "reference": "10ed13818375788e2c31fd4c537e3ae13329f68a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/1d944402df3e24a1539f4d8d4b7609c64523519c",
-                "reference": "1d944402df3e24a1539f4d8d4b7609c64523519c",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/10ed13818375788e2c31fd4c537e3ae13329f68a",
+                "reference": "10ed13818375788e2c31fd4c537e3ae13329f68a",
                 "shasum": ""
             },
             "require": {
@@ -7631,6 +7780,7 @@
                 "drupal/entity_reference_facet_link": "^2.0.0-beta",
                 "drupal/facets": "^2.0",
                 "drupal/field_group": "~3.0",
+                "drupal/link_attributes": "^1.2",
                 "drupal/pathauto": "~1.0",
                 "drupal/schema_metatag": "^2.1",
                 "drupal/search_api": "^1.17",
@@ -7647,9 +7797,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_news",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_news/issues",
-                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.1.3"
+                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.1.4"
             },
-            "time": "2022-04-25T13:55:04+00:00"
+            "time": "2022-07-19T12:07:40+00:00"
         },
         {
             "name": "localgovdrupal/localgov_openreferral",
@@ -7719,16 +7869,16 @@
         },
         {
             "name": "localgovdrupal/localgov_paragraphs",
-            "version": "2.0.5",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_paragraphs.git",
-                "reference": "1a3913deedd6a0f51c6d589dbe302d65f67614ef"
+                "reference": "527676b10378871e2487bad4c7cadb3014b28677"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/1a3913deedd6a0f51c6d589dbe302d65f67614ef",
-                "reference": "1a3913deedd6a0f51c6d589dbe302d65f67614ef",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/527676b10378871e2487bad4c7cadb3014b28677",
+                "reference": "527676b10378871e2487bad4c7cadb3014b28677",
                 "shasum": ""
             },
             "require": {
@@ -7767,9 +7917,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_paragraphs",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_paragraphs/issues",
-                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.0.5"
+                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.1.1"
             },
-            "time": "2022-06-27T13:43:35+00:00"
+            "time": "2022-07-12T13:48:54+00:00"
         },
         {
             "name": "localgovdrupal/localgov_scarfolk",
@@ -7930,16 +8080,16 @@
         },
         {
             "name": "localgovdrupal/localgov_subsites",
-            "version": "2.0.9",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_subsites.git",
-                "reference": "412ababf29a5b7b277b80e59072227fa2adc056f"
+                "reference": "cc67399246cca8c2ed33bab22a8c51a347fe7f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_subsites/zipball/412ababf29a5b7b277b80e59072227fa2adc056f",
-                "reference": "412ababf29a5b7b277b80e59072227fa2adc056f",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_subsites/zipball/cc67399246cca8c2ed33bab22a8c51a347fe7f12",
+                "reference": "cc67399246cca8c2ed33bab22a8c51a347fe7f12",
                 "shasum": ""
             },
             "require": {
@@ -7948,7 +8098,7 @@
                 "drupal/tablefield": "^2.2",
                 "drupal/viewsreference": "^2.0",
                 "localgovdrupal/localgov_core": "^2.1",
-                "localgovdrupal/localgov_paragraphs": "^2.0"
+                "localgovdrupal/localgov_paragraphs": "^2.1"
             },
             "type": "drupal-module",
             "extra": {
@@ -7973,9 +8123,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_subsites",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_subsites/issues",
-                "source": "https://github.com/localgovdrupal/localgov_subsites/tree/2.0.9"
+                "source": "https://github.com/localgovdrupal/localgov_subsites/tree/2.1.0"
             },
-            "time": "2022-06-06T13:42:34+00:00"
+            "time": "2022-07-11T13:46:14+00:00"
         },
         {
             "name": "localgovdrupal/localgov_theme",
@@ -8473,57 +8623,17 @@
             "time": "2021-03-21T15:43:46+00:00"
         },
         {
-            "name": "phayes/geophp",
-            "version": "1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phayes/geoPHP.git",
-                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phayes/geoPHP/zipball/015404e85b602e0df1f91441f8db0f9e98f7e567",
-                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "geoPHP.inc"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2 or New-BSD"
-            ],
-            "authors": [
-                {
-                    "name": "Patrick Hayes"
-                }
-            ],
-            "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
-            "homepage": "https://github.com/phayes/geoPHP",
-            "support": {
-                "issues": "https://github.com/phayes/geoPHP/issues",
-                "source": "https://github.com/phayes/geoPHP/tree/master"
-            },
-            "time": "2014-12-02T06:11:22+00:00"
-        },
-        {
             "name": "php-http/discovery",
-            "version": "1.14.2",
+            "version": "1.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "c8d48852fbc052454af42f6de27635ddd916b959"
+                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/c8d48852fbc052454af42f6de27635ddd916b959",
-                "reference": "c8d48852fbc052454af42f6de27635ddd916b959",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/31d8ee46d0215108df16a8527c7438e96a4d7735",
+                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735",
                 "shasum": ""
             },
             "require": {
@@ -8575,9 +8685,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.14.2"
+                "source": "https://github.com/php-http/discovery/tree/1.14.3"
             },
-            "time": "2022-05-25T07:26:05+00:00"
+            "time": "2022-07-11T14:04:40+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
@@ -12659,16 +12769,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640"
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/fd5dd441932a7e10ca6e5b490e272d34c8430640",
-                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/30897edbfb15e784fe55587b4f73ceefd3c4d98c",
+                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c",
                 "shasum": ""
             },
             "require": {
@@ -12715,7 +12825,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.3.2"
+                "source": "https://github.com/composer/ca-bundle/tree/1.3.3"
             },
             "funding": [
                 {
@@ -12731,20 +12841,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:56:16+00:00"
+            "time": "2022-07-20T07:14:26+00:00"
         },
         {
             "name": "composer/composer",
-            "version": "2.2.16",
+            "version": "2.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6"
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
-                "reference": "8c0ee53ff67399b0eec4eee2c5dc5189ec6938a6",
+                "url": "https://api.github.com/repos/composer/composer/zipball/a8ab5070fb99396e4710baee286478ad697724c2",
+                "reference": "a8ab5070fb99396e4710baee286478ad697724c2",
                 "shasum": ""
             },
             "require": {
@@ -12814,7 +12924,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.16"
+                "source": "https://github.com/composer/composer/tree/2.2.17"
             },
             "funding": [
                 {
@@ -12830,7 +12940,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-05T14:50:29+00:00"
+            "time": "2022-07-13T13:27:38+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -13377,7 +13487,7 @@
         },
         {
             "name": "drupal/core-dev",
-            "version": "9.4.1",
+            "version": "9.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-dev.git",
@@ -13421,7 +13531,7 @@
             ],
             "description": "require-dev dependencies from drupal/drupal; use in addition to drupal/core-recommended to run tests from drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-dev/tree/9.4.1"
+                "source": "https://github.com/drupal/core-dev/tree/9.4.2"
             },
             "time": "2022-04-14T00:37:13+00:00"
         },

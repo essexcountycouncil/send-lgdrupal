@@ -1,0 +1,14 @@
+uuid: 0801ccd8-833a-4ec9-9166-11c10032dd4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.facet_editor
+  module:
+    - user
+id: user_remove_role_action.facet_editor
+label: 'Remove the Facet editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: facet_editor

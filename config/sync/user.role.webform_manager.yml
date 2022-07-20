@@ -1,0 +1,24 @@
+uuid: 7dd8f73e-a36e-4d89-b09b-9aa1ee94aaaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+id: webform_manager
+label: 'Webform manager'
+weight: 7
+is_admin: null
+permissions:
+  - 'access webform help'
+  - 'access webform overview'
+  - 'access webform submission user'
+  - 'administer webform'
+  - 'administer webform element access'
+  - 'administer webform submission'
+  - 'create webform'
+  - 'delete any webform'
+  - 'delete any webform submission'
+  - 'delete own webform'
+  - 'edit any webform submission'
+  - 'edit own webform'
+  - 'view any webform submission'
