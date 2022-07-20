@@ -12,3 +12,15 @@ function anrt_lgd_preprocess_region(&$variables) {
     $variables['#attached']['library'][] = 'anrt_lgd/content-top';
   }
 }
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function anrt_lgd_preprocess_block(&$variables) {
+  // Don't cache the directories search block, so as to ensure the search term
+  // from a previous search is not carried through to a new user.
+  if ($variables['plugin_id'] === 'localgov_directories_channel_search_block') {
+    $variables['#cache']['contexts'][] = 'url';
+
+  }
+}
