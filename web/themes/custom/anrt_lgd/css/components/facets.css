@@ -1,5 +1,32 @@
-.sidebar .facet-group__title ~ .facet-group__title {
-  margin-top: var(--spacing-largest);
-  padding-top: var(--spacing-largest);
-  border-top: var(--border);
+.facet-group__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.facet-group__trigger {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  transition: var(--transition-time);
+}
+
+.facet-group__trigger[aria-expanded="true"] {
+  transform: rotate(90deg);
+}
+
+.facet-group__trigger:hover {
+  background-color: transparent;
+}
+
+.facet-group__trigger svg path {
+  fill: var(--color-accent);
+}
+.facet-group__trigger:focus svg path,
+.facet-group__trigger:hover svg path {
+  fill: var(--color-black);
+}
+
+.js .facets-widget__list {
+  display: none;
 }

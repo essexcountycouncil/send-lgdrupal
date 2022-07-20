@@ -22,6 +22,8 @@ facets:
   css:
     theme:
       css/components/facets.css: {}
+  js:
+    js/facets.js: {}
 
 content-top:
   css:
