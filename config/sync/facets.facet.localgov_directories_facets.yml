@@ -11,6 +11,8 @@ id: localgov_directories_facets
 name: Facets
 weight: 0
 min_count: 1
+missing: false
+missing_label: others
 url_alias: localgov_directories_facets
 facet_source_id: 'search_api:views_embed__localgov_directory_channel__node_embed'
 field_identifier: localgov_directory_facets_filter
