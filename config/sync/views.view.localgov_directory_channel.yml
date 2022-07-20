@@ -158,9 +158,9 @@ display:
           plugin_id: search_api
           order: ASC
           expose:
-            label: ''
+            label: 'Title (sort)'
             field_identifier: localgov_directory_title_sort
-          exposed: false
+          exposed: true
       arguments:
         localgov_directory_channels:
           id: localgov_directory_channels
@@ -277,6 +277,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.localgov_directories_index_default'
@@ -504,7 +506,6 @@ display:
           height_unit: px
           hide_empty_map: true
           disable_wheel: false
-          fullscreen_control: true
           gesture_handling: false
           reset_map:
             control: false
@@ -555,6 +556,7 @@ display:
               zoom: 16
               popup: false
               options: ''
+          fullscreen_control: true
       row:
         type: search_api
         options:
@@ -589,6 +591,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.localgov_geo.location'
@@ -601,8 +605,69 @@ display:
     display_options:
       cache:
         type: none
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_localgov_directories_index_default
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: search_api_relevance
+          exposed: false
+        localgov_directory_title_sort:
+          id: localgov_directory_title_sort
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_directory_title_sort
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: 'Title (sort)'
+            field_identifier: localgov_directory_title_sort
+          exposed: false
+      arguments:
+        localgov_directory_channels:
+          id: localgov_directory_channels
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_directory_channels
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options: {  }
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
       defaults:
         cache: false
+        sorts: false
+        arguments: false
         header: false
       header:
         result:
@@ -614,7 +679,18 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: '@total results found'
+          content: '@total '
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "{% if filters.search_api_fulltext %}\r\nresults found for \"{{ filters.search_api_fulltext }}\"\r\n  {% else %}\r\nresults found\r\n{% endif %}"
+          tokenize: true
       display_extenders: {  }
     cache_metadata:
       max-age: -1
