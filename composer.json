@@ -10,8 +10,8 @@
             "url": "https://packages.drupal.org/8"
         },
         {
-            "type": "gitlab",
-            "url": "git@gitlab.com:anrt-tools/docksal-configuration.git"
+            "type": "composer",
+            "url": "https://code.anner.ie/api/v4/group/6/-/packages/composer/packages.json"
         }
     ],
     "require": {
@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
         "drupal/devel": "^4.1",
+        "drupal/webform": "^6.1",
         "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",
         "platformsh/config-reader": "^2.4"
@@ -44,9 +45,7 @@
     "config": {
         "sort-packages": true,
         "bin-dir": "bin/",
-        "gitlab-token": {
-            "gitlab.com": "glpat-VC_Nwq-xMRyGej5a-7ZA"
-        },
+        "gitlab-domains": ["code.anner.ie"],
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
@@ -99,8 +98,11 @@
         }
     },
     "scripts": {
-            "post-update-cmd": [
-                "Anrt\\Tools\\DocksalConfiguration\\Scripts::postUpdate"
-            ]
+        "post-install-cmd": [
+            "Anrt\\Tools\\DocksalConfiguration\\Scripts::postUpdate"
+        ],
+        "post-update-cmd": [
+            "Anrt\\Tools\\DocksalConfiguration\\Scripts::postUpdate"
+        ]
     }
 }
