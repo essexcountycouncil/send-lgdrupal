@@ -666,9 +666,11 @@ display:
           not: false
       defaults:
         cache: false
+        css_class: false
         sorts: false
         arguments: false
         header: false
+      css_class: lgd-teaser-list
       header:
         result:
           id: result

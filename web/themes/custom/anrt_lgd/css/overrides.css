@@ -105,11 +105,14 @@
 
 .block-localgov-home-welcome-block h1,
 .block-localgov-home-welcome-block h2 {
-  margin-top: var(--spacing-large);
+  color: var(--color-white);
+  max-width: var(--width-medium);
+  padding-top: var(--spacing-largest);
+  padding-bottom: var(--spacing-largest);
 }
 
 .lgd-region--banner {
-  background-color: #9361b3;
+  background-color: var(--color-accent);
 }
 
 .lgd-region__inner--banner {

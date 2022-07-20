@@ -11,15 +11,18 @@ _core:
   default_config_hash: rn5QKJ4Bk6yVFHk_82zWUr4BcrqIlkJVvX2fItYOKG0
 id: anrt_lgd_localgov_home_welcome_block_base
 theme: anrt_lgd
-region: disabled
-weight: -12
+region: banner
+weight: -13
 provider: null
 plugin: localgov_home_welcome_block
 settings:
   id: localgov_home_welcome_block
   label: 'Home welcome block'
   label_display: '0'
-  provider: null
+  provider: localgov
+  localgov_home_welcome_message:
+    value: '<h1>Special educational needs and disabilities (SEND)</h1>'
+    format: wysiwyg
 visibility:
   request_path:
     id: request_path
