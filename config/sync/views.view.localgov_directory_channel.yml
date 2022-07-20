@@ -504,7 +504,6 @@ display:
           height_unit: px
           hide_empty_map: true
           disable_wheel: false
-          fullscreen_control: true
           gesture_handling: false
           reset_map:
             control: false
@@ -555,6 +554,7 @@ display:
               zoom: 16
               popup: false
               options: ''
+          fullscreen_control: true
       row:
         type: search_api
         options:

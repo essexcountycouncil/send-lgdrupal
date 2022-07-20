@@ -1,0 +1,16 @@
+uuid: 020ef0b4-3fc8-4374-8a55-18b945160b01
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+id: facet_editor
+label: 'Facet editor'
+weight: 6
+is_admin: null
+permissions:
+  - 'access directory facets overview'
+  - 'create directory facets'
+  - 'delete directory facets'
+  - 'edit directory facets'
+  - 'view directory facets'
