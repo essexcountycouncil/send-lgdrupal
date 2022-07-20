@@ -1,0 +1,14 @@
+uuid: 9248d759-32b7-4fdf-9d1d-05ddaa197f81
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.facet_editor
+  module:
+    - user
+id: user_add_role_action.facet_editor
+label: 'Add the Facet editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: facet_editor
