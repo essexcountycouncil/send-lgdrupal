@@ -6,25 +6,9 @@
   font-style: oblique 0deg 20deg;
 }
 
-/*
-  Remove this when https://github.com/localgovdrupal/localgov_base/pull/219
-  gets merged
-*/
-.lgd-row--vertically-centered {
-  align-items: center;
+.path-frontpage {
+  background-color: var(--color-grey-lightest);
 }
-
-/* .main::before {
-  clip-path: ellipse(108% 100% at -7.42% 100%);
-  height: 66vh;
-  background-color: #f5f5f5;
-  content: "";
-  width: 100%;
-  bottom: 0;
-  position: fixed;
-  z-index: -2;
-} */
-
 .main::after {
   clip-path: ellipse(36% 100% at 50% 100%);
   height: 11vh;
@@ -52,14 +36,10 @@
 
 .layout--twocol>.layout__region--first {
   display: flex;
-  /* makes the regions equal heights */
-  /* flex: 0 1 60%; */
 }
 
 .layout--twocol>.layout__region--second {
   display: flex;
-  /* makes the regions equal heights */
-  /* flex: 0 1 40%; */
 }
 
 .paragraph--type--page-section+.paragraph--type--page-section {
@@ -88,6 +68,11 @@
   max-width: var(--width-container);
 }
 
+.layout--twocol .paragraph--type--localgov-text,
+.layout--threecol-33-34-33 .paragraph--type--localgov-text {
+  background-color: var(--color-white);
+}
+
 .layout__region--top .paragraph--type--localgov-text {
   max-width: var(--width-medium);
 }
@@ -95,12 +80,16 @@
 .layout--twocol .layout__region--first .paragraph--type--localgov-text,
 .layout--twocol .layout__region--second .paragraph--type--localgov-text,
 .layout--twocol .layout__region--third .paragraph--type--localgov-text {
-  /* max-width: var(--width-medium); */
   width: 100%;
-  /* background-color: var(--color-grey-lighter); */
   border-radius: var(--border-radius);
   border: 3px solid var(--color-accent);
   padding: var(--spacing-large);
+}
+
+.layout--threecol-33-34-33 .layout__region--first,
+.layout--threecol-33-34-33 .layout__region--second,
+.layout--threecol-33-34-33 .layout__region--third {
+  background-color: var(--color-white);
 }
 
 .block-localgov-home-welcome-block h1,
