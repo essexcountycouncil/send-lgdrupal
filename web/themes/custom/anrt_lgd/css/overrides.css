@@ -1,14 +1,19 @@
 @font-face {
   font-family: 'Lexend-Variable';
-  src: url('../fonts/Lexend-Variable.woff2') format('woff2-variations');
+  /* src: url('../fonts/Lexend-Variable.woff2') format('woff2-variations'); */
+  src: url('../fonts/Lexend[wght].ttf') format('woff2-variations');
   font-weight: 125 950;
   font-stretch: 75% 125%;
   font-style: oblique 0deg 20deg;
 }
 
-.path-frontpage {
+body {
+  font-size: clamp(var(--font-size-medium), 5vw, var(--font-size-large));
+}
+body.path-frontpage {
   background-color: var(--color-grey-lightest);
 }
+
 .main::after {
   clip-path: ellipse(36% 100% at 50% 100%);
   height: 11vh;
@@ -73,7 +78,7 @@
   background-color: var(--color-white);
 }
 
-.layout__region--top .paragraph--type--localgov-text {
+.paragraph--type--localgov-text {
   max-width: var(--width-medium);
 }
 
@@ -86,19 +91,15 @@
   padding: var(--spacing-large);
 }
 
-.layout--threecol-33-34-33 .layout__region--first,
-.layout--threecol-33-34-33 .layout__region--second,
-.layout--threecol-33-34-33 .layout__region--third {
-  background-color: var(--color-white);
+.block-localgov-home-welcome-block {
+  padding: var(--spacing-largest) var(--spacing);
 }
 
 .block-localgov-home-welcome-block h1,
 .block-localgov-home-welcome-block h2 {
   color: var(--color-white);
-  max-width: var(--width-medium);
-  padding-top: var(--spacing-largest);
-  padding-bottom: var(--spacing-largest);
 }
+
 
 .lgd-region--banner {
   background-color: var(--color-accent);
@@ -108,4 +109,20 @@
   width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
+}
+
+.localgov-subsites-overview__content {
+  margin-top: var(--spacing-largest);
+}
+
+.block-localgov-sitewide-search-block .form-submit {
+  padding: var(--spacing-smaller);
+  border-color: var(--color-brand-red);
+}
+.block-localgov-sitewide-search-block .form-submit svg path {
+  fill: var(--color-white);
+}
+.block-localgov-sitewide-search-block .form-submit:focus svg path,
+.block-localgov-sitewide-search-block .form-submit:hover svg path {
+  fill: var(--color-brand-red);
 }

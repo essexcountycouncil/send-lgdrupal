@@ -1,0 +1,8 @@
+.lgd-labelled-icon__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lgd-labelled-icon__icon::before {
+ font-size: var(--font-size-larger);
+}

@@ -25,7 +25,7 @@
   padding: var(--spacing-large);
 }
 
-.media-with-text--media-left, 
+.media-with-text--media-left,
 .media-with-text--media-right {
   justify-content: unset;
   align-content: center;

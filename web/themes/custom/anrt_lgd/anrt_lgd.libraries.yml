@@ -3,7 +3,6 @@ variables:
     base:
       css/variables.css: {}
     component:
-      css/components/call-out-box.css: {}
       css/components/localgov-media-with-text.css: {}
       css/layouts/threecol_33_34_33.css: {}
       css/layouts/twocol.css: {}
@@ -44,3 +43,13 @@ teaser:
   css:
     theme:
       css/components/teaser.css: {}
+
+labelled-icon:
+  css:
+    theme:
+      css/components/labelled-icon.css: {}
+
+callout-box:
+  css:
+    theme:
+      css/components/callout-box.css: {}

@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @file Theme function for the Essex County Council - SEND theme.
+ * @file
+ * Theme function for the Essex County Council - SEND theme.
  */
 
 /**
@@ -22,5 +23,15 @@ function anrt_lgd_preprocess_block(&$variables) {
   if ($variables['plugin_id'] === 'localgov_directories_channel_search_block') {
     $variables['#cache']['contexts'][] = 'url';
 
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function anrt_lgd_theme_suggestions_input_alter(array &$suggestions, array &$variables, $hook) {
+  $element = $variables['element'];
+  if (str_contains($element['#attributes']['data-drupal-selector'], 'submit-localgov-sitewide-search')) {
+    $suggestions[] = $variables['theme_hook_original'] . '_search_icon';
   }
 }

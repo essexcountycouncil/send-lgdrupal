@@ -38,6 +38,13 @@ body {
   --color-accent-alt: #e40037;
   --font-primary: 'Lexend-Variable', arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
+  --font-size-smallest: calc(var(--font-size) * 0.3);
+  --font-size-smaller: calc(var(--font-size) * 0.5);
+  --font-size-small: calc(var(--font-size) * 0.75);
+  --font-size-medium: calc(var(--font-size) * 1);
+  --font-size-large: calc(var(--font-size) * 1.1875);
+  --font-size-larger: calc(var(--font-size) * 1.6875);
+  --font-size-largest: calc(var(--font-size) * 4.3125);
   --line-height: 1.25;
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
@@ -47,11 +54,10 @@ body {
   --border-radius: var(--spacing-smaller);
   --border-width: 3px;
   --border-color: var(--color-accent);
-  --call-out-box-bg-color: var(--color-white);
-  --call-out-box-text-color: var(--color-accent);
+  --call-out-box-bg-color: var(--color-accent);
+  --call-out-box-text-color: var(--color-white);
   --header-search-input-border: 1px solid var(--color-black);
   --color-text: var(--color-accent);
-
   /* Apply Variables */
   --breadcrumbs-divider: ">";
   --breadcrumbs-background-color: var(--color-accent);
@@ -61,19 +67,15 @@ body {
   --button-bg-color: var(--color-grey-light);
   --button-text-color-hover: var(--color-accent-alt);
   --input-border-color: var(--border-color);
-
   --header-search-button-bg-color: var(--color-brand-red);
   --header-search-button-color: var(--color-white);
   --header-search-button-color-hover: var(--color-white);
   --button-border-color: var(--color-white);
-
   /* Page Title */
   --page-title-border: 0;
-
   /* Footer Items */
   --color-section-footer-bg: var(--color-accent);
   --color-footer-text: var(--color-white);
   --color-footer-link: var(--color-white);
   --section-spacing-vertical-footer: var(--spacing-largest);
-
 }

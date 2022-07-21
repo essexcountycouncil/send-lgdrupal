@@ -54,6 +54,6 @@
 
 @media screen and (min-width: 48rem) {
   .region-footer__notice--credit {
-   text-align: right;
+    text-align: right;
   }
 }
