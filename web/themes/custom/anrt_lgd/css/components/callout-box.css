@@ -1,8 +1,3 @@
-.call-out-box {
-  /* border-radius: var(--border-radius);
-  border: var(--border); */
-}
-
 .call-out-box--has-image {
   display: flex;
 }
