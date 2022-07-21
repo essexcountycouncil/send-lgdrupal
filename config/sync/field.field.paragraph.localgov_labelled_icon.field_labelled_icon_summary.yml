@@ -1,0 +1,21 @@
+uuid: cb7e21ea-8f4e-4295-a16c-a25b69e2ab1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_labelled_icon_summary
+    - paragraphs.paragraphs_type.localgov_labelled_icon
+  module:
+    - text
+id: paragraph.localgov_labelled_icon.field_labelled_icon_summary
+field_name: field_labelled_icon_summary
+entity_type: paragraph
+bundle: localgov_labelled_icon
+label: Summary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
