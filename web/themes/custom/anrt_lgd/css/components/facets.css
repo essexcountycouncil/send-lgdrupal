@@ -1,14 +1,14 @@
 .facet-group__title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .facet-group__trigger {
   padding: 0;
+  transition: var(--transition-time);
   border: 0;
   background-color: transparent;
-  transition: var(--transition-time);
 }
 
 .facet-group__trigger[aria-expanded="true"] {

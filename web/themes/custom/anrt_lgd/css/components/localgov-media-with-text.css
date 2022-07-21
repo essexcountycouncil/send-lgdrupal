@@ -8,10 +8,10 @@
 
 .media-with-text--media-top {
   padding: var(--spacing-large);
+  text-align: center;
   border: 1px solid var(--color-grey-lighter);
   border-radius: var(--border-radius);
   background-color: var(--color-grey-lightest);
-  text-align: center;
 }
 
 .media-with-text--media-top .field--name-field-media-image {
@@ -20,15 +20,15 @@
 }
 
 .media-with-text--featured {
+  padding: var(--spacing-large);
   border-radius: var(--border-radius);
   background-color: var(--color-grey-lighter);
-  padding: var(--spacing-large);
 }
 
 .media-with-text--media-left,
 .media-with-text--media-right {
-  justify-content: unset;
   align-content: center;
+  justify-content: unset;
 }
 
 .media-with-text--media-right .media-with-text__body {

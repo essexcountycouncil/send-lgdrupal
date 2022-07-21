@@ -20,9 +20,9 @@
 }
 
 @media screen and (min-width: 48rem) {
-  .layout--threecol-33-34-33>.layout__region--first,
-  .layout--threecol-33-34-33>.layout__region--second,
-  .layout--threecol-33-34-33>.layout__region--third {
+  .layout--threecol-33-34-33 > .layout__region--first,
+  .layout--threecol-33-34-33 > .layout__region--second,
+  .layout--threecol-33-34-33 > .layout__region--third {
     flex: 1;
   }
 }

@@ -30,10 +30,10 @@
   display: inline-flex;
   align-items: center;
   padding: var(--spacing-smallest) var(--spacing);
-  border-radius: var(--spacing);
   text-decoration: none;
-  background-color: var(--color-white);
   color: var(--color-accent);
+  border-radius: var(--spacing);
+  background-color: var(--color-white);
 }
 
 .call-out-box__link:focus,
@@ -42,11 +42,11 @@
 }
 
 .call-out-box__link::after {
-  margin-left: var(--spacing-smaller);
   margin-bottom: 5px;
-  font-size: var(--font-size-larger);
+  margin-left: var(--spacing-smaller);
   content: "￫";
   font-family: arial unicode ms, lucida sans unicode, sans-serif;
+  font-size: var(--font-size-larger);
 }
 
 .call-out-box__link:focus::after,

@@ -36,7 +36,7 @@ body {
   /* Set Variables */
   --color-accent: #5c2472;
   --color-accent-alt: #e40037;
-  --font-primary: 'Lexend-Variable', arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
   --font-size-smaller: calc(var(--font-size) * 0.5);

@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'Lexend-Variable';
+  font-family: "Lexend-Variable";
   /* src: url('../fonts/Lexend-Variable.woff2') format('woff2-variations'); */
-  src: url('../fonts/Lexend[wght].ttf') format('woff2-variations');
+  src: url("../fonts/Lexend[wght].ttf") format("woff2-variations");
   font-weight: 125 950;
-  font-stretch: 75% 125%;
   font-style: oblique 0deg 20deg;
+  font-stretch: 75% 125%;
 }
 
 body {
@@ -15,46 +15,46 @@ body.path-frontpage {
 }
 
 .main::after {
-  clip-path: ellipse(36% 100% at 50% 100%);
-  height: 11vh;
-  background-color: #ffffff;
-  content: "";
-  width: 100%;
-  bottom: 0;
   position: fixed;
   z-index: -1;
+  bottom: 0;
+  width: 100%;
+  height: 11vh;
+  content: "";
+  background-color: #fff;
+  clip-path: ellipse(36% 100% at 50% 100%);
 }
 
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
 
-.menu--main>.menu-item a {
+.menu--main > .menu-item a {
   color: var(--color-white);
 }
 
-.menu--main>.menu-item a:hover {
-  border-color: var(--color-accent);
+.menu--main > .menu-item a:hover {
   color: var(--color-white);
+  border-color: var(--color-accent);
   background-color: unset;
 }
 
-.layout--twocol>.layout__region--first {
+.layout--twocol > .layout__region--first {
   display: flex;
 }
 
-.layout--twocol>.layout__region--second {
+.layout--twocol > .layout__region--second {
   display: flex;
 }
 
-.paragraph--type--page-section+.paragraph--type--page-section {
+.paragraph--type--page-section + .paragraph--type--page-section {
   margin-bottom: var(--spacing-largest);
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
+  padding: var(--spacing-larger);
   border: var(--border);
   border-radius: var(--border-radius);
-  padding: var(--spacing-larger);
 }
 
 .ia-block {
@@ -86,9 +86,9 @@ body.path-frontpage {
 .layout--twocol .layout__region--second .paragraph--type--localgov-text,
 .layout--twocol .layout__region--third .paragraph--type--localgov-text {
   width: 100%;
-  border-radius: var(--border-radius);
-  border: 3px solid var(--color-accent);
   padding: var(--spacing-large);
+  border: 3px solid var(--color-accent);
+  border-radius: var(--border-radius);
 }
 
 .block-localgov-home-welcome-block {
@@ -100,15 +100,14 @@ body.path-frontpage {
   color: var(--color-white);
 }
 
-
 .lgd-region--banner {
   background-color: var(--color-accent);
 }
 
 .lgd-region__inner--banner {
   width: var(--width-container);
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 .localgov-subsites-overview__content {

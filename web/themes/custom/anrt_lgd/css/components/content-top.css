@@ -1,9 +1,9 @@
 .page-node-type-localgov-directory .lgd-region__inner--content-top {
   margin-bottom: var(--spacing-largest);
   padding: var(--spacing-largest);
-  background-color: var(--color-white);
   border: 3px solid var(--color-accent);
   border-radius: var(--border-radius);
+  background-color: var(--color-white);
 }
 
 @media screen and (min-width: 60rem) {
@@ -27,8 +27,8 @@
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k {
-  margin-bottom: 0;
   flex-grow: 1;
+  margin-bottom: 0;
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-actions {
@@ -37,7 +37,7 @@
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k .form-text {
   padding-left: var(--spacing-largest);
-  background-image: url('/themes/custom/anrt_lgd/assets/icons/magnifying-glass.svg');
+  background-image: url("/themes/custom/anrt_lgd/assets/icons/magnifying-glass.svg");
   background-repeat: no-repeat;
   background-position: var(--spacing-smaller) center;
   background-size: var(--spacing-larger);

@@ -17,12 +17,12 @@
 }
 
 .region-footer .menu {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
   font-weight: bold;
-  display: flex;
-  flex-wrap: wrap;
   gap: var(--spacing-largest);
 }
 
