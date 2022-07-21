@@ -31,11 +31,12 @@ body.path-frontpage {
 
 .menu--main > .menu-item a {
   color: var(--color-white);
+  text-decoration: none;
 }
 
 .menu--main > .menu-item a:hover {
   color: var(--color-white);
-  border-color: var(--color-accent);
+  border-color: var(--color-white);
   background-color: unset;
 }
 
