@@ -21,7 +21,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           facet.classList.add('js-processed');
           const expand = facet.previousElementSibling;
           const trigger = expand.querySelector('.facet-group__trigger');
-          trigger.addEventListener('click', function() {
+          expand.addEventListener('click', function() {
             const expanded = trigger.getAttribute('aria-expanded');
             if (expanded === 'false') {
               facet.style.display = 'block';
