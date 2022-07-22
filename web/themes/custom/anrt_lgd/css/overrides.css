@@ -96,6 +96,10 @@ body.path-frontpage {
   padding: var(--spacing-largest) var(--spacing);
 }
 
+.block-localgov-home-welcome-block h1 {
+  font-size: clamp(var(--font-size-larger), 10vw, 4.3125rem);
+}
+
 .block-localgov-home-welcome-block h1,
 .block-localgov-home-welcome-block h2 {
   color: var(--color-white);
@@ -106,7 +110,7 @@ body.path-frontpage {
 }
 
 .lgd-region__inner--banner {
-  width: var(--width-container);
+  max-width: var(--width-container);
   margin-right: auto;
   margin-left: auto;
 }

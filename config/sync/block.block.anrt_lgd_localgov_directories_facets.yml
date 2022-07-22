@@ -19,10 +19,11 @@ provider: null
 plugin: 'facet_block:localgov_directories_facets'
 settings:
   id: 'facet_block:localgov_directories_facets'
-  label: 'Directory facets'
-  label_display: '0'
+  label: 'Filter by'
+  label_display: visible
   provider: facets
-  block_id: localgov_directories_facets
+  context_mapping: {  }
+  block_id: anrt_lgd_localgov_directories_facets
 visibility:
   node_type:
     id: node_type

@@ -36,11 +36,17 @@
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k .form-text {
+  padding: var(--spacing-smaller);
   padding-left: var(--spacing-largest);
   background-image: url("/themes/custom/anrt_lgd/assets/icons/magnifying-glass.svg");
   background-repeat: no-repeat;
   background-position: var(--spacing-smaller) center;
-  background-size: var(--spacing-larger);
+  background-size: var(--spacing-large);
+}
+
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit {
+  padding: var(--spacing-small);
+  border: 0;
 }
 
 .view-localgov-directory-channel .view-header {

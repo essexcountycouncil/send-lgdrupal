@@ -44,7 +44,7 @@ body {
   --font-size-medium: calc(var(--font-size) * 1);
   --font-size-large: calc(var(--font-size) * 1.1875);
   --font-size-larger: calc(var(--font-size) * 1.6875);
-  --font-size-largest: calc(var(--font-size) * 4.3125);
+  --font-size-largest: calc(var(--font-size) * 2);
   --line-height: 1.25;
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
