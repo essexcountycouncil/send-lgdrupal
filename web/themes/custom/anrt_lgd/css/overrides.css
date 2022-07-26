@@ -25,6 +25,25 @@ body.path-frontpage {
   clip-path: ellipse(36% 100% at 50% 100%);
 }
 
+input,
+select,
+option,
+textarea,
+button {
+  font-size: var(--font-size-medium);
+  font-family: var(--font-primary); /* @TODO: remove font-family when this is added to localgov_base - https://github.com/localgovdrupal/localgov_base/issues/254 */
+}
+
+input,
+textarea {
+  color: var(--color-grey-medium);
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--color-brand-red);
+}
+
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
@@ -110,10 +129,25 @@ body.path-frontpage {
 }
 
 .lgd-region__inner--banner {
+  position: relative;
   max-width: var(--width-container);
   margin-right: auto;
   margin-left: auto;
 }
+
+
+/* 
+  @TODO: add curve to here:
+.lgd-region__inner--banner::after {
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+    height: 11vh;
+    content: "";
+    background-color: #fff;
+    clip-path: ellipse(36% 100% at 50% 100%);
+} */
 
 .localgov-subsites-overview__content {
   margin-top: var(--spacing-largest);
@@ -129,4 +163,9 @@ body.path-frontpage {
 .block-localgov-sitewide-search-block .form-submit:focus svg path,
 .block-localgov-sitewide-search-block .form-submit:hover svg path {
   fill: var(--color-brand-red);
+}
+
+.pager__item.is-active a {
+  text-decoration: none;
+  font-weight: 700;
 }

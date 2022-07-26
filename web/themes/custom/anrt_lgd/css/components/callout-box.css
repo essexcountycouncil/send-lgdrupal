@@ -1,17 +1,15 @@
-.call-out-box--has-image {
-  display: flex;
-}
-
-.call-out-box__image,
-.call-out-box__content {
-  width: 50%;
-  margin: 0;
-}
 .call-out-box--has-image .call-out-box__content {
-  width: 50%;
   padding-right: 0;
   border-radius: 0;
   background-color: var(--call-out-box-bg-color);
+}
+
+@media screen and (min-width: 48rem) {
+  .call-out-box__image,
+  .call-out-box__image + .call-out-box__content {
+  width: 50%;
+  margin: 0;
+}
 }
 
 .call-out-box h2 {
@@ -24,7 +22,7 @@
 .call-out-box__link {
   display: inline-flex;
   align-items: center;
-  padding: var(--spacing-smallest) var(--spacing);
+  padding: var(--spacing-small);
   text-decoration: none;
   color: var(--color-accent);
   border-radius: var(--spacing);
@@ -36,15 +34,16 @@
   text-decoration: underline;
 }
 
-.call-out-box__link::after {
-  margin-bottom: 5px;
+.call-out-box__link .lgd-icon {
+  display: inline-block;
   margin-left: var(--spacing-smaller);
-  content: "￫";
-  font-family: arial unicode ms, lucida sans unicode, sans-serif;
-  font-size: var(--font-size-larger);
+  transition: var(--transition-time);
+}
+.call-out-box__link:focus .lgd-icon,
+.call-out-box__link:hover .lgd-icon {
+  transform: translateX(3px);
 }
 
-.call-out-box__link:focus::after,
-.call-out-box__link:hover::after {
-  text-decoration: none;
+.call-out-box__link .lgd-icon svg path {
+  fill: var(--color-accent);
 }

@@ -45,8 +45,13 @@
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit {
-  padding: var(--spacing-small);
+  padding: 11px;
   border: 0;
+}
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:focus,
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 .view-localgov-directory-channel .view-header {

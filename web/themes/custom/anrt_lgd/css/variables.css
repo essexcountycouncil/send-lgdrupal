@@ -36,6 +36,9 @@ body {
   /* Set Variables */
   --color-accent: #5c2472;
   --color-accent-alt: #e40037;
+  --color-brand-red: #910563;
+  --color-grey-medium: #7d7878;
+  --color-black: #1a191a;
   --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
@@ -44,13 +47,11 @@ body {
   --font-size-medium: calc(var(--font-size) * 1);
   --font-size-large: calc(var(--font-size) * 1.1875);
   --font-size-larger: calc(var(--font-size) * 1.6875);
-  --font-size-largest: calc(var(--font-size) * 2);
+  --font-size-largest: calc(var(--font-size) * 2.5);
   --line-height: 1.25;
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
   --color-link: var(--color-accent);
-  --color-black: #1a191a;
-  --color-brand-red: #910563;
   --border-radius: var(--spacing-smaller);
   --border-width: 3px;
   --border-color: var(--color-accent);
