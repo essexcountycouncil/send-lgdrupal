@@ -22,7 +22,9 @@ function anrt_lgd_preprocess_block(&$variables) {
   // from a previous search is not carried through to a new user.
   if ($variables['plugin_id'] === 'localgov_directories_channel_search_block') {
     $variables['#cache']['contexts'][] = 'url';
-
+  }
+  if ($variables['plugin_id'] === 'system_breadcrumb_block') {
+    $variables['#cache']['contexts'][] = 'url';
   }
 }
 
