@@ -609,19 +609,6 @@ display:
       cache:
         type: none
       sorts:
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_localgov_directories_index_default
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: search_api_relevance
-          exposed: false
         localgov_directory_title_sort:
           id: localgov_directory_title_sort
           table: search_api_index_localgov_directories_index_default
