@@ -6,7 +6,7 @@
 .layout--threecol-33-34-33 {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing);
+  gap: var(--spacing-larger);
 }
 
 .layout--threecol-33-34-33 > .layout__region {
