@@ -623,20 +623,7 @@ display:
           expose:
             label: Relevance
             field_identifier: search_api_relevance
-          exposed: true
-        localgov_directory_title_sort:
-          id: localgov_directory_title_sort
-          table: search_api_index_localgov_directories_index_default
-          field: localgov_directory_title_sort
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: ASC
-          expose:
-            label: 'Title (sort)'
-            field_identifier: localgov_directory_title_sort
-          exposed: true
+          exposed: false
       arguments:
         localgov_directory_channels:
           id: localgov_directory_channels
@@ -705,8 +692,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.localgov_directories_index_default'

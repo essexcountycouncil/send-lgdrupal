@@ -136,9 +136,9 @@ input[type="submit"] {
 }
 
 
-/* 
-  @TODO: add curve to here:
-.lgd-region__inner--banner::after {
+
+/* @TODO: add curve to here: */
+/* .lgd-region__inner--banner::after {
     position: fixed;
     z-index: -1;
     bottom: 0;

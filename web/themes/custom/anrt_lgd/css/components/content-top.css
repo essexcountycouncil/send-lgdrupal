@@ -46,10 +46,6 @@
   background-size: var(--spacing-large);
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-sort-order select {
-  padding: var(--spacing-smaller);
-}
-
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit {
   padding: 11px;
   border: 0;
