@@ -634,7 +634,7 @@ display:
           expose:
             label: 'Title (sort)'
             field_identifier: localgov_directory_title_sort
-          exposed: false
+          exposed: true
       arguments:
         localgov_directory_channels:
           id: localgov_directory_channels
@@ -703,6 +703,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.localgov_directories_index_default'

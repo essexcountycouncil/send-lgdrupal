@@ -33,6 +33,8 @@ directories:
   css:
     theme:
       css/components/directories.css: {}
+  js:
+    js/directories.js: {}
 
 breadcrumbs:
   css:
