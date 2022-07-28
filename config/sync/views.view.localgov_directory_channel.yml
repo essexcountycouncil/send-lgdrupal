@@ -230,8 +230,10 @@ display:
               localgov_contributor: '0'
               localgov_news_editor: '0'
               localgov_user_manager: '0'
+              facet_editor: '0'
+              webform_manager: '0'
             expose_fields: false
-            placeholder: 'e.g. ''autism'', ''Chelmsford'', ''playcentre'''
+            placeholder: ''
             searched_fields_id: ''
           is_grouped: false
           group_info:
@@ -609,6 +611,19 @@ display:
       cache:
         type: none
       sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_localgov_directories_index_default
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Relevance
+            field_identifier: search_api_relevance
+          exposed: true
         localgov_directory_title_sort:
           id: localgov_directory_title_sort
           table: search_api_index_localgov_directories_index_default
