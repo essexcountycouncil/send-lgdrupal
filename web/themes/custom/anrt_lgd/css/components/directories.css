@@ -2,3 +2,66 @@
 .localgov-directories-page__group-enquiries > legend {
   display: none;
 }
+
+.localgov-directories-page__content-contacts,
+.localgov-directories-page__content-contacts a {
+  color: var(--color-black);
+  font-size: var(--font-size-medium);
+}
+.localgov-directories-page__contact {
+  display: flex;
+  gap: var(--spacing-smaller);
+  align-items: start;
+  margin-bottom: var(--spacing);
+}
+
+.localgov-directories-page__contact .lgd-icon {
+  position: relative;
+  top: 2px;
+}
+
+.localgov-directories-page__contact .lgd-icon svg path {
+  fill: var(--color-black);
+}
+
+.localgov-directories-page__contact a {
+  text-decoration: none;
+}
+
+.localgov-directories-page__contact a:focus,
+.localgov-directories-page__contact a:hover {
+  text-decoration: underline;
+}
+
+
+.localgov-directories-page__group-venue .field--name-postal-address,
+.localgov-directories-page__contact {
+  padding-right: var(--spacing-largest);
+  padding-left: var(--spacing-largest);
+}
+
+.localgov-directories-page__contact-container {
+  padding: var(--spacing);
+  border: var(--border);
+}
+
+.localgov-directories-page__contact-container + .localgov-directories-page__contact-container {
+  margin-top: var(--spacing);
+}
+
+.localgov-directories-page__opening-times {
+  padding-top: var(--spacing-large);
+}
+
+.localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__label {
+  margin-bottom: var(--spacing);
+}
+
+.localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__item {
+  background-color: var(--color-grey-lighter);
+  padding: var(--spacing);
+}
+
+.localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__item > *:last-child {
+  margin-bottom: 0;
+}

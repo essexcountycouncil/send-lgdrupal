@@ -42,9 +42,93 @@
       {{ content|without('group_venue', 'group_enquiries', 'group_organisation') }}
     </div>
     <div class="lgd-row__one-third localgov-directories-page__content-contacts">
-      {{ content.group_venue }}
-      {{ content.group_organisation }}
-      {{ content.group_enquiries }}
+      <div class="localgov-directories-page__contact-container">
+        
+        {% block venue %}
+          {{ content.group_venue }}
+        {% endblock %}
+        
+        {% block organisation %}
+          {{ content.group_organisation }}
+        {% endblock %}
+        
+        {% block enquiries %}
+          {% if node.localgov_directory_email.value
+              or node.localgov_directory_phone.value
+              or node.localgov_directory_website.value
+              or node.localgov_directory_name.value
+              or node.localgov_directory_job_title.value 
+              or node.localgov_directory_opening_times.value 
+          %}
+
+              <div class="localgov-directories-page__contact">
+                <mark>@TODO Add correct icons</mark>
+              </div>
+            {% if node.localgov_directory_name.value %}
+              <div class="localgov-directories-page__contact">
+                  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                      icon_name: 'heart',
+                      icon_wrapper_element: 'div',
+                    }
+                  %}
+                {{ content.group_enquiries.localgov_directory_name }}
+              </div>
+            {% endif %}
+
+            {% if node.localgov_directory_job_title.value %}
+              <div class="localgov-directories-page__contact">
+                  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                      icon_name: 'heart',
+                      icon_wrapper_element: 'div',
+                    }
+                  %}
+                {{ content.group_enquiries.localgov_directory_job_title }}
+              </div>
+            {% endif %}
+
+            {% if node.localgov_directory_phone.value %}
+              <div class="localgov-directories-page__contact">
+                  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                      icon_name: 'heart',
+                      icon_wrapper_element: 'div',
+                    }
+                  %}
+                {{ content.group_enquiries.localgov_directory_phone }}
+              </div>
+            {% endif %}
+
+            {% if node.localgov_directory_email.value %}
+              <div class="localgov-directories-page__contact">
+                  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                      icon_name: 'heart',
+                      icon_wrapper_element: 'div',
+                    }
+                  %}
+                  <a href="mailto:{{ node.localgov_directory_email.value }}">{{ node.localgov_directory_email.value }}</a>
+              </div>
+            {% endif %}
+
+            {% if node.localgov_directory_website.value %}
+              <div class="localgov-directories-page__contact">
+                  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                      icon_name: 'heart',
+                      icon_wrapper_element: 'div',
+                    }
+                  %}
+                {{ content.group_enquiries.localgov_directory_website }}
+              </div>
+            {% endif %}
+          </div>
+          {% if node.localgov_directory_opening_times.value %}
+            <div class="localgov-directories-page__contact-container">
+              <div class="localgov-directories-page__opening-times">
+                {{ content.group_enquiries.localgov_directory_opening_times }}
+              </div>
+            </div>
+          {% endif %}
+
+        {% endif %}
+      {% endblock %}
     </div>
   </div>
 

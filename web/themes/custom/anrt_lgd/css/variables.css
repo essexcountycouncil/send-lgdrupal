@@ -59,8 +59,13 @@ body {
   --call-out-box-bg-color: var(--color-accent);
   --call-out-box-text-color: var(--color-white);
   --header-search-input-border: 1px solid var(--color-black);
-  --color-text: var(--color-accent);
   /* Apply Variables */
+  --heading-1-color: var(--color-accent);
+  --heading-2-color: var(--color-accent);
+  --heading-3-color: var(--color-accent);
+  --heading-4-color: var(--color-accent);
+  --heading-5-color: var(--color-accent);
+  --heading-6-color: var(--color-accent);
   --breadcrumbs-divider: ">";
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
