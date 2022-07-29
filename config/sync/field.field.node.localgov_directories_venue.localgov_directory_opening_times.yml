@@ -13,7 +13,7 @@ id: node.localgov_directories_venue.localgov_directory_opening_times
 field_name: localgov_directory_opening_times
 entity_type: node
 bundle: localgov_directories_venue
-label: 'Venue opening times'
+label: 'Opening times'
 description: ''
 required: false
 translatable: false

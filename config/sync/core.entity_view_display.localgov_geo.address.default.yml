@@ -36,7 +36,6 @@ content:
       height_unit: px
       hide_empty_map: false
       disable_wheel: false
-      fullscreen_control: true
       gesture_handling: false
       reset_map:
         control: false
@@ -52,7 +51,6 @@ content:
         minZoom: 1
         maxZoom: 18
         zoomFiner: 0
-      weight: null
       icon:
         iconType: marker
         iconUrl: ''
@@ -78,6 +76,9 @@ content:
       leaflet_markercluster:
         control: false
         options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
       path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
       geocoder:
         control: false
@@ -93,12 +94,13 @@ content:
           zoom: 16
           popup: false
           options: ''
+      weight: null
     third_party_settings: {  }
     weight: 0
     region: content
   postal_address:
     type: address_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
