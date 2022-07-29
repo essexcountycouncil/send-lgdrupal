@@ -35,6 +35,7 @@
 body {
   /* Set Variables */
   --color-accent: #5c2472;
+  --color-accent-light-transparent: rgba(147, 97, 179, 0.15);
   --color-accent-alt: #e40037;
   --color-brand-red: #910563;
   --color-grey-medium: #7d7878;
