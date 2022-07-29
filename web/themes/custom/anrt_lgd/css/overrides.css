@@ -135,8 +135,12 @@ input[type="submit"] {
   margin-left: auto;
 }
 
+.path-frontpage .lgd-region--banner {
+  background-image: linear-gradient(to right, #642e7c 50%, var(--color-accent) 50%);
+}
+
 .path-frontpage .lgd-region__inner--banner {
-  background-image: radial-gradient(at bottom left, var(--color-accent-light-transparent) 71%, var(--color-accent) 30%);
+  background-image: radial-gradient(at bottom left, var(--color-accent-light) 71%, var(--color-accent) 30%);
 }
 
 .localgov-subsites-overview__content {
