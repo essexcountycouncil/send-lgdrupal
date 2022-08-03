@@ -10,8 +10,12 @@ libraries-extend:
     - anrt_lgd/overrides
   localgov_base/footer:
     - anrt_lgd/footer
+  localgov_base/guide-nav:
+    - anrt_lgd/guides
   localgov_base/directories:
     - anrt_lgd/directories
+  localgov_base/prev-next:
+    - anrt_lgd/prev-next
   localgov_base/callout-box:
     - anrt_lgd/callout-box
 

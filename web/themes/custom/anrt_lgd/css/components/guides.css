@@ -1,0 +1,5 @@
+.lgd-guide-nav {
+  border: var(--border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+}

@@ -1,0 +1,9 @@
+.lgd-prev-next__link {
+  background-color: var(--color-accent);
+}
+
+.lgd-prev-next__link:focus,
+.lgd-prev-next__link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}

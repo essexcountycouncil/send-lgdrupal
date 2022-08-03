@@ -17,6 +17,16 @@ footer:
     theme:
       css/components/footer.css: {}
 
+guides:
+  css:
+    theme:
+      css/components/guides.css: {}
+
+prev-next:
+  css:
+    theme:
+      css/components/prev-next.css: {}
+
 facets:
   css:
     theme:
