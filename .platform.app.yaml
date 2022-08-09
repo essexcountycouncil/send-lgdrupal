@@ -21,7 +21,7 @@ build:
 relationships:
   database: 'mysqldb:mysql'
   # redis: 'rediscache:redis'
-  # solr: 'solrsearch:solr'
+  solr: 'solrsearch:solr'
 
 # Add additional PHP extensions.
 # runtime:
