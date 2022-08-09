@@ -198,34 +198,31 @@ display:
           fields:
             - rendered_item
       style:
-        type: html_list
+        type: default
         options:
           row_class: ''
           default_row_class: true
           uses_fields: false
-          type: ol
-          wrapper_class: ''
-          class: 'search-results lgd-search-results-list'
       row:
         type: search_api
         options:
           view_modes:
             'entity:node':
-              localgov_directories_org: search_result
-              localgov_directories_page: search_result
-              localgov_directories_venue: search_result
-              localgov_directory: search_result
-              localgov_guides_overview: search_result
-              localgov_guides_page: search_result
-              localgov_news_article: search_result
-              localgov_newsroom: search_result
-              localgov_services_landing: search_result
-              localgov_services_page: search_result
-              localgov_services_sublanding: search_result
-              localgov_step_by_step_overview: search_result
-              localgov_step_by_step_page: search_result
-              localgov_subsites_overview: search_result
-              localgov_subsites_page: search_result
+              localgov_directories_org: teaser
+              localgov_directories_page: teaser
+              localgov_directories_venue: teaser
+              localgov_directory: teaser
+              localgov_guides_overview: teaser
+              localgov_guides_page: teaser
+              localgov_news_article: teaser
+              localgov_newsroom: teaser
+              localgov_services_landing: teaser
+              localgov_services_page: teaser
+              localgov_services_sublanding: teaser
+              localgov_step_by_step_overview: teaser
+              localgov_step_by_step_page: teaser
+              localgov_subsites_overview: teaser
+              localgov_subsites_page: teaser
       query:
         type: search_api_query
         options:
@@ -233,6 +230,7 @@ display:
           skip_access: false
           preserve_facet_query_args: false
       relationships: {  }
+      css_class: lgd-teaser-list
       header:
         area:
           id: area
