@@ -1,0 +1,21 @@
+uuid: d8c50e44-597c-4251-a317-24bc8786418b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_additional_age
+    - node.type.localgov_directories_venue
+  module:
+    - text
+id: node.localgov_directories_venue.field_directory_additional_age
+field_name: field_directory_additional_age
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Additional age requirements'
+description: "Include any variations to the age groups selected for your service. \r\n<br><br>\r\nThis could be an age range that does not fit into a listed bracket, such as <em>7-16</em> or additional eligibility connected to age, such as <em>up to 18 with an EHCP</em>."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

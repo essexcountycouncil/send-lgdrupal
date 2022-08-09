@@ -1,0 +1,21 @@
+uuid: cbf39fb0-8d49-4127-8f3d-f1e896bc5338
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_how_to_access
+    - node.type.localgov_directories_org
+  module:
+    - text
+id: node.localgov_directories_org.field_directory_how_to_access
+field_name: field_directory_how_to_access
+entity_type: node
+bundle: localgov_directories_org
+label: 'How to access'
+description: 'Such as: <em>contact by phone or book a place via our website</em>.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

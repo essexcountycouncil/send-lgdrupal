@@ -1,0 +1,21 @@
+uuid: b8fe65ad-75f5-4c27-bbd9-be986c8a8a4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_siblings_attend
+    - node.type.localgov_directories_venue
+  module:
+    - options
+id: node.localgov_directories_venue.field_directory_siblings_attend
+field_name: field_directory_siblings_attend
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Can siblings without SEND also attend'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

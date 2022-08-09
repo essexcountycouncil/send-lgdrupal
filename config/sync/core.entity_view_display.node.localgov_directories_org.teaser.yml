@@ -5,6 +5,18 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.field_directory_additional_age
+    - field.field.node.localgov_directories_org.field_directory_available_online
+    - field.field.node.localgov_directories_org.field_directory_cost
+    - field.field.node.localgov_directories_org.field_directory_eligibility
+    - field.field.node.localgov_directories_org.field_directory_facebook
+    - field.field.node.localgov_directories_org.field_directory_free_everyone
+    - field.field.node.localgov_directories_org.field_directory_how_help
+    - field.field.node.localgov_directories_org.field_directory_how_to_access
+    - field.field.node.localgov_directories_org.field_directory_instagram
+    - field.field.node.localgov_directories_org.field_directory_siblings_attend
+    - field.field.node.localgov_directories_org.field_directory_summary
+    - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -32,7 +44,24 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
+  field_directory_additional_age: true
+  field_directory_available_online: true
+  field_directory_cost: true
+  field_directory_eligibility: true
+  field_directory_facebook: true
+  field_directory_free_everyone: true
+  field_directory_how_help: true
+  field_directory_how_to_access: true
+  field_directory_instagram: true
+  field_directory_siblings_attend: true
+  field_directory_summary: true
+  field_directory_twitter: true
   links: true
   localgov_directory_channels: true
   localgov_directory_email: true

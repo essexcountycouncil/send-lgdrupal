@@ -1,0 +1,19 @@
+uuid: fdca00e6-b551-4a64-8b65-5743e6d8b1d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_summary
+    - node.type.localgov_directories_venue
+id: node.localgov_directories_venue.field_directory_summary
+field_name: field_directory_summary
+entity_type: node
+bundle: localgov_directories_venue
+label: Summary
+description: 'A short summary of your service in one or two sentences, such as: <em>A charity providing information, support and services to those with ADHD</em>.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

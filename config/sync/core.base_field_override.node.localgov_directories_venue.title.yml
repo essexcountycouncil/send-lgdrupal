@@ -1,0 +1,18 @@
+uuid: 0f47adf6-8447-4e8c-86ce-a8169b67377a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_venue
+id: node.localgov_directories_venue.title
+field_name: title
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Service Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

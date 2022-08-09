@@ -1,0 +1,19 @@
+uuid: ffbf2af3-d6be-4989-899f-d2a36e3624fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_twitter
+    - node.type.localgov_directories_org
+id: node.localgov_directories_org.field_directory_twitter
+field_name: field_directory_twitter
+entity_type: node
+bundle: localgov_directories_org
+label: Twitter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

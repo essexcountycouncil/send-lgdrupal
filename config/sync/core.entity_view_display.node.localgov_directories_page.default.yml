@@ -4,6 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_page.body
+    - field.field.node.localgov_directories_page.field_directory_additional_age
+    - field.field.node.localgov_directories_page.field_directory_available_online
+    - field.field.node.localgov_directories_page.field_directory_cost
+    - field.field.node.localgov_directories_page.field_directory_eligibility
+    - field.field.node.localgov_directories_page.field_directory_facebook
+    - field.field.node.localgov_directories_page.field_directory_free_everyone
+    - field.field.node.localgov_directories_page.field_directory_how_help
+    - field.field.node.localgov_directories_page.field_directory_how_to_access
+    - field.field.node.localgov_directories_page.field_directory_instagram
+    - field.field.node.localgov_directories_page.field_directory_siblings_attend
+    - field.field.node.localgov_directories_page.field_directory_summary
+    - field.field.node.localgov_directories_page.field_directory_twitter
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -19,6 +31,7 @@ dependencies:
     - address
     - field_group
     - link
+    - options
     - telephone
     - text
     - user
@@ -63,6 +76,93 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_directory_additional_age:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_directory_available_online:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_directory_cost:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_directory_eligibility:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_directory_facebook:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_directory_free_everyone:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_directory_how_help:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_directory_how_to_access:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_directory_instagram:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_directory_siblings_attend:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_directory_summary:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_directory_twitter:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 19
     region: content
   localgov_directory_address:
     type: address_default

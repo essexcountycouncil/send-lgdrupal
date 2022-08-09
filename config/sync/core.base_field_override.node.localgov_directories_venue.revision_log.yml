@@ -1,0 +1,20 @@
+uuid: de7e7d41-1590-4bfc-9ef8-64e4755c3174
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_venue
+id: node.localgov_directories_venue.revision_log
+field_name: revision_log
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Revision log message'
+description: 'Briefly describe the changes you have made.'
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string_long

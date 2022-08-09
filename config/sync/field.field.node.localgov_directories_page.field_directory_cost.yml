@@ -1,0 +1,21 @@
+uuid: 6268fc94-108c-4f53-b433-6555f848fe93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_cost
+    - node.type.localgov_directories_page
+  module:
+    - text
+id: node.localgov_directories_page.field_directory_cost
+field_name: field_directory_cost
+entity_type: node
+bundle: localgov_directories_page
+label: Cost
+description: "Include the cost of your service, including any variations to that cost.\r\n<br><br>\r\nSuch as: <em>£6.00 per child, adults free</em> or <em>free of charge with referral from social worker</em>."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
