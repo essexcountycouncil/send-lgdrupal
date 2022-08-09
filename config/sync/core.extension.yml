@@ -47,6 +47,7 @@ module:
   image: 0
   image_widget_crop: 0
   inline_entity_form: 0
+  language: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -108,6 +109,9 @@ module:
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
+  search_api_solr: 0
+  search_api_solr_admin: 0
+  search_api_spellcheck: 0
   simple_sitemap: 0
   system: 0
   tablefield: 0
