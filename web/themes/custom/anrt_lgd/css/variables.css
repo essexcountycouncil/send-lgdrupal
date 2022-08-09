@@ -39,12 +39,13 @@ body {
   --color-accent-alt: #e40037;
   --color-brand-red: #910563;
   --color-grey-medium: #7d7878;
+  --color-grey-darkest: #413c3c;
   --color-black: #1a191a;
   --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
   --font-size-smaller: calc(var(--font-size) * 0.5);
-  --font-size-small: calc(var(--font-size) * 0.75);
+  --font-size-small: calc(var(--font-size) * 0.875);
   --font-size-medium: calc(var(--font-size) * 1);
   --font-size-large: calc(var(--font-size) * 1.1875);
   --font-size-larger: calc(var(--font-size) * 1.6875);
@@ -67,7 +68,9 @@ body {
   --heading-5-color: var(--color-accent);
   --heading-6-color: var(--color-accent);
   --breadcrumbs-divider: ">";
+  --breadcrumbs-link-color: var(--color-grey-darkest);
   --alert-banner-bg-color-minor: var(--color-accent-alt);
+  --breadcrumbs-font-size: var(--font-size-small);
   --color-section-pre-footer-bg: var(--color-accent);
   --button-bg-color: var(--color-grey-light);
   --button-text-color-hover: var(--color-accent-alt);

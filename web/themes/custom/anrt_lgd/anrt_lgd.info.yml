@@ -18,6 +18,8 @@ libraries-extend:
     - anrt_lgd/prev-next
   localgov_base/callout-box:
     - anrt_lgd/callout-box
+  localgov_base/breadcrumbs:
+    - anrt_lgd/breadcrumbs
 
 regions:
   tabs: "Tabs"
