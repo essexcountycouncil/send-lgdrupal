@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.localgov_sitewide_search
   module:
     - search_api
+    - search_api_spellcheck
     - user
 _core:
   default_config_hash: KoxOFLHqE-nM417dIKlSTjEDhiMYObj9XQUGSxHJASM
@@ -178,6 +179,11 @@ display:
               authenticated: '0'
               localgov_editor: '0'
               localgov_author: '0'
+              localgov_contributor: '0'
+              localgov_news_editor: '0'
+              localgov_user_manager: '0'
+              facet_editor: '0'
+              webform_manager: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -193,9 +199,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          parse_mode: direct
+          parse_mode: fuzzy_terms
           min_length: null
           fields:
+            - aggregated_field
             - rendered_item
       style:
         type: default
@@ -255,6 +262,18 @@ display:
           plugin_id: result
           empty: false
           content: 'Showing items @start to @end of @total results'
+        search_api_spellcheck_did_you_mean:
+          id: search_api_spellcheck_did_you_mean
+          table: views
+          field: search_api_spellcheck_did_you_mean
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_spellcheck_did_you_mean
+          empty: true
+          search_api_spellcheck_count: 1
+          search_api_spellcheck_hide_on_result: 0
+          search_api_spellcheck_collate: true
       footer: {  }
       display_extenders: {  }
     cache_metadata:

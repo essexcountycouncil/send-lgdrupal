@@ -33,6 +33,11 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -106,5 +111,6 @@ content:
     weight: 12
     region: content
 hidden:
+  langcode: true
   localgov_directory_search: true
   search_api_excerpt: true

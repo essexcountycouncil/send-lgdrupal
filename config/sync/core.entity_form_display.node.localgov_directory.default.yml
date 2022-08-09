@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.localgov_directory.localgov_directory_facets_enable
     - field.field.node.localgov_directory.localgov_services_parent
     - node.type.localgov_directory
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - path
     - text
 _core:
@@ -34,6 +36,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   localgov_directory_channel_types:
     type: options_buttons
     weight: 123
@@ -55,6 +64,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path

@@ -124,6 +124,7 @@ content:
     weight: 8
     region: content
 hidden:
+  langcode: true
   links: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true

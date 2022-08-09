@@ -37,7 +37,6 @@ content:
       height_unit: px
       hide_empty_map: false
       disable_wheel: false
-      fullscreen_control: true
       gesture_handling: false
       reset_map:
         control: false
@@ -93,6 +92,7 @@ content:
           zoom: 16
           popup: false
           options: ''
+      fullscreen_control: true
     third_party_settings: {  }
     weight: 0
     region: content
@@ -106,6 +106,7 @@ content:
 hidden:
   created: true
   external_id: true
+  langcode: true
   search_api_excerpt: true
   status: true
   uid: true
