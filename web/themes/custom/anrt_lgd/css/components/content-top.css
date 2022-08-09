@@ -20,7 +20,7 @@
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block form {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing);
+  gap: var(--spacing-smaller);
   align-items: baseline;
 
 }
@@ -40,11 +40,15 @@
   background-repeat: no-repeat;
   background-position: var(--spacing-smaller) center;
   background-size: var(--spacing-large);
+  border-color: var(--color-black);
+  border-width: 1px;
+  color: var(--color-black);
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit {
-  padding: 11px;
+  padding: 9px;
   border: 0;
+  background-color: var(--color-blue);
 }
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:focus,
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:hover {

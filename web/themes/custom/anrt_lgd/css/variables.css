@@ -38,9 +38,12 @@ body {
   --color-accent-light: #642e7c;
   --color-accent-alt: #e40037;
   --color-brand-red: #910563;
+  --color-grey-lighter: #c5c5c5;
+  --color-grey-lightest: #faf9f6;
   --color-grey-medium: #7d7878;
   --color-grey-darkest: #413c3c;
-  --color-black: #1a191a;
+  --color-black: #1d1d1d;
+  --color-blue: #4179aa;
   --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
@@ -51,7 +54,6 @@ body {
   --font-size-larger: calc(var(--font-size) * 1.6);
   --font-size-largest: calc(var(--font-size) * 2);
   --line-height: 1.25;
-  --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --header-logo-width: 15rem;
   --color-link: var(--color-accent);
   --border-radius: var(--spacing-smaller);
@@ -79,6 +81,7 @@ body {
   --header-search-button-color: var(--color-white);
   --header-search-button-color-hover: var(--color-white);
   --button-border-color: var(--color-white);
+  --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   /* Page Title */
   --page-title-border: 0;
   /* Footer Items */

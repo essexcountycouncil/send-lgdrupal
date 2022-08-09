@@ -90,8 +90,6 @@
   {{ attach_library('localgov_base/teaser') }}
 {% endif %}
 
-{{ attach_library('anrt_lgd/teaser') }}
-
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
 
   {# 
@@ -128,6 +126,7 @@
           <div class="lgd-teaser__location-icon">
             {% include "@localgov_base/includes/icons/icon.html.twig" with {
                 icon_name: 'map-marker-alt',
+                icon_classes: 'lgd-icon--small',
               }
             %}
           </div>

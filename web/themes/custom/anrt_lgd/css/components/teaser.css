@@ -1,6 +1,7 @@
 .lgd-teaser__location-container {
   display: flex;
   margin-bottom: var(--spacing);
+  align-items: center;
 }
 
 .lgd-teaser__location-icon {
@@ -8,5 +9,10 @@
 }
 
 .lgd-teaser__location-icon svg path {
-  fill: var(--color-accent);
+  fill: var(--color-accent-alt);
+}
+
+.lgd-teaser-list .views-row {
+  border-width: 1px;
+  border-bottom-color: var(--color-grey-lighter);
 }
