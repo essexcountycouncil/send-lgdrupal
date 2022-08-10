@@ -11,7 +11,7 @@ _core:
 id: anrt_lgd_localgov_part_of_step_heading_base
 theme: anrt_lgd
 region: content
-weight: -8
+weight: -14
 provider: null
 plugin: step_part_of_block
 settings:

@@ -2,7 +2,10 @@ uuid: 4a12e759-049c-4b7b-b78a-439d34116419
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
     - role_delegation
     - system
     - toolbar
@@ -13,7 +16,7 @@ _core:
   default_config_hash: hQSlQm58sfNt6InM-RrmoR4NWkli3tR9gWr3N37DIoM
 id: localgov_user_manager
 label: 'User manager'
-weight: 5
+weight: -3
 is_admin: null
 permissions:
   - 'access toolbar'
@@ -21,4 +24,5 @@ permissions:
   - 'assign localgov_author role'
   - 'assign localgov_contributor role'
   - 'assign localgov_editor role'
+  - 'use text format wysiwyg'
   - 'view the administration theme'

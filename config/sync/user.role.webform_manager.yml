@@ -2,11 +2,14 @@ uuid: 7dd8f73e-a36e-4d89-b09b-9aa1ee94aaaa
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
     - webform
 id: webform_manager
 label: 'Webform manager'
-weight: 7
+weight: -1
 is_admin: null
 permissions:
   - 'access webform help'
@@ -21,4 +24,5 @@ permissions:
   - 'delete own webform'
   - 'edit any webform submission'
   - 'edit own webform'
+  - 'use text format wysiwyg'
   - 'view any webform submission'

@@ -1,0 +1,29 @@
+uuid: c2d4b77f-521a-4762-8230-03ac025f96b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_content
+  module:
+    - system
+    - views
+  theme:
+    - anrt_lgd
+id: views_block__my_content_my_content
+theme: anrt_lgd
+region: content
+weight: -13
+provider: null
+plugin: 'views_block:my_content-my_content'
+settings:
+  id: 'views_block:my_content-my_content'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'

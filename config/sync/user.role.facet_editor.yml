@@ -2,15 +2,19 @@ uuid: 020ef0b4-3fc8-4374-8a55-18b945160b01
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
     - localgov_directories
 id: facet_editor
 label: 'Facet editor'
-weight: 6
+weight: -2
 is_admin: null
 permissions:
   - 'access directory facets overview'
   - 'create directory facets'
   - 'delete directory facets'
   - 'edit directory facets'
+  - 'use text format wysiwyg'
   - 'view directory facets'

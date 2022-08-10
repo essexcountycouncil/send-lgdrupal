@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.wysiwyg
     - media.type.image
     - node.type.localgov_news_article
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - filter
     - media
     - node
     - system
@@ -19,7 +21,7 @@ _core:
   default_config_hash: A11-7cjsAJ9YGcWSITuETyg0AoLa2xGtaxuJ-wdcIYU
 id: localgov_news_editor
 label: 'News editor'
-weight: 4
+weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
@@ -44,6 +46,7 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use text format wysiwyg'
   - 'view all localgov_news_article revisions'
   - 'view any unpublished localgov_news_article content'
   - 'view localgov_news_article revisions'

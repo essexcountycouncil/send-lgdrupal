@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.wysiwyg
     - media.type.document
     - media.type.image
     - media.type.remote_video
@@ -21,6 +22,7 @@ dependencies:
   module:
     - content_moderation
     - entity_browser
+    - filter
     - media
     - node
     - paragraphs
@@ -36,7 +38,7 @@ _core:
   default_config_hash: Fc49dMO9n7Q8f9QB9HvLIHh9LzpRTE0lgYetg1x-4qc
 id: localgov_contributor
 label: Contributor
-weight: 4
+weight: -5
 is_admin: null
 permissions:
   - 'access content overview'
@@ -121,6 +123,7 @@ permissions:
   - 'use localgov_editorial transition create_new_draft'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use text format wysiwyg'
   - 'view all revisions'
   - 'view all scheduled transitions'
   - 'view any unpublished content'

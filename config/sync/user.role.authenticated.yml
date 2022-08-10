@@ -2,10 +2,7 @@ uuid: 6eddf8f9-534d-442f-b9f8-4cf4d6c31469
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.wysiwyg
   module:
-    - filter
     - fontawesome
     - localgov_alert_banner
     - localgov_geo
@@ -15,12 +12,11 @@ _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
   - 'access content'
   - 'access fontawesome additional settings'
-  - 'use text format wysiwyg'
   - 'view all localgov alert banner entities'
   - 'view geo'
   - 'view localgov alert banner localgov_alert_banner entities'

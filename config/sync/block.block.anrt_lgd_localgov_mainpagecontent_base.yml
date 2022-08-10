@@ -11,7 +11,7 @@ _core:
 id: anrt_lgd_localgov_mainpagecontent_base
 theme: anrt_lgd
 region: content
-weight: 0
+weight: -12
 provider: null
 plugin: system_main_block
 settings:
