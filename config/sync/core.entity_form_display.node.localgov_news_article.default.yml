@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
+    - field.field.node.localgov_news_article.field_sitewide_search_type
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
     - field.field.node.localgov_news_article.localgov_news_related
@@ -44,6 +45,7 @@ third_party_settings:
         - localgov_news_date
         - localgov_newsroom
         - localgov_news_categories
+        - field_sitewide_search_type
       label: 'About the story'
       region: content
       parent_name: group_tabs
@@ -126,6 +128,12 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 5
+    region: content
+    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_sitewide_search_type
     - search_api.server.solr
     - core.entity_view_mode.node.search_index
   module:
@@ -66,6 +67,14 @@ field_settings:
       type: union
       fields:
         - rendered_item
+  field_sitewide_search_type:
+    label: 'Sitewide Search Type'
+    datasource_id: 'entity:node'
+    property_path: field_sitewide_search_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_sitewide_search_type
   rendered_item:
     label: 'Rendered HTML output'
     property_path: rendered_item

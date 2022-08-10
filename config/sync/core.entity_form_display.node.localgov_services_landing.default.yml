@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_landing.body
+    - field.field.node.localgov_services_landing.field_sitewide_search_type
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
@@ -32,6 +33,7 @@ third_party_settings:
     group_description:
       children:
         - title
+        - field_sitewide_search_type
         - body
       label: Description
       region: content
@@ -169,10 +171,17 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }

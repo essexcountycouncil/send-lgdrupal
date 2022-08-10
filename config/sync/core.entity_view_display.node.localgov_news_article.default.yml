@@ -6,6 +6,7 @@ dependencies:
     - facets.facet.localgov_news_category
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
+    - field.field.node.localgov_news_article.field_sitewide_search_type
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
     - field.field.node.localgov_news_article.localgov_news_related
@@ -31,17 +32,17 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   localgov_news_categories:
     type: entity_reference_facet_link
@@ -49,7 +50,7 @@ content:
     settings:
       facet: localgov_news_category
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   localgov_news_date:
     type: datetime_custom
@@ -58,7 +59,7 @@ content:
       timezone_override: ''
       date_format: 'j F Y'
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   localgov_news_related:
     type: entity_reference_entity_view
@@ -67,10 +68,11 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
 hidden:
   field_media_image: true
+  field_sitewide_search_type: true
   langcode: true
   localgov_newsroom: true
   search_api_excerpt: true

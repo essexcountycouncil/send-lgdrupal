@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_sublanding.body
+    - field.field.node.localgov_services_sublanding.field_sitewide_search_type
     - field.field.node.localgov_services_sublanding.localgov_services_parent
     - field.field.node.localgov_services_sublanding.localgov_topics
     - node.type.localgov_services_sublanding
@@ -18,6 +19,7 @@ third_party_settings:
   field_group:
     group_tabs:
       children:
+        - field_sitewide_search_type
         - group_description
         - group_service
         - group_topics
@@ -35,25 +37,24 @@ third_party_settings:
         - title
         - body
       label: Content
+      region: hidden
       parent_name: group_tabs
       weight: 1
       format_type: tab
       format_settings:
-        label: Content
         classes: ''
         id: ''
         formatter: closed
         description: ''
         required_fields: true
     group_service:
-      children:
-        - field_service
+      children: {  }
       label: 'Parent page'
+      region: hidden
       parent_name: group_tabs
       weight: 2
       format_type: tab
       format_settings:
-        label: 'Parent page'
         classes: ''
         id: ''
         formatter: closed
@@ -63,11 +64,11 @@ third_party_settings:
       children:
         - localgov_topics
       label: 'Child pages'
+      region: hidden
       parent_name: group_tabs
       weight: 3
       format_type: tab
       format_settings:
-        label: 'Child pages'
         classes: ''
         id: ''
         formatter: closed
@@ -82,7 +83,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -93,6 +94,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -120,7 +127,7 @@ content:
     third_party_settings: {  }
   localgov_topics:
     type: entity_reference_paragraphs
-    weight: 8
+    weight: 5
     region: content
     settings:
       title: Paragraph

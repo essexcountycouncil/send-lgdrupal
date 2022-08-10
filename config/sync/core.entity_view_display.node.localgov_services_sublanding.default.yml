@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_sublanding.body
+    - field.field.node.localgov_services_sublanding.field_sitewide_search_type
     - field.field.node.localgov_services_sublanding.localgov_services_parent
     - field.field.node.localgov_services_sublanding.localgov_topics
     - node.type.localgov_services_sublanding
@@ -29,6 +30,7 @@ content:
 hidden:
   body: true
   content_moderation_control: true
+  field_sitewide_search_type: true
   langcode: true
   links: true
   localgov_services_parent: true

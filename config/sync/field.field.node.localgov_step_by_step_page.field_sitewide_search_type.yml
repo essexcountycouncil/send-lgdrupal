@@ -1,0 +1,29 @@
+uuid: 685cd030-4ea5-4f30-bab0-21e450c576ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sitewide_search_type
+    - node.type.localgov_step_by_step_page
+    - taxonomy.vocabulary.sitewide_search
+id: node.localgov_step_by_step_page.field_sitewide_search_type
+field_name: field_sitewide_search_type
+entity_type: node
+bundle: localgov_step_by_step_page
+label: 'Sitewide Search Type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sitewide_search: sitewide_search
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_sitewide_search_type
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
     - field.field.node.localgov_services_page.localgov_hide_related_topics
@@ -29,6 +30,7 @@ third_party_settings:
       children:
         - localgov_services_parent
         - title
+        - field_sitewide_search_type
         - body
         - localgov_page_components
       label: Content
@@ -96,7 +98,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     region: content
     settings:
       rows: 9
@@ -107,6 +109,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -141,7 +149,7 @@ content:
     third_party_settings: {  }
   localgov_page_components:
     type: entity_browser_entity_reference
-    weight: 10
+    weight: 11
     region: content
     settings:
       entity_browser: page_components

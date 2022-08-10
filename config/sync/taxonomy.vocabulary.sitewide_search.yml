@@ -1,0 +1,8 @@
+uuid: 060154ac-be0e-4dfc-b01e-282ca3faa293
+langcode: en
+status: true
+dependencies: {  }
+name: 'Sitewide Search'
+vid: sitewide_search
+description: ''
+weight: 0

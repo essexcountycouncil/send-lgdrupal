@@ -1,0 +1,29 @@
+uuid: 6229ef69-7fcc-4894-9c45-3589102e0847
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sitewide_search_type
+    - node.type.localgov_services_sublanding
+    - taxonomy.vocabulary.sitewide_search
+id: node.localgov_services_sublanding.field_sitewide_search_type
+field_name: field_sitewide_search_type
+entity_type: node
+bundle: localgov_services_sublanding
+label: 'Sitewide Search Type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sitewide_search: sitewide_search
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

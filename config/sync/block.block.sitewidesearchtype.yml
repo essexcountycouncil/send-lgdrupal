@@ -1,0 +1,29 @@
+uuid: 50d90177-dc69-401d-aadc-6c3917a7b7d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sitewide_search_type
+  module:
+    - facets
+    - system
+  theme:
+    - anrt_lgd
+id: sitewidesearchtype
+theme: anrt_lgd
+region: disabled
+weight: -13
+provider: null
+plugin: 'facet_block:sitewide_search_type'
+settings:
+  id: 'facet_block:sitewide_search_type'
+  label: 'Sitewide Search Type'
+  label_display: '0'
+  provider: facets
+  context_mapping: {  }
+  block_id: sitewidesearchtype
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/search\r\n/search/*"

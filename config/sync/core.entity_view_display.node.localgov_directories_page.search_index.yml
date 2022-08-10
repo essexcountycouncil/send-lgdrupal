@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.localgov_directories_page.field_directory_siblings_attend
     - field.field.node.localgov_directories_page.field_directory_summary
     - field.field.node.localgov_directories_page.field_directory_twitter
+    - field.field.node.localgov_directories_page.field_sitewide_search_type
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -141,6 +142,7 @@ hidden:
   field_directory_siblings_attend: true
   field_directory_summary: true
   field_directory_twitter: true
+  field_sitewide_search_type: true
   langcode: true
   links: true
   localgov_directory_facets_select: true

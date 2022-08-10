@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_subsites_overview.field_sitewide_search_type
     - field.field.node.localgov_subsites_overview.localgov_subsites_banner
     - field.field.node.localgov_subsites_overview.localgov_subsites_content
     - field.field.node.localgov_subsites_overview.localgov_subsites_hide_menu
@@ -35,6 +36,7 @@ third_party_settings:
     group_description:
       children:
         - title
+        - field_sitewide_search_type
         - localgov_subsites_summary
       label: Description
       region: content
@@ -90,6 +92,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -120,7 +128,7 @@ content:
     third_party_settings: {  }
   localgov_subsites_hide_menu:
     type: boolean_checkbox
-    weight: 39
+    weight: 40
     region: content
     settings:
       display_label: true
@@ -133,7 +141,7 @@ content:
     third_party_settings: {  }
   localgov_subsites_summary:
     type: string_textarea
-    weight: 1
+    weight: 2
     region: content
     settings:
       rows: 5

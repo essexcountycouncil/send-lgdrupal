@@ -163,7 +163,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: Search
+            label: ''
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -175,8 +175,8 @@ display:
             multiple: false
             remember_roles:
               anonymous: anonymous
-              emergency_publisher: '0'
               authenticated: '0'
+              emergency_publisher: '0'
               localgov_editor: '0'
               localgov_author: '0'
               localgov_contributor: '0'
@@ -184,6 +184,7 @@ display:
               localgov_user_manager: '0'
               facet_editor: '0'
               webform_manager: '0'
+              service_provider: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -207,6 +208,7 @@ display:
       style:
         type: default
         options:
+          grouping: {  }
           row_class: ''
           default_row_class: true
           uses_fields: false
@@ -239,19 +241,6 @@ display:
       relationships: {  }
       css_class: lgd-teaser-list
       header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: true
-          content:
-            value: '<h2>Search results</h2>'
-            format: wysiwyg
-          tokenize: false
         result:
           id: result
           table: views
@@ -261,7 +250,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: 'Showing items @start to @end of @total results'
+          content: '@total results found'
         search_api_spellcheck_did_you_mean:
           id: search_api_spellcheck_did_you_mean
           table: views

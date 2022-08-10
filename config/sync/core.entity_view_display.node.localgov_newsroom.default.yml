@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_newsroom.field_sitewide_search_type
     - field.field.node.localgov_newsroom.localgov_newsroom_featured
     - node.type.localgov_newsroom
   module:
@@ -20,27 +21,27 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   localgov_news_facets:
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   localgov_news_search:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   localgov_newsroom_all_view:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   localgov_newsroom_featured:
     type: entity_reference_entity_view
@@ -49,8 +50,9 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
+  field_sitewide_search_type: true
   langcode: true
   search_api_excerpt: true

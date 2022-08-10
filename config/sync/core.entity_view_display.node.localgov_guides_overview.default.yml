@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_guides_overview.body
+    - field.field.node.localgov_guides_overview.field_sitewide_search_type
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
     - field.field.node.localgov_guides_overview.localgov_guides_pages
@@ -26,19 +27,20 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
+  field_sitewide_search_type: true
   langcode: true
   localgov_guides_description: true
   localgov_guides_list_format: true

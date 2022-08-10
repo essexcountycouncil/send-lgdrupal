@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.localgov_directories_venue.field_directory_summary
     - field.field.node.localgov_directories_venue.field_directory_twitter
     - field.field.node.localgov_directories_venue.field_directory_venue_ally
+    - field.field.node.localgov_directories_venue.field_sitewide_search_type
     - field.field.node.localgov_directories_venue.localgov_directory_channels
     - field.field.node.localgov_directories_venue.localgov_directory_email
     - field.field.node.localgov_directories_venue.localgov_directory_facets_select
@@ -68,6 +69,7 @@ hidden:
   field_directory_summary: true
   field_directory_twitter: true
   field_directory_venue_ally: true
+  field_sitewide_search_type: true
   langcode: true
   links: true
   localgov_directory_channels: true
