@@ -1,0 +1,9 @@
+uuid: 1a1f5268-1f7c-4e9b-a9d7-17c4e41fae49
+langcode: en
+status: true
+dependencies: {  }
+id: service_provider
+label: 'Service provider'
+weight: 8
+is_admin: null
+permissions: {  }
