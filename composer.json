@@ -22,6 +22,8 @@
         "drupal/core-recommended": "^9.1",
         "drupal/devel": "^4.1",
         "drupal/mgv": "^2.1",
+        "drupal/search_api_solr": "^4.2",
+        "drupal/search_api_spellcheck": "^4.0",
         "drupal/webform": "^6.1",
         "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",

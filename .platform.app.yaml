@@ -9,6 +9,10 @@ name: 'app'
 # The runtime the application uses.
 type: 'php:7.4'
 
+dependencies:
+    php:
+        composer/composer: '^2'
+
 # Configuration of the build of this application.
 build:
   flavor: composer
@@ -21,7 +25,7 @@ build:
 relationships:
   database: 'mysqldb:mysql'
   # redis: 'rediscache:redis'
-  # solr: 'solrsearch:solr'
+  solr: 'solrsearch:solr'
 
 # Add additional PHP extensions.
 # runtime:

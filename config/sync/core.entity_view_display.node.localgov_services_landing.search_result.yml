@@ -31,15 +31,16 @@ bundle: localgov_services_landing
 mode: search_result
 content:
   body:
-    label: hidden
     type: text_summary_or_trimmed
-    weight: 0
+    label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   content_moderation_control: true
+  langcode: true
   links: true
   localgov_address: true
   localgov_address_first_line: true
@@ -55,3 +56,4 @@ hidden:
   localgov_phone: true
   localgov_popular_topics: true
   localgov_twitter: true
+  search_api_excerpt: true

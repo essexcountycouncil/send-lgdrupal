@@ -109,6 +109,7 @@ content:
 hidden:
   created: true
   external_id: true
+  langcode: true
   search_api_excerpt: true
   status: true
   uid: true

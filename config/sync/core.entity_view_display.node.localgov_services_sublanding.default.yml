@@ -19,15 +19,17 @@ mode: default
 content:
   localgov_topics:
     type: entity_reference_revisions_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   body: true
   content_moderation_control: true
+  langcode: true
   links: true
   localgov_services_parent: true
+  search_api_excerpt: true

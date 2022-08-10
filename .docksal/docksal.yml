@@ -36,9 +36,9 @@ services:
   #     file: ${HOME}/.docksal/stacks/services.yml
   #     service: mail
 
-  # # Solr
-  # solr:
-  #   extends:
-  #     file: ${HOME}/.docksal/stacks/services.yml
-  #     service: solr
-  #   image: docksal/solr:8.1-2.1
+  # Solr
+  solr:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: solr
+    image: docksal/solr:8.1-2.1

@@ -141,6 +141,7 @@ hidden:
   field_directory_siblings_attend: true
   field_directory_summary: true
   field_directory_twitter: true
+  langcode: true
   links: true
   localgov_directory_facets_select: true
   localgov_directory_title_sort: true

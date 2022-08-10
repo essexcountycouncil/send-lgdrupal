@@ -6,6 +6,7 @@ dependencies:
     - field.field.localgov_alert_banner.localgov_alert_banner.link
     - field.field.localgov_alert_banner.localgov_alert_banner.short_description
     - field.field.localgov_alert_banner.localgov_alert_banner.type_of_alert
+    - field.field.localgov_alert_banner.localgov_alert_banner.visibility
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
   module:
     - condition_field
@@ -57,6 +58,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  langcode: true
   search_api_excerpt: true
   type_of_alert: true
   uid: true

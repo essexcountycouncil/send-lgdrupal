@@ -24,12 +24,18 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  langcode: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
   search_api_excerpt: true
