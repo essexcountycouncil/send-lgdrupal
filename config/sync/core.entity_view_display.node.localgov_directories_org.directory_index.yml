@@ -123,7 +123,6 @@ content:
     weight: 12
     region: content
 hidden:
-  langcode: true
   field_directory_additional_age: true
   field_directory_available_online: true
   field_directory_cost: true
@@ -136,5 +135,6 @@ hidden:
   field_directory_siblings_attend: true
   field_directory_summary: true
   field_directory_twitter: true
+  langcode: true
   localgov_directory_search: true
   search_api_excerpt: true

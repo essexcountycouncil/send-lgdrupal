@@ -50,7 +50,6 @@ content:
     weight: -20
     region: content
 hidden:
-  langcode: true
   field_directory_additional_age: true
   field_directory_available_online: true
   field_directory_cost: true
@@ -63,6 +62,7 @@ hidden:
   field_directory_siblings_attend: true
   field_directory_summary: true
   field_directory_twitter: true
+  langcode: true
   links: true
   localgov_directory_channels: true
   localgov_directory_email: true

@@ -151,12 +151,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
   field_directory_additional_age:
     type: text_textarea
     weight: 29
@@ -246,6 +240,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   localgov_directory_channels:
     type: localgov_directories_channel_selector
