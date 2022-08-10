@@ -1,5 +1,5 @@
 .call-out-box--has-image .call-out-box__content {
-  padding-right: 0;
+  padding-right: var(--call-out-box-padding);
   border-radius: 0;
   background-color: var(--call-out-box-bg-color);
 }
@@ -7,9 +7,9 @@
 @media screen and (min-width: 48rem) {
   .call-out-box__image,
   .call-out-box__image + .call-out-box__content {
-  width: 50%;
-  margin: 0;
-}
+    width: 50%;
+    margin: 0;
+  }
 }
 
 .call-out-box h2 {
