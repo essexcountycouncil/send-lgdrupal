@@ -1,0 +1,27 @@
+uuid: fb15830a-0d08-46f8-9587-ff4a8604af0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_directory_siblings_attend
+field_name: field_directory_siblings_attend
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: 'Yes'
+    -
+      value: 'no'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

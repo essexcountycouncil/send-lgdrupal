@@ -14,10 +14,14 @@ libraries-extend:
     - anrt_lgd/guides
   localgov_base/directories:
     - anrt_lgd/directories
+  localgov_base/teaser:
+    - anrt_lgd/teaser
   localgov_base/prev-next:
     - anrt_lgd/prev-next
   localgov_base/callout-box:
     - anrt_lgd/callout-box
+  localgov_base/breadcrumbs:
+    - anrt_lgd/breadcrumbs
 
 regions:
   tabs: "Tabs"

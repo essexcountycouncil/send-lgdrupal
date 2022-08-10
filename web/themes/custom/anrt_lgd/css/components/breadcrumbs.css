@@ -1,0 +1,7 @@
+.breadcrumbs {
+  border-bottom: 0;
+}
+
+.breadcrumbs__item {
+  color: var(--color-grey-darkest);
+}

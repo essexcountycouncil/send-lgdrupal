@@ -1,0 +1,8 @@
+uuid: c6a25c4f-4d63-4133-b7e9-96a49a832053
+langcode: en
+status: true
+dependencies: {  }
+name: 'Venue Accessibility'
+vid: venue_accessibility
+description: ''
+weight: 0

@@ -1,7 +1,14 @@
-.facet-group__title {
+.block-facets h2 {
+  color: var(--color-black);
+}
+
+.facets-widget .facet-group__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: calc(var(--spacing-largest) * 2);
+  font-size:clamp(var(--font-size-medium), 5vw, var(--font-size-large));
+  color: var(--color-black);
 }
 
 .facet-group__trigger {
@@ -20,11 +27,11 @@
 }
 
 .facet-group__trigger svg path {
-  fill: var(--color-accent);
+  fill: var(--color-black);
 }
 .facet-group__trigger:focus svg path,
 .facet-group__trigger:hover svg path {
-  fill: var(--color-black);
+  fill: var(--color-accent);
 }
 
 .js .facets-widget__list {

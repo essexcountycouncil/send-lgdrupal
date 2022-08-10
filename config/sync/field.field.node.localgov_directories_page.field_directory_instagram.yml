@@ -1,0 +1,19 @@
+uuid: 0c710bec-7ce0-471d-8f54-acf17a6befb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_instagram
+    - node.type.localgov_directories_page
+id: node.localgov_directories_page.field_directory_instagram
+field_name: field_directory_instagram
+entity_type: node
+bundle: localgov_directories_page
+label: Instagram
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
