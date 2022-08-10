@@ -1,0 +1,21 @@
+uuid: 1eaa9e6c-49a9-4d3b-91b9-3417f736e0f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_free_everyone
+    - node.type.localgov_directories_venue
+  module:
+    - options
+id: node.localgov_directories_venue.field_directory_free_everyone
+field_name: field_directory_free_everyone
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Is the service free for everyone?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

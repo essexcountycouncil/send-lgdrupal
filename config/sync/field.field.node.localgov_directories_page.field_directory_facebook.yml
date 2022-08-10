@@ -1,0 +1,19 @@
+uuid: 078fee06-870a-4e2c-9692-594ea03a90bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_facebook
+    - node.type.localgov_directories_page
+id: node.localgov_directories_page.field_directory_facebook
+field_name: field_directory_facebook
+entity_type: node
+bundle: localgov_directories_page
+label: Facebook
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

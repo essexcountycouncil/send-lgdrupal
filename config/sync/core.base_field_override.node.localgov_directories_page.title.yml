@@ -1,0 +1,18 @@
+uuid: 95a892be-29a6-4f9f-bbc4-176d7eaf796c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_page
+id: node.localgov_directories_page.title
+field_name: title
+entity_type: node
+bundle: localgov_directories_page
+label: 'Service Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

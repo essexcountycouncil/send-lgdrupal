@@ -1,0 +1,21 @@
+uuid: 0ac6f26d-5872-4cdc-a027-64cc3e702516
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_available_online
+    - node.type.localgov_directories_org
+  module:
+    - options
+id: node.localgov_directories_org.field_directory_available_online
+field_name: field_directory_available_online
+entity_type: node
+bundle: localgov_directories_org
+label: 'Is the service available online?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -4,6 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_page.body
+    - field.field.node.localgov_directories_page.field_directory_additional_age
+    - field.field.node.localgov_directories_page.field_directory_available_online
+    - field.field.node.localgov_directories_page.field_directory_cost
+    - field.field.node.localgov_directories_page.field_directory_eligibility
+    - field.field.node.localgov_directories_page.field_directory_facebook
+    - field.field.node.localgov_directories_page.field_directory_free_everyone
+    - field.field.node.localgov_directories_page.field_directory_how_help
+    - field.field.node.localgov_directories_page.field_directory_how_to_access
+    - field.field.node.localgov_directories_page.field_directory_instagram
+    - field.field.node.localgov_directories_page.field_directory_siblings_attend
+    - field.field.node.localgov_directories_page.field_directory_summary
+    - field.field.node.localgov_directories_page.field_directory_twitter
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -49,6 +61,11 @@ third_party_settings:
       children:
         - title
         - localgov_directory_title_sort
+        - field_directory_summary
+        - field_directory_how_help
+        - field_directory_how_to_access
+        - field_directory_eligibility
+        - field_directory_additional_age
         - body
         - localgov_directory_files
       label: Description
@@ -64,12 +81,19 @@ third_party_settings:
         required_fields: true
     group_enquiries:
       children:
+        - field_directory_available_online
+        - field_directory_free_everyone
+        - field_directory_siblings_attend
+        - field_directory_cost
         - localgov_directory_name
         - localgov_directory_job_title
         - localgov_directory_phone
-        - localgov_directory_email
         - localgov_directory_address
+        - localgov_directory_email
         - localgov_directory_website
+        - field_directory_facebook
+        - field_directory_twitter
+        - field_directory_instagram
       label: Enquiries
       region: content
       parent_name: group_tabs
@@ -105,7 +129,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 7
     region: content
     settings:
       rows: 9
@@ -126,9 +150,99 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  field_directory_additional_age:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_available_online:
+    type: options_buttons
+    weight: 109
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_directory_cost:
+    type: text_textarea
+    weight: 112
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_eligibility:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_facebook:
+    type: string_textfield
+    weight: 119
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_free_everyone:
+    type: options_buttons
+    weight: 110
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_directory_how_help:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_how_to_access:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_instagram:
+    type: string_textfield
+    weight: 121
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_siblings_attend:
+    type: options_buttons
+    weight: 111
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_directory_summary:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_twitter:
+    type: string_textfield
+    weight: 120
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   localgov_directory_address:
     type: address_default
-    weight: 15
+    weight: 116
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -140,7 +254,7 @@ content:
     third_party_settings: {  }
   localgov_directory_email:
     type: email_default
-    weight: 14
+    weight: 117
     region: content
     settings:
       placeholder: ''
@@ -148,20 +262,20 @@ content:
     third_party_settings: {  }
   localgov_directory_facets_select:
     type: localgov_directories_facet_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_directory_files:
     type: media_library_widget
-    weight: 3
+    weight: 8
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   localgov_directory_job_title:
     type: string_textfield
-    weight: 12
+    weight: 114
     region: content
     settings:
       size: 60
@@ -169,7 +283,7 @@ content:
     third_party_settings: {  }
   localgov_directory_name:
     type: string_textfield
-    weight: 11
+    weight: 113
     region: content
     settings:
       size: 60
@@ -177,7 +291,7 @@ content:
     third_party_settings: {  }
   localgov_directory_phone:
     type: telephone_default
-    weight: 13
+    weight: 115
     region: content
     settings:
       placeholder: ''
@@ -192,7 +306,7 @@ content:
     third_party_settings: {  }
   localgov_directory_website:
     type: link_default
-    weight: 17
+    weight: 118
     region: content
     settings:
       placeholder_url: ''

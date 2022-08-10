@@ -21,6 +21,14 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           facet.classList.add('js-processed');
           const expand = facet.previousElementSibling;
           const trigger = expand.querySelector('.facet-group__trigger');
+          const facetItems = facet.querySelectorAll('.facet-item');
+
+          // If there's 3 or fewer facets available, show all the facets in that block.
+          if (facetItems.length <= 3) {
+            facet.style.display = 'block';
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+
           expand.addEventListener('click', function() {
             const expanded = trigger.getAttribute('aria-expanded');
             if (expanded === 'false') {
@@ -35,7 +43,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       });
 
       selectedFacets.forEach(selectedFacet => {
-        console.log(selectedFacet);
         if (!selectedFacet.classList.contains('js-processed')) {
           selectedFacet.classList.add('js-processed');
           const facetList = selectedFacet.closest('.facets-widget__list');

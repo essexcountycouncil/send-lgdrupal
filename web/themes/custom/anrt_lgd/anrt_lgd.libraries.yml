@@ -44,6 +44,11 @@ directories:
     theme:
       css/components/directories.css: {}
 
+breadcrumbs:
+  css:
+    theme:
+      css/components/breadcrumbs.css: {}
+
 teaser:
   css:
     theme:

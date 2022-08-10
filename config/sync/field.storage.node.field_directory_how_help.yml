@@ -1,0 +1,19 @@
+uuid: b60d4141-ef9e-401a-8c14-a3e1a017cf65
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_directory_how_help
+field_name: field_directory_how_help
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

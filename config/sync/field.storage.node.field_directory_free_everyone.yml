@@ -1,0 +1,27 @@
+uuid: 14eb6b5e-a5bc-4d21-9e53-69632a502c8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_directory_free_everyone
+field_name: field_directory_free_everyone
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: 'Yes'
+    -
+      value: 'no'
+      label: 'No'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

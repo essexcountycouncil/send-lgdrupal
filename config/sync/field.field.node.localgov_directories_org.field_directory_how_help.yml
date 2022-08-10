@@ -1,0 +1,21 @@
+uuid: cbcf8112-677c-4087-a21a-f257e959aada
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_how_help
+    - node.type.localgov_directories_org
+  module:
+    - text
+id: node.localgov_directories_org.field_directory_how_help
+field_name: field_directory_how_help
+entity_type: node
+bundle: localgov_directories_org
+label: 'How it can help'
+description: "Explain how you can specifically help people with special needs, any specific therapies, activities, who it is for, and how it can help them. \r\n<br><br>\r\nSuch as: <em>Provides information, runs emotional support groups, provides social activities and opportunities for autistic children. Can boost self-esteem and improve social skills. Can provide educational activities for children who are home schooled</em>."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
