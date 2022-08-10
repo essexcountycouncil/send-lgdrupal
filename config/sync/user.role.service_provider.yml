@@ -20,6 +20,9 @@ weight: 0
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'create localgov_directories_org content'
+  - 'create localgov_directories_page content'
+  - 'create localgov_directories_venue content'
   - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_page content'
   - 'edit own localgov_directories_venue content'

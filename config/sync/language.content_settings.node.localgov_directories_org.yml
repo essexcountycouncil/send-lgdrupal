@@ -1,0 +1,11 @@
+uuid: 0c35dbe6-aa6a-4e2e-99f8-501b8c3a952e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_org
+id: node.localgov_directories_org
+target_entity_type_id: node
+target_bundle: localgov_directories_org
+default_langcode: site_default
+language_alterable: false
