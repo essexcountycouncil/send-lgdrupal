@@ -1,4 +1,5 @@
-.page-node-type-localgov-directory .lgd-region__inner--content-top {
+.page-node-type-localgov-directory .lgd-region__inner--content-top,
+.sitewide-search .view-filters {
   max-width: var(--width-restricted-width-section);
   margin-bottom: var(--spacing-largest);
   padding-top: var(--spacing-largest);
@@ -6,7 +7,8 @@
 }
 
 @media screen and (min-width: 60rem) {
-  .page-node-type-localgov-directory .lgd-region__inner--content-top {
+  .page-node-type-localgov-directory .lgd-region__inner--content-top,
+  .sitewide-search .view-filters {
     padding-top: calc(var(--spacing-largest) * 2);
     padding-bottom: calc(var(--spacing-largest) * 2);
   }
@@ -17,7 +19,8 @@
   max-width: none;
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block form {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block form,
+.sitewide-search form {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-smaller);
@@ -25,15 +28,18 @@
 
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item,
+.sitewide-search .form-item {
   margin-bottom: 0;
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k,
+.sitewide-search .form-item-s {
   flex-grow: 1;
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k .form-text {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k .form-text,
+.sitewide-search .form-item-s .form-text {
   padding: var(--spacing-smaller);
   padding-left: var(--spacing-largest);
   background-image: url("/themes/custom/anrt_lgd/assets/icons/magnifying-glass.svg");
@@ -45,18 +51,22 @@
   color: var(--color-black);
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit,
+.sitewide-search .form-submit {
   padding: 10px var(--spacing-larger) 12px;
   border: 0;
   background-color: var(--color-blue);
 }
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:focus,
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:hover {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:hover,
+.sitewide-search .form-submit:focus,
+.sitewide-search .form-submit:hover {
   background-color: var(--color-accent);
   color: var(--color-white);
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit svg path {
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit svg path,
+.sitewide-search .form-submit svg path {
   fill: var(--color-white);
 }
 
