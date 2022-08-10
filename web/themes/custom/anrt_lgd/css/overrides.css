@@ -143,6 +143,9 @@ input[type="submit"] {
   padding: var(--spacing-smaller);
   border-color: var(--color-brand-red);
 }
+.block-localgov-sitewide-search-block .form-submit svg {
+  width: var(--spacing-larger);
+}
 .block-localgov-sitewide-search-block .form-submit svg path {
   fill: var(--color-white);
 }

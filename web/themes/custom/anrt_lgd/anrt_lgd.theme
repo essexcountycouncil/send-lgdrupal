@@ -33,7 +33,7 @@ function anrt_lgd_preprocess_block(&$variables) {
  */
 function anrt_lgd_theme_suggestions_input_alter(array &$suggestions, array &$variables, $hook) {
   $element = $variables['element'];
-  if (str_contains($element['#attributes']['data-drupal-selector'], 'submit-localgov-sitewide-search')) {
+  if (str_contains($element['#attributes']['data-drupal-selector'], 'submit-localgov-sitewide-search') || str_contains($element['#attributes']['data-drupal-selector'], 'edit-submit-localgov-directory-channel')) {
     $suggestions[] = $variables['theme_hook_original'] . '_search_icon';
   }
 }
