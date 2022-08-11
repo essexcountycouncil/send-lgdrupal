@@ -9,7 +9,9 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - entity_browser
     - filter
+    - localgov_geo
     - node
     - system
     - toolbar
@@ -18,9 +20,13 @@ label: 'Service provider'
 weight: 0
 is_admin: null
 permissions:
+  - 'access geo overview'
+  - 'access localgov_geo_library entity browser pages'
   - 'access toolbar'
+  - 'create geo'
   - 'create localgov_directories_org content'
   - 'create localgov_directories_venue content'
+  - 'edit geo'
   - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_venue content'
   - 'use localgov_editorial transition create_new_draft'
