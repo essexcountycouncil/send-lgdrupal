@@ -46,11 +46,20 @@
     {{ title }}
   {% endif %}
   {{ title_suffix }}
-  {% if exposed %}
-    <div class="view-filters">
-      {{ exposed }}
-    </div>
-  {% endif %}
+
+  <div class="sitewide-search__header-container">
+    {% if exposed %}
+      <div class="view-filters">
+        {{ exposed }}
+      </div>
+    {% endif %}
+
+    {% if header %}
+      <div class="view-header">
+        {{ header }}
+      </div>
+    {% endif %}
+  </div>
   
   {% if attachment_before %}
     <div class="attachment attachment-before">
@@ -61,18 +70,13 @@
   <div class="lgd-row">
     <div class="lgd-row__one-third">
       <div class="sitewide-search__sidebar sidebar">
-      <h2>{{ 'Filter by'|t }}</h2>
         {{ drupal_entity('block', 'sitewidesearchtype') }}
       </div>
     </div>
     <div class="lgd-row__three-thirds">
       <div class="sitewide-search__main">
-        {% if header %}
-          <div class="view-header">
-            {{ header }}
-          </div>
-        {% endif %}
 
+        <div class="sitewide-search__results-counter">{{ view.total_rows }} {{ 'results found for'|t }} "<strong>{{ view.filter.search_api_fulltext.value }}</strong>"</div>
         {% if rows %}
           <div class="view-content">
             {{ rows }}

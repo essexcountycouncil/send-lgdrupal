@@ -1,5 +1,34 @@
+.path-search .lgd-page-title-block {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .sitewide-search > .lgd-row {
+    flex-wrap: nowrap;
+  }
+  .sitewide-search > .lgd-row > .lgd-row__one-third {
+    flex-shrink: 0;
+  } 
+}
+
+.sitewide-search .view-header {
+  margin-top: var(--spacing-largest);
+}
+
+.sitewide-search__results-counter {
+  margin-bottom: var(--spacing-largest);
+  padding-bottom: var(--spacing-largest);
+  border-bottom: var(--border-light-grey);
+}
+
+.sitewide-search .form-item-s > label {
+  margin-bottom: var(--spacing-largest);
+  font-size: var(--font-size-h1);
+  font-weight: bold;
+}
+
 .page-node-type-localgov-directory .lgd-region__inner--content-top,
-.sitewide-search .view-filters {
+.sitewide-search .sitewide-search__header-container {
   max-width: var(--width-restricted-width-section);
   margin-bottom: var(--spacing-largest);
   padding-top: var(--spacing-largest);
@@ -8,7 +37,7 @@
 
 @media screen and (min-width: 60rem) {
   .page-node-type-localgov-directory .lgd-region__inner--content-top,
-  .sitewide-search .view-filters {
+  .sitewide-search .sitewide-search__header-container {
     padding-top: calc(var(--spacing-largest) * 2);
     padding-bottom: calc(var(--spacing-largest) * 2);
   }
@@ -25,7 +54,10 @@
   flex-wrap: wrap;
   gap: var(--spacing-smaller);
   align-items: baseline;
+}
 
+.sitewide-search form {
+  align-items: end;
 }
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item,

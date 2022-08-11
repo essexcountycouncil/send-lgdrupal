@@ -13,6 +13,5 @@
 }
 
 .lgd-teaser-list .views-row {
-  border-width: 1px;
-  border-bottom-color: var(--color-grey-lighter);
+  border-bottom: var(--border-light-grey);
 }
