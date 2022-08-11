@@ -163,7 +163,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: ''
+            label: 'Sitewide search'
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -241,16 +241,6 @@ display:
       relationships: {  }
       css_class: lgd-teaser-list
       header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: result
-          empty: false
-          content: '@total results found'
         search_api_spellcheck_did_you_mean:
           id: search_api_spellcheck_did_you_mean
           table: views
