@@ -30,6 +30,7 @@ permissions:
   - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_venue content'
   - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition submit_for_review'
   - 'use text format minimal'
   - 'view latest version'
   - 'view own unpublished content'
