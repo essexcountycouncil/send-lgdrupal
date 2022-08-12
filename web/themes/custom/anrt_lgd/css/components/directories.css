@@ -69,3 +69,14 @@
 .localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__item > *:last-child {
   margin-bottom: 0;
 }
+
+.localgov-directories-page__content-body > * {
+  margin-bottom: var(--spacing-largest);
+}
+
+.localgov-directories-page__content-body .field__label {
+  margin-bottom: var(--spacing-small);
+  color: var(--color-accent);
+  font-size: var(--font-size-h2);
+  font-weight: bold;
+}
