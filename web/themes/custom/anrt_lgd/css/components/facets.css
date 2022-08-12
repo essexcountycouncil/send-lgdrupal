@@ -27,6 +27,7 @@
   transform: rotate(90deg);
 }
 
+.facet-group__trigger:focus,
 .facet-group__trigger:hover {
   background-color: transparent;
 }
@@ -39,6 +40,6 @@
   fill: var(--color-accent);
 }
 
-.js .facets-widget__list {
+.js .facets-widget__list:not(:first-of-type) {
   display: none;
 }

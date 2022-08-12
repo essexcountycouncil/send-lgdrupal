@@ -26,14 +26,6 @@ body.path-frontpage {
   clip-path: ellipse(36% 100% at 50% 100%);
 }
 
-input,
-select,
-option,
-textarea,
-button {
-  font-size: var(--font-size-medium);
-}
-
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
@@ -47,6 +39,10 @@ button {
   color: var(--color-white);
   border-color: var(--color-white);
   background-color: unset;
+}
+
+.lgd-region--search form {
+  gap: var(--spacing-smaller);
 }
 
 .layout--twocol > .layout__region--first {
