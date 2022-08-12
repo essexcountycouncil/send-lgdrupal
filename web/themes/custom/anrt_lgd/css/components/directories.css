@@ -1,3 +1,7 @@
+.view-localgov-directory-channel .view-header {
+  padding-bottom: var(--spacing-largest);
+  border-bottom: var(--border-light-grey);
+}
 .localgov-directories-page__group-venue > legend,
 .localgov-directories-page__group-enquiries > legend {
   display: none;
