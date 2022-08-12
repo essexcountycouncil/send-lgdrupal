@@ -52,7 +52,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 3
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: localgov-directories-page__group-enquiries
@@ -71,7 +71,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 6
     region: content
   content_moderation_control:
     settings: {  }
@@ -83,7 +83,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 3
     region: content
   field_directory_available_online:
     type: list_default
@@ -97,14 +97,14 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   field_directory_eligibility:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 4
     region: content
   field_directory_facebook:
     type: string
@@ -119,21 +119,21 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_directory_how_help:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 2
     region: content
   field_directory_how_to_access:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 5
     region: content
   field_directory_instagram:
     type: string
@@ -152,10 +152,10 @@ content:
     region: content
   field_directory_summary:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
   field_directory_twitter:
     type: string
@@ -186,7 +186,7 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 7
     region: content
   localgov_directory_job_title:
     type: string
