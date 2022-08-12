@@ -131,8 +131,165 @@
       {% endblock %}
     </div>
   </div>
-  <div class="lgd-row">
-    {# Meta items here #}
-  </div>
+  {% if node.localgov_directory_email.value
+        or node.localgov_directory_phone.value 
+        or node.field_directory_twitter.value 
+        or node.field_directory_facebook.value 
+        or node.field_directory_instagram.value 
+        or node.localgov_directory_website.value 
+        or node.field_directory_cost.value 
+        or node.field_directory_siblings_attend.value 
+        or node.field_directory_available_online.value 
+        or node.field_directory_free_everyone.value 
+  %}
+  
+    <div class="lgd-row">
+      <div class="lgd-row__one-half">
+
+        {# Begin Access needs #}
+        {% if node.field_directory_venue_ally.value %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Access needs'|t }}</h3>
+            <div class="lgd-directory__meta-item-content">
+              {% for item in node.field_directory_venue_ally %}
+                {% set value = item.entity.name.value %}
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': false,
+                    'icon': 'check',
+                    'value':  value,
+                  }
+                %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        {# End Access needs #}
+
+        {# Begin special needs #}
+        {% if node.localgov_directory_facets_select.value %}
+
+          {% set accessibility = false %}
+          {% for item in content.localgov_directory_facets_select['#items'] %}
+            {% if item.entity.bundle.target_id == 'accessibility' %}
+              {% set accessibility = true %}
+            {% endif %}
+          {% endfor %}
+
+          {% if accessibility %}    
+            <div class="lgd-directory__meta-item">
+              <h3 class="lgd-directory__meta-item-title">{{ 'Special need'|t }}</h3>
+              <div class="lgd-directory__meta-item-content">
+                {% for item in content.localgov_directory_facets_select['#items'] %}
+                  {% if item.entity.bundle.target_id == 'accessibility' %}
+                    {% set value = item.entity.title.value %}
+                    {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                      with {
+                        'title': false,
+                        'icon': 'check',
+                        'value':  value,
+                      }
+                    %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+        {# End special needs #}
+
+        {# Begin Email and Phone #}
+        {% if node.localgov_directory_email.value or node.localgov_directory_phone.value %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Contact'|t }}</h3>
+            <div class="lgd-directory__meta-item-content">
+              {% if node.localgov_directory_email.value %}
+                {% set value %} 
+                  <a href="mailto:{{ node.localgov_directory_email.value }}">{{ node.localgov_directory_email.value }}</a>
+                {% endset %}
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': 'Email'|t,
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+
+              {% if node.localgov_directory_phone.value %}
+                {% set value %} 
+                  <a href="tel:{{ node.localgov_directory_phone.value }}">{{ node.localgov_directory_phone.value }}</a>
+                {% endset %}
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': 'Phone'|t,
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+
+            </div>
+          </div>
+        {% endif %}
+        {# End Email and Phone #}
+        <mark>Add social media links</mark>
+      </div>
+
+      <div class="lgd-row__one-half">
+        {# Begin Cost #}
+        {% if node.field_directory_cost.value %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Cost'|t }}</h3>
+            <div class="lgd-directory__meta-item-content">
+              {% if node.localgov_directory_email.value %}
+                {% set value %} 
+                  {{ content.field_directory_cost }}
+                {% endset %}
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': false,
+                    'icon': 'check',
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        {# End Cost #}
+
+        {# Begin free-4-all #}
+        {% if node.field_directory_free_everyone.value %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Can siblings without SEND also attend'|t }}</h3>
+            <div class="lgd-directory__meta-item-content">
+              {% if node.field_directory_siblings_attend.value %}
+                {% if node.field_directory_siblings_attend.value == 'yes' %}
+                  {% set value = 'Yes' %}
+                    {% else %}
+                      {% set value = 'No' %}
+                {% endif %}
+
+                {% if value == 'Yes' %}
+                  {% set icon = 'check' %}
+                  {% else %}
+                    {% set icon = false %}
+                {% endif %}
+                
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': false,
+                    'icon': icon,
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        {# End free-4-all #}
+      </div>
+      
+    </div>
+  {% endif %}
 
 </article>

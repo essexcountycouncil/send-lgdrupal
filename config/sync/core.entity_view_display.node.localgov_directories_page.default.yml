@@ -33,7 +33,6 @@ dependencies:
     - field_group
     - link
     - options
-    - telephone
     - text
     - user
   enforced:
@@ -45,8 +44,6 @@ third_party_settings:
       children:
         - localgov_directory_name
         - localgov_directory_job_title
-        - localgov_directory_phone
-        - localgov_directory_email
         - localgov_directory_address
         - localgov_directory_website
       label: Enquiries
@@ -90,11 +87,11 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 14
     region: content
   field_directory_cost:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 10
@@ -112,7 +109,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 13
+    weight: 15
     region: content
   field_directory_free_everyone:
     type: list_default
@@ -141,14 +138,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 15
+    weight: 17
     region: content
   field_directory_siblings_attend:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 13
     region: content
   field_directory_summary:
     type: basic_string
@@ -163,7 +160,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 14
+    weight: 16
     region: content
   localgov_directory_address:
     type: address_default
@@ -173,11 +170,19 @@ content:
     weight: 7
     region: content
   localgov_directory_email:
-    type: email_mailto
+    type: basic_string
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 12
+    region: content
+  localgov_directory_facets_select:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 18
     region: content
   localgov_directory_files:
     type: entity_reference_entity_view
@@ -205,12 +210,12 @@ content:
     weight: 3
     region: content
   localgov_directory_phone:
-    type: telephone_link
+    type: string
     label: inline
     settings:
-      title: ''
+      link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 11
     region: content
   localgov_directory_website:
     type: link
@@ -229,7 +234,6 @@ hidden:
   langcode: true
   links: true
   localgov_directory_channels: true
-  localgov_directory_facets_select: true
   localgov_directory_search: true
   localgov_directory_title_sort: true
   search_api_excerpt: true

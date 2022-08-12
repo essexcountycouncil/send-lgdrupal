@@ -222,9 +222,9 @@ display:
             remember: false
             multiple: false
             remember_roles:
-              emergency_publisher: '0'
               anonymous: '0'
               authenticated: '0'
+              emergency_publisher: '0'
               localgov_editor: '0'
               localgov_author: '0'
               localgov_contributor: '0'
@@ -232,8 +232,9 @@ display:
               localgov_user_manager: '0'
               facet_editor: '0'
               webform_manager: '0'
+              service_provider: '0'
             expose_fields: false
-            placeholder: ''
+            placeholder: Search
             searched_fields_id: ''
           is_grouped: false
           group_info:

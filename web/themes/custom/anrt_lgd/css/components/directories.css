@@ -84,3 +84,13 @@
   font-size: var(--font-size-h2);
   font-weight: bold;
 }
+
+.lgd-directory__meta-item {
+  display: flex;
+}
+.lgd-directory__meta-item-title {
+  width: 200px;
+}
+.lgd-directory__meta-item-field {
+  display: flex;
+}
