@@ -1,3 +1,7 @@
+.page-node-type-localgov-directory .main-content-container {
+  background-color: var(--color-grey-lightest);
+}
+
 .view-localgov-directory-channel .view-header {
   padding-bottom: var(--spacing-largest);
   border-bottom: var(--border-light-grey);
