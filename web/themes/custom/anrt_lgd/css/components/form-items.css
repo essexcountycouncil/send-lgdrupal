@@ -1,0 +1,38 @@
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea,
+select,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  padding: var(--spacing-small);
+  color: var(--color-black);
+}
+
+.form-submit {
+  padding: 11px var(--spacing-larger);
+  border: 0;
+}
+
+.form-submit:focus,
+.form-submit:hover {
+  color: var(--color-white);
+}
+
+.form-submit svg {
+  width: var(--spacing-large);
+}
+
+.form-submit svg path {
+  fill: var(--color-white);
+}
+
+.lgd-header .form-submit:focus svg path,
+.lgd-header .form-submit:hover svg path {
+  fill: var(--color-accent);
+}

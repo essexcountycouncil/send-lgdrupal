@@ -8,6 +8,7 @@ libraries-extend:
   localgov_base/global:
     - anrt_lgd/variables
     - anrt_lgd/overrides
+    - anrt_lgd/form-items
   localgov_base/footer:
     - anrt_lgd/footer
   localgov_base/guide-nav:

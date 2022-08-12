@@ -32,17 +32,6 @@ option,
 textarea,
 button {
   font-size: var(--font-size-medium);
-  font-family: var(--font-primary); /* @TODO: remove font-family when this is added to localgov_base - https://github.com/localgovdrupal/localgov_base/issues/254 */
-}
-
-input,
-textarea {
-  color: var(--color-grey-medium);
-}
-
-button,
-input[type="submit"] {
-  background-color: var(--color-brand-red);
 }
 
 .lgd-guide-nav {
@@ -137,21 +126,6 @@ input[type="submit"] {
 
 .localgov-subsites-overview__content {
   margin-top: var(--spacing-largest);
-}
-
-.block-localgov-sitewide-search-block .form-submit {
-  padding: var(--spacing-smaller);
-  border-color: var(--color-brand-red);
-}
-.block-localgov-sitewide-search-block .form-submit svg {
-  width: var(--spacing-larger);
-}
-.block-localgov-sitewide-search-block .form-submit svg path {
-  fill: var(--color-white);
-}
-.block-localgov-sitewide-search-block .form-submit:focus svg path,
-.block-localgov-sitewide-search-block .form-submit:hover svg path {
-  fill: var(--color-brand-red);
 }
 
 .pager__item.is-active a {

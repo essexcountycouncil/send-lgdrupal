@@ -54,6 +54,11 @@ teaser:
     theme:
       css/components/teaser.css: {}
 
+form-items:
+  css:
+    theme:
+      css/components/form-items.css: {}
+
 labelled-icon:
   css:
     theme:

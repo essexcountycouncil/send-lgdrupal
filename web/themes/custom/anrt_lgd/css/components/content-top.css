@@ -29,7 +29,7 @@
 
 .page-node-type-localgov-directory .lgd-region__inner--content-top,
 .sitewide-search .sitewide-search__header-container {
-  max-width: var(--width-restricted-width-section);
+  max-width: calc(var(--width-restricted-width-section) + var(--spacing-largest));
   margin-bottom: var(--spacing-largest);
   padding-top: var(--spacing-largest);
   padding-bottom: var(--spacing-largest);
@@ -43,17 +43,12 @@
   }
 }
 
-.page-node-type-localgov-directory .lgd-page-title-block__title,
-.page-node-type-localgov-directory .lgd-page-title-block__subheader {
-  max-width: none;
-}
-
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block form,
 .sitewide-search form {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-smaller);
-  align-items: baseline;
+  align-items: center;
 }
 
 .sitewide-search form {
@@ -72,34 +67,13 @@
 
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-item-k .form-text,
 .sitewide-search .form-item-s .form-text {
-  padding: var(--spacing-smaller);
-  padding-left: var(--spacing-largest);
-  background-image: url("/themes/custom/anrt_lgd/assets/icons/magnifying-glass.svg");
-  background-repeat: no-repeat;
-  background-position: var(--spacing-smaller) center;
-  background-size: var(--spacing-large);
   border-color: var(--color-black);
   border-width: 1px;
-  color: var(--color-black);
 }
 
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit,
-.sitewide-search .form-submit {
-  padding: 10px var(--spacing-larger) 12px;
-  border: 0;
-  background-color: var(--color-blue);
-}
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:focus,
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit:hover,
-.sitewide-search .form-submit:focus,
-.sitewide-search .form-submit:hover {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-}
-
-.page-node-type-localgov-directory .block-localgov-directories-channel-search-block .form-submit svg path,
-.sitewide-search .form-submit svg path {
-  fill: var(--color-white);
+.page-node-type-localgov-directory .lgd-page-title-block__title,
+.page-node-type-localgov-directory .lgd-page-title-block__subheader {
+  max-width: none;
 }
 
 .view-localgov-directory-channel .view-header {

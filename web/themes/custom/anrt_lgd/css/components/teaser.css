@@ -4,8 +4,16 @@
   align-items: center;
 }
 
+.lgd-teaser__location {
+  font-size: var(--font-size-small);
+}
+
 .lgd-teaser__location-icon {
   margin-right: var(--spacing-smaller);
+}
+
+.lgd-teaser__location-icon svg {
+  width: 12px;
 }
 
 .lgd-teaser__location-icon svg path {
