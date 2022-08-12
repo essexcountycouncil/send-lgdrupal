@@ -231,7 +231,51 @@
           </div>
         {% endif %}
         {# End Email and Phone #}
-        <mark>Add social media links</mark>
+
+        {# Begin Social Media Links #}
+        {% if node.localgov_directory_website.value %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Contact'|t }}</h3>
+            <div class="lgd-directory__meta-item-content">
+              {% if node.localgov_directory_website.value %}
+                {% set value %} 
+                  {{ content.localgov_directory_website }}
+                {% endset %}
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': 'Web'|t,
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+
+              {% if node.field_directory_facebook.value 
+                    or node.field_directory_twitter.value 
+                    or node.field_directory_instagram.value %}
+                {% set value %}
+                  {% if node.field_directory_facebook.value %}
+                    <a href="{{ node.field_directory_facebook.value }}">Facebook</a>
+                  {% endif %}
+                  {% if node.field_directory_twitter.value %}
+                    <a href="{{ node.field_directory_twitter.value }}">twitter</a>
+                  {% endif %}
+                  {% if node.field_directory_instagram.value %}
+                    <a href="{{ node.field_directory_instagram.value }}">instagram</a>
+                  {% endif %}
+                {% endset %}
+                
+                {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                  with {
+                    'title': 'Social'|t,
+                    'value':  value,
+                  }
+                %}
+              {% endif %}
+
+            </div>
+          </div>
+        {% endif %}
+        {# End Social Media Links #}
       </div>
 
       <div class="lgd-row__one-half">

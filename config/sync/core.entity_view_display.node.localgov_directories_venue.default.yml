@@ -43,7 +43,6 @@ third_party_settings:
       children:
         - localgov_directory_name
         - localgov_directory_job_title
-        - localgov_directory_website
         - localgov_directory_opening_times
       label: Enquiries
       parent_name: ''
@@ -100,14 +99,14 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_directory_cost:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_directory_eligibility:
     type: text_default
@@ -122,14 +121,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 17
+    weight: 18
     region: content
   field_directory_free_everyone:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_directory_how_help:
     type: text_default
@@ -151,14 +150,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 19
+    weight: 20
     region: content
   field_directory_siblings_attend:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   field_directory_summary:
     type: basic_string
@@ -173,7 +172,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 18
+    weight: 19
     region: content
   field_directory_venue_ally:
     type: entity_reference_label
@@ -183,22 +182,14 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 14
+    weight: 15
     region: content
   localgov_directory_email:
     type: basic_string
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 12
-    region: content
-  localgov_directory_facets_select:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 20
+    weight: 13
     region: content
   localgov_directory_files:
     type: entity_reference_label
@@ -244,11 +235,11 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   localgov_directory_website:
     type: link
-    label: visually_hidden
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -256,7 +247,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 10
     region: content
   localgov_location:
     type: entity_reference_entity_view
@@ -272,6 +263,7 @@ hidden:
   langcode: true
   links: true
   localgov_directory_channels: true
+  localgov_directory_facets_select: true
   localgov_directory_search: true
   localgov_directory_title_sort: true
   search_api_excerpt: true

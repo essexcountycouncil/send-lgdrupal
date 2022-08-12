@@ -87,10 +87,26 @@
 
 .lgd-directory__meta-item {
   display: flex;
+  margin-bottom: var(--spacing-largest);
 }
 .lgd-directory__meta-item-title {
   width: 200px;
+  flex-shrink: 0;
 }
 .lgd-directory__meta-item-field {
   display: flex;
+}
+
+.lgd-directory__meta-item-icon,
+.lgd-directory__meta-item-content-label {
+  width: 75px;
+  flex-shrink: 0;
+}
+
+.lgd-directory__meta-item-field--has-icon .lgd-directory__meta-item-icon {
+  padding-left: var(--spacing-small);
+}
+
+.lgd-directory__meta-item-icon svg path {
+  fill: var(--color-success);
 }

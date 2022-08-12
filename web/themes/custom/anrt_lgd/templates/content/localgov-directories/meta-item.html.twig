@@ -1,8 +1,19 @@
-<div class="lgd-directory__meta-item-field">
+{% set meta_item_attributes = create_attribute() %}
+
+{% 
+  set meta_item_classes = [
+    'lgd-directory__meta-item-field',
+    title ? 'lgd-directory__meta-item-field--' ~ title,
+    icon ? 'lgd-directory__meta-item-field--has-icon',
+    icon ? 'lgd-directory__meta-item-field--icon-' ~ icon,
+  ] 
+%}
+
+<div{{meta_item_attributes.addClass(meta_item_classes)}}>
   {% if title %}
-	<span class="lgd-directory__meta-item-content-label">
-		{{ title }}
-	</span>
+    <span class="lgd-directory__meta-item-content-label">
+      {{ title }}
+    </span>
   {% endif %}
 
   {% if icon %}
