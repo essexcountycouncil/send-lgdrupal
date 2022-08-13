@@ -81,13 +81,6 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_directory_available_online:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 15
-    region: content
   field_directory_cost:
     type: text_default
     label: hidden
@@ -101,14 +94,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 4
-    region: content
-  field_directory_facebook:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 16
     region: content
   field_directory_free_everyone:
     type: list_default
@@ -131,21 +116,6 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  field_directory_instagram:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_directory_siblings_attend:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 14
-    region: content
   field_directory_summary:
     type: basic_string
     label: hidden
@@ -153,27 +123,12 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_directory_twitter:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 17
-    region: content
   localgov_directory_address:
     type: address_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 7
-    region: content
-  localgov_directory_email:
-    type: basic_string
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 13
     region: content
   localgov_directory_files:
     type: entity_reference_entity_view
@@ -200,14 +155,6 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  localgov_directory_phone:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 12
-    region: content
   localgov_directory_website:
     type: link
     label: hidden
@@ -221,11 +168,18 @@ content:
     weight: 10
     region: content
 hidden:
+  field_directory_available_online: true
+  field_directory_facebook: true
+  field_directory_instagram: true
+  field_directory_siblings_attend: true
+  field_directory_twitter: true
   field_sitewide_search_type: true
   langcode: true
   links: true
   localgov_directory_channels: true
+  localgov_directory_email: true
   localgov_directory_facets_select: true
+  localgov_directory_phone: true
   localgov_directory_search: true
   localgov_directory_title_sort: true
   search_api_excerpt: true

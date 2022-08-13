@@ -85,6 +85,10 @@
   font-weight: bold;
 }
 
+.lgd-directory__meta-items {
+  margin-top: var(--spacing-largest);
+}
+
 .lgd-directory__meta-item {
   display: flex;
   margin-bottom: var(--spacing-largest);

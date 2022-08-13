@@ -34,7 +34,6 @@ dependencies:
   module:
     - field_group
     - link
-    - options
     - text
     - user
 third_party_settings:
@@ -94,19 +93,12 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_directory_available_online:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 17
-    region: content
   field_directory_cost:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 11
     region: content
   field_directory_eligibility:
     type: text_default
@@ -114,21 +106,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 4
-    region: content
-  field_directory_facebook:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_directory_free_everyone:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 11
     region: content
   field_directory_how_help:
     type: text_default
@@ -144,52 +121,12 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  field_directory_instagram:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 20
-    region: content
-  field_directory_siblings_attend:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 16
-    region: content
   field_directory_summary:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_directory_twitter:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 19
-    region: content
-  field_directory_venue_ally:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    weight: 15
-    region: content
-  localgov_directory_email:
-    type: basic_string
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    weight: 13
     region: content
   localgov_directory_files:
     type: entity_reference_label
@@ -229,14 +166,6 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  localgov_directory_phone:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 12
-    region: content
   localgov_directory_website:
     type: link
     label: hidden
@@ -259,11 +188,20 @@ content:
     weight: 2
     region: content
 hidden:
+  field_directory_available_online: true
+  field_directory_facebook: true
+  field_directory_free_everyone: true
+  field_directory_instagram: true
+  field_directory_siblings_attend: true
+  field_directory_twitter: true
+  field_directory_venue_ally: true
   field_sitewide_search_type: true
   langcode: true
   links: true
   localgov_directory_channels: true
+  localgov_directory_email: true
   localgov_directory_facets_select: true
+  localgov_directory_phone: true
   localgov_directory_search: true
   localgov_directory_title_sort: true
   search_api_excerpt: true
