@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.localgov_directories_page.body
     - field.field.node.localgov_directories_page.field_directory_additional_age
     - field.field.node.localgov_directories_page.field_directory_available_online
     - field.field.node.localgov_directories_page.field_directory_cost
@@ -129,16 +128,6 @@ targetEntityType: node
 bundle: localgov_directories_page
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 7
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: true
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 4

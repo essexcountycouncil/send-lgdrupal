@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.localgov_directories_venue.body
     - field.field.node.localgov_directories_venue.field_directory_additional_age
     - field.field.node.localgov_directories_venue.field_directory_available_online
     - field.field.node.localgov_directories_venue.field_directory_cost
@@ -33,7 +32,6 @@ dependencies:
     - field.field.node.localgov_directories_venue.localgov_location
     - node.type.localgov_directories_venue
   module:
-    - text
     - user
 _core:
   default_config_hash: uudmI0u_vlkH1dMWxDYCikqAFMfJj1pZjPQ404i_dts
@@ -42,20 +40,15 @@ targetEntityType: node
 bundle: localgov_directories_venue
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
+  field_directory_summary:
+    type: basic_string
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
 hidden:
+  content_moderation_control: true
   field_directory_additional_age: true
   field_directory_available_online: true
   field_directory_cost: true
@@ -66,7 +59,6 @@ hidden:
   field_directory_how_to_access: true
   field_directory_instagram: true
   field_directory_siblings_attend: true
-  field_directory_summary: true
   field_directory_twitter: true
   field_directory_venue_ally: true
   field_sitewide_search_type: true

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.localgov_geo.inline
-    - field.field.node.localgov_directories_org.body
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -137,16 +136,6 @@ targetEntityType: node
 bundle: localgov_directories_org
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 30
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: true
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 4
