@@ -12,6 +12,7 @@ dependencies:
     - field.field.paragraph.localgov_call_out_box.localgov_opens_in_a_new_window
     - paragraphs.paragraphs_type.localgov_call_out_box
   module:
+    - field_formatter_class
     - link
     - options
     - text
@@ -26,9 +27,11 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: full
+      view_mode: scale_crop_7_3_large
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 3
     region: content
   localgov_body_text:

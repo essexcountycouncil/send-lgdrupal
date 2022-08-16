@@ -16,6 +16,12 @@ settings:
     -
       value: default
       label: Default
+    -
+      value: theme-1
+      label: Green
+    -
+      value: theme-2
+      label: Blue
   allowed_values_function: ''
 module: options
 locked: false

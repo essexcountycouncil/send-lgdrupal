@@ -39,12 +39,13 @@ body {
   --color-accent-alt: #e40037;
   --color-brand-red: #910563;
   --color-grey-lighter: #c5c5c5;
-  --color-grey-lightest: #fefdfb;
+  --color-grey-lightest: #faf9f6;
   --color-grey-medium: #7d7878;
   --color-grey-darkest: #413c3c;
   --color-black: #1d1d1d;
   --color-blue: #004c94;
   --color-blue-light: #4179aa;
+  --color-green: #4a7a70;
   --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
@@ -86,6 +87,7 @@ body {
   --header-search-button-color-hover: var(--color-white);
   --button-border-color: var(--color-white);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
+  --banner-content-bg-color: var(--color-blue);
   /* Page Title */
   --page-title-border: 0;
   /* Footer Items */

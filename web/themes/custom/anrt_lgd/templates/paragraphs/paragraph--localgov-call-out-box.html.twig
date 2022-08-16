@@ -62,32 +62,38 @@
   {# {% if background_url is defined and background_url %}style="background-image: url('{{ background_url }}')"{% endif %}> #}
 
   {% if paragraph.localgov_background_image.value %}
-    <div class="lgd-row__one-half call-out-box__image">
-      {{ content.localgov_background_image }}
+    <div class="lgd-row__two-thirds">
+      <div class="call-out-box__image">
+        {{ content.localgov_background_image }}
+      </div>
     </div>
   {% endif %}
 
   {% if paragraph.localgov_background_image.value %}
-    <div class="lgd-row__one-half call-out-box__content">
+    <div class="lgd-row__one-third">
     {% else %}
       <div class="lgd-row__full call-out-box__content">
   {% endif %}
-    {{ heading }}
-    {{ content|without('localgov_button', 'localgov_background_image', 'localgov_colour_theme', 'localgov_header_text', 'localgov_heading_level', 'localgov_opens_in_a_new_window') }}
-    <a href="{{ button_url }}" class="call-out-box__link"
-      {% if open_in_new_window %} target="_blank" {% endif %}>
-      <span>{{ paragraph.localgov_button.getValue[0].title }}</span>
+    <div class="call-out-box__content">
+      {{ heading }}
+  
+      {{ content|without('localgov_button', 'localgov_background_image', 'localgov_colour_theme', 'localgov_header_text', 'localgov_heading_level', 'localgov_opens_in_a_new_window') }}
       
-      {% if open_in_new_window %}
-        <span class="visually-hidden"> {{ '(opens in a new window)'|t }}</span>
-      {% endif %}
-      
-      {% include "@localgov_base/includes/icons/icon.html.twig" with {
-          icon_name: 'chevron-right',
-          icon_wrapper_element: 'span',
-          icon_classes: 'lgd-icon--small'
-        }
-      %}
-    </a>
+      <a href="{{ button_url }}" class="call-out-box__link"
+        {% if open_in_new_window %} target="_blank" {% endif %}>
+        <span>{{ paragraph.localgov_button.getValue[0].title }}</span>
+        
+        {% if open_in_new_window %}
+          <span class="visually-hidden"> {{ '(opens in a new window)'|t }}</span>
+        {% endif %}
+        
+        {% include "@localgov_base/includes/icons/icon.html.twig" with {
+            icon_name: 'chevron-right',
+            icon_wrapper_element: 'span',
+            icon_classes: 'lgd-icon--small'
+          }
+        %}
+      </a>
+    </div>
   </div>
 </div>

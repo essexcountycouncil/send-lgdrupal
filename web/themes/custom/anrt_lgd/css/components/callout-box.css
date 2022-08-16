@@ -1,3 +1,7 @@
+.call-out-box.lgd-row {
+  --grid-column-spacing: 0px;
+}
+
 .call-out-box--has-image .call-out-box__content {
   padding-right: var(--call-out-box-padding);
   border-radius: 0;
@@ -6,11 +10,21 @@
 
 @media screen and (min-width: 48rem) {
   .call-out-box__image,
-  .call-out-box__image + .call-out-box__content {
-    width: 50%;
+  .call-out-box__image + .call-out-box__content,
+  .call-out-box--has-image .call-out-box__content {
+    width: 100%;
     margin: 0;
+    height: 100%;
+  }
+  .call-out-box__image * {
+    height: 100%;
+  }
+  .call-out-box img {
+    width: auto;
+    object-fit: cover;
   }
 }
+
 
 .call-out-box h2 {
   color: var(--color-white);
@@ -46,4 +60,24 @@
 
 .call-out-box__link .lgd-icon svg path {
   fill: var(--color-accent);
+}
+
+/* Overrides */
+.call-out-box--theme-1.call-out-box--has-image .call-out-box__content {
+  --call-out-box-bg-color: var(--color-green);
+}
+.call-out-box--theme-1.call-out-box--has-image .call-out-box__link {
+  color: var(--color-green);
+}
+.call-out-box--theme-1.call-out-box--has-image .call-out-box__link svg path {
+  fill: var(--color-green);
+}
+.call-out-box--theme-2.call-out-box--has-image .call-out-box__content {
+  --call-out-box-bg-color: var(--color-blue);
+}
+.call-out-box--theme-2.call-out-box--has-image .call-out-box__link {
+  color: var(--color-blue);
+}
+.call-out-box--theme-2.call-out-box--has-image .call-out-box__link svg path {
+  fill: var(--color-blue);
 }

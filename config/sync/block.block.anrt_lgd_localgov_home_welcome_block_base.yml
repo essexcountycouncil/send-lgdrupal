@@ -11,8 +11,8 @@ _core:
   default_config_hash: rn5QKJ4Bk6yVFHk_82zWUr4BcrqIlkJVvX2fItYOKG0
 id: anrt_lgd_localgov_home_welcome_block_base
 theme: anrt_lgd
-region: banner
-weight: -13
+region: disabled
+weight: -12
 provider: null
 plugin: localgov_home_welcome_block
 settings:
