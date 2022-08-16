@@ -20,6 +20,7 @@ weight: -3
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'administer menu'
   - 'administer users'
   - 'assign localgov_author role'
   - 'assign localgov_contributor role'
