@@ -1,7 +1,14 @@
 .lgd-guide-nav {
   border: var(--border);
-  border-radius: var(--border-radius);
   background-color: var(--color-white);
+}
+
+.lgd-prev-next__list {
+  justify-content: space-between;
+}
+
+.lgd-guide-nav__list-item {
+  margin-bottom: var(--spacing-largest);
 }
 
 .lgd-guide-nav__list-item--active {
@@ -16,4 +23,29 @@
 .block-localgov-guides-contents {
   margin-top: var(--spacing-largest);
   margin-bottom: var(--spacing-largest);
+}
+
+.lgd-prev-next__link {
+  background-color: var(--color-white);
+  color: var(--color-blue);
+  text-decoration: none;
+  flex-wrap: wrap;
+  align-items: initial;
+  padding: var(--spacing-smaller);
+}
+
+.lgd-prev-next__icon {
+  margin-top: 3px;
+}
+
+.lgd-prev-next__link svg path {
+  fill: var(--color-black);
+}
+
+.lgd-prev-next__title {
+  width: 100%;
+}
+
+.lgd-prev-next__list-item--prev .lgd-prev-next__title {
+  padding-left: var(--spacing-large);
 }
