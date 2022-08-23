@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_eligibility
     - field.field.node.localgov_directories_org.field_directory_facebook
     - field.field.node.localgov_directories_org.field_directory_how_to_access
-    - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
@@ -23,7 +22,7 @@ third_party_settings:
   feeds_tamper:
     tampers:
       4397fc07-1f7e-4e63-b23a-9152aa2feebe:
-        text: "[address_1]\r\n[address_2]\r\n[address_3]\r\n[address_city]\r\n[address_postcode]\r\n[address_country]\r\n\r\nLat: [location_lat]\r\nLng: [location_lng]"
+        text: "[content_encoded]\r\n\r\n<address>[address_1]<br>\r\n[address_2]<br>\r\n[address_3]<br>\r\n[address_city]<br>\r\n[address_postcode]<br>\r\n[address_country]<br>\r\n</address>\r\n\r\n<p>Lat: [location_lat]<br>\r\nLng: [location_lng]</p>"
         uuid: 4397fc07-1f7e-4e63-b23a-9152aa2feebe
         plugin: rewrite
         source: address_1
@@ -193,8 +192,8 @@ mappings:
     map:
       value: address_1
     settings:
-      language: null
-      format: plain_text
+      language: ''
+      format: wysiwyg
   -
     target: field_directory_facebook
     map:
@@ -209,12 +208,6 @@ mappings:
     settings:
       language: null
     unique: {  }
-  -
-    target: field_directory_summary
-    map:
-      value: content_encoded
-    settings:
-      language: null
   -
     target: field_directory_how_to_access
     map:
