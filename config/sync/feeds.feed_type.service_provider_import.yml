@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.base_field_override.node.localgov_directories_org.title
+    - field.field.node.localgov_directories_org.localgov_directory_email
     - node.type.localgov_directories_org
   module:
     - node
@@ -33,5 +35,30 @@ processor_configuration:
   expire: -1
   owner_feed_author: true
   owner_id: 0
-custom_sources: {  }
-mappings: {  }
+custom_sources:
+  title:
+    value: title
+    label: title
+    machine_name: title
+    type: csv
+  email_address:
+    value: email_address
+    label: email_address
+    machine_name: email_address
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: localgov_directory_email
+    map:
+      value: email_address
+    settings:
+      language: null
+      defuse: false
+    unique: {  }

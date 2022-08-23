@@ -17,6 +17,8 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
+    - field.field.node.localgov_directories_org.field_migrated_content
+    - field.field.node.localgov_directories_org.field_old_url
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
@@ -47,6 +49,7 @@ third_party_settings:
         - group_directory
         - group_enquiries
         - group_organisation
+        - group_migrated_content
       label: tabs
       region: content
       parent_name: ''
@@ -64,7 +67,6 @@ third_party_settings:
         - field_directory_how_to_access
         - field_directory_eligibility
         - field_directory_additional_age
-        - body
         - localgov_directory_files
       label: Description
       region: content
@@ -120,6 +122,7 @@ third_party_settings:
       children:
         - localgov_location
         - localgov_directory_notes
+        - localgov_opening_hours
       label: Venue
       region: content
       parent_name: group_tabs
@@ -127,6 +130,22 @@ third_party_settings:
       format_type: tab
       format_settings:
         classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_migrated_content:
+      children:
+        - field_migrated_content
+        - field_old_url
+      label: 'Migrated content'
+      region: content
+      parent_name: group_tabs
+      weight: 10
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
         id: ''
         formatter: closed
         description: ''
@@ -234,6 +253,22 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_migrated_content:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_old_url:
+    type: link_default
+    weight: 12
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_sitewide_search_type:
     type: options_buttons
     weight: 11
@@ -276,7 +311,7 @@ content:
     third_party_settings: {  }
   localgov_directory_notes:
     type: text_textarea
-    weight: 10
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -312,7 +347,7 @@ content:
     third_party_settings: {  }
   localgov_opening_hours:
     type: text_textarea
-    weight: 51
+    weight: 9
     region: content
     settings:
       rows: 5
