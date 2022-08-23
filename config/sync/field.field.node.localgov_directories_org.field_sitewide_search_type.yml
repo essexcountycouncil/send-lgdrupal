@@ -12,7 +12,7 @@ entity_type: node
 bundle: localgov_directories_org
 label: 'Sitewide Search Type'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

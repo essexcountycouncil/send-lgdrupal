@@ -13,7 +13,7 @@ entity_type: node
 bundle: localgov_directories_org
 label: 'How it can help'
 description: "Explain how you can specifically help people with special needs, any specific therapies, activities, who it is for, and how it can help them. \r\n<br><br>\r\nSuch as: <em>Provides information, runs emotional support groups, provides social activities and opportunities for autistic children. Can boost self-esteem and improve social skills. Can provide educational activities for children who are home schooled</em>."
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

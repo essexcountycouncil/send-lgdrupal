@@ -13,7 +13,7 @@ entity_type: node
 bundle: localgov_directories_org
 label: 'How to access'
 description: 'Such as: <em>contact by phone or book a place via our website</em>.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

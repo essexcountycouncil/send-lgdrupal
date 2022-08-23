@@ -13,7 +13,7 @@ entity_type: node
 bundle: localgov_directories_org
 label: Eligibility
 description: "Include any eligibility criteria needs to access your service, such as: <em>referral from a GP or an Education and Health Care Plan<em>. \r\n<br><br>\r\nIf no eligibility criteria add <em>open to all</em>."
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
