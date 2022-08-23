@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_directories_org.feeds_item
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -160,6 +161,7 @@ content:
     weight: 12
     region: content
 hidden:
+  feeds_item: true
   field_directory_available_online: true
   field_directory_facebook: true
   field_directory_free_everyone: true

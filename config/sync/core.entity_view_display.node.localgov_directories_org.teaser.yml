@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_directories_org.feeds_item
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -45,6 +46,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  feeds_item: true
   field_directory_additional_age: true
   field_directory_available_online: true
   field_directory_cost: true

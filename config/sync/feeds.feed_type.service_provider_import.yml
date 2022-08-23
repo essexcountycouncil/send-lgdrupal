@@ -1,0 +1,37 @@
+uuid: 44281ca6-a90f-4a84-ae4d-965741f6060e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_org
+  module:
+    - node
+label: 'Service provider import'
+id: service_provider_import
+description: 'Import of existing service provider data into Directory Org content type'
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: localgov_directories_org
+  langcode: en
+  insert_new: 1
+  update_existing: 1
+  update_non_existent: _delete
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources: {  }
+mappings: {  }
