@@ -4,10 +4,31 @@ status: true
 dependencies:
   config:
     - core.base_field_override.node.localgov_directories_org.title
+    - field.field.node.localgov_directories_org.field_directory_eligibility
+    - field.field.node.localgov_directories_org.field_directory_facebook
+    - field.field.node.localgov_directories_org.field_directory_how_to_access
+    - field.field.node.localgov_directories_org.field_directory_summary
+    - field.field.node.localgov_directories_org.field_directory_twitter
+    - field.field.node.localgov_directories_org.field_migrated_content
+    - field.field.node.localgov_directories_org.field_old_url
     - field.field.node.localgov_directories_org.localgov_directory_email
+    - field.field.node.localgov_directories_org.localgov_directory_phone
+    - field.field.node.localgov_directories_org.localgov_directory_website
+    - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
   module:
+    - feeds_tamper
     - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      4397fc07-1f7e-4e63-b23a-9152aa2feebe:
+        text: "[address_1]\r\n[address_2]\r\n[address_3]\r\n[address_city]\r\n[address_postcode]\r\n[address_country]\r\n\r\nLat: [location_lat]\r\nLng: [location_lng]"
+        uuid: 4397fc07-1f7e-4e63-b23a-9152aa2feebe
+        plugin: rewrite
+        source: address_1
+        weight: 0
+        label: Rewrite
 label: 'Service provider import'
 id: service_provider_import
 description: 'Import of existing service provider data into Directory Org content type'
@@ -46,6 +67,91 @@ custom_sources:
     label: email_address
     machine_name: email_address
     type: csv
+  link:
+    value: link
+    label: link
+    machine_name: link
+    type: csv
+  phone_number:
+    value: phone_number
+    label: phone_number
+    machine_name: phone_number
+    type: csv
+  website_url:
+    value: website_url
+    label: website_url
+    machine_name: website_url
+    type: csv
+  address_1:
+    value: address_1
+    label: address_1
+    machine_name: address_1
+    type: csv
+  address_2:
+    value: address_2
+    label: address_2
+    machine_name: address_2
+    type: csv
+  address_3:
+    value: address_3
+    label: address_3
+    machine_name: address_3
+    type: csv
+  address_city:
+    value: address_city
+    label: address_city
+    machine_name: address_city
+    type: csv
+  address_postcode:
+    value: address_postcode
+    label: address_postcode
+    machine_name: address_postcode
+    type: csv
+  address_country:
+    value: address_country
+    label: address_country
+    machine_name: address_country
+    type: csv
+  facebook_url:
+    value: facebook_url
+    label: facebook_url
+    machine_name: facebook_url
+    type: csv
+  twitter_url:
+    value: twitter_url
+    label: twitter_url
+    machine_name: twitter_url
+    type: csv
+  content_encoded:
+    value: 'content:encoded'
+    label: 'content:encoded'
+    machine_name: content_encoded
+    type: csv
+  access_details:
+    value: access_details
+    label: access_details
+    machine_name: access_details
+    type: csv
+  location_lat:
+    value: location_lat
+    label: location_lat
+    machine_name: location_lat
+    type: csv
+  location_lng:
+    value: location_lng
+    label: location_lng
+    machine_name: location_lng
+    type: csv
+  eligibility_criteria:
+    value: eligibility_criteria
+    label: eligibility_criteria
+    machine_name: eligibility_criteria
+    type: csv
+  hours_of_operation:
+    value: hours_of_operation
+    label: hours_of_operation
+    machine_name: hours_of_operation
+    type: csv
 mappings:
   -
     target: title
@@ -62,3 +168,71 @@ mappings:
       language: null
       defuse: false
     unique: {  }
+  -
+    target: field_old_url
+    map:
+      uri: link
+      title: ''
+    settings:
+      language: null
+  -
+    target: localgov_directory_phone
+    map:
+      value: phone_number
+    settings:
+      language: null
+  -
+    target: localgov_directory_website
+    map:
+      uri: website_url
+      title: ''
+    settings:
+      language: null
+  -
+    target: field_migrated_content
+    map:
+      value: address_1
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_directory_facebook
+    map:
+      value: facebook_url
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_directory_twitter
+    map:
+      value: twitter_url
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_directory_summary
+    map:
+      value: content_encoded
+    settings:
+      language: null
+  -
+    target: field_directory_how_to_access
+    map:
+      value: access_details
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_directory_eligibility
+    map:
+      value: eligibility_criteria
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: localgov_opening_hours
+    map:
+      value: hours_of_operation
+    settings:
+      language: null
+      format: plain_text
