@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_directory_phone
     - field.field.node.localgov_directories_org.localgov_directory_website
     - field.field.node.localgov_directories_org.localgov_location
+    - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
   module:
     - field_formatter_class
@@ -150,6 +151,13 @@ content:
       field_formatter_class:
         class: ''
     weight: 2
+    region: content
+  localgov_opening_hours:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
     region: content
 hidden:
   field_directory_available_online: true

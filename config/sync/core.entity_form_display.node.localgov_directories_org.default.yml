@@ -25,6 +25,7 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_directory_phone
     - field.field.node.localgov_directories_org.localgov_directory_website
     - field.field.node.localgov_directories_org.localgov_location
+    - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
     - workflows.workflow.localgov_editorial
   module:
@@ -307,6 +308,14 @@ content:
       collapsible: false
       collapsed: false
       revision: false
+    third_party_settings: {  }
+  localgov_opening_hours:
+    type: text_textarea
+    weight: 51
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
