@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "feb07845d13a82f72bf2cb3f7fa126b8",
+    "content-hash": "d214b8d0ec2e47393ca74c3da2e8d1e1",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
@@ -6556,6 +6556,171 @@
                 "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
                 "docs": "https://www.drupal.org/docs/8/modules/webform",
                 "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
+            }
+        },
+        {
+            "name": "drupal/webform_query",
+            "version": "2.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_query.git",
+                "reference": "8.x-2.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_query-8.x-2.0-alpha2.zip",
+                "reference": "8.x-2.0-alpha2",
+                "shasum": "7c78dafb7229eda45fae399d4dad8c1028a58550"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/webform": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0-alpha2",
+                    "datestamp": "1629677808",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "imclean",
+                    "homepage": "https://www.drupal.org/user/112588"
+                }
+            ],
+            "description": "Query webform submission data.",
+            "homepage": "https://www.drupal.org/project/webform_query",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_query"
+            }
+        },
+        {
+            "name": "drupal/webform_views",
+            "version": "5.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_views.git",
+                "reference": "8.x-5.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_views-8.x-5.0-beta1.zip",
+                "reference": "8.x-5.0-beta1",
+                "shasum": "9d73a091bea676c4b69ca5d2e404cade37b00b21"
+            },
+            "require": {
+                "drupal/core": "^9",
+                "drupal/webform": "^6"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-5.0-beta1",
+                    "datestamp": "1649076086",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                },
+                {
+                    "name": "acbramley",
+                    "homepage": "https://www.drupal.org/user/1036766"
+                },
+                {
+                    "name": "bucefal91",
+                    "homepage": "https://www.drupal.org/user/504128"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "jrockowitz",
+                    "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "matio89",
+                    "homepage": "https://www.drupal.org/user/2320090"
+                },
+                {
+                    "name": "ws.agency",
+                    "homepage": "https://www.drupal.org/user/2851415"
+                }
+            ],
+            "description": "Webform integration with views.",
+            "homepage": "https://www.drupal.org/project/webform_views",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_views"
+            }
+        },
+        {
+            "name": "drupal/webform_workflows_element",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform_workflows_element.git",
+                "reference": "1.0.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform_workflows_element-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "d05915c196edbae07b122fb1e2c59f0d813ecccc"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/token": "*",
+                "drupal/webform": "*"
+            },
+            "require-dev": {
+                "drupal/maestro": "*",
+                "drupal/webform_query": "*",
+                "drupal/webform_views": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1657169706",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "maxwellkeeble",
+                    "homepage": "https://www.drupal.org/user/3653834"
+                }
+            ],
+            "description": "Provides a webform element that hooks into the core Workflows module to allow transitioning submissions through workflow states.",
+            "homepage": "https://www.drupal.org/project/webform_workflows_element",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform_workflows_element"
             }
         },
         {
@@ -17645,7 +17810,10 @@
     "stability-flags": {
         "anrt-tools/docksal-configuration": 20,
         "drupal/feeds": 10,
-        "drupal/feeds_tamper": 10
+        "drupal/feeds_tamper": 10,
+        "drupal/webform_query": 15,
+        "drupal/webform_views": 10,
+        "drupal/webform_workflows_element": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
