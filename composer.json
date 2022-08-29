@@ -28,6 +28,9 @@
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/webform": "^6.1",
+        "drupal/webform_query": "^2.0@alpha",
+        "drupal/webform_views": "^5.0@beta",
+        "drupal/webform_workflows_element": "^1.0@alpha",
         "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",
         "platformsh/config-reader": "^2.4"

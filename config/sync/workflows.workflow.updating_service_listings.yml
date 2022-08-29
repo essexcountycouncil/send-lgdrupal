@@ -1,0 +1,67 @@
+uuid: f1eaf384-0e95-4229-a93a-d906edeca2ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform_workflows_element
+id: updating_service_listings
+label: 'Updating Service Listings'
+type: webform_workflows_element
+type_settings:
+  initial_state: new
+  states:
+    completed:
+      label: Completed
+      weight: 3
+    invalid:
+      label: Invalid
+      weight: 5
+    new:
+      label: New
+      weight: 0
+    not_actioned:
+      label: 'Not actioned'
+      weight: 4
+    with_provider:
+      label: 'With provider'
+      weight: 2
+    with_us:
+      label: 'With us'
+      weight: 1
+  transitions:
+    complete:
+      label: Complete
+      from:
+        - with_provider
+        - with_us
+      to: completed
+      weight: 3
+    first_review:
+      label: 'First review'
+      from:
+        - new
+      to: with_us
+      weight: 0
+    invalid_update:
+      label: 'Invalid update'
+      from:
+        - new
+        - with_provider
+        - with_us
+      to: invalid
+      weight: 2
+    no_action:
+      label: 'No action'
+      from:
+        - new
+        - with_provider
+        - with_us
+      to: not_actioned
+      weight: 4
+    sent_to_provider:
+      label: 'Sent to provider'
+      from:
+        - new
+        - with_us
+      to: with_provider
+      weight: 1
