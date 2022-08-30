@@ -32,24 +32,24 @@ type_settings:
     complete:
       label: Complete
       from:
+        - new
         - with_provider
         - with_us
       to: completed
-      weight: 3
+      weight: 0
     first_review:
       label: 'First review'
       from:
         - new
       to: with_us
-      weight: 0
+      weight: -3
     invalid_update:
       label: 'Invalid update'
       from:
         - new
-        - with_provider
         - with_us
       to: invalid
-      weight: 2
+      weight: 1
     no_action:
       label: 'No action'
       from:
@@ -57,11 +57,11 @@ type_settings:
         - with_provider
         - with_us
       to: not_actioned
-      weight: 4
+      weight: -1
     sent_to_provider:
       label: 'Sent to provider'
       from:
         - new
         - with_us
       to: with_provider
-      weight: 1
+      weight: -2

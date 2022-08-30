@@ -16,7 +16,7 @@ elements: |-
   servurl:
     '#type': hidden
     '#title': 'Service URL'
-    '#default_value': '[current-page:query:servurl]'
+    '#default_value': '/node/[current-page:query:servurl]'
     '#prepopulate': true
     '#access_update_roles':
       - authenticated
