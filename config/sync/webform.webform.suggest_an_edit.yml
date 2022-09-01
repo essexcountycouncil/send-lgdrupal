@@ -29,15 +29,15 @@ elements: |-
       - authenticated
     '#access_transition_sent_to_provider_roles':
       - authenticated
-    '#access_transition_invalid_update_roles':
+    '#access_transition_no_action_roles':
       - authenticated
     '#access_transition_complete_roles':
       - authenticated
-    '#access_transition_no_action_roles':
+    '#access_transition_invalid_update_roles':
       - authenticated
     '#workflow': updating_service_listings
     '#require_transition_if_available': true
-    '#log_public_setting': Required
+    '#log_public_setting': Disabled
     '#log_admin_setting': Optional
   are_you:
     '#type': select
@@ -76,7 +76,7 @@ elements: |-
           '!value': other
   changes:
     '#type': textarea
-    '#title': 'Please provide details of changes to be made to this listing'
+    '#title': 'How can this listing be improved?'
     '#required': true
 css: ''
 javascript: ''
@@ -182,8 +182,8 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_url: ''
-  confirmation_title: ''
-  confirmation_message: ''
+  confirmation_title: 'Any confirmation title you want'
+  confirmation_message: 'Some confirmation text, which we can choose.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
