@@ -38,9 +38,16 @@ body {
 }
 
 .lgd-region--search form {
-  gap: var(--spacing-smaller);
+  gap: 0;
+}
+.lgd-region--search .form-text {
+  padding: var(--spacing-smaller);
 }
 
+.lgd-region--search form .form-submit {
+  padding: 7px var(--spacing);
+  border: 0;
+}
 .layout--twocol > .layout__region--first {
   display: flex;
 }
@@ -101,8 +108,12 @@ body {
 }
 
 .banner--primary .banner__content {
-  padding: var(--banner-content-padding) calc(var(--banner-content-padding) * 2);
+  max-width: 662px;
+  padding: var(--banner-content-padding);
   border-radius: var(--border-radius);
+  font-size: 27px;
+  font-weight: bold;
+  margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
 }
 
 .localgov-subsites-overview__content {
@@ -112,4 +123,9 @@ body {
 .pager__item.is-active a {
   text-decoration: none;
   font-weight: 700;
+}
+
+.menu--main > .menu-item {
+  margin-right: var(--spacing-larger);
+  margin-left: var(--spacing-larger);
 }

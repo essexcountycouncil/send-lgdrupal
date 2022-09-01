@@ -1,4 +1,5 @@
 .page-node-type-localgov-directory .main-content-container {
+  padding-top: calc(var(--spacing-largest) * 2);
   background-color: var(--color-grey-lightest);
 }
 
@@ -50,7 +51,7 @@
 
 .localgov-directories-page__contact-container {
   padding: var(--spacing);
-  border: var(--border);
+  border: var(--border-light-grey);
 }
 
 .localgov-directories-page__contact-container + .localgov-directories-page__contact-container {
@@ -86,7 +87,7 @@
 }
 
 .lgd-directory__meta-items {
-  margin-top: var(--spacing-largest);
+  margin-top: calc(var(--spacing-largest) * 3);
 }
 
 .lgd-directory__meta-item {
@@ -113,4 +114,13 @@
 
 .lgd-directory__meta-item-icon svg path {
   fill: var(--color-success);
+}
+
+.localgov-directories-page__contact-container > fieldset {
+  border: 0;
+  padding: 0;
+}
+
+.localgov-directories-page__contact-container .field--name-postal-address {
+  margin-top: var(--spacing);
 }
