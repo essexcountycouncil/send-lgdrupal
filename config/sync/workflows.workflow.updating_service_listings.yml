@@ -26,7 +26,7 @@ type_settings:
       label: 'With provider'
       weight: 2
     with_us:
-      label: 'With us'
+      label: 'To do'
       weight: 1
   transitions:
     complete:
@@ -38,7 +38,7 @@ type_settings:
       to: completed
       weight: 0
     first_review:
-      label: 'First review'
+      label: 'To do'
       from:
         - new
       to: with_us

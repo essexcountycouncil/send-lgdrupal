@@ -37,8 +37,8 @@ elements: |-
       - authenticated
     '#workflow': updating_service_listings
     '#require_transition_if_available': true
-    '#log_public_setting': Disabled
-    '#log_admin_setting': Optional
+    '#log_public_setting': Optional
+    '#log_admin_setting': Disabled
   are_you:
     '#type': select
     '#title': 'Are you'
@@ -182,8 +182,8 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_url: ''
-  confirmation_title: 'Any confirmation title you want'
-  confirmation_message: 'Some confirmation text, which we can choose.'
+  confirmation_title: 'Thank you for your submission'
+  confirmation_message: 'Thank you for your submission, which will now be reviewed by our content moderators.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
