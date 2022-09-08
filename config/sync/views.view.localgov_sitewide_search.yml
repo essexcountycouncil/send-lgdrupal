@@ -186,7 +186,7 @@ display:
               webform_manager: '0'
               service_provider: '0'
             expose_fields: false
-            placeholder: ''
+            placeholder: 'Search our website'
             searched_fields_id: search_api_fulltext_searched_fields
           is_grouped: false
           group_info:
