@@ -131,3 +131,11 @@ body {
   margin-right: var(--spacing-larger);
   margin-left: var(--spacing-larger);
 }
+
+.lgd-region--content-bottom {
+  margin-top: var(--spacing-largest);
+}
+
+.lgd-prev-next__link {
+  text-decoration: unset;
+}
