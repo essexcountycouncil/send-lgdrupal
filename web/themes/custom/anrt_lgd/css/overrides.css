@@ -26,12 +26,12 @@ body {
   background-color: var(--color-grey-lighter);
 }
 
-.menu--main > .menu-item a {
+.menu--main>.menu-item a {
   color: var(--color-white);
   text-decoration: none;
 }
 
-.menu--main > .menu-item a:hover {
+.menu--main>.menu-item a:hover {
   color: var(--color-white);
   border-color: var(--color-white);
   background-color: unset;
@@ -40,6 +40,7 @@ body {
 .lgd-region--search form {
   gap: 0;
 }
+
 .lgd-region--search .form-text {
   padding: var(--spacing-smaller);
 }
@@ -48,15 +49,16 @@ body {
   padding: 7px var(--spacing);
   border: 0;
 }
-.layout--twocol > .layout__region--first {
+
+.layout--twocol>.layout__region--first {
   display: flex;
 }
 
-.layout--twocol > .layout__region--second {
+.layout--twocol>.layout__region--second {
   display: flex;
 }
 
-.field--name-localgov-subsites-content > .field__item {
+.field--name-localgov-subsites-content>.field__item {
   margin-bottom: var(--spacing-largest);
 }
 
@@ -125,7 +127,7 @@ body {
   font-weight: 700;
 }
 
-.menu--main > .menu-item {
+.menu--main>.menu-item {
   margin-right: var(--spacing-larger);
   margin-left: var(--spacing-larger);
 }
