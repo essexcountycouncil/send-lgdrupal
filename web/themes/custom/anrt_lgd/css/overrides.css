@@ -136,6 +136,10 @@ body {
   margin-top: var(--spacing-largest);
 }
 
-.lgd-prev-next__link {
-  text-decoration: unset;
+.lgd-prev-next__label {
+  font-weight: bold;
+}
+
+.lgd-prev-next__title {
+  text-decoration: underline;
 }
