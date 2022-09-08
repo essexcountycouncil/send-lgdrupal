@@ -82,6 +82,14 @@
   margin-bottom: var(--spacing-larger);
 }
 
+.page-node-type-localgov-services-landing .lgd-page-title-block {
+  margin-bottom: var(--spacing-mega);
+}
+
+.page-node-type-localgov-services-landing .service-landing-page__service {
+  border-bottom: var(--border-light-grey);
+}
+
 .page-node-type-localgov-services-page .lgd-page-title-block {
   border-bottom: var(--border-light-grey);
 }
