@@ -143,3 +143,8 @@ body {
 .lgd-prev-next__title {
   text-decoration: underline;
 }
+
+.localgov-services-page__content a,
+.lgd-guides__content a {
+  color: var(--color-blue);
+}
