@@ -1,0 +1,97 @@
+id: send_geo
+migration_group: send
+label: SEND GEO
+source:
+  plugin: csv
+  ids: [link]
+  path: private://migrate/source/Existing_local_offer_listing_20220802_-_to_import.csv
+  header_row_count: 1
+  enclosure: '"'
+  constants:
+    break: '<br />'
+    p_open: '<p>'
+    p_close: '</p>'
+
+  column_names:
+    0:
+      title: title
+    1:
+      email_address: email_address
+    2:
+      Health: Health
+    3:
+      NHS: NHS
+    4:
+      School: School
+    5:
+      Listing?: Listing?
+    6:
+      Comments: Comments
+    7:
+      Who needs to review?: Who needs to review?
+    8:
+      link: link
+    9:
+      phone_number: phone_number
+    10:
+      website_url: website_url
+    11:
+      address_1: address_1
+    12:
+      address_2: address_2
+    13:
+      address_3: address_3
+    14:
+      address_city: address_city
+    15:
+      address_postcode: address_postcode
+    16:
+      address_country: address_country
+    17:
+      location_lng: location_lng
+    18:
+      location_lat: location_lat
+    19:
+      facebook_url: facebook_url
+    20:
+      twitter_url: twitter_url
+    21:
+      content:encoded: content:encoded
+    22:
+      access_details: access_details
+    23:
+      eligibility_criteria: eligibility_criteria
+    24:
+      hours_of_operation: hours_of_operation
+    25:
+      wp:post_modified_gmt: wp:post_modified_gmt
+    26:
+      Migrate or redirect?: Migrate or redirect?
+
+destination:
+  plugin: entity:localgov_geo
+  default_bundle: address
+
+process:
+  postal_address/address_line1: address_1
+  postal_address/address_line2:
+  - plugin: get
+    source:
+      - address_2
+      - address_3
+  - plugin: callback
+    callable: array_filter
+  - plugin: concat
+    delimiter: ', '
+  postal_address/locality: address_city
+  postal_address/postal_code: address_postcode
+  postal_address/country_code:
+    plugin: default_value
+    default_value: 'GB'
+  location:
+    plugin: geofield_latlon
+    source:
+      - location_lat
+      - location_lng
+
+dependencies: {  }
