@@ -91,7 +91,7 @@ process:
     default_value: 1
   created:
     plugin: format_date
-    from_format: 'd/m/Y H:i'
+    from_format: 'd/m/Y H:i:s'
     to_format: 'U'
     source: wp:post_modified_gmt
 
