@@ -148,3 +148,10 @@ body {
 .lgd-guides__content a {
   color: var(--color-blue);
 }
+
+.page-node-type-localgov-services-page h2,
+.page-node-type-localgov-services-page h3,
+.page-node-type-localgov-services-page h4,
+.page-node-type-localgov-services-page h5 {
+  padding-top: var(--spacing-large);
+}

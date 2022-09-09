@@ -94,6 +94,10 @@
   border-bottom: var(--border-light-grey);
 }
 
+.page-node-type-localgov-services-page .lgd-page-title-block__subheader {
+  font-size: var(--font-size-larger);
+}
+
 .page-node-type-localgov-services-page .lgd-row__full {
   margin-left: 0;
 }

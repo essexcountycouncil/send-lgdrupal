@@ -91,7 +91,6 @@ body {
   --banner-content-margin: var(--spacing);
   /* Page Title */
   --page-title-border: 0;
-  --page-title-lede-font-size: var(--font-size-larger);
   /* Footer Items */
   --color-section-footer-bg: var(--color-accent);
   --color-footer-text: var(--color-white);
