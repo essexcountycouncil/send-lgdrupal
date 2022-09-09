@@ -1,0 +1,119 @@
+id: send_directory_redirect
+migration_group: send
+label: SEND Directory Redirects
+source:
+  plugin: csv
+  ids: [link]
+  path: private://migrate/source/Existing_local_offer_listing_20220802_-_to_import.csv
+  header_row_count: 1
+  enclosure: '"'
+  constants:
+    status_code: 301
+    non_migrate_redirect_path: 'entity:node/55'
+    migrate_path_prefix: 'entity:node/'
+
+  column_names:
+    0:
+      title: title
+    1:
+      email_address: email_address
+    2:
+      Health: Health
+    3:
+      NHS: NHS
+    4:
+      School: School
+    5:
+      Listing?: Listing?
+    6:
+      Comments: Comments
+    7:
+      Who needs to review?: Who needs to review?
+    8:
+      link: link
+    9:
+      phone_number: phone_number
+    10:
+      website_url: website_url
+    11:
+      address_1: address_1
+    12:
+      address_2: address_2
+    13:
+      address_3: address_3
+    14:
+      address_city: address_city
+    15:
+      address_postcode: address_postcode
+    16:
+      address_country: address_country
+    17:
+      location_lng: location_lng
+    18:
+      location_lat: location_lat
+    19:
+      facebook_url: facebook_url
+    20:
+      twitter_url: twitter_url
+    21:
+      content:encoded: content:encoded
+    22:
+      access_details: access_details
+    23:
+      eligibility_criteria: eligibility_criteria
+    24:
+      hours_of_operation: hours_of_operation
+    25:
+      wp:post_modified_gmt: wp:post_modified_gmt
+    26:
+      Migrate or redirect?: Migrate or redirect?
+
+destination:
+  plugin: 'entity:redirect'
+
+process:
+  uid:
+    plugin: default_value
+    default_value: 1
+
+  redirect_source/path:
+    plugin: str_replace
+    source: link
+    search: 'http://www.essexlocaloffer.org.uk/'
+    replace: '/'
+
+  new_nid:
+    plugin: migration_lookup
+    migration: send_directory
+    source: link
+    no_stub: true
+  new_path:
+  - plugin: skip_on_value
+    source: Migrate or redirect?
+    value: 'Redirect only'
+    method: process
+  - plugin: concat
+    source:
+      - constants/migrate_path_prefix
+      - '@new_nid'
+
+  merged_paths:
+    - plugin: get
+      source:
+        - '@new_path'
+        - 'constants/non_migrate_redirect_path'
+    - plugin: callback
+      callable: array_filter
+    - plugin: callback
+      callable: current
+
+  redirect_redirect/uri: '@merged_paths'
+
+  status_code: 'constants/status_code'
+  language:
+    plugin: default_value
+    default_value: und
+
+migration_dependencies:
+  optional:
+    - send_directory

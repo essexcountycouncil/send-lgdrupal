@@ -72,6 +72,13 @@ destination:
   plugin: entity:node
 
 process:
+
+  skip_on_value:
+    source:  'Migrate or redirect?'
+    plugin: skip_on_value
+    value: 'Redirect only'
+    method: row
+
   type:
     plugin: default_value
     default_value: localgov_directories_org
