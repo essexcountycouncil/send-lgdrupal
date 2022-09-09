@@ -73,6 +73,13 @@ destination:
   default_bundle: address
 
 process:
+
+  skip_on_value:
+    source:  'Migrate or redirect?'
+    plugin: skip_on_value
+    value: 'Redirect only'
+    method: row
+
   postal_address/address_line1: address_1
   postal_address/address_line2:
   - plugin: get
