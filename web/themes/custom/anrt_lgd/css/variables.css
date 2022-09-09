@@ -88,6 +88,7 @@ body {
   --button-border-color: var(--color-white);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
   --banner-content-bg-color: var(--color-blue);
+  --banner-content-margin: var(--spacing);
   /* Page Title */
   --page-title-border: 0;
   /* Footer Items */
