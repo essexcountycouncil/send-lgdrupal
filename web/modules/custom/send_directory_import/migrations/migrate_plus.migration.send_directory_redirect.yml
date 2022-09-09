@@ -80,7 +80,7 @@ process:
     plugin: str_replace
     source: link
     search: 'http://www.essexlocaloffer.org.uk/'
-    replace: '/'
+    replace: ''
 
   new_nid:
     plugin: migration_lookup
