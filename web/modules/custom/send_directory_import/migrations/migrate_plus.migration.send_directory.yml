@@ -4,7 +4,7 @@ label: SEND Directory Organisations
 source:
   plugin: csv
   ids: [link]
-  path: private://migrate/source/Existing_local_offer_listing_20220802_-_to_import.csv
+  path: private://migrate/source/source_data.csv
   header_row_count: 1
   enclosure: '"'
   constants:
@@ -88,7 +88,10 @@ process:
   title: title
   status:
     plugin: default_value
-    default_value: 1
+    default_value: 0
+  moderation_state/state:
+    plugin: default_value
+    default_value: draft
   created:
     plugin: format_date
     from_format: 'd/m/Y H:i:s'
@@ -106,7 +109,7 @@ process:
 
   field_sitewide_search_type/target_id:
     plugin: default_value
-    default_value: 1
+    default_value: 2
   localgov_directory_channels/target_id:
     plugin: default_value
     default_value: 55

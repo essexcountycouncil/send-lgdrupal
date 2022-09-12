@@ -4,12 +4,12 @@ label: SEND Directory Redirects
 source:
   plugin: csv
   ids: [link]
-  path: private://migrate/source/Existing_local_offer_listing_20220802_-_to_import.csv
+  path: private://migrate/source/source_data.csv
   header_row_count: 1
   enclosure: '"'
   constants:
     status_code: 301
-    non_migrate_redirect_path: 'entity:node/55'
+    non_migrate_redirect_path: 'entity:node/190'
     migrate_path_prefix: 'entity:node/'
 
   column_names:

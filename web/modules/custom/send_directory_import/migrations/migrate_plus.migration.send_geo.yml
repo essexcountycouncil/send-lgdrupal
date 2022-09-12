@@ -4,7 +4,7 @@ label: SEND GEO
 source:
   plugin: csv
   ids: [link]
-  path: private://migrate/source/Existing_local_offer_listing_20220802_-_to_import.csv
+  path: private://migrate/source/source_data.csv
   header_row_count: 1
   enclosure: '"'
   constants:
