@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.localgov_directories_page.field_directory_cost
     - field.field.node.localgov_directories_page.field_directory_eligibility
     - field.field.node.localgov_directories_page.field_directory_facebook
-    - field.field.node.localgov_directories_page.field_directory_free_everyone
     - field.field.node.localgov_directories_page.field_directory_how_help
     - field.field.node.localgov_directories_page.field_directory_how_to_access
     - field.field.node.localgov_directories_page.field_directory_instagram
@@ -71,7 +70,6 @@ hidden:
   field_directory_cost: true
   field_directory_eligibility: true
   field_directory_facebook: true
-  field_directory_free_everyone: true
   field_directory_how_help: true
   field_directory_how_to_access: true
   field_directory_instagram: true

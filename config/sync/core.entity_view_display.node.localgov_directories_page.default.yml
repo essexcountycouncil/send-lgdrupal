@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.localgov_directories_page.field_directory_cost
     - field.field.node.localgov_directories_page.field_directory_eligibility
     - field.field.node.localgov_directories_page.field_directory_facebook
-    - field.field.node.localgov_directories_page.field_directory_free_everyone
     - field.field.node.localgov_directories_page.field_directory_how_help
     - field.field.node.localgov_directories_page.field_directory_how_to_access
     - field.field.node.localgov_directories_page.field_directory_instagram
@@ -31,7 +30,6 @@ dependencies:
     - address
     - field_group
     - link
-    - options
     - text
     - user
   enforced:
@@ -86,13 +84,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 4
-    region: content
-  field_directory_free_everyone:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 9
     region: content
   field_directory_how_help:
     type: text_default

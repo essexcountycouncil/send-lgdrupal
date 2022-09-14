@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.localgov_directories_venue.field_directory_cost
     - field.field.node.localgov_directories_venue.field_directory_eligibility
     - field.field.node.localgov_directories_venue.field_directory_facebook
-    - field.field.node.localgov_directories_venue.field_directory_free_everyone
     - field.field.node.localgov_directories_venue.field_directory_how_help
     - field.field.node.localgov_directories_venue.field_directory_how_to_access
     - field.field.node.localgov_directories_venue.field_directory_instagram
@@ -182,7 +181,6 @@ content:
 hidden:
   field_directory_available_online: true
   field_directory_facebook: true
-  field_directory_free_everyone: true
   field_directory_instagram: true
   field_directory_siblings_attend: true
   field_directory_twitter: true

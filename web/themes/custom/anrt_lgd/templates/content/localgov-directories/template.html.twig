@@ -39,7 +39,7 @@
 
   <div{{ content_attributes.addClass('lgd-row', content_type|clean_class ~ '__content', 'node__content') }}>
     <div class="lgd-row__two-thirds localgov-directories-page__content-body">
-      {{ content|without('group_venue', 'group_enquiries', 'group_organisation', 'field_directory_cost', 'localgov_directory_website', 'field_directory_free_everyone') }}
+      {{ content|without('group_venue', 'group_enquiries', 'group_organisation', 'field_directory_cost', 'localgov_directory_website') }}
     </div>
 
     {% if node.bundle == 'localgov_directories_venue' or node.bundle == 'localgov_directories_org' %}
@@ -75,7 +75,6 @@
         or node.field_directory_cost.value 
         or node.field_directory_siblings_attend.value 
         or node.field_directory_available_online.value 
-        or node.field_directory_free_everyone.value 
   %}
     <div class="lgd-directory__meta-items">
     
@@ -169,40 +168,8 @@
         </div>  
 
         <div class="lgd-row__one-half">
-          {# Begin free-4-all #}
-          {% if node.field_directory_free_everyone.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Is the service free for everyone?'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.field_directory_free_everyone.value %}
-                  {% if node.field_directory_free_everyone.value == 'yes' %}
-                    {% set value = 'Yes' %}
-                      {% else %}
-                        {% set value = 'No' %}
-                  {% endif %} 
-
-                  {% if value == 'Yes' %}
-                    {% set icon = 'check' %}
-                    {% else %}
-                      {% set icon = false %}
-                      {% set icon_as_placeholder = true %}
-                  {% endif %}
-
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': false,
-                      'icon': icon,
-                      'value':  value,
-                    }
-                  %}
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-          {# End free-4-all #}
-
           {# Begin Cost #}
-          {% if node.field_directory_cost.value and node.field_directory_free_everyone.value == 'no' %}
+          {% if node.field_directory_cost.value %}
             <div class="lgd-directory__meta-item">
               <h3 class="lgd-directory__meta-item-title">{{ 'Cost'|t }}</h3>
               <div class="lgd-directory__meta-item-content">

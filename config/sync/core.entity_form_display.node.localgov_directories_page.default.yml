@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.localgov_directories_page.field_directory_cost
     - field.field.node.localgov_directories_page.field_directory_eligibility
     - field.field.node.localgov_directories_page.field_directory_facebook
-    - field.field.node.localgov_directories_page.field_directory_free_everyone
     - field.field.node.localgov_directories_page.field_directory_how_help
     - field.field.node.localgov_directories_page.field_directory_how_to_access
     - field.field.node.localgov_directories_page.field_directory_instagram
@@ -171,12 +170,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_directory_free_everyone:
-    type: options_buttons
-    weight: 110
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_directory_how_help:
     type: text_textarea
@@ -359,5 +352,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

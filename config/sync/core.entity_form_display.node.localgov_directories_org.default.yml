@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_cost
     - field.field.node.localgov_directories_org.field_directory_eligibility
     - field.field.node.localgov_directories_org.field_directory_facebook
-    - field.field.node.localgov_directories_org.field_directory_free_everyone
     - field.field.node.localgov_directories_org.field_directory_how_help
     - field.field.node.localgov_directories_org.field_directory_how_to_access
     - field.field.node.localgov_directories_org.field_directory_instagram
@@ -30,7 +29,6 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_location
     - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
-    - workflows.workflow.localgov_editorial
   module:
     - content_moderation
     - field_group
@@ -200,12 +198,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_directory_free_everyone:
-    type: options_buttons
-    weight: 42
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_directory_how_help:
     type: text_textarea
