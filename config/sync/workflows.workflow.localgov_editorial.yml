@@ -3,9 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.localgov_directories_org
-    - node.type.localgov_directories_page
-    - node.type.localgov_directories_venue
     - node.type.localgov_directory
     - node.type.localgov_guides_overview
     - node.type.localgov_guides_page
@@ -108,9 +105,6 @@ type_settings:
       weight: 1
   entity_types:
     node:
-      - localgov_directories_org
-      - localgov_directories_page
-      - localgov_directories_venue
       - localgov_directory
       - localgov_guides_overview
       - localgov_guides_page
