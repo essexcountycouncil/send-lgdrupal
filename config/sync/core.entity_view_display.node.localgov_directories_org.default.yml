@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_directories_org.feeds_item
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -15,6 +16,8 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
+    - field.field.node.localgov_directories_org.field_migrated_content
+    - field.field.node.localgov_directories_org.field_old_url
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
@@ -24,6 +27,7 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_directory_phone
     - field.field.node.localgov_directories_org.localgov_directory_website
     - field.field.node.localgov_directories_org.localgov_location
+    - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
   module:
     - field_formatter_class
@@ -38,7 +42,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 9
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: localgov-directories-page__group-enquiries
@@ -52,7 +56,7 @@ third_party_settings:
       label: Venue
       parent_name: ''
       region: content
-      weight: 8
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: localgov-directories-page__group-venue
@@ -76,35 +80,35 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_directory_cost:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 10
     region: content
   field_directory_eligibility:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_directory_how_help:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_directory_how_to_access:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   field_directory_summary:
     type: basic_string
@@ -119,7 +123,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   localgov_directory_notes:
     type: text_default
@@ -138,7 +142,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 9
     region: content
   localgov_location:
     type: entity_reference_entity_view
@@ -151,13 +155,23 @@ content:
         class: ''
     weight: 2
     region: content
+  localgov_opening_hours:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
 hidden:
+  feeds_item: true
   field_directory_available_online: true
   field_directory_facebook: true
   field_directory_free_everyone: true
   field_directory_instagram: true
   field_directory_siblings_attend: true
   field_directory_twitter: true
+  field_migrated_content: true
+  field_old_url: true
   field_sitewide_search_type: true
   langcode: true
   links: true

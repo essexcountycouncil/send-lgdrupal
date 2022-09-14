@@ -1,0 +1,23 @@
+uuid: c5c3d57b-bcda-4dfa-8f84-24dced4e4874
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.localgov_directories_org
+  module:
+    - feeds
+id: node.localgov_directories_org.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: localgov_directories_org
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

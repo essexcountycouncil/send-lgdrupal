@@ -7,6 +7,7 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.localgov_directories_org
     - node.type.localgov_directories_page
     - node.type.localgov_directories_venue
     - node.type.localgov_directory
@@ -69,6 +70,7 @@ permissions:
   - 'create document media'
   - 'create geo'
   - 'create image media'
+  - 'create localgov_directories_org content'
   - 'create localgov_directories_page content'
   - 'create localgov_directories_venue content'
   - 'create localgov_directory content'
@@ -87,6 +89,7 @@ permissions:
   - 'create url aliases'
   - 'delete any document media'
   - 'delete any image media'
+  - 'delete any localgov_directories_org content'
   - 'delete any localgov_directories_page content'
   - 'delete any localgov_directories_venue content'
   - 'delete any localgov_directory content'
@@ -103,6 +106,7 @@ permissions:
   - 'delete any remote_video media'
   - 'delete directory facets'
   - 'delete geo'
+  - 'delete localgov_directories_org revisions'
   - 'delete localgov_directories_page revisions'
   - 'delete localgov_directories_venue revisions'
   - 'delete localgov_guides_overview revisions'
@@ -117,6 +121,7 @@ permissions:
   - 'delete media'
   - 'delete own document media'
   - 'delete own image media'
+  - 'delete own localgov_directories_org content'
   - 'delete own localgov_directories_page content'
   - 'delete own localgov_directories_venue content'
   - 'delete own localgov_directory content'
@@ -132,6 +137,7 @@ permissions:
   - 'delete own remote_video media'
   - 'edit any document media'
   - 'edit any image media'
+  - 'edit any localgov_directories_org content'
   - 'edit any localgov_directories_page content'
   - 'edit any localgov_directories_venue content'
   - 'edit any localgov_directory content'
@@ -150,6 +156,7 @@ permissions:
   - 'edit layout paragraphs plugin config'
   - 'edit own document media'
   - 'edit own image media'
+  - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_page content'
   - 'edit own localgov_directories_venue content'
   - 'edit own localgov_directory content'
@@ -176,6 +183,7 @@ permissions:
   - 'reschedule scheduled transitions node localgov_subsites_overview'
   - 'reschedule scheduled transitions node localgov_subsites_page'
   - 'revert all revisions'
+  - 'revert localgov_directories_org revisions'
   - 'revert localgov_directories_page revisions'
   - 'revert localgov_directories_venue revisions'
   - 'revert localgov_directory revisions'
@@ -204,6 +212,7 @@ permissions:
   - 'view any unpublished content'
   - 'view directory facets'
   - 'view latest version'
+  - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
   - 'view localgov_directory revisions'

@@ -1,0 +1,149 @@
+id: send_directory
+migration_group: send
+label: SEND Directory Organisations
+source:
+  plugin: csv
+  ids: [link]
+  path: private://migrate/source/source_data.csv
+  header_row_count: 1
+  enclosure: '"'
+  constants:
+    break: '<br />'
+    p_open: '<p>'
+    p_close: '</p>'
+
+  column_names:
+    0:
+      title: title
+    1:
+      email_address: email_address
+    2:
+      Health: Health
+    3:
+      NHS: NHS
+    4:
+      School: School
+    5:
+      Listing?: Listing?
+    6:
+      Comments: Comments
+    7:
+      Who needs to review?: Who needs to review?
+    8:
+      link: link
+    9:
+      phone_number: phone_number
+    10:
+      website_url: website_url
+    11:
+      address_1: address_1
+    12:
+      address_2: address_2
+    13:
+      address_3: address_3
+    14:
+      address_city: address_city
+    15:
+      address_postcode: address_postcode
+    16:
+      address_country: address_country
+    17:
+      location_lng: location_lng
+    18:
+      location_lat: location_lat
+    19:
+      facebook_url: facebook_url
+    20:
+      twitter_url: twitter_url
+    21:
+      content:encoded: content:encoded
+    22:
+      access_details: access_details
+    23:
+      eligibility_criteria: eligibility_criteria
+    24:
+      hours_of_operation: hours_of_operation
+    25:
+      wp:post_modified_gmt: wp:post_modified_gmt
+    26:
+      Migrate or redirect?: Migrate or redirect?
+
+destination:
+  plugin: entity:node
+
+process:
+
+  skip_on_value:
+    source:  'Migrate or redirect?'
+    plugin: skip_on_value
+    value: 'Redirect only'
+    method: row
+
+  type:
+    plugin: default_value
+    default_value: localgov_directories_org
+  uid:
+    plugin: default_value
+    default_value: 1
+  title: title
+  status:
+    plugin: default_value
+    default_value: 0
+  moderation_state/state:
+    plugin: default_value
+    default_value: draft
+  created:
+    plugin: format_date
+    from_format: 'd/m/Y H:i:s'
+    to_format: 'U'
+    source: wp:post_modified_gmt
+
+  localgov_directory_email: email_address
+  localgov_directory_phone: phone_number
+  localgov_directory_website: website_url
+  field_directory_facebook: facebook_url
+  field_directory_twitter: twitter_url
+  field_directory_how_to_access: access_details
+  field_directory_eligibility: eligibility_criteria
+  localgov_opening_hours: hours_of_operation
+
+  field_sitewide_search_type/target_id:
+    plugin: default_value
+    default_value: 2
+  localgov_directory_channels/target_id:
+    plugin: default_value
+    default_value: 55
+
+  localgov_location:
+    plugin: migration_lookup
+    migration: send_geo
+    source: link
+
+  field_old_url: link
+  field_migrated_content:
+    plugin: concat
+    source:
+      - content:encoded
+      - constants/break
+      - address_1
+      - constants/break
+      - address_2
+      - constants/break
+      - address_3
+      - constants/break
+      - address_city
+      - constants/break
+      - address_postcode
+      - constants/break
+      - address_country
+      - constants/break
+      - constants/p_open
+      - location_lat
+      - constants/break
+      - location_lon
+      - constants/p_close
+
+migration_dependencies:
+  required:
+    - send_geo
+

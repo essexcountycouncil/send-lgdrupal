@@ -11,7 +11,7 @@ entity_type: node
 bundle: localgov_directories_org
 label: Summary
 description: 'A short summary of your service in one or two sentences, such as: <em>A charity providing information, support and services to those with ADHD</em>.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

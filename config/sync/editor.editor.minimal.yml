@@ -23,13 +23,13 @@ settings:
             - BulletedList
             - NumberedList
   plugins:
-    language:
-      language_list: un
-    stylescombo:
-      styles: ''
     drupallink:
       linkit_enabled: false
       linkit_profile: ''
+    stylescombo:
+      styles: ''
+    language:
+      language_list: un
 image_upload:
   status: false
   scheme: public

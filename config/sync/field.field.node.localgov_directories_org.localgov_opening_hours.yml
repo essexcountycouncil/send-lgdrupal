@@ -1,0 +1,21 @@
+uuid: 3caeacdf-d745-4c08-b587-b2b1cf0e4735
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_opening_hours
+    - node.type.localgov_directories_org
+  module:
+    - text
+id: node.localgov_directories_org.localgov_opening_hours
+field_name: localgov_opening_hours
+entity_type: node
+bundle: localgov_directories_org
+label: 'Opening hours'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
