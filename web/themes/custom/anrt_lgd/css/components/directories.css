@@ -94,26 +94,59 @@
   display: flex;
   margin-bottom: var(--spacing-largest);
 }
+
 .lgd-directory__meta-item-title {
   width: 200px;
   flex-shrink: 0;
+  color: var(--color-black);
 }
+
 .lgd-directory__meta-item-field {
   display: flex;
 }
 
-.lgd-directory__meta-item-icon,
+.lgd-directory__meta-item-field + .lgd-directory__meta-item-field {
+  margin-top: var(--spacing);
+}
+
 .lgd-directory__meta-item-content-label {
   width: 75px;
   flex-shrink: 0;
+}
+
+.lgd-directory__meta-item-icon {
+  margin-right: var(--spacing);
 }
 
 .lgd-directory__meta-item-field--has-icon .lgd-directory__meta-item-icon {
   padding-left: var(--spacing-small);
 }
 
+.lgd-directory__meta-item-icon--hidden {
+  visibility: hidden;
+}
+
 .lgd-directory__meta-item-icon svg path {
   fill: var(--color-success);
+}
+
+.lgd-directory__meta-item-social-link svg {
+  width: var(--spacing-large);
+}
+.lgd-directory__meta-item-social-link--facebook svg path {
+  fill: #4267B2;
+}
+.lgd-directory__meta-item-social-link--twitter svg path {
+  fill: #1DA1F2;
+}
+.lgd-directory__meta-item-social-link--instagram svg path {
+  fill: #405DE6;
+}
+
+.lgd-directory__meta-item-field--social .lgd-directory__meta-item-content-value {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
 }
 
 .localgov-directories-page__contact-container > fieldset {

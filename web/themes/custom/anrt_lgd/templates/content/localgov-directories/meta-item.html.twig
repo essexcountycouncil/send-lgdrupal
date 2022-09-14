@@ -3,9 +3,9 @@
 {% 
   set meta_item_classes = [
     'lgd-directory__meta-item-field',
-    title ? 'lgd-directory__meta-item-field--' ~ title,
-    icon ? 'lgd-directory__meta-item-field--has-icon',
-    icon ? 'lgd-directory__meta-item-field--icon-' ~ icon,
+    title ? 'lgd-directory__meta-item-field--' ~ title|clean_class,
+    icon ? 'lgd-directory__meta-item-field--has-icon'|clean_class,
+    icon ? 'lgd-directory__meta-item-field--icon-' ~ icon|clean_class,
   ] 
 %}
 
@@ -23,8 +23,24 @@
         icon_classes: 'lgd-directory__meta-item-icon',
       }
     %}
-    {% else %}
   {% endif %}
+
+  {# 
+    This is a little hacky, but when we have item with a yes/no answer, we
+    do not show an icon for the 'No' items. But, if we do that, they move
+    across to be more inline with their label. So ... I'm creating this
+    icon_as_placeholder for us to use which will add an icon, but then hide it 
+    with CSS via a class of `lgd-directory__meta-item-icon--hidden`
+  #}
+  {% if icon_as_placeholder %}
+    {% include "@localgov_base/includes/icons/icon.html.twig" with {
+        icon_name: 'plus',
+        icon_wrapper_element: 'span',
+        icon_classes: 'lgd-directory__meta-item-icon lgd-directory__meta-item-icon--hidden',
+      }
+    %}
+  {% endif %}
+  
   
   {% if value %}
 	  <span class="lgd-directory__meta-item-content-value">

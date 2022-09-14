@@ -150,13 +150,14 @@
                     {% set icon = 'check' %}
                     {% else %}
                       {% set icon = false %}
+                      {% set icon_as_placeholder = true %}
                   {% endif %}
 
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
                     with {
                       'title': false,
                       'icon': icon,
-                      'value':  value,
+                      'value': value,
                     }
                   %}
                 {% endif %}
@@ -184,6 +185,7 @@
                     {% set icon = 'check' %}
                     {% else %}
                       {% set icon = false %}
+                      {% set icon_as_placeholder = true %}
                   {% endif %}
 
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
@@ -204,7 +206,7 @@
             <div class="lgd-directory__meta-item">
               <h3 class="lgd-directory__meta-item-title">{{ 'Cost'|t }}</h3>
               <div class="lgd-directory__meta-item-content">
-                {% if node.localgov_directory_email.value %}
+                {% if node.field_directory_cost.value %}
                   {% set value %} 
                     {{ content.field_directory_cost }}
                   {% endset %}
@@ -237,6 +239,7 @@
                     {% set icon = 'check' %}
                     {% else %}
                       {% set icon = false %}
+                      {% set icon_as_placeholder = true %}
                   {% endif %}
 
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
@@ -267,6 +270,7 @@
                     with {
                       'title': 'Email'|t,
                       'value':  value,
+                      icon_as_placeholder: false,
                     }
                   %}
                 {% endif %} 
@@ -279,6 +283,7 @@
                     with {
                       'title': 'Phone'|t,
                       'value':  value,
+                      icon_as_placeholder: false,
                     }
                   %}
                 {% endif %} 
@@ -301,6 +306,7 @@
                     with {
                       'title': 'Web'|t,
                       'value':  value,
+                      icon_as_placeholder: false,
                     }
                   %}
                 {% endif %} 
@@ -310,13 +316,34 @@
                       or node.field_directory_instagram.value %}
                   {% set value %}
                     {% if node.field_directory_facebook.value %}
-                      <a href="{{ node.field_directory_facebook.value }}">Facebook</a>
+                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--facebook" href="{{ node.field_directory_facebook.value }}">
+                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                            icon_name: 'facebook',
+                            icon_wrapper_element: 'span',
+                            icon_classes: 'lgd-directory__meta-item-social',
+                          }
+                        %}
+                      <span class="visually-hidden"> {{ 'Find us on Facebook'|t }}</a>
                     {% endif %}
                     {% if node.field_directory_twitter.value %}
-                      <a href="{{ node.field_directory_twitter.value }}">twitter</a>
+                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--twitter" href="{{ node.field_directory_twitter.value }}">
+                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                            icon_name: 'twitter',
+                            icon_wrapper_element: 'span',
+                            icon_classes: 'lgd-directory__meta-item-social',
+                          }
+                        %}
+                      <span class="visually-hidden"> {{ 'Find us on twitter'|t }}</a>
                     {% endif %}
                     {% if node.field_directory_instagram.value %}
-                      <a href="{{ node.field_directory_instagram.value }}">instagram</a>
+                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--instagram" href="{{ node.field_directory_instagram.value }}">
+                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                            icon_name: 'instagram',
+                            icon_wrapper_element: 'span',
+                            icon_classes: 'lgd-directory__meta-item-social',
+                          }
+                        %}
+                      <span class="visually-hidden"> {{ 'Find us on instagram'|t }}</a>
                     {% endif %}
                   {% endset %}
 
@@ -324,6 +351,7 @@
                     with {
                       'title': 'Social'|t,
                       'value':  value,
+                      icon_as_placeholder: false,
                     }
                   %}
                 {% endif %} 

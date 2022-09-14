@@ -37,6 +37,10 @@ body {
   background-color: unset;
 }
 
+.node--view-mode-full a {
+  color: var(--color-blue);
+}
+
 .lgd-region--search form {
   gap: 0;
 }
