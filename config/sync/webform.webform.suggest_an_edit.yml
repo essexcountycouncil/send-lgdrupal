@@ -13,10 +13,14 @@ title: 'Suggest an edit'
 description: ''
 category: ''
 elements: |-
+  service_title:
+    '#type': hidden
+    '#title': 'Service Title'
+    '#default_value': '[current-page:query:service_title]'
   servurl:
     '#type': hidden
     '#title': 'Service URL'
-    '#default_value': '/node/[current-page:query:servurl]'
+    '#default_value': '[current-page:query:servurl]'
     '#prepopulate': true
     '#access_update_roles':
       - authenticated
