@@ -66,6 +66,7 @@
       </div>
     {% endif %}
   </div>
+
   {% if node.localgov_directory_email.value
         or node.localgov_directory_phone.value 
         or node.field_directory_twitter.value 
@@ -75,6 +76,8 @@
         or node.field_directory_cost.value 
         or node.field_directory_siblings_attend.value 
         or node.field_directory_available_online.value 
+        or node.localgov_directory_facets_select.value 
+        or node.field_directory_venue_ally.value 
   %}
     <div class="lgd-directory__meta-items">
     
@@ -105,13 +108,18 @@
           {% if node.localgov_directory_facets_select.value %}  
 
             {% set accessibility = false %}
+            {% set location = false %}
+
             {% for item in node.localgov_directory_facets_select %}
               {% if item.entity.bundle.target_id == 'accessibility' %}
                 {% set accessibility = true %}
               {% endif %}
+              {% if item.entity.bundle.target_id == 'location' %}
+                {% set location = true %}
+              {% endif %}
             {% endfor %}  
 
-            {% if accessibility %}    
+            {% if accessibility %}
               <div class="lgd-directory__meta-item">
                 <h3 class="lgd-directory__meta-item-title">{{ 'Special need'|t }}</h3>
                 <div class="lgd-directory__meta-item-content">
@@ -130,6 +138,27 @@
                 </div>
               </div>
             {% endif %}
+            
+            {% if location %}    
+              <div class="lgd-directory__meta-item">
+                <h3 class="lgd-directory__meta-item-title">{{ 'Location(s)'|t }}</h3>
+                <div class="lgd-directory__meta-item-content">
+                  {% for item in node.localgov_directory_facets_select %}
+                    {% if item.entity.bundle.target_id == 'location' %}
+                      {% set value = item.entity.title.value %}
+                      {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                        with {
+                          'title': false,
+                          'icon': 'check',
+                          'value':  value,
+                        }
+                      %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
           {% endif %}
           {# End special needs #} 
 
