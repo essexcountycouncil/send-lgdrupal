@@ -48,7 +48,6 @@
 .page-node-type-localgov-directory .block-localgov-directories-channel-search-block form,
 .sitewide-search form {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--spacing-smaller);
   align-items: center;
 }

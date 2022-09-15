@@ -38,33 +38,14 @@
 }
 
 .call-out-box__link {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--spacing-small);
-  text-decoration: none;
-  color: var(--color-accent);
-  border-radius: var(--spacing);
-  background-color: var(--color-white);
+  padding: 0;
 }
 
-.call-out-box__link:focus,
-.call-out-box__link:hover {
+.call-out-box__link:focus h2,
+.call-out-box__link:hover h2 {
   text-decoration: underline;
 }
 
-.call-out-box__link .lgd-icon {
-  display: inline-block;
-  margin-left: var(--spacing-smaller);
-  transition: var(--transition-time);
-}
-.call-out-box__link:focus .lgd-icon,
-.call-out-box__link:hover .lgd-icon {
-  transform: translateX(3px);
-}
-
-.call-out-box__link .lgd-icon svg path {
-  fill: var(--color-accent);
-}
 
 /* Overrides */
 .call-out-box--theme-1.call-out-box--has-image .call-out-box__content {

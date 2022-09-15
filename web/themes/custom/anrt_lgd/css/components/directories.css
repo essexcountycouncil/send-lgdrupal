@@ -128,6 +128,7 @@
 
 .lgd-directory__meta-item-icon--hidden {
   visibility: hidden;
+  margin-left: var(--spacing);
 }
 
 .lgd-directory__meta-item-icon svg path {
