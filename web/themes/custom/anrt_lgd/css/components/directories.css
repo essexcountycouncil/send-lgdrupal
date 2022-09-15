@@ -95,6 +95,10 @@
   margin-bottom: var(--spacing-largest);
 }
 
+.lgd-directory__meta-item a {
+  color: var(--color-blue);
+}
+
 .lgd-directory__meta-item-title {
   width: 200px;
   flex-shrink: 0;
