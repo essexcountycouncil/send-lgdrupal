@@ -66,7 +66,7 @@ body {
   --call-out-box-text-color: var(--color-white);
   --header-search-input-border: 1px solid var(--color-black);
   /* Apply Variables */
-  --heading-1-color: var(--color-accent);
+  --heading-1-color: var(--color-black);
   --heading-2-color: var(--color-accent);
   --heading-3-color: var(--color-accent);
   --heading-4-color: var(--color-accent);
