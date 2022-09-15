@@ -28,6 +28,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_source_csv": "^3.5",
         "drupal/migrate_tools": "^6.0",
+        "drupal/publishcontent": "^1.5",
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/twig_tweak": "^3.1",
