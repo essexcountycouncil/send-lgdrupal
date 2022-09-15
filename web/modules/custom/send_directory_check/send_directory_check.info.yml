@@ -1,0 +1,5 @@
+name: SEND Check
+type: module
+description: Custom functions for Directory approval flow
+core_version_requirement: ^8.8 || ^9
+package: Custom

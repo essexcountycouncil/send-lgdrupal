@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
+    - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
@@ -31,6 +32,7 @@ dependencies:
     - node.type.localgov_directories_org
   module:
     - content_moderation
+    - datetime
     - field_group
     - inline_entity_form
     - link
@@ -98,7 +100,6 @@ third_party_settings:
     group_enquiries:
       children:
         - field_directory_available_online
-        - field_directory_free_everyone
         - field_directory_siblings_attend
         - field_directory_cost
         - localgov_directory_phone
@@ -260,6 +261,12 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_provider_last_checked:
+    type: datetime_default
+    weight: 52
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_sitewide_search_type:
     type: options_buttons

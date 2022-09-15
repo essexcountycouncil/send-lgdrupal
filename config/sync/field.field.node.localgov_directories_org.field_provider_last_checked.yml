@@ -1,0 +1,21 @@
+uuid: d490466b-87f4-4de1-a908-6af7923a6224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_provider_last_checked
+    - node.type.localgov_directories_org
+  module:
+    - datetime
+id: node.localgov_directories_org.field_provider_last_checked
+field_name: field_provider_last_checked
+entity_type: node
+bundle: localgov_directories_org
+label: 'Provider Last Checked'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

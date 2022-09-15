@@ -1,0 +1,17 @@
+send_directory_check.pre_check_approve:
+  path: '/node/{node}/pre_check_approve'
+  defaults:
+    _title: 'SEND Directory Check Approval'
+    _controller: '\Drupal\node\Controller\NodeViewController::view'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
+
+send_directory_check.check_approve:
+  path: '/node/{node}/check_approve'
+  defaults:
+    _title: 'SEND Directory Check Approval'
+    _controller: '\Drupal\send_directory_check\Controller\CheckController::approve'
+  requirements:
+    _entity_access: 'node.view'
+    node: \d+
