@@ -75,3 +75,6 @@
 
 # Ignore development config files
 web/sites/default/development*
+
+# Ignore private file system
+/private
