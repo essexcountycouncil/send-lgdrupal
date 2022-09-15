@@ -66,6 +66,7 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer menu'
+  - 'administer nodes'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
