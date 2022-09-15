@@ -1,0 +1,25 @@
+uuid: 5ae2b54f-ad3b-4746-85fb-bd9c5dd6a301
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_org
+  module:
+    - node
+    - publishcontent
+    - system
+id: send_admin
+label: 'SEND Admin'
+weight: 1
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'create localgov_directories_org content'
+  - 'edit any localgov_directories_org content'
+  - 'publish editable content'
+  - 'revert all revisions'
+  - 'revert localgov_directories_org revisions'
+  - 'unpublish editable content'
+  - 'view all revisions'
+  - 'view localgov_directories_org revisions'

@@ -1,0 +1,14 @@
+uuid: 21cda62b-19c8-4c78-8bd5-f18e5869b701
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.send_admin
+  module:
+    - user
+id: user_add_role_action.send_admin
+label: 'Add the SEND Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: send_admin
