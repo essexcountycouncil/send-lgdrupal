@@ -12,6 +12,12 @@ overrides:
     theme:
       css/overrides.css: {}
 
+header:
+  js:
+    js/header.js: {}
+  dependencies:
+    - core/drupal.debounce
+
 footer:
   css:
     theme:

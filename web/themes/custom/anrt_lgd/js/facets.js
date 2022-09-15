@@ -11,12 +11,50 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 (function lgdFacetsScript(Drupal) {
   Drupal.behaviors.lgdFacets = {
     attach: function (context) {
+      
       context = context || document;
 
+      const facetsBlock = context.querySelector('.facets-block');
       const facets = context.querySelectorAll(".facets-widget__list");
       const selectedFacets = context.querySelectorAll(
         ".facets-widget input[checked]"
       );
+
+      if (facetsBlock && !facetsBlock.classList.contains('js-processed')) {
+        facetsBlock.classList.add('js-processed');
+        const facetsBlockContent = facetsBlock.querySelector('.facets-block__content');
+        const facetsBlockTitle = facetsBlock.querySelector('.facets-block__title');
+        const facetsBlockTrigger = facetsBlock.querySelector('.facets-block__trigger');
+        
+        function handleFacetsBlockOpen() {
+          facetsBlockContent.style.display = 'block';
+          facetsBlockTrigger.setAttribute('aria-expanded', 'true');
+        }
+        
+        function handleFacetsBlockClose() {
+          facetsBlockContent.style.display = 'none';
+          facetsBlockTrigger.setAttribute('aria-expanded', 'false');
+        }
+
+        facetsBlockTitle.addEventListener('click', function() {
+          const expanded = facetsBlockTrigger.getAttribute('aria-expanded');
+          expanded === 'true' ? handleFacetsBlockClose() : handleFacetsBlockOpen();
+        })
+        
+        function handleFacetsBlock() {
+          if (window.matchMedia('(min-width: 768px)').matches) {
+            handleFacetsBlockOpen();
+            facetsBlockTrigger.style.display = 'none';
+          } else {
+            handleFacetsBlockClose();
+            facetsBlockTrigger.style.display = 'block';
+          }
+          console.log('handled');
+        }
+        
+        handleFacetsBlock();
+        window.addEventListener('resize', Drupal.debounce(handleFacetsBlock, 100, false));
+      }
 
       facets.forEach((facet, index) => {
         if (!facet.classList.contains("js-processed")) {

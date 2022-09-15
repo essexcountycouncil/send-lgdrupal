@@ -9,6 +9,8 @@ libraries-extend:
     - anrt_lgd/variables
     - anrt_lgd/overrides
     - anrt_lgd/form-items
+  localgov_base/header:
+    - anrt_lgd/header
   localgov_base/footer:
     - anrt_lgd/footer
   localgov_base/guide-nav:
