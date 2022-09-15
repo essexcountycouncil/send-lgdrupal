@@ -14,6 +14,7 @@ module:
   content_moderation: 0
   contextual: 0
   crop: 0
+  csv_serialization: 0
   ctools: 0
   datetime: 0
   dbal: 0
@@ -106,6 +107,7 @@ module:
   redirect_404: 0
   responsive_image: 0
   responsive_preview: 0
+  rest: 0
   role_delegation: 0
   scheduled_transitions: 0
   schema_article: 0
@@ -117,6 +119,7 @@ module:
   search_api_solr_admin: 0
   search_api_spellcheck: 0
   send_directory_check: 0
+  serialization: 0
   simple_sitemap: 0
   system: 0
   tablefield: 0
@@ -129,6 +132,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_data_export: 0
   views_ui: 0
   viewsreference: 0
   webform: 0
