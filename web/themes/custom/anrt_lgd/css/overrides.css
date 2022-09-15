@@ -26,15 +26,17 @@ body {
   background-color: var(--color-grey-lighter);
 }
 
-.menu--main>.menu-item a {
-  color: var(--color-white);
-  text-decoration: none;
-}
-
-.menu--main>.menu-item a:hover {
-  color: var(--color-white);
-  border-color: var(--color-white);
-  background-color: unset;
+@media screen and (min-width: 48rem) {
+  .menu--main>.menu-item a {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  
+  .menu--main>.menu-item a:hover {
+    color: var(--color-white);
+    border-color: var(--color-white);
+    background-color: unset;
+  }
 }
 
 .lgd-region--search form {
@@ -111,11 +113,28 @@ body {
 
 .banner--primary .banner__content {
   max-width: 662px;
-  padding: var(--banner-content-padding);
+  padding: calc(var(--banner-content-padding) * 2) var(--banner-content-padding) var(--banner-content-padding);
   border-radius: var(--border-radius);
   font-size: 27px;
   font-weight: bold;
-  margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
+  background-color: transparent;
+  color: var(--color-black);
+}
+
+.banner--primary .banner__image {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .banner--primary .banner__image {
+    display: block;
+  }
+  .banner--primary .banner__content {
+    padding-top: var(--banner-content-padding);
+    background-color: var(--banner-content-bg-color);
+    color: var(--color-white);
+    margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
+  }
 }
 
 .localgov-subsites-overview__content {
