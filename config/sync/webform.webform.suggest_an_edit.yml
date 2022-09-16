@@ -86,6 +86,10 @@ elements: |-
     '#type': webform_entity_checkboxes
     '#title': 'Age groups'
     '#options_display': buttons
+    '#states':
+      invisible:
+        ':input[name="are_you"]':
+          value: other
     '#target_type': localgov_directories_facets
     '#selection_handler': 'default:localgov_directories_facets'
     '#selection_settings':
@@ -95,6 +99,10 @@ elements: |-
     '#type': webform_entity_checkboxes
     '#title': Locations
     '#options_display': buttons
+    '#states':
+      invisible:
+        ':input[name="are_you"]':
+          value: other
     '#target_type': localgov_directories_facets
     '#selection_handler': 'default:localgov_directories_facets'
     '#selection_settings':
@@ -104,6 +112,10 @@ elements: |-
     '#type': webform_entity_checkboxes
     '#title': 'Special needs'
     '#options_display': buttons
+    '#states':
+      invisible:
+        ':input[name="are_you"]':
+          value: other
     '#target_type': localgov_directories_facets
     '#selection_handler': 'default:localgov_directories_facets'
     '#selection_settings':
@@ -113,6 +125,10 @@ elements: |-
     '#type': webform_entity_checkboxes
     '#title': 'Type of support'
     '#options_display': buttons
+    '#states':
+      invisible:
+        ':input[name="are_you"]':
+          value: other
     '#target_type': localgov_directories_facets
     '#selection_handler': 'default:localgov_directories_facets'
     '#selection_settings':
