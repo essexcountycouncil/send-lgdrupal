@@ -69,7 +69,7 @@ body {
 }
 
 .branding__item--logo {
-  --logo-height: 77px;
+  --logo-height: 60px;
   width: unset;
   /* 
     Padding is supposed to be 50% of the height of the logo,
