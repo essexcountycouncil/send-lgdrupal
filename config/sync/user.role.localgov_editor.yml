@@ -33,6 +33,7 @@ dependencies:
     - paragraphs
     - paragraphs_library
     - path
+    - publishcontent
     - scheduled_transitions
     - system
     - toolbar
@@ -172,6 +173,7 @@ permissions:
   - 'edit own localgov_subsites_page content'
   - 'edit own remote_video media'
   - 'edit paragraph library item'
+  - 'publish any content'
   - 'reschedule scheduled transitions node localgov_directories_page'
   - 'reschedule scheduled transitions node localgov_directories_venue'
   - 'reschedule scheduled transitions node localgov_guides_overview'
@@ -197,6 +199,7 @@ permissions:
   - 'revert localgov_step_by_step_page revisions'
   - 'revert localgov_subsites_overview revisions'
   - 'revert localgov_subsites_page revisions'
+  - 'unpublish any content'
   - 'update any media'
   - 'update media'
   - 'use localgov_editorial transition approve'
