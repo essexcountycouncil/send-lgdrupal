@@ -1,0 +1,14 @@
+uuid: 123befed-86f6-4cc4-9a06-6cbc2186a3ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.send_admin
+  module:
+    - user
+id: user_remove_role_action.send_admin
+label: 'Remove the SEND Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: send_admin

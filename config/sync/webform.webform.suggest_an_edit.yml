@@ -99,8 +99,8 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: true
-  form_confidential: false
+  form_previous_submissions: false
+  form_confidential: true
   form_confidential_message: ''
   form_disable_remote_addr: false
   form_convert_anonymous: false
@@ -211,7 +211,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
-  results_customize: false
+  results_customize: true
   token_view: false
   token_update: false
   token_delete: false

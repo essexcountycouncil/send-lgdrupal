@@ -13,6 +13,7 @@ weight: -2
 is_admin: null
 permissions:
   - 'access directory facets overview'
+  - 'administer directory facets types'
   - 'create directory facets'
   - 'delete directory facets'
   - 'edit directory facets'
