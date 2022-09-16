@@ -82,6 +82,42 @@ elements: |-
     '#type': textarea
     '#title': 'How can this listing be improved?'
     '#required': true
+  age_groups:
+    '#type': webform_entity_checkboxes
+    '#title': 'Age groups'
+    '#options_display': buttons
+    '#target_type': localgov_directories_facets
+    '#selection_handler': 'default:localgov_directories_facets'
+    '#selection_settings':
+      target_bundles:
+        age: age
+  locations:
+    '#type': webform_entity_checkboxes
+    '#title': Locations
+    '#options_display': buttons
+    '#target_type': localgov_directories_facets
+    '#selection_handler': 'default:localgov_directories_facets'
+    '#selection_settings':
+      target_bundles:
+        location: location
+  special_needs:
+    '#type': webform_entity_checkboxes
+    '#title': 'Special needs'
+    '#options_display': buttons
+    '#target_type': localgov_directories_facets
+    '#selection_handler': 'default:localgov_directories_facets'
+    '#selection_settings':
+      target_bundles:
+        accessibility: accessibility
+  type_of_support:
+    '#type': webform_entity_checkboxes
+    '#title': 'Type of support'
+    '#options_display': buttons
+    '#target_type': localgov_directories_facets
+    '#selection_handler': 'default:localgov_directories_facets'
+    '#selection_settings':
+      target_bundles:
+        support_type: support_type
 css: ''
 javascript: ''
 settings:
