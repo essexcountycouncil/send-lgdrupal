@@ -189,8 +189,8 @@ body {
 }
 
 .menu--main>.menu-item {
-  margin-right: var(--spacing-larger);
-  margin-left: var(--spacing-larger);
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .lgd-region--content-bottom {
@@ -215,4 +215,21 @@ body {
 .page-node-type-localgov-services-page h4,
 .page-node-type-localgov-services-page h5 {
   padding-top: var(--spacing-large);
+}
+
+@media screen and (min-width:  48rem) { 
+  .lgd-region--search .form-text {
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width:  48rem) { 
+  .lgd-header__nav--primary {
+    display: block;
+  }
+}
+@media screen and (min-width:  60rem) { 
+  .lgd-header__nav--primary {
+    display: flex;
+  }
 }
