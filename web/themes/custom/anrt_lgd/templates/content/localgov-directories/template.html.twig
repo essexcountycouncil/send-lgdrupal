@@ -146,10 +146,12 @@
                   {% for item in node.localgov_directory_facets_select %}
                     {% if item.entity.bundle.target_id == 'location' %}
                       {% set value = item.entity.title.value %}
+                      {% set icon = false %}
+                      {% set icon_as_placeholder = true %}
                       {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
                         with {
                           'title': false,
-                          'icon': 'check',
+                          'icon': icon,
                           'value':  value,
                         }
                       %}
@@ -206,10 +208,12 @@
                   {% set value %} 
                     {{ content.field_directory_cost }}
                   {% endset %}
+                  {% set icon = false %}
+                  {% set icon_as_placeholder = true %}
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
                     with {
                       'title': false,
-                      'icon': 'check',
+                      'icon': icon,
                       'value':  value,
                     }
                   %}
