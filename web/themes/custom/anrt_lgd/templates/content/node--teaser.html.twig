@@ -121,7 +121,23 @@
     ] 
   %}
     {% if content_type in directories_content_types %}
-      {% if node.localgov_location.value %}
+
+      {% set location = false %}
+      {% set number_of_locations = 0 %}
+
+      {% for item in node.localgov_directory_facets_select %}
+        {% if item.entity.bundle.target_id == 'location' %}
+          {% set number_of_locations = number_of_locations + 1 %}
+          {% if number_of_locations == 1 %}
+            {% set location = item.entity.title.value %}
+            {% elseif number_of_locations > 1 %}
+              {% set location = 'Multiple locations'|t %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+
+      {% if location %}
         <div class="lgd-teaser__location-container">
           <div class="lgd-teaser__location-icon">
             {% include "@localgov_base/includes/icons/icon.html.twig" with {
@@ -131,7 +147,7 @@
             %}
           </div>
           <div class="lgd-teaser__location">
-            {{ node.localgov_location.entity.postal_address.locality }}
+            {{ location }}
           </div>
         </div>
       {% endif %}
