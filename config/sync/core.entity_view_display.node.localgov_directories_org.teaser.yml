@@ -31,7 +31,6 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
   module:
-    - datetime
     - user
 _core:
   default_config_hash: uKr3248K2NPAaAIn10NbEgsvFFNBYKvEJFmMWS1Rpnc
@@ -46,15 +45,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_provider_last_checked:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 28
     region: content
 hidden:
   content_moderation_control: true
@@ -71,6 +61,7 @@ hidden:
   field_directory_twitter: true
   field_migrated_content: true
   field_old_url: true
+  field_provider_last_checked: true
   field_sitewide_search_type: true
   langcode: true
   links: true

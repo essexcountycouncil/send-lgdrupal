@@ -167,3 +167,14 @@
 .localgov-directories-page__contact-container .field--name-postal-address {
   margin-top: var(--spacing);
 }
+
+.lgd-directory__suggest-action {
+  display: inline-block;
+  padding: var(--spacing);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.lgd-directory__last-checked {
+  margin-top: var(--spacing);
+}
