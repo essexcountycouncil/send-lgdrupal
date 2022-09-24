@@ -12,7 +12,7 @@ dependencies:
 id: sitewidesearchtype
 theme: anrt_lgd
 region: disabled
-weight: -13
+weight: -14
 provider: null
 plugin: 'facet_block:sitewide_search_type'
 settings:

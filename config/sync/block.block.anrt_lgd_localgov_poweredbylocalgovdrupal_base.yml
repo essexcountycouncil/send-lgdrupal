@@ -10,8 +10,8 @@ _core:
   default_config_hash: ixzFOWyGJBF1fCxMQnj88Yx9NB_5a8oenSv2ueuwm8c
 id: anrt_lgd_localgov_poweredbylocalgovdrupal_base
 theme: anrt_lgd
-region: footer_second
-weight: 0
+region: disabled
+weight: -12
 provider: null
 plugin: localgov_powered_by_block
 settings:

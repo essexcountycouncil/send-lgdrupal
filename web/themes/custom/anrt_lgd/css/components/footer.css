@@ -26,8 +26,7 @@
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
-  font-weight: bold;
-  gap: var(--spacing-largest);
+  gap: var(--spacing);
 }
 
 .region-footer .menu-item {
@@ -39,6 +38,12 @@
   flex-wrap: wrap;
   gap: var(--spacing);
   align-items: center;
+}
+
+@media screen and (min-width: 48rem) {
+  .footer-social-links {
+    justify-content: end;
+  }
 }
 
 .footer-social-links a:hover svg path,

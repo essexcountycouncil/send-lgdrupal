@@ -14,7 +14,7 @@ _core:
 id: anrt_lgd_views_block__services_block_service_list_base
 theme: anrt_lgd
 region: disabled
-weight: -14
+weight: -15
 provider: null
 plugin: 'views_block:services-block_service_list'
 settings:
