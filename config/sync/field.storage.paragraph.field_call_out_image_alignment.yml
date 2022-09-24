@@ -1,0 +1,27 @@
+uuid: 3aac518d-d1cd-427d-9b2a-360136995293
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_call_out_image_alignment
+field_name: field_call_out_image_alignment
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: 'Image Left, Text Right'
+    -
+      value: right
+      label: 'Image Right, Text Left'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

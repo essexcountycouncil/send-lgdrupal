@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.localgov_call_out_box.field_call_out_image_alignment
     - field.field.paragraph.localgov_call_out_box.localgov_background_image
     - field.field.paragraph.localgov_call_out_box.localgov_body_text
     - field.field.paragraph.localgov_call_out_box.localgov_button
@@ -22,6 +23,12 @@ targetEntityType: paragraph
 bundle: localgov_call_out_box
 mode: default
 content:
+  field_call_out_image_alignment:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   localgov_background_image:
     type: media_library_widget
     weight: 6

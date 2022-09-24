@@ -45,6 +45,7 @@
   set classes = [
     'call-out-box',
     paragraph.localgov_background_image.value ? 'call-out-box--has-image' : 'call-out-box--no-image',
+    paragraph.field_call_out_image_alignment.value ? 'call-out-box--image-' ~ paragraph.field_call_out_image_alignment.value, 
     colour_theme ? 'call-out-box--' ~ colour_theme|clean_class,
     'lgd-row',
     'paragraph',

@@ -33,6 +33,10 @@
   border-radius: var(--border-radius);
 }
 
+.call-out-box--image-left {
+  flex-direction: row-reverse;
+}
+
 .call-out-box--has-image .call-out-box__content {
   padding: calc(var(--spacing) * 3);
 }

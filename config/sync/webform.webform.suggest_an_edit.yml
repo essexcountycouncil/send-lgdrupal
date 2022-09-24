@@ -56,17 +56,19 @@ elements: |-
     '#title': 'Your name'
     '#required': true
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          value: other
+          value: owner
+    '#format_items': comma
   your_email_address:
     '#type': email
     '#title': 'Your email address'
     '#required': true
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          value: other
+          value: owner
+    '#format_items': comma
   what_kind_of_suggestion_:
     '#type': webform_radios_other
     '#title': 'What kind of suggestion?'
@@ -75,65 +77,93 @@ elements: |-
       missing: 'Something is missing'
     '#required': true
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          '!value': other
+          value: other
   changes:
     '#type': textarea
     '#title': 'How can this listing be improved?'
     '#required': true
-  age_groups:
-    '#type': webform_entity_checkboxes
-    '#title': 'Age groups'
-    '#options_display': buttons
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          value: other
-    '#target_type': localgov_directories_facets
-    '#selection_handler': 'default:localgov_directories_facets'
-    '#selection_settings':
-      target_bundles:
-        age: age
-  locations:
-    '#type': webform_entity_checkboxes
-    '#title': Locations
-    '#options_display': buttons
+          filled: true
+    '#format_items': comma
+  select_options:
+    '#type': webform_section
+    '#title': 'Select options'
+    '#description': 'Select the correct fields below. These affect how your listing appears in the search. The locations and special needs will also appear on your listing page.'
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          value: other
-    '#target_type': localgov_directories_facets
-    '#selection_handler': 'default:localgov_directories_facets'
-    '#selection_settings':
-      target_bundles:
-        location: location
-  special_needs:
-    '#type': webform_entity_checkboxes
-    '#title': 'Special needs'
-    '#options_display': buttons
+          value: owner
+    age_groups:
+      '#type': webform_entity_checkboxes
+      '#title': 'Age groups'
+      '#description': 'Select all relevant age groups for your service. For example, if your service is for 5 - 12 year olds select 5 -11 and 12 - 15. You will be able to enter your specific range on your listing'
+      '#description_display': before
+      '#options_display': two_columns
+      '#states':
+        invisible:
+          ':input[name="are_you"]':
+            value: other
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          age: age
+    locations:
+      '#type': webform_entity_checkboxes
+      '#title': Locations
+      '#description': 'Select all locations your service is available'
+      '#description_display': before
+      '#options_display': two_columns
+      '#states':
+        invisible:
+          ':input[name="are_you"]':
+            value: other
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          location: location
+    special_needs:
+      '#type': webform_entity_checkboxes
+      '#title': 'Special needs'
+      '#description': 'Select all needs that your service supports'
+      '#description_display': before
+      '#options_display': two_columns
+      '#states':
+        invisible:
+          ':input[name="are_you"]':
+            value: other
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          accessibility: accessibility
+    type_of_support:
+      '#type': webform_entity_checkboxes
+      '#title': 'Type of support'
+      '#description': 'Select all relevant types of support'
+      '#description_display': before
+      '#options_display': two_columns
+      '#states':
+        invisible:
+          ':input[name="are_you"]':
+            value: other
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          support_type: support_type
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
     '#states':
-      invisible:
+      visible:
         ':input[name="are_you"]':
-          value: other
-    '#target_type': localgov_directories_facets
-    '#selection_handler': 'default:localgov_directories_facets'
-    '#selection_settings':
-      target_bundles:
-        accessibility: accessibility
-  type_of_support:
-    '#type': webform_entity_checkboxes
-    '#title': 'Type of support'
-    '#options_display': buttons
-    '#states':
-      invisible:
-        ':input[name="are_you"]':
-          value: other
-    '#target_type': localgov_directories_facets
-    '#selection_handler': 'default:localgov_directories_facets'
-    '#selection_settings':
-      target_bundles:
-        support_type: support_type
+          filled: true
 css: ''
 javascript: ''
 settings:

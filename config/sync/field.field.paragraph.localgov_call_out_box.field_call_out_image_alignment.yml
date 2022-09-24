@@ -1,0 +1,21 @@
+uuid: eab6cf36-2869-4a47-8943-96754c7cfaf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_call_out_image_alignment
+    - paragraphs.paragraphs_type.localgov_call_out_box
+  module:
+    - options
+id: paragraph.localgov_call_out_box.field_call_out_image_alignment
+field_name: field_call_out_image_alignment
+entity_type: paragraph
+bundle: localgov_call_out_box
+label: 'Image Alignment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
