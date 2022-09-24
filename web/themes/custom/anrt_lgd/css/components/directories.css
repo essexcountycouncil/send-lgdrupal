@@ -91,8 +91,13 @@
 }
 
 .lgd-directory__meta-item {
-  display: flex;
   margin-bottom: var(--spacing-largest);
+}
+
+@media screen and (min-width: 40rem) {
+  .lgd-directory__meta-item {
+    display: flex;
+  }
 }
 
 .lgd-directory__meta-item a {
