@@ -1,0 +1,29 @@
+uuid: 46553268-3c8f-4cb8-9b52-4b6e2a47e5c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_venue_ally
+    - node.type.localgov_directories_org
+    - taxonomy.vocabulary.venue_accessibility
+id: node.localgov_directories_org.field_directory_venue_ally
+field_name: field_directory_venue_ally
+entity_type: node
+bundle: localgov_directories_org
+label: 'Venue accessibility'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      venue_accessibility: venue_accessibility
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

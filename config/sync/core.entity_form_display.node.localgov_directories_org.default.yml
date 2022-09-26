@@ -16,8 +16,10 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
+    - field.field.node.localgov_directories_org.field_directory_venue_ally
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
+    - field.field.node.localgov_directories_org.field_opening_hours
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
@@ -38,6 +40,7 @@ dependencies:
     - link
     - localgov_directories
     - media_library
+    - office_hours
     - path
     - telephone
     - text
@@ -111,7 +114,7 @@ third_party_settings:
       label: Enquiries
       region: content
       parent_name: group_tabs
-      weight: 9
+      weight: 8
       format_type: tab
       format_settings:
         classes: ''
@@ -124,10 +127,12 @@ third_party_settings:
         - localgov_location
         - localgov_directory_notes
         - localgov_opening_hours
+        - field_opening_hours
+        - field_directory_venue_ally
       label: Venue
       region: content
       parent_name: group_tabs
-      weight: 10
+      weight: 9
       format_type: tab
       format_settings:
         classes: ''
@@ -140,7 +145,7 @@ third_party_settings:
       label: 'Migrated content'
       region: content
       parent_name: group_tabs
-      weight: 11
+      weight: 10
       format_type: tab
       format_settings:
         classes: ''
@@ -158,7 +163,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -246,6 +251,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_directory_venue_ally:
+    type: options_buttons
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_migrated_content:
     type: text_textarea
     weight: 10
@@ -262,9 +273,15 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_opening_hours:
+    type: office_hours_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_provider_last_checked:
     type: datetime_default
-    weight: 52
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -276,7 +293,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 3
+    weight: 2
     region: content
     settings:
       include_locked: true
@@ -360,13 +377,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -380,7 +397,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -404,7 +421,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -15,8 +15,10 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
+    - field.field.node.localgov_directories_org.field_directory_venue_ally
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
+    - field.field.node.localgov_directories_org.field_opening_hours
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
@@ -30,10 +32,10 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
   module:
-    - datetime
     - field_formatter_class
     - field_group
     - link
+    - office_hours
     - text
     - user
 third_party_settings:
@@ -81,7 +83,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_directory_cost:
     type: text_default
@@ -95,37 +97,69 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_directory_how_help:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_directory_how_to_access:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_directory_summary:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
-  field_provider_last_checked:
-    type: datetime_default
+  field_directory_venue_ally:
+    type: entity_reference_label
     label: above
     settings:
-      timezone_override: ''
-      format_type: medium
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 5
+    region: content
+  field_opening_hours:
+    type: office_hours
+    label: above
+    settings:
+      day_format: long
+      time_format: G
+      compress: false
+      grouped: false
+      show_closed: all
+      closed_format: Closed
+      separator:
+        days: '<br />'
+        grouped_days: ' - '
+        day_hours: ': '
+        hours_hours: '-'
+        more_hours: ', '
+      current_status:
+        position: ''
+        open_text: 'Currently open!'
+        closed_text: 'Currently closed'
+      exceptions:
+        restrict_exceptions_to_num_days: 7
+        date_format: long
+        title: 'Exception hours'
+      timezone_field: ''
+      office_hours_first_day: ''
+      schema:
+        enabled: false
     third_party_settings: {  }
-    weight: 12
+    weight: 11
     region: content
   localgov_directory_files:
     type: entity_reference_label
@@ -167,10 +201,10 @@ content:
     region: content
   localgov_opening_hours:
     type: text_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
 hidden:
   feeds_item: true
@@ -181,6 +215,7 @@ hidden:
   field_directory_twitter: true
   field_migrated_content: true
   field_old_url: true
+  field_provider_last_checked: true
   field_sitewide_search_type: true
   langcode: true
   links: true
