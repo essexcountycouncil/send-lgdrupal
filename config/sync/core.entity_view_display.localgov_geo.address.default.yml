@@ -10,6 +10,7 @@ dependencies:
     - localgov_geo.localgov_geo_type.address
   module:
     - address
+    - field_formatter_class
     - leaflet
     - text
 _core:
@@ -55,27 +56,29 @@ content:
         iconType: marker
         iconUrl: ''
         shadowUrl: ''
+        className: ''
         iconSize:
-          x: null
-          'y': null
+          x: ''
+          'y': ''
         iconAnchor:
-          x: null
-          'y': null
+          x: ''
+          'y': ''
         shadowSize:
-          x: null
-          'y': null
+          x: ''
+          'y': ''
         shadowAnchor:
-          x: null
-          'y': null
+          x: ''
+          'y': ''
         popupAnchor:
-          x: null
-          'y': null
+          x: ''
+          'y': ''
         html: '<div></div>'
         html_class: leaflet-map-divicon
         circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
       leaflet_markercluster:
         control: false
         options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        include_path: false
       fullscreen:
         control: false
         options: '{"position":"topleft","pseudoFullscreen":false}'
@@ -95,7 +98,9 @@ content:
           popup: false
           options: ''
       weight: null
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 0
     region: content
   postal_address:

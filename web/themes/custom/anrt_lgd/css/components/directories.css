@@ -17,11 +17,21 @@
   color: var(--color-black);
   font-size: var(--font-size-medium);
 }
+
 .localgov-directories-page__contact {
   display: flex;
   gap: var(--spacing-smaller);
   align-items: start;
   margin-bottom: var(--spacing);
+}
+
+.localgov-directories-page__contact-container .field--name-location {
+  display: none;
+}
+@media screen and (min-width: 48rem) {
+  .localgov-directories-page__contact-container .field--name-location {
+    display: block;
+  }
 }
 
 .localgov-directories-page__contact .lgd-icon {
@@ -40,13 +50,6 @@
 .localgov-directories-page__contact a:focus,
 .localgov-directories-page__contact a:hover {
   text-decoration: underline;
-}
-
-
-.localgov-directories-page__group-venue .field--name-postal-address,
-.localgov-directories-page__contact {
-  padding-right: var(--spacing-largest);
-  padding-left: var(--spacing-largest);
 }
 
 .localgov-directories-page__contact-container {

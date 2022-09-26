@@ -44,6 +44,11 @@
 
     {% if node.bundle == 'localgov_directories_venue' or node.bundle == 'localgov_directories_org' %}
       <div class="lgd-row__one-third localgov-directories-page__content-contacts">
+      
+        {% if node.localgov_directory_notes.value
+              or content.group_organisation.localgov_location.0['#localgov_geo'].location.value
+              or node.localgov_directory_opening_times.value
+        %}
         <div class="localgov-directories-page__contact-container">
 
           {% block venue %}
@@ -56,14 +61,15 @@
 
           {% block enquiries %}
             {% if node.localgov_directory_opening_times.value %}
-             <div class="localgov-directories-page__contact-container">
-               <div class="localgov-directories-page__opening-times">
-                 {{ content.group_enquiries.localgov_directory_opening_times }}
-               </div>
-             </div>
+              <div class="localgov-directories-page__contact-container">
+                <div class="localgov-directories-page__opening-times">
+                  {{ content.group_enquiries.localgov_directory_opening_times }}
+                </div>
+              </div>
             {% endif %}
           {% endblock %}
-      </div>
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 
