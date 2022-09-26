@@ -39,7 +39,7 @@
 
   <div{{ content_attributes.addClass('lgd-row', content_type|clean_class ~ '__content', 'node__content') }}>
     <div class="lgd-row__two-thirds localgov-directories-page__content-body">
-      {{ content|without('group_venue', 'group_enquiries', 'group_organisation', 'field_directory_cost', 'localgov_directory_website', 'field_provider_last_checked') }}
+      {{ content|without('group_venue', 'group_enquiries', 'group_organisation', 'field_directory_cost', 'localgov_directory_website', 'field_provider_last_checked', 'field_directory_venue_ally') }}
     </div>
 
     {% if node.bundle == 'localgov_directories_venue' or node.bundle == 'localgov_directories_org' %}

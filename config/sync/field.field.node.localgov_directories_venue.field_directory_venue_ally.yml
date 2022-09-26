@@ -10,7 +10,7 @@ id: node.localgov_directories_venue.field_directory_venue_ally
 field_name: field_directory_venue_ally
 entity_type: node
 bundle: localgov_directories_venue
-label: 'Venue accessibility'
+label: 'Access needs'
 description: 'If your service involves people attending a physical venue, please add all applicable accessibility information.'
 required: false
 translatable: false
