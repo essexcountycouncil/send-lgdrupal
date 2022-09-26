@@ -188,6 +188,13 @@ content:
         class: ''
     weight: 2
     region: content
+  localgov_opening_hours:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
 hidden:
   feeds_item: true
   field_directory_available_online: true
@@ -206,5 +213,4 @@ hidden:
   localgov_directory_facets_select: true
   localgov_directory_phone: true
   localgov_directory_search: true
-  localgov_opening_hours: true
   search_api_excerpt: true
