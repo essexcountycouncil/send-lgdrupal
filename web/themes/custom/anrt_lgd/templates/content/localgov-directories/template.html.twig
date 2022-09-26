@@ -69,6 +69,7 @@
 
   {% if node.localgov_directory_email.value
         or node.localgov_directory_phone.value 
+        or node.field_directory_sms.value 
         or node.field_directory_twitter.value 
         or node.field_directory_facebook.value 
         or node.field_directory_instagram.value 
@@ -257,8 +258,8 @@
 
         </div>
         <div class="lgd-row__full">
-          {# Begin Email and Phone #}
-          {% if node.localgov_directory_email.value or node.localgov_directory_phone.value %}
+          {# Begin Email, Phone, and SMS #} 
+          {% if node.localgov_directory_email.value or node.localgov_directory_phone.value or node.field_directory_sms.value %}
             <div class="lgd-directory__meta-item">
               <h3 class="lgd-directory__meta-item-title">{{ 'Contact'|t }}</h3>
               <div class="lgd-directory__meta-item-content">
@@ -287,11 +288,24 @@
                     }
                   %}
                 {% endif %} 
+                
+                {% if node.field_directory_sms.value %}
+                  {% set value %}
+                    <a href="sms:{{ node.field_directory_sms.value|replace({" ":''}) }}">{{ node.field_directory_sms.value }}</a>
+                  {% endset %}
+                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                    with {
+                      'title': 'SMS'|t,
+                      'value':  value,
+                      icon_as_placeholder: false,
+                    }
+                  %}
+                {% endif %} 
 
               </div>
             </div>
           {% endif %}
-          {# End Email and Phone #} 
+          {# End Email, Phone, and SMS #} 
 
           {# Begin Social Media Links #}
           {% if node.localgov_directory_website.value %}

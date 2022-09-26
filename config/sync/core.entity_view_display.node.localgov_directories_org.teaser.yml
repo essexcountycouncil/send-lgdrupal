@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_how_to_access
     - field.field.node.localgov_directories_org.field_directory_instagram
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
+    - field.field.node.localgov_directories_org.field_directory_sms
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.field_directory_venue_ally
@@ -60,6 +61,7 @@ hidden:
   field_directory_how_to_access: true
   field_directory_instagram: true
   field_directory_siblings_attend: true
+  field_directory_sms: true
   field_directory_twitter: true
   field_directory_venue_ally: true
   field_migrated_content: true

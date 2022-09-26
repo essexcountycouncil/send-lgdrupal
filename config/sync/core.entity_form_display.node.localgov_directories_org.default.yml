@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_how_to_access
     - field.field.node.localgov_directories_org.field_directory_instagram
     - field.field.node.localgov_directories_org.field_directory_siblings_attend
+    - field.field.node.localgov_directories_org.field_directory_sms
     - field.field.node.localgov_directories_org.field_directory_summary
     - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.field_directory_venue_ally
@@ -105,8 +106,9 @@ third_party_settings:
         - field_directory_available_online
         - field_directory_siblings_attend
         - field_directory_cost
-        - localgov_directory_phone
         - localgov_directory_email
+        - localgov_directory_phone
+        - field_directory_sms
         - localgov_directory_website
         - field_directory_facebook
         - field_directory_twitter
@@ -163,7 +165,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -183,7 +185,7 @@ content:
     third_party_settings: {  }
   field_directory_cost:
     type: text_textarea
-    weight: 44
+    weight: 43
     region: content
     settings:
       rows: 5
@@ -199,7 +201,7 @@ content:
     third_party_settings: {  }
   field_directory_facebook:
     type: string_textfield
-    weight: 49
+    weight: 48
     region: content
     settings:
       size: 60
@@ -223,7 +225,7 @@ content:
     third_party_settings: {  }
   field_directory_instagram:
     type: string_textfield
-    weight: 51
+    weight: 50
     region: content
     settings:
       size: 60
@@ -231,9 +233,17 @@ content:
     third_party_settings: {  }
   field_directory_siblings_attend:
     type: options_buttons
-    weight: 43
+    weight: 42
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_directory_sms:
+    type: string_textfield
+    weight: 46
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_directory_summary:
     type: string_textarea
@@ -245,7 +255,7 @@ content:
     third_party_settings: {  }
   field_directory_twitter:
     type: string_textfield
-    weight: 50
+    weight: 49
     region: content
     settings:
       size: 60
@@ -293,7 +303,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
@@ -306,7 +316,7 @@ content:
     third_party_settings: {  }
   localgov_directory_email:
     type: email_default
-    weight: 46
+    weight: 44
     region: content
     settings:
       placeholder: ''
@@ -377,13 +387,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 4
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -397,7 +407,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true

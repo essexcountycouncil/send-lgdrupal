@@ -1,0 +1,19 @@
+uuid: 86b821d3-e43b-4b6f-85a2-6f8155ad5ef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_sms
+    - node.type.localgov_directories_page
+id: node.localgov_directories_page.field_directory_sms
+field_name: field_directory_sms
+entity_type: node
+bundle: localgov_directories_page
+label: SMS
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

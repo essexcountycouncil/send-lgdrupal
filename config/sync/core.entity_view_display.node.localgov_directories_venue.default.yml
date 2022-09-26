@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.localgov_directories_venue.field_directory_how_to_access
     - field.field.node.localgov_directories_venue.field_directory_instagram
     - field.field.node.localgov_directories_venue.field_directory_siblings_attend
+    - field.field.node.localgov_directories_venue.field_directory_sms
     - field.field.node.localgov_directories_venue.field_directory_summary
     - field.field.node.localgov_directories_venue.field_directory_twitter
     - field.field.node.localgov_directories_venue.field_directory_venue_ally
@@ -44,7 +45,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 9
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: localgov-directories-page__group-enquiries
@@ -58,7 +59,7 @@ third_party_settings:
       label: Venue
       parent_name: ''
       region: content
-      weight: 8
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: localgov-directories-page__group-venue
@@ -82,42 +83,42 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_directory_cost:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 9
     region: content
   field_directory_eligibility:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_directory_how_help:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_directory_how_to_access:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_directory_summary:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   localgov_directory_files:
     type: entity_reference_label
@@ -125,7 +126,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 5
     region: content
   localgov_directory_job_title:
     type: string
@@ -167,7 +168,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 8
     region: content
   localgov_location:
     type: entity_reference_entity_view
@@ -183,6 +184,7 @@ hidden:
   field_directory_facebook: true
   field_directory_instagram: true
   field_directory_siblings_attend: true
+  field_directory_sms: true
   field_directory_twitter: true
   field_directory_venue_ally: true
   field_sitewide_search_type: true

@@ -1,0 +1,19 @@
+uuid: 5378f6db-dc91-4323-abad-e4a2729f527f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_sms
+    - node.type.localgov_directories_org
+id: node.localgov_directories_org.field_directory_sms
+field_name: field_directory_sms
+entity_type: node
+bundle: localgov_directories_org
+label: SMS
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

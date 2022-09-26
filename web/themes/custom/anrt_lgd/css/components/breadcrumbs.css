@@ -1,4 +1,24 @@
+.lgd-region--breadcrumb {
+  margin-bottom: var(--breadcrumbs-spacing-bottom);
+}
+
+.lgd-region__inner--breadcrumb {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .lgd-region__inner--breadcrumb {
+    display: block;
+  }
+}
+
 .breadcrumbs {
+  /* 
+    Removing margin-bottom from breadcrumbs, so we can add it to the breadcrumbs
+    region instead. That means we'll have space below the breadcrumbs region
+    even when we don't have any breadcrumbs (e.g. on mobile screens).
+  */
+  margin-bottom: 0;
   border-bottom: 0;
 }
 
