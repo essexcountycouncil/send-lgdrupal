@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_directory_twitter
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
+    - field.field.node.localgov_directories_org.field_opening_hours
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
@@ -61,6 +62,7 @@ hidden:
   field_directory_twitter: true
   field_migrated_content: true
   field_old_url: true
+  field_opening_hours: true
   field_provider_last_checked: true
   field_sitewide_search_type: true
   langcode: true
