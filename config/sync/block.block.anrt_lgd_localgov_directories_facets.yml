@@ -6,7 +6,6 @@ dependencies:
     - facets.facet.localgov_directories_facets
   module:
     - facets
-    - node
   theme:
     - anrt_lgd
 _core:
@@ -24,11 +23,4 @@ settings:
   provider: facets
   context_mapping: {  }
   block_id: anrt_lgd_localgov_directories_facets
-visibility:
-  node_type:
-    id: node_type
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      localgov_directory: localgov_directory
+visibility: {  }

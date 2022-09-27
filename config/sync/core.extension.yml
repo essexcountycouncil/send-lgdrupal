@@ -148,6 +148,8 @@ module:
   views: 10
   paragraphs: 11
   localgov: 1000
+  localgov_directories_db: 0
+  localgov_search_db: 0
 theme:
   claro: 0
   stable: 0

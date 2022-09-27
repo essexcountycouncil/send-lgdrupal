@@ -77,6 +77,9 @@ content:
       leaflet_markercluster:
         control: false
         options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
       path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
       geocoder:
         control: false
@@ -92,7 +95,7 @@ content:
           zoom: 16
           popup: false
           options: ''
-      fullscreen_control: true
+      weight: null
     third_party_settings: {  }
     weight: 0
     region: content

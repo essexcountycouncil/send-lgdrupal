@@ -22,7 +22,8 @@ settings:
   label: 'News date'
   label_display: '0'
   provider: facets
-  block_id: localgov_news_date
+  context_mapping: {  }
+  block_id: anrt_lgd_localgov_news_date
 visibility:
   request_path:
     id: request_path

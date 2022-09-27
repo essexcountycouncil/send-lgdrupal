@@ -24,6 +24,7 @@ if [ ! -d ${PROJECT_ROOT}/db ]; then
 fi
 
 env=$1
+db=$1
 
 if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; then
   cd ${PROJECT_ROOT}
@@ -37,7 +38,7 @@ if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; t
       elif [[ "$env" == "stage" || "$env" == "staging" ]]; then
         env="test"
       fi
-      fin exec /var/www/.docksal/commands/db-download-acquia ${env}
+      fin exec /var/www/.docksal/commands/db-download-acquia ${env} ${db}
     else
       echo-red "You need to create & set an Acquia Cloud API Token,"
       echo-red "see: https://docs.docksal.io/tools/acquia-cli/#configuration"
@@ -51,7 +52,7 @@ if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; t
         env="test"
       fi
       db_url=$(fin terminus backup:get ${PANTHEON_ID}.${env} --element=db)
-      wget ${db_url} -O $PROJECT_ROOT/db/${env}.sql.gz
+      wget ${db_url} -O $PROJECT_ROOT/db/${db}.sql.gz
     else
       echo-red "You need to create & set a Terminus machine token on Pantheon,"
       echo-red "see: https://docs.docksal.io/tools/terminus/#configuration"

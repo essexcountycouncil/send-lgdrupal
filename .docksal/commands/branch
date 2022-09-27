@@ -34,7 +34,7 @@ def main(argv):
         name = input("Please enter a branch name (optional): ")
         suffix = ""
     elif len(argv) == 1 and ('trello' in argv[0]):
-        trello = argv[0]
+        trello = argv[0].strip()
     else:
         try:
             opts, args = getopt.getopt(argv, "u:b:", ['url=', 'branch='])
@@ -57,10 +57,10 @@ def main(argv):
 
         """ Proceed if we we got a match. """
         if path != None:
-            parts = path.group(1).split("/")
+            name = path.group(3) if path.group(3) else input("Please enter a branch name (optional): ")
             today = datetime.date.today()
-            name = re.sub(r'-', '_', parts[1])
-            hash = parts[0]
+            name = re.sub(r'-', '_', name)
+            hash = path.group(1)
             branch = "{}_w{}_{}_{}".format(
                 today.year, today.isocalendar()[1], name, hash)
 
@@ -77,6 +77,6 @@ def main(argv):
         print("The argument did not match the expected pattern.")
 
 def trelloPath(test_url):
-  return re.fullmatch(r'https:\/\/trello.com\/[a-zA-Z]{1}\/([0-9A-Za-z-]+\/[0-9A-Za-z-]+)', test_url)
+  return re.fullmatch(r'^https:\/\/trello\.com\/[a-z]{1}\/([a-zA-Z0-9]+)(\/)?([a-zA-Z0-9-]+)?(\/)?$', test_url)
 
 main(sys.argv[1:])
