@@ -12,7 +12,6 @@ dependencies:
     - address
     - field_formatter_class
     - leaflet
-    - text
 _core:
   default_config_hash: '-1-RKsEOGOX99WfAdxYDWMKNeUyj8KwaQ6jGMd9pj_Y'
 id: localgov_geo.address.default
@@ -20,13 +19,6 @@ targetEntityType: localgov_geo
 bundle: address
 mode: default
 content:
-  accessibility:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   location:
     type: leaflet_formatter_default
     label: visually_hidden
@@ -111,6 +103,7 @@ content:
     weight: 1
     region: content
 hidden:
+  accessibility: true
   created: true
   external_id: true
   langcode: true

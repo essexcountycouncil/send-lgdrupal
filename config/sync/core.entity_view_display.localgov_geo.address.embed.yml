@@ -12,7 +12,6 @@ dependencies:
   module:
     - address
     - leaflet
-    - text
 _core:
   default_config_hash: o0v679fGYvdV6sXWNqzzY6qFoTzy208sOqdE_ZkYWTY
 id: localgov_geo.address.embed
@@ -20,13 +19,6 @@ targetEntityType: localgov_geo
 bundle: address
 mode: embed
 content:
-  accessibility:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   location:
     type: leaflet_formatter_default
     label: visually_hidden
@@ -107,6 +99,7 @@ content:
     weight: 1
     region: content
 hidden:
+  accessibility: true
   created: true
   external_id: true
   langcode: true
