@@ -88,10 +88,10 @@
   %}
     <div class="lgd-directory__meta-items">
     
-      {# Begin Access needs #}
+      {# Begin Venue accessibility #}
       {% if node.field_directory_venue_ally.value %}
         <div class="lgd-directory__meta-item">
-          <h3 class="lgd-directory__meta-item-title">{{ 'Access needs'|t }}</h3>
+          <h3 class="lgd-directory__meta-item-title">{{ 'Venue accessibility'|t }}</h3>
           <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
             {% for item in node.field_directory_venue_ally %}
               {% set value = item.entity.name.value %}
@@ -106,7 +106,7 @@
           </div>
         </div>
       {% endif %}
-      {# End Access needs #}  
+      {# End Venue accessibility #}  
 
       {# Begin special needs #}
       {% if node.localgov_directory_facets_select.value %}  
