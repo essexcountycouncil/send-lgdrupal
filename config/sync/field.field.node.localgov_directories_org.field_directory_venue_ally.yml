@@ -10,7 +10,7 @@ id: node.localgov_directories_org.field_directory_venue_ally
 field_name: field_directory_venue_ally
 entity_type: node
 bundle: localgov_directories_org
-label: 'Access needs'
+label: 'Venue accessibility'
 description: ''
 required: false
 translatable: true
