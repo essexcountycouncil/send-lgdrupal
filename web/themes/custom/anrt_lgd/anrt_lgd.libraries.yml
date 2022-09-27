@@ -18,6 +18,12 @@ header:
   dependencies:
     - core/drupal.debounce
 
+equal-heights-blocks:
+  js:
+    js/equal-heights-blocks.js: {}
+  dependencies:
+    - core/drupal
+
 footer:
   css:
     theme:
@@ -74,3 +80,8 @@ callout-box:
   css:
     theme:
       css/components/callout-box.css: {}
+
+featured-teasers:
+  css:
+    theme:
+      css/components/featured-teasers.css: {}

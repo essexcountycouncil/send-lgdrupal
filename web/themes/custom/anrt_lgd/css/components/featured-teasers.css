@@ -1,0 +1,21 @@
+.featured-teasers {
+  margin: calc(var(--spacing-larger) * -1);
+}
+
+.featured-teaser {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-grey-lighter);
+  border-top: 5px solid var(--color-green);
+  border-bottom: 0;
+  background-color: var(--color-white);
+}
+
+.featured-teaser__content {
+  padding: var(--spacing-largest) var(--spacing-largest);
+}
+
+.featured-teaser__heading * {
+  color: var(--color-black)
+}

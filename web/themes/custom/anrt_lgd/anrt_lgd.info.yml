@@ -9,6 +9,7 @@ libraries-extend:
     - anrt_lgd/variables
     - anrt_lgd/overrides
     - anrt_lgd/form-items
+    - anrt_lgd/equal-heights-blocks
   localgov_base/header:
     - anrt_lgd/header
   localgov_base/footer:
@@ -25,6 +26,8 @@ libraries-extend:
     - anrt_lgd/callout-box
   localgov_base/breadcrumbs:
     - anrt_lgd/breadcrumbs
+  localgov_base/featured-teasers:
+    - anrt_lgd/featured-teasers
 
 regions:
   tabs: "Tabs"
