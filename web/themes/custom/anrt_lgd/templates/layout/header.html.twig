@@ -11,16 +11,6 @@
 
 					{{ page.header }}
 
-					<div class="lgd-header__search">
-						<a href="/search">
-							{% include "@localgov_base/includes/icons/icon.html.twig" with {
-									icon_name: 'magnifying-glass',
-									icon_wrapper_element: 'div',
-								}
-							%}
-							<span class="visually-hidden">{{ 'Go to search page'|t }}</span>
-						</a>
-					</div>
           {% if has_primary_menu or has_search or has_secondary_menu %}
 						{# 
 							The "Header Toggles" section sets a number of buttons to activate 

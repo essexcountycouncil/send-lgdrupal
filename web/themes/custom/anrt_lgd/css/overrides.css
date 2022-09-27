@@ -39,23 +39,14 @@ body {
   }
 }
 
-.lgd-header__search {
-  margin-left: auto;
-  color: var(--color-white);
+.lgd-header__inner {
+  justify-content: start;
 }
 
 @media screen and (min-width: 48rem) {
-  .lgd-header__search {
-    display: none;
+  .lgd-header__inner {
+    justify-content: end;
   }
-}
-
-.lgd-header__search svg path {
-  fill: var(--color-white);
-}
-
-.lgd-header__toggles {
-  margin-left: unset;
 }
 
 @media screen and (min-width: 48rem) {
@@ -64,12 +55,16 @@ body {
   }
 }
 
+.lgd-header__toggle {
+  padding: var(--spacing-smaller);
+}
+
 .lgd-region--search form {
   gap: 0;
 }
 
 .branding__item--logo {
-  --logo-height: 60px;
+  --logo-height: 50px;
   width: unset;
   /* 
     Padding is supposed to be 50% of the height of the logo,
@@ -78,6 +73,11 @@ body {
   */
   padding-top: calc((var(--logo-height) - var(--spacing)) / 2);
   padding-bottom: calc((var(--logo-height) - var(--spacing)) / 2);
+}
+@media screen and (min-width: 48rem) {
+  .branding__item--logo {
+    --logo-height: 60px;
+  }
 }
 
 .branding__item--logo img {
