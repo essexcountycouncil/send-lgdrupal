@@ -28,6 +28,7 @@
 .localgov-directories-page__contact-container .field--name-location {
   display: none;
 }
+
 @media screen and (min-width: 48rem) {
   .localgov-directories-page__contact-container .field--name-location {
     display: block;
@@ -70,8 +71,8 @@
 }
 
 .localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__item {
-  background-color: var(--color-grey-lighter);
   padding: var(--spacing);
+  background-color: var(--color-grey-lighter);
 }
 
 .localgov-directories-page__opening-times .field--name-localgov-directory-opening-times .field__item > *:last-child {
@@ -108,8 +109,8 @@
 }
 
 .lgd-directory__meta-item-title {
-  width: 200px;
   flex-shrink: 0;
+  width: 200px;
   color: var(--color-black);
 }
 
@@ -130,8 +131,8 @@
   }
 }
 .lgd-directory__meta-item-content-label {
-  width: 75px;
   flex-shrink: 0;
+  width: 75px;
 }
 
 .lgd-directory__meta-item-icon {
@@ -155,13 +156,13 @@
   width: var(--spacing-large);
 }
 .lgd-directory__meta-item-social-link--facebook svg path {
-  fill: #4267B2;
+  fill: #4267b2;
 }
 .lgd-directory__meta-item-social-link--twitter svg path {
-  fill: #1DA1F2;
+  fill: #1da1f2;
 }
 .lgd-directory__meta-item-social-link--instagram svg path {
-  fill: #405DE6;
+  fill: #405de6;
 }
 
 .lgd-directory__meta-item-field--social .lgd-directory__meta-item-content-value {
@@ -171,8 +172,8 @@
 }
 
 .localgov-directories-page__contact-container > fieldset {
-  border: 0;
   padding: 0;
+  border: 0;
 }
 
 .localgov-directories-page__contact-container .field--name-postal-address {
@@ -182,13 +183,13 @@
 .lgd-directory__suggest-action {
   display: inline-block;
   padding: var(--spacing);
-  background-color: var(--color-accent);
   color: var(--color-white);
+  background-color: var(--color-accent);
 }
 
 .lgd-directory__suggest-actions-description {
-  margin-top: var(--spacing-small);
   max-width: var(--width-medium);
+  margin-top: var(--spacing-small);
   font-size: var(--font-size-small);
 }
 

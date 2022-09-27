@@ -27,20 +27,20 @@ body {
 }
 
 @media screen and (min-width: 48rem) {
-  .menu--main>.menu-item a {
-    color: var(--color-white);
+  .menu--main > .menu-item a {
     text-decoration: none;
+    color: var(--color-white);
   }
-  
-  .menu--main>.menu-item a:hover {
+
+  .menu--main > .menu-item a:hover {
     color: var(--color-white);
     border-color: var(--color-white);
     background-color: unset;
   }
-  .menu--main>.menu-item a.is-active {
+  .menu--main > .menu-item a.is-active {
     color: var(--color-accent);
   }
-  .menu--main>.menu-item a.is-active:hover {
+  .menu--main > .menu-item a.is-active:hover {
     color: var(--color-white);
   }
 }
@@ -71,8 +71,9 @@ body {
 
 .branding__item--logo {
   --logo-height: 50px;
+
   width: unset;
-  /* 
+  /*
     Padding is supposed to be 50% of the height of the logo,
     but we also have padding on top/bottom of header, so
     need to take account of that as well - hence `- var(--spacing)`.
@@ -80,6 +81,7 @@ body {
   padding-top: calc((var(--logo-height) - var(--spacing)) / 2);
   padding-bottom: calc((var(--logo-height) - var(--spacing)) / 2);
 }
+
 @media screen and (min-width: 48rem) {
   .branding__item--logo {
     --logo-height: 60px;
@@ -87,8 +89,8 @@ body {
 }
 
 .branding__item--logo img {
-  height: var(--logo-height);
   width: auto;
+  height: var(--logo-height);
 }
 
 .lgd-region--search .form-text {
@@ -100,15 +102,15 @@ body {
   border: 0;
 }
 
-.layout--twocol>.layout__region--first {
+.layout--twocol > .layout__region--first {
   display: flex;
 }
 
-.layout--twocol>.layout__region--second {
+.layout--twocol > .layout__region--second {
   display: flex;
 }
 
-.field--name-localgov-subsites-content>.field__item {
+.field--name-localgov-subsites-content > .field__item {
   margin-bottom: var(--spacing-largest);
 }
 
@@ -162,11 +164,11 @@ body {
 .banner--primary .banner__content {
   max-width: 662px;
   padding: calc(var(--banner-content-padding) * 2) var(--banner-content-padding) var(--banner-content-padding);
+  color: var(--color-black);
   border-radius: var(--border-radius);
+  background-color: transparent;
   font-size: 27px;
   font-weight: bold;
-  background-color: transparent;
-  color: var(--color-black);
 }
 
 .banner--primary .banner__image {
@@ -178,10 +180,10 @@ body {
     display: block;
   }
   .banner--primary .banner__content {
-    padding-top: var(--banner-content-padding);
-    background-color: var(--banner-content-bg-color);
-    color: var(--color-white);
     margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
+    padding-top: var(--banner-content-padding);
+    color: var(--color-white);
+    background-color: var(--banner-content-bg-color);
   }
 }
 
@@ -194,7 +196,7 @@ body {
   font-weight: 700;
 }
 
-.menu--main>.menu-item {
+.menu--main > .menu-item {
   margin-right: 0;
   margin-left: 0;
 }
@@ -223,18 +225,19 @@ body {
   padding-top: var(--spacing-large);
 }
 
-@media screen and (min-width:  48rem) { 
+@media screen and (min-width: 48rem) {
   .lgd-region--search .form-text {
     max-width: 200px;
   }
 }
 
-@media screen and (min-width:  48rem) { 
+@media screen and (min-width: 48rem) {
   .lgd-header__nav--primary {
     display: block;
   }
 }
-@media screen and (min-width:  60rem) { 
+
+@media screen and (min-width: 60rem) {
   .lgd-header__nav--primary {
     display: flex;
   }

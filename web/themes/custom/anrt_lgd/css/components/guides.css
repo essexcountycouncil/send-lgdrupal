@@ -16,8 +16,8 @@
 }
 
 .lgd-guide-nav__list-item > a {
-  font-weight: normal;
   color: var(--color-blue);
+  font-weight: normal;
 }
 
 .block-localgov-guides-contents {
@@ -26,12 +26,12 @@
 }
 
 .lgd-prev-next__link {
-  background-color: var(--color-white);
-  color: var(--color-blue);
-  text-decoration: none;
   flex-wrap: wrap;
   align-items: initial;
   padding: var(--spacing-smaller);
+  text-decoration: none;
+  color: var(--color-blue);
+  background-color: var(--color-white);
 }
 
 .lgd-prev-next__icon {

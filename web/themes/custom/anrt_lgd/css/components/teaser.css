@@ -1,7 +1,7 @@
 .lgd-teaser__location-container {
   display: flex;
-  margin-bottom: var(--spacing);
   align-items: center;
+  margin-bottom: var(--spacing);
 }
 
 .lgd-teaser__location {

@@ -4,7 +4,7 @@
   color: var(--color-black);
 }
 
-@media screen and (min-width: 48rem) { 
+@media screen and (min-width: 48rem) {
   .facets-block h2 button {
     display: none;
   }
@@ -21,8 +21,8 @@
   justify-content: space-between;
   margin-top: calc(var(--spacing-largest));
   padding-top: calc(var(--spacing-largest));
-  font-size: clamp(var(--font-size-medium), 5vw, var(--font-size-large));
   color: var(--color-black);
+  font-size: clamp(var(--font-size-medium), 5vw, var(--font-size-large));
 }
 
 .facet-group__title ~ .facet-group__title {

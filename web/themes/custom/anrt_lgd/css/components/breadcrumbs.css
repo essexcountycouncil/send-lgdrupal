@@ -13,7 +13,7 @@
 }
 
 .breadcrumbs {
-  /* 
+  /*
     Removing margin-bottom from breadcrumbs, so we can add it to the breadcrumbs
     region instead. That means we'll have space below the breadcrumbs region
     even when we don't have any breadcrumbs (e.g. on mobile screens).
