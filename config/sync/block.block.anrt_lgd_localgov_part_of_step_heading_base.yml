@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - localgov_step_by_step
+    - node
   theme:
     - anrt_lgd
 _core:
@@ -19,4 +20,11 @@ settings:
   label: 'Part of step heading'
   label_display: '0'
   provider: localgov_step_by_step
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_step_by_step_page: localgov_step_by_step_page

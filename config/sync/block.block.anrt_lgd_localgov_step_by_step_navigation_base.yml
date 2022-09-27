@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.localgov_step_by_step_navigation
   module:
+    - node
     - views
   theme:
     - anrt_lgd
@@ -21,7 +22,15 @@ settings:
   label: ''
   label_display: '0'
   provider: views
-  context_mapping: {  }
+  context_mapping:
+    nid: '@node.node_route_context:node'
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_step_by_step_overview: localgov_step_by_step_overview
