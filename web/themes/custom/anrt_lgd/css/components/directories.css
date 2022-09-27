@@ -186,6 +186,12 @@
   color: var(--color-white);
 }
 
+.lgd-directory__suggest-actions-description {
+  margin-top: var(--spacing-small);
+  max-width: var(--width-medium);
+  font-size: var(--font-size-small);
+}
+
 .lgd-directory__last-checked {
   margin-top: var(--spacing);
 }
