@@ -88,16 +88,48 @@
   %}
     <div class="lgd-directory__meta-items">
     
-      <div class="lgd-row">
-        <div class="lgd-row__one-half"> 
+      {# Begin Access needs #}
+      {% if node.field_directory_venue_ally.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Access needs'|t }}</h3>
+          <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
+            {% for item in node.field_directory_venue_ally %}
+              {% set value = item.entity.name.value %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': false,
+                  'icon': 'check',
+                  'value':  value,
+                }
+              %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      {# End Access needs #}  
 
-          {# Begin Access needs #}
-          {% if node.field_directory_venue_ally.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Access needs'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% for item in node.field_directory_venue_ally %}
-                  {% set value = item.entity.name.value %}
+      {# Begin special needs #}
+      {% if node.localgov_directory_facets_select.value %}  
+
+        {% set accessibility = false %}
+        {% set location = false %}
+
+        {% for item in node.localgov_directory_facets_select %}
+          {% if item.entity.bundle.target_id == 'accessibility' %}
+            {% set accessibility = true %}
+          {% endif %}
+          {% if item.entity.bundle.target_id == 'location' %}
+            {% set location = true %}
+          {% endif %}
+        {% endfor %}  
+
+        {% if accessibility %}
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Special need'|t }}</h3>
+            <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
+              {% for item in node.localgov_directory_facets_select %}
+                {% if item.entity.bundle.target_id == 'accessibility' %}
+                  {% set value = item.entity.title.value %}
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
                     with {
                       'title': false,
@@ -105,116 +137,19 @@
                       'value':  value,
                     }
                   %}
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
-          {# End Access needs #}  
-
-          {# Begin special needs #}
-          {% if node.localgov_directory_facets_select.value %}  
-
-            {% set accessibility = false %}
-            {% set location = false %}
-
-            {% for item in node.localgov_directory_facets_select %}
-              {% if item.entity.bundle.target_id == 'accessibility' %}
-                {% set accessibility = true %}
-              {% endif %}
-              {% if item.entity.bundle.target_id == 'location' %}
-                {% set location = true %}
-              {% endif %}
-            {% endfor %}  
-
-            {% if accessibility %}
-              <div class="lgd-directory__meta-item">
-                <h3 class="lgd-directory__meta-item-title">{{ 'Special need'|t }}</h3>
-                <div class="lgd-directory__meta-item-content">
-                  {% for item in node.localgov_directory_facets_select %}
-                    {% if item.entity.bundle.target_id == 'accessibility' %}
-                      {% set value = item.entity.title.value %}
-                      {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                        with {
-                          'title': false,
-                          'icon': 'check',
-                          'value':  value,
-                        }
-                      %}
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
-            
-            {% if location %}    
-              <div class="lgd-directory__meta-item">
-                <h3 class="lgd-directory__meta-item-title">{{ 'Location(s)'|t }}</h3>
-                <div class="lgd-directory__meta-item-content">
-                  {% for item in node.localgov_directory_facets_select %}
-                    {% if item.entity.bundle.target_id == 'location' %}
-                      {% set value = item.entity.title.value %}
-                      {% set icon = false %}
-                      {% set icon_as_placeholder = true %}
-                      {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                        with {
-                          'title': false,
-                          'icon': icon,
-                          'value':  value,
-                        }
-                      %}
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
-
-          {% endif %}
-          {# End special needs #} 
-
-          {# Begin SEND siblings #}
-          {% if node.field_directory_siblings_attend.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Can siblings without SEND also attend'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.field_directory_siblings_attend.value %}
-                  {% if node.field_directory_siblings_attend.value == 'yes' %}
-                    {% set value = 'Yes' %}
-                      {% else %}
-                        {% set value = 'No' %}
-                  {% endif %} 
-
-                  {% if value == 'Yes' %}
-                    {% set icon = 'check' %}
-                    {% else %}
-                      {% set icon = false %}
-                      {% set icon_as_placeholder = true %}
-                  {% endif %}
-
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': false,
-                      'icon': icon,
-                      'value': value,
-                    }
-                  %}
                 {% endif %}
-              </div>
+              {% endfor %}
             </div>
-          {% endif %}
-          {# End SEND siblings #}
-
-        </div>  
-
-        <div class="lgd-row__one-half">
-          {# Begin Cost #}
-          {% if node.field_directory_cost.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Cost'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.field_directory_cost.value %}
-                  {% set value %} 
-                    {{ content.field_directory_cost }}
-                  {% endset %}
+          </div>
+        {% endif %}
+        
+        {% if location %}    
+          <div class="lgd-directory__meta-item">
+            <h3 class="lgd-directory__meta-item-title">{{ 'Location(s)'|t }}</h3>
+            <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
+              {% for item in node.localgov_directory_facets_select %}
+                {% if item.entity.bundle.target_id == 'location' %}
+                  {% set value = item.entity.title.value %}
                   {% set icon = false %}
                   {% set icon_as_placeholder = true %}
                   {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
@@ -225,197 +160,247 @@
                     }
                   %}
                 {% endif %}
-              </div>
+              {% endfor %}
             </div>
-          {% endif %}
-          {# End Cost #}  
+          </div>
+        {% endif %}
 
-          {# Begin available online #}
-          {% if node.field_directory_available_online.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Is the service available online?'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.field_directory_available_online.value %}
-                  {% if node.field_directory_available_online.value == 'yes' %}
-                    {% set value = 'Yes' %}
-                      {% else %}
-                        {% set value = 'No' %}
-                  {% endif %} 
+      {% endif %}
+      {# End special needs #} 
 
-                  {% if value == 'Yes' %}
-                    {% set icon = 'check' %}
-                    {% else %}
-                      {% set icon = false %}
-                      {% set icon_as_placeholder = true %}
-                  {% endif %}
+      {# Begin SEND siblings #}
+      {% if node.field_directory_siblings_attend.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Can siblings without SEND also attend'|t }}</h3>
+          <div class="lgd-directory__meta-item-content">
+            {% if node.field_directory_siblings_attend.value %}
+              {% if node.field_directory_siblings_attend.value == 'yes' %}
+                {% set value = 'Yes' %}
+                  {% else %}
+                    {% set value = 'No' %}
+              {% endif %} 
 
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': false,
-                      'icon': icon,
-                      'value':  value,
-                    }
-                  %}
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-          {# End available online #}  
-
-        </div>
-        <div class="lgd-row__full">
-          {# Begin Email, Phone, and SMS #} 
-          {% if node.localgov_directory_email.value or node.localgov_directory_phone.value or node.field_directory_sms.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Contact'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.localgov_directory_email.value %}
-                  {% set value %} 
-                    <a href="mailto:{{ node.localgov_directory_email.value }}">{{ node.localgov_directory_email.value }}</a>
-                  {% endset %}
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': 'Email'|t,
-                      'value':  value,
-                      icon_as_placeholder: false,
-                    }
-                  %}
-                {% endif %} 
-
-                {% if node.localgov_directory_phone.value %}
-                  {% set value %} 
-                    {{ node.localgov_directory_phone.value }}
-                  {% endset %}
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': 'Phone'|t,
-                      'value':  value,
-                      icon_as_placeholder: false,
-                    }
-                  %}
-                {% endif %} 
-                
-                {% if node.field_directory_sms.value %}
-                  {% set value %}
-                    <a href="sms:{{ node.field_directory_sms.value|replace({" ":''}) }}">{{ node.field_directory_sms.value }}</a>
-                  {% endset %}
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': 'SMS'|t,
-                      'value':  value,
-                      icon_as_placeholder: false,
-                    }
-                  %}
-                {% endif %} 
-
-              </div>
-            </div>
-          {% endif %}
-          {# End Email, Phone, and SMS #} 
-
-          {# Begin Social Media Links #}
-          {% if node.localgov_directory_website.value %}
-            <div class="lgd-directory__meta-item">
-              <h3 class="lgd-directory__meta-item-title">{{ 'Links'|t }}</h3>
-              <div class="lgd-directory__meta-item-content">
-                {% if node.localgov_directory_website.value %}
-                  {% set value %} 
-                    {{ content.localgov_directory_website }}
-                  {% endset %}
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
-                    with {
-                      'title': 'Web'|t,
-                      'value':  value,
-                      icon_as_placeholder: false,
-                    }
-                  %}
-                {% endif %} 
-
-                {% if node.field_directory_facebook.value 
-                      or node.field_directory_twitter.value 
-                      or node.field_directory_instagram.value %}
-                  {% set value %}
-                    {% if node.field_directory_facebook.value %}
-                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--facebook" href="{{ node.field_directory_facebook.value }}">
-                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
-                            icon_name: 'facebook',
-                            icon_wrapper_element: 'span',
-                            icon_classes: 'lgd-directory__meta-item-social',
-                          }
-                        %}
-                      <span class="visually-hidden"> {{ 'Find us on Facebook'|t }}</a>
-                    {% endif %}
-                    {% if node.field_directory_twitter.value %}
-                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--twitter" href="{{ node.field_directory_twitter.value }}">
-                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
-                            icon_name: 'twitter',
-                            icon_wrapper_element: 'span',
-                            icon_classes: 'lgd-directory__meta-item-social',
-                          }
-                        %}
-                      <span class="visually-hidden"> {{ 'Find us on twitter'|t }}</a>
-                    {% endif %}
-                    {% if node.field_directory_instagram.value %}
-                      <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--instagram" href="{{ node.field_directory_instagram.value }}">
-                        {% include "@localgov_base/includes/icons/icon.html.twig" with {
-                            icon_name: 'instagram',
-                            icon_wrapper_element: 'span',
-                            icon_classes: 'lgd-directory__meta-item-social',
-                          }
-                        %}
-                      <span class="visually-hidden"> {{ 'Find us on instagram'|t }}</a>
-                    {% endif %}
-                  {% endset %}
-
-                  {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig"
-                    with {
-                      'title': 'Social'|t,
-                      'value':  value,
-                      icon_as_placeholder: false,
-                    }
-                  %}
-                {% endif %}
-
-              </div>
-            </div>
-          {% endif %}
-          {# End Social Media Links #}
-
-          {# We need to add 2 new buttons
-          - One to allow users to be redirected to a form, passing in the URL
-          - One to hit a callback which updates a value on the node.
-          The latter should only appear when on a 'hidden' path #}
-
-          {% if node.type() == 'localgov_directories_org'%}
-            {{ attach_library('localgov_base/callout-box') }}
-            <div class="lgd-directory__suggest-actions">
-
-              {% set pre_check_path = '/node/' ~ node.id() ~ '/pre_check_approve'  %}
-              {% set current_path = path("<current>") %}
-              {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
-
-              {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
-
-              {% if pre_check_path == current_path %}
-                {{ drupal_link('Mark as correct'|t, 'node/' ~ node.id() ~ '/check_approve', {attributes: {class: 'lgd-directory__suggest-action'}}) }}
+              {% if value == 'Yes' %}
+                {% set icon = 'check' %}
+                {% else %}
+                  {% set icon = false %}
+                  {% set icon_as_placeholder = true %}
               {% endif %}
 
-            </div>
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': false,
+                  'icon': icon,
+                  'value': value,
+                }
+              %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {# End SEND siblings #}
+
+      {# Begin Cost #}
+      {% if node.field_directory_cost.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Cost'|t }}</h3>
+          <div class="lgd-directory__meta-item-content">
+            {% if node.field_directory_cost.value %}
+              {% set value %} 
+                {{ content.field_directory_cost }}
+              {% endset %}
+              {% set icon = false %}
+              {% set icon_as_placeholder = true %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': false,
+                  'icon': icon,
+                  'value':  value,
+                }
+              %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {# End Cost #}  
+
+      {# Begin available online #}
+      {% if node.field_directory_available_online.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Is the service available online?'|t }}</h3>
+          <div class="lgd-directory__meta-item-content">
+            {% if node.field_directory_available_online.value %}
+              {% if node.field_directory_available_online.value == 'yes' %}
+                {% set value = 'Yes' %}
+                  {% else %}
+                    {% set value = 'No' %}
+              {% endif %} 
+
+              {% if value == 'Yes' %}
+                {% set icon = 'check' %}
+                {% else %}
+                  {% set icon = false %}
+                  {% set icon_as_placeholder = true %}
+              {% endif %}
+
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': false,
+                  'icon': icon,
+                  'value':  value,
+                }
+              %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {# End available online #}  
+
+      {# Begin Email, Phone, and SMS #} 
+      {% if node.localgov_directory_email.value or node.localgov_directory_phone.value or node.field_directory_sms.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Contact'|t }}</h3>
+          <div class="lgd-directory__meta-item-content">
+            {% if node.localgov_directory_email.value %}
+              {% set value %} 
+                <a href="mailto:{{ node.localgov_directory_email.value }}">{{ node.localgov_directory_email.value }}</a>
+              {% endset %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': 'Email'|t,
+                  'value':  value,
+                  icon_as_placeholder: false,
+                }
+              %}
+            {% endif %} 
+
+            {% if node.localgov_directory_phone.value %}
+              {% set value %} 
+                {{ node.localgov_directory_phone.value }}
+              {% endset %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': 'Phone'|t,
+                  'value':  value,
+                  icon_as_placeholder: false,
+                }
+              %}
+            {% endif %} 
+            
+            {% if node.field_directory_sms.value %}
+              {% set value %}
+                <a href="sms:{{ node.field_directory_sms.value|replace({" ":''}) }}">{{ node.field_directory_sms.value }}</a>
+              {% endset %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': 'SMS'|t,
+                  'value':  value,
+                  icon_as_placeholder: false,
+                }
+              %}
+            {% endif %} 
+
+          </div>
+        </div>
+      {% endif %}
+      {# End Email, Phone, and SMS #} 
+
+      {# Begin Social Media Links #}
+      {% if node.localgov_directory_website.value %}
+        <div class="lgd-directory__meta-item">
+          <h3 class="lgd-directory__meta-item-title">{{ 'Links'|t }}</h3>
+          <div class="lgd-directory__meta-item-content">
+            {% if node.localgov_directory_website.value %}
+              {% set value %} 
+                {{ content.localgov_directory_website }}
+              {% endset %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+                with {
+                  'title': 'Web'|t,
+                  'value':  value,
+                  icon_as_placeholder: false,
+                }
+              %}
+            {% endif %} 
+
+            {% if node.field_directory_facebook.value 
+                  or node.field_directory_twitter.value 
+                  or node.field_directory_instagram.value %}
+              {% set value %}
+                {% if node.field_directory_facebook.value %}
+                  <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--facebook" href="{{ node.field_directory_facebook.value }}">
+                    {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                        icon_name: 'facebook',
+                        icon_wrapper_element: 'span',
+                        icon_classes: 'lgd-directory__meta-item-social',
+                      }
+                    %}
+                  <span class="visually-hidden"> {{ 'Find us on Facebook'|t }}</a>
+                {% endif %}
+                {% if node.field_directory_twitter.value %}
+                  <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--twitter" href="{{ node.field_directory_twitter.value }}">
+                    {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                        icon_name: 'twitter',
+                        icon_wrapper_element: 'span',
+                        icon_classes: 'lgd-directory__meta-item-social',
+                      }
+                    %}
+                  <span class="visually-hidden"> {{ 'Find us on twitter'|t }}</a>
+                {% endif %}
+                {% if node.field_directory_instagram.value %}
+                  <a class="lgd-directory__meta-item-social-link lgd-directory__meta-item-social-link--instagram" href="{{ node.field_directory_instagram.value }}">
+                    {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                        icon_name: 'instagram',
+                        icon_wrapper_element: 'span',
+                        icon_classes: 'lgd-directory__meta-item-social',
+                      }
+                    %}
+                  <span class="visually-hidden"> {{ 'Find us on instagram'|t }}</a>
+                {% endif %}
+              {% endset %}
+
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig"
+                with {
+                  'title': 'Social'|t,
+                  'value':  value,
+                  icon_as_placeholder: false,
+                }
+              %}
+            {% endif %}
+
+          </div>
+        </div>
+      {% endif %}
+      {# End Social Media Links #}
+
+      {# We need to add 2 new buttons
+      - One to allow users to be redirected to a form, passing in the URL
+      - One to hit a callback which updates a value on the node.
+      The latter should only appear when on a 'hidden' path #}
+
+      {% if node.type() == 'localgov_directories_org'%}
+        {{ attach_library('localgov_base/callout-box') }}
+        <div class="lgd-directory__suggest-actions">
+
+          {% set pre_check_path = '/node/' ~ node.id() ~ '/pre_check_approve'  %}
+          {% set current_path = path("<current>") %}
+          {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
+
+          {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
+
+          {% if pre_check_path == current_path %}
+            {{ drupal_link('Mark as correct'|t, 'node/' ~ node.id() ~ '/check_approve', {attributes: {class: 'lgd-directory__suggest-action'}}) }}
           {% endif %}
 
-
         </div>
-      </div>
+      {% endif %}
+
     </div>
   {% endif %}
 
   {% if node.field_provider_last_checked.value %}
-    <div class="lgd-row">
-      <div class="lgd-row__full">
-        <div class="lgd-directory__last-checked">
-          {{ content.field_provider_last_checked }}
-        </div>
-      </div>
+    <div class="lgd-directory__last-checked">
+      {{ content.field_provider_last_checked }}
     </div>
   {% endif %}
 

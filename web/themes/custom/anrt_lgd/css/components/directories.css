@@ -121,6 +121,14 @@
   margin-top: var(--spacing);
 }
 
+@media screen and (min-width: 48rem) {
+  .lgd-directory__meta-item-content--columns {
+    column-count: 2;
+  }
+  .lgd-directory__meta-item-content--columns > .lgd-directory__meta-item-field {
+    break-inside: avoid-column;
+  }
+}
 .lgd-directory__meta-item-content-label {
   width: 75px;
   flex-shrink: 0;
