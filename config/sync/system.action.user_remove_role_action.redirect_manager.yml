@@ -1,0 +1,14 @@
+uuid: 82a50093-e5d2-42f7-9718-fdb55fa20c11
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.redirect_manager
+  module:
+    - user
+id: user_remove_role_action.redirect_manager
+label: 'Remove the Redirect manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: redirect_manager
