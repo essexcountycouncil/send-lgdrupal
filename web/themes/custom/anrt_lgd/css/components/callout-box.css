@@ -1,5 +1,6 @@
 .call-out-box.lgd-row {
-  --grid-column-spacing: 0px;
+  /* Can't use 0px here, or else stylelint will remove the px */
+  --grid-column-spacing: calc(1px - 1px);
 }
 
 .call-out-box--has-image .call-out-box__content {
