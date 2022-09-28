@@ -157,6 +157,14 @@ elements: |-
       '#selection_settings':
         target_bundles:
           support_type: support_type
+    venue_accessibility:
+      '#type': webform_entity_checkboxes
+      '#title': 'Venue accessibility'
+      '#target_type': taxonomy_term
+      '#selection_handler': 'default:taxonomy_term'
+      '#selection_settings':
+        target_bundles:
+          venue_accessibility: venue_accessibility
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
