@@ -5,7 +5,6 @@
 
       const layouts = Array.from(context.querySelectorAll('.layout'));
       const layoutsWithIaBlocks = layouts.filter(item => item.querySelector('.ia-block'));
-      const layoutsWithCallOutBox = layouts.filter(item => item.querySelector('.call-out-box'));
       const layoutsWithTeaserBlocks = layouts.filter(item => item.querySelector('.featured-teaser'));
 
       function equaliseHeightsOfTheseBlocks(layoutWithBlocks, typeOfBlock) {
@@ -26,10 +25,6 @@
           handleGetHeights();
         })
       }
-
-      layoutsWithCallOutBox.forEach(layout => {
-        equaliseHeightsOfTheseBlocks(layoutsWithCallOutBox, '.call-out-box');
-      });
 
       layoutsWithIaBlocks.forEach(layout => {
         equaliseHeightsOfTheseBlocks(layoutsWithIaBlocks, '.ia-block');
