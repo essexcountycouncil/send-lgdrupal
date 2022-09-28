@@ -1,5 +1,5 @@
 .call-out-box.lgd-row {
-  --grid-column-spacing: 0;
+  --grid-column-spacing: 0px;
 }
 
 .call-out-box--has-image .call-out-box__content {
