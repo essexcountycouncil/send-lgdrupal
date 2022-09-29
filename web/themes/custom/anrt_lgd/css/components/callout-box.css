@@ -1,6 +1,8 @@
 .call-out-box.lgd-row {
-  /* Can't use 0px here, or else stylelint will remove the px */
-  --grid-column-spacing: calc(1px - 1px);
+  /* stylelint-disable */
+  /* Need to disable stylelint here, or else stylelint will remove the px from 0px */
+  --grid-column-spacing: 0px;
+  /* stylelint-enable */
 }
 
 .call-out-box--has-image .call-out-box__content {
