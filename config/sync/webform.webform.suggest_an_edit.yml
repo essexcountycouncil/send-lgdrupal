@@ -102,6 +102,7 @@ elements: |-
       '#title': 'Age groups'
       '#description': 'Select all relevant age groups for your service. For example, if your service is for 5 - 12 year olds select 5 -11 and 12 - 15. You will be able to enter your specific range on your listing'
       '#description_display': before
+      '#prepopulate': true
       '#options_display': two_columns
       '#states':
         invisible:
@@ -117,6 +118,7 @@ elements: |-
       '#title': Locations
       '#description': 'Select all locations your service is available'
       '#description_display': before
+      '#prepopulate': true
       '#options_display': two_columns
       '#states':
         invisible:
@@ -132,6 +134,7 @@ elements: |-
       '#title': 'Special needs'
       '#description': 'Select all needs that your service supports'
       '#description_display': before
+      '#prepopulate': true
       '#options_display': two_columns
       '#states':
         invisible:
@@ -147,6 +150,7 @@ elements: |-
       '#title': 'Type of support'
       '#description': 'Select all relevant types of support'
       '#description_display': before
+      '#prepopulate': true
       '#options_display': two_columns
       '#states':
         invisible:
@@ -160,6 +164,7 @@ elements: |-
     venue_accessibility:
       '#type': webform_entity_checkboxes
       '#title': 'Venue accessibility'
+      '#prepopulate': true
       '#options_display': two_columns
       '#states':
         visible:
