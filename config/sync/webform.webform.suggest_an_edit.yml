@@ -157,6 +157,22 @@ elements: |-
       '#selection_settings':
         target_bundles:
           support_type: support_type
+    venue_accessibility:
+      '#type': webform_entity_checkboxes
+      '#title': 'Venue accessibility'
+      '#options_display': two_columns
+      '#states':
+        visible:
+          ':input[name="are_you"]':
+            value: owner
+      '#target_type': taxonomy_term
+      '#selection_handler': 'default:taxonomy_term'
+      '#selection_settings':
+        target_bundles:
+          venue_accessibility: venue_accessibility
+        sort:
+          field: name
+          direction: ASC
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'

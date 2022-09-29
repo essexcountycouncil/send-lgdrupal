@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_migrated_content
     - field.field.node.localgov_directories_org.field_old_url
     - field.field.node.localgov_directories_org.field_opening_hours
+    - field.field.node.localgov_directories_org.field_provider_contact_email
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
@@ -288,6 +289,14 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_provider_contact_email:
+    type: email_default
+    weight: 51
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
     third_party_settings: {  }
   field_provider_last_checked:
     type: datetime_default
