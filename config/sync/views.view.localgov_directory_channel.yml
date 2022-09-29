@@ -10,6 +10,7 @@ dependencies:
     - leaflet_views
     - localgov_geo
     - search_api
+    - search_api_spellcheck
 _core:
   default_config_hash: eN4zGMUiShe29x5JZoARS7Vsl_Jqsy9sCDbE13bH6pY
 id: localgov_directory_channel
@@ -233,6 +234,8 @@ display:
               facet_editor: '0'
               webform_manager: '0'
               service_provider: '0'
+              send_admin: '0'
+              redirect_manager: '0'
             expose_fields: false
             placeholder: Search
             searched_fields_id: ''
@@ -250,7 +253,9 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: null
-          fields: {  }
+          fields:
+            - rendered_item
+            - spellcheck
       style:
         type: default
         options:
@@ -665,6 +670,18 @@ display:
         header: false
       css_class: lgd-teaser-list
       header:
+        search_api_spellcheck_did_you_mean:
+          id: search_api_spellcheck_did_you_mean
+          table: views
+          field: search_api_spellcheck_did_you_mean
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_spellcheck_did_you_mean
+          empty: true
+          search_api_spellcheck_count: 1
+          search_api_spellcheck_hide_on_result: 0
+          search_api_spellcheck_collate: true
         result:
           id: result
           table: views
