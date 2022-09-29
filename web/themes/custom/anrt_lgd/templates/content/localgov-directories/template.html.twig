@@ -74,20 +74,38 @@
   </div>
 
   {% if node.localgov_directory_email.value
-        or node.localgov_directory_phone.value 
-        or node.field_directory_sms.value 
-        or node.field_directory_twitter.value 
-        or node.field_directory_facebook.value 
-        or node.field_directory_instagram.value 
-        or node.localgov_directory_website.value 
-        or node.field_directory_cost.value 
-        or node.field_directory_siblings_attend.value 
-        or node.field_directory_available_online.value 
-        or node.localgov_directory_facets_select.value 
-        or node.field_directory_venue_ally.value 
+        or node.localgov_directory_phone.value
+        or node.field_directory_sms.value
+        or node.field_directory_twitter.value
+        or node.field_directory_facebook.value
+        or node.field_directory_instagram.value
+        or node.localgov_directory_website.value
+        or node.field_directory_cost.value
+        or node.field_directory_siblings_attend.value
+        or node.field_directory_available_online.value
+        or node.localgov_directory_facets_select.value
+        or node.field_directory_venue_ally.value
   %}
     <div class="lgd-directory__meta-items">
-    
+
+    {% set prefill_items = '' %}
+
+    {% for item in node.localgov_directory_facets_select %}
+      {% if item.entity.bundle.target_id == 'support_type' %}
+        {% set prefill_items = prefill_items ~ '&type_of_support[]=' ~ item.entity.id() %}
+      {% endif %}
+      {% if item.entity.bundle.target_id == 'age' %}
+        {% set prefill_items = prefill_items ~ '&age_groups[]=' ~ item.entity.id() %}
+      {% endif %}
+      {% if item.entity.bundle.target_id == 'accessibility' %}
+        {% set prefill_items = prefill_items ~ '&special_needs[]=' ~ item.entity.id() %}
+      {% endif %}
+     {% if item.entity.bundle.target_id == 'location' %}
+        {% set prefill_items = prefill_items ~ '&locations[]=' ~ item.entity.id() %}
+      {% endif %}
+
+    {% endfor %}
+
       {# Begin Venue accessibility #}
       {% if node.field_directory_venue_ally.value %}
         <div class="lgd-directory__meta-item">
@@ -95,7 +113,9 @@
           <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
             {% for item in node.field_directory_venue_ally %}
               {% set value = item.entity.name.value %}
-              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
+              {# This is NOT a facet and prefill item has to be done seperately #}
+              {% set prefill_items = prefill_items ~ '&venue_accessibility[]=' ~ item.entity.id() %}
+              {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig"
                 with {
                   'title': false,
                   'icon': 'check',
@@ -384,8 +404,9 @@
           {% set pre_check_path = '/node/' ~ node.id() ~ '/pre_check_approve'  %}
           {% set current_path = path("<current>") %}
           {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
+          {# {% set prefill_items = '&special_needs[]=2&special_needs[]=5' %} #}
 
-          {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
+          {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() ~ prefill_items , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
           <div class="lgd-directory__suggest-actions-description">
             <p>If anything here is out of date or missing, please suggest an edit.<br>
             We regularly check and update these services, but can’t guarantee that they will always be accurate.</p>
