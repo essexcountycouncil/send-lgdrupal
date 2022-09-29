@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.wysiwyg
     - node.type.localgov_directories_org
   module:
+    - filter
     - node
     - publishcontent
     - system
@@ -20,11 +22,13 @@ permissions:
   - 'access toolbar'
   - 'access webform overview'
   - 'create localgov_directories_org content'
+  - 'delete any localgov_directories_org content'
   - 'edit any localgov_directories_org content'
   - 'publish editable content'
   - 'revert all revisions'
   - 'revert localgov_directories_org revisions'
   - 'unpublish editable content'
+  - 'use text format wysiwyg'
   - 'view all revisions'
   - 'view localgov_directories_org revisions'
   - 'view the administration theme'
