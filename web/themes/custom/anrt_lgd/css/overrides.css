@@ -214,8 +214,15 @@ body {
 }
 
 .localgov-services-page__content a,
-.lgd-guides__content a {
+.lgd-guides__content a,
+.block-localgov-services-related-links-block a {
   color: var(--color-blue);
+}
+
+.localgov-services-page__content a:visited,
+.lgd-guides__content a:visited,
+.block-localgov-services-related-links-block a:visited {
+  color: var(--color-link);
 }
 
 .page-node-type-localgov-services-page h2,
