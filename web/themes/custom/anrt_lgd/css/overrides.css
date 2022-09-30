@@ -249,3 +249,8 @@ body {
     display: flex;
   }
 }
+
+.region-footer__notice--copyright, 
+.region-footer__notice--credit {
+  font-size: var(--font-size-medium);
+}
