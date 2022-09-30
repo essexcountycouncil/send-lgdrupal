@@ -1,9 +1,15 @@
 uuid: d1efe4a9-6b0b-4614-833a-a23bac3872d2
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - path
+    - redirect
 id: redirect_manager
 label: 'Redirect manager'
 weight: 2
 is_admin: null
-permissions: {  }
+permissions:
+  - 'administer redirects'
+  - 'administer url aliases'
+  - 'create url aliases'
