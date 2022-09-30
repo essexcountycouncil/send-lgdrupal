@@ -406,10 +406,9 @@
           {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
           {# {% set prefill_items = '&special_needs[]=2&special_needs[]=5' %} #}
 
-          {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() ~ prefill_items , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
+          {{ drupal_link('Report a problem with this listing'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() ~ prefill_items , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
           <div class="lgd-directory__suggest-actions-description">
-            <p>If anything here is out of date or missing, please suggest an edit.<br>
-            We regularly check and update these services, but can’t guarantee that they will always be accurate.</p>
+            <p>Is this listing up to date?</p>
           </div>
 
           {% if pre_check_path == current_path %}
