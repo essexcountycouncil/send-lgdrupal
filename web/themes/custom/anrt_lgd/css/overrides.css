@@ -243,3 +243,7 @@ body {
 .region-footer__notice--credit {
   font-size: var(--font-size-medium);
 }
+
+::placeholder {
+  font-size: var(--font-size-small);
+}
