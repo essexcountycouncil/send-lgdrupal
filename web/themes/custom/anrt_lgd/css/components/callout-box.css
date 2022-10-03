@@ -19,7 +19,7 @@
     height: 100%;
     margin: 0;
   }
-  .call-out-box__image * {
+  .call-out-box__image img {
     height: 100%;
   }
   .call-out-box img {
