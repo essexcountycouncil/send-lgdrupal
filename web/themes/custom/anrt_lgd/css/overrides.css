@@ -27,7 +27,7 @@ body {
     background-color: unset;
   }
   .menu--main > .menu-item a.is-active {
-    color: var(--color-accent);
+    background-color: var(--color-accent);
   }
   .menu--main > .menu-item a.is-active:hover {
     color: var(--color-white);
