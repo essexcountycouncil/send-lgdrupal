@@ -257,7 +257,8 @@
               {% endif %} 
 
               {% if value == 'Yes' %}
-                {% set icon = 'check' %}
+                {% set icon = false %}
+                {% set icon_as_placeholder = true %}
                 {% else %}
                   {% set icon = false %}
                   {% set icon_as_placeholder = true %}
@@ -296,7 +297,7 @@
 
             {% if node.localgov_directory_phone.value %}
               {% set value %} 
-                {{ node.localgov_directory_phone.value }}
+                <a href="tel:+{{ node.localgov_directory_phone.value|replace({' ': '',}) }}">{{ node.localgov_directory_phone.value }}</a>
               {% endset %}
               {% include "@anrt_lgd/content/localgov-directories/meta-item.html.twig" 
                 with {

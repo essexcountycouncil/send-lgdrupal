@@ -91,7 +91,7 @@
 }
 
 .lgd-directory__meta-items {
-  margin-top: calc(var(--spacing-largest) * 3);
+  margin-top: calc(var(--spacing-largest) * 1.5);
 }
 
 .lgd-directory__meta-item {
@@ -143,6 +143,16 @@
   padding-left: var(--spacing-small);
 }
 
+.lgd-directory__meta-item-icon--hidden {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .lgd-directory__meta-item-icon--hidden {
+    visibility: hidden;
+    margin-left: var(--spacing);
+  }
+}
 .lgd-directory__meta-item-icon--hidden {
   visibility: hidden;
   margin-left: var(--spacing);
