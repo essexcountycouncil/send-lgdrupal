@@ -85,9 +85,6 @@
 
 .localgov-directories-page__content-body .field__label {
   margin-bottom: var(--spacing-small);
-  color: var(--color-accent);
-  font-size: var(--font-size-h2);
-  font-weight: bold;
 }
 
 .lgd-directory__meta-items {
