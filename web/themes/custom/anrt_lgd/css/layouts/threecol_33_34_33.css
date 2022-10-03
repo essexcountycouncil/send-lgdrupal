@@ -4,8 +4,6 @@
  */
 
 .layout--threecol-33-34-33 {
-  display: flex;
-  flex-wrap: wrap;
   gap: var(--spacing-larger);
 }
 
@@ -13,16 +11,10 @@
   flex: 0 1 100%;
 }
 
-.layout--threecol-33-34-33 .layout__region--first,
-.layout--threecol-33-34-33 .layout__region--second,
-.layout--threecol-33-34-33 .layout__region--third {
-  background-color: var(--color-white);
-}
-
 @media screen and (min-width: 48rem) {
   .layout--threecol-33-34-33 > .layout__region--first,
   .layout--threecol-33-34-33 > .layout__region--second,
   .layout--threecol-33-34-33 > .layout__region--third {
-    flex: 1;
+    flex: 0 0 calc(100% / 3 - var(--spacing-larger));
   }
 }
