@@ -92,7 +92,6 @@ elements: |-
   select_options:
     '#type': webform_section
     '#title': 'Select options'
-    '#description': 'Select the correct fields below. These affect how your listing appears in the search. The locations and special needs will also appear on your listing page.'
     '#states':
       visible:
         ':input[name="are_you"]':
@@ -115,8 +114,8 @@ elements: |-
           age: age
     locations:
       '#type': webform_entity_checkboxes
-      '#title': Locations
-      '#description': 'Select all locations your service is available'
+      '#title': 'Areas covered'
+      '#description': 'Select all areas your service covers'
       '#description_display': before
       '#prepopulate': true
       '#options_display': two_columns
@@ -164,6 +163,8 @@ elements: |-
     venue_accessibility:
       '#type': webform_entity_checkboxes
       '#title': 'Venue accessibility'
+      '#description': 'If you have a venue, select all accessibility features you can offer'
+      '#description_display': before
       '#prepopulate': true
       '#options_display': two_columns
       '#states':
