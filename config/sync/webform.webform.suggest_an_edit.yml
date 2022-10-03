@@ -178,6 +178,19 @@ elements: |-
         sort:
           field: name
           direction: ASC
+  padding:
+    '#type': webform_markup
+    '#states':
+      visible:
+        ':input[name="are_you"]':
+          empty: true
+    '#markup': |-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      &nbsp;
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
