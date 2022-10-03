@@ -11,17 +11,6 @@ body {
   font-size: clamp(var(--font-size-medium), 5vw, var(--font-size-large));
 }
 
-.main::after {
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-  width: 100%;
-  height: 11vh;
-  content: "";
-  background-color: #fff;
-  clip-path: ellipse(36% 100% at 50% 100%);
-}
-
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
