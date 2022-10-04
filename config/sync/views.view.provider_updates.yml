@@ -447,8 +447,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_provider_last_checked'
-<<<<<<< HEAD
-=======
   data_export_1:
     id: data_export_1
     display_title: 'Data export'
@@ -491,7 +489,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_provider_last_checked'
->>>>>>> ba4776f7cf36e9c1c02cb106d38df323524d22ee
   page_1:
     id: page_1
     display_title: Page
