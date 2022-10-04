@@ -117,7 +117,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: search_api_tag
         options: {  }
       empty:
         area:
@@ -272,10 +272,22 @@ display:
     position: 1
     display_options:
       exposed_block: false
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: true
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets:
+            sitewide_search_type: '0'
+          category_facets_concat_separator: ', '
       path: search
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_interface'
         - url
@@ -283,4 +295,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:facets.facet.sitewide_search_type'
         - 'config:search_api.index.localgov_sitewide_search'

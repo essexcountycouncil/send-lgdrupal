@@ -615,7 +615,8 @@ display:
     position: 1
     display_options:
       cache:
-        type: none
+        type: search_api_tag
+        options: {  }
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -703,13 +704,26 @@ display:
           empty: false
           content: "{% if filters.search_api_fulltext %}\r\nresults found for \"{{ filters.search_api_fulltext }}\"\r\n  {% else %}\r\nresults found\r\n{% endif %}"
           tokenize: true
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: true
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets:
+            localgov_directories_facets: '0'
+          category_facets_concat_separator: ', '
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'user.node_grants:view'
       tags:
+        - 'config:facets.facet.localgov_directories_facets'
         - 'config:search_api.index.localgov_directories_index_default'
