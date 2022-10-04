@@ -36,11 +36,13 @@ body {
 
 .lgd-header__inner {
   justify-content: start;
+  flex-wrap: nowrap;
 }
 
 @media screen and (min-width: 48rem) {
   .lgd-header__inner {
     justify-content: end;
+    flex-wrap: wrap;
   }
 }
 
@@ -59,27 +61,10 @@ body {
 }
 
 .branding__item--logo {
-  --logo-height: 50px;
-
   width: unset;
-  /*
-    Padding is supposed to be 50% of the height of the logo,
-    but we also have padding on top/bottom of header, so
-    need to take account of that as well - hence `- var(--spacing)`.
-  */
-  padding-top: calc((var(--logo-height) - var(--spacing)) / 2);
-  padding-bottom: calc((var(--logo-height) - var(--spacing)) / 2);
-}
-
-@media screen and (min-width: 48rem) {
-  .branding__item--logo {
-    --logo-height: 60px;
-  }
-}
-
-.branding__item--logo img {
-  width: auto;
-  height: var(--logo-height);
+  max-width: 230px;
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
 }
 
 .lgd-region--search .form-text {
