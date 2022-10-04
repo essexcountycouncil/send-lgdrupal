@@ -305,7 +305,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: 'Thank you for your submission'
-  confirmation_message: 'Thank you for your submission, which will now be reviewed by our content moderators.'
+  confirmation_message: 'Thank you for for suggesting an edit. We will take a look and review your suggestions.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
