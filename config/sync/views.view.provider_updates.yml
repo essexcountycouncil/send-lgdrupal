@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_provider_last_checked
     - node.type.localgov_directories_org
+    - user.role.authenticated
     - user.role.send_admin
   module:
     - datetime
@@ -239,6 +240,7 @@ display:
         type: role
         options:
           role:
+            authenticated: authenticated
             send_admin: send_admin
       cache:
         type: tag
@@ -448,7 +450,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: provider-updates
+      path: admin/provider-updates
     cache_metadata:
       max-age: -1
       contexts:
