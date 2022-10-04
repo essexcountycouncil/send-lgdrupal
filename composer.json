@@ -23,6 +23,7 @@
         "drupal/devel": "^4.1",
         "drupal/feeds": "^3.0@beta",
         "drupal/feeds_tamper": "^2.0@beta",
+        "drupal/matomo": "^1.19",
         "drupal/mgv": "^2.1",
         "drupal/migrate_devel": "^2.0@alpha",
         "drupal/migrate_plus": "^6.0",
