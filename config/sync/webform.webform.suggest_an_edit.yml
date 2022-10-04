@@ -92,14 +92,14 @@ elements: |-
   select_options:
     '#type': webform_section
     '#title': 'Select options'
-    '#description': 'Select the correct fields below. These affect how your listing appears in the search. The locations and special needs will also appear on your listing page.'
+    '#title_display': invisible
     '#states':
       visible:
         ':input[name="are_you"]':
           value: owner
     age_groups:
       '#type': webform_entity_checkboxes
-      '#title': 'Age groups'
+      '#title': 'Age groups (optional)'
       '#description': 'Select all relevant age groups for your service. For example, if your service is for 5 - 12 year olds select 5 -11 and 12 - 15. You will be able to enter your specific range on your listing'
       '#description_display': before
       '#prepopulate': true
@@ -115,8 +115,8 @@ elements: |-
           age: age
     locations:
       '#type': webform_entity_checkboxes
-      '#title': Locations
-      '#description': 'Select all locations your service is available'
+      '#title': 'Areas covered (optional)'
+      '#description': 'Select all areas your service covers'
       '#description_display': before
       '#prepopulate': true
       '#options_display': two_columns
@@ -131,7 +131,7 @@ elements: |-
           location: location
     special_needs:
       '#type': webform_entity_checkboxes
-      '#title': 'Special needs'
+      '#title': 'Special needs (optional)'
       '#description': 'Select all needs that your service supports'
       '#description_display': before
       '#prepopulate': true
@@ -147,7 +147,7 @@ elements: |-
           accessibility: accessibility
     type_of_support:
       '#type': webform_entity_checkboxes
-      '#title': 'Type of support'
+      '#title': 'Type of support (optional)'
       '#description': 'Select all relevant types of support'
       '#description_display': before
       '#prepopulate': true
@@ -163,7 +163,9 @@ elements: |-
           support_type: support_type
     venue_accessibility:
       '#type': webform_entity_checkboxes
-      '#title': 'Venue accessibility'
+      '#title': 'Venue accessibility (optional)'
+      '#description': 'If you have a venue, select all accessibility features you can offer'
+      '#description_display': before
       '#prepopulate': true
       '#options_display': two_columns
       '#states':
@@ -210,7 +212,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -282,7 +284,7 @@ settings:
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
-  wizard_toggle: false
+  wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
@@ -303,7 +305,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: 'Thank you for your submission'
-  confirmation_message: 'Thank you for your submission, which will now be reviewed by our content moderators.'
+  confirmation_message: 'Thank you for for suggesting an edit. We will take a look and review your suggestions.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''

@@ -62,6 +62,7 @@ module:
   localgov_alert_banner: 0
   localgov_core: 0
   localgov_directories: 0
+  localgov_directories_db: 0
   localgov_directories_location: 0
   localgov_directories_org: 0
   localgov_directories_page: 0
@@ -77,6 +78,7 @@ module:
   localgov_paragraphs: 0
   localgov_roles: 0
   localgov_search: 0
+  localgov_search_db: 0
   localgov_services: 0
   localgov_services_landing: 0
   localgov_services_navigation: 0
@@ -148,8 +150,6 @@ module:
   views: 10
   paragraphs: 11
   localgov: 1000
-  localgov_directories_db: 0
-  localgov_search_db: 0
 theme:
   claro: 0
   stable: 0
