@@ -20,7 +20,9 @@ select,
 }
 
 .form-submit:focus,
-.form-submit:hover {
+.form-submit:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover {
   color: var(--color-white);
 }
 
