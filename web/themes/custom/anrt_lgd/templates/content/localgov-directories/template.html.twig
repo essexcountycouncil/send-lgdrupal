@@ -407,7 +407,7 @@
           {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
           {# {% set prefill_items = '&special_needs[]=2&special_needs[]=5' %} #}
 
-          {{ drupal_link('Report a problem with this listing'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() ~ prefill_items , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
+          {{ drupal_link('Suggest an edit'|t, '/form/suggest-an-edit?servurl=' ~ full_url['#markup'] ~ '&service_title=' ~ node.label() ~ prefill_items , {attributes: {class: 'lgd-directory__suggest-action'}}) }}
           {% if pre_check_path == current_path %}
             {{ drupal_link('Mark as correct'|t, 'node/' ~ node.id() ~ '/check_approve', {attributes: {class: 'lgd-directory__suggest-action'}}) }}
           {% endif %}
