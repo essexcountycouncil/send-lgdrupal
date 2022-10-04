@@ -141,8 +141,18 @@ body {
   color: var(--color-black);
   border-radius: var(--border-radius);
   background-color: transparent;
+}
+
+.path-frontpage .banner--primary .banner__content {
   font-size: 27px;
   font-weight: bold;
+}
+
+.banner--primary .banner__content .field--name-localgov-title {
+  font-weight: bold;
+}
+.banner--primary .banner__content .field--name-localgov-title + .field--name-localgov-subsites-banner-text {
+  margin-top: var(--spacing);
 }
 
 .banner--primary .banner__image {
@@ -157,6 +167,9 @@ body {
     margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
     padding-top: var(--banner-content-padding);
     color: var(--color-white);
+    background-color: var(--color-green);
+  }
+  .path-frontpage .banner--primary .banner__content {
     background-color: var(--banner-content-bg-color);
   }
 }
