@@ -192,6 +192,7 @@
   padding: var(--spacing);
   color: var(--color-white);
   background-color: var(--color-accent);
+  margin-right: var(--spacing);
 }
 
 .lgd-directory__suggest-actions-description {
