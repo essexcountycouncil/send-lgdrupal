@@ -49,8 +49,12 @@ select,
 }
 
 /*
-  Checkboxes -- overriding LGD base for Webforms
+  Form items -- overriding LGD base for Webforms
 */
+
+label, .webform-element--title-inline > label {
+  display: unset;
+}
 
 .path-webform .form-checkboxes input[type="checkbox"],
 .path-webform .facet-item input[type="checkbox"],
