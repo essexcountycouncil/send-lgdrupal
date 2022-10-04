@@ -31,4 +31,3 @@ permissions:
   - 'use text format wysiwyg'
   - 'view all revisions'
   - 'view localgov_directories_org revisions'
-  - 'view the administration theme'
