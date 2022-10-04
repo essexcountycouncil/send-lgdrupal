@@ -92,6 +92,7 @@ elements: |-
   select_options:
     '#type': webform_section
     '#title': 'Select options'
+    '#title_display': invisible
     '#states':
       visible:
         ':input[name="are_you"]':
