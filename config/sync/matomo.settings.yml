@@ -1,20 +1,15 @@
 _core:
   default_config_hash: mKwnhF-0ryfftZZP6jyqW8q9MEo9glyRkvRzSddrc0k
-site_id: ''
-url_http: ''
-url_https: ''
+site_id: '82'
+url_http: 'http://stats.annertech.com/'
+url_https: 'https://stats.annertech.com/'
 domain_mode: 0
 visibility:
   request_path_mode: 0
-  request_path_pages: |-
-    /admin
-    /admin/*
-    /batch
-    /node/add*
-    /node/*/*
-    /user/*/*
+  request_path_pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
   user_role_mode: 0
-  user_role_roles: {  }
+  user_role_roles:
+    anonymous: anonymous
   user_account_mode: 1
 track:
   mailto: true
@@ -28,7 +23,32 @@ privacy:
   donottrack: true
   disablecookies: false
 custom:
-  variable: {  }
+  variable:
+    1:
+      slot: 1
+      name: ''
+      value: ''
+      scope: visit
+    2:
+      slot: 2
+      name: ''
+      value: ''
+      scope: visit
+    3:
+      slot: 3
+      name: ''
+      value: ''
+      scope: visit
+    4:
+      slot: 4
+      name: ''
+      value: ''
+      scope: visit
+    5:
+      slot: 5
+      name: ''
+      value: ''
+      scope: visit
 codesnippet:
   before: ''
   after: ''
