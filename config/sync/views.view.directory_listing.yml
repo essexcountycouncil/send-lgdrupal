@@ -398,7 +398,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '/node/{{ nid }}/pre_check_approve'
+            text: 'https://send.essex.gov.uk/node/{{ nid }}/pre_check_approve'
             make_link: false
             path: ''
             absolute: false
