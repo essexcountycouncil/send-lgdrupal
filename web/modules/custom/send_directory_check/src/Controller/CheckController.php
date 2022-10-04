@@ -17,7 +17,7 @@ class CheckController extends ControllerBase {
   public function approve(NodeInterface $node) {
     $node->set('field_provider_last_checked', date('Y-m-d\\TH:i:s'));
     $node->save();
-    \Drupal::messenger()->addMessage(t('Thank you for confirming this content.'), 'status');
+    \Drupal::messenger()->addMessage(t('Thank you for letting us know this listing is still up to date.'), 'status');
     return $this->pageRedirect($node);
   }
 
