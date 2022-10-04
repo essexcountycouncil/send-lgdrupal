@@ -6,6 +6,7 @@ dependencies:
     - fontawesome
     - localgov_alert_banner
     - localgov_geo
+    - matomo
     - media
     - system
 _core:
@@ -17,6 +18,7 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access fontawesome additional settings'
+  - 'opt-in or out of matomo tracking'
   - 'view all localgov alert banner entities'
   - 'view geo'
   - 'view localgov alert banner localgov_alert_banner entities'

@@ -50,6 +50,7 @@ module:
   image: 0
   image_widget_crop: 0
   inline_entity_form: 0
+  inline_form_errors: 0
   language: 0
   layout_discovery: 0
   layout_paragraphs: 0
@@ -89,6 +90,7 @@ module:
   localgov_subsites_paragraphs: 0
   localgov_topics: 0
   localgov_workflows: 0
+  matomo: 0
   media: 0
   media_library: 0
   menu_link_content: 0
