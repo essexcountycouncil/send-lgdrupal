@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
         "drupal/devel": "^4.1",
+        "drupal/disable_html5_validation": "^1.1",
         "drupal/feeds": "^3.0@beta",
         "drupal/feeds_tamper": "^2.0@beta",
         "drupal/matomo": "^1.19",
