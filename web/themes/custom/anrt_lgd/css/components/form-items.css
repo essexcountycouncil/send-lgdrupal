@@ -112,7 +112,7 @@ select,
 .path-webform .facet-item input[type="checkbox"]:focus + label:before,
 .path-webform .form-item-webform-terms-of-service input[type="checkbox"]:focus + label:before {
   border-width: 4px;
-  box-shadow: 0 0 0 3px var(--checkbox-select-focus-color);
+  box-shadow: 0 0 0 3px transparent;
 }
 
 .path-webform .form-checkboxes input[type="checkbox"]:hover + label,
