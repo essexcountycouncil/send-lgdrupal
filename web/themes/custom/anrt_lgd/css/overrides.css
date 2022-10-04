@@ -222,6 +222,9 @@ body {
   .lgd-header__nav--primary {
     display: flex;
   }
+  .lgd-region--primary-menu {
+    margin-right: var(--spacing);
+  }
 }
 
 .region-footer__notice--copyright, 
