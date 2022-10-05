@@ -248,3 +248,7 @@ body {
 ::placeholder {
   font-size: var(--font-size-small);
 }
+
+.lgd-guide-nav__list-item {
+  margin-right: var(--spacing);
+}
