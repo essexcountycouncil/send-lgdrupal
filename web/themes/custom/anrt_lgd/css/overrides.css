@@ -252,3 +252,8 @@ body {
 .lgd-guide-nav__list-item {
   margin-right: var(--spacing);
 }
+
+.localgov-services-page__content {
+  padding-right: var(--spacing);
+  padding-left: var(--spacing);
+}
