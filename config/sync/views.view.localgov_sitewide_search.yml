@@ -185,6 +185,8 @@ display:
               facet_editor: '0'
               webform_manager: '0'
               service_provider: '0'
+              send_admin: '0'
+              redirect_manager: '0'
             expose_fields: false
             placeholder: 'Search our website'
             searched_fields_id: search_api_fulltext_searched_fields
@@ -200,7 +202,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          parse_mode: fuzzy_terms
+          parse_mode: terms
           min_length: null
           fields:
             - aggregated_field
