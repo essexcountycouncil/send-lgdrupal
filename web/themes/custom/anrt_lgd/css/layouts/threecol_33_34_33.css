@@ -21,6 +21,6 @@
   .layout--threecol-33-34-33 > .layout__region--first,
   .layout--threecol-33-34-33 > .layout__region--second,
   .layout--threecol-33-34-33 > .layout__region--third {
-    flex: 0 0 calc(100% / 3 - var(--spacing-larger));
+    flex: 0 0 calc(100% / 3 - (var(--spacing-larger) / 3 * 2));
   }
 }
