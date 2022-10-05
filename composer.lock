@@ -8729,16 +8729,16 @@
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.2.23",
+            "version": "1.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "cd399a7ef278830480b0a5d780ed9aa791767597"
+                "reference": "3e6ecdc6b9b63328d5d0e93a0958deaede900fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/cd399a7ef278830480b0a5d780ed9aa791767597",
-                "reference": "cd399a7ef278830480b0a5d780ed9aa791767597",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/3e6ecdc6b9b63328d5d0e93a0958deaede900fc2",
+                "reference": "3e6ecdc6b9b63328d5d0e93a0958deaede900fc2",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -8750,9 +8750,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.2.23"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.2.24"
             },
-            "time": "2022-08-12T17:02:53+00:00"
+            "time": "2022-10-05T10:27:54+00:00"
         },
         {
             "name": "localgovdrupal/localgov_core",
