@@ -78,7 +78,7 @@ field_settings:
   rendered_item:
     label: 'Rendered HTML output'
     property_path: rendered_item
-    type: text
+    type: 'solr_text_custom:ngram'
     configuration:
       roles:
         - anonymous
