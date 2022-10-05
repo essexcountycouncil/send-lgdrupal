@@ -248,18 +248,3 @@ body {
 ::placeholder {
   font-size: var(--font-size-small);
 }
-
-/* This can be removed once this gets merged: https://github.com/localgovdrupal/localgov_base/pull/286/files */
-.form-item--error,
-.form-item.error {
-  padding: var(--spacing);
-  border: 2px dashed var(--color-danger);
-}
-
-/* This can be removed once this gets merged: https://github.com/localgovdrupal/localgov_base/pull/286/files */
-.form-item--error-message {
-  padding: var(--spacing);
-  border: 1px solid var(--color-danger);
-  border-bottom: 0;
-  background-color: #fcf4f2;
-}
