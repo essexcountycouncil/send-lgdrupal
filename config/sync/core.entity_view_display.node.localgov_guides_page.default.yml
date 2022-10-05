@@ -30,20 +30,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_sitewide_search_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
 hidden:
+  field_sitewide_search_type: true
   langcode: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
