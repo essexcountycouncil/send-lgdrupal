@@ -129,92 +129,11 @@ processor_settings:
       h2: 3
       h3: 2
       strong: 2
-  ignorecase:
-    weights:
-      preprocess_index: -50
-      preprocess_query: -20
-    all_fields: true
-    fields:
-      - aggregated_field
-      - rendered_item
   language_with_fallback: {  }
   rendered_item: {  }
-  solr_date_range: {  }
-  stemmer:
+  solr_date_range:
     weights:
-      preprocess_index: -44
-      preprocess_query: 0
-    all_fields: true
-    fields:
-      - aggregated_field
-      - rendered_item
-    exceptions:
-      mexican: mexic
-      texan: texa
-  stopwords:
-    weights:
-      preprocess_index: -45
-      preprocess_query: -2
-    all_fields: true
-    fields:
-      - aggregated_field
-      - rendered_item
-    stopwords:
-      - a
-      - an
-      - and
-      - are
-      - as
-      - at
-      - be
-      - but
-      - by
-      - for
-      - if
-      - in
-      - into
-      - is
-      - it
-      - 'no'
-      - not
-      - of
-      - 'on'
-      - or
-      - s
-      - such
-      - t
-      - that
-      - the
-      - their
-      - then
-      - there
-      - these
-      - they
-      - this
-      - to
-      - was
-      - will
-      - with
-  tokenizer:
-    weights:
-      preprocess_index: -46
-      preprocess_query: -6
-    all_fields: true
-    fields:
-      - aggregated_field
-      - rendered_item
-    spaces: ''
-    ignored: ._-
-    overlap_cjk: 1
-    minimum_word_size: '3'
-  transliteration:
-    weights:
-      preprocess_index: -49
-      preprocess_query: -20
-    all_fields: true
-    fields:
-      - aggregated_field
-      - rendered_item
+      preprocess_index: 0
 tracker_settings:
   default:
     indexing_order: fifo
