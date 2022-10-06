@@ -29,7 +29,7 @@
           // wrong on first load.
           setTimeout(() => {
             handleGetHeights();
-          }, 100);
+          }, 300);
         })
       }
 
