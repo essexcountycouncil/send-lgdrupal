@@ -18,10 +18,11 @@ elements: |-
     '#title': 'Service Title'
     '#default_value': '[current-page:query:service_title]'
   servurl:
-    '#type': hidden
+    '#type': url
     '#title': 'Service URL'
-    '#default_value': '[current-page:query:servurl]'
     '#prepopulate': true
+    '#default_value': '[current-page:query:servurl]'
+    '#private': true
     '#access_update_roles':
       - authenticated
     '#access_view_roles':
