@@ -66,6 +66,12 @@ body {
   --call-out-box-text-color: var(--color-white);
   --header-search-input-border: 1px solid var(--color-black);
   --header-search-button-bg-color-hover: #2d5476;
+  --call-to-action-primary-bg-color: var(--color-accent);
+  --call-to-action-secondary-bg-color: var(--color-white);
+  --call-to-action-primary-bg-color-hover: #7c4f8e;
+  --call-to-action-secondary-bg-color-hover: var(--color-white);
+  --call-to-action-secondary-border: 1px solid var(--color-accent);
+  
 
   /* Apply Variables */
   --heading-1-color: var(--color-black);
