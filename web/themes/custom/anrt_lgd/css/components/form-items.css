@@ -34,9 +34,16 @@ input[type="submit"]:hover {
   fill: var(--color-white);
 }
 
-.lgd-header .form-submit:focus svg path,
-.lgd-header .form-submit:hover svg path {
+.lgd-header .form-submit:focus svg path {
   fill: var(--color-accent);
+}
+
+.lgd-header .form-submit:hover svg path {
+  fill: var(--color-white);
+}
+
+button:focus, button:hover, input[type="submit"]:focus, input[type="submit"]:hover {
+  background-color: var(--header-search-button-bg-color-hover);
 }
 
 .webform-options-display-buttons label.webform-options-display-buttons-label {
