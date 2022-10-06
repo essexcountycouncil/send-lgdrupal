@@ -21,7 +21,7 @@ track:
   site_search: false
 privacy:
   donottrack: true
-  disablecookies: false
+  disablecookies: true
 custom:
   variable:
     1:
