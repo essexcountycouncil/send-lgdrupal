@@ -84,9 +84,9 @@ field_settings:
         - anonymous
       view_mode:
         'entity:node':
-          localgov_directories_org: search_index
-          localgov_directories_page: search_index
-          localgov_directories_venue: search_index
+          localgov_directories_org: default
+          localgov_directories_page: default
+          localgov_directories_venue: default
           localgov_directory: search_index
           localgov_guides_overview: search_index
           localgov_guides_page: search_index
