@@ -22,7 +22,14 @@
             });
           }
 
-          handleGetHeights();
+          // handleGetHeights();
+          // We need a setTimeout here because the images take just
+          // a tiny bit to load, which causes the layout to be set
+          // before they are in place, then they get positioned
+          // wrong on first load.
+          setTimeout(() => {
+            handleGetHeights();
+          }, 100);
         })
       }
 
