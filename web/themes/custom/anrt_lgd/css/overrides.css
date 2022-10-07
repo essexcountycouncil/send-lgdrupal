@@ -250,7 +250,7 @@ body {
   margin-right: var(--spacing);
 }
 
-.localgov-services-page__content {
-  padding-right: var(--spacing);
-  padding-left: var(--spacing);
+.localgov-step-by-step-overview__content {
+  padding-right: var(--spacing-smaller);
+  padding-left: var(--spacing-smaller);
 }
