@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a6f9085547880a08b3586834b96306e",
+    "content-hash": "a6e1c8d838111dcdd014aa4651a1f3ed",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
