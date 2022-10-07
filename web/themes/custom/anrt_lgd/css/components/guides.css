@@ -1,3 +1,7 @@
+.lgd-guides--page {
+  padding-right: var(--spacing-smaller);
+  padding-left: var(--spacing-smaller);
+}
 .lgd-guide-nav {
   border: var(--border);
   background-color: var(--color-white);
