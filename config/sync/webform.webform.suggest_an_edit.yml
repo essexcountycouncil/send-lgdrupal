@@ -14,9 +14,11 @@ description: ''
 category: ''
 elements: |-
   service_title:
-    '#type': hidden
+    '#type': textfield
     '#title': 'Service Title'
+    '#prepopulate': true
     '#default_value': '[current-page:query:service_title]'
+    '#private': true
   servurl:
     '#type': url
     '#title': 'Service URL'
