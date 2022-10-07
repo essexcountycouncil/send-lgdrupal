@@ -33,16 +33,13 @@ body {
     color: var(--color-white);
   }
 }
-
-.lgd-header__inner {
-  justify-content: start;
-  flex-wrap: nowrap;
+.lgd-header .lgd-region--header {
+  margin-right: 0;
 }
 
 @media screen and (min-width: 48rem) {
   .lgd-header__inner {
     justify-content: end;
-    flex-wrap: wrap;
   }
 }
 
