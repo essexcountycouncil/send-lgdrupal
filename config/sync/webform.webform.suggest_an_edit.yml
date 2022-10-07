@@ -44,6 +44,13 @@ elements: |-
     '#require_transition_if_available': true
     '#log_public_setting': Optional
     '#log_admin_setting': Disabled
+  back_button:
+    '#type': processed_text
+    '#wrapper_attributes':
+      class:
+        - lgd-directory__suggest-actions
+    '#text': '<a href="[current-page:query:servurl]">Back to listing</a>'
+    '#format': wysiwyg
   are_you:
     '#type': select
     '#title': 'Are you'
