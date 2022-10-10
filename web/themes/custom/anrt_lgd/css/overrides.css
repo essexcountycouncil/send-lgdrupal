@@ -263,3 +263,7 @@ body {
 .localgov-services-page__content .btn.btn-start:focus {
   color: unset;
 }
+
+.form-item--error-message strong {
+  font-weight: unset;
+}
