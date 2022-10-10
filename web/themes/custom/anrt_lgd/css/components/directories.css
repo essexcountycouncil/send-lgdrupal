@@ -141,13 +141,8 @@
   padding-left: var(--spacing-small);
 }
 
-.lgd-directory__meta-item-icon--hidden {
-  display: none;
-}
-
 @media screen and (min-width: 48rem) {
   .lgd-directory__meta-item-icon--hidden {
-    visibility: hidden;
     margin-left: var(--spacing);
   }
 }
