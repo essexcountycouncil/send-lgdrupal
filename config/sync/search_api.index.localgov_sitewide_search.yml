@@ -134,6 +134,16 @@ processor_settings:
   solr_date_range:
     weights:
       preprocess_index: 0
+  type_boost:
+    weights:
+      preprocess_index: 0
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          localgov_directories_org: 0.5
+          localgov_directories_page: 0.5
+          localgov_directories_venue: 0.5
 tracker_settings:
   default:
     indexing_order: fifo
