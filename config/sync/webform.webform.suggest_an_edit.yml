@@ -123,6 +123,9 @@ elements: |-
       '#selection_settings':
         target_bundles:
           age: age
+        sort:
+          field: title
+          direction: ASC
     locations:
       '#type': webform_entity_checkboxes
       '#title': 'Areas covered (optional)'
@@ -139,6 +142,9 @@ elements: |-
       '#selection_settings':
         target_bundles:
           location: location
+        sort:
+          field: title
+          direction: ASC
     special_needs:
       '#type': webform_entity_checkboxes
       '#title': 'Special needs (optional)'
@@ -155,6 +161,9 @@ elements: |-
       '#selection_settings':
         target_bundles:
           accessibility: accessibility
+        sort:
+          field: title
+          direction: ASC
     type_of_support:
       '#type': webform_entity_checkboxes
       '#title': 'Type of support (optional)'
@@ -171,6 +180,9 @@ elements: |-
       '#selection_settings':
         target_bundles:
           support_type: support_type
+        sort:
+          field: title
+          direction: ASC
     venue_accessibility:
       '#type': webform_entity_checkboxes
       '#title': 'Venue accessibility (optional)'
