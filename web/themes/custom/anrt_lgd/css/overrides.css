@@ -254,3 +254,12 @@ body {
   padding-right: var(--spacing-smaller);
   padding-left: var(--spacing-smaller);
 }
+
+.localgov-services-page__content .btn.btn-start {
+  color: var(--color-white);
+}
+
+.localgov-services-page__content .btn.btn-start:hover,
+.localgov-services-page__content .btn.btn-start:focus {
+  color: unset;
+}
