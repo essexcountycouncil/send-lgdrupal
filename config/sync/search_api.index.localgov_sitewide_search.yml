@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_sitewide_search_type
     - search_api.server.solr
+    - core.entity_view_mode.node.directory_index
     - core.entity_view_mode.node.search_index
   module:
     - search_api_solr
@@ -84,7 +85,7 @@ field_settings:
         - anonymous
       view_mode:
         'entity:node':
-          localgov_directories_org: default
+          localgov_directories_org: directory_index
           localgov_directories_page: default
           localgov_directories_venue: default
           localgov_directory: search_index
