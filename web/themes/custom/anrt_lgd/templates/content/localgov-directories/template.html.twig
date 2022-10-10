@@ -165,7 +165,7 @@
         
         {% if location %}    
           <div class="lgd-directory__meta-item">
-            <h3 class="lgd-directory__meta-item-title">{{ 'Location(s)'|t }}</h3>
+            <h3 class="lgd-directory__meta-item-title">{{ 'Area(s) covered'|t }}</h3>
             <div class="lgd-directory__meta-item-content lgd-directory__meta-item-content--columns">
               {% for item in node.localgov_directory_facets_select %}
                 {% if item.entity.bundle.target_id == 'location' %}
