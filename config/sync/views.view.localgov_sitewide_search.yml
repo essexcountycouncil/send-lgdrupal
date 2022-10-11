@@ -204,9 +204,7 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: null
-          fields:
-            - aggregated_field
-            - rendered_item
+          fields: {  }
       style:
         type: default
         options:
