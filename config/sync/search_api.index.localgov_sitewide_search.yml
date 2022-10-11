@@ -129,7 +129,7 @@ processor_settings:
       postprocess_query: 0
       preprocess_index: -15
       preprocess_query: -15
-    all_fields: false
+    all_fields: true
     fields:
       - aggregated_field
       - dir_facet_title

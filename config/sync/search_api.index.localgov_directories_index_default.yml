@@ -9,6 +9,7 @@ dependencies:
     - search_api.server.solr
   module:
     - search_api_solr
+    - localgov_directories
     - search_api
     - node
 third_party_settings:
@@ -60,6 +61,16 @@ name: Directories
 description: ''
 read_only: false
 field_settings:
+  dir_facet_title:
+    label: 'Directory Facets'
+    datasource_id: 'entity:node'
+    property_path: 'localgov_directory_facets_select:entity:title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.localgov_directory_facets_select
+      module:
+        - localgov_directories
   localgov_directory_channels:
     label: 'Directory channels'
     datasource_id: 'entity:node'
