@@ -116,7 +116,10 @@ datasource_settings:
   'entity:node':
     bundles:
       default: true
-      selected: {  }
+      selected:
+        - localgov_directory
+        - localgov_services_landing
+        - localgov_subsites_overview
     languages:
       default: true
       selected: {  }
