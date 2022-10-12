@@ -267,3 +267,8 @@ body {
 .form-item--error-message strong {
   font-weight: unset;
 }
+
+.lgd-row .lgd-row__two-thirds,
+.lgd-row .lgd-row__one-third {
+  margin-left: unset;
+}
