@@ -120,6 +120,7 @@ module:
   schema_metatag: 0
   search_api: 0
   search_api_autocomplete: 0
+  search_api_best_bets: 0
   search_api_db: 0
   search_api_solr: 0
   search_api_solr_admin: 0
