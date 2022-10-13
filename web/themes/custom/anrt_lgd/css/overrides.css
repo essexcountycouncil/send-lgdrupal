@@ -272,3 +272,10 @@ body {
 .lgd-row .lgd-row__one-third {
   margin-left: unset;
 }
+
+@media screen and (max-width: 48rem) {
+  .lgd-row .lgd-row__full {
+    margin-right: var(--grid-column-spacing);
+    margin-left: var(--grid-column-spacing);
+  }
+}
