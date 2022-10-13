@@ -327,7 +327,7 @@
       {# End Email, Phone, and SMS #} 
 
       {# Begin Social Media Links #}
-      {% if node.localgov_directory_website.value %}
+      {% if node.localgov_directory_website.value or node.field_directory_facebook.value or node.field_directory_twitter.value or node.field_directory_instagram.value %}
         <div class="lgd-directory__meta-item">
           <h3 class="lgd-directory__meta-item-title">{{ 'Links'|t }}</h3>
           <div class="lgd-directory__meta-item-content">
