@@ -12,6 +12,7 @@ dependencies:
     - search_api_solr
     - localgov_directories
     - search_api
+    - search_api_best_bets
     - node
 third_party_settings:
   search_api_solr:
@@ -159,6 +160,15 @@ processor_settings:
       strong: 2
   language_with_fallback: {  }
   rendered_item: {  }
+  search_api_best_bets_processor:
+    weights:
+      postprocess_query: 10
+      preprocess_query: 99
+    fields:
+      node:
+        - field_search_promotion
+    query_handler: solr
+    result_elevated_flag: query_handler
   solr_date_range:
     weights:
       preprocess_index: 0

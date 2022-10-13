@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_guides_page.body
+    - field.field.node.localgov_guides_page.field_search_promotion
     - field.field.node.localgov_guides_page.field_sitewide_search_type
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
@@ -12,6 +13,7 @@ dependencies:
   module:
     - content_moderation
     - path
+    - search_api_best_bets
     - text
 _core:
   default_config_hash: '-wOiWZymqTs3tBYih4T0x3T3m9JIZ4pwtRJo8dSJ01g'
@@ -35,6 +37,19 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_search_promotion:
+    type: search_api_best_bets_widget
+    weight: 26
+    region: content
+    settings:
+      elevate_label: 'Elevate query'
+      elevate_placeholder: 'Write search queries....'
+      elevate_description: 'Specify queries that will elevate this entity to the top of the result. Separate multiple by comma.'
+      exclude_label: 'Exclude query'
+      exclude_placeholder: 'Write search queries....'
+      exclude_description: 'Specify queries that will exclude this entity from the search result. Separate multiple by comma.'
+      disable_exclude: 0
     third_party_settings: {  }
   field_sitewide_search_type:
     type: options_buttons
