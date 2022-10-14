@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.localgov_directory_facets_select
+    - field.storage.node.field_search_weight
     - field.storage.node.field_sitewide_search_type
     - search_api.server.solr
     - core.entity_view_mode.node.directory_index
@@ -81,6 +82,14 @@ field_settings:
         - field.storage.node.localgov_directory_facets_select
       module:
         - localgov_directories
+  field_search_weight:
+    label: 'Search weight'
+    datasource_id: 'entity:node'
+    property_path: field_search_weight
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_search_weight
   field_sitewide_search_type:
     label: 'Sitewide Search Type'
     datasource_id: 'entity:node'
@@ -159,6 +168,13 @@ processor_settings:
       h3: 2
       strong: 2
   language_with_fallback: {  }
+  number_field_boost:
+    weights:
+      preprocess_index: 0
+    boosts:
+      field_search_weight:
+        boost_factor: 0.1
+        aggregation: max
   rendered_item: {  }
   search_api_best_bets_processor:
     weights:

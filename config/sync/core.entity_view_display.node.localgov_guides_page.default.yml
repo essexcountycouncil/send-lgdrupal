@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.field.node.localgov_guides_page.body
     - field.field.node.localgov_guides_page.field_search_promotion
+    - field.field.node.localgov_guides_page.field_search_weight
     - field.field.node.localgov_guides_page.field_sitewide_search_type
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
     - node.type.localgov_guides_page
   module:
-    - search_api_best_bets
     - text
     - user
 _core:
@@ -32,19 +32,14 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_search_promotion:
-    type: search_api_best_bets_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
 hidden:
+  field_search_promotion: true
+  field_search_weight: true
   field_sitewide_search_type: true
   langcode: true
   localgov_guides_parent: true
