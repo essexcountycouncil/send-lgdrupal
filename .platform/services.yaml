@@ -1,13 +1,13 @@
 mysqldb:
   type: mariadb:10.3
-  disk: 2048
+  disk: 2560
 
 # rediscache:
 #   type: redis:5.0
 
 solrsearch:
  type: solr:8.0
- disk: 1024
+ disk: 512
  configuration:
    cores:
      solr8core:
