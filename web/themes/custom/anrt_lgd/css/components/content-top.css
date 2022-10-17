@@ -98,5 +98,5 @@
 }
 
 .page-node-type-localgov-services-page .lgd-row__full {
-  margin-left: 0;
+  margin-left: var(--spacing);
 }
