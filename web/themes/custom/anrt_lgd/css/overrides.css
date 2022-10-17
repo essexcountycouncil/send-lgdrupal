@@ -257,6 +257,7 @@ body {
 
 .localgov-services-page__content .btn.btn-start {
   color: var(--color-white);
+  padding: var(--spacing);
 }
 
 .localgov-services-page__content .btn.btn-start:hover,
@@ -278,4 +279,16 @@ body {
     margin-right: var(--grid-column-spacing);
     margin-left: var(--grid-column-spacing);
   }
+}
+
+.service-cta-block__link--cta-action {
+  border: 3px var(--border-style) var(--border-color);
+}
+
+.service-cta-block__link--cta-action:hover {
+  background-color: unset;
+}
+
+.service-cta-block__link:hover svg path {
+  fill: var(--color-green);
 }
