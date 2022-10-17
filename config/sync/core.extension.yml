@@ -100,6 +100,7 @@ module:
   metatag: 0
   mgv: 0
   mysql: 0
+  no_autocomplete: 0
   node: 0
   office_hours: 0
   options: 0
@@ -147,6 +148,7 @@ module:
   webform: 0
   webform_query: 0
   webform_ui: 0
+  webform_validation: 0
   webform_views: 0
   webform_workflows_element: 0
   webform_workflows_element_queries: 0
