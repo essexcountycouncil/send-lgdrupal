@@ -192,11 +192,11 @@
   margin-right: var(--spacing);
 }
 
-.lgd-directory__correct-action:hover {
+.lgd-directory__suggest-action:hover {
   background-color: var(--call-to-action-primary-bg-color-hover);
 }
 
-.lgd-directory__suggest-action {
+.lgd-directory__correct-action {
   background-color: var(--call-to-action-secondary-bg-color);
   color: var(--color-accent);
   border: var(--call-to-action-secondary-border);
