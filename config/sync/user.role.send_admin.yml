@@ -6,6 +6,7 @@ dependencies:
     - filter.format.wysiwyg
     - node.type.localgov_directories_org
   module:
+    - content_moderation
     - filter
     - node
     - publishcontent
@@ -30,5 +31,6 @@ permissions:
   - 'unpublish editable content'
   - 'use text format wysiwyg'
   - 'view all revisions'
+  - 'view any unpublished content'
   - 'view localgov_directories_org revisions'
   - 'view the administration theme'
