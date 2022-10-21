@@ -24,16 +24,20 @@
         "drupal/disable_html5_validation": "^1.1",
         "drupal/feeds": "^3.0@beta",
         "drupal/feeds_tamper": "^2.0@beta",
+        "drupal/honeypot": "^2.1",
         "drupal/matomo": "^1.19",
         "drupal/mgv": "^2.1",
         "drupal/migrate_devel": "^2.0@alpha",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_source_csv": "^3.5",
         "drupal/migrate_tools": "^6.0",
+        "drupal/no_autocomplete": "^1.6",
         "drupal/office_hours": "^1.7",
         "drupal/publishcontent": "^1.5",
+        "drupal/search_api_best_bets": "^2.0",
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
+        "drupal/seckit": "^2.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/views_data_export": "^1.1",
         "drupal/webform": "^6.1",
@@ -123,6 +127,16 @@
             },
             "localgovdrupal/localgov_directories": {
                 "Use an 'and' query between facet groups and 'or' within them": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_directories/pull/235.patch"
+<<<<<<< HEAD
+=======
+            },
+            "localgovdrupal/localgov_base": {
+                "Link media files to file": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/293.patch",
+                "Fieldset form error styling": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/295.patch"
+            },
+            "drupal/search_api_best_bets": {
+                "Allow the module to function": "https://git.drupalcode.org/issue/search_api_best_bets-3124980/-/commit/cae6c563294d106e10f3e1b2a4aeb40c02d7d1f2.patch"
+>>>>>>> ab33d77494bd9544abfd40524be2461b8a81d7b4
             }
         }
     },

@@ -206,7 +206,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: search_api_fulltext
-          operator: or
+          operator: and
           value: ''
           group: 1
           exposed: true
@@ -253,9 +253,7 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: null
-          fields:
-            - rendered_item
-            - spellcheck
+          fields: {  }
       style:
         type: default
         options:

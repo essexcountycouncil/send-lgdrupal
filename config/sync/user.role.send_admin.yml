@@ -6,7 +6,9 @@ dependencies:
     - filter.format.wysiwyg
     - node.type.localgov_directories_org
   module:
+    - content_moderation
     - filter
+    - localgov_geo
     - node
     - publishcontent
     - system
@@ -21,13 +23,19 @@ permissions:
   - 'access content overview'
   - 'access toolbar'
   - 'access webform overview'
+  - 'create geo'
   - 'create localgov_directories_org content'
   - 'delete any localgov_directories_org content'
+  - 'delete geo'
   - 'edit any localgov_directories_org content'
+  - 'edit geo'
   - 'publish editable content'
   - 'revert all revisions'
   - 'revert localgov_directories_org revisions'
   - 'unpublish editable content'
   - 'use text format wysiwyg'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view geo'
   - 'view localgov_directories_org revisions'
+  - 'view the administration theme'

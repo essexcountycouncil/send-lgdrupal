@@ -45,7 +45,7 @@ body {
   --color-black: #1d1d1d;
   --color-blue: #004c94;
   --color-blue-light: #4179aa;
-  --color-green: #4a7a70;
+  --color-green: #1d594c;
   --font-primary: "Lexend-Variable", arial, "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
   --font-secondary: var(--font-primary);
   --font-size-smallest: calc(var(--font-size) * 0.3);
@@ -61,7 +61,7 @@ body {
   --border-light-grey: 1px solid var(--color-grey-lighter);
   --border-radius: var(--spacing-smaller);
   --border-width: 2px;
-  --border-color: var(--color-accent);
+  --border-color: var(--color-green);
   --call-out-box-bg-color: var(--color-accent);
   --call-out-box-text-color: var(--color-white);
   --header-search-input-border: 1px solid var(--color-black);

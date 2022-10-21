@@ -48,6 +48,7 @@ module:
   geolocation_google_maps: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
   image_widget_crop: 0
   inline_entity_form: 0
@@ -99,6 +100,7 @@ module:
   metatag: 0
   mgv: 0
   mysql: 0
+  no_autocomplete: 0
   node: 0
   office_hours: 0
   options: 0
@@ -120,10 +122,12 @@ module:
   schema_metatag: 0
   search_api: 0
   search_api_autocomplete: 0
+  search_api_best_bets: 0
   search_api_db: 0
   search_api_solr: 0
   search_api_solr_admin: 0
   search_api_spellcheck: 0
+  seckit: 0
   send_directory_check: 0
   serialization: 0
   simple_sitemap: 0

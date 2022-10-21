@@ -51,9 +51,9 @@ third_party_settings:
     group_tabs:
       children:
         - group_description
+        - group_organisation
         - group_directory
         - group_enquiries
-        - group_organisation
         - group_migrated_content
       label: tabs
       region: content
@@ -67,34 +67,35 @@ third_party_settings:
     group_description:
       children:
         - title
-        - field_migrated_content
-        - field_old_url
         - field_directory_summary
         - field_directory_how_help
         - field_directory_how_to_access
         - field_directory_eligibility
+        - field_directory_siblings_attend
+        - field_directory_available_online
+        - field_directory_cost
         - field_directory_additional_age
-        - localgov_directory_files
-      label: Description
+        - localgov_directory_channels
+        - localgov_directory_facets_select
+        - field_sitewide_search_type
+      label: Service
       region: content
       parent_name: group_tabs
-      weight: 6
+      weight: 0
       format_type: tab
       format_settings:
         classes: ''
+        show_empty_fields: false
         id: ''
         formatter: closed
         description: ''
         required_fields: true
     group_directory:
-      children:
-        - localgov_directory_channels
-        - localgov_directory_facets_select
-        - field_sitewide_search_type
+      children: {  }
       label: Directory
       region: content
       parent_name: group_tabs
-      weight: 7
+      weight: 2
       format_type: tab
       format_settings:
         classes: ''
@@ -103,21 +104,11 @@ third_party_settings:
         description: ''
         required_fields: true
     group_enquiries:
-      children:
-        - field_directory_available_online
-        - field_directory_siblings_attend
-        - field_directory_cost
-        - localgov_directory_email
-        - localgov_directory_phone
-        - field_directory_sms
-        - localgov_directory_website
-        - field_directory_facebook
-        - field_directory_twitter
-        - field_directory_instagram
+      children: {  }
       label: Enquiries
       region: content
       parent_name: group_tabs
-      weight: 8
+      weight: 3
       format_type: tab
       format_settings:
         classes: ''
@@ -128,14 +119,21 @@ third_party_settings:
     group_organisation:
       children:
         - localgov_location
+        - field_directory_venue_ally
         - localgov_directory_notes
         - localgov_opening_hours
         - field_opening_hours
-        - field_directory_venue_ally
+        - localgov_directory_website
+        - localgov_directory_email
+        - localgov_directory_phone
+        - field_directory_sms
+        - field_directory_facebook
+        - field_directory_twitter
+        - field_directory_instagram
       label: Venue
       region: content
       parent_name: group_tabs
-      weight: 9
+      weight: 1
       format_type: tab
       format_settings:
         classes: ''
@@ -148,7 +146,7 @@ third_party_settings:
       label: 'Migrated content'
       region: content
       parent_name: group_tabs
-      weight: 10
+      weight: 4
       format_type: tab
       format_settings:
         classes: ''
@@ -166,13 +164,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
   field_directory_additional_age:
     type: text_textarea
-    weight: 16
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -180,171 +178,11 @@ content:
     third_party_settings: {  }
   field_directory_available_online:
     type: options_buttons
-    weight: 41
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_directory_cost:
-    type: text_textarea
-    weight: 43
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_eligibility:
-    type: text_textarea
-    weight: 15
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_facebook:
-    type: string_textfield
-    weight: 48
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_how_help:
-    type: text_textarea
-    weight: 13
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_how_to_access:
-    type: text_textarea
-    weight: 14
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_instagram:
-    type: string_textfield
-    weight: 50
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_siblings_attend:
-    type: options_buttons
-    weight: 42
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_directory_sms:
-    type: string_textfield
-    weight: 46
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_summary:
-    type: string_textarea
-    weight: 12
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_twitter:
-    type: string_textfield
-    weight: 49
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_directory_venue_ally:
-    type: options_buttons
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_migrated_content:
-    type: text_textarea
-    weight: 10
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_old_url:
-    type: link_default
-    weight: 11
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-  field_opening_hours:
-    type: office_hours_default
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_provider_contact_email:
-    type: email_default
-    weight: 51
-    region: content
-    settings:
-      placeholder: ''
-      size: 60
-    third_party_settings: {  }
-  field_provider_last_checked:
-    type: datetime_default
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_sitewide_search_type:
-    type: options_buttons
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 3
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  localgov_directory_channels:
-    type: localgov_directories_channel_selector
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  localgov_directory_email:
-    type: email_default
-    weight: 44
-    region: content
-    settings:
-      placeholder: ''
-      size: 60
-    third_party_settings: {  }
-  localgov_directory_facets_select:
-    type: localgov_directories_facet_checkbox
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  localgov_directory_files:
-    type: media_library_widget
-    weight: 17
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  localgov_directory_notes:
     type: text_textarea
     weight: 8
     region: content
@@ -352,16 +190,160 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_directory_eligibility:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_facebook:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_how_help:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_how_to_access:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_instagram:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_siblings_attend:
+    type: options_buttons
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_directory_sms:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_summary:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_twitter:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_venue_ally:
+    type: options_buttons
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_opening_hours:
+    type: office_hours_default
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_provider_contact_email:
+    type: email_default
+    weight: 35
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_provider_last_checked:
+    type: datetime_default
+    weight: 34
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sitewide_search_type:
+    type: options_buttons
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 26
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  localgov_directory_channels:
+    type: localgov_directories_channel_selector
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_directory_email:
+    type: email_default
+    weight: 21
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  localgov_directory_facets_select:
+    type: localgov_directories_facet_checkbox
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_directory_files:
+    type: media_library_widget
+    weight: 36
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  localgov_directory_notes:
+    type: text_textarea
+    weight: 17
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   localgov_directory_phone:
     type: telephone_default
-    weight: 45
+    weight: 22
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   localgov_directory_website:
     type: link_default
-    weight: 47
+    weight: 20
     region: content
     settings:
       placeholder_url: ''
@@ -369,7 +351,7 @@ content:
     third_party_settings: {  }
   localgov_location:
     type: inline_entity_form_simple
-    weight: 7
+    weight: 15
     region: content
     settings:
       form_mode: inline
@@ -382,7 +364,7 @@ content:
     third_party_settings: {  }
   localgov_opening_hours:
     type: text_textarea
-    weight: 9
+    weight: 18
     region: content
     settings:
       rows: 5
@@ -390,40 +372,40 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 32
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 28
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 31
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 29
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 9
+    weight: 1
     region: content
     settings:
       size: 60
@@ -431,7 +413,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 25
     region: content
     settings:
       match_operator: CONTAINS
@@ -440,9 +422,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 33
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_migrated_content: true
+  field_old_url: true

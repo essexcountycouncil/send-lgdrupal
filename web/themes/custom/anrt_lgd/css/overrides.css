@@ -254,3 +254,41 @@ body {
   padding-right: var(--spacing-smaller);
   padding-left: var(--spacing-smaller);
 }
+
+.localgov-services-page__content .btn.btn-start {
+  color: var(--color-white);
+  padding: var(--spacing);
+}
+
+.localgov-services-page__content .btn.btn-start:hover,
+.localgov-services-page__content .btn.btn-start:focus {
+  color: unset;
+}
+
+.form-item--error-message strong {
+  font-weight: unset;
+}
+
+.lgd-row .lgd-row__two-thirds,
+.lgd-row .lgd-row__one-third {
+  margin-left: unset;
+}
+
+@media screen and (max-width: 48rem) {
+  .lgd-row .lgd-row__full {
+    margin-right: var(--grid-column-spacing);
+    margin-left: var(--grid-column-spacing);
+  }
+}
+
+.service-cta-block__link--cta-action {
+  border: 3px var(--border-style) var(--border-color);
+}
+
+.service-cta-block__link--cta-action:hover {
+  background-color: unset;
+}
+
+.service-cta-block__link:hover svg path {
+  fill: var(--color-green);
+}
