@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7afa42ed7638c1b8464c54e3b74dd853",
+    "content-hash": "6d7844032161f8f5dc1f0b900d604a05",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
@@ -18707,5 +18707,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.2.0"
 }
