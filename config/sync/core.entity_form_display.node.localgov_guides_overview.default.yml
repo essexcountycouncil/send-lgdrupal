@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_guides_overview.body
+    - field.field.node.localgov_guides_overview.field_search_weight
     - field.field.node.localgov_guides_overview.field_sitewide_search_type
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
@@ -38,6 +39,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_search_weight:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
