@@ -195,6 +195,18 @@ body {
   .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
     padding: var(--spacing);
   }
+
+  .page-node-type-localgov-directory .lgd-region__inner--content-top, .sitewide-search .sitewide-search__header-container {
+    padding-bottom: unset;
+  }
+
+  .page-node-type-localgov-directory .main-content-container {
+    padding-top: unset;
+  }
+
+  .sidebar .lgd-region__inner > *, .blog-channel__sidebar > *, .newsroom__sidebar > * {
+    padding-bottom: unset;
+  }
 }
 
 .pager__item.is-active a {
