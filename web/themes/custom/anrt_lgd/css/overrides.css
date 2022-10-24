@@ -216,6 +216,10 @@ body {
   padding-top: var(--spacing-large);
 }
 
+.localgov-services-page .lgd-container {
+  padding-left: unset;
+}
+
 @media screen and (min-width: 48rem) {
   .lgd-region--search .form-text {
     max-width: 200px;
@@ -267,11 +271,6 @@ body {
 
 .form-item--error-message strong {
   font-weight: unset;
-}
-
-.lgd-row .lgd-row__two-thirds,
-.lgd-row .lgd-row__one-third {
-  margin-left: unset;
 }
 
 @media screen and (max-width: 48rem) {
