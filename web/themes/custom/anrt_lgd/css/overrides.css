@@ -198,6 +198,7 @@ body {
 
   .page-node-type-localgov-directory .lgd-region__inner--content-top, .sitewide-search .sitewide-search__header-container {
     padding-bottom: unset;
+    padding-top: unset;
   }
 
   .page-node-type-localgov-directory .main-content-container {
