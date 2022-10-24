@@ -175,6 +175,28 @@ body {
   margin-top: var(--spacing-largest);
 }
 
+@media screen and (max-width: 48rem) {
+  .path-frontpage .banner--primary .banner__content {
+    padding: var(--spacing-large);
+  }
+
+  .localgov-subsites-overview__content {
+    margin-top: unset;
+  }
+
+  .path-frontpage .field--name-localgov-subsites-content > .field__item {
+    margin-bottom: unset;
+  }
+
+  .path-frontpage .call-out-box--has-image .call-out-box__content {
+    padding: var(--spacing);
+  }
+
+  .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
+    padding: var(--spacing);
+  }
+}
+
 .pager__item.is-active a {
   text-decoration: none;
   font-weight: 700;
