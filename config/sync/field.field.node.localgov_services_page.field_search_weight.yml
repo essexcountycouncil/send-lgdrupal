@@ -1,0 +1,23 @@
+uuid: 25c6b73c-7e0a-435a-a3a7-29711dc57cc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search_weight
+    - node.type.localgov_services_page
+  module:
+    - options
+id: node.localgov_services_page.field_search_weight
+field_name: field_search_weight
+entity_type: node
+bundle: localgov_services_page
+label: 'Search weight'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 10
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

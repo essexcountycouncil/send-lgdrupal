@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_search_weight
     - field.field.node.localgov_services_page.field_sitewide_search_type
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
@@ -109,6 +110,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_search_weight:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
