@@ -278,6 +278,12 @@ body {
     margin-right: var(--grid-column-spacing);
     margin-left: var(--grid-column-spacing);
   }
+
+  .lgd-header .lgd-row .lgd-row__full {
+    margin-right: unset;
+    margin-left: unset;
+    width: 100%;
+  }
 }
 
 .service-cta-block__link--cta-action {
