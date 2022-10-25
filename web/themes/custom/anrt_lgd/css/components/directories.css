@@ -113,6 +113,7 @@
 
 .lgd-directory__meta-item-field {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .lgd-directory__meta-item-field + .lgd-directory__meta-item-field {
