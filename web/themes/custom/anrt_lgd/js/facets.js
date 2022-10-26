@@ -14,6 +14,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       
       context = context || document;
 
+      let windowWidth = window.outerWidth;
       const facetsBlock = context.querySelector('.facets-block');
       const facets = context.querySelectorAll(".facets-widget__list");
       const selectedFacets = context.querySelectorAll(
@@ -49,11 +50,15 @@ if (window.NodeList && !NodeList.prototype.forEach) {
             handleFacetsBlockClose();
             facetsBlockTrigger.style.display = 'block';
           }
-          console.log('handled');
         }
         
         handleFacetsBlock();
-        window.addEventListener('resize', Drupal.debounce(handleFacetsBlock, 100, false));
+        window.addEventListener('resize', Drupal.debounce(function() {
+          if (windowWidth != window.outerWidth) {
+            handleFacetsBlock();
+            windowWidth = windowWidth.outerWidth;
+          }
+        }, 100, false));
       }
 
       facets.forEach((facet, index) => {
