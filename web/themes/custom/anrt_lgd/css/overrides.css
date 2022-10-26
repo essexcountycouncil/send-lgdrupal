@@ -41,10 +41,8 @@ a {
   margin-right: 0;
 }
 
-@media screen and (min-width: 48rem) {
-  .lgd-header__inner {
-    justify-content: end;
-  }
+.lgd-header__inner {
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 48rem) {
@@ -63,11 +61,17 @@ a {
 
 .branding__item--logo {
   width: unset;
-  max-width: 230px;
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
 }
-
+@media screen and (min-width: 48rem) {
+  .branding__item--logo {
+    max-width: 230px;
+  }
+}
+.branding__item--logo img {
+  width: 100%;
+}
 .lgd-region--search .form-text {
   padding: var(--spacing-smaller);
 }
