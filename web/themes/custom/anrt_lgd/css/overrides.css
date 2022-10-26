@@ -91,7 +91,7 @@ a {
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
   padding: var(--spacing-larger);
-  border-bottom: var(--border-large);
+  border-bottom: var(--border-large-blue);
   background-color: var(--color-grey-lightest);
 }
 
@@ -168,7 +168,7 @@ a {
     margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
     padding-top: var(--banner-content-padding);
     color: var(--color-white);
-    background-color: var(--color-green);
+    background-color: var(--color-blue);
   }
   .path-frontpage .banner--primary .banner__content {
     background-color: var(--banner-content-bg-color);
@@ -305,7 +305,8 @@ a {
 }
 
 .localgov-services-page__content .btn.btn-start:hover,
-.localgov-services-page__content .btn.btn-start:focus {
+.localgov-services-page__content .btn.btn-start:focus,
+.localgov-services-page__content .btn.btn-start:active {
   color: unset;
 }
 
