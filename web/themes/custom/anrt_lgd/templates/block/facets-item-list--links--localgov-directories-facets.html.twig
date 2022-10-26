@@ -44,7 +44,7 @@
       {% for group in items %}
         {% set random = random(1000) %}
         <h4 class="facet-group__title">{{ group.title }}
-          <button class="facet-group__trigger" aria-expanded="false" aria-controls="facet-widget__list--{{ random }}">
+          <button class="facet-group__trigger" aria-expanded="false" aria-label={{ group.title }} aria-controls="facet-widget__list--{{ random }}">
             {% include "@localgov_base/includes/icons/icon.html.twig" with {
                 icon_name: 'chevron-right',
                 icon_wrapper_element: 'span',
