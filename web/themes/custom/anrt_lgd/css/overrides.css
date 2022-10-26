@@ -11,7 +11,10 @@ body {
   font-size: clamp(var(--font-size-medium), 5vw, var(--font-size-large));
 }
 
+a {
   -webkit-tap-highlight-color: transparent;
+}
+
 .lgd-guide-nav {
   background-color: var(--color-grey-lighter);
 }
@@ -179,6 +182,7 @@ body {
 @media screen and (max-width: 48rem) {
   .path-frontpage .banner--primary .banner__content {
     padding: var(--spacing-large);
+    margin-top: unset;
   }
 
   .localgov-subsites-overview__content {
