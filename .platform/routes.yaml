@@ -19,3 +19,15 @@ https://www.{default}/:
     paths: {}
   to: https://{default}/
   type: redirect
+https://www.essexlocaloffer.org.uk/:
+  redirects:
+    expires: -1s
+    paths: {}
+  to: https://{default}/
+  type: redirect
+https://essexlocaloffer.org.uk/:
+  redirects:
+    expires: -1s
+    paths: {}
+  to: https://{default}/
+  type: redirect
