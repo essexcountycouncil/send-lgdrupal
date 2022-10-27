@@ -336,7 +336,7 @@ a {
 }
 
 .service-cta-block__link--cta-action {
-  border: 3px var(--border-style) var(--border-color);
+  border: 3px var(--border-style) var(--color-green);
 }
 
 .service-cta-block__link--cta-action:hover {
