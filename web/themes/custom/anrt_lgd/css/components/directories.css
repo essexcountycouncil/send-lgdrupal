@@ -142,11 +142,18 @@
   padding-left: var(--spacing-small);
 }
 
+@media screen and (max-width: 48rem) {
+  .lgd-directory__meta-item-field--has-icon .lgd-directory__meta-item-icon {
+    padding-left: unset;
+  }
+}
+
 @media screen and (min-width: 48rem) {
   .lgd-directory__meta-item-icon--hidden {
     margin-left: var(--spacing);
   }
 }
+
 .lgd-directory__meta-item-icon--hidden {
   visibility: hidden;
   margin-left: var(--spacing);
