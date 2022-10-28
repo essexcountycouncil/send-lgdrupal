@@ -307,14 +307,15 @@ a {
   padding-left: var(--spacing-smaller);
 }
 
-.localgov-services-page__content .btn.btn-start {
+.btn.btn-start {
   color: var(--color-white);
   padding: var(--spacing);
+  background-color: var(--color-accent);
 }
 
-.localgov-services-page__content .btn.btn-start:hover,
-.localgov-services-page__content .btn.btn-start:focus,
-.localgov-services-page__content .btn.btn-start:active {
+.btn.btn-start:hover,
+.btn.btn-start:focus,
+.btn.btn-start:active {
   color: unset;
 }
 

@@ -68,7 +68,7 @@
   fill: var(--color-green);
 }
 .call-out-box--theme-2.call-out-box--has-image .call-out-box__content {
-  --call-out-box-bg-color: var(--color-orange);
+  --call-out-box-bg-color: var(--color-accent);
 }
 .call-out-box--theme-2.call-out-box--has-image .call-out-box__link {
   color: var(--color-blue);
