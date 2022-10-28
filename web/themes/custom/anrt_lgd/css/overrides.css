@@ -337,13 +337,15 @@ a {
 }
 
 .service-cta-block__link--cta-action {
-  border: 3px var(--border-style) var(--color-green);
+  border: 3px var(--border-style) var(--color-accent);
+  background-color: var(--color-accent);
 }
 
 .service-cta-block__link--cta-action:hover {
   background-color: unset;
+  color: var(--color-accent);
 }
 
 .service-cta-block__link:hover svg path {
-  fill: var(--color-green);
+  fill: var(--color-accent);
 }
