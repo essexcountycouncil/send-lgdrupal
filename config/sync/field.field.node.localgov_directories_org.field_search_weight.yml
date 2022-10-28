@@ -1,0 +1,21 @@
+uuid: 25e9ff71-6b62-407e-b975-b992079b0b08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search_weight
+    - node.type.localgov_directories_org
+  module:
+    - options
+id: node.localgov_directories_org.field_search_weight
+field_name: field_search_weight
+entity_type: node
+bundle: localgov_directories_org
+label: 'Search weight'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

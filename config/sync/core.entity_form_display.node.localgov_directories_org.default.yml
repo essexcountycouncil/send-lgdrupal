@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_provider_contact_email
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_search_promotion
+    - field.field.node.localgov_directories_org.field_search_weight
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
@@ -35,7 +36,6 @@ dependencies:
     - field.field.node.localgov_directories_org.localgov_location
     - field.field.node.localgov_directories_org.localgov_opening_hours
     - node.type.localgov_directories_org
-    - workflows.workflow.localgov_editorial
   module:
     - content_moderation
     - datetime
@@ -301,6 +301,12 @@ content:
       exclude_placeholder: 'Write search queries....'
       exclude_description: 'Specify queries that will exclude this entity from the search result. Separate multiple by comma.'
       disable_exclude: 0
+    third_party_settings: {  }
+  field_search_weight:
+    type: options_select
+    weight: 38
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_sitewide_search_type:
     type: options_buttons

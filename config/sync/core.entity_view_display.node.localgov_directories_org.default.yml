@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.localgov_directories_org.field_provider_contact_email
     - field.field.node.localgov_directories_org.field_provider_last_checked
     - field.field.node.localgov_directories_org.field_search_promotion
+    - field.field.node.localgov_directories_org.field_search_weight
     - field.field.node.localgov_directories_org.field_sitewide_search_type
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
@@ -222,6 +223,7 @@ hidden:
   field_provider_contact_email: true
   field_provider_last_checked: true
   field_search_promotion: true
+  field_search_weight: true
   field_sitewide_search_type: true
   langcode: true
   links: true
