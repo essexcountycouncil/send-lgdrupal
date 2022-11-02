@@ -255,12 +255,6 @@ a {
   color: var(--color-blue);
 }
 
-.localgov-services-page__content a:visited,
-.lgd-guides__content a:visited,
-.block-localgov-services-related-links-block a:visited {
-  color: var(--color-white);
-}
-
 .page-node-type-localgov-services-page h2,
 .page-node-type-localgov-services-page h3,
 .page-node-type-localgov-services-page h4,
