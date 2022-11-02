@@ -19,3 +19,8 @@
 .featured-teaser__heading * {
   color: var(--color-black);
 }
+
+.featured-teaser__heading a:focus h2 {
+  background: inherit;
+  box-shadow: inherit;
+}
