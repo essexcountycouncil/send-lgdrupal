@@ -69,8 +69,12 @@ a {
     max-width: 230px;
   }
 }
+.branding__item--logo a {
+  display: inline-block;
+}
 .branding__item--logo img {
   width: 100%;
+  display: inline;
 }
 .lgd-region--search .form-text {
   padding: var(--spacing-smaller);
