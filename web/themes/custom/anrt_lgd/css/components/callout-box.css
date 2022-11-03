@@ -54,8 +54,10 @@
 .call-out-box__link:focus h2,
 .call-out-box__link:hover h2 {
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+  background: inherit;
+  box-shadow: inherit;
+  color: inherit;
 }
-
 
 /* Overrides */
 .call-out-box--theme-1.call-out-box--has-image .call-out-box__content {
