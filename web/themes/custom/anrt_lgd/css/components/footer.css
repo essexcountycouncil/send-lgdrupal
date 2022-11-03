@@ -55,6 +55,23 @@
   fill: var(--color-white);
 }
 
+/* Overlap the icon and link to allow Drupal Node Preview to exit properly if clicked */
+.footer-social-links li.menu-item {
+  display: grid;
+  grid-template-columns: 1;
+}
+.footer-social-links li.menu-item > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+.footer-social-links li.menu-item a {
+  z-index: 1;
+  text-indent: -1000vh;
+}
+.footer-social-links li.menu-item a:focus {
+  background-color: transparent;
+}
+
 .region-footer__rule {
   margin-top: var(--spacing);
   margin-bottom: var(--spacing-larger);

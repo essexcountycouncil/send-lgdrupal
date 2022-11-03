@@ -34,14 +34,15 @@
       <div class="lgd-row__one-quarter region-footer__grid-item">
         <ul class="menu footer-social-links">
           <li class="menu-item">
+            {# Overlap the icon and link to allow Drupal Node Preview to exit properly if clicked #}
             <a href="https://www.facebook.com/TheEssexLocalOffer/">
-              <span class="visually-hidden">{{ 'Follow us on Facebook'|t }}</span>
-              {% include "@localgov_base/includes/icons/icon.html.twig" with {
-                  icon_name: 'facebook-square',
-                  icon_classes: 'lgd-icon--larger',
-                }
-              %}
+             {{ 'Follow us on Facebook'|t }}
             </a>
+            {% include "@localgov_base/includes/icons/icon.html.twig" with {
+                icon_name: 'facebook-square',
+                icon_classes: 'lgd-icon--larger',
+              }
+            %}
           </li>
         </ul>
       </div>
