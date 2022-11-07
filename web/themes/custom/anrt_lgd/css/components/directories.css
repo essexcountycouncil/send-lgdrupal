@@ -113,7 +113,7 @@
 
 .lgd-directory__meta-item-field {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .lgd-directory__meta-item-field + .lgd-directory__meta-item-field {
@@ -157,6 +157,12 @@
 .lgd-directory__meta-item-icon--hidden {
   visibility: hidden;
   margin-left: var(--spacing);
+}
+
+@media screen and (max-width: 40rem) {
+  .lgd-directory__meta-item-icon--hidden {
+    display: none;
+  }
 }
 
 .lgd-directory__meta-item-icon svg path {
