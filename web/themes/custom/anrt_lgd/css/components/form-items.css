@@ -35,7 +35,7 @@ input[type="submit"]:hover {
 }
 
 .lgd-header .form-submit:focus svg path {
-  fill: var(--color-accent);
+  fill: var(--color-white);
 }
 
 .lgd-header .form-submit:hover svg path {
