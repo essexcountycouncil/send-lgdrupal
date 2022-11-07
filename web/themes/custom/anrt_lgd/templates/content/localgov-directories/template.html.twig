@@ -401,7 +401,9 @@
 
       {% if node.type() == 'localgov_directories_org'%}
         <div class="lgd-directory__suggest-actions">
-
+        <div class="lgd-directory__suggest-actions-description">
+            <p>Is this listing up to date?</p>
+          </div>
           {% set pre_check_path = '/node/' ~ node.id() ~ '/pre_check_approve'  %}
           {% set current_path = path("<current>") %}
           {% set full_url = url('entity.node.canonical', {'node': node.id})  %}
@@ -411,9 +413,6 @@
           {% if pre_check_path == current_path %}
             {{ drupal_link('Mark as correct'|t, 'node/' ~ node.id() ~ '/check_approve', {attributes: {class: 'lgd-directory__correct-action'}}) }}
           {% endif %}
-          <div class="lgd-directory__suggest-actions-description">
-            <p>Is this listing up to date?</p>
-          </div>
 
         </div>
       {% endif %}
