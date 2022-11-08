@@ -629,6 +629,19 @@ display:
             label: Relevance
             field_identifier: search_api_relevance
           exposed: false
+        localgov_directory_title_sort:
+          id: localgov_directory_title_sort
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_directory_title_sort
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments:
         localgov_directory_channels:
           id: localgov_directory_channels
