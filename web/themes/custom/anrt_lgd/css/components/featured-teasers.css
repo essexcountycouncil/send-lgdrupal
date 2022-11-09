@@ -4,9 +4,9 @@
 
 .featured-teaser {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
-  border: 1px solid var(--color-grey-lighter);
+  border: unset; 
   border-top: 5px solid var(--color-blue);
   border-bottom: 0;
   background-color: var(--color-white);
@@ -23,4 +23,11 @@
 .featured-teaser__heading a:focus h2 {
   background: inherit;
   box-shadow: inherit;
+}
+
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-lighter);
+  border-top: unset;
+  border-bottom: var(--border-large-blue);
 }

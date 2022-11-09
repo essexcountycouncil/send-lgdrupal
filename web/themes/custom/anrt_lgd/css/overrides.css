@@ -100,11 +100,12 @@ a {
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
   padding: var(--spacing-larger);
   border-bottom: var(--border-large-blue);
-  background-color: var(--color-grey-lightest);
+  background-color: var(--color-white);
 }
 
 .path-frontpage .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
   border-bottom: var(--border-large);
+  background-color: var(--color-grey-lightest);
 }
 
 .ia-block {

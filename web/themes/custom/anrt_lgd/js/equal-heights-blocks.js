@@ -14,7 +14,7 @@
 
           function handleGetHeights() {
             blocksToEqualiseHeights.forEach(block => {
-              blockHeights.push(block.offsetHeight);
+              blockHeights.push(block.offsetHeight);         
             });
             let tallestBlock = Math.max(...blockHeights);
             blocksToEqualiseHeights.forEach(block => {
@@ -30,6 +30,7 @@
           setTimeout(() => {
             handleGetHeights();
           }, 300);
+
         })
       }
 
@@ -37,9 +38,9 @@
         equaliseHeightsOfTheseBlocks(layoutsWithIaBlocks, '.ia-block');
       });
 
-      layoutsWithTeaserBlocks.forEach(layout => {
-        equaliseHeightsOfTheseBlocks(layoutsWithTeaserBlocks, '.featured-teaser');
-      });
+      // layoutsWithTeaserBlocks.forEach(layout => {
+      //   equaliseHeightsOfTheseBlocks(layoutsWithTeaserBlocks, '.featured-teaser');
+      // });
 
     }
   };
