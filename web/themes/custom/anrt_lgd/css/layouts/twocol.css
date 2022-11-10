@@ -14,6 +14,12 @@
   margin-bottom: var(--spacing-larger);
 }
 
+@media screen and (max-width: 40rem) {
+  .layout--twocol {
+    margin-top: var(--spacing-larger);
+  }
+}
+
 .layout--twocol > .layout__region {
   flex: 0 1 100%;
 }
