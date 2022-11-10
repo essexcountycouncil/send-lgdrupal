@@ -2,6 +2,19 @@
   padding-right: var(--spacing-smaller);
   padding-left: var(--spacing-smaller);
 }
+
+@media screen and (max-width: 40rem) {
+  .lgd-guides--page {
+    padding-right: unset;
+    padding-left: unset;
+  }
+}
+
+.lgd-guides--page .padding-horizontal {
+  padding-right: unset;
+  padding-left: unset;
+}
+
 .lgd-guide-nav {
   border: var(--border);
   background-color: var(--color-white);
