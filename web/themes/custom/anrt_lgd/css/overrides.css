@@ -334,6 +334,11 @@ body {
     padding-right: var(--grid-column-spacing);
   }
 
+  .lgd-footer .lgd-row .lgd-row__full {
+    margin: unset;
+    padding: unset;
+  }
+
   .lgd-header .lgd-row .lgd-row__full {
     margin-right: unset;
     margin-left: unset;
