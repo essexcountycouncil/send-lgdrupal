@@ -210,10 +210,6 @@ a {
     padding: var(--spacing);
   }
 
-  .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
-    padding: var(--spacing);
-  }
-
   .page-node-type-localgov-directory .lgd-region__inner--content-top, .sitewide-search .sitewide-search__header-container {
     padding-bottom: unset;
     padding-top: unset;
@@ -326,6 +322,8 @@ a {
   .lgd-row .lgd-row__full {
     margin-right: var(--grid-column-spacing);
     margin-left: var(--grid-column-spacing);
+    padding-left: var(--grid-column-spacing);
+    padding-right: var(--grid-column-spacing);
   }
 
   .lgd-header .lgd-row .lgd-row__full {
