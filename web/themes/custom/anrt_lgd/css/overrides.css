@@ -320,6 +320,7 @@ body {
 .btn.btn-start:focus,
 .btn.btn-start:active {
   color: unset;
+  transition: none;
 }
 
 .form-item--error-message strong {
@@ -334,7 +335,8 @@ body {
     padding-right: var(--grid-column-spacing);
   }
 
-  .lgd-footer .lgd-row .lgd-row__full {
+  .lgd-footer .lgd-row .lgd-row__full,
+  .page-node-type-localgov-services-landing .lgd-row .lgd-row__full {
     margin: unset;
     padding: unset;
   }
