@@ -87,7 +87,7 @@ body {
 }
 
 .lgd-region--search form .form-submit {
-  padding: var(--spacing-small);
+  padding: 10px;
   border: unset;
   border-radius: var(--border-radius);
 }
