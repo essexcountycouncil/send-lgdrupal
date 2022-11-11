@@ -16,6 +16,12 @@
   padding: var(--spacing-largest) var(--spacing-largest);
 }
 
+@media screen and (max-width: 40rem) {
+  .featured-teaser__content {
+    padding: var(--spacing) var(--spacing);
+  }
+}
+
 .featured-teaser__heading * {
   color: var(--color-black);
 }
