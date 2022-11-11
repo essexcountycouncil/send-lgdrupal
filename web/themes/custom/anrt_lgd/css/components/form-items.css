@@ -31,11 +31,11 @@ input[type="submit"]:hover {
 }
 
 .form-submit svg path {
-  fill: var(--color-white);
+  fill: var(--header-search-button-color);
 }
 
 .lgd-header .form-submit:focus svg path {
-  fill: var(--color-white);
+  fill: var(--header-search-button-color);
 }
 
 .lgd-header .form-submit:hover svg path {
