@@ -7,7 +7,7 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   border: unset; 
-  border-top: 5px solid var(--color-blue);
+  border-top: 1px solid var(--color-grey-lighter);
   border-bottom: 0;
   background-color: var(--color-white);
 }
