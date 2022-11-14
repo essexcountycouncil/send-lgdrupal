@@ -354,6 +354,11 @@ body {
   fill: var(--color-accent);
 }
 
+.pager__item--next a,
+.pager__item--previous a {
+  padding: 0 var(--spacing-smaller);
+}
+
 @media screen and (max-width: 48rem) {
   .lgd-row .lgd-row__full {
     margin-right: var(--grid-column-spacing);
@@ -377,4 +382,5 @@ body {
   .service-cta-block__link--cta-action:hover {
     transition: none;
   }
+
 }
