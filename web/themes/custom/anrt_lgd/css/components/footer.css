@@ -46,9 +46,18 @@
   }
 }
 
+.footer-social-links a svg {
+  border-bottom: 2px var(--border-style) var(--color-section-footer-bg);
+}
+
+.footer-social-links a:hover svg,
+.footer-social-links a:focus svg {
+  border-bottom: 2px var(--border-style) var(--color-white);
+}
+
 .footer-social-links a:hover svg path,
 .footer-social-links a:focus svg path {
-  fill: var(--color-focus);
+  /* fill: var(--color-focus); */
 }
 
 .footer-social-links svg path {
@@ -56,7 +65,7 @@
 }
 
 /* Overlap the icon and link to allow Drupal Node Preview to exit properly if clicked */
-.footer-social-links li.menu-item {
+/* .footer-social-links li.menu-item {
   display: grid;
   grid-template-columns: 1;
 }
@@ -70,7 +79,7 @@
 }
 .footer-social-links li.menu-item a:focus {
   background-color: transparent;
-}
+} */
 
 .region-footer__rule {
   margin-top: var(--spacing);

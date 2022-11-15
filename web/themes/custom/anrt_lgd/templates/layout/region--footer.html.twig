@@ -36,13 +36,13 @@
           <li class="menu-item">
             {# Overlap the icon and link to allow Drupal Node Preview to exit properly if clicked #}
             <a href="https://www.facebook.com/TheEssexLocalOffer/">
-             {{ 'Follow us on Facebook'|t }}
-            </a>
+             {# {{ 'Follow us on Facebook'|t }} #}
             {% include "@localgov_base/includes/icons/icon.html.twig" with {
                 icon_name: 'facebook-square',
                 icon_classes: 'lgd-icon--larger',
               }
             %}
+            </a>
           </li>
         </ul>
       </div>
