@@ -103,7 +103,7 @@ display:
             offset_label: Offset
           quantity: 5
       exposed_form:
-        type: basic
+        type: input_required
         options:
           submit_button: Search
           reset_button: false
@@ -112,6 +112,8 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: minimal
       access:
         type: perm
         options:
@@ -130,7 +132,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<p>No results</p>\r\n<p><a href=\"/search\">Reset search</a></p>"
+            value: "<p>No results found</p>\r\n<p>Try a new search or return to the <a href=\"/\">homepage</a>.</p>"
             format: wysiwyg
           tokenize: false
       sorts:
