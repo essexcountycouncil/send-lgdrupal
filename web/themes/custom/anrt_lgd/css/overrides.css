@@ -376,6 +376,8 @@ body {
   .lgd-header .lgd-row .lgd-row__full {
     margin-right: unset;
     margin-left: unset;
+    padding-left: unset;
+    padding-right: unset;
     width: 100%;
   }
 
