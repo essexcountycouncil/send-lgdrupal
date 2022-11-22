@@ -137,20 +137,7 @@ display:
       cache:
         type: none
         options: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: true
-          content:
-            value: "<p>No results found</p>\r\n<p>Try a new search or return to the <a href=\"/\">homepage</a>.</p>"
-            format: minimal
-          tokenize: false
+      empty: {  }
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -628,6 +615,20 @@ display:
       cache:
         type: search_api_tag
         options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: "0 results for \"<strong>{{ filters.search_api_fulltext }}</strong>\r\n\r\nTry a <a href=\"/search-support-groups-and-activities\">new search term</a>."
+            format: minimal
+          tokenize: true
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -688,6 +689,7 @@ display:
           break_phrase: false
           not: false
       defaults:
+        empty: false
         cache: false
         css_class: false
         sorts: false
