@@ -626,7 +626,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "0 results for \"<strong>{{ filters.search_api_fulltext }}</strong>\r\n\r\nTry a <a href=\"/search-support-groups-and-activities\">new search term</a>."
+            value: "0 results found for \"<strong>{{ filters.search_api_fulltext }}</strong>\"\r\n\r\nTry a <a href=\"/search-support-groups-and-activities\">new search term</a>."
             format: minimal
           tokenize: true
       sorts:
