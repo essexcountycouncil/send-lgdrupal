@@ -76,8 +76,8 @@
     <div class="lgd-row__three-thirds">
       <div class="sitewide-search__main">
 
-        <div class="sitewide-search__results-counter">{{ view.total_rows }} {{ 'results found for'|t }} "<strong>{{ view.filter.search_api_fulltext.value }}</strong>"</div>
         {% if rows %}
+        <div class="sitewide-search__results-counter">{{ view.total_rows }} {{ 'results found for'|t }} "<strong>{{ view.filter.search_api_fulltext.value }}</strong>"</div>
           <div class="view-content">
             {{ rows }}
           </div>

@@ -130,9 +130,9 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<p>No results</p>\r\n<p><a href=\"/search\">Reset search</a></p>"
+            value: "0 results found for \"<strong>{{ filters.search_api_fulltext }}</strong>\"\r\n\r\nTry a <a href=\"/search\">new search term</a>."
             format: wysiwyg
-          tokenize: false
+          tokenize: true
       sorts:
         search_api_relevance:
           id: search_api_relevance
