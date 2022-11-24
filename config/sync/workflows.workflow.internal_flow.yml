@@ -21,12 +21,18 @@ type_settings:
       weight: 1
       published: true
       default_revision: true
+    unpublished:
+      label: Unpublished
+      weight: 2
+      published: false
+      default_revision: true
   transitions:
     create_new_draft:
       label: 'Create New Draft'
       from:
         - draft
         - published
+        - unpublished
       to: draft
       weight: 0
     publish:
@@ -36,6 +42,13 @@ type_settings:
         - published
       to: published
       weight: 1
+    unpublish:
+      label: Unpublish
+      from:
+        - draft
+        - published
+      to: unpublished
+      weight: 2
   entity_types:
     node:
       - localgov_directories_org
