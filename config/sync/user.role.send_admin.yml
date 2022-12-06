@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.wysiwyg
     - node.type.localgov_directories_org
+    - workflows.workflow.internal_flow
   module:
     - content_moderation
     - filter
@@ -33,6 +34,9 @@ permissions:
   - 'revert all revisions'
   - 'revert localgov_directories_org revisions'
   - 'unpublish editable content'
+  - 'use internal_flow transition create_new_draft'
+  - 'use internal_flow transition publish'
+  - 'use internal_flow transition unpublish'
   - 'use text format wysiwyg'
   - 'view all revisions'
   - 'view any unpublished content'
