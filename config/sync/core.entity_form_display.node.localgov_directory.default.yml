@@ -12,6 +12,7 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - localgov_directories
     - path
     - text
 _core:
@@ -57,7 +58,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   localgov_directory_facets_enable:
-    type: options_buttons
+    type: localgov_directories_facet_checkbox
     weight: 122
     region: content
     settings: {  }
@@ -122,5 +123,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }
