@@ -142,3 +142,13 @@ label, .webform-element--title-inline > label {
 .path-webform .form-item-webform-terms-of-service input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
+
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block label {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
