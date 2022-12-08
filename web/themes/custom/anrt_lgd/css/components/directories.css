@@ -228,3 +228,7 @@
 .lgd-directory__last-checked {
   margin-top: var(--spacing);
 }
+
+.leaflet-control-attribution a {
+  text-decoration: underline;
+}
