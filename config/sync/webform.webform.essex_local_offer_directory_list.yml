@@ -33,7 +33,7 @@ elements: |-
       type_of_service:
         '#type': webform_entity_checkboxes
         '#title': 'Type of service'
-        '#help': 'Select all that apply'
+        '#description': 'Select all that apply'
         '#required': true
         '#target_type': localgov_directories_facets
         '#selection_handler': 'default:localgov_directories_facets'
@@ -46,35 +46,12 @@ elements: |-
       summary:
         '#type': textarea
         '#title': Summary
-        '#description': |-
-          <p>A short summary of your service in one or two sentences<br />
-          Such as:</p>
-
-          <blockquote>
-          <p>Offers advice and support for children and young people with speech, language, communication and eating and drinking difficulties in the Mid Essex area</p>
-          </blockquote>
+        '#description': '<p>A short summary of your service in one or two sentences</p>'
         '#required': true
       how_service_helps:
         '#type': textarea
         '#title': 'How this service can help children and young people with SEND and their families'
-        '#description': |-
-          Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.<br />
-          <br />
-          Such as:
-          <blockquote>
-          <p>We offer a package of speech and language therapy support for children of pre-school and primary-school age who have:</p>
-
-          <ul>
-          	<li>Speech, language and communication difficulties.</li>
-          	<li>Autistic-spectrum disorders.</li>
-          	<li>Hearing impairment.</li>
-          	<li>Disorders of fluency, such as stammering and stuttering.</li>
-          	<li>Disorders of feeding, eating or drinking.</li>
-          	<li>Cleft palate and velopharyngeal abnormalities.</li>
-          	<li>Speech and language difficulties of neurological origin.</li>
-          	<li>Difficulties with voice.</li>
-          </ul>
-          </blockquote>
+        '#description': 'Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.'
         '#required': true
       relevant_special_needs:
         '#type': webform_entity_checkboxes
@@ -92,10 +69,7 @@ elements: |-
       ages_suitable_for:
         '#type': textarea
         '#title': 'The ages your service is suitable for'
-        '#description': |-
-          Include any exceptions to those ages. Such as: &quot;1 to 11, or up to 19 if the child attends a special school&quot;<br />
-          <br />
-          Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them
+        '#description': 'Include any exceptions to those ages. Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them'
         '#required': true
       areas_covered:
         '#type': webform_entity_checkboxes
@@ -113,27 +87,16 @@ elements: |-
       eligibility_criteria:
         '#type': textarea
         '#title': Eligibility
-        '#description': |-
-          Include any eligibility criteria needs to access your service<br />
-          <br />
-          Such as: &quot;referral from a GP required&quot;
+        '#description': 'Include any eligibility criteria needs to access your service'
         '#required': true
       cost_of_service:
         '#type': textarea
         '#title': 'Cost of the service'
-        '#description': |-
-          Include any exceptions to that cost<br />
-          <br />
-          Such as: &quot;free of charge with referral from social worker, or carers go free to a music event&quot;.
+        '#description': 'Include any exceptions to that cost'
         '#required': true
       how_to_access_service:
         '#type': textarea
         '#title': 'How people can access your service'
-        '#description': |-
-          Such as:
-          <blockquote>
-          <p>contact by phone or book a place via our website</p>
-          </blockquote>
         '#required': true
       siblings_without_send:
         '#type': radios
@@ -149,15 +112,10 @@ elements: |-
     location_and_opening_times:
       '#type': webform_section
       '#title': 'Your service location and opening times'
-      attend_venue_for_access:
-        '#type': radios
-        '#title': 'Will the child/family attend your venue to access the service?'
-        '#options': yes_no
       full_address:
         '#type': textarea
         '#title': 'Full address including postcode'
         '#description': 'Only required if the child or family will attend your venue to access the service'
-        '#required': true
         '#states':
           visible:
             ':input[name="attend_venue_for_access"]':
@@ -175,17 +133,17 @@ elements: |-
             field: name
             direction: ASC
       opening_hours:
-        '#type': office_hours
+        '#type': textarea
         '#title': 'Opening hours'
-        '#valhrs': true
   page_four:
     '#type': webform_wizard_page
     '#title': 'Your service contact details'
     service_contact_details:
       '#type': webform_section
       '#title': 'Your service contact details'
+      '#description': 'This information will be on your public listing'
       service_email:
-        '#type': webform_email_confirm
+        '#type': email
         '#title': 'Contact email'
       contact_phone_number:
         '#type': textfield
@@ -213,7 +171,7 @@ elements: |-
       '#title': 'Contact information'
       '#description': 'This information will not be displayed on your listing but will be used to contact you when required to ensure your listing information is up to date.'
       contact_email:
-        '#type': webform_email_confirm
+        '#type': email
         '#title': 'Contact email'
 css: ''
 javascript: ''
@@ -227,7 +185,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -296,10 +254,10 @@ settings:
   wizard_auto_forward: true
   wizard_auto_forward_hide_next_button: false
   wizard_keyboard: true
-  wizard_track: ''
+  wizard_track: index
   wizard_prev_button_label: ''
-  wizard_next_button_label: ''
-  wizard_toggle: false
+  wizard_next_button_label: Continue
+  wizard_toggle: true
   wizard_toggle_show_label: ''
   wizard_toggle_hide_label: ''
   preview: 0
@@ -323,7 +281,7 @@ settings:
   confirmation_message: ''
   confirmation_attributes: {  }
   confirmation_back: true
-  confirmation_back_label: ''
+  confirmation_back_label: 'Submit another listing'
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
