@@ -20,92 +20,117 @@ elements: |-
       '#type': webform_section
       '#title': Eligibility
       '#description': 'Some eligibility information will go here'
-  page_two:
+  page_two_one:
     '#type': webform_wizard_page
-    '#title': 'About your service'
-    about_service:
+    '#title': 'Service name and summary'
+    '#next_button_label': 'Continue >'
+    service_name_and_summary:
       '#type': webform_section
-      '#title': 'About your service'
+      '#title': 'Service name and summary'
+      '#title_display': invisible
       service_name:
         '#type': textfield
         '#title': 'Service name'
+        '#description_display': before
         '#required': true
-      type_of_service:
-        '#type': webform_entity_checkboxes
-        '#title': 'Type of service'
-        '#description': 'Select all that apply'
-        '#required': true
-        '#target_type': localgov_directories_facets
-        '#selection_handler': 'default:localgov_directories_facets'
-        '#selection_settings':
-          target_bundles:
-            support_type: support_type
-          sort:
-            field: title
-            direction: ASC
       summary:
         '#type': textarea
         '#title': Summary
         '#description': '<p>A short summary of your service in one or two sentences</p>'
+        '#description_display': before
         '#required': true
-      how_service_helps:
-        '#type': textarea
-        '#title': 'How this service can help children and young people with SEND and their families'
-        '#description': 'Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.'
-        '#required': true
-      relevant_special_needs:
-        '#type': webform_entity_checkboxes
-        '#title': 'Relevant special needs'
-        '#description': 'Select all that apply'
-        '#required': true
-        '#target_type': localgov_directories_facets
-        '#selection_handler': 'default:localgov_directories_facets'
-        '#selection_settings':
-          target_bundles:
-            accessibility: accessibility
-          sort:
-            field: title
-            direction: ASC
-      ages_suitable_for:
-        '#type': textarea
-        '#title': 'The ages your service is suitable for'
-        '#description': 'Include any exceptions to those ages. Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them'
-        '#required': true
-      areas_covered:
-        '#type': webform_entity_checkboxes
-        '#title': 'Areas you cover'
-        '#description': 'Please select all that apply'
-        '#required': true
-        '#target_type': localgov_directories_facets
-        '#selection_handler': 'default:localgov_directories_facets'
-        '#selection_settings':
-          target_bundles:
-            location: location
-          sort:
-            field: title
-            direction: ASC
-      eligibility_criteria:
-        '#type': textarea
-        '#title': Eligibility
-        '#description': 'Include any eligibility criteria needs to access your service'
-        '#required': true
-      cost_of_service:
-        '#type': textarea
-        '#title': 'Cost of the service'
-        '#description': 'Include any exceptions to that cost'
-        '#required': true
-      how_to_access_service:
-        '#type': textarea
-        '#title': 'How people can access your service'
-        '#required': true
-      siblings_without_send:
-        '#type': radios
-        '#title': 'Can siblings without SEND also attend?'
-        '#options': yes_no
-      available_online:
-        '#type': radios
-        '#title': 'Is your service available online?'
-        '#options': yes_no
+  page_two_two:
+    '#type': webform_wizard_page
+    '#title': 'Type of service'
+    type_of_service:
+      '#type': webform_entity_checkboxes
+      '#title': 'Type of service'
+      '#description': 'Select all that apply'
+      '#required': true
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          support_type: support_type
+        sort:
+          field: title
+          direction: ASC
+  page_two_three:
+    '#type': webform_wizard_page
+    '#title': 'How it can help'
+    how_service_helps:
+      '#type': textarea
+      '#title': 'How this service can help children and young people with SEND and their families'
+      '#description': 'Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.'
+      '#required': true
+  page_two_four:
+    '#type': webform_wizard_page
+    '#title': 'Relevant special needs'
+    relevant_special_needs:
+      '#type': webform_entity_checkboxes
+      '#title': 'Relevant special needs'
+      '#description': 'Select all that apply'
+      '#required': true
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          accessibility: accessibility
+        sort:
+          field: title
+          direction: ASC
+  page_two_five:
+    '#type': webform_wizard_page
+    '#title': 'Age and eligibility'
+    ages_suitable_for:
+      '#type': textarea
+      '#title': 'The ages your service is suitable for'
+      '#description': 'Include any exceptions to those ages. Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them'
+      '#required': true
+    eligibility_criteria:
+      '#type': textarea
+      '#title': Eligibility
+      '#description': 'Include any eligibility criteria needs to access your service'
+      '#required': true
+    siblings_without_send:
+      '#type': radios
+      '#title': 'Can siblings without SEND also attend?'
+      '#options': yes_no
+  page_two_six:
+    '#type': webform_wizard_page
+    '#title': 'Areas covered'
+    areas_covered:
+      '#type': webform_entity_checkboxes
+      '#title': 'Areas you cover'
+      '#description': 'Please select all that apply'
+      '#required': true
+      '#target_type': localgov_directories_facets
+      '#selection_handler': 'default:localgov_directories_facets'
+      '#selection_settings':
+        target_bundles:
+          location: location
+        sort:
+          field: title
+          direction: ASC
+  page_two_seven:
+    '#type': webform_wizard_page
+    '#title': 'Cost of the service'
+    cost_of_service:
+      '#type': textarea
+      '#title': 'Cost of the service'
+      '#description': 'Include any exceptions to that cost'
+      '#required': true
+  page_two_eight:
+    '#type': webform_wizard_page
+    '#title': 'How to access your service'
+    how_to_access_service:
+      '#type': textarea
+      '#title': 'How people can access your service'
+      '#required': true
+    available_online:
+      '#type': radios
+      '#title': 'Is your service available online?'
+      '#options': yes_no
   page_three:
     '#type': webform_wizard_page
     '#title': 'Your service location and opening times'
