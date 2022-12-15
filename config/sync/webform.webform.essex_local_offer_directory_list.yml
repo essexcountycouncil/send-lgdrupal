@@ -15,189 +15,413 @@ category: ''
 elements: |-
   page_one:
     '#type': webform_wizard_page
-    '#title': Eligibility
-    eligibility:
+    '#title': 'Page 1'
+    '#next_button_label': Continue
+    '#override_page_title': 1
+    essex_local_offer_directory_listing_submission:
       '#type': webform_section
-      '#title': Eligibility
-      '#description': 'Some eligibility information will go here'
+      '#title': 'Request to add your service to the Essex Local Offer'
+      '#title_tag': h1
+      eligibility_intro:
+        '#type': webform_markup
+        '#markup': |-
+          Use this form if you would like your service to be added to the Essex Local Offer.&nbsp;<br />
+          <br />
+          To be listed, your service must:
+          <ul>
+          	<li>have a specific offer for children and young people aged 0 to 25 with special educational needs and disabilities (SEND) or their families</li>
+          	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
+          </ul>
+          Private sector providers must also have a clear link with a professional body or be registered and approved by a recognised regulatory body.
+      before_you_start:
+        '#type': webform_markup
+        '#markup': |-
+          <h2>Before you start</h2>
+          We expect this form to take around 15 minutes to complete. It is not possible to save and return to the form later.&nbsp;<br />
+          <br />
+          You&rsquo;ll be asked for:
+          <ul>
+          	<li>the name of your service and a short summary of what you offer</li>
+          	<li>the type of service you provide</li>
+          	<li>a description of how your service can help children and young people with SEND and their families</li>
+          	<li>the special needs your service caters for</li>
+          	<li>the ages your service is suitable for</li>
+          	<li>the eligibility criteria to access your service</li>
+          	<li>the locations your service covers</li>
+          	<li>the cost of your service</li>
+          	<li>what people need to do to access your service</li>
+          	<li>the address of your service and any accessibility features available at your venue</li>
+          	<li>the opening hours of your service</li>
+          	<li>contact information for your service</li>
+          	<li>social media handles for your service</li>
+          </ul>
+
+          <h3>If you need help completing this form</h3>
+          If you have any questions or would like to complete this form in a different format email essex.localoffer@essex.gov.uk.&nbsp;
   page_two_one:
     '#type': webform_wizard_page
-    '#title': 'Service name and summary'
-    '#next_button_label': 'Continue >'
+    '#title': 'Page 2.1'
+    '#next_button_label': Continue
+    '#override_page_title': 1
     service_name_and_summary:
       '#type': webform_section
-      '#title': 'Service name and summary'
-      '#title_display': invisible
-      service_name:
-        '#type': textfield
-        '#title': 'Service name'
-        '#description_display': before
-        '#required': true
-      summary:
-        '#type': textarea
-        '#title': Summary
-        '#description': '<p>A short summary of your service in one or two sentences</p>'
-        '#description_display': before
-        '#required': true
+      '#title': 'Name and summary'
+      '#title_tag': h1
+      name_of_service:
+        '#type': webform_section
+        '#title': 'Name of service'
+        '#title_tag': h3
+        service_name:
+          '#type': textfield
+          '#title': 'Name of service'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
+          '#label_attributes':
+            class:
+              - h3
+      summary_of_service:
+        '#type': webform_section
+        '#title': 'Summary of service'
+        '#title_tag': h3
+        summary:
+          '#type': textarea
+          '#title': 'Summary of service'
+          '#description': '<p>A short summary of your service in one or two sentences</p>'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
   page_two_two:
     '#type': webform_wizard_page
-    '#title': 'Type of service'
-    type_of_service:
-      '#type': webform_entity_checkboxes
+    '#title': 'Page 2.2'
+    '#next_button_label': Continue
+    type_of_service_section:
+      '#type': webform_section
       '#title': 'Type of service'
-      '#description': 'Select all that apply'
-      '#required': true
-      '#target_type': localgov_directories_facets
-      '#selection_handler': 'default:localgov_directories_facets'
-      '#selection_settings':
-        target_bundles:
-          support_type: support_type
-        sort:
-          field: title
-          direction: ASC
+      '#title_tag': h1
+      the_type_of_service_you_provide:
+        '#type': webform_section
+        '#title': 'The type of service you provide'
+        '#title_tag': h3
+        type_of_service:
+          '#type': webform_entity_checkboxes
+          '#title': 'The type of service you provide'
+          '#description': 'Select all that apply'
+          '#title_display': invisible
+          '#description_display': before
+          '#options_display': two_columns
+          '#required': true
+          '#target_type': localgov_directories_facets
+          '#selection_handler': 'default:localgov_directories_facets'
+          '#selection_settings':
+            target_bundles:
+              support_type: support_type
+            sort:
+              field: title
+              direction: ASC
   page_two_three:
     '#type': webform_wizard_page
-    '#title': 'How it can help'
-    how_service_helps:
-      '#type': textarea
-      '#title': 'How this service can help children and young people with SEND and their families'
-      '#description': 'Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.'
-      '#required': true
+    '#title': 'Page 2.3'
+    '#next_button_label': Continue
+    what_you_offer:
+      '#type': webform_section
+      '#title': 'What you offer'
+      '#title_tag': h1
+      how_service_helps_title:
+        '#type': webform_section
+        '#title': 'How your service can help children and young people with SEND and their families'
+        '#title_tag': h3
+        how_service_helps:
+          '#type': textarea
+          '#title': 'How this service can help children and young people with SEND and their families'
+          '#description': 'Explain how you can specifically help people with special needs, any specific therapies, activities. Who it is for and how you can help them.'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
   page_two_four:
     '#type': webform_wizard_page
-    '#title': 'Relevant special needs'
-    relevant_special_needs:
-      '#type': webform_entity_checkboxes
-      '#title': 'Relevant special needs'
-      '#description': 'Select all that apply'
-      '#required': true
-      '#target_type': localgov_directories_facets
-      '#selection_handler': 'default:localgov_directories_facets'
-      '#selection_settings':
-        target_bundles:
-          accessibility: accessibility
-        sort:
-          field: title
-          direction: ASC
+    '#title': 'Page 2.4'
+    '#next_button_label': Continue
+    who_you_can_help:
+      '#type': webform_section
+      '#title': 'Who you can help'
+      '#title_tag': h1
+      special_needs_catered_for:
+        '#type': webform_section
+        '#title': 'The special needs your service caters for'
+        '#title_tag': h3
+        relevant_special_needs:
+          '#type': webform_entity_checkboxes
+          '#title': 'Relevant special needs'
+          '#description': 'Select all that apply'
+          '#title_display': invisible
+          '#description_display': before
+          '#options_display': two_columns
+          '#required': true
+          '#target_type': localgov_directories_facets
+          '#selection_handler': 'default:localgov_directories_facets'
+          '#selection_settings':
+            target_bundles:
+              accessibility: accessibility
+            sort:
+              field: title
+              direction: ASC
   page_two_five:
     '#type': webform_wizard_page
-    '#title': 'Age and eligibility'
-    ages_suitable_for:
-      '#type': textarea
-      '#title': 'The ages your service is suitable for'
-      '#description': 'Include any exceptions to those ages. Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them'
-      '#required': true
-    eligibility_criteria:
-      '#type': textarea
-      '#title': Eligibility
-      '#description': 'Include any eligibility criteria needs to access your service'
-      '#required': true
-    siblings_without_send:
-      '#type': radios
-      '#title': 'Can siblings without SEND also attend?'
-      '#options': yes_no
+    '#title': 'Page 2.5'
+    '#next_button_label': Continue
+    who_can_access:
+      '#type': webform_section
+      '#title': 'Who can access your service'
+      '#title_tag': h1
+      ages_title:
+        '#type': webform_section
+        '#title': 'The ages your service is suitable for'
+        '#title_tag': h3
+        ages_suitable_for:
+          '#type': textarea
+          '#title': 'The ages your service is suitable for'
+          '#description': 'Include any exceptions to those ages. Also include &quot;Parents, carers and guardians&quot; if your service is aimed at supporting them'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
+      eligibility_title:
+        '#type': webform_section
+        '#title': Eligibility
+        '#title_tag': h3
+        eligibility_criteria:
+          '#type': textarea
+          '#title': Eligibility
+          '#description': 'Include any eligibility criteria needs to access your service'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
+      siblings_without_send_title:
+        '#type': webform_section
+        '#title': 'Siblings without SEND can attend (Optional)'
+        '#title_tag': h3
+        siblings_without_send:
+          '#type': radios
+          '#title': 'Can siblings without SEND also attend? (Optional)'
+          '#title_display': invisible
+          '#description_display': before
+          '#options': yes_no
   page_two_six:
     '#type': webform_wizard_page
-    '#title': 'Areas covered'
-    areas_covered:
-      '#type': webform_entity_checkboxes
-      '#title': 'Areas you cover'
-      '#description': 'Please select all that apply'
-      '#required': true
-      '#target_type': localgov_directories_facets
-      '#selection_handler': 'default:localgov_directories_facets'
-      '#selection_settings':
-        target_bundles:
-          location: location
-        sort:
-          field: title
-          direction: ASC
+    '#title': 'Page 2.6'
+    '#next_button_label': Continue
+    which_areas_title:
+      '#type': webform_section
+      '#title': 'Which areas you cover'
+      '#title_tag': h1
+      areas_title:
+        '#type': webform_section
+        '#title': 'The areas your service covers'
+        '#title_tag': h3
+        areas_covered:
+          '#type': webform_entity_checkboxes
+          '#title': 'Areas you cover'
+          '#description': 'Please select all that apply'
+          '#title_display': invisible
+          '#description_display': before
+          '#options_display': two_columns
+          '#required': true
+          '#target_type': localgov_directories_facets
+          '#selection_handler': 'default:localgov_directories_facets'
+          '#selection_settings':
+            target_bundles:
+              location: location
+            sort:
+              field: title
+              direction: ASC
   page_two_seven:
     '#type': webform_wizard_page
-    '#title': 'Cost of the service'
-    cost_of_service:
-      '#type': textarea
-      '#title': 'Cost of the service'
-      '#description': 'Include any exceptions to that cost'
-      '#required': true
-  page_two_eight:
-    '#type': webform_wizard_page
-    '#title': 'How to access your service'
-    how_to_access_service:
-      '#type': textarea
-      '#title': 'How people can access your service'
-      '#required': true
-    available_online:
-      '#type': radios
-      '#title': 'Is your service available online?'
-      '#options': yes_no
+    '#title': 'Page 2.7'
+    '#next_button_label': Continue
+    how_to_access_title:
+      '#type': webform_section
+      '#title': 'How to access your service'
+      '#title_tag': h1
+      cost_title:
+        '#type': webform_section
+        '#title': Cost
+        '#title_tag': h3
+        cost_of_service:
+          '#type': textarea
+          '#title': 'Cost of the service'
+          '#description': 'Include any exceptions to that cost'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
+      what_people_need_to_do_title:
+        '#type': webform_section
+        '#title': 'What people need to do to access your service'
+        '#title_tag': h3
+        how_to_access_service:
+          '#type': textarea
+          '#title': 'How people can access your service'
+          '#title_display': invisible
+          '#description_display': before
+          '#required': true
+      online_title:
+        '#type': webform_section
+        '#title': 'Is your service available online?'
+        '#title_tag': h3
+        available_online:
+          '#type': radios
+          '#title': 'Is your service available online?'
+          '#title_display': invisible
+          '#description_display': before
+          '#options': yes_no
+          '#required': true
   page_three:
     '#type': webform_wizard_page
-    '#title': 'Your service location and opening times'
+    '#title': 'Page 3'
+    '#next_button_label': Continue
     location_and_opening_times:
       '#type': webform_section
-      '#title': 'Your service location and opening times'
-      full_address:
-        '#type': textarea
-        '#title': 'Full address including postcode'
-        '#description': 'Only required if the child or family will attend your venue to access the service'
-        '#states':
-          visible:
-            ':input[name="attend_venue_for_access"]':
-              value: 'Yes'
-      venue_accessibility:
-        '#type': webform_entity_checkboxes
-        '#title': 'Venue accessibility'
-        '#description': 'Please select all that apply'
-        '#target_type': taxonomy_term
-        '#selection_handler': 'default:taxonomy_term'
-        '#selection_settings':
-          target_bundles:
-            venue_accessibility: venue_accessibility
-          sort:
-            field: name
-            direction: ASC
-      opening_hours:
-        '#type': textarea
+      '#title': 'Venue information (optional)'
+      '#title_tag': h1
+      address_title:
+        '#type': webform_section
+        '#title': 'Full address and postcode'
+        '#title_tag': h3
+        full_address:
+          '#type': textarea
+          '#title': 'Full address including postcode'
+          '#description': 'Only required if the child or family will attend your venue to access the service'
+          '#title_display': invisible
+          '#description_display': before
+          '#states':
+            visible:
+              ':input[name="attend_venue_for_access"]':
+                value: 'Yes'
+      a11y_title:
+        '#type': webform_section
+        '#title': 'The accessibility features available at your venue'
+        '#title_tag': h3
+        venue_accessibility:
+          '#type': webform_entity_checkboxes
+          '#title': 'Venue accessibility'
+          '#description': 'Please select all that apply'
+          '#title_display': invisible
+          '#description_display': before
+          '#options_display': two_columns
+          '#target_type': taxonomy_term
+          '#selection_handler': 'default:taxonomy_term'
+          '#selection_settings':
+            target_bundles:
+              venue_accessibility: venue_accessibility
+            sort:
+              field: name
+              direction: ASC
+      opening_hours_title:
+        '#type': webform_section
         '#title': 'Opening hours'
+        '#title_tag': h3
+        opening_hours:
+          '#type': textarea
+          '#title': 'Opening hours'
+          '#title_display': invisible
+          '#description_display': before
   page_four:
     '#type': webform_wizard_page
-    '#title': 'Your service contact details'
+    '#title': 'Page 4'
+    '#next_button_label': Continue
     service_contact_details:
       '#type': webform_section
-      '#title': 'Your service contact details'
-      '#description': 'This information will be on your public listing'
-      service_email:
-        '#type': email
-        '#title': 'Contact email'
-      contact_phone_number:
-        '#type': textfield
-        '#title': 'Contact phone number'
-      sms_number:
-        '#type': textfield
+      '#title': 'How can the public contact you'
+      '#title_tag': h1
+      contact_intro:
+        '#type': webform_markup
+        '#markup': 'This information will be on your public listing'
+      email_title:
+        '#type': webform_section
+        '#title': 'Email address'
+        '#title_tag': h3
+        service_email:
+          '#type': email
+          '#title': 'Contact email'
+          '#title_display': invisible
+          '#description_display': before
+      phone_title:
+        '#type': webform_section
+        '#title': 'Phone number'
+        '#title_tag': h3
+        contact_phone_number:
+          '#type': textfield
+          '#title': 'Contact phone number'
+          '#title_display': invisible
+          '#description_display': before
+      sms_title:
+        '#type': webform_section
         '#title': 'SMS number'
-      website:
-        '#type': url
+        '#title_tag': h3
+        sms_number:
+          '#type': textfield
+          '#title': 'SMS number'
+      website_title:
+        '#type': webform_section
         '#title': Website
-      facebook:
-        '#type': textfield
-        '#title': Facebook
-      twitter:
-        '#type': textfield
-        '#title': Twitter
-      instagram:
-        '#type': textfield
-        '#title': Instagram
+        '#title_tag': h3
+        website:
+          '#type': url
+          '#title': Website
+          '#title_display': invisible
+          '#description_display': before
   page_five:
     '#type': webform_wizard_page
-    '#title': 'Contact information'
+    '#title': 'Page 5'
+    '#next_button_label': Continue
+    socials_title:
+      '#type': webform_section
+      '#title': 'Social media'
+      '#title_tag': h1
+      fb_title:
+        '#type': webform_section
+        '#title': Facebook
+        '#title_tag': h3
+        facebook:
+          '#type': textfield
+          '#title': Facebook
+          '#title_display': invisible
+          '#description_display': before
+      twitter_title:
+        '#type': webform_section
+        '#title': Twitter
+        '#title_tag': h3
+        twitter:
+          '#type': textfield
+          '#title': Twitter
+          '#title_display': invisible
+          '#description_display': before
+      insta_title:
+        '#type': webform_section
+        '#title': Instagram
+        '#title_tag': h3
+        instagram:
+          '#type': textfield
+          '#title': Instagram
+          '#title_display': invisible
+          '#description_display': before
+  page_six:
+    '#type': webform_wizard_page
+    '#title': 'Page 6'
     contact_information:
       '#type': webform_section
       '#title': 'Contact information'
-      '#description': 'This information will not be displayed on your listing but will be used to contact you when required to ensure your listing information is up to date.'
-      contact_email:
-        '#type': email
-        '#title': 'Contact email'
+      person_contact_intro:
+        '#type': webform_markup
+        '#markup': 'This information will not be displayed on your listing but will be used to contact you when required to ensure your listing information is up to date.'
+      person_email_title:
+        '#type': webform_section
+        '#title': 'Email address'
+        '#title_tag': h3
+        contact_email:
+          '#type': email
+          '#title': 'Contact email'
+          '#title_display': invisible
+          '#description_display': before
 css: ''
 javascript: ''
 settings:
@@ -267,14 +491,14 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
-  wizard_progress_bar: true
-  wizard_progress_pages: false
+  wizard_progress_bar: false
+  wizard_progress_pages: true
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_start_label: ''
   wizard_preview_link: false
-  wizard_confirmation: true
+  wizard_confirmation: false
   wizard_confirmation_label: ''
   wizard_auto_forward: true
   wizard_auto_forward_hide_next_button: false
@@ -302,8 +526,8 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_url: ''
-  confirmation_title: ''
-  confirmation_message: ''
+  confirmation_title: 'Thank you for submitting your request to be on the Essex Local Offer'
+  confirmation_message: "<h2>Thank you for submitting your request to be on the Essex Local Offer</h2>\r\n\r\n<h3>What happens next</h3>\r\nWe will review your listing, and let you know whether we will be adding it to the Essex Local Offer, or if we need further information.<br />\r\nIf you have any questions email essex.localoffer@essex.gov.uk."
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: 'Submit another listing'
