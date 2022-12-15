@@ -142,3 +142,15 @@ label, .webform-element--title-inline > label {
 .path-webform .form-item-webform-terms-of-service input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
+
+
+/* List submission form overrides */
+.webform-submission-essex-local-offer-directory-list-form .form-item .description {
+  padding: unset;
+  border: unset;
+  background-color: unset;
+}
+
+.webform-submission-essex-local-offer-directory-list-form fieldset {
+  border: unset;
+}
