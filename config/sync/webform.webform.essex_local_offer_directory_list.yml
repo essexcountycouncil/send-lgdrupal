@@ -83,6 +83,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter name of service'
           '#label_attributes':
             class:
               - h3
@@ -97,6 +98,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter summary of service'
   page_three:
     '#type': webform_wizard_page
     '#title': 'Page 3'
@@ -117,6 +119,7 @@ elements: |-
           '#description_display': before
           '#options_display': two_columns
           '#required': true
+          '#required_error': 'Select the type of service you provide'
           '#target_type': localgov_directories_facets
           '#selection_handler': 'default:localgov_directories_facets'
           '#selection_settings':
@@ -144,6 +147,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter how your service can help children and young people with SEND and their families'
   page_five:
     '#type': webform_wizard_page
     '#title': 'Page 5'
@@ -164,6 +168,7 @@ elements: |-
           '#description_display': before
           '#options_display': two_columns
           '#required': true
+          '#required_error': 'Select the special needs your service caters for'
           '#target_type': localgov_directories_facets
           '#selection_handler': 'default:localgov_directories_facets'
           '#selection_settings':
@@ -190,6 +195,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter the ages your service is suitable for'
       eligibility_title:
         '#type': webform_section
         '#title': 'Eligibility criteria for accessing your service'
@@ -201,6 +207,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter eligibility criteria for accessing your service'
       siblings_without_send_title:
         '#type': webform_section
         '#title': 'Siblings without SEND can attend (Optional)'
@@ -230,6 +237,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter cost of your service'
       what_people_need_to_do_title:
         '#type': webform_section
         '#title': 'What people need to do to access your service'
@@ -241,6 +249,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter what people need to do to access your service'
       online_title:
         '#type': webform_section
         '#title': 'Does your service run online sessions?'
