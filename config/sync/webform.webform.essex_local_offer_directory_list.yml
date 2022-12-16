@@ -52,7 +52,7 @@ elements: |-
           </ul>
 
           <h3>If you need help completing this form</h3>
-          If you have any questions or would like to complete this form in a different format email essex.localoffer@essex.gov.uk.&nbsp;
+          If you have any questions or would like to complete this form in a different format email <a href="mailto:essex.localoffer@essex.gov.uk">essex.localoffer@essex.gov.uk</a>.&nbsp;
       eligibility_intro:
         '#type': webform_markup
         '#markup': |-
