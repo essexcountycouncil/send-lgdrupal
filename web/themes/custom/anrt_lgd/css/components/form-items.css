@@ -153,4 +153,18 @@ label, .webform-element--title-inline > label {
 
 .webform-submission-essex-local-offer-directory-list-form fieldset {
   border: unset;
+  padding: unset;
+}
+
+.webform-submission-essex-local-offer-directory-list-form .webform-button--previous {
+  color: var(--color-black);
+  border: unset;
+  background-color: unset;
+  padding: unset;
+  margin-bottom: var(--spacing);
+  border-bottom: 2px solid var(--color-black);
+}
+
+.webform-type-radios .form-item input, .webform-type-webform-radios-other .form-item-radios-other--radios input {
+  opacity: 1;
 }
