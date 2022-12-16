@@ -287,6 +287,8 @@ elements: |-
         sms_number:
           '#type': textfield
           '#title': 'SMS number'
+          '#title_display': invisible
+          '#description_display': before
       website_title:
         '#type': webform_section
         '#title': Website
@@ -349,7 +351,7 @@ elements: |-
             target_bundles:
               location: location
             sort:
-              field: title
+              field: weight
               direction: ASC
   page_two_five:
     '#type': webform_wizard_page
