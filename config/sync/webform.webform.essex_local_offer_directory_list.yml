@@ -496,7 +496,7 @@ settings:
   autofill_message: ''
   autofill_excluded_elements: {  }
   wizard_progress_bar: false
-  wizard_progress_pages: true
+  wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
