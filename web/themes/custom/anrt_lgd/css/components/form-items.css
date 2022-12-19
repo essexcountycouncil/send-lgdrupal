@@ -168,3 +168,8 @@ label, .webform-element--title-inline > label {
 .webform-type-radios .form-item input, .webform-type-webform-radios-other .form-item-radios-other--radios input {
   opacity: 1;
 }
+
+.webform-submission-essex-local-offer-directory-list-form fieldset .js-form-type-checkbox {
+  display: flex;
+  align-items: baseline;
+}
