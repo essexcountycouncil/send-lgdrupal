@@ -169,6 +169,10 @@ elements: |-
           '#description_display': before
           '#required': true
           '#required_error': 'Enter how your service can help children and young people with SEND and their families'
+    actions_04:
+      '#type': webform_actions
+      '#title': 'Page 4 submit'
+      '#wizard_prev_hide': true
   page_five:
     '#type': webform_wizard_page
     '#title': 'Page 5'
@@ -198,6 +202,10 @@ elements: |-
             sort:
               field: title
               direction: ASC
+    actions_05:
+      '#type': webform_actions
+      '#title': 'Page 5 submit'
+      '#wizard_prev_hide': true
   page_six:
     '#type': webform_wizard_page
     '#title': 'Page 6'
@@ -239,6 +247,10 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#options': yes_no
+    actions_06:
+      '#type': webform_actions
+      '#title': 'Page 6 submit'
+      '#wizard_prev_hide': true
   page_two_two:
     '#type': webform_wizard_page
     '#title': 'Page 7'
@@ -282,6 +294,10 @@ elements: |-
           '#description_display': before
           '#options': yes_no
           '#required': true
+    actions_07:
+      '#type': webform_actions
+      '#title': 'Page 7 submit'
+      '#wizard_prev_hide': true
   page_two_three:
     '#type': webform_wizard_page
     '#title': 'Page 8'
@@ -355,6 +371,10 @@ elements: |-
           '#title': Instagram
           '#title_display': invisible
           '#description_display': before
+    actions_08:
+      '#type': webform_actions
+      '#title': 'Page 8 submit'
+      '#wizard_prev_hide': true
   page_two_four:
     '#type': webform_wizard_page
     '#title': 'Page 9'
@@ -383,6 +403,10 @@ elements: |-
             sort:
               field: weight
               direction: ASC
+    actions_09:
+      '#type': webform_actions
+      '#title': 'Page 9 submit'
+      '#wizard_prev_hide': true
   page_two_five:
     '#type': webform_wizard_page
     '#title': 'Page 10'
@@ -434,6 +458,10 @@ elements: |-
           '#description': 'For example, Monday: 09:30-16:30, closed on other days'
           '#title_display': invisible
           '#description_display': before
+    actions_10:
+      '#type': webform_actions
+      '#title': 'Page 10 submit'
+      '#wizard_prev_hide': true
   page_two_seven:
     '#type': webform_wizard_page
     '#title': 'Page 11'
