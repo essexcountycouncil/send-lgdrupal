@@ -18,16 +18,28 @@ elements: |-
     '#title': 'Actions top'
     '#submit_hide': true
     '#update_hide': true
+    '#wizard_prev__label': '< Back'
     '#wizard_next_hide': true
   page_one:
     '#type': webform_wizard_page
     '#title': 'Page 1'
-    '#next_button_label': Continue
+    '#next_button_label': Start
     '#override_page_title': 1
     essex_local_offer_directory_listing_submission:
       '#type': webform_section
       '#title': 'Request to add your service to the Essex Local Offer'
       '#title_tag': h1
+      eligibility_intro:
+        '#type': webform_markup
+        '#markup': |-
+          Use this form if you would like your service to be added to the Essex Local Offer.&nbsp;<br />
+          <br />
+          To be listed, your service must:
+          <ul>
+          	<li>have a specific offer for children and young people aged 0 to 25 with special educational needs and disabilities (SEND) or their families</li>
+          	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
+          </ul>
+          Private sector providers must also have a clear link with a professional body or be registered and approved by a recognised regulatory body.
       before_you_start:
         '#type': webform_markup
         '#markup': |-
@@ -50,20 +62,21 @@ elements: |-
           	<li>contact information for your service</li>
           	<li>social media handles for your service</li>
           </ul>
+          You may want to prepare this information in advance because it is not possible to save and return to the form later.<br />
+          <br />
+          Use the back button on the form to navigate to previous pages, as you may lose the information you&rsquo;ve entered if you use the back button in your browser.<br />
+          &nbsp;
+      actions_01:
+        '#type': webform_actions
+        '#title': 'Pre-check button'
+        '#wizard_next__label': Start
+      need_help:
+        '#type': webform_markup
+        '#markup': |-
+          <p>&nbsp;</p>
 
           <h3>If you need help completing this form</h3>
           If you have any questions or would like to complete this form in a different format email <a href="mailto:essex.localoffer@essex.gov.uk">essex.localoffer@essex.gov.uk</a>.&nbsp;
-      eligibility_intro:
-        '#type': webform_markup
-        '#markup': |-
-          Use this form if you would like your service to be added to the Essex Local Offer.&nbsp;<br />
-          <br />
-          To be listed, your service must:
-          <ul>
-          	<li>have a specific offer for children and young people aged 0 to 25 with special educational needs and disabilities (SEND) or their families</li>
-          	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
-          </ul>
-          Private sector providers must also have a clear link with a professional body or be registered and approved by a recognised regulatory body.
   page_two_one:
     '#type': webform_wizard_page
     '#title': 'Page 2'
@@ -99,6 +112,10 @@ elements: |-
           '#description_display': before
           '#required': true
           '#required_error': 'Enter summary of service'
+    actions_02:
+      '#type': webform_actions
+      '#title': 'Page 2 submit'
+      '#wizard_prev_hide': true
   page_three:
     '#type': webform_wizard_page
     '#title': 'Page 3'
@@ -128,6 +145,10 @@ elements: |-
             sort:
               field: title
               direction: ASC
+    actions_03:
+      '#type': webform_actions
+      '#title': 'Page 3 submit'
+      '#wizard_prev_hide': true
   page_four:
     '#type': webform_wizard_page
     '#title': 'Page 4'
@@ -273,7 +294,7 @@ elements: |-
         '#markup': 'This information will be on your public listing'
       email_title:
         '#type': webform_section
-        '#title': 'Email address'
+        '#title': 'Email address (optional)'
         '#title_tag': h3
         service_email:
           '#type': email
@@ -282,7 +303,7 @@ elements: |-
           '#description_display': before
       phone_title:
         '#type': webform_section
-        '#title': 'Phone number'
+        '#title': 'Phone number (optional)'
         '#title_tag': h3
         contact_phone_number:
           '#type': textfield
@@ -291,7 +312,7 @@ elements: |-
           '#description_display': before
       sms_title:
         '#type': webform_section
-        '#title': 'SMS number'
+        '#title': 'SMS number (optional)'
         '#title_tag': h3
         sms_number:
           '#type': textfield
@@ -300,7 +321,7 @@ elements: |-
           '#description_display': before
       website_title:
         '#type': webform_section
-        '#title': Website
+        '#title': 'Website (optional)'
         '#title_tag': h3
         website:
           '#type': url
@@ -309,7 +330,7 @@ elements: |-
           '#description_display': before
       fb_title:
         '#type': webform_section
-        '#title': Facebook
+        '#title': 'Facebook (optional)'
         '#title_tag': h3
         facebook:
           '#type': textfield
@@ -318,7 +339,7 @@ elements: |-
           '#description_display': before
       twitter_title:
         '#type': webform_section
-        '#title': Twitter
+        '#title': 'Twitter (optional)'
         '#title_tag': h3
         twitter:
           '#type': textfield
@@ -327,7 +348,7 @@ elements: |-
           '#description_display': before
       insta_title:
         '#type': webform_section
-        '#title': Instagram
+        '#title': 'Instagram (optional)'
         '#title_tag': h3
         instagram:
           '#type': textfield
@@ -368,11 +389,11 @@ elements: |-
     '#next_button_label': Continue
     location_and_opening_times:
       '#type': webform_section
-      '#title': 'Venue information (optional)'
+      '#title': 'Venue information'
       '#title_tag': h1
       address_title:
         '#type': webform_section
-        '#title': 'Full address and postcode'
+        '#title': 'Full address and postcode (optional)'
         '#title_tag': h3
         full_address:
           '#type': textarea
@@ -386,7 +407,7 @@ elements: |-
                 value: 'Yes'
       a11y_title:
         '#type': webform_section
-        '#title': 'The accessibility features available at your venue'
+        '#title': 'The accessibility features available at your venue (optional)'
         '#title_tag': h3
         venue_accessibility:
           '#type': webform_entity_checkboxes
@@ -405,7 +426,7 @@ elements: |-
               direction: ASC
       opening_hours_title:
         '#type': webform_section
-        '#title': 'Opening hours'
+        '#title': 'Opening hours (optional)'
         '#title_tag': h3
         opening_hours:
           '#type': textarea
@@ -433,10 +454,10 @@ elements: |-
           '#title': 'Contact email'
           '#title_display': invisible
           '#description_display': before
-  actions:
-    '#type': webform_actions
-    '#title': 'Submit button(s)'
-    '#wizard_prev_hide': true
+    actions:
+      '#type': webform_actions
+      '#title': 'Submit button(s)'
+      '#wizard_prev_hide': true
 css: ''
 javascript: ''
 settings:
