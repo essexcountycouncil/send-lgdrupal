@@ -590,8 +590,8 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_url: ''
-  confirmation_title: 'Thank you for submitting your request to be on the Essex Local Offer'
-  confirmation_message: "<h2>Thank you for submitting your request to be on the Essex Local Offer</h2>\r\n\r\n<h3>What happens next</h3>\r\nWe will review your information and email you once your listing has been created or if we need further information.<br />\r\nIf you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>."
+  confirmation_title: 'Request submitted'
+  confirmation_message: "<h2>Request submitted</h2>\r\n\r\n<h3>What happens next</h3>\r\nWe will review your information and email you once your listing has been created or if we need further information.<br />\r\nIf you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>."
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: 'Submit another listing'
