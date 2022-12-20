@@ -173,3 +173,7 @@ label, .webform-element--title-inline > label {
   display: flex;
   align-items: baseline;
 }
+
+.webform-submission-essex-local-offer-directory-list-form fieldset .webform-confirmation__back {
+  padding-top: var(--spacing-larger);
+}
