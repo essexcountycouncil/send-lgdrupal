@@ -177,3 +177,12 @@ label, .webform-element--title-inline > label {
 .webform-submission-essex-local-offer-directory-list-form fieldset .webform-confirmation__back {
   padding-top: var(--spacing-larger);
 }
+
+.webform-submission-essex-local-offer-directory-list-form fieldset legend {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
