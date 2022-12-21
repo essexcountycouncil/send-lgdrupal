@@ -39,7 +39,7 @@ elements: |-
           	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
           </ul>
 
-          <div class="callout callout-carbon"><p>Private sector providers must also either:</p>
+          <div class=""><p>Private sector providers must also either:</p>
 
           <ul>
           	<li>have a clear link with a professional body</li>
@@ -51,7 +51,7 @@ elements: |-
         '#type': webform_markup
         '#markup': |-
           <h2>Before you start</h2>
-          <div class="callout callout-carbon">
+          <div class="">
           <p>It is not possible to save and return to the form later. We&rsquo;d advise having some of the information prepared before starting the form.&nbsp;</p>
 
           <p>You&#39;ll need to have:&nbsp;</p>
@@ -291,7 +291,7 @@ elements: |-
           '#description_display': before
           '#options': yes_no
           '#required': true
-          '#required_error': 'Select does your service run online sessions?'
+          '#required_error': 'Select does your service run online sessions'
     actions_07:
       '#type': webform_actions
       '#title': 'Page 7 submit'
