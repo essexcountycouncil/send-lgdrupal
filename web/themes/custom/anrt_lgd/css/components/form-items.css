@@ -65,9 +65,9 @@ label, .webform-element--title-inline > label {
   display: unset;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"],
-.path-webform .facet-item input[type="checkbox"],
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"] {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"],
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"],
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"] {
   position: unset;
   z-index: 1;
   top: 0;
@@ -79,9 +79,9 @@ label, .webform-element--title-inline > label {
   opacity: 1;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"] + label,
-.path-webform .facet-item input[type="checkbox"] + label,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"] + label {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"] + label,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"] + label,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"] + label {
   display: ;
   margin-left: 0;
   padding: 5px;
@@ -89,9 +89,9 @@ label, .webform-element--title-inline > label {
   touch-action: manipulation;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"] + label::before,
-.path-webform .facet-item input[type="checkbox"] + label::before,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"] + label::before {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"] + label::before,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"] + label::before,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"] + label::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -103,9 +103,9 @@ label, .webform-element--title-inline > label {
   background: transparent;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"] + label::after,
-.path-webform .facet-item input[type="checkbox"] + label::after,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"] + label::after {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"] + label::after,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"] + label::after,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"] + label::after {
   position: absolute;
   top: 11px;
   left: 9px;
@@ -121,34 +121,47 @@ label, .webform-element--title-inline > label {
   background: transparent;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"]:focus + label:before,
-.path-webform .facet-item input[type="checkbox"]:focus + label:before,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"]:focus + label:before {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"]:focus + label:before,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"]:focus + label:before,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"]:focus + label:before {
   border-width: 4px;
   box-shadow: 0 0 0 3px transparent;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"]:hover + label,
-.path-webform .facet-item input[type="checkbox"]:hover + label,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"]:hover + label,
-.path-webform .form-checkboxes input[type="checkbox"]:focus + label,
-.path-webform .facet-item input[type="checkbox"]:focus + label,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"]:focus + label {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"]:hover + label,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"]:hover + label,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"]:hover + label,
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"]:focus + label,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"]:focus + label,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"]:focus + label {
   text-decoration: underline;
 }
 
-.path-webform .form-checkboxes input[type="checkbox"]:checked + label:after,
-.path-webform .facet-item input[type="checkbox"]:checked + label:after,
-.path-webform .form-item-webform-terms-of-service input[type="checkbox"]:checked + label:after {
+.webform-submission-suggest-an-edit-form .form-checkboxes input[type="checkbox"]:checked + label:after,
+.webform-submission-suggest-an-edit-form .facet-item input[type="checkbox"]:checked + label:after,
+.webform-submission-suggest-an-edit-form .form-item-webform-terms-of-service input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
 
-
 /* List submission form overrides */
+.webform-submission-essex-local-offer-directory-list-form {
+  max-width: var(--width-medium);
+}
+
+.webform-submission-essex-local-offer-directory-list-form .webform-section {
+  margin-bottom: var(--spacing-largest);
+}
+
+.webform-submission-essex-local-offer-directory-list-form .webform-section-title {
+
+}
+
 .webform-submission-essex-local-offer-directory-list-form .form-item .description {
   padding: unset;
+  padding-bottom: var(--spacing-large);
   border: unset;
   background-color: unset;
+  max-width: 75%;
 }
 
 .webform-submission-essex-local-offer-directory-list-form fieldset {
@@ -171,7 +184,9 @@ label, .webform-element--title-inline > label {
 
 .webform-submission-essex-local-offer-directory-list-form fieldset .js-form-type-checkbox {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
+  margin-bottom: var(--spacing);
+  width: 50%;
 }
 
 .webform-submission-essex-local-offer-directory-list-form fieldset .webform-confirmation__back {
@@ -185,4 +200,40 @@ label, .webform-element--title-inline > label {
   width: 1px;
   height: 1px;
   word-wrap: normal;
+}
+
+.webform-submission-essex-local-offer-directory-list-form .form-checkboxes input[type="checkbox"] + label::before, 
+.webform-submission-essex-local-offer-directory-list-form .facet-item input[type="checkbox"] + label::before, 
+.webform-submission-essex-local-offer-directory-list-form .form-item-webform-terms-of-service input[type="checkbox"] + label::before {
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 5px;
+}
+
+.webform-submission-essex-local-offer-directory-list-form .form-checkboxes input[type="checkbox"] + label::after, 
+.webform-submission-essex-local-offer-directory-list-form .facet-item input[type="checkbox"] + label::after, 
+.webform-submission-essex-local-offer-directory-list-form .form-item-webform-terms-of-service input[type="checkbox"] + label::after {
+  width: 21px;
+  height: 10px;
+  top: 13px;
+}
+
+@media (min-width: 400px) {
+  .webform-submission-essex-local-offer-directory-list-form .webform-options-display-two-columns {
+    display: block;
+    display: flex;
+    column-count: unset;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+}
+
+.webform-submission-essex-local-offer-directory-list-form .webform-type-radios .form-item input, 
+.webform-submission-essex-local-offer-directory-list-form .webform-type-webform-radios-other .form-item-radios-other--radios input {
+  top: 5px;
+  left: 1px;
+  width: 30px;
+  height: 30px;
+  accent-color: var(--color-black);
 }
