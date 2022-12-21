@@ -32,23 +32,26 @@ elements: |-
       eligibility_intro:
         '#type': webform_markup
         '#markup': |-
-          To be listed, your service must:
+          <p>To be listed, your service must:</p>
+
           <ul>
           	<li>have a specific offer for children and young people aged 0 to 25 with special educational needs and disabilities (SEND) or their families</li>
           	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
           </ul>
-          Private sector providers must also either:
+
+          <div class="callout callout-carbon"><p>Private sector providers must also either:</p>
 
           <ul>
           	<li>have a clear link with a professional body</li>
           	<li>be registered and approved by a recognised regulatory body.</li>
           </ul>
-          This form takes around 15 minutes to complete. If you need to go back a page, only use the back button on the form otherwise you may lose your progress.
+
+          <p>This form takes around 15 minutes to complete. If you need to go back a page, only use the back button on the form otherwise you may lose your progress.</p></div>
       before_you_start:
         '#type': webform_markup
         '#markup': |-
           <h2>Before you start</h2>
-
+          <div class="callout callout-carbon">
           <p>It is not possible to save and return to the form later. We&rsquo;d advise having some of the information prepared before starting the form.&nbsp;</p>
 
           <p>You&#39;ll need to have:&nbsp;</p>
@@ -66,11 +69,11 @@ elements: |-
           	<li>contacts and social media</li>
           </ul>
 
-          <p>If you have any questions email <a href="mailto:essex.localoffer@essex.gov.uk" rel="noreferrer noopener" target="_blank">essex.localoffer@essex.gov.uk</a></p>
+          <p>If you have any questions email <a href="mailto:essex.localoffer@essex.gov.uk" rel="noreferrer noopener" target="_blank">essex.localoffer@essex.gov.uk</a></p></div>
       actions_01:
         '#type': webform_actions
         '#title': 'Pre-check button'
-        '#wizard_next__label': Start
+        '#wizard_next__label': 'Start now'
   page_two_one:
     '#type': webform_wizard_page
     '#title': 'Page 2'
