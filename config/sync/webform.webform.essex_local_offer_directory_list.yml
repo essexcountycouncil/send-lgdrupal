@@ -482,7 +482,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
-          '#required_error': 'Enter contact email'
+          '#required_error': 'Enter email address'
     actions:
       '#type': webform_actions
       '#title': 'Submit button(s)'
