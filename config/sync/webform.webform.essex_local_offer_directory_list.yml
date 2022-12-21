@@ -32,51 +32,45 @@ elements: |-
       eligibility_intro:
         '#type': webform_markup
         '#markup': |-
-          Use this form if you would like your service to be added to the Essex Local Offer.&nbsp;<br />
-          <br />
           To be listed, your service must:
           <ul>
           	<li>have a specific offer for children and young people aged 0 to 25 with special educational needs and disabilities (SEND) or their families</li>
           	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
           </ul>
-          Private sector providers must also have a clear link with a professional body or be registered and approved by a recognised regulatory body.
+          Private sector providers must also either:
+
+          <ul>
+          	<li>have a clear link with a professional body</li>
+          	<li>be registered and approved by a recognised regulatory body.</li>
+          </ul>
+          This form takes around 15 minutes to complete. If you need to go back a page, only use the back button on the form otherwise you may lose your progress.
       before_you_start:
         '#type': webform_markup
         '#markup': |-
           <h2>Before you start</h2>
-          We expect this form to take around 15 minutes to complete. It is not possible to save and return to the form later.&nbsp;<br />
-          <br />
-          You&rsquo;ll be asked for:
+
+          <p>It is not possible to save and return to the form later. We&rsquo;d advise having some of the information prepared before starting the form.&nbsp;</p>
+
+          <p>You&#39;ll need to have:&nbsp;</p>
+
           <ul>
-          	<li>the name of your service and a short summary of what you offer</li>
-          	<li>the type of service you provide</li>
-          	<li>a description of how your service can help children and young people with SEND and their families</li>
-          	<li>the special needs your service caters for</li>
-          	<li>the ages your service is suitable for</li>
-          	<li>the eligibility criteria to access your service</li>
-          	<li>the locations your service covers</li>
-          	<li>the cost of your service</li>
-          	<li>what people need to do to access your service</li>
-          	<li>the address of your service and any accessibility features available at your venue</li>
-          	<li>the opening hours of your service</li>
-          	<li>contact information for your service</li>
-          	<li>social media handles for your service</li>
+          	<li>a short summary of what you offer&nbsp;</li>
+          	<li>a description of how your service can help children and young people with SEND and their families&nbsp;</li>
+          	<li>the type of service you provide&nbsp;</li>
+          	<li>special needs your service caters for&nbsp;</li>
+          	<li>age</li>
+          	<li>eligibility criteria</li>
+          	<li>locations you operate in</li>
+          	<li>cost</li>
+          	<li>a venue address, venue accessibility, opening hours</li>
+          	<li>contacts and social media</li>
           </ul>
-          You may want to prepare this information in advance because it is not possible to save and return to the form later.<br />
-          <br />
-          Use the back button on the form to navigate to previous pages, as you may lose the information you&rsquo;ve entered if you use the back button in your browser.<br />
-          &nbsp;
+
+          <p>If you have any questions email <a href="mailto:essex.localoffer@essex.gov.uk" rel="noreferrer noopener" target="_blank">essex.localoffer@essex.gov.uk</a></p>
       actions_01:
         '#type': webform_actions
         '#title': 'Pre-check button'
         '#wizard_next__label': Start
-      need_help:
-        '#type': webform_markup
-        '#markup': |-
-          <p>&nbsp;</p>
-
-          <h3>If you need help completing this form</h3>
-          If you have any questions or would like to complete this form in a different format email <a href="mailto:essex.localoffer@essex.gov.uk">essex.localoffer@essex.gov.uk</a>.&nbsp;
   page_two_one:
     '#type': webform_wizard_page
     '#title': 'Page 2'
@@ -239,11 +233,11 @@ elements: |-
           '#required_error': 'Enter eligibility criteria for accessing your service'
       siblings_without_send_title:
         '#type': webform_section
-        '#title': 'Siblings without SEND can attend (Optional)'
+        '#title': 'Siblings without SEND can attend (optional)'
         '#title_tag': h3
         siblings_without_send:
           '#type': radios
-          '#title': 'Can siblings without SEND also attend? (Optional)'
+          '#title': 'Can siblings without SEND also attend? (optional)'
           '#title_display': invisible
           '#description_display': before
           '#options': yes_no
@@ -294,6 +288,7 @@ elements: |-
           '#description_display': before
           '#options': yes_no
           '#required': true
+          '#required_error': 'Select does your service run online sessions?'
     actions_07:
       '#type': webform_actions
       '#title': 'Page 7 submit'
@@ -484,6 +479,7 @@ elements: |-
           '#title_display': invisible
           '#description_display': before
           '#required': true
+          '#required_error': 'Enter contact email'
     actions:
       '#type': webform_actions
       '#title': 'Submit button(s)'
@@ -497,8 +493,8 @@ settings:
   ajax_effect: ''
   ajax_speed: null
   page: true
-  page_submit_path: ''
-  page_confirm_path: ''
+  page_submit_path: /form/request-new-listing
+  page_confirm_path: /form/request-new-listing/end
   page_theme_name: ''
   form_title: source_entity_webform
   form_submit_once: false
@@ -593,7 +589,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: 'Request submitted'
-  confirmation_message: "<h1>Request submitted</h1>\r\n\r\n<h3>What happens next</h3>\r\nWe will review your information and email you once your listing has been created or if we need further information.<br />\r\nIf you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>."
+  confirmation_message: "<h1>Request submitted</h1>\r\nThank you for submitting your request to be on the Essex Local Offer.\r\n\r\n<h3>What happens next</h3>\r\nWe will review your information and email you once your listing has been created or if we need further information.<br />\r\n<br />\r\nIf you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>."
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: 'Submit another request'
