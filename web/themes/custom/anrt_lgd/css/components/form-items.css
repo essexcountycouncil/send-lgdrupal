@@ -250,3 +250,7 @@ label, .webform-element--title-inline > label {
 .webform-submission-essex-local-offer-directory-list-form .callout-carbon {
   background-color: var(--color-grey-light);
 }
+
+.webform-confirmation__back {
+  padding-top: var(--spacing-largest);
+}

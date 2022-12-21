@@ -1,0 +1,79 @@
+uuid: c42cc602-2813-48e7-a2fd-d0d0bd57a750
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform_workflows_element
+id: request_to_add_listing
+label: 'Request to add listing'
+type: webform_workflows_element
+type_settings:
+  initial_state: new
+  states:
+    awaiting_approval:
+      label: 'Awaiting approval'
+      weight: 3
+    complete:
+      label: Complete
+      weight: 4
+    invalid:
+      label: Invalid
+      weight: 0
+    new:
+      label: New
+      weight: 1
+    rejected:
+      label: Rejected
+      weight: 2
+    sent_to_provider:
+      label: 'Sent to provider'
+      weight: 5
+  transitions:
+    awaiting_approval:
+      label: 'Awaiting approval'
+      from:
+        - new
+      to: awaiting_approval
+      weight: 2
+    awaiting_to_sp:
+      label: 'Sent to Service Provider'
+      from:
+        - awaiting_approval
+      to: sent_to_provider
+      weight: 5
+    complete:
+      label: Complete
+      from:
+        - new
+      to: complete
+      weight: 3
+    invalid:
+      label: Invalid
+      from:
+        - new
+      to: invalid
+      weight: 0
+    rejected:
+      label: Rejected
+      from:
+        - new
+      to: rejected
+      weight: 1
+    sent_to_service_provider:
+      label: 'Sent to Service Provider'
+      from:
+        - new
+      to: sent_to_provider
+      weight: 4
+    sp_to_awaiting:
+      label: 'Awaiting approval'
+      from:
+        - sent_to_provider
+      to: awaiting_approval
+      weight: 6
+    sp_to_complete:
+      label: Complete
+      from:
+        - sent_to_provider
+      to: complete
+      weight: 7

@@ -487,6 +487,42 @@ elements: |-
       '#type': webform_actions
       '#title': 'Submit button(s)'
       '#wizard_prev_hide': true
+  request_to_add_service:
+    '#type': webform_workflows_element
+    '#title': 'Request to add service'
+    '#access_update_roles':
+      - webform_manager
+      - send_admin
+    '#access_view_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_invalid_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_rejected_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_awaiting_approval_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_complete_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_sent_to_service_provider_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_awaiting_to_sp_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_sp_to_awaiting_roles':
+      - webform_manager
+      - send_admin
+    '#access_transition_sp_to_complete_roles':
+      - webform_manager
+      - send_admin
+    '#workflow': request_to_add_listing
+    '#log_public_setting': Disabled
+    '#log_admin_setting': Optional
 css: ''
 javascript: ''
 settings:
