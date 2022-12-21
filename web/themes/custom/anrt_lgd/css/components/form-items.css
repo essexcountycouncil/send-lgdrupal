@@ -237,3 +237,16 @@ label, .webform-element--title-inline > label {
   height: 30px;
   accent-color: var(--color-black);
 }
+
+.webform-submission-essex-local-offer-directory-list-form .callout {
+  text-align: unset;
+  color: var(--color-black);
+}
+
+.webform-submission-essex-local-offer-directory-list-form .callout a {
+  color: var(--color-black);
+}
+
+.webform-submission-essex-local-offer-directory-list-form .callout-carbon {
+  background-color: var(--color-grey-light);
+}
