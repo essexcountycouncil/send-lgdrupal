@@ -589,7 +589,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: 'Request submitted'
-  confirmation_message: "<h1>Request submitted</h1>\r\nThank you for submitting your request to be on the Essex Local Offer.\r\n\r\n<h3>What happens next</h3>\r\nWe will review your information and email you once your listing has been created or if we need further information.<br />\r\n<br />\r\nIf you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>."
+  confirmation_message: "<h1>Request submitted</h1>\r\n\r\n<p>Thank you for submitting your request to be on the Essex Local Offer.</p>\r\n\r\n<h2>What happens next</h2>\r\n\r\n<p>We will review your information and email you once your listing has been created or if we need further information.</p>\r\n\r\n<p>If you have any questions email <a href=\"mailto:essex.localoffer@essex.gov.uk\">essex.localoffer@essex.gov.uk</a>.</p>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: 'Submit another request'
