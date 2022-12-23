@@ -20,6 +20,12 @@ elements: |-
     '#update_hide': true
     '#wizard_prev__label': '< Back'
     '#wizard_next_hide': true
+  workflow_add_listing:
+    '#type': webform_workflows_element
+    '#title': 'Workflow state'
+    '#workflow': request_to_add_listing
+    '#log_public_setting': Optional
+    '#log_admin_setting': Optional
   page_one:
     '#type': webform_wizard_page
     '#title': 'Page 1'
@@ -665,31 +671,45 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   delete_any:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   purge_any:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   delete_own:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   administer:
@@ -697,7 +717,9 @@ access:
     users: {  }
     permissions: {  }
   test:
-    roles: {  }
+    roles:
+      - webform_manager
+      - send_admin
     users: {  }
     permissions: {  }
   configuration:
