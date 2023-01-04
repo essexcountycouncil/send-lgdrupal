@@ -3,8 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - user.role.send_admin
     - webform.webform.essex_local_offer_directory_list
   module:
+    - csv_serialization
+    - rest
+    - serialization
+    - user
+    - views_data_export
     - webform
     - webform_views
 id: new_listing_submissions
@@ -23,60 +29,6 @@ display:
     display_options:
       title: 'New listing submissions'
       fields:
-        webform_submission_bulk_form:
-          id: webform_submission_bulk_form
-          table: webform_submission
-          field: webform_submission_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: null
-          entity_field: null
-          plugin_id: webform_submission_bulk_form
-          label: 'Webform submission operations bulk form'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: exclude
-          selected_actions: {  }
         webform_submission_value_20:
           id: webform_submission_value_20
           table: webform_submission_field_essex_local_offer_directory_list_service_name
@@ -1325,8 +1277,10 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            send_admin: send_admin
       cache:
         type: tag
         options: {  }
@@ -1379,11 +1333,135 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url.query_args
         - user
+        - user.roles
+      tags: {  }
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      row:
+        type: data_field
+        options:
+          field_options:
+            webform_submission_value_20:
+              alias: name_of_service
+              raw_output: false
+            webform_submission_value_28:
+              alias: summary_of_service
+              raw_output: false
+            webform_submission_value_33:
+              alias: type_of_service
+              raw_output: false
+            webform_submission_value_16:
+              alias: how_it_helps
+              raw_output: false
+            webform_submission_value_23:
+              alias: special_needs
+              raw_output: false
+            webform_submission_value_30:
+              alias: ages
+              raw_output: false
+            webform_submission_value_11:
+              alias: eligibility
+              raw_output: false
+            webform_submission_value_1:
+              alias: siblings_without_send
+              raw_output: false
+            webform_submission_value_8:
+              alias: costs
+              raw_output: false
+            webform_submission_value_15:
+              alias: how_to_access
+              raw_output: false
+            webform_submission_value_10:
+              alias: online
+              raw_output: false
+            webform_submission_value_3:
+              alias: email_public
+              raw_output: false
+            webform_submission_value_6:
+              alias: phone
+              raw_output: false
+            webform_submission_value_26:
+              alias: sms
+              raw_output: false
+            webform_submission_value_39:
+              alias: website
+              raw_output: false
+            webform_submission_value_13:
+              alias: facebook
+              raw_output: false
+            webform_submission_value_35:
+              alias: twitter
+              raw_output: false
+            webform_submission_value_19:
+              alias: instagram
+              raw_output: false
+            webform_submission_value:
+              alias: areas_covered
+              raw_output: false
+            webform_submission_value_14:
+              alias: address
+              raw_output: false
+            webform_submission_value_37:
+              alias: accessibility
+              raw_output: false
+            webform_submission_value_22:
+              alias: opening_hours
+              raw_output: false
+            webform_submission_value_2:
+              alias: email_private
+              raw_output: false
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
+      path: admin/new-listing-submissions/export
+      displays:
+        page_1: page_1
+        default: '0'
+      filename: 'new-listings-[date:html_date].csv'
+      automatic_download: false
+      store_in_public_file_directory: false
+      custom_redirect_path: false
+      redirect_to_display: page_1
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - request_format
+        - user
+        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -1394,9 +1472,10 @@ display:
       display_extenders: {  }
       path: admin/new-listing-submissions
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url.query_args
         - user
+        - user.roles
       tags: {  }
