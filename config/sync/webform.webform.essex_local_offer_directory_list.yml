@@ -24,8 +24,18 @@ elements: |-
     '#type': webform_workflows_element
     '#title': 'Workflow state'
     '#workflow': request_to_add_listing
-    '#log_public_setting': Optional
+    '#log_public_setting': Disabled
     '#log_admin_setting': Optional
+  transition_save:
+    '#type': webform_actions
+    '#title': 'Transition save'
+    '#states':
+      visible:
+        ':input[name="workflow_add_listing[workflow_state]"]':
+          filled: true
+    '#submit_hide': true
+    '#wizard_prev_hide': true
+    '#wizard_next_hide': true
   page_one:
     '#type': webform_wizard_page
     '#title': 'Page 1'
@@ -493,42 +503,6 @@ elements: |-
       '#type': webform_actions
       '#title': 'Submit button(s)'
       '#wizard_prev_hide': true
-  request_to_add_service:
-    '#type': webform_workflows_element
-    '#title': 'Request to add service'
-    '#access_update_roles':
-      - webform_manager
-      - send_admin
-    '#access_view_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_invalid_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_rejected_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_awaiting_approval_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_complete_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_sent_to_service_provider_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_awaiting_to_sp_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_sp_to_awaiting_roles':
-      - webform_manager
-      - send_admin
-    '#access_transition_sp_to_complete_roles':
-      - webform_manager
-      - send_admin
-    '#workflow': request_to_add_listing
-    '#log_public_setting': Disabled
-    '#log_admin_setting': Optional
 css: ''
 javascript: ''
 settings:
@@ -658,7 +632,7 @@ settings:
   purge_days: null
   results_disabled: false
   results_disabled_ignore: false
-  results_customize: false
+  results_customize: true
   token_view: false
   token_update: false
   token_delete: false
