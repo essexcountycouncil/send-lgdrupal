@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - user.role.localgov_editor
     - user.role.send_admin
+    - user.role.webform_manager
     - webform.webform.essex_local_offer_directory_list
   module:
     - csv_serialization
@@ -446,6 +448,8 @@ display:
         type: role
         options:
           role:
+            localgov_editor: localgov_editor
+            webform_manager: webform_manager
             send_admin: send_admin
       cache:
         type: tag
@@ -637,7 +641,18 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
       path: admin/new-listing-submissions
     cache_metadata:
       max-age: -1
