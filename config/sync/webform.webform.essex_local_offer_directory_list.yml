@@ -226,6 +226,7 @@ elements: |-
   page_six:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#next_button_label': Continue
     who_can_access:
       '#type': webform_section
       '#title': 'Who can access your service'
