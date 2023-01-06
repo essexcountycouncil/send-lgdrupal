@@ -538,71 +538,23 @@ display:
             webform_submission_value_20:
               alias: name_of_service
               raw_output: false
-            webform_submission_value_28:
-              alias: summary_of_service
-              raw_output: false
             webform_submission_value_33:
               alias: type_of_service
-              raw_output: false
-            webform_submission_value_16:
-              alias: how_it_helps
               raw_output: false
             webform_submission_value_23:
               alias: special_needs
               raw_output: false
-            webform_submission_value_30:
-              alias: ages
-              raw_output: false
-            webform_submission_value_11:
-              alias: eligibility
-              raw_output: false
-            webform_submission_value_1:
-              alias: siblings_without_send
-              raw_output: false
-            webform_submission_value_8:
-              alias: costs
-              raw_output: false
-            webform_submission_value_15:
-              alias: how_to_access
-              raw_output: false
-            webform_submission_value_10:
-              alias: online
-              raw_output: false
-            webform_submission_value_3:
-              alias: email_public
-              raw_output: false
-            webform_submission_value_6:
-              alias: phone
-              raw_output: false
-            webform_submission_value_26:
-              alias: sms
-              raw_output: false
-            webform_submission_value_39:
-              alias: website
-              raw_output: false
-            webform_submission_value_13:
-              alias: facebook
-              raw_output: false
-            webform_submission_value_35:
-              alias: twitter
-              raw_output: false
-            webform_submission_value_19:
-              alias: instagram
-              raw_output: false
             webform_submission_value:
               alias: areas_covered
               raw_output: false
-            webform_submission_value_14:
-              alias: address
-              raw_output: false
-            webform_submission_value_37:
-              alias: accessibility
-              raw_output: false
-            webform_submission_value_22:
-              alias: opening_hours
-              raw_output: false
             webform_submission_value_2:
-              alias: email_private
+              alias: state
+              raw_output: false
+            completed:
+              alias: submitted
+              raw_output: false
+            webform_submission_value_1:
+              alias: updated
               raw_output: false
       display_extenders:
         matomo:
