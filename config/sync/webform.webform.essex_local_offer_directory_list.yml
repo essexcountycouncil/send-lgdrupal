@@ -39,6 +39,10 @@ elements: |-
   page_one:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#states':
+      invisible:
+        ':input[name="workflow_add_listing[workflow_state]"]':
+          filled: true
     '#next_button_label': Start
     '#override_page_title': 1
     essex_local_offer_directory_listing_submission:
