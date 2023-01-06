@@ -19,6 +19,7 @@
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
         "drupal/back_to_top": "^2.0",
+        "drupal/better_exposed_filters": "^6.0",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
         "drupal/devel": "^4.1",
