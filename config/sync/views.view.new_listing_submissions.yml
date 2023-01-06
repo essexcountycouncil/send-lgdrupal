@@ -8,6 +8,7 @@ dependencies:
     - user.role.webform_manager
     - webform.webform.essex_local_offer_directory_list
   module:
+    - better_exposed_filters
     - csv_serialization
     - rest
     - serialization
@@ -435,15 +436,34 @@ display:
             offset: false
             offset_label: Offset
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: minimal
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              completed:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
       access:
         type: role
         options:
@@ -483,11 +503,141 @@ display:
           plugin_id: bundle
           value:
             essex_local_offer_directory_list: essex_local_offer_directory_list
+          group: 1
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        completed:
+          id: completed
+          table: webform_submission
+          field: completed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: webform_submission
+          entity_field: completed
+          plugin_id: date
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: completed_op
+            label: 'Date submitted'
+            description: ''
+            use_operator: false
+            operator: completed_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: completed
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_editor: '0'
+              localgov_author: '0'
+              localgov_contributor: '0'
+              localgov_news_editor: '0'
+              localgov_user_manager: '0'
+              facet_editor: '0'
+              webform_manager: '0'
+              service_provider: '0'
+              send_admin: '0'
+              redirect_manager: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: Completed
+            description: null
+            identifier: completed
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            webform_submission_value_20: webform_submission_value_20
+            webform_submission_value_33: webform_submission_value_33
+            webform_submission_value_23: webform_submission_value_23
+            webform_submission_value: webform_submission_value
+            webform_submission_value_2: webform_submission_value_2
+            completed: completed
+            webform_submission_value_1: webform_submission_value_1
+          default: '-1'
+          info:
+            webform_submission_value_20:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_33:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_23:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_2:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            completed:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -499,7 +649,17 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -507,6 +667,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - user.roles
@@ -570,8 +731,8 @@ display:
           category_facets_concat_separator: ', '
       path: admin/new-listing-submissions/export
       displays:
-        page_1: page_1
         default: '0'
+        page_1: '0'
       filename: 'new-listings-[date:html_date].csv'
       automatic_download: false
       store_in_public_file_directory: false
@@ -584,6 +745,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - user
         - user.roles
       tags: {  }
@@ -611,6 +773,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user
         - user.roles
