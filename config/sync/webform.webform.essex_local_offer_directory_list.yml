@@ -17,24 +17,8 @@ elements: |-
     '#type': webform_actions
     '#title': 'Actions top'
     '#submit_hide': true
-    '#update_hide': true
+    '#update__label': 'Update state'
     '#wizard_prev__label': '< Back'
-    '#wizard_next_hide': true
-  workflow_add_listing:
-    '#type': webform_workflows_element
-    '#title': 'Workflow state'
-    '#workflow': request_to_add_listing
-    '#log_public_setting': Disabled
-    '#log_admin_setting': Optional
-  transition_save:
-    '#type': webform_actions
-    '#title': 'Transition save'
-    '#states':
-      visible:
-        ':input[name="workflow_add_listing[workflow_state]"]':
-          filled: true
-    '#submit_hide': true
-    '#wizard_prev_hide': true
     '#wizard_next_hide': true
   page_one:
     '#type': webform_wizard_page
@@ -507,7 +491,24 @@ elements: |-
     actions:
       '#type': webform_actions
       '#title': 'Submit button(s)'
+      '#update__label': 'Update state'
       '#wizard_prev_hide': true
+  workflow_add_listing:
+    '#type': webform_workflows_element
+    '#title': 'Workflow state'
+    '#workflow': request_to_add_listing
+    '#log_public_setting': Disabled
+    '#log_admin_setting': Optional
+  transition_save:
+    '#type': webform_actions
+    '#title': 'Transition save'
+    '#states':
+      visible:
+        ':input[name="workflow_add_listing[workflow_state]"]':
+          filled: true
+    '#submit_hide': true
+    '#update__label': 'Update state'
+    '#wizard_prev_hide': true
 css: ''
 javascript: ''
 settings:
