@@ -105,6 +105,7 @@ module:
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
+  metatag_verification: 0
   mgv: 0
   mysql: 0
   no_autocomplete: 0

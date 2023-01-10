@@ -182,6 +182,16 @@ label, .webform-element--title-inline > label {
   opacity: 1;
 }
 
+.page-node-type-localgov-directory .block-localgov-directories-channel-search-block label {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .webform-submission-essex-local-offer-directory-list-form fieldset .js-form-type-checkbox {
   display: flex;
   align-items: flex-start;
