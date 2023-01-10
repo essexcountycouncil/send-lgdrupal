@@ -54,6 +54,8 @@ third_party_settings:
     multilingual:
       limit_to_content_language: false
       include_language_independent: true
+      use_language_undefined_as_fallback_language: false
+      use_universal_collation: false
 _core:
   default_config_hash: eO_Li21Vk3k4OcUxdCXaxwRgCCmdDA5L0nN2zBzspTU
 id: localgov_directories_index_default
