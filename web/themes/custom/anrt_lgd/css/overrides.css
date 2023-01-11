@@ -23,22 +23,31 @@ body {
 }
 
 @media screen and (min-width: 48rem) {
-  .menu--main>.menu-item a {
-    text-decoration: none;
-    color: var(--color-white);
+  .menu--footer>.menu-item a {
+    padding: var(--spacing);
   }
 
-  .menu--main>.menu-item a:hover {
+  .menu--main>.menu-item a,
+  .menu--footer>.menu-item a {
+    text-decoration: none;
+    color: var(--color-white);
+    border: 1px solid transparent;
+  }
+
+  .menu--main>.menu-item a:hover,
+  .menu--footer>.menu-item a:hover {
     color: var(--color-white);
     border-color: var(--color-white);
     background-color: unset;
   }
 
-  .menu--main>.menu-item a.is-active {
+  .menu--main>.menu-item a.is-active,
+  .menu--footer>.menu-item a.is-active {
     background-color: var(--color-accent);
   }
 
-  .menu--main>.menu-item a.is-active:hover {
+  .menu--main>.menu-item a.is-active:hover,
+  .menu--footer>.menu-item a.is-active:hover {
     color: var(--color-white);
   }
 }
