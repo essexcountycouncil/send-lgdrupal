@@ -418,7 +418,7 @@ display:
           webform_multiple_delta: 0
           webform_check_access: 1
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 10
@@ -427,6 +427,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -435,6 +437,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: bef
         options:
@@ -731,8 +734,8 @@ display:
           category_facets_concat_separator: ', '
       path: admin/new-listing-submissions/export
       displays:
+        page_1: page_1
         default: '0'
-        page_1: '0'
       filename: 'new-listings-[date:html_date].csv'
       automatic_download: false
       store_in_public_file_directory: false
