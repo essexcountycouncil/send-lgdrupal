@@ -415,3 +415,7 @@ body {
   margin-top: 2.2rem;
 }
 /* End moderation box styles */
+
+.pager__items {
+  padding-bottom: var(--spacing-mega);
+}
