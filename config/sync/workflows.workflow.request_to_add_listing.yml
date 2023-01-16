@@ -33,14 +33,9 @@ type_settings:
       label: 'Awaiting approval'
       from:
         - new
+        - sent_to_provider
       to: awaiting_approval
       weight: 2
-    awaiting_to_sp:
-      label: 'Sent to Service Provider'
-      from:
-        - awaiting_approval
-      to: sent_to_provider
-      weight: 5
     complete:
       label: Complete
       from:
@@ -56,24 +51,22 @@ type_settings:
     rejected:
       label: Rejected
       from:
+        - awaiting_approval
         - new
+        - sent_to_provider
       to: rejected
       weight: 1
     sent_to_service_provider:
       label: 'Sent to Service Provider'
       from:
+        - awaiting_approval
         - new
       to: sent_to_provider
       weight: 4
-    sp_to_awaiting:
-      label: 'Awaiting approval'
-      from:
-        - sent_to_provider
-      to: awaiting_approval
-      weight: 6
     sp_to_complete:
       label: Complete
       from:
+        - awaiting_approval
         - sent_to_provider
       to: complete
       weight: 7
