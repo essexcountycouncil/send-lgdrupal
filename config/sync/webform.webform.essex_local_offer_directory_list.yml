@@ -17,6 +17,7 @@ elements: |-
     '#type': webform_actions
     '#title': 'Actions top'
     '#submit_hide': true
+    '#update_hide': true
     '#update__label': 'Update state'
     '#wizard_prev__label': '< Back'
     '#wizard_next_hide': true
@@ -77,6 +78,7 @@ elements: |-
       actions_01:
         '#type': webform_actions
         '#title': 'Pre-check button'
+        '#update_hide': true
         '#wizard_next__label': 'Start now'
   page_two_one:
     '#type': webform_wizard_page
@@ -241,7 +243,7 @@ elements: |-
           '#required_error': 'Enter eligibility criteria for accessing your service'
       siblings_without_send_title:
         '#type': webform_section
-        '#title': 'Siblings without SEND can attend (optional)'
+        '#title': 'Can siblings without SEND also attend? (optional)'
         '#title_tag': h3
         siblings_without_send:
           '#type': radios
@@ -491,12 +493,12 @@ elements: |-
     actions:
       '#type': webform_actions
       '#title': 'Submit button(s)'
-      '#update__label': 'Update state'
       '#wizard_prev_hide': true
   workflow_add_listing:
     '#type': webform_workflows_element
-    '#title': 'Workflow state'
+    '#title': Status
     '#workflow': request_to_add_listing
+    '#show_workflow_form_on_view': false
     '#log_public_setting': Disabled
     '#log_admin_setting': Optional
   transition_save:
