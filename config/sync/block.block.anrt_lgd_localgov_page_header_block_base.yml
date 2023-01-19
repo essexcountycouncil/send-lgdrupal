@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - localgov_core
-    - webform
+    - system
   theme:
     - anrt_lgd
 _core:
@@ -21,10 +21,7 @@ settings:
   label_display: '0'
   provider: localgov_core
 visibility:
-  'entity_bundle:webform_submission':
-    id: 'entity_bundle:webform_submission'
+  request_path:
+    id: request_path
     negate: true
-    context_mapping:
-      webform_submission: '@webform.webform_submission_route_context:webform_submission'
-    bundles:
-      essex_local_offer_directory_list: essex_local_offer_directory_list
+    pages: /form/request-new-listing
