@@ -24,4 +24,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: /form/request-new-listing
+    pages: "/form/request-new-listing\r\n/form/request-new-listing/end"
