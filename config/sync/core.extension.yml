@@ -13,6 +13,8 @@ module:
   ckeditor: 0
   condition_field: 0
   config: 0
+  config_filter: 0
+  config_ignore: 0
   content_moderation: 0
   contextual: 0
   crop: 0
