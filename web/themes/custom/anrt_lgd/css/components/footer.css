@@ -92,3 +92,8 @@
     text-align: right;
   }
 }
+
+.lgd-footer__footer a {
+  background-color: unset;
+  line-height: var(--spacing-large);
+}

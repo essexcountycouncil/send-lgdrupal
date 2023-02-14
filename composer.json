@@ -19,8 +19,11 @@
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
         "drupal/back_to_top": "^2.0",
-        "drupal/core-composer-scaffold": "^9.1",
-        "drupal/core-recommended": "^9.1",
+        "drupal/better_exposed_filters": "^6.0",
+        "drupal/config_ignore": "^2.4",
+        "drupal/core-composer-scaffold": "^9.5.0",
+        "drupal/core-project-message": "^9.5.0",
+        "drupal/core-recommended": "^9.5.0",
         "drupal/devel": "^4.1",
         "drupal/disable_html5_validation": "^1.1",
         "drupal/feeds": "^3.0@beta",
@@ -39,10 +42,11 @@
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
+        "drupal/stage_file_proxy": "^2.0",
         "drupal/twig_tweak": "^3.1",
         "drupal/views_data_export": "^1.1",
         "drupal/webform": "^6.1",
-        "drupal/webform_query": "^2.0@alpha",
+        "drupal/webform_query": "^1.0@alpha",
         "drupal/webform_views": "^5.0@beta",
         "drupal/webform_workflows_element": "^1.0@alpha",
         "drush/drush": "^10.6",
@@ -73,7 +77,9 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "drupal/core-composer-scaffold": true
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "php-http/discovery": true
         }
     },
     "extra": {
@@ -124,7 +130,7 @@
         },
         "patches": {
             "drupal/core": {
-                "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch"
+                "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2022-10-30/2761273-50.patch"
             },
             "localgovdrupal/localgov_directories": {
                 "Use an 'and' query between facet groups and 'or' within them": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_directories/pull/235.patch"
