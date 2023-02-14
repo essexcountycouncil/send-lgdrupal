@@ -20,6 +20,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal/back_to_top": "^2.0",
         "drupal/better_exposed_filters": "^6.0",
+        "drupal/config_ignore": "^2.4",
         "drupal/core-composer-scaffold": "^9.5.0",
         "drupal/core-project-message": "^9.5.0",
         "drupal/core-recommended": "^9.5.0",
