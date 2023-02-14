@@ -166,16 +166,16 @@ crons:
     # Take a snapshot automatically every night at 1 am (UTC).
     spec: '0 1 * * *'
     cmd: |
-      if [ "$PLATFORM_BRANCH" = master ]; then
+      if [ "$PLATFORM_BRANCH" = main ]; then
           platform snapshot:create --yes --no-wait
       fi
   dbdump:
     # Take a DB-dump automatically every night at 0.30 am (UTC).
     spec: '30 0 * * *'
     cmd: |
-      if [ "$PLATFORM_BRANCH" = master ]; then
+      if [ "$PLATFORM_BRANCH" = main ]; then
           # Create DB-dump.
-          mysqldump --single-transaction --user='user' --password='' --host='database.internal' --port=3306 'main' | gzip -9 > private/db-dump/$(date +%Y-%m-%d)-master.sql.gz
+          mysqldump --single-transaction --user='user' --password='' --host='database.internal' --port=3306 'main' | gzip -9 > private/db-dump/$(date +%Y-%m-%d)-main.sql.gz
           # Remove DB-dumps older than 23 hours.
-          find private/db-dump/ -type f -mmin +1380 -name '*-master.sql.gz' -execdir rm -- '{}' +
+          find private/db-dump/ -type f -mmin +1380 -name '*-main.sql.gz' -execdir rm -- '{}' +
       fi
