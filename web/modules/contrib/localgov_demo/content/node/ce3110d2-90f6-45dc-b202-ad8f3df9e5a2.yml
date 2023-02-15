@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: ce3110d2-90f6-45dc-b202-ad8f3df9e5a2
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    57b46ceb-20d3-45cc-9f9b-2bf2a6561c78: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Occupational Therapy and equipment: helping you stay at home'
+  created:
+    -
+      value: 1592931069
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/support-your-home/occupational-therapy-and-equipment-helping-you-stay
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>To help you stay at home, you can:</p>\r\n\r\n<ul>\r\n\t<li>choose your own equipment to help you with day-to-day activities</li>\r\n\t<li>get help deciding which equipment or technology you should use by getting an assessment</li>\r\n</ul>\r\n\r\n<h2>Choosing the right everyday equipment and adaptations</h2>\r\n\r\n<p>Equipment and adaptations can help you live more independently and confidently at home and in your community. For example, if you:</p>\r\n\r\n<ul>\r\n\t<li>find it difficult to carry out day-to-day activities, such as having a bath or shower</li>\r\n\t<li>find it hard getting around your home, such as going up and down the stairs</li>\r\n\t<li>sometimes feel unsafe in your own home, or you care for someone who does</li>\r\n</ul>\r\n\r\n<p>Whatever you're having difficulty with, there is most likely a piece of equipment that can help. There are many types of equipment designed to help with different day-to-day activities. Here are just a few examples:</p>\r\n\r\n<ul>\r\n\t<li>shower boards and bath seats</li>\r\n\t<li>trolleys for carrying things between rooms</li>\r\n\t<li>specially adapted beds and chairs</li>\r\n\t<li>raised toilet seats and commodes</li>\r\n\t<li>grab rails</li>\r\n\t<li>wall to floor rails</li>\r\n\t<li>alterations to taps</li>\r\n\t<li>alterations to steps</li>\r\n</ul>\r\n\r\n<p>You can find out more about how equipment and adaptations can help with different concerns using <a href=\"https://asksara.livingmadeeasy.org.uk/selector\">AskSara</a>.</p>\r\n\r\n<p>For further information please call Adult Social Care on 020 8726 6500, 9am to 4pm, Monday to Friday.</p>\r\n\r\n<h2>Where you can buy equipment</h2>\r\n\r\n<p>Some people prefer to choose and buy items themselves. A wide range of equipment is available to buy online or in person from YourCare.</p>\r\n\r\n<h2>Get help deciding what you need: Occupational Therapy</h2>\r\n\r\n<p>People with more complex needs may benefit from an assessment from the Occupational Therapy service. The service helps adults of all ages to modify activities they need or want to do.</p>\r\n\r\n<p>Occupation means any way in which people spend their time, including:</p>\r\n\r\n<ul>\r\n\t<li>personal care such as washing, dressing and going to the toilet</li>\r\n\t<li>paid or unpaid work</li>\r\n\t<li>housework</li>\r\n\t<li>leisure such as games, hobbies and social activities</li>\r\n</ul>\r\n\r\n<p>An Occupational Therapist can help you find practical solutions to do these activities. They may visit you at home and have a conversation with you. You may also wish to include your family, friends or people who care for you.</p>\r\n\r\n<p>Following this conversation, we may recommend equipment and technology to remove barriers and help people do the things they want to do. This includes:</p>\r\n\r\n<ul>\r\n\t<li>mobile or ceiling-mounted hoists</li>\r\n\t<li>specially adapted beds</li>\r\n\t<li>specialist seating for posture needs</li>\r\n\t<li>major adaptations to your home such as a wet room or ramps</li>\r\n\t<li>connecting people to other organisations for support</li>\r\n\t<li>support for carers</li>\r\n</ul>\r\n\r\n<h2>How to request for Occupational Therapy</h2>\r\n\r\n<p>If you feel you need support and advice from an Occupational Therapist, we'll have a conversation with you about your situation, and find out how we can help.</p>\r\n\r\n<p>To start this conversation, you can either:</p>\r\n\r\n<ul>\r\n\t<li>email <a href=\"mailto:example@example.com\">example@example.com</a></li>\r\n\t<li>call 555 111 222 333</li>\r\n</ul>\r\n\r\n<h2>Get help with home repairs</h2>\r\n\r\n<p>You may also get support to make repairs to your home. For more details, see <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"ce3110d2-90f6-45dc-b202-ad8f3df9e5a2\" href=\"/node/7\">Staying Put</a><a href=\"node/4\">.</a></p>\r\n\r\n<p>&nbsp;</p>\r\n"
+      format: wysiwyg
+      summary: 'We provide advice and support to help you live independently if you''re older, disabled, or have a long-term illness.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78

@@ -1,0 +1,20 @@
+{% if items %}
+<div class="servicehub--update striped">
+  <div class="serviceub--update_inner">
+    {% for item in items %}
+    <ul>
+      <li>{{ item.date|date("d.m.Y") }}</li>
+      <li><strong>{{ item.title }} - </strong>{{ item.description }}</li>
+      <li><a class="read-more" href="{{ item.url }}">Read more</a></li>
+    </ul>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<div class="servicehub--update">
+  <span>
+    <i class="fas fa-info-circle"></i>
+    <p>There are no current issues with this service</p>
+  </span>
+</div>
+{% endif %}

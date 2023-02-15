@@ -1,0 +1,5 @@
+name: 'Group config test'
+description: 'Configuration import test module for the localgov_menu_link_group config entity.'
+type: module
+package: Testing
+core_version_requirement: ^8.8 || ^9

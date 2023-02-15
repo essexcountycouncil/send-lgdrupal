@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 302e0534-58b9-4cc8-8ea7-96cdedb0e4e5
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is a ''newsroom'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631892066
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-18--80da3b665adb1f6e2d2159c097d42943e3ead6c8
+  short_description:
+    -
+      value: "<p>Add a 'newsroom' to collect together 'news articles' beneath. A site can have multiple newsrooms, for example for stories about a specific service within a council. Users can also search all related news from this page.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: /news
+          negate: '0'

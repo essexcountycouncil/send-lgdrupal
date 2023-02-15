@@ -1,0 +1,20 @@
+geocoder_provider.configuration.localgov_os_places:
+  type: geocoder_provider_configuration
+  label: 'Localgov OS Places arguments'
+  mapping:
+    genericAddressQueryUrl:
+      type: string
+      label: 'Street address-based query URL'
+      description: 'URL of the OS Places API server for street address-based query.'
+    postcodeQueryUrl:
+      type: string
+      label: 'Postcode-based query URL'
+      description: 'URL of the OS Places API server for postcode-based query.'
+    apiKey:
+      type: string
+      label: 'API key'
+      description: 'Value of the API key'
+    userAgent:
+      type: string
+      label: 'User agent'
+      description: 'Value of the User-Agent header'

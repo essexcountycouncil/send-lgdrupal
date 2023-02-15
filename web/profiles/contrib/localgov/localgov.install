@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the LocalGovInstall installation profile.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function localgov_install() {
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+}
+
+/**
+ * Run the potentially skipped search_api_update_8107() safely.
+ */
+function localgov_update_8201() {
+  // Superseded by search_api_update_8110().
+  //
+  // Sites that have run this update, will get updated by 8110.
+  // Sites that have not run this update will also get 8110 and shouldn't risk
+  // running this version after search_api_update_8110.
+}
+
+/**
+ * Enable stable9 theme if localgov_base theme is enabled.
+ */
+function localgov_update_9501() {
+
+  if (\Drupal::service('theme_handler')->themeExists('localgov_base')) {
+    \Drupal::service('theme_installer')->install(['stable9']);
+  }
+}

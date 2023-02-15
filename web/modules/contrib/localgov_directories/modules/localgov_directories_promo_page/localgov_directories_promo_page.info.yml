@@ -1,0 +1,16 @@
+name: 'LocalGov Directories Promo Page'
+type: module
+description: 'Provides a rich unstructured entry type for directory channels.'
+package: LocalGov Drupal
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:link
+  - address:address
+  - field_group:field_group
+  - localgov_directories:localgov_directories
+  - localgov_paragraphs:localgov_paragraphs
+  - localgov_paragraphs:localgov_paragraphs_layout
+  - localgov_paragraphs:localgov_subsites_paragraphs
+  - localgov_paragraphs:localgov_paragraphs_views
+  - field_formatter_class:field_formatter_class
+  - menu_ui:menu_ui

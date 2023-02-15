@@ -1,0 +1,39 @@
+# Schema for the configuration files of the back to top module.
+
+back_to_top.settings:
+  type: config_object
+  label: 'Back to top settings'
+  mapping:
+    back_to_top_prevent_on_mobile:
+      type: boolean
+      label: 'Prevent on mobile and touch devices'
+    back_to_top_prevent_in_admin:
+      type: boolean
+      label: 'Prevent on administration pages and node edit'
+    back_to_top_prevent_in_front:
+      type: boolean
+      label: 'Prevent on front page'
+    back_to_top_button_trigger:
+      type: float
+      label: 'Trigger'
+    back_to_top_button_place:
+      type: integer
+      label: 'Placement'
+    back_to_top_button_text:
+      type: label
+      label: 'Button text'
+    back_to_top_button_type:
+      type: string
+      label: 'Button type'
+    back_to_top_bg_color:
+      type: string
+      label: 'Background color'
+    back_to_top_border_color:
+      type: string
+      label: 'Border color'
+    back_to_top_hover_color:
+      type: string
+      label: 'Hover color'
+    back_to_top_text_color:
+      type: string
+      label: 'Text color'

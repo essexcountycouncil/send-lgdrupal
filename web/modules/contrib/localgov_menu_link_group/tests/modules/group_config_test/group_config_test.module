@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * @file
+ * A dummy module to help test configuration import.
+ *
+ * This module has configuration files for the localgov_menu_link_group config
+ * entity.
+ */

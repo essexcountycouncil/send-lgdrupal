@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks.
+ *
+ * Primarily tries to rename Paragraph library related labels to
+ * "Page component".
+ */
+
+declare(strict_types = 1);
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\localgov_page_components\Constants;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ */
+function localgov_page_components_help($route_name, RouteMatchInterface $route_match) {
+
+  switch ($route_name) {
+    // Main module help for the localgov_page_components module.
+    case 'help.page.localgov_page_components':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Disguise &quot;Paragraphs library&quot; as &quot;Page components&quot; for better UX.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ *
+ * Renames "Add content > Paragraphs" menu label to "Page components".
+ */
+function localgov_page_components_menu_links_discovered_alter(&$links) {
+
+  $has_paragraphs_lib_link = array_key_exists(Constants::PARAGRAPHS_LIB_LIST_MENU_LINK, $links);
+  if ($has_paragraphs_lib_link) {
+    $links[Constants::PARAGRAPHS_LIB_LIST_MENU_LINK]['title'] = t('@title', ['@title' => Constants::PAGE_COMPONENT_LIST_LABEL]);
+  }
+}
+
+/**
+ * Implements hook_menu_local_actions_alter().
+ *
+ * Renames "Add library item" to "Add Page component".
+ */
+function localgov_page_components_menu_local_actions_alter(&$local_actions) {
+
+  $has_paragraphs_lib_add_action = array_key_exists(Constants::PARAGRAPHS_LIB_ADD_ACTION, $local_actions);
+  if ($has_paragraphs_lib_add_action) {
+    $local_actions[Constants::PARAGRAPHS_LIB_ADD_ACTION]['title'] = t('@title', ['@title' => Constants::PAGE_COMPONENT_ADD_ACTION_LABEL]);
+  }
+}
+
+/**
+ * Implements hook_local_tasks_alter().
+ *
+ * Renames the "Paragraphs" tab to "Page compoments".
+ */
+function localgov_page_components_local_tasks_alter(&$local_tasks) {
+
+  $has_paragraphs_local_task = array_key_exists(Constants::PARAGRAPHS_LIB_LISTING_ROUTE, $local_tasks);
+  if ($has_paragraphs_local_task) {
+    $local_tasks[Constants::PARAGRAPHS_LIB_LISTING_ROUTE]['title'] = t('@title', ['@title' => Constants::PAGE_COMPONENT_LIST_LABEL]);
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * Relabels "Paragraphs library item" entity type to "Page component".
+ */
+function localgov_page_components_entity_type_alter(array &$entity_types) {
+
+  $has_def_for_paragraphs_lib = array_key_exists(Constants::PARAGRAPHS_LIB_ENTITY_TYPE_ID, $entity_types);
+  if (!$has_def_for_paragraphs_lib) {
+    return;
+  }
+
+  $entity_types[Constants::PARAGRAPHS_LIB_ENTITY_TYPE_ID]->set('label', t('@label', ['@label' => Constants::PAGE_COMPONENT_LABEL]));
+  $entity_types[Constants::PARAGRAPHS_LIB_ENTITY_TYPE_ID]->set('label_collection', t('@label', ['@label' => Constants::PAGE_COMPONENT_LIST_LABEL]));
+  $entity_types[Constants::PARAGRAPHS_LIB_ENTITY_TYPE_ID]->set('label_singular', t('@label', ['@label' => Constants::PAGE_COMPONENT_LABEL]));
+  $entity_types[Constants::PARAGRAPHS_LIB_ENTITY_TYPE_ID]->set('label_plural', t('@label', ['@label' => Constants::PAGE_COMPONENT_LIST_LABEL]));
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Relabels View title from "Paragraphs library" to "Page components".
+ */
+function localgov_page_components_views_pre_render(ViewExecutable $view) {
+
+  $is_paragraphs_lib_list_view = ($view->id() === Constants::PARAGRAPHS_LIB_LIST_VIEW_ID);
+  $is_paragraphs_lib_list_view_page_display = ($view->current_display === Constants::PARAGRAPHS_LIB_LIST_VIEW_DISPLAY_ID);
+  if ($is_paragraphs_lib_list_view and $is_paragraphs_lib_list_view_page_display) {
+    $view->setTitle(t('@title', ['@title' => Constants::PAGE_COMPONENT_LIST_LABEL]));
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * Workaround for Paragraphs bug.  This bug bites when saving Paragraphs inside
+ * the *Entity browser*.
+ *
+ * @see https://www.drupal.org/project/entity_browser/issues/3014194#comment-12864945
+ * @see https://www.drupal.org/project/paragraphs/issues/2901390
+ */
+function localgov_page_components_entity_presave(EntityInterface $entity) {
+
+  // Fix langcode is empty when you use entity browser x inline entity form.
+  if ($entity->getEntityType()->id() == 'paragraph') {
+    $langcode_key = $entity->getEntityType()->getKey('langcode');
+    if (!empty($langcode_key)) {
+      $lang_value = $entity->get($langcode_key)->getLangcode();
+      if (!empty($lang_value)) {
+        $entity->set($langcode_key, $lang_value);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_multivalue_WIDGET_TYPE_form_alter().
+ *
+ * Alterations:
+ * - Add our custom styling to the Entity browser.
+ * - Reposition the Entity browser launch button.
+ */
+function localgov_page_components_field_widget_multivalue_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
+
+  $field_name = $context['items']->getFieldDefinition()->getName();
+  $is_page_component_field = ($field_name === Constants::PAGE_COMPONENT_FIELD_NAME);
+  if (!$is_page_component_field) {
+    return;
+  }
+
+  $element['#attached']['library'][] = 'localgov_page_components/entity_browser';
+
+  // Push down the select button under the selected entities.
+  $has_entity_browser_launch_button = array_key_exists(Constants::ENTITY_BROWSER_LAUNCH_BUTTON, $element);
+  if ($has_entity_browser_launch_button) {
+    $element['entity_browser']['#weight'] = 10;
+  }
+}

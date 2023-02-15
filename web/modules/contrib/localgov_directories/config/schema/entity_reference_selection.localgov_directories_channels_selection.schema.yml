@@ -1,0 +1,17 @@
+entity_reference_selection.localgov_directories_channels_selection:
+  type: entity_reference_selection
+  label: 'LocalGovDrupal Services selection handler settings'
+  mapping:
+    sort:
+      type: mapping
+      label: 'Sort settings'
+      mapping:
+        field:
+          type: string
+          label: 'Sort by'
+        direction:
+          type: string
+          label: 'Sort direction'
+
+entity_reference_selection.localgov_directories_channels_selection.*:
+   type: entity_reference_selection.localgov_directories_channels_selection

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the No Autocomplete module.
+ */
+
+/**
+ * Issue #2951274: The autocomplete option is not needed for the user edit form.
+ */
+function no_autocomplete_update_8101() {
+  // Deleting the variable.
+  \Drupal::service('config.factory')->getEditable('no_autocomplete.settings')->clear('no_autocomplete_profile_form')->save();
+}

@@ -1,0 +1,133 @@
+general:
+  version: 1.x
+  css:
+    component:
+      css/leaflet_general.css: {}
+
+leaflet:
+  remote: http://leafletjs.com/
+  version: 1.9.2
+  license:
+    name: Leaflet-License
+    url: https://github.com/Leaflet/Leaflet/blob/v1.9.2/LICENSE
+    gpl-compatible: true
+  js:
+    js/leaflet/dist/leaflet.js: {}
+  css:
+    component:
+      js/leaflet/dist/leaflet.css: {}
+
+leaflet-drupal:
+  version: VERSION
+  js:
+    js/leaflet.drupal.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal
+    - leaflet/leaflet
+
+leaflet-geoman:
+  remote: http://leafletjs.com/
+  version: 2.13.0
+  license:
+    name: Leaflet-Geoman-License
+    url: https://github.com/geoman-io/leaflet-geoman/blob/develop/LICENSE
+    gpl-compatible: true
+  js:
+    js/leaflet-geoman-free/dist/leaflet-geoman.min.js: { }
+  css:
+    component:
+      js/leaflet-geoman-free/dist/leaflet-geoman.css: {}
+  dependencies:
+    - leaflet/leaflet
+
+leaflet-widget:
+  version: 1.x
+  js:
+    js/leaflet.widget.js: {}
+  dependencies:
+    - core/jquery
+    - leaflet/general
+    - leaflet/leaflet-drupal
+    - leaflet/leaflet-geoman
+
+# Control Fullscreen
+leaflet.fullscreen:
+  header: true
+  remote: https://github.com/Leaflet/Leaflet.fullscreen
+  version: '1.0.2'
+  license:
+    name: ISC License
+    url: https://github.com/Leaflet/Leaflet.fullscreen/blob/gh-pages/LICENSE
+    gpl-compatible: true
+  css:
+    component:
+      'js/Leaflet.fullscreen-gh-pages/dist/leaflet.fullscreen.css': {}
+  js:
+    'js/Leaflet.fullscreen-gh-pages/dist/Leaflet.fullscreen.js': {}
+  dependencies:
+    - leaflet/leaflet
+
+# Control Reset View
+leaflet.reset_map_view:
+  header: true
+  remote: https://github.com/drustack/Leaflet.ResetView
+  version: '1.1.1'
+  license:
+    name: Apache License 2.0
+    url: https://github.com/drustack/Leaflet.ResetView/blob/master/LICENSE
+    gpl-compatible: false
+  css:
+    component:
+      'js/Leaflet.ResetView/dist/L.Control.ResetView.min.css': { minified: true }
+  js:
+    'js/Leaflet.ResetView/dist/L.Control.ResetView.js': {}
+  dependencies:
+    - leaflet/leaflet
+
+# Gesture Handling Leaflet Library
+leaflet.gesture_handling:
+  header: true
+  remote: https://github.com/elmarquis/Leaflet.GestureHandling
+  version: '1.2.2'
+  license:
+    name: MIT License
+    url: https://raw.githubusercontent.com/elmarquis/Leaflet.GestureHandling/master/LICENSE
+    gpl-compatible: false
+  css:
+    component:
+      'js/Leaflet.GestureHandling-1.2.2/dist/leaflet-gesture-handling.min.css': { minified: true}
+  js:
+    'js/Leaflet.GestureHandling-1.2.2/dist/leaflet-gesture-handling.min.js': { minified: true }
+  dependencies:
+    - leaflet/leaflet
+
+# User Locate Control.
+leaflet.locatecontrol:
+  header: true
+  remote: https://github.com/domoritz/leaflet-locatecontrol
+  version: '0.78.0'
+  license:
+    name: MIT License (MIT)
+    url: https://github.com/domoritz/leaflet-locatecontrol/blob/gh-pages/LICENSE
+    gpl-compatible: true
+  css:
+    component:
+      'js/leaflet-locatecontrol-gh-pages/dist/L.Control.Locate.css': {}
+  js:
+    'js/leaflet-locatecontrol-gh-pages/dist/L.Control.Locate.min.js': { minified: true }
+  dependencies:
+    - leaflet/leaflet
+
+# Custom Leaflet Geocoder control implementation
+leaflet.geocoder:
+  version: 1.x
+  css:
+    component:
+      css/autocomplete-loading.module.css: { weight: -10 }
+  js:
+    js/leaflet.geocoder.js: {}
+  dependencies:
+    - core/drupal.autocomplete
+    - leaflet/leaflet-drupal

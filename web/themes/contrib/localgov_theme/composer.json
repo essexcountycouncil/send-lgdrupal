@@ -1,0 +1,10 @@
+{
+    "name": "localgovdrupal/localgov_theme",
+    "description": "Feature rich base theme for LocalGov Drupal sites.",
+    "type": "drupal-theme",
+    "homepage": "https://github.com/localgovdrupal/localgov_theme",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "localgovdrupal/localgov_skeleton": "^1.0@alpha"
+    }
+}

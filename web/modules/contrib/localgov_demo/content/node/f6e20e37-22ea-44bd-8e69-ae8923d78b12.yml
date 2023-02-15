@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f6e20e37-22ea-44bd-8e69-ae8923d78b12
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Attending your notice appointment during Coronavirus'
+  created:
+    -
+      value: 1620398882
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-6
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Before attending your appointment, please check if you or your child has symptoms on the&nbsp;<a href=\"https://www.nhs.uk/conditions/coronavirus-covid-19/symptoms/\">NHS website</a><strong>.</strong></p>\r\n\r\n<p>To minimise the number of people who are in contact with each other during this time,&nbsp;we have a number of rules in place in order to keep you and our staff safe.</p>\r\n\r\n<h2>During your appointment</h2>\r\n\r\n<p>Scarfolk Registration Service is open for pre-approved appointments only.</p>\r\n\r\n<p>To make sure the office doesn't get overcrowded, you will be allowed into&nbsp;the premises 5 minutes before your appointment.</p>\r\n\r\n<h2>How to keep safe during your appointment</h2>\r\n\r\n<p>On arrival and during your appointment you will be required to use hand sanitiser and comply with Public Health England guidance on social distancing.</p>\r\n\r\n<p><a href=\"https://www.gov.uk/government/publications/staying-alert-and-safe-social-distancing/staying-alert-and-safe-social-distancing\">Read GOV.UK's guidance on social distancing.</a></p>\r\n\r\n<p>If you have your own personal protective equipment (PPE) please wear it to your appointment.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Attending your notice appointment during Coronavirus'
+  localgov_step_summary:
+    -
+      value: "<p>To minimise the number of people who are in contact with each other during this time,&nbsp;we have a number of rules in place in order to keep you and our staff safe.</p>\r\n"
+      format: wysiwyg

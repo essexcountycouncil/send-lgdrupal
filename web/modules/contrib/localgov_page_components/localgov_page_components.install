@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal page components install file.
+ */
+
+use Drupal\localgov_core\FieldRenameHelper;
+
+/**
+ * Update Field names in localgov page components.
+ *
+ * Field mapping between existing and new names:
+ * field_page_components => localgov_page_components.
+ *
+ * This change creates and updates Drupal config entities.  Unless configuration
+ * is *exported* after this update, later calls to 'drush deploy' or similar
+ * will revert these changes.
+ */
+function localgov_page_components_update_8001(&$sandbox) {
+
+  // Update field_ types fields provided by localgov_page_components.
+  FieldRenameHelper::renameField('field_page_components', 'localgov_page_components', 'node');
+
+  return t('Please export your sites configuration! Config entities for localgov_page_components where updated.');
+}
+
+/**
+ * Implements hook_install().
+ */
+function localgov_page_components_install($is_syncing) {
+
+  /** @var \Drupal\linkit\ProfileInterface $defaultLinkItProfile */
+  $defaultLinkItProfile = \Drupal::service('entity_type.manager')->getStorage('linkit_profile')->load('default');
+  if (empty($defaultLinkItProfile)) {
+    // Applies during test runs.
+    return;
+  }
+
+  foreach ($defaultLinkItProfile->getMatchers() as $matcher) {
+    if ($matcher->getPluginId() == 'entity:paragraphs_library_item') {
+      return;
+    }
+  }
+
+  $defaultLinkItProfile->addMatcher([
+    'id' => 'entity:paragraphs_library_item',
+    'weight' => 0,
+    'settings' => [
+      'metadata' => '',
+      'bundles'  => [
+        'localgov_contact' => 'localgov_contact',
+        'localgov_link' => 'localgov_link',
+      ],
+      'group_by_bundle' => TRUE,
+      'substitution_type' => 'paragraphs_library_item_localgovdrupal',
+      'limit' => 20,
+    ],
+  ]);
+  $defaultLinkItProfile->save();
+}

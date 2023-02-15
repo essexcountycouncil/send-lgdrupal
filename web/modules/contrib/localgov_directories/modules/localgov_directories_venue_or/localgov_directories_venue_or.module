@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Functions for adding Open Referral to Venues.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Autopopulate the organization field.
+ *
+ * It may be desirable to do this. It will add organisation entries with
+ * the same title as the venue entry. Chances are there are actually
+ * different named organisations for the venues though, but that could only
+ * be corrected by going through it manually.
+ *
+ * @todo so far this is fine to run on a small set with Drush. Want to batch
+ *   and add a UI?
+ */
+function localgov_directories_venue_or_prepopulate_org() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'localgov_directories_venue')
+    ->accessCheck(FALSE);
+  $result = $query->execute();
+  $venue_update_count = 0;
+  foreach (Node::loadMultiple($result) as $venue) {
+    if ($venue->localgov_directory_organisation->isEmpty()) {
+      $organisation = Node::create([
+        'type' => 'localgov_directories_org',
+        'title' => $venue->getTitle(),
+        'status' => $venue->isPublished(),
+        'uid' => $venue->getOwnerId(),
+      ]);
+      $organisation->save();
+      $venue->set('localgov_directory_organisation', ['target_id' => $organisation->id()]);
+      $venue->save();
+      $venue_update_count++;
+    }
+  }
+  print "Venues updated: $venue_update_count\n";
+}

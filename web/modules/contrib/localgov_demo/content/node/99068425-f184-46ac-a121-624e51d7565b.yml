@@ -1,0 +1,490 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 99068425-f184-46ac-a121-624e51d7565b
+  bundle: localgov_subsites_overview
+  default_langcode: en
+  depends:
+    053da1fe-3168-4553-9583-b2d595c66268: media
+    23cdd380-08f5-4fa8-b307-7cf8f6766c1e: media
+    aaa24693-6789-4de2-8094-57f848a6e259: media
+    06ef19ba-88f9-4ef4-b3f4-65873933bf01: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Fostering
+  created:
+    -
+      value: 1619778966
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /fostering
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 78491805-6ddb-48a4-b0f4-80e533ef8d7a
+          bundle: localgov_banner_primary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1619779109
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 053da1fe-3168-4553-9583-b2d595c66268
+          localgov_subsites_banner_text:
+            -
+              value: 'Find out about the fostering process and the types of fostering available, learn who can foster, and find information on fees and allowances.'
+          localgov_title:
+            -
+              value: 'About fostering'
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 6c514aeb-3dad-4a3d-8d0f-aa53278cba96
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883527
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_threecol_33_34_33
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3d18cdc7-bef9-4d6e-a307-f8a02fee4e2c
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883536
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: 6c514aeb-3dad-4a3d-8d0f-aa53278cba96
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: 23cdd380-08f5-4fa8-b307-7cf8f6766c1e
+          localgov_media_position:
+            -
+              value: top
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Find out about what makes us special, how to transfer to us if you’re a&nbsp;foster carer elsewhere.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: 'Join our fostering team'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: eb1f56bc-21d4-4b31-844a-aed3d513809a
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883574
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: 6c514aeb-3dad-4a3d-8d0f-aa53278cba96
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: aaa24693-6789-4de2-8094-57f848a6e259
+          localgov_media_position:
+            -
+              value: top
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Read about our amazing foster carers’ experiences as they&nbsp;describe the skills and qualities they think you need to do a&nbsp;great job.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: 'Fostering stories'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: b6347466-d93d-4eaa-9436-a6670543a54c
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883614
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: third
+                  parent_uuid: 6c514aeb-3dad-4a3d-8d0f-aa53278cba96
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: 06ef19ba-88f9-4ef4-b3f4-65873933bf01
+          localgov_media_position:
+            -
+              value: top
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Find out about the fostering process and the types of fostering available, learn who can foster, and find information on fees and&nbsp;allowances.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: 'About fostering'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 2d309356-b4df-4950-94b6-c1dd182fe195
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1619779501
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: ae6e5ee8-5af4-456d-8651-86d9a8233d41
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787469
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_twocol
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a26ff643-df58-462f-954e-1949fa3b9a8e
+          bundle: localgov_image
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787480
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: ae6e5ee8-5af4-456d-8651-86d9a8233d41
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 06ef19ba-88f9-4ef4-b3f4-65873933bf01
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1f9d5e3c-13f6-4332-9dd1-b4683d4ce3b2
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787514
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: ae6e5ee8-5af4-456d-8651-86d9a8233d41
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>Read about our amazing foster carers’ experiences as they&nbsp;describe the skills and qualities they think you need to do a&nbsp;great job.&nbsp;We want Skarfolk and all partners to be ambitious every day for every child, putting children, young people and their carers at the heart of everything we do.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5af348c5-f664-4c54-aa85-c056611c8ba9
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1619779030
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: dbe9b6ed-0868-4f86-9ae7-99ec110f0837
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883139
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: 5af348c5-f664-4c54-aa85-c056611c8ba9
+                  layout: layout_twocol
+                  config:
+                    label: ''
+                  parent_delta: 8
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5fd73fac-1b32-41aa-9695-b992558d19e2
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883152
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: dbe9b6ed-0868-4f86-9ae7-99ec110f0837
+                  layout: ''
+                  config: {  }
+                  parent_delta: 9
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>There are a variety of reasons why children may need to be fostered. It could be that a parent is temporarily unable to care for them due to a crisis, or there may be abuse or neglect in the family.</p>\r\n\r\n<p>The aim is for the child to return home safely, but if this isn’t possible we need to plan for adoption or long term fostering.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 76ccd56d-47b0-4bdb-8b1b-a588f4d4bc1c
+          bundle: localgov_image
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631883191
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: dbe9b6ed-0868-4f86-9ae7-99ec110f0837
+                  layout: ''
+                  config: {  }
+                  parent_delta: 9
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 23cdd380-08f5-4fa8-b307-7cf8f6766c1e
+  localgov_subsites_hide_menu:
+    -
+      value: false
+  localgov_subsites_summary:
+    -
+      value: 'Find out about the fostering process and the types of fostering available, learn who can foster, and find information on fees and allowances.'
+  localgov_subsites_theme:
+    -
+      value: theme_a

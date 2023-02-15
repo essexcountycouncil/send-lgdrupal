@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: cea705a9-d22f-4497-acae-9318318cd21b
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Subsite overview page'
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631789652
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-8--1aae3db084f62a27a64b322e9cddb9ded4633852
+  short_description:
+    -
+      value: "<p>Subsites allow you to create a separate section of the site with it's own look and feel, and it's own internal navigation.</p>\r\n\r\n<p>This is a subsite overview page which acts as a landing page for the subsite.</p>\r\n\r\n<p>Click 'Hide' to hide this alert banner.&nbsp;</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 20--minor
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: /fostering
+          negate: '0'

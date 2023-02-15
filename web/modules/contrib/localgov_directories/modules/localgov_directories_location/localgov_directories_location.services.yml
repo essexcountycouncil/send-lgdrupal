@@ -1,0 +1,6 @@
+services:
+  localgov_directories_location.search_api_event_subscriber:
+    class: Drupal\localgov_directories_location\EventSubscriber\SearchApiSubscriber
+    arguments: ['@facets.manager']
+    tags:
+      - { name: event_subscriber }

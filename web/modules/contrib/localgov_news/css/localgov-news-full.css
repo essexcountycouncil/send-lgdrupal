@@ -1,0 +1,19 @@
+.news-article__metadata {
+  margin-bottom: 1rem;
+}
+
+.news-article__metadata-item--date,
+.news-article__metadata--categories,
+.news-article__category {
+  display: inline;
+}
+
+.news-article__category + .news-article__category::before {
+  content: ' / ';
+}
+
+.news-article blockquote {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #ddd;
+}

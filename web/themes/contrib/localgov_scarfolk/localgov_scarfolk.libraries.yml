@@ -1,0 +1,21 @@
+global:
+  css:
+    theme:
+      css/base/variables.css: {}
+      css/base/global.css: {}
+      css/layout/layout-utilities.css: {}
+
+alert-banner:
+  css:
+    theme:
+      css/components/alert-banner.css: {}
+
+banner:
+  css:
+    theme:
+      css/components/banner.css: {}
+
+ia-block:
+  css:
+    theme:
+      css/components/ia-block.css: {}

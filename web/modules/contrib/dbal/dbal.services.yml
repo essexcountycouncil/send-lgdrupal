@@ -1,0 +1,6 @@
+services:
+  dbal_connection_factory:
+    class: Drupal\dbal\ConnectionFactory
+  dbal_connection:
+    class: Doctrine\DBAL\Connection
+    factory: dbal_connection_factory:get

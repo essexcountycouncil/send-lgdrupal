@@ -1,0 +1,54 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 9544d238-d4fa-4cbd-9d96-602f34bafd31
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620227418
+  label:
+    -
+      value: |-
+        Second Floor, Seed Warehouse
+        The Wash
+        East Hertfordshire
+        SG14 1PT
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.079294 51.796646)'
+      geo_type: Point
+      lat: 51.796646
+      lon: -0.079294
+      left: -0.079294
+      top: 51.796646
+      right: -0.079294
+      bottom: 51.796646
+      geohash: gcpywjq326dh
+      latlon: '51.796646,-0.079294'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: 'East Hertfordshire'
+      dependent_locality: ''
+      postal_code: 'SG14 1PT'
+      sorting_code: ''
+      address_line1: 'Second Floor, Seed Warehouse'
+      address_line2: 'The Wash'
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

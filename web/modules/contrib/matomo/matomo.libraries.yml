@@ -1,0 +1,15 @@
+matomo:
+  version: VERSION
+  js:
+    js/matomo.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+matomo.admin:
+  version: VERSION
+  js:
+    js/matomo.admin.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

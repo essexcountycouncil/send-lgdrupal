@@ -1,0 +1,15 @@
+name: "Back To Top"
+description: "Back To Top adds a button that hovers in the bottom of your screen and allow users to smoothly scroll up the page using jQuery."
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: back_to_top_settings
+package: "User interface"
+type: module
+dependencies:
+  - jquery_ui:jquery_ui
+  - jquery_ui_effects:jquery_ui_effects
+
+# Information added by Drupal.org packaging script on 2021-08-20
+version: '2.0.0'
+project: 'back_to_top'
+datestamp: 1629465395

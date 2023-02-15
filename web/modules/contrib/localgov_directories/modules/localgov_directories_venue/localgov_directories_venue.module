@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Provides a directory venue type.
+ */
+
+use Drupal\localgov_roles\RolesHelper;
+
+/**
+ * Implements hook_localgov_role_default().
+ */
+function localgov_directories_venue_localgov_roles_default() {
+
+  // Content editing permissions.
+  $perms = [
+    RolesHelper::EDITOR_ROLE => [
+      'create localgov_directories_venue content',
+      'delete any localgov_directories_venue content',
+      'delete localgov_directories_venue revisions',
+      'delete own localgov_directories_venue content',
+      'edit any localgov_directories_venue content',
+      'edit own localgov_directories_venue content',
+      'revert localgov_directories_venue revisions',
+      'view localgov_directories_venue revisions',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'create localgov_directories_venue content',
+      'delete own localgov_directories_venue content',
+      'edit own localgov_directories_venue content',
+      'revert localgov_directories_venue revisions',
+      'view localgov_directories_venue revisions',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create localgov_directories_venue content',
+      'delete own localgov_directories_venue content',
+      'edit own localgov_directories_venue content',
+      'view localgov_directories_venue revisions',
+    ],
+  ];
+
+  // Content scheduling permissions required by localgov_workflows.
+  if (\Drupal::moduleHandler()->moduleExists('localgov_workflows')) {
+    $perms[RolesHelper::EDITOR_ROLE] = array_merge($perms[RolesHelper::EDITOR_ROLE], [
+      'add scheduled transitions node localgov_directories_venue',
+      'reschedule scheduled transitions node localgov_directories_venue',
+      'view scheduled transitions node localgov_directories_venue',
+    ]);
+    $perms[RolesHelper::AUTHOR_ROLE] = array_merge($perms[RolesHelper::AUTHOR_ROLE], [
+      'add scheduled transitions node localgov_directories_venue',
+      'reschedule scheduled transitions node localgov_directories_venue',
+      'view scheduled transitions node localgov_directories_venue',
+    ]);
+    $perms[RolesHelper::CONTRIBUTOR_ROLE] = array_merge($perms[RolesHelper::CONTRIBUTOR_ROLE], [
+      'add scheduled transitions node localgov_directories_venue',
+      'reschedule scheduled transitions node localgov_directories_venue',
+      'view scheduled transitions node localgov_directories_venue',
+    ]);
+  }
+
+  return $perms;
+}

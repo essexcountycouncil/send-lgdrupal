@@ -1,0 +1,11 @@
+name: Date Recur Views Test
+type: module
+description: 'Provides functionality for testing views integration with date recur fields.'
+package: Testing
+dependencies:
+ - drupal:views
+
+# Information added by Drupal.org packaging script on 2022-04-05
+version: '3.2.0'
+project: 'date_recur'
+datestamp: 1649146516

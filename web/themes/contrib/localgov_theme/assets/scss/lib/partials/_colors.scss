@@ -1,0 +1,30 @@
+/* /// CUSTOM CLASSES USING THEME COLOURS /// */
+
+.success {
+  color: $success;
+}
+
+.danger {
+  color: $danger;
+}
+
+.purple {
+  color: $purple !important;
+}
+
+// Theme colour backgrounds that must have white text
+.bg-primary,
+.bg-success,
+.bg-info,
+.bg-danger,
+.bg-dark,
+.bg-graphite,
+.bg-blue,
+.bg-indigo,
+.bg-purple,
+.bg-red,
+.bg-gray-dark,
+.bg-teal,
+.bg-carbon {
+  color: $white;
+}

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_event_date_hour
+label: 'Event date hour'
+locked: false
+pattern: g.ia

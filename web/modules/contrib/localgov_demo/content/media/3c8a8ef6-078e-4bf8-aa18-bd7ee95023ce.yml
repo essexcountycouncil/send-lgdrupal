@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 3c8a8ef6-078e-4bf8-aa18-bd7ee95023ce
+  bundle: image
+  default_langcode: en
+  depends:
+    08bc94d4-e07d-44b4-ad1b-30536ff839df: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: dylan-gillis-KdeqA3aTnBY-unsplash.jpg
+  created:
+    -
+      value: 1631885288
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 08bc94d4-e07d-44b4-ad1b-30536ff839df
+      alt: 'writing on a table'
+      title: ''
+      width: 5472
+      height: 3648

@@ -1,0 +1,21 @@
+/* 
+  This file applies CSS that we want to load on every page.
+
+  Please do not use it as a dumping ground for all your CSS;
+  use specific libraries and libraries-extends for your custom work.
+*/
+
+.ia-block,
+.link-block,
+.lgd-region__inner--sidebar-first > *,
+.lgd-region__inner--sidebar-second > *,
+.lgd-guide-nav,
+.service-landing-page__service,
+.lgd-topic-list-builder__service,
+table {
+  border-top: var(--border-large);
+  border-top-color: var(--color-accent);
+}
+
+
+

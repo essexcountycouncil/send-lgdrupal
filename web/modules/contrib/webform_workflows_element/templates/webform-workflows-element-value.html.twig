@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a webform workflows display.
+ *
+ * Available variables:
+ * - values: The webform workflows webform element values, plus calculated value changed_user_name
+ * - element: The webform workflows webform element to be output.
+ * - color_class: class for colour for state
+ *
+ * @see template_preprocess_webform_workflows_element_value()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('webform_workflows_element/default_colors') }}
+
+<div class="webform-workflow-value">
+  <div{{ attributes.addClass('webform-workflow-state-label').addClass(color_class) }}>{{ values.workflow_state_label }}</div>
+  {% if values.changed_user_name %}
+    <div class="webform-workflow-author-and-changed">
+      {% trans %}
+        <b>Changed: </b>
+      {% endtrans %}
+      {{ values.changed_user_name }}
+      {% if values.changed_timestamp %}-
+        {{ values.changed_timestamp|format_date('short') }}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if values.log_public %}
+    <div class="webform-workflow-log-public">
+      <b>{{ 'Log message: '|t }}</b>
+      {{ values.log_public }}</div>
+  {% endif %}
+</div>

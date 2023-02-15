@@ -1,0 +1,74 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  bundle: localgov_step_by_step_overview
+  default_langcode: en
+  depends:
+    e3aafe22-3b56-4bf9-afd8-3dda0ae16213: node
+    69297010-e255-4192-9bd9-b5b550098b10: node
+    ab6aecc5-c49c-4958-9690-7b7cf8ffaf3e: node
+    6b8052f8-5db6-4a63-8498-d440092f2079: node
+    59fb2bff-97fd-460b-b653-083420c3a86d: node
+    f6e20e37-22ea-44bd-8e69-ae8923d78b12: node
+    23deec1f-26e7-4fc1-b869-38b856ec4d48: node
+    450e542f-21d7-43f6-a065-578b7a69b4d8: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Get married or form a civil partnership: step by step'
+  created:
+    -
+      value: 1620222509
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-or
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>If you have a ceremony already booked over the coming months, please email us at the address below if you wish to change dates.&nbsp;</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_services_parent:
+    -
+      entity: e3aafe22-3b56-4bf9-afd8-3dda0ae16213
+  localgov_step_by_step_pages:
+    -
+      entity: 69297010-e255-4192-9bd9-b5b550098b10
+    -
+      entity: ab6aecc5-c49c-4958-9690-7b7cf8ffaf3e
+    -
+      entity: 6b8052f8-5db6-4a63-8498-d440092f2079
+    -
+      entity: 59fb2bff-97fd-460b-b653-083420c3a86d
+    -
+      entity: f6e20e37-22ea-44bd-8e69-ae8923d78b12
+    -
+      entity: 23deec1f-26e7-4fc1-b869-38b856ec4d48
+    -
+      entity: 450e542f-21d7-43f6-a065-578b7a69b4d8
+  localgov_step_description:
+    -
+      value: 'Find out what you must do to get married or form a civil partnership.'

@@ -1,0 +1,3 @@
+administer no_autocomplete:
+  title: 'Administer No Autocomplete'
+  description: 'Allow access to configure the module settings.'

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: { }
+third_party_settings: { }
+name: 'Guide page'
+type: localgov_guides_page
+description: 'Page associated with a guide overview page.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: f0bc4cf6-2ce7-41c0-b67f-9a96df2ab117
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: bin.jpg
+  uri:
+    -
+      value: 'public://2021-09/bin.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 12640
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631267090

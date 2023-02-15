@@ -1,0 +1,21 @@
+@mixin width($widthVarOne, $widthVarTwo, $widthVarThree) {
+  width: -moz-calc(#{$widthVarOne} - #{$widthVarTwo});
+  width: -webkit-calc(#{$widthVarOne} - #{$widthVarTwo});
+  width: calc(#{$widthVarOne} - #{$widthVarTwo});
+  width: -moz-calc(#{$widthVarOne} - #{$widthVarThree});
+  width: -webkit-calc(#{$widthVarOne} - #{$widthVarThree});
+  width: calc(#{$widthVarOne} - #{$widthVarThree});
+}
+
+@mixin outline($outsize, $outoff, $outcolor) { // use this to visually outline elements
+  outline: $outsize solid $outcolor !important;
+  outline-offset: $outoff;
+}
+
+@mixin border($height, $style, $color) {
+  border: $height + px $style $color;
+}
+
+@mixin borderdirection($direction, $height, $style, $color) {
+  border-#{$direction}: $height + px $style $color;
+}

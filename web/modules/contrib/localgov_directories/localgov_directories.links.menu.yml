@@ -1,0 +1,20 @@
+entity.localgov_directories_facets_type.collection:
+  title: 'Directory Facets types'
+  parent: system.admin_structure
+  description: 'Manage and CRUD actions on Directory Facets type.'
+  route_name: entity.localgov_directories_facets_type.collection
+entity.localgov_directories_facets.collection:
+  title: 'Directory facets'
+  parent: system.admin_content
+  description: 'Add and manage directory facets.'
+  route_name: entity.localgov_directories_facets.collection
+entity.localgov_directories_facets.add_page:
+  title: 'Add directory facet'
+  parent: entity.localgov_directories_facets.collection
+  description: 'Add new directory facet.'
+  route_name: entity.localgov_directories_facets.add_page
+entity.localgov_directories_facets_type.add_type:
+  title: 'Add directory facet type'
+  parent: entity.localgov_directories_facets.collection
+  description: 'Add new directory facet type.'
+  route_name: entity.localgov_directories_facets_type.add_form

@@ -1,0 +1,71 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78
+  bundle: localgov_services_sublanding
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Support in your home'
+  created:
+    -
+      value: 1591360203
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/support-your-home
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Mauris convallis faucibus dui at condimentum. Aliquam rutrum velit eget ligula ultrices, quis egestas tortor pulvinar. Cras volutpat enim ac facilisis placerat. Nunc convallis odio eget neque finibus finibus. Praesent ut ante dui. Donec elementum ante et nunc consectetur gravida. Fusce lacus purus, congue vitae nisi in, fringilla fringilla mauris. Vestibulum elementum aliquet magna, ac cursus ex congue in. Etiam lacinia, ex a laoreet consectetur, ex sapien imperdiet nulla, id posuere nisl nunc et velit. Maecenas risus ligula, facilisis nec ornare eu, varius et magna.</p>\r\n\r\n<p>Ut suscipit aliquet nunc, eget placerat ligula tincidunt non. Cras pharetra posuere diam sit amet sollicitudin. Phasellus quam leo, imperdiet vel dui a, sollicitudin tempus urna. Praesent porta mi et imperdiet vestibulum. Quisque eu hendrerit elit. Morbi nisi est, congue vel urna vitae, consequat semper purus. Sed eu justo id risus mollis tristique feugiat et felis. Etiam auctor, neque sit amet pharetra condimeExample external linkntum, velit odio efficitur mauris, nec convallis erat nisl viverra diam. Nunc a fermentum tortor. Donec massa dolor, tristique commodo sollicitudin sed, ultricies a purus. Donec interdum ex justo, nec auctor sapien aliquet a. Praesent tincidunt sapien eu diam auctor, ac vehicula sapien blandit. Fusce sapien massa, efficitur eget eleifend eget, lobortis eget libero. Curabitur imperdiet gravida metus, vitae malesuada nibh rhoncus ultrices. Maecenas ac felis ultricies, eleifend orci quis, suscipit mauris. Ut laoreet cursus laoreet. Proin id odio eget quam aliquam auctor.</p>\r\n\r\n<p>Phasellus mattis sollicitudin commodo. Sed condimentum auctor auctor. Aenean sit amet maximus orci. Mauris odio ipsum, lobortis vitae aliquam in, ullamcorper vel massa. Maecenas ut tellus at velit imperdiet interdum vel sit amet lorem. Suspendisse ornare faucibus arcu id gravida. Donec sollicitudin nibh mauris, id cursus justo pretium sit amet. Phasellus at sapien mattis, ullamcorper velit in, finibus libero. Nunc interdum est sed mi faucibus, ut molestie velit cursus. In viverra quam sollicitudin ex consequat interdum. Maecenas vel lacinia risus, eu scelerisque ligula. Ut orci mi, posuere ut diam ac, ultricies imperdiet urna. Integer cursus non dui sed malesuada. Sed consequat lectus varius feugiat convallis. Ut ligula ante, rutrum quis eleifend at, rutrum at nunc. Integer non euismod turpis, ac finibus tellus. Sed in dolor eros.</p>\r\n"
+      format: wysiwyg
+      summary: 'Support and equipment to help you live independently and safely.'
+  localgov_services_parent:
+    -
+      entity: c1d9f01d-c368-4db3-a4ec-c882d217781b
+  localgov_topics:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3cb6823c-6524-4dc1-8186-4bd7800af032
+          bundle: topic_list_builder
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1591363884
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true

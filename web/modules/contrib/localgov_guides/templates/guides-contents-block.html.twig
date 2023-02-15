@@ -1,0 +1,27 @@
+{#
+/**
+* @file
+* Default theme implementation for the guides_contents_block block.
+*/
+#}
+{% if links %}
+<nav class="cta">
+  {% if format == 'ordered' %}
+    <ol class="progress">
+  {% else %}
+    <ul class="progress">
+  {% endif %}
+    {% for link in links %}
+      {% if link.url.options.attributes.class == 'active' %}
+        <li><span aria-current="page" class="progress--step progress--active"></span> {{ link.text }} </li>
+      {% else %}
+        <li><span class="progress--step"></span> {{ link }} </li>
+      {% endif %}
+    {% endfor %}
+  {% if format == 'ordered' %}
+    </ol>
+  {% else %}
+    </ul>
+  {% endif %}
+</nav>
+{% endif %}

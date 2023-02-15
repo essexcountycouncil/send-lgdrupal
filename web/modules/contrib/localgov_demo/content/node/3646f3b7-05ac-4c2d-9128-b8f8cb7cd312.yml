@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 3646f3b7-05ac-4c2d-9128-b8f8cb7cd312
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    fd9abd8c-7583-4377-957d-e3552bcbd9b4: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Lake District National Park'
+  created:
+    -
+      value: 1631787728
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/lake-district-national-park
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'The Lake District National Park is a national park in North West England that includes all of the central Lake District, though the town of Kendal, some coastal areas, and the Lakeland Peninsulas are outside the park boundary.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: hq@lakedistrict.gov.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '01539 724555'
+  localgov_directory_website:
+    -
+      uri: 'https://www.lakedistrict.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: fd9abd8c-7583-4377-957d-e3552bcbd9b4

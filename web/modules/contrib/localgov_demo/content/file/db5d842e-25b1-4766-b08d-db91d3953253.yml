@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: db5d842e-25b1-4766-b08d-db91d3953253
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: drupalgov-mission-discovery_400x400.png
+  uri:
+    -
+      value: 'public://2021-05/drupalgov-mission-discovery_400x400_3.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 80524
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1620307343

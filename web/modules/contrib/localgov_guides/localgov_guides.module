@@ -1,0 +1,231 @@
+<?php
+
+/**
+ * @file
+ * Localgov Guides module hooks.
+ */
+
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\localgov_guides\ChildParentRelationship;
+use Drupal\localgov_roles\RolesHelper;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_guides_theme($existing, $type, $theme, $path) {
+  return [
+    'guides_contents_block' => [
+      'variables' => [
+        'links' => [],
+        'format' => [],
+      ],
+    ],
+    'guides_prev_next_block' => [
+      'variables' => [
+        'previous_url' => NULL,
+        'previous_title' => NULL,
+        'next_url' => NULL,
+        'next_title' => NULL,
+      ],
+    ],
+    'node__localgov_guides_overview__full' => [
+      'template' => 'node--localgov-guides-overview--full',
+      'base hook' => 'node',
+    ],
+    'node__localgov_guides_page__full' => [
+      'template' => 'node--localgov-guides-page--full',
+      'base hook' => 'node',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_localgov_role_default().
+ */
+function localgov_guides_localgov_roles_default() {
+
+  // Content editing permissions.
+  $perms = [
+    RolesHelper::EDITOR_ROLE => [
+      'create localgov_guides_overview content',
+      'create localgov_guides_page content',
+      'delete any localgov_guides_overview content',
+      'delete any localgov_guides_page content',
+      'delete localgov_guides_overview revisions',
+      'delete localgov_guides_page revisions',
+      'delete own localgov_guides_overview content',
+      'delete own localgov_guides_page content',
+      'edit any localgov_guides_overview content',
+      'edit any localgov_guides_page content',
+      'edit own localgov_guides_overview content',
+      'edit own localgov_guides_page content',
+      'revert localgov_guides_overview revisions',
+      'revert localgov_guides_page revisions',
+      'view localgov_guides_overview revisions',
+      'view localgov_guides_page revisions',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'create localgov_guides_overview content',
+      'create localgov_guides_page content',
+      'delete own localgov_guides_overview content',
+      'delete own localgov_guides_page content',
+      'edit own localgov_guides_overview content',
+      'edit own localgov_guides_page content',
+      'revert localgov_guides_overview revisions',
+      'revert localgov_guides_page revisions',
+      'view localgov_guides_overview revisions',
+      'view localgov_guides_page revisions',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create localgov_guides_overview content',
+      'create localgov_guides_page content',
+      'delete own localgov_guides_overview content',
+      'delete own localgov_guides_page content',
+      'edit own localgov_guides_overview content',
+      'edit own localgov_guides_page content',
+      'view localgov_guides_overview revisions',
+      'view localgov_guides_page revisions',
+    ],
+  ];
+
+  // Content scheduling permissions required by localgov_workflows.
+  if (\Drupal::moduleHandler()->moduleExists('localgov_workflows')) {
+    $perms[RolesHelper::EDITOR_ROLE] = array_merge($perms[RolesHelper::EDITOR_ROLE], [
+      'add scheduled transitions node localgov_guides_overview',
+      'add scheduled transitions node localgov_guides_page',
+      'reschedule scheduled transitions node localgov_guides_overview',
+      'reschedule scheduled transitions node localgov_guides_page',
+      'view scheduled transitions node localgov_guides_overview',
+      'view scheduled transitions node localgov_guides_page',
+    ]);
+    $perms[RolesHelper::AUTHOR_ROLE] = array_merge($perms[RolesHelper::AUTHOR_ROLE], [
+      'add scheduled transitions node localgov_guides_overview',
+      'add scheduled transitions node localgov_guides_page',
+      'reschedule scheduled transitions node localgov_guides_overview',
+      'reschedule scheduled transitions node localgov_guides_page',
+      'view scheduled transitions node localgov_guides_overview',
+      'view scheduled transitions node localgov_guides_page',
+    ]);
+    $perms[RolesHelper::CONTRIBUTOR_ROLE] = array_merge($perms[RolesHelper::CONTRIBUTOR_ROLE], [
+      'add scheduled transitions node localgov_guides_overview',
+      'add scheduled transitions node localgov_guides_page',
+      'reschedule scheduled transitions node localgov_guides_overview',
+      'reschedule scheduled transitions node localgov_guides_page',
+      'view scheduled transitions node localgov_guides_overview',
+      'view scheduled transitions node localgov_guides_page',
+    ]);
+  }
+
+  return $perms;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function localgov_guides_node_insert(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_guides_page') {
+    return \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(ChildParentRelationship::class)
+      ->pageUpdateOverview($node);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * Implements reference back on overview to page when pages are created.
+ */
+function localgov_guides_node_update(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_guides_page') {
+    return \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(ChildParentRelationship::class)
+      ->pageUpdateOverview($node);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_prepare_form().
+ *
+ * Check back-reference fields before editing overview.
+ */
+function localgov_guides_node_prepare_form(NodeInterface $node, $operation, FormStateInterface $form) {
+  if ($node->bundle() == 'localgov_guides_overview') {
+    return \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(ChildParentRelationship::class)
+      ->overviewPagesCheck($node);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * Check back-reference fields before saving.
+ * Especially if someone has changed a page since form load!
+ */
+function localgov_guides_node_presave(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_guides_overview') {
+    return \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(ChildParentRelationship::class)
+      ->overviewPagesCheck($node);
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function localgov_guides_modules_installed($modules) {
+  $services = in_array('localgov_services_navigation', $modules);
+  $topics = in_array('localgov_topics', $modules);
+  if ($services || $topics) {
+    \Drupal::service('config.installer')->installOptionalConfig();
+    localgov_guides_optional_fields_settings($services, $topics);
+  }
+}
+
+/**
+ * Set form settings for optional services and topic fields on installation.
+ *
+ * @param bool $services
+ *   If localgov_services is (being) installed.
+ * @param bool $topics
+ *   If localgov_topics is (being) installed.
+ */
+function localgov_guides_optional_fields_settings($services, $topics) {
+  $properties = [
+    'targetEntityType' => 'node',
+    'bundle' => 'localgov_guides_overview',
+  ];
+  if ($form_displays = \Drupal::entityTypeManager()->getStorage('entity_form_display')->loadByProperties($properties)) {
+    foreach ($form_displays as $form_display) {
+      assert($form_display instanceof EntityFormDisplayInterface);
+      if ($services && !$form_display->getComponent('localgov_services_parent')) {
+        $form_display->setComponent('localgov_services_parent', [
+          'type' => 'entity_reference_autocomplete',
+          'region' => 'content',
+          'settings' => [
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'placeholder' => '',
+            'match_limit' => 10,
+          ],
+          'weight' => 51,
+        ])->save();
+      }
+      if ($topics && !$form_display->getComponent('localgov_topics')) {
+        $form_display->setComponent('localgov_topic_classified', [
+          'type' => 'entity_reference_autocomplete',
+          'region' => 'content',
+          'settings' => [
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'placeholder' => '',
+            'match_limit' => 10,
+          ],
+          'weight' => 50,
+        ])->save();
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f15295dc-9b0b-458c-bd58-d801f1e25c57
+  bundle: localgov_services_page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'WYSIWYG Components'
+  created:
+    -
+      value: 1631884395
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: draft
+  path:
+    -
+      alias: /wysiwyg-components
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>This is an <a class=\"external-link\" href=\"https://localgovdrupal.org\">external link</a> that goes to another website.</p>\r\n\r\n<p>This is an<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"99068425-f184-46ac-a121-624e51d7565b\" href=\"/node/54\"> internal link</a> to goes to a page on this website.</p>\r\n\r\n<p>This is <a class=\"pdf-link\" href=\"/node\">a PDF</a> link.</p>\r\n\r\n<p>This is <a class=\"btn btn-start col-sm-6 mt-3\" href=\"/node\">a start button</a> link.</p>\r\n\r\n<ul class=\"list-checked\">\r\n\t<li>This is a green ticks list.</li>\r\n\t<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n\t<li>Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n\t<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"alert alert-info\">Alert Info</p>\r\n\r\n<p class=\"alert alert-info\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"alert alert-danger\">Alert Warning</p>\r\n\r\n<p class=\"alert alert-danger\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"alert alert-primary\">Alert Failure</p>\r\n\r\n<p class=\"alert alert-primary\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"alert alert-success\">Alert Success</p>\r\n\r\n<p class=\"alert alert-success\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-primary\">Callout Primary</p>\r\n\r\n<p class=\"callout callout-primary\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-success\">Callout Success</p>\r\n\r\n<p class=\"callout callout-success\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-danger\">Callout Danger</p>\r\n\r\n<p class=\"callout callout-danger\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-teal\">Callout Teal</p>\r\n\r\n<p class=\"callout callout-teal\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-carbon\">Callout Carbon</p>\r\n\r\n<p class=\"callout callout-carbon\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p class=\"callout callout-yellow\">Callout Yellow</p>\r\n\r\n<p class=\"callout callout-yellow\">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Highlight</p>\r\n\r\n<p>Praesent <mark>commodo cursus</mark> magna, vel scelerisque nisl consectetur et.</p>\r\n"
+      format: wysiwyg
+      summary: 'A page to list the wysiwgy components we have.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false

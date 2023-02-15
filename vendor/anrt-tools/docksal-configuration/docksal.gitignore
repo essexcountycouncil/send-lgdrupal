@@ -1,0 +1,12 @@
+# Ignore project .docksal files pulled-in by composer
+commands/*
+!commands/override/
+addons/*
+etc/*
+!etc/redis
+templates/*
+!templates/settings.project.php
+example*
+helpers
+docksal-local.*
+.gitignore

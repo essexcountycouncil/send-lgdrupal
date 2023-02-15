@@ -1,0 +1,64 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 90c4eac2-84a2-42c5-a7d6-8d6f79a4e1da
+  bundle: localgov_news_article
+  default_langcode: en
+  depends:
+    951e93f6-c9f0-4545-baac-05d45cf8e661: media
+    acfb5e02-f92b-4822-9f09-d5802314dd52: taxonomy_term
+    78d35e95-caba-4abc-a179-52d08718d242: node
+    04dc2cb5-69f9-443b-9db3-e818855880b7: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Discounted compost bins can help transform your garden over winter!'
+  created:
+    -
+      value: 1631266427
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /news/2021/discounted-compost-bins-can-help-transform-your-garden-over-winter
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>So, what should you do with all the extra garden waste? GetComposting of course!</p>\r\n<p>You really shouldn’t look at it as waste; your garden debris has the potential to give you a free supply of&nbsp;top-quality compost to get your garden blooming next year, with very little effort.</p>\r\n\r\n<p class=\"alert alert-success\">Simply throw it into a compost bin and over the winter months it will rot down to produce&nbsp;environmentally-friendly compost that when added to the garden will suppress weeds and retain moisture throughout the dry months.</p>\r\n\r\n<p>Benefits of home composting:</p>\r\n\r\n<ul>\r\n\t<li>It’s easy to make and easy to use.</li>\r\n\t<li>Produces a free continual source of the very best compost. Improves soil structure.</li>\r\n\t<li>Maintains moisture.</li>\r\n\t<li>Helps the soil PH balance. Suppresses plant disease.</li>\r\n\t<li>Reduces the need for polluting bonfires.</li>\r\n\t<li>Reduces carbon emissions.</li>\r\n\t<li>Helps to divert organic waste from landfill. Reduces refuse collection costs.</li>\r\n</ul>\r\n\r\n<p>To encourage residents to get composting, the Council has teamed up with&nbsp;Getcomposting.com to offer home compost bins at special offer prices from only £7.50! There is also a buy one get one half price offer to purchase a second bin from only £3.25.</p>\r\n"
+      format: wysiwyg
+      summary: 'The summer sun is performing its last dance of the year and our gardens will soon become wastelands of winter, but before the snow starts to fall, it’s time to take autumn by the bronzed leaves and get out there, prune, trim and prepare the garden for next year.'
+  field_media_image:
+    -
+      entity: 951e93f6-c9f0-4545-baac-05d45cf8e661
+  localgov_news_categories:
+    -
+      entity: acfb5e02-f92b-4822-9f09-d5802314dd52
+  localgov_news_date:
+    -
+      value: '2021-09-10'
+  localgov_news_related:
+    -
+      entity: 78d35e95-caba-4abc-a179-52d08718d242
+  localgov_newsroom:
+    -
+      entity: 04dc2cb5-69f9-443b-9db3-e818855880b7

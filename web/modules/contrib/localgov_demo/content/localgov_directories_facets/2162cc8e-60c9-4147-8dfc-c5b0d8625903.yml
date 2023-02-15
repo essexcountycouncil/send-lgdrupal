@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  bundle: organisation_type
+  default_langcode: en
+default:
+  title:
+    -
+      value: 'Local authority'
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620222187
+  weight:
+    -
+      value: 0

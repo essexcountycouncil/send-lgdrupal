@@ -1,0 +1,66 @@
+{
+    "name": "localgovdrupal/localgov",
+    "description": "LocalGovDrupal distribution",
+    "type": "drupal-profile",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/localgovdrupal/localgov",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "drupal/admin_toolbar": "^3.0",
+        "drupal/core": "^9.1",
+        "drupal/devel": "^4.1",
+        "drupal/gin": "^3.0@alpha",
+        "drupal/gin_login": "^1.0@RC",
+        "drupal/gin_toolbar": "^1.0@beta",
+        "drupal/simple_sitemap": "^3.7",
+        "drupal/search_api": "^1.21",
+        "drush/drush": ">=10",
+        "localgovdrupal/localgov_alert_banner": "^1.2.0",
+        "localgovdrupal/localgov_base": "^1.0.0",
+        "localgovdrupal/localgov_core": "^2.1.0",
+        "localgovdrupal/localgov_demo": "^2.1.0",
+        "localgovdrupal/localgov_directories": "^2.1.0",
+        "localgovdrupal/localgov_events": "^2.0.0",
+        "localgovdrupal/localgov_guides": "^2.0.0",
+        "localgovdrupal/localgov_menu_link_group": "^1.0.0",
+        "localgovdrupal/localgov_news": "^2.0.0",
+        "localgovdrupal/localgov_openreferral": "^1.0.0",
+        "localgovdrupal/localgov_paragraphs": "^2.0.0",
+        "localgovdrupal/localgov_search": "^1.0.0",
+        "localgovdrupal/localgov_services": "^2.0.0",
+        "localgovdrupal/localgov_step_by_step": "^2.0.0",
+        "localgovdrupal/localgov_subsites": "^2.0.0",
+        "localgovdrupal/localgov_scarfolk": "^1.0.0",
+        "localgovdrupal/localgov_theme": "^1.0.0",
+        "localgovdrupal/localgov_workflows": "^1.0.0"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^9.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "Fix tests running with paratest. See https://www.drupal.org/project/drupal/issues/3192365": "https://www.drupal.org/files/issues/2021-01-12/3192365-3.patch",
+                "Users can't reference unpublished content even when they have access to it. See https://www.drupal.org/project/drupal/issues/2845144": "https://www.drupal.org/files/issues/2022-06-17/2845144-67.patch"
+            },
+            "drupal/gin_login": {
+                "Fix schema for gin_toolbar, see https://www.drupal.org/project/gin_login/issues/3192526": "https://www.drupal.org/files/issues/2021-01-13/gin_login-config_schema-3192526-8.patch"
+            }
+        }
+    }
+}

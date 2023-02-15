@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_guides_overview pages.
+ */
+#}
+{%
+  set classes = [
+    'localgov_guides',
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'order-1',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <h2>{{ 'Overview'|t }}</h2>
+  {{ content }}
+</article>

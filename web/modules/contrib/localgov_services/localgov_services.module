@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal Services: Core module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_services_theme() {
+  return [
+    'services_cta_block' => [
+      'variables' => [
+        'buttons' => [],
+      ],
+      'render element' => 'block',
+    ],
+  ];
+}

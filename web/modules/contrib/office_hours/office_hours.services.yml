@@ -1,0 +1,6 @@
+services:
+  office_hours_subscriber.default:
+    class: Drupal\office_hours\EventSubscriber\OfficeHoursUpdateSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

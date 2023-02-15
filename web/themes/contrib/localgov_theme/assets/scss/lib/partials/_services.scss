@@ -1,0 +1,172 @@
+.services--feature {
+  background: $gray;
+  margin-bottom: 0;
+}
+
+.services--feature-block {
+  text-align: center;
+
+  @include rem(padding-top, 20);
+  @include rem(padding-bottom, 20);
+
+  a {
+    display: block;
+    text-decoration: none;
+    background: transparent;
+    box-shadow: none;
+    font-weight: $font-normal;
+
+    @include rem(padding, 5);
+
+    .services--feature-title {
+      display: block;
+      color: $secondary;
+      font-size: $font-size-med;
+      text-decoration: none;
+
+      @include rem(line-height, 24);
+      @include rem(margin-top, 5);
+    }
+
+    &:hover,
+    &:focus {
+      .services--feature-title {
+        background-color: $focus;
+        color: $link-hover-color;
+        text-decoration: none;
+        box-shadow: 0 0 0 0.125rem $focus;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    &.col-sm {
+      @include make-col(1, 5); // chris's magic columns
+    }
+  }
+}
+
+.services--feature-icon {
+  color: $secondary;
+
+  @include rem(font-size, 26);
+  @include rem(width, 47);
+  @include rem(height, 47);
+  @include rem(line-height, 47);
+}
+
+.services--list {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.services--list-block {
+  h2 {
+    font-weight: $font-bold;
+    line-height: 1.1;
+
+    @include rem(margin, 10, 0, 20, 0);
+
+    a {
+      display: inline-block;
+      color: $secondary;
+
+      @include rem(font-size, 24);
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin: 0;
+
+      @include rem(padding-right, 10);
+      @include rem(line-height, 28);
+
+      &:not(:last-child):after { // shown as a comma separated list on mobile
+        content: ',';
+        color: $blue;
+      }
+
+      @include media-breakpoint-up(sm) {
+        display: block;
+        width: auto;
+        padding: 0 0 0 1rem;
+        position: relative;
+
+        &:not(:last-child):after { // remove list commas for anything above mobile
+          content: '';
+        }
+      }
+
+      &:before {
+        @include media-breakpoint-up(sm) {
+          content: $fa-chevron-right;
+          position: absolute;
+          left: 0;
+          top: 0.125rem;
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight;
+          color: $tertiary;
+          font-size: $font-size-ex-ex-sm;
+
+          @include rem(margin-right, 5);
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      a {
+        color: $blue;
+        font-size: $font-size-med;
+
+        &:hover,
+        &:focus {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.services--business {
+  float: left;
+  width: 100%;
+  background-color: $gray-tint;
+
+  @include rem(margin-top, 20);
+  @include rem(min-height, 150);
+  @include rem(padding, 30);
+
+  h3 {
+    @include rem(margin, 0, 0, 20, 0);
+    @include rem(font-size, 24);
+  }
+
+  a {
+    color: $primary !important;
+  }
+
+  .column-3:first-child {
+    @include rem(padding-left, 30);
+  }
+
+  .business-list {
+    column-count: 2;
+
+    @include media-breakpoint-up(md) {
+      column-count: 3;
+    }
+  }
+}
+
+#services--expand-container { // Initial hide of 'more services' area
+  display: none;
+}

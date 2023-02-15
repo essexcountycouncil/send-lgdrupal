@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_common_tasks
+    - node.type.localgov_services_page
+  module:
+    - link
+id: node.localgov_services_page.localgov_common_tasks
+field_name: localgov_common_tasks
+entity_type: node
+bundle: localgov_services_page
+label: 'Task buttons'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

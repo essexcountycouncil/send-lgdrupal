@@ -1,0 +1,11 @@
+tamper.feeds_tamper_test:
+  mapping:
+    text:
+      type: string
+      label: 'String value'
+    enabled:
+      type: boolean
+      label: 'Boolean value'
+    number:
+      type: float
+      label: 'Float value'

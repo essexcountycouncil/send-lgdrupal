@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f952afc3-eba3-49f3-851b-37eaf8fbb8f0
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    efa7e5be-a266-45d1-b5f8-f9443bfd08d8: localgov_directories_facets
+    e8c89741-06ee-4005-be2a-6d347119946e: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Cairngorms
+  created:
+    -
+      value: 1631817201
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/cairngorms
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Cairngorms National Park (Scottish Gaelic: Pàirc Nàiseanta a'' Mhonaidh Ruaidh) is a national park in northeast Scotland, established in 2003.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: enquiries@cairngorms.co.uk
+  localgov_directory_facets_select:
+    -
+      entity: efa7e5be-a266-45d1-b5f8-f9443bfd08d8
+  localgov_directory_phone:
+    -
+      value: '01479 873 535'
+  localgov_directory_website:
+    -
+      uri: 'https://cairngorms.co.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: e8c89741-06ee-4005-be2a-6d347119946e

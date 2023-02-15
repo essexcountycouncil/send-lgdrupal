@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b3be1d02-eef4-4c2a-b175-7a5c1d246970
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: forcedmarriage.jpg
+  uri:
+    -
+      value: 'public://2021-09/forcedmarriage.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 4280
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631267764

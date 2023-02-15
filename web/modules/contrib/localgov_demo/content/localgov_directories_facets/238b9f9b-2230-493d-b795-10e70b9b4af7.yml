@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  bundle: country
+  default_langcode: en
+default:
+  title:
+    -
+      value: England
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631786854
+  weight:
+    -
+      value: 0

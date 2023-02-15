@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 813e8d28-558d-4a95-9a90-6436a9bf80e9
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: sebastiano-piazzi-22q0ZJ-O7hM-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/sebastiano-piazzi-22q0ZJ-O7hM-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 143613
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631269017

@@ -1,0 +1,177 @@
+header > p {
+  font-size: $font-size-base * 1.25;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-ex-ex-lg;
+  }
+}
+
+.headers {
+  padding: ($spacer * 3) 0;
+
+  .subheader {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.navbar-brand { // fix width of logo for mobiles
+  min-width: 6.25rem !important;
+
+  @include media-breakpoint-up(sm) {
+    min-width: initial !important;
+  }
+
+  img {
+    min-width: 6.25rem;
+    max-height: 6.25rem;
+
+    @include media-breakpoint-up(sm) {
+      width: initial;
+    }
+  }
+}
+
+.my-account {
+  white-space: nowrap;
+
+  a {
+    color: $yellow;
+    font-family: $font-family-secondary;
+    font-weight: $font-bold; // for fallbacks only
+    white-space: nowrap;
+    font-size: $font-size-base;
+    margin: 0;
+  }
+}
+
+.header--expand {
+  display: none; // hide initially or it flashes on load in mobile
+  border-bottom: 2rem solid $primary;
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+
+  a {
+    font-size: $font-size-med;
+    font-weight: $font-bold;
+    text-decoration: none;
+
+    @include rem(line-height, 28);
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .services-list,
+  .nav {
+    list-style-type: none;
+    height: 100%;
+    color: $secondary;
+    padding: 0;
+
+    @include rem(margin, 0, -20);
+  }
+
+  .services-list--multi,
+  .nav {
+    display: block;
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+  }
+
+  .services-title {
+    font-weight: $font-bold;
+    color: $secondary;
+    font-size: $h3-font-size;
+    margin: 0;
+
+    @include rem(line-height, 32);
+    @include rem(padding-bottom, 20);
+  }
+
+  .services-title-blank {
+    @include rem(height, 55);
+  }
+
+  li {
+    @include rem(line-height, 20);
+
+    .nav-link {
+      @include rem(padding-left, 20);
+      @include rem(padding-right, 20);
+    }
+  }
+
+  div {
+    div {
+      background: $white;
+      color: $body-color;
+    }
+  }
+}
+
+.responsive-services {
+  background: $white;
+  height: 75vh;
+  color: $body-color;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+    @include rem(width, 12);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 0.125rem solid $white;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 0.063rem rgba(255, 255, 255, .5);
+
+    @include rem(border-radius, 6);
+  }
+
+  .services-title {
+    font-weight: $font-bold;
+    color: $secondary;
+    margin: 0;
+
+    @include rem(padding, 10);
+  }
+
+  ul.nav {
+    flex-direction: column;
+    padding: 0 0 0 1rem;
+    color: $secondary;
+    list-style-type: none;
+
+    @include rem(margin, 0, -20);
+
+    li {
+      padding: 0.4rem;
+
+      a.nav-link {
+        font-size: $font-size-med;
+
+        @include rem(padding-left, 20);
+        @include rem(padding-right, 20);
+      }
+
+      ul {
+        padding: 0;
+
+        li {
+          a {
+            font-size: $font-size-base;
+            font-weight: $font-normal;
+          }
+        }
+      }
+    }
+  }
+}

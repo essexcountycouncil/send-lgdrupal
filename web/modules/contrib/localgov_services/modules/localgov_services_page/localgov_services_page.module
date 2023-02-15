@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal Services: Page module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_services_page_theme() {
+  return [
+    'services_related_links_block' => [
+      'variables' => [
+        'links' => [],
+      ],
+      'render element' => 'block',
+    ],
+    'services_related_topics_block' => [
+      'variables' => [
+        'links' => [],
+      ],
+      'render element' => 'block',
+    ],
+  ];
+}

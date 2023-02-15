@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 5b9c1bf6-5367-42d0-b565-6c8af0a5f16f
+  bundle: image
+  default_langcode: en
+  depends:
+    8f5073b0-04d7-4abd-804c-a9903366392f: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Have your say - pink-resized.png'
+  created:
+    -
+      value: 1631267519
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 8f5073b0-04d7-4abd-804c-a9903366392f
+      alt: 'Have your say'
+      title: ''
+      width: 1536
+      height: 1024

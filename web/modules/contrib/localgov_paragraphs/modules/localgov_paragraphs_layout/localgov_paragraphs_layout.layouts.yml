@@ -1,0 +1,44 @@
+localgov_layout_onecol:
+  label: 'One column (simple)'
+  path: layouts/onecol
+  template: layout--onecol
+  library: localgov_paragraphs_layout/onecol
+  category: 'LocalGov Drupal'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+localgov_layout_twocol:
+  label: 'Two column (simple)'
+  path: layouts/twocol
+  template: layout--twocol
+  library: localgov_paragraphs_layout/twocol
+  category: 'LocalGov Drupal'
+  default_region: first
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+localgov_layout_threecol_33_34_33:
+  label: 'Three column 33/34/33 (simple)'
+  path: layouts/threecol_33_34_33
+  template: layout--threecol-33-34-33
+  library: localgov_paragraphs_layout/threecol_33_34_33
+  category: 'LocalGov Drupal'
+  default_region: first
+  icon_map:
+    - [first, second, third]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third

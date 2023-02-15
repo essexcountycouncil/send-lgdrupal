@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations.
+ */
+
+declare(strict_types = 1);
+
+/**
+ * Implements hook_theme().
+ *
+ * - Overrides paragraph template for Newsroom teaser, Homepage icons, and
+ *   Homepage IA blocks.
+ * - Overrides field template for field_newsroom, field_homepage_icons, and
+ *   field_ia_blocks.
+ */
+function localgov_homepage_paragraphs_dummy_content_type_theme($existing, $type, $theme, $path) {
+
+  return [
+    'field__localgov_homepage_newsroom' => [
+      'base hook' => 'field',
+    ],
+    'field__localgov_homepage_labelled_icons' => [
+      'base hook' => 'field',
+    ],
+    'field__localgov_homepage_ia_blocks' => [
+      'base hook' => 'field',
+    ],
+  ];
+}

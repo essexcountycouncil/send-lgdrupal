@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 02f1860e-570e-42af-a9c6-82bef020a791
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''Subsite overview'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631891467
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-16--91f24317fa8b63b3402cc5f41e02bd97c6bd0cc9
+  short_description:
+    -
+      value: "<p>Add a 'subsite overview' as a homepage to a section that needs to be more visually appealing with images, fact boxes, quotes and more. It features a simple to use page builder allowing a choice of column layouts and page components. It's also possible to hide the right hand navigation and pick from colour themes that are set up by developers in advance. To add more pages beneath, add a 'subsite page' and relate it to the overview.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/localgov-drupal-demo\r\n/test-subsite-demo-all-components\r\n/fostering"
+          negate: '0'

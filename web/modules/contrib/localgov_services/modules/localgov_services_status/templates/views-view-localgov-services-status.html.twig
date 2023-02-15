@@ -1,0 +1,112 @@
+{#
+/**
+ * @file
+ * Default theme implementation of the **Service status** Views style plugin.
+ *
+ * Appears as an Accordion in smaller displays and as Tabbed content in wider
+ * displays.
+ *
+ * Available variables:
+ * - view: A ViewExecutable object.
+ * - rows: The raw row data.
+ *
+ * @see https://codepen.io/axelaredz/pen/OEXdPv
+ *
+ * @ingroup themeable
+ */
+#}
+{% set revised_service_label = 'Revised service' %}
+{% set limited_service_label = 'Limited service' %}
+{% set normal_service_label  = 'Normal service'  %}
+
+<div class="container-fluid site-max service-head">
+  <div class="row d-md-none">
+    <div class="my-2 col-12 p-0 text-right">
+
+      <div id="toggleAccordions-show" data-toggle="collapse">
+        <i class="fas fa-eye"></i><a href="#" class="ml-2">Open statuses</a>
+      </div>
+
+      <div id="toggleAccordions-hide" data-toggle="collapse" style="display: none;">
+        <i class="fas fa-eye-slash"></i><a href="#" class="ml-2">Close statuses</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="service-status container-fluid site-max mt-1 mb-4">
+  
+  <div class="row">
+    
+    <ul id="tabs" class="nav nav-tabs col-4 mb-auto" role="tablist">
+      {% for index, row in rows %}
+        {% set views_row_classes = view.style_plugin.getRowClass(index) %}
+        {% set entity_id         = view.result[index]._entity.id() %}
+        {% set entity_label      = view.result[index]._entity.label() %}
+
+        {# Tab heading #}
+        <li class="{{ views_row_classes }} nav-item">
+          <a href="#status-{{ entity_id }}"  id="tab-{{ entity_id }}" class="nav-link p-3 {% if loop.first %}active{% endif %}" data-toggle="tab" role="tab">
+            <h2 class="service-status-title">{{ entity_label }}</h2>
+            <span class="service-status-info">
+              <i class="fas fa-info-circle mr-1"></i>
+              {{ revised_service_label|t }}
+            </span>
+            <span class="service-status-warning">
+              <i class="fas fa-exclamation-triangle mr-1"></i>
+              {{ limited_service_label|t }}
+            </span>
+            <span class="service-status-ok">
+              <i class="fas fa-check-circle mr-1"></i>
+              {{ normal_service_label|t }}
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <main id="content" class="tab-content col-12 col-md-8 content" role="tablist">
+      
+      {% for index, row in rows %}
+        {% set views_row_classes = view.style_plugin.getRowClass(index) %}
+        {% set entity_id         = view.result[index]._entity.id() %}
+        {% set entity_label      = view.result[index]._entity.label() %}
+
+        <div id="status-{{ entity_id }}" class="{{ views_row_classes }} card tab-pane fade show {% if loop.first %}active{% endif %} mb-2 mb-md-0" role="tabpanel" aria-labelledby="tab-{{ entity_id }}">
+
+          {# Accordion heading #}
+          <div class="card-header" role="tab" id="heading-{{ entity_id }}">
+            <a data-toggle="collapse" href="#status-mobile-{{ entity_id }}" data-parent="#content" aria-expanded="false" aria-controls="status-mobile-{{ entity_id }}" class="collapsed">
+              <h2 class="status-accordion-header mb-0">{{ entity_label }}</h2>
+              <span class="service-status-info">
+                <i class="fas fa-info-circle mr-1"></i>
+                {{ revised_service_label|t }}
+              </span>
+              <span class="service-status-warning">
+                <i class="fas fa-exclamation-triangle mr-1"></i>
+                {{ limited_service_label|t }}
+              </span>
+              <span class="service-status-ok">
+                <i class="fas fa-check-circle mr-1"></i>
+                {{ normal_service_label|t }}
+              </span>
+            </a>
+          </div>
+
+          {# Tab/Accordion content #}
+          <div id="status-mobile-{{ entity_id }}" class="collapse" role="tabpanel" aria-labelledby="heading-{{ entity_id }}">
+            <div class="card-body">
+              {{ row }}
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </main>
+  
+  </div>
+
+</div>
+
+{{ attach_library('localgov_services_status/bootstrap_cdn') }}
+{{ attach_library('localgov_services_status/localgov_services_status') }}

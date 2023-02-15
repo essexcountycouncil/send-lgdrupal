@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 72243f58-1281-42f7-b2d4-4ce8b42d435b
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''step by step overview'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631789789
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-9--78e39b84e6afffa1143b9c185a6b88d18a0e064e
+  short_description:
+    -
+      value: "<p>Add a 'step by step overview' when a user needs to follow a specific process. This could include registering, applying for or renewing something. To create steps in the process, add 'step by step pages' and relate them to the overview.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-or\r\n/adult-health-and-social-care/step-by-step/request-support-adult-step-step"
+          negate: '0'

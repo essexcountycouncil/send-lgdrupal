@@ -1,0 +1,242 @@
+<?php
+
+/**
+ * @file
+ * Adds the back to top button.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function back_to_top_page_attachments(array &$attachments) {
+  $config = \Drupal::config('back_to_top.settings');
+  $settings = $config->get();
+  $button_settings = [
+    'back_to_top_prevent_on_mobile' => $settings['back_to_top_prevent_on_mobile'],
+    'back_to_top_prevent_in_admin' => $settings['back_to_top_prevent_in_admin'],
+    'back_to_top_button_type' => $settings['back_to_top_button_type'],
+    'back_to_top_button_text' => $settings['back_to_top_button_text'],
+  ];
+  if ($settings['back_to_top_prevent_on_mobile'] && (is_mobile())) {
+    return FALSE;
+  }
+  if ($settings['back_to_top_prevent_in_admin'] && (is_adminpage())) {
+    return FALSE;
+  }
+  if ($settings['back_to_top_prevent_in_front'] && (\Drupal::service('path.matcher')
+    ->isFrontPage())
+  ) {
+    return FALSE;
+  }
+
+  $attachments['#attached']['library'][] = 'back_to_top/back_to_top_js';
+  $attachments['#attached']['drupalSettings']['back_to_top']['back_to_top_button_trigger'] = $settings['back_to_top_button_trigger'];
+
+  // Add stylesheet for image or text/css button.
+  if (($settings['back_to_top_button_type']) == "text") {
+    $attachments['#attached']['library'][] = 'back_to_top/back_to_top_text';
+  }
+  else {
+    $attachments['#attached']['library'][] = 'back_to_top/back_to_top_icon';
+  }
+
+  $css = '';
+  $hover_css = '';
+  // Check variables and add placement.
+  if ($settings['back_to_top_button_place'] == 2) {
+    $css .= "left: 10px; ";
+  }
+  if ($settings['back_to_top_button_place'] == 3) {
+    $css .= "left: 50%; margin-left: -50px;";
+
+  }
+  if ($settings['back_to_top_button_place'] == 4) {
+    $css .= "top: 10px;";
+  }
+  if ($settings['back_to_top_button_place'] == 5) {
+    $css .= "top: 10px; left: 10px;";
+  }
+  if ($settings['back_to_top_button_place'] == 6) {
+    $css .= "top: 10px; left: 50%; margin-left: -50px;";
+  }
+  if ($settings['back_to_top_button_place'] == 7) {
+    $css .= "top: 50%;";
+  }
+  if ($settings['back_to_top_button_place'] == 8) {
+    $css .= "top: 50%; left: 10px;";
+  }
+  if ($settings['back_to_top_button_place'] == 9) {
+    $css .= "top: 50%; left: 50%; margin-left: -50px;";
+  }
+  // Check variables and add color from settings - this code could be done a
+  // bit nicer.
+  if (($settings['back_to_top_button_type'] == "text") && ($settings['back_to_top_bg_color'] !== '#F7F7F7')) {
+    $css .= "background: " . $settings['back_to_top_bg_color'] . ";";
+  }
+  if (($settings['back_to_top_button_type'] == "text") && ($settings['back_to_top_border_color'] !== '#CCCCCC')) {
+    $css .= "border-color: " . $settings['back_to_top_border_color'] . ";";
+  }
+  if (($settings['back_to_top_button_type'] == "text") && ($settings['back_to_top_hover_color'] !== '#EEEEEE')) {
+    $hover_css .= "body #backtotop:hover { background: " . $settings['back_to_top_hover_color'] . "; border-color: " . $settings['back_to_top_hover_color'] . "; }";
+  }
+  if (($settings['back_to_top_button_type'] == "text") && ($settings['back_to_top_text_color'] !== '#333333')) {
+    $css .= "color: " . $settings['back_to_top_text_color'] . ";";
+  }
+
+  if ($css != '') {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'style',
+        '#value' => 'body #backtotop {' . $css . '}' . $hover_css,
+      ],
+      'css',
+    ];
+  }
+
+  // Add settings to js.
+  $attachments['#attached']['drupalSettings']['back_to_top'] += $button_settings;
+}
+
+/**
+ * Check mobile.
+ *
+ * Check if mobile or touch device with PHP so javascript and css isn't
+ * included in that case.
+ */
+function is_mobile() {
+  // Check for mobile device using Browscap module if it is available.
+  if (\Drupal::moduleHandler()->moduleExists('browscap')) {
+    $browser = \Drupal::service('browscap')->getBrowser();
+    if (isset($browser['ismobiledevice']) && $browser['ismobiledevice'] == 1) {
+      return TRUE;
+    }
+  }
+
+  if (isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
+    return TRUE;
+  }
+  if (isset($_SERVER["HTTP_ACCEPT"]) && preg_match("/wap\.|\.wap/i", $_SERVER["HTTP_ACCEPT"])) {
+    return TRUE;
+  }
+  if (isset($_SERVER["HTTP_USER_AGENT"])) {
+    $user_agents = [
+      "midp",
+      "j2me",
+      "iphone",
+      "avantg",
+      "docomo",
+      "novarra",
+      "palmos",
+      "palmsource",
+      "240x320",
+      "opwv",
+      "chtml",
+      "pda",
+      "windows\ ce",
+      "mmp\/",
+      "blackberry",
+      "mib\/",
+      "symbian",
+      "wireless",
+      "nokia",
+      "hand",
+      "mobi",
+      "phone",
+      "cdm",
+      "up\.b",
+      "audio",
+      "sie\-",
+      "sec\-",
+      "samsung",
+      "htc",
+      "mot\-",
+      "mitsu",
+      "sagem",
+      "sony",
+      "alcatel",
+      "lg",
+      "erics",
+      "vx",
+      "^nec",
+      "philips",
+      "mmm",
+      "xx",
+      "panasonic",
+      "sharp",
+      "wap",
+      "sch",
+      "rover",
+      "pocket",
+      "benq",
+      "java",
+      "pt",
+      "pg",
+      "vox",
+      "amoi",
+      "bird",
+      "compal",
+      "kg",
+      "voda",
+      "sany",
+      "kdd",
+      "dbt",
+      "sendo",
+      "sgh",
+      "gradi",
+      "jb",
+      "\d\d\di",
+      "moto",
+      "ipad",
+      "android",
+      "ipod",
+      "webos",
+    ];
+
+    foreach ($user_agents as $user_string) {
+      if (preg_match("/" . $user_string . "/i", strtolower($_SERVER["HTTP_USER_AGENT"]))) {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Check adminpage.
+ *
+ * Check if page viewed is in admin section or a node/edit for possible option
+ * to not include javascript and css in that case.
+ */
+function is_adminpage() {
+  $route = \Drupal::routeMatch()->getRouteObject();
+  $is_admin = \Drupal::service('router.admin_context')->isAdminRoute($route);
+
+  // Alter for admin prevent check.
+  \Drupal::moduleHandler()->alter('back_to_top_admin_prevent', $is_admin);
+
+  return $is_admin;
+}
+
+/**
+ * Implements hook_help().
+ */
+function back_to_top_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.back_to_top':
+      $text = file_get_contents(dirname(__FILE__) . "/README.txt");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}

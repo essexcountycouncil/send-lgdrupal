@@ -1,0 +1,25 @@
+# Schema for the configuration files of the localgov_homepage module.
+
+field.widget.settings.custom_entity_reference_paragraphs:
+  type: mapping
+  label: 'Field widget settings'
+  mapping:
+    hide_type:
+      type: string
+      label: 'Hide type column'
+    description_field:
+      type: string
+      label: 'Description field'
+    # The following are sourced from paragraphs_type.schema.yml
+    title:
+      type: label
+    title_plural:
+      type: label
+    edit_mode:
+      type: string
+    add_mode:
+      type: string
+    form_display_mode:
+      type: string
+    default_paragraph_type:
+      type: string

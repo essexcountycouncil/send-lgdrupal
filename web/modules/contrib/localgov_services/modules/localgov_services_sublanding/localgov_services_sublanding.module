@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal service sub-landing page module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_services_sublanding_theme($existing, $type, $theme, $path) {
+  return [
+    'dummy_teaser' => [
+      'render element' => 'element',
+      'variables' => [
+        'title' => '',
+        'url' => '',
+      ],
+    ],
+    'field__paragraph__topic_list_links__topic_list_builder' => [
+      'template' => 'field--paragraph--topic-list-links--topic-list-builder',
+      'base hook' => 'field',
+    ],
+    'paragraph__topic_list_builder' => [
+      'template' => 'paragraph--topic-list-builder',
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ * Counts how many nodes are attached to a taxonomy term.
+ *
+ * @param int $tid
+ *   Taxonomy term ID.
+ *
+ * @return int
+ *   Number of nodes attached to a taxonomy term.
+ */
+function localgov_services_sublanding_count_nodes_with_taxonomy($tid) {
+  $query = \Drupal::database()->select('taxonomy_index', 'ti');
+  $query->fields('ti', ['nid']);
+  $query->condition('ti.tid', $tid);
+  $nodes = $query->execute()->fetchAll();
+  return count($nodes);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_services_sublanding_preprocess_paragraph__topic_list_builder(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  // We only show the 'More' button if there are more items to show. To
+  // calculate this. We count how many items we're showing in this paragraph,
+  // then count how many nodes the term has to show. If there are more items
+  // in the paragraph then items we're showing, we display the 'More' button.
+  if (!$paragraph->get('topic_list_term')->isEmpty()) {
+    $topic_tid = $paragraph->get('topic_list_term')->first()->getValue()['target_id'];
+    $nodes_in_term = localgov_services_sublanding_count_nodes_with_taxonomy($topic_tid);
+
+    // Count how many nodes this paragraph has.
+    $nodes_in_paragraph = $paragraph->get('topic_list_links')->count();
+    $variables['show_more'] = ($nodes_in_term > $nodes_in_paragraph);
+    $variables['show_more_path'] = \Drupal::service('path_alias.manager')->getAliasByPath('/taxonomy/term/' . $topic_tid);
+  }
+
+  // The header text is set by default to the topic entity label but can be
+  // overwritten by the topic_list_header field.
+  if (!$paragraph->get('topic_list_header')->isEmpty()) {
+    $variables['header'] = $paragraph->get('topic_list_header')->first()->getValue()['value'];
+  }
+  elseif (!$paragraph->get('topic_list_term')->isEmpty()) {
+    $topic = $paragraph->get('topic_list_term')->entity;
+    $variables['header'] = $topic->label();
+  }
+}

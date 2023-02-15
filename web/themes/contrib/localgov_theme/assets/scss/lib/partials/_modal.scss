@@ -1,0 +1,24 @@
+//MODALS - BOOTSTRAP CSS OVERRIDES
+
+.modal-title {
+  margin-top: 0 !important;
+}
+
+.modal-header {
+  border-bottom: 0;
+
+  .close {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.modal-footer {
+  border-top: 0;
+  justify-content: flex-start;
+}
+
+.modal-close-text {
+  font-size: 1.188rem;
+  padding-right: 0.3rem;
+}

@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Helper module for the microsite menu tests.
+ */
+
+use Drupal\Core\Url;
+use Drupal\entity_hierarchy_microsite\Entity\MicrositeMenuItemOverrideInterface;
+use Drupal\entity_hierarchy_microsite\Plugin\Menu\MicrositeMenuItem;
+use Drupal\entity_hierarchy_microsite_test\Entity\CustomMicrosite;
+use Drupal\Tests\entity_hierarchy_microsite\Kernel\MicrositeMenuItemsTest;
+
+/**
+ * Implements hook_entity_hierarchy_microsite_links_alter().
+ */
+function entity_hierarchy_microsite_test_entity_hierarchy_microsite_links_alter(&$links) {
+  $message = \Drupal::state()->get(__FUNCTION__, 'success');
+  \Drupal::state()->set(__FUNCTION__, $message);
+}
+
+/**
+ * Implements hook_entity_hierarchy_microsite_menu_item_url_alter().
+ */
+function entity_hierarchy_microsite_test_entity_hierarchy_microsite_menu_item_url_alter(Url $url, MicrositeMenuItemOverrideInterface $override, MicrositeMenuItem $menu_link) {
+  $attributes = $url->getOption('attributes');
+  $attributes['data-some-data'] = 'some-data';
+  $url->setOption('attributes', $attributes);
+}
+
+/**
+ * Implements hook_entity_bundle_info_alter().
+ */
+function entity_hierarchy_microsite_test_entity_bundle_info_alter(&$bundles) {
+  if (isset($bundles['entity_hierarchy_microsite']['entity_hierarchy_microsite'])) {
+    $bundles['entity_hierarchy_microsite']['entity_hierarchy_microsite']['class'] = CustomMicrosite::class;
+  }
+}
+
+/**
+ * Implements hook_menu_links_discovered().
+ */
+function entity_hierarchy_microsite_test_menu_links_discovered_alter(&$data): void {
+  \Drupal::state()->set(MicrositeMenuItemsTest::STATE_KEY, \Drupal::state()->get(MicrositeMenuItemsTest::STATE_KEY, 0) + 1);
+}

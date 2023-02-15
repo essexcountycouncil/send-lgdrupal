@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 8f5073b0-04d7-4abd-804c-a9903366392f
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: 'Have your say - pink-resized.png'
+  uri:
+    -
+      value: 'public://2021-09/Have your say - pink-resized.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 372830
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631267519

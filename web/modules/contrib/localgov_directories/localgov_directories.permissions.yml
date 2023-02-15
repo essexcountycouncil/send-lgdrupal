@@ -1,0 +1,14 @@
+administer directory facets types:
+  title: 'Administer directory facets types'
+  description: 'Maintain the types of directory facets entity.'
+  restrict access: true
+access directory facets overview:
+  title: 'Access directory facets overview page'
+delete directory facets:
+  title: Delete directory facets
+create directory facets:
+  title: Create directory facets
+view directory facets:
+  title: View directory facets
+edit directory facets:
+  title: Edit directory facets

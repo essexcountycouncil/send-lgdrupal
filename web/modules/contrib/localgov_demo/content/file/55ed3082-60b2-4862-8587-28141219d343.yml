@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 55ed3082-60b2-4862-8587-28141219d343
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: TestPDF.pdf
+  uri:
+    -
+      value: 'public://2021-05/TestPDF_3.pdf'
+  filemime:
+    -
+      value: application/pdf
+  filesize:
+    -
+      value: 6122
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1620225595

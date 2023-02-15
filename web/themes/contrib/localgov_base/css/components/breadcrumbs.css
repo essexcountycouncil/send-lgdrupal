@@ -1,0 +1,41 @@
+/*
+  @file Theming the breadcrumbs region.
+
+  This CSS is very generic. Most themes will not need to override it,
+  except perhaps to change the what is used as a divider between items.
+  The breadcrumbs divider can be changed via the --breadcrumbs-divider
+  variable.
+*/
+
+.lgd-region--breadcrumb {
+  background-color: var(--breadcrumbs-background-color);
+  margin-bottom: var(--breadcrumbs-spacing-bottom);
+}
+
+.breadcrumbs {
+  padding: var(--breadcrumbs-padding-vertical) var(--breadcrumbs-padding-horizontal);
+  border-bottom: var(--breadcrumbs-border);
+}
+
+.breadcrumbs__list {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.breadcrumbs__item {
+  display: inline-block;
+  margin-right: 0.25rem;
+  font-size: var(--breadcrumbs-font-size);
+}
+
+.breadcrumbs__item + .breadcrumbs__item::before {
+  display: inline-block;
+  margin-right: 0.25rem;
+  content: var(--breadcrumbs-divider);
+  color: var(--breadcrumbs-link-color);
+}
+
+.breadcrumbs__link {
+  color: var(--breadcrumbs-link-color);
+}

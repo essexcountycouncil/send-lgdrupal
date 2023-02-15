@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains condition_field.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function condition_field_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the condition_field module.
+    case 'help.page.condition_field':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Defines a field type for Condition Plugins') . '</p>';
+      $output .= '<p>' . t('Implemented using the <a href=":conditional-plugins-url">Condition Plugin System</a>.', [':conditional-plugins-url' => 'https://www.drupal.org/node/1961370']) . '</p>';
+      return $output;
+
+    default:
+  }
+}

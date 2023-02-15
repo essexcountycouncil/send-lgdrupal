@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: b7bd2cce-8fe6-4cff-a7fc-15ebd86cd2ad
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631270985
+  label:
+    -
+      value: |-
+        Harley Street 43-49
+        Westminster
+        W1G 7HA
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.14698465156324 51.51848505)'
+      geo_type: Point
+      lat: 51.51848505
+      lon: -0.14698465156324
+      left: -0.14698465156324
+      top: 51.51848505
+      right: -0.14698465156324
+      bottom: 51.51848505
+      geohash: gcpvhdsuzj8mcter
+      latlon: '51.51848505,-0.14698465156324'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: Westminster
+      dependent_locality: ''
+      postal_code: 'W1G 7HA'
+      sorting_code: ''
+      address_line1: 'Harley Street 43-49'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

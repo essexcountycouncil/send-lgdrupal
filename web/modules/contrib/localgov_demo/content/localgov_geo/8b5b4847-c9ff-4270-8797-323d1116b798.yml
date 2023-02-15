@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 8b5b4847-c9ff-4270-8797-323d1116b798
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620225887
+  label:
+    -
+      value: |-
+        Forest Road
+        London
+        E17 4JF
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.013518 51.591023)'
+      geo_type: Point
+      lat: 51.591023
+      lon: -0.013518
+      left: -0.013518
+      top: 51.591023
+      right: -0.013518
+      bottom: 51.591023
+      geohash: gcpvrxy5mp8p
+      latlon: '51.591023,-0.013518'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: London
+      dependent_locality: ''
+      postal_code: 'E17 4JF'
+      sorting_code: ''
+      address_line1: 'Forest Road'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

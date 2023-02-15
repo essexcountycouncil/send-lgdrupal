@@ -1,0 +1,3 @@
+preview_link.entity_links:
+  deriver: 'Drupal\preview_link\Plugin\Derivative\PreviewLinkTasks'
+  weight: 100

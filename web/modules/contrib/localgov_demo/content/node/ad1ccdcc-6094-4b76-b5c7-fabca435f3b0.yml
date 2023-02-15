@@ -1,0 +1,58 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: ad1ccdcc-6094-4b76-b5c7-fabca435f3b0
+  bundle: localgov_services_status
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Service operating as normal'
+  created:
+    -
+      value: 1591716099
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/status/service-operating-normal
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: 'Aenean ut porta mi. Nulla laoreet semper erat, et scelerisque orci facilisis nec. In nec risus eu sapien lacinia porttitor a eget nunc. Etiam maximus enim nec imperdiet hendrerit. Vivamus finibus massa risus, in vulputate massa placerat quis. Suspendisse neque sem, dapibus eget tempor a, commodo fringilla orci. Praesent ut luctus purus. Maecenas at neque at orci tincidunt lacinia. Aliquam sit amet luctus orci. Cras quis turpis quis urna imperdiet interdum ac aliquet ligula. Sed sagittis commodo velit, a gravida neque rutrum sit amet. '
+      format: plain_text
+      summary: 'Aenean ut porta mi. Nulla laoreet semper erat, et scelerisque orci facilisis nec. In nec risus eu sapien lacinia porttitor a eget nunc.'
+  localgov_service_status:
+    -
+      value: 2-no-issues
+  localgov_service_status_on_landi:
+    -
+      value: true
+  localgov_service_status_on_list:
+    -
+      value: true
+  localgov_services_parent:
+    -
+      entity: c1d9f01d-c368-4db3-a4ec-c882d217781b

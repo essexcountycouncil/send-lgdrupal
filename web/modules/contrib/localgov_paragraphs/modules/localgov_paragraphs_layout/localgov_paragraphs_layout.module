@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal Paragraphs Layout module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function localgov_paragraphs_layout_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Hide useless admin options when adding new section using Layout Paragraphs.
+  if (isset($form['localgov_paragraph_content']['widget']['entity_form']['layout_plugin_form'])) {
+    $form['localgov_paragraph_content']['widget']['entity_form']['layout_plugin_form']['#access'] = FALSE;
+  }
+}

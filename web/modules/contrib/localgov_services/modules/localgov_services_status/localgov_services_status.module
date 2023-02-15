@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal service status page module file.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Url;
+use Drupal\localgov_roles\RolesHelper;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_services_status_theme($existing, $type, $theme, $path) {
+  return [
+    'node__localgov_services_status__message' => [
+      'template' => 'node--localgov-services-status--message',
+      'base hook' => 'node',
+    ],
+    'service_status_block' => [
+      'variables' => [
+        'items' => [],
+        'see_all_link' => NULL,
+      ],
+    ],
+    'service_status_message' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
+    'service_status_page' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_localgov_roles_default().
+ */
+function localgov_services_status_localgov_roles_default(): array {
+
+  // Content editing permissions.
+  $perms = [
+    RolesHelper::EDITOR_ROLE => [
+      'create localgov_services_status content',
+      'delete any localgov_services_status content',
+      'delete localgov_services_status revisions',
+      'delete own localgov_services_status content',
+      'edit any localgov_services_status content',
+      'edit own localgov_services_status content',
+      'revert localgov_services_status revisions',
+      'view localgov_services_status revisions',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'create localgov_services_status content',
+      'delete own localgov_services_status content',
+      'edit own localgov_services_status content',
+      'revert localgov_services_status revisions',
+      'view localgov_services_status revisions',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create localgov_services_status content',
+      'delete own localgov_services_status content',
+      'edit own localgov_services_status content',
+      'view localgov_services_status revisions',
+    ],
+  ];
+
+  // Content scheduling permissions required by localgov_workflows.
+  if (\Drupal::moduleHandler()->moduleExists('localgov_workflows')) {
+    $perms[RolesHelper::EDITOR_ROLE] = array_merge($perms[RolesHelper::EDITOR_ROLE], [
+      'add scheduled transitions node localgov_services_status',
+      'reschedule scheduled transitions node localgov_services_status',
+      'view scheduled transitions node localgov_services_status',
+    ]);
+    $perms[RolesHelper::AUTHOR_ROLE] = array_merge($perms[RolesHelper::AUTHOR_ROLE], [
+      'add scheduled transitions node localgov_services_status',
+      'reschedule scheduled transitions node localgov_services_status',
+      'view scheduled transitions node localgov_services_status',
+    ]);
+    $perms[RolesHelper::CONTRIBUTOR_ROLE] = array_merge($perms[RolesHelper::CONTRIBUTOR_ROLE], [
+      'add scheduled transitions node localgov_services_status',
+      'reschedule scheduled transitions node localgov_services_status',
+      'view scheduled transitions node localgov_services_status',
+    ]);
+  }
+
+  return $perms;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function localgov_services_status_node_presave(NodeInterface $entity) {
+  // Invalidate cache for landing page when saving status page.
+  if ($entity->bundle() === 'localgov_services_status') {
+    if (!$entity->get('localgov_services_parent')->isEmpty()) {
+      $invalidate_node_id = $entity->get('localgov_services_parent')->first()->getValue()['target_id'];
+      Cache::invalidateTags(['node:' . $invalidate_node_id]);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_services_status_preprocess_node(&$variables) {
+  /** @var \Drupal\Entity\NodeInterface $node */
+  $node = $variables['node'];
+
+  if ($node->bundle() == 'localgov_services_landing' and $variables['view_mode'] == 'full') {
+    $statuses = \Drupal::service('localgov_services_status.service_status')->getStatusForBlock($node);
+    if ($statuses) {
+      $variables['service_updates'] = [
+        '#theme' => 'service_status_block',
+        '#items' => $statuses,
+        '#see_all_link' => Url::fromRoute('status.landing_list', ['node' => $node->id()]),
+      ];
+    }
+  }
+}

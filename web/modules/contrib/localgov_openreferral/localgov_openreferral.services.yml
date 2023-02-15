@@ -1,0 +1,92 @@
+services:
+  localgov_openreferral.mapping_information:
+    class: Drupal\localgov_openreferral\MappingInformation
+    arguments: ['@entity_type.manager']
+  access_check.localgov_openreferral.type:
+    class: Drupal\localgov_openreferral\Access\OpenreferralType
+    arguments: ['@localgov_openreferral.mapping_information']
+    tags:
+      - { name: access_check, applies_to: _openreferral_type }
+  serializer.encoder.localgov_openreferral_json:
+    class: Drupal\localgov_openreferral\Encoder\JsonEncoder
+    tags:
+      - { name: encoder, format: openreferral_json }
+  localgov_openreferral.normalizer.content_entity:
+    class: Drupal\localgov_openreferral\Normalizer\ContentEntityNormalizer
+    arguments: ['@localgov_openreferral.mapping_information']
+    tags:
+      - { name: normalizer, priority: 10 }
+  localgov_openreferral.normalizer.config_entity:
+    class: Drupal\localgov_openreferral\Normalizer\ConfigEntityNormalizer
+    tags:
+      - { name: normalizer, priority: 10 }
+  localgov_openreferral.normalizer.list:
+    class: Drupal\localgov_openreferral\Normalizer\ListNormalizer
+    tags:
+      - { name: normalizer, priority: 9 }
+  localgov_openreferral.normalizer.entity_reference_field:
+    class: Drupal\localgov_openreferral\Normalizer\EntityReferenceFieldNormalizer
+    arguments: ['@localgov_openreferral.mapping_information']
+    tags:
+      - { name: normalizer, priority: 10 }
+  localgov_openreferral.normalizer.address_field_item:
+    class: Drupal\localgov_openreferral\Normalizer\AddressFieldItemNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 8 }
+  localgov_openreferral.normalizer.geo_field_item:
+    class: Drupal\localgov_openreferral\Normalizer\GeoFieldItemNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 8 }
+  localgov_openreferral.normalizer.field_item:
+    class: Drupal\localgov_openreferral\Normalizer\FieldItemNormalizer
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 7 }
+  paramconverter.localgov_openreferral.entity_uuid:
+    parent: paramconverter.entity
+    class: Drupal\localgov_openreferral\ParamConverter\EntityUuidConverter
+    calls:
+      - [setLanguageManager, ['@language_manager']]
+    tags:
+      # Priority 10, to ensure it runs before @paramconverter.entity.
+      - { name: paramconverter, priority: 10 }
+  localgov_openreferral.requesttypes:
+    class: Drupal\localgov_openreferral\EventSubscriber\RequestTypes
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.exception_subscriber:
+    class: Drupal\localgov_openreferral\EventSubscriber\DefaultExceptionSubscriber
+    tags:
+      - { name: event_subscriber }
+    arguments: ['@serializer', '%serializer.formats%']
+  localgov_openreferral.generate_mapping_basic:
+    class: Drupal\localgov_openreferral\EventSubscriber\GenerateMappingBasic
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info']
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.generate_mapping_service:
+    class: Drupal\localgov_openreferral\EventSubscriber\GenerateMappingService
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info']
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.generate_mapping_organization:
+    class: Drupal\localgov_openreferral\EventSubscriber\GenerateMappingOrganization
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info']
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.generate_mapping_location:
+    class: Drupal\localgov_openreferral\EventSubscriber\GenerateMappingLocation
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info']
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.generate_mapping_taxonomy:
+    class: Drupal\localgov_openreferral\EventSubscriber\GenerateMappingTaxonomy
+    arguments: ['@entity_type.manager', '@entity_field.manager', '@entity_type.bundle.info']
+    tags:
+      - { name: event_subscriber }
+  localgov_openreferral.pager.parameters:
+    class: Drupal\localgov_openreferral\Pager\PagerParametersDecorator
+    decorates: pager.parameters
+    arguments: ['@localgov_openreferral.pager.parameters.inner', '@request_stack']

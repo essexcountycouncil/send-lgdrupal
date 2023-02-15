@@ -1,0 +1,48 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_channels
+    - field.storage.node.localgov_directory_facets_select
+    - field.storage.node.localgov_directory_title_sort
+    - core.entity_view_mode.node.directory_index
+  module:
+    - search_api
+    - node
+id: localgov_directories_index_default
+name: Directories
+description: ''
+read_only: false
+field_settings:
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          localgov_directories_page: directory_index
+          node: directory_index
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: NULL 

@@ -1,0 +1,8 @@
+{
+    "name": "localgovdrupal/localgov_menu_link_group",
+    "description": "Present Drupal's menu links in groups.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_menu_link_group",
+    "license": "GPL-2.0-or-later",
+    "require": {}
+}

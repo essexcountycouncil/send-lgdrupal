@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: fbcf4561-f6ab-4896-91c6-0b17f39eab3d
+  bundle: image
+  default_langcode: en
+  depends:
+    e3f4dd74-db8f-4f55-9ff2-99857fdcc5ee: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: bg.png
+  created:
+    -
+      value: 1631787490
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: e3f4dd74-db8f-4f55-9ff2-99857fdcc5ee
+      alt: 'textured background'
+      title: ''
+      width: 1200
+      height: 200

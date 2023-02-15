@@ -1,0 +1,7 @@
+back_to_top_settings:
+  path: "/admin/config/user-interface/back_to_top"
+  defaults:
+    _form: 'Drupal\back_to_top\Form\BackToTopSettingsForm'
+    _title: "Back To Top"
+  requirements:
+    _permission: "access back_to_top settings"

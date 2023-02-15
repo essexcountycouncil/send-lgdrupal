@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services
+  theme:
+    - localgov_base
+id: localgov_servicescalltoaction_base
+theme: localgov_base
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_cta_block
+settings:
+  id: localgov_service_cta_block
+  label: 'Services call to action'
+  provider: localgov_services
+  label_display: '0'
+visibility: {  }

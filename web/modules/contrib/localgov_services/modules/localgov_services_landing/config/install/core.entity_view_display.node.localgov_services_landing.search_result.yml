@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_services_landing.body
+    - field.field.node.localgov_services_landing.localgov_address
+    - field.field.node.localgov_services_landing.localgov_address_first_line
+    - field.field.node.localgov_services_landing.localgov_common_tasks
+    - field.field.node.localgov_services_landing.localgov_destinations
+    - field.field.node.localgov_services_landing.localgov_email_address
+    - field.field.node.localgov_services_landing.localgov_facebook
+    - field.field.node.localgov_services_landing.localgov_hearing_difficulties_ph
+    - field.field.node.localgov_services_landing.localgov_link_to_map
+    - field.field.node.localgov_services_landing.localgov_opening_hours
+    - field.field.node.localgov_services_landing.localgov_phone
+    - field.field.node.localgov_services_landing.localgov_popular_topics
+    - field.field.node.localgov_services_landing.localgov_twitter
+    - node.type.localgov_services_landing
+  module:
+    - text
+    - user
+id: node.localgov_services_landing.search_result
+targetEntityType: node
+bundle: localgov_services_landing
+mode: search_result
+content:
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  links: true
+  localgov_address: true
+  localgov_address_first_line: true
+  localgov_common_tasks: true
+  localgov_destinations: true
+  localgov_email_address: true
+  localgov_facebook: true
+  localgov_hearing_difficulties_ph: true
+  localgov_link_to_map: true
+  localgov_opening_hours: true
+  localgov_phone: true
+  localgov_popular_topics: true
+  localgov_twitter: true

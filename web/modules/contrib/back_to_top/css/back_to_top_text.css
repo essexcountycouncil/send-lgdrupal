@@ -1,0 +1,29 @@
+#backtotop {
+  background: #f7f7f7;
+  border: 1px solid #cccccc;
+  /*border-radius: 5px 5px 5px 5px;*/
+  border-radius: 10px;
+  bottom: 10px;
+  color: #333333;
+  cursor: pointer;
+  display: none;
+  height: 30px;
+  width: max-content;
+  line-height: 30px;
+  padding: 0px 15px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  z-index: 1;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#backtotop:hover {
+  background: #eeeeee;
+}
+
+#backtotop:focus {
+  opacity: 0.6;
+  outline: none;
+}

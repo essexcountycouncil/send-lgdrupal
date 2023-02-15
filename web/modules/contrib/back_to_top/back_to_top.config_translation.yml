@@ -1,0 +1,5 @@
+back_to_top.settings:
+  title: 'Back to top settings'
+  base_route_name: back_to_top_settings
+  names:
+    - back_to_top.settings

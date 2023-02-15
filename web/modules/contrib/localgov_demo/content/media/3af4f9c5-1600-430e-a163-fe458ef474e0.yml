@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 3af4f9c5-1600-430e-a163-fe458ef474e0
+  bundle: image
+  default_langcode: en
+  depends:
+    ab1a3114-4dc3-478b-9b3a-1fb6ff37c4b2: file
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'English Countryside'
+  created:
+    -
+      value: 1631268607
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: ab1a3114-4dc3-478b-9b3a-1fb6ff37c4b2
+      alt: 'English countryside stream with mountains, via unsplash'
+      title: ''
+      width: 1500
+      height: 1000

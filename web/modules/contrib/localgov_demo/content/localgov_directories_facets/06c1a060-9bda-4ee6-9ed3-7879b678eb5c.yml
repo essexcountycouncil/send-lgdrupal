@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 06c1a060-9bda-4ee6-9ed3-7879b678eb5c
+  bundle: type_of_support
+  default_langcode: en
+default:
+  title:
+    -
+      value: Jobs
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631270493
+  weight:
+    -
+      value: 0

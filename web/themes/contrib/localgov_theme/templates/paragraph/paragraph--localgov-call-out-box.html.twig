@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'call-out-box',
+    colour_theme ? 'call-out-box--' ~ colour_theme|clean_class,
+    'row',
+    'mx-1'
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if background_url is defined and background_url %}
+    <div class="col-12 col-md-6 order-md-2 p-0">
+      <img src="{{ background_url }}" alt="{{ image_alt_text }}" />
+    </div>
+  {% endif %}
+  <div class="col-12 col-md-6 order-md-1 p-4">
+    {{ heading }}
+    {{ content.localgov_body_text }}
+    <a href="{{ button_url }}" class="btn btn-primary"
+      {% if open_in_new_window %} target="_blank" {% endif %}>
+      <span>{{ paragraph.localgov_button.getValue[0].title }}</span>
+      {% if open_in_new_window %}
+        <span class="visually-hidden"> {{ '(opens in a new window)'|t }}</span>
+      {% endif %}
+    </a>
+  </div>
+</div>

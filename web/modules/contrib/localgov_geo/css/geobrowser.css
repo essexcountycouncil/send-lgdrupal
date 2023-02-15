@@ -1,0 +1,16 @@
+/**
+ * Stop select box overlapping item in existing items
+ * entity browser select list.
+ */
+.views-field.views-field-label {
+  margin-left: 3em;
+}
+
+/**
+ * Widget list in claro at least items aren't high enough and actions
+ * buttons get squashed.
+ */
+.localgov-geo-geobrowser .item-container {
+  min-height: 5em;
+  padding: 1em 2em;
+}

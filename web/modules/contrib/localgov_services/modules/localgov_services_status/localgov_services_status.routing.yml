@@ -1,0 +1,8 @@
+status.landing_list:
+  path: '/node/{node}/status'
+  defaults:
+    _title: 'Latest service status'
+    _controller: '\Drupal\localgov_services_status\Controller\ServiceStatusPageController::build'
+  requirements:
+    _entity_access: 'node.view'
+    _custom_access: '\Drupal\localgov_services_status\Controller\ServiceStatusPageController::access'

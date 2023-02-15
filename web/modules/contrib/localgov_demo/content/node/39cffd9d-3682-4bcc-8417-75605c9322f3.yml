@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 39cffd9d-3682-4bcc-8417-75605c9322f3
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    3cea48b6-09ba-4609-b512-2f49853d0e6f: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Other certificates'
+  created:
+    -
+      value: 1631267437
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /order-copy-certificate/other-certificates
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>There is a different process to order&nbsp;copies certificates of:</p>\r\n\r\n<ul>\r\n\t<li>adoption&nbsp;certificates</li>\r\n\t<li>naturalisation and citizenship certificates</li>\r\n\t<li>gender recognition certificates</li>\r\n</ul>\r\n\r\n<h3>Adoption certificates</h3>\r\n\r\n<p>We do not provide copies of adoption certificates, but these can be ordered from the&nbsp;General Register Office&nbsp;either online or by post.</p>\r\n\r\n<p>You can either:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"https://www.gro.gov.uk/gro/content/certificates/login.asp\">order online from the General Register&nbsp;Office– GOV.UK</a></li>\r\n\t<li><a href=\"https://www.gov.uk/government/publications/adoption-certificate-application-form\">download the paper form –&nbsp;GOV.UK</a></li>\r\n</ul>\r\n\r\n<h3>Citizenship and naturalisation certificates</h3>\r\n\r\n<p>We do not provide&nbsp;copies of naturalisation and citizenship certificates. Find out how to&nbsp;<a href=\"https://www.gov.uk/get-replacement-citizenship-certificate\">replace or correct a naturalisation or citizenship certificate – GOV.UK</a></p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 3cea48b6-09ba-4609-b512-2f49853d0e6f
+  localgov_guides_section_title:
+    -
+      value: 'Other certificates'

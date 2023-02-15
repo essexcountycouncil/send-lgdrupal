@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Hooks for scheduled_transitions_target_revisions_test.module.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\Core\Database\Query\AlterableInterface;
+
+/**
+ * Implements hook_query_TAG_alter().
+ *
+ * @see \Drupal\scheduled_transitions\ScheduledTransitionsUtility::QUERY_TAG_TARGET_REVISIONS
+ */
+function scheduled_transitions_target_revisions_test_query_scheduled_transitions_target_revisions_alter(AlterableInterface $query): void {
+  $query->conditions()[] = [
+    'field' => 'base_table.revision_created',
+    'operator' => '>=',
+    'value' => (new \DateTime('1st July 2015'))->getTimestamp(),
+  ];
+}

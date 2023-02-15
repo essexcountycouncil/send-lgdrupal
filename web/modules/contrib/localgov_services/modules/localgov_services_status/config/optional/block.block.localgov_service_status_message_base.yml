@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_status
+  theme:
+    - localgov_base
+id: localgov_service_status_message_base
+theme: localgov_base
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_status_message
+settings:
+  id: service_status_message
+  label: 'Service status message'
+  provider: localgov_services_status
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="date_recur">
+  <rule ref="./vendor/drupal/coder/coder_sniffer/Drupal"/>
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <arg name="extensions" value="inc,install,module,php,profile,test,theme,yml"/>
+
+  <!--  The sniff doesnt know how to handle throws as statement. Anyhow, this
+  kind of thing is covered by PHPStan.-->
+  <rule ref="Squiz.PHP.NonExecutableCode.Unreachable">
+    <severity>0</severity>
+  </rule>
+</ruleset>

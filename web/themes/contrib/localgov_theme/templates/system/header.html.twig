@@ -1,0 +1,69 @@
+<header class="bg-primary">
+  {#
+    Keyboard navigation/accessibility link to main content section in
+    page.html.twig.
+  #}
+  <a href="#main-content" class="visually-hidden focusable skip-link">
+    <i class="fas fa-fast-forward" aria-hidden="true"></i>
+    {{ 'Skip to main content'|t }}
+  </a>
+
+<!-- Main navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark site-max">
+
+  <!-- Navbar content -->
+
+      <a class="navbar-brand" href="/" title="{{ site_name }} homepage">
+        <img class="img-fluid" src="{{ logopath }}" alt="{{ site_name }} Logo" />
+      </a>
+
+      <div class="mobile-nav d-lg-none">
+        <!-- Mobile toggle button -->
+        <button id="js-nav-toggle" class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileToggle" aria-controls="mobileToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-times d-none"></span>
+          <span class="fa fa-bars fa-1x"></span>
+        </button>
+      </div>
+
+    <div class="navbar-menu collapse navbar-collapse" id="mobileToggle">
+      <div class="d-lg-none">
+      </div>
+
+      {% if page.primary_menu %}
+        {{ page.primary_menu }}
+      {% endif %}
+
+      {% if page.secondary_menu %}
+        <ul class="navbar-nav mr-0 ml-auto">
+          <li class="nav-item d-none d-lg-block">
+            <a class="nav-link show-menu px-2 px-lg-3" href="#" id="navbarDropdown" role="button"><span>Services</span><span class="fa fa-chevron-down dropdown-icon ml-2"></span></a>
+          </li>
+          <li class="d-block d-lg-none responsive-services my-2 p-4">
+            {{ page.secondary_menu }}
+          </li>
+        </ul>
+      {% endif %}
+
+      {% if page.search %}
+        {{ page.search }}
+      {% endif %}
+
+      <div class="d-none d-lg-block">
+        <div class="form-inline">
+        {{ page.mobile_search }}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% if page.secondary_menu %}
+    <!-- Toggle Menu -->
+    <nav class="header--expand site-max header--toggle mt-2 px-3">
+      <div class="row">
+        <div class="col-md-12 p-4">
+          {{ page.secondary_menu }}
+        </div>
+      </div>
+    </nav>
+  {% endif %}
+</header>

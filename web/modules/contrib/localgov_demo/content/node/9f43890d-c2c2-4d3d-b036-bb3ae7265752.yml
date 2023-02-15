@@ -1,0 +1,50 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 9f43890d-c2c2-4d3d-b036-bb3ae7265752
+  bundle: localgov_services_page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Mental health support'
+  created:
+    -
+      value: 1631266349
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /mental-health-support
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>Non-emergency support</h2>\r\n\r\n<p>If you're worried about your mental health, it's important to speak to someone. This could be a friend or family member, but it's also a good idea to get support from your GP or a voluntary group. You can&nbsp;<a href=\"http://directory.mindincroydon.org.uk/\">find organisations offering mental health advice and support in Croydon through Mind</a>.</p>\r\n\r\n<p>Your GP may refer you to the South London and Maudsley (SLAM) NHS Foundation Trust, which specialises in mental health. You can&nbsp;<a href=\"https://www.slam.nhs.uk/our-services/service-finder\">view the services available through&nbsp;SLAM on their website</a>.</p>\r\n\r\n<p>Patients and their relatives can get confidential advice and support from the&nbsp;<a href=\"https://www.croydonhealthservices.nhs.uk/patient-advice-and-liaison-pals/\">Patient Advice and Liaison Service (PALS) website,</a>&nbsp;or by calling&nbsp;0123 456 789.</p>\r\n\r\n<h2>Emergency support</h2>\r\n\r\n<p>If you or someone you know has seriously harmed themselves, call 999 or go to a hospital with an Accident and Emergency (A&amp;E) department.</p>\r\n\r\n<p>Contact the 24-hour mental health crisis line on&nbsp;0123 456 789 for:</p>\r\n\r\n<ul>\r\n\t<li>counselling on the phone</li>\r\n\t<li>advice about how to handle a crisis</li>\r\n\t<li>advice about available mental health services</li>\r\n\t<li>communication with other services or teams on behalf of patients and carers</li>\r\n\t<li>support to empower&nbsp;patients and their carers</li>\r\n\t<li>self-management strategies</li>\r\n</ul>\r\n\r\n<p>Visit your GP as soon as possible if you need urgent mental health support but are not experiencing a crisis.</p>\r\n\r\n<p>If you're already receiving support and have a care plan, this will tell you who to contact in an emergency. If you can't find your care plan, contact your community mental health team on 0123 456 789 and ask for your care coordinator.</p>\r\n\r\n<ul>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: "Where to find mental health advice and support in Croydon, including advice for if you or someone you know is having a mental health crisis.\r\n"
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false

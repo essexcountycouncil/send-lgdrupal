@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_facebook
+    - node.type.localgov_services_landing
+id: node.localgov_services_landing.localgov_facebook
+field_name: localgov_facebook
+entity_type: node
+bundle: localgov_services_landing
+label: Facebook
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,15 @@
+{
+    "name": "drupal/dbal",
+    "description": "Provides a Doctrine/DBAL connection from your Database connection settings.",
+    "type": "drupal-module",
+    "require": {
+        "doctrine/dbal": "^2.5"
+    },
+    "license": "GPL2+",
+    "authors": [
+        {
+            "name": "Lee Rowlands",
+            "email": "lee.rowlands@previousnext.com.au"
+        }
+    ]
+}

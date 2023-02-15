@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * LocalGov services status page install file.
+ */
+
+use Drupal\localgov_core\FieldRenameHelper;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_services_status_install() {
+  // Check if simple_sitemap module is installed.
+  $simple_sitemap = \Drupal::moduleHandler()->moduleExists('simple_sitemap');
+  if ($simple_sitemap) {
+    // Install default config, as this does not appear to work in the
+    // config/optional folder.
+    // Discussed on https://www.drupal.org/project/simple_sitemap/issues/3156080
+    $generator = \Drupal::service('simple_sitemap.generator');
+    $generator->setBundleSettings('node', 'localgov_services_status', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+  }
+}
+
+/**
+ * Update Field names in localgov services status.
+ *
+ * Field mapping between existing and new names:
+ * field_service_status_on_list    => localgov_service_status_on_list
+ * field_enable_service_updates    => localgov_enable_service_updates
+ * field_service_status            => localgov_service_status
+ * field_service_status_on_landing => localgov_service_status_on_landi.
+ *
+ * This change creates and updates Drupal config entities.  Unless configuration
+ * is *exported* after this update, later calls to 'drush deploy' or similar
+ * will revert these changes.
+ */
+function localgov_services_status_update_8001(&$sandbox) {
+
+  // Update field_ types fields provided by localgov_services_status.
+  $field_names = [
+    'service_status_on_list',
+    'enable_service_updates',
+    'service_status',
+    'service_status_on_landing',
+  ];
+  foreach ($field_names as $field_name_unprefixed) {
+    FieldRenameHelper::renameField('field_' . $field_name_unprefixed, 'localgov_' . $field_name_unprefixed, 'node');
+  }
+
+  return t('Please export your sites configuration! Config entities for localgov_services_status where updated.');
+}

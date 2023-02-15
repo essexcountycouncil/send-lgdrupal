@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_openreferral
+id: node.localgov_directories_venue
+entity_type: node
+bundle: localgov_directories_venue
+public_type: service
+public_datatype: null
+property_mappings:
+  default:
+    -
+      field_name: title
+      public_name: name
+    -
+      field_name: uuid
+      public_name: id
+    -
+      field_name: localgov_location
+      public_name: service_at_locations
+    -
+      field_name: 'body:value'
+      public_name: description
+    -
+      field_name: localgov_directory_email
+      public_name: email
+    -
+      field_name: 'localgov_directory_website:uri'
+      public_name: url
+    -
+      field_name: localgov_directory_facets_select
+      public_name: service_taxonomys
+    -
+      field_name: localgov_directory_organisation
+      public_name: organization

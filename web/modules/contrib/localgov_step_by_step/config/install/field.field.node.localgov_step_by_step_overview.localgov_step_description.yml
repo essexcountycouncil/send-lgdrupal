@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_step_description
+    - node.type.localgov_step_by_step_overview
+id: node.localgov_step_by_step_overview.localgov_step_description
+field_name: localgov_step_description
+entity_type: node
+bundle: localgov_step_by_step_overview
+label: 'Step by step description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

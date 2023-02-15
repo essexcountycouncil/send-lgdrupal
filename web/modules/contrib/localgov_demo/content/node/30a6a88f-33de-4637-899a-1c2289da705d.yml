@@ -1,0 +1,77 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 30a6a88f-33de-4637-899a-1c2289da705d
+  bundle: localgov_directories_page
+  default_langcode: en
+  depends:
+    5f88c33c-6ffe-4afc-8a66-cd1651b212de: node
+    c0676f68-b06d-4674-89be-09bc1de1fdf5: localgov_directories_facets
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Love Food Hate Waste'
+  created:
+    -
+      value: 1620143711
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/money-employment-and-training-directory/love-food-hate-waste
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Love Food Hate Waste aims to raise awareness of the need to reduce food waste and help us take action. Includes recipes and tips on saving money.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: ''
+      dependent_locality: ''
+      postal_code: ''
+      sorting_code: ''
+      address_line1: ''
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''
+  localgov_directory_channels:
+    -
+      entity: 5f88c33c-6ffe-4afc-8a66-cd1651b212de
+  localgov_directory_facets_select:
+    -
+      entity: c0676f68-b06d-4674-89be-09bc1de1fdf5
+  localgov_directory_website:
+    -
+      uri: 'https://www.lovefoodhatewaste.com/'
+      title: ''
+      options: {  }
+    -
+      uri: 'https://twitter.com/LFHW_UK'
+      title: ''
+      options: {  }

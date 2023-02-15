@@ -1,0 +1,58 @@
+_meta:
+  version: '1.0'
+  entity_type: paragraphs_library_item
+  uuid: b60200f9-b034-45f3-bf79-108f4906db93
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  label:
+    -
+      value: 'quick fact'
+  paragraphs:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 753ccae1-10b5-4216-96b7-24fe1308b612
+          bundle: localgov_fact_box
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1630522753
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_above_text:
+            -
+              value: 'Quick Fact example'
+          localgov_background:
+            -
+              value: fact-box-light
+          localgov_below_text:
+            -
+              value: 'Source: the internet'
+          localgov_fact:
+            -
+              value: '9 out of 10 councils prefer LocalGov Drupal!'
+  created:
+    -
+      value: 1630522753
+  uid:
+    -
+      target_id: 1
+  revision_translation_affected:
+    -
+      value: true

@@ -1,0 +1,54 @@
+<!-- FOOTER -->
+<footer>
+
+  {% if page.footer_first or page.footer_second or page.footer_third %}
+    <!-- Start upper footer row wrapper -->
+    <div class="container-fluid bg-gray-dark footer-top">
+      <div class="row site-max">
+        {% if page.footer_first %}
+          <div class="col-md-4 px-0 px-md-3">
+            {{ page.footer_first }}
+          </div>
+        {% endif %}
+
+        {% if page.footer_second %}
+          <div class="col-md-4 px-0 px-md-3">
+            {{ page.footer_second }}
+          </div>
+        {% endif %}
+
+        {% if page.footer_third %}
+          <div class="col-md-4 px-0 px-md-3">
+            {{ page.footer_third }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Start lower footer row wrapper -->
+  <div class="navbar-light bg-light">
+    <div class="container-fluid site-max">
+      <div class="row justify-content-between">
+        {% if page.lower_footer_first %}
+          <div class="col-12 col-lg-3 d-flex justify-content-start align-items-center">
+            {{ page.lower_footer_first }}
+          </div>
+        {% endif %}
+        {% if page.lower_footer_second %}
+          <div class="col-12 col-lg-6 d-flex justify-content-start align-items-center">
+            {{ page.lower_footer_second }}
+          </div>
+        {% endif %}
+        <div class="col-12 col-md-3 pt-3 pb-3 ml-auto mr-0 copyright d-flex justify-content-start justify-content-lg-end align-items-center">
+          {% if page.lower_footer_third %}
+            {{ page.lower_footer_third }}
+          {% else %}
+            <p>&copy; {{ site_name }} {{ "now"|date("Y") }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>

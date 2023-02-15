@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: b54c3592-47d9-455f-8371-7f592a0a9479
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    75aa141a-7e15-4d97-be6b-42372299ba4c: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Choosing how to manage your care'
+  created:
+    -
+      value: 1592940975
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/step-by-step/request-support-adult-step-step/choosing-how-manage-your
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Once we've decided the&nbsp;support you'll receive and what you'll pay towards it, we'll help you decide how you want to make payments.</p>\r\n\r\n<p>Whether you pay towards your care or not, you'll have a personal care budget to use to pay for support. You'll then have 2 options:</p>\r\n\r\n<ul>\r\n\t<li>we&nbsp;manage your budget and choose the people who provide your care</li>\r\n\t<li>you manage your budget and choose the people who provide your care (this is called&nbsp;direct payment)</li>\r\n</ul>\r\n\r\n<p>If you own your home, you may also have the option to make&nbsp;deferred payments. This means that instead of selling your home to pay for care, you can continue to live in it. Payments will be taken from the value of the house after it's sold.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 75aa141a-7e15-4d97-be6b-42372299ba4c
+  localgov_step_section_title:
+    -
+      value: 'Choosing how to manage your care'
+  localgov_step_summary:
+    -
+      value: "<p>If we pay towards your care, you have several options for how to do this, including:</p>\r\n\r\n<ul>\r\n\t<li>deferred payments</li>\r\n\t<li>direct payments</li>\r\n\t<li>virtual wallet</li>\r\n</ul>\r\n"
+      format: wysiwyg

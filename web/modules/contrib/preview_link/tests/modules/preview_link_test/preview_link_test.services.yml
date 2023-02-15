@@ -1,0 +1,4 @@
+services:
+  datetime.time:
+    class: Drupal\preview_link_test\TimeMachine
+    arguments: ['@state']

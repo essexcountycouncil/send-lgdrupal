@@ -1,0 +1,314 @@
+body {
+  text-size-adjust: none;
+  widows: 2;
+}
+
+.text-monospace {
+  font-size: $font-size-base;
+  background: $gray-tint;
+  color: $gray-dark;
+  padding: ($spacer * 1);
+}
+
+// THEME TEMPLATE LAYOUT ELEMENTS - MARGIN AND PADDING
+
+.site-max {
+  margin-left: auto;
+  margin-right: auto;
+
+  @include rem(max-width, 1170);
+}
+
+main,
+.sidebar {
+  margin-top: ($spacer * 3);
+  margin-bottom: 0;
+}
+
+main form {
+  width: 100%;
+  margin-bottom: ($spacer * 1);
+}
+
+//Add some extra right padding for content elements to create some whitespace
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+main p,
+main ul,
+main ol,
+.sidebar p,
+.sidebar ul,
+.sidebar ol {
+  width: 100%;
+  padding-right: ($spacer * 1.5);
+}
+
+// Set base font sizes (BS overrides)
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+// Increase base font sizes for larger screens
+
+@include media-breakpoint-up(lg) {
+  h1 {
+    font-size: $font-size-base * 2.875;
+  }
+
+  h2 {
+    font-size: $font-size-base * 2.125;
+  }
+
+  h3 {
+    font-size: $font-size-base * 1.75;
+  }
+}
+
+.main-content.col-sm-8,
+.block-system-main-block {
+  // Add top margin to headers in the page but not the first h2
+  // as that will be at the top of the section.
+  h2 {
+    margin-top: 0;
+  }
+
+  * + h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: ($spacer * 3);
+  }
+
+  // Display all headers inline block to prevent margin overlap
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: inline-block;
+  }
+
+  // Control the top margin of anything immediately proceeding a header
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
+    margin-top: 0;
+  }
+}
+
+section {
+  margin-bottom: ($spacer * 2.5);
+  padding-bottom: ($spacer * 2.5);
+}
+
+//Tight sections for output data
+section.tight {
+  margin-bottom: ($spacer * 2);
+  padding-bottom: ($spacer * .5);
+}
+
+//Tight section last form input for output data
+section.tight .form-group:last-child {
+  margin-bottom: 0 !important;
+}
+
+//nested section margins
+section section,
+.form-group {
+  margin-bottom: ($spacer * 2.5);
+  padding-bottom: 0;
+}
+
+//remove bottom margin from last nested section
+section section:last-child,
+form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.account-bar,
+.cookiealert-container {
+  padding-top: ($spacer * 1);
+}
+
+.sidebar nav,
+.sidebar section,
+.sidebar aside {
+  margin-bottom: ($spacer * 3);
+}
+
+// FOCUS STYLES
+
+*:focus {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.custom-file-input:focus ~ .custom-file-label,
+button:focus,
+.show-outline {
+  @include outline(.1875rem, -.1875rem, $focus);
+}
+
+b,
+strong {
+  font-weight: $font-bold;
+}
+
+// HORIZONTAL RULES
+
+hr {
+  margin-top: $hr-margin-y;
+  border-top: $hr-border solid $hr-color;
+}
+
+// SITE WIDE CUSTOM CLASSES
+
+.key-under {
+  border-bottom: .0625rem solid $gray-light;
+}
+
+.rotate-180 {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+mark {
+  background: none;
+  color: $success;
+}
+
+// Icon padding right page and sidebars
+main .fa,
+main li .fa,
+.sidebar li .fa,
+.sidebar,
+main i,
+main li i,
+main .btn i,
+.btn i {
+  padding-right: .5rem;
+}
+
+main i {
+  font-size: $font-size-ex-lg;
+}
+
+.new-tag {
+  font-size: $font-size-sm;
+  line-height: 0.875rem;
+
+  span {
+    font-weight: $font-bold;
+    background: $primary;
+    padding: 0 .1875rem;
+    margin-right: .1875rem;
+    font-size: $font-size-ex-sm;
+    color: $white;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+// SKIP TO MAIN CONTENT
+
+// Hidden skip to main content link
+.skip-main {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background: $skip-main;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: $font-size-sm;
+  color: $white;
+
+  @include rem(height, 30);
+  @include rem(line-height, 30);
+  @include rem(top, -30);
+
+  &:hover {
+    color: $white;
+  }
+
+  &:focus,
+  &:active {
+    top: 0;
+    position: relative;
+  }
+}
+
+.pull-left {
+  @extend .float-left; // bs class
+}
+
+.pull-right {
+  @extend .float-right; // bs class
+}
+
+/* reveal using flex rather than block */
+.flex-reveal {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+.reveal { // used in various places for reveal links
+  display: block;
+
+  @include rem(min-width, 67);
+
+  span {
+    &.in { // show
+      display: none;
+    }
+
+    &.out { // hide
+      display: block;
+    }
+  }
+
+  &.collapsed {
+    span {
+      &.in { // show
+        display: block !important;
+      }
+
+      &.out { // hide
+        display: none !important;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 805d26ea-3d45-4649-84a1-b01a91ab7c45
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Dales.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/Dales.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 354244
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631814644

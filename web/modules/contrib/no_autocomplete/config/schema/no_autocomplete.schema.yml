@@ -1,0 +1,7 @@
+no_autocomplete.settings:
+  type: config_object
+  label: 'No Autocomplete settings'
+  mapping:
+    no_autocomplete_login_form:
+      type: boolean
+      label: 'The status for the "autocomplete=off" option on user login form'

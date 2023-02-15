@@ -1,0 +1,14 @@
+name: 'LocalGov Services: Status page'
+description: 'Status updates related to a service landing page.'
+package: LocalGov Drupal
+type: module
+core_version_requirement: ^8.9 || ^9
+
+dependencies:
+  - drupal:options
+  - drupal:path
+  - drupal:text
+  - drupal:user
+  - condition_field:condition_field
+  - localgov_services:localgov_services_landing
+  - localgov_services:localgov_services_navigation

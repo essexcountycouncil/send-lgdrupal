@@ -1,0 +1,58 @@
+.cta {
+  background: $gray-tint;
+
+  @include rem(padding-top, 30);
+  @include rem(padding-bottom, 30);
+
+  ul,
+  ol {
+    margin-bottom: 0;
+    column-count: 1;
+
+    @include rem(margin-left, 35); // deals with native lists breaking out of the grid
+    @include rem(padding, 0, 15, 0, 0);
+
+    @include media-breakpoint-up(sm) {
+      column-count: 2;
+    }
+
+    @include media-breakpoint-up(lg) {
+      column-count: 3;
+    }
+
+    li {
+      font-size: $font-size-ex-med;
+      position: relative;
+      margin-bottom: 1rem;
+
+      @include rem(line-height, 23);
+
+      a {
+        font-size: $font-size-ex-med;
+
+        &:focus,
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+
+    &.guide-dashes {
+      list-style-type: none;
+      position: relative;
+
+      @include rem(margin-left, 15);
+
+      li {
+        @include rem(padding-left, 12);
+
+        &:before {
+          position: absolute;
+          left: 0;
+          display: block;
+          content: '-';
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: d1aa7821-645a-4882-90a2-cd3ed84d4cfa
+  bundle: image
+  default_langcode: en
+  depends:
+    db5d842e-25b1-4766-b08d-db91d3953253: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: drupalgov-mission-discovery_400x400.png
+  created:
+    -
+      value: 1620307343
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: db5d842e-25b1-4766-b08d-db91d3953253
+      alt: 'Druplicon with a pink hat - Localgov Drupal club - Discovery - Sharing is caring'
+      title: ''
+      width: 400
+      height: 400

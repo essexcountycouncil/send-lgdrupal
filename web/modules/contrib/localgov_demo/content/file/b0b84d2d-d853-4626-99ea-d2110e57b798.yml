@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b0b84d2d-d853-4626-99ea-d2110e57b798
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Moors.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/Moors.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 738984
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631814508

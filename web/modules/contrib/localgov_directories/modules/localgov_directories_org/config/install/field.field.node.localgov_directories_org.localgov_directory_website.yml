@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_website
+    - node.type.localgov_directories_org
+  enforced:
+    module:
+      - localgov_directories
+  module:
+    - link
+id: node.localgov_directories_org.localgov_directory_website
+field_name: localgov_directory_website
+entity_type: node
+bundle: localgov_directories_org
+label: Website
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

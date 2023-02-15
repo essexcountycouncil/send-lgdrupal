@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 65f39da0-4d5d-4dcc-af30-b2477d537c1b
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: snowdonia.geojson
+  uri:
+    -
+      value: 'public://2021-09/snowdonia.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 255389
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631799957

@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 7beddc60-3b72-4c1c-8890-a350d6443f4c
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    efa7e5be-a266-45d1-b5f8-f9443bfd08d8: localgov_directories_facets
+    9eafd77f-d68f-4c7e-92eb-b9e8ed002428: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Loch Lomond and The Trossachs'
+  created:
+    -
+      value: 1631817073
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /national-parks-uk/loch-lomond-and-trossachs
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Loch Lomond and The Trossachs National Park (Scottish Gaelic: Pàirc Nàiseanta Loch Laomainn is nan Tròisichean) is a national park in Scotland centred on Loch Lomond and the hills and glens of the Trossachs, along with several other ranges of hills.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: info@lochlomond-trossachs.org
+  localgov_directory_facets_select:
+    -
+      entity: efa7e5be-a266-45d1-b5f8-f9443bfd08d8
+  localgov_directory_phone:
+    -
+      value: '01389 722600'
+  localgov_directory_website:
+    -
+      uri: 'https://www.lochlomond-trossachs.org/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 9eafd77f-d68f-4c7e-92eb-b9e8ed002428

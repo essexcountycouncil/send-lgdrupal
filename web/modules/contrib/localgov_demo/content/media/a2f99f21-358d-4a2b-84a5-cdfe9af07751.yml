@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a2f99f21-358d-4a2b-84a5-cdfe9af07751
+  bundle: image
+  default_langcode: en
+  depends:
+    73183979-5b8b-4017-baaf-787ac89e9070: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Cornavirus.jpg
+  created:
+    -
+      value: 1631268441
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 73183979-5b8b-4017-baaf-787ac89e9070
+      alt: coronovirus
+      title: ''
+      width: 500
+      height: 247

@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_news_article.body
+    - field.field.node.localgov_news_article.field_media_image
+    - field.field.node.localgov_news_article.localgov_news_categories
+    - field.field.node.localgov_news_article.localgov_news_date
+    - field.field.node.localgov_news_article.localgov_news_related
+    - field.field.node.localgov_news_article.localgov_newsroom
+    - node.type.localgov_news_article
+  module:
+    - text
+    - user
+  enforced:
+    module:
+      - localgov_news
+id: node.localgov_news_article.search_result
+targetEntityType: node
+bundle: localgov_news_article
+mode: search_result
+content:
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  field_media_image: true
+  links: true
+  localgov_news_categories: true
+  localgov_news_date: true
+  localgov_news_related: true
+  localgov_newsroom: true

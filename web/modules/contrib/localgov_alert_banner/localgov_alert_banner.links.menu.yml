@@ -1,0 +1,7 @@
+# Alert banner type menu items definition
+entity.localgov_alert_banner_type.collection:
+  title: 'Alert banner types'
+  route_name: entity.localgov_alert_banner_type.collection
+  description: 'List Alert banner type (bundles)'
+  parent: system.admin_structure
+  weight: 99

@@ -1,0 +1,74 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  bundle: localgov_guides_overview
+  default_langcode: en
+  depends:
+    5963812c-9e71-4be0-9067-59125da10a71: node
+    7ca88e56-8a8b-44ae-9fa0-f75df0533189: node
+    9cd20a2e-0486-4f89-a4c5-584bbc9e1b47: node
+    c89123ee-a53f-4470-a384-085c596e157b: node
+    e7734a03-c2d5-4fa3-92b8-a945b8388b38: node
+    968ae2b4-a5f3-4f6a-bb83-376a819a77e0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Blue Badges'
+  created:
+    -
+      value: 1592939602
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Blue Badges give disabled people who rely on car travel, but face challenges in getting from the car to their destination, the ability to park close-by.</p>\r\n\r\n<p>A Blue Badge on your car lets you park closer to shops, stations and other facilities. Blue badge holders are allowed to park free of charge and without time limit in:</p>\r\n\r\n<ul>\r\n\t<li>any permitted parking space or paid-for parking bay</li>\r\n\t<li>limited-period waiting boxes</li>\r\n\t<li>red routes in specially signed and marked spaces</li>\r\n</ul>\r\n\r\n<p>They can also park free of charge for up to 3 hours on any single or double yellow line, except where there is a:</p>\r\n\r\n<ul>\r\n\t<li>loading and unloading ban</li>\r\n\t<li>stopping restriction</li>\r\n\t<li>footway parking ban</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_description:
+    -
+      value: 'If you have a disability that makes travel difficult, you can apply for a Blue Badge that lets you park closer to facilities.'
+  localgov_guides_list_format:
+    -
+      value: unordered
+  localgov_guides_pages:
+    -
+      entity: 5963812c-9e71-4be0-9067-59125da10a71
+    -
+      entity: 7ca88e56-8a8b-44ae-9fa0-f75df0533189
+    -
+      entity: 9cd20a2e-0486-4f89-a4c5-584bbc9e1b47
+    -
+      entity: c89123ee-a53f-4470-a384-085c596e157b
+    -
+      entity: e7734a03-c2d5-4fa3-92b8-a945b8388b38
+  localgov_guides_section_title:
+    -
+      value: 'About Blue Badges'
+  localgov_services_parent:
+    -
+      entity: 968ae2b4-a5f3-4f6a-bb83-376a819a77e0

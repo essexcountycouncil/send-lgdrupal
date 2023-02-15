@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 9ecee357-33a0-4a3b-bb56-268380fa2d62
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620225012
+  label:
+    -
+      value: |-
+        Riverside Gardens
+        London
+        W6 9LE
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.23413756040935 51.491513165839)'
+      geo_type: Point
+      lat: 51.491513165839
+      lon: -0.23413756040935
+      left: -0.23413756040935
+      top: 51.491513165839
+      right: -0.23413756040935
+      bottom: 51.491513165839
+      geohash: gcpufttxb1y2k5yq
+      latlon: '51.491513165839,-0.23413756040935'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: London
+      dependent_locality: ''
+      postal_code: 'W6 9LE'
+      sorting_code: ''
+      address_line1: 'Riverside Gardens'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

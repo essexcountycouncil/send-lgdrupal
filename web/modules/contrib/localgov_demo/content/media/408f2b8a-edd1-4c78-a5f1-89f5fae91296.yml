@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 408f2b8a-edd1-4c78-a5f1-89f5fae91296
+  bundle: image
+  default_langcode: en
+  depends:
+    9978748c-fd4f-4cdd-af45-6a10ee9257e0: file
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Stonehenge
+  created:
+    -
+      value: 1631268606
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 9978748c-fd4f-4cdd-af45-6a10ee9257e0
+      alt: 'Stonehenge at sunrise, via unsplash'
+      title: ''
+      width: 1500
+      height: 1125

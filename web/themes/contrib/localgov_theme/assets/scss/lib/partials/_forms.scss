@@ -1,0 +1,239 @@
+.conditional {
+  width: 100%;
+  padding-top: ($spacer * 1.5);
+  padding-left: ($spacer * 1.5);
+  border-left: 0.3125rem solid $primary;
+}
+
+// Form element wrapper
+.page .form-control {
+  margin-bottom: ($spacer * 1);
+  font-size: $font-size-ex-med;
+}
+
+// Form legend
+legend {
+  font-family: $headings-font-family;
+  font-weight: $font-bold; // for fallbacks only
+  line-height: 1.2;
+}
+
+// Form label - only direct child of form group (avoids affecting radios and checkboxes)
+.form-group > label {
+  font-family: $headings-font-family;
+  font-weight: $font-bold; // for fallbacks only
+  line-height: 1.2;
+  font-size: $font-size-ex-lg;
+  margin-bottom: ($spacer * 1);
+}
+
+// Form label - extra description
+label {
+  span {
+    display: block;
+    width: 100%;
+    font-size: $font-size-ex-med;
+    font-family: $font-family-base;
+    font-weight: $font-normal;
+    color: $gray-dark;
+  }
+}
+
+// Add margin bottom to checkbox labels
+.form-check-label {
+  margin-bottom: 0.5rem;
+}
+
+// Add margin right to radios
+.radio {
+  input {
+    margin-right: $form-check-inline-margin-x;
+  }
+
+  &.disabled {
+    label {
+      color: $text-muted;
+    }
+  }
+}
+
+// Checkbox and radio text size
+.radio label,
+.form-check label {
+  font-size: $font-size-med;
+}
+
+// Form validation text
+.valid-feedback,
+.invalid-feedback {
+  font-weight: $font-bold;
+}
+
+// Text field validation success icon
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  background: url(../../img/svg/check-success.svg);
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: calc(2.875rem / 2) calc(2.875rem / 2);
+}
+
+// Text field validation warning icon
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background: url(../../img/svg/warning-danger.svg);
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: calc(2.875rem / 2) calc(2.875rem / 2);
+}
+
+// CHECKBOXES
+.custom-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: $font-size-med !important;
+  font-weight: normal !important;
+  user-select: none;
+
+  @include rem(padding-left, 50);
+  @include rem(min-height, 40);
+
+  input { // Hide the browser's default radio button
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  label {
+    display: flex;
+  }
+
+  span {
+    margin: 0 !important;
+  }
+}
+
+// Create a custom checkbox
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  border: 0.063rem solid $input-border-color;
+  margin: 0 !important;
+
+  @include rem(width, 40);
+  @include rem(height, 40);
+}
+
+// On mouse-over, add a grey background color
+
+.custom-input:hover input ~ .checkmark {
+  background-color: $white;
+  border: 0.125rem solid $focus !important;
+}
+
+// When the checkbox is checked, add a blue background
+
+.custom-input input:checked ~ .checkmark {
+  background-color: $white;
+}
+
+// Radio and checkbox focus
+
+.custom-input input:focus + .checkmark,
+.custom-input input:focus + .radiomark {
+  outline: 0.188rem solid $yellow !important;
+  z-index: 999;
+}
+
+// Create the checkmark/indicator (hidden when not checked)
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+// Show the checkmark when checked
+
+.custom-input input:checked ~ .checkmark:after {
+  display: block;
+}
+
+// Style the checkmark/indicator
+
+.custom-input .checkmark:after {
+  border: 0.063rem solid $green;
+  border-width: 0 0.313rem 0.313rem 0;
+  transform: rotate(45deg);
+
+  @include rem(left, 13);
+  @include rem(top, 6);
+  @include rem(width, 12);
+  @include rem(height, 20);
+}
+
+//RADIOS
+
+/* Create a custom radio button */
+
+.radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  border-radius: 50%;
+  border: 0.063rem solid $input-border-color;
+  margin: 0 !important;
+
+  @include rem(width, 40);
+  @include rem(height, 40);
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.custom-input:hover input ~ .radiomark {
+  background-color: $white;
+  border: 0.063rem solid $focus !important;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.custom-input input:checked ~ .radiomark {
+  background-color: $white;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.radiomark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.custom-input input:checked ~ .radiomark:after {
+  display: block !important;
+}
+
+/* Style the indicator (dot/circle) */
+
+.custom-input .radiomark:after,
+.custom-input input:hover ~ .radiomark:after {
+  border-radius: 50%;
+  background: $black;
+
+  @include rem(top, 12);
+  @include rem(left, 12);
+  @include rem(width, 14);
+  @include rem(height, 14);
+}

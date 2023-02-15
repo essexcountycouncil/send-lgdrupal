@@ -1,0 +1,27 @@
+.account-bar {
+  p {
+    font-size: $font-size-med;
+    margin-bottom: $half-margin;
+  }
+
+  div:last-child {
+    margin-bottom: $half-margin;
+  }
+
+  a {
+    color: $secondary;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  .fa {
+    padding-right: $half-padding;
+  }
+}
+
+.account-links a {
+  white-space: nowrap;
+  padding-right: $half-padding;
+}

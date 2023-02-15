@@ -1,0 +1,133 @@
+// FOOTER
+footer {
+  margin-top: 1.5rem;
+
+  a {
+    color: $white;
+  }
+
+  h2 {
+    font-size: $h5-font-size;
+  }
+
+  .flex-break {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  section {
+    padding-bottom: 0;
+    margin-bottom: ($spacer * 4);
+  }
+
+  .iconlist {
+    li {
+      strong {
+        font-size: 125%;
+      }
+
+      i {
+        margin-right: .625rem;
+      }
+    }
+  }
+
+  .footer-top {
+    padding-bottom: 0;
+    padding-top: ($spacer * 3);
+  }
+
+  .socials {
+    list-style-type: none;
+    margin: 1.5rem 0 0 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+
+      @include rem(margin-right, 10);
+
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 0;
+        line-height: 0.9;
+
+        i {
+          display: block;
+
+          @include rem(font-size, 35);
+          @include rem(line-height, 26);
+          @include rem(padding-top, 3);
+        }
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          color: $white !important;
+          box-shadow: 0 0 0 0.2rem $yellow;
+          border-radius: 0.1875rem;
+        }
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  footer .footer-top {
+    padding-bottom: ($spacer * 3);
+  }
+
+  footer section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  //Hide mobile menu
+  #js-nav-toggle {
+    display: none;
+  }
+
+  .icon-search {
+    width: $input-height;
+    height: $input-height;
+  }
+
+  .navbar-dark {
+    .nav-item.active {
+      border-bottom: 0.313rem solid $white;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .navbar-nav {
+      margin-bottom: 0;
+    }
+
+    &.nav-bigtabs {
+      padding: 0;
+
+      .navbar-nav .nav-link {
+        padding: 0.75rem 1.125rem;
+      }
+
+      .nav-item.active {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .dropdown-item {
+    padding: .625rem .9375rem;
+
+    &.active {
+      padding-left: .9375rem;
+      padding-right: .9375rem;
+    }
+  }
+}

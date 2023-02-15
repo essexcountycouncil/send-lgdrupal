@@ -15,7 +15,7 @@ dependencies:
 
 # Configuration of the build of this application.
 build:
-  flavor: composer
+  flavor: none
 
 # The relationships of the application with services or other applications.
 #

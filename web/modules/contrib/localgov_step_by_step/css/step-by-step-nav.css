@@ -1,0 +1,172 @@
+/**
+ * @file
+ * Style rules for the Step by step navigation and Prev/Next links.
+ */
+.node--step_by_step_page section, .node--step_by_step_overview section {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+.node--step_by_step_page .key-under, .node--step_by_step_overview .key-under {
+  margin-bottom: 1.4rem;
+}
+
+ul.step-list {
+  list-style-type: none;
+  margin: 0 0 2.5rem 0;
+  padding: 0;
+}
+ul.step-list li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+ul.step-list li:first-child {
+  margin-right: 1rem;
+}
+ul.step-list li .btn {
+  margin: 0;
+}
+
+.step-by-step-pages__relationship {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  border-left: 0.3125rem solid #551A8B;
+  background: #EDEDED;
+}
+
+.step-by-step-pages__relationship .step-by-step-pages__part-of {
+  color: #551A8B;
+  font-weight: bold;
+  font-size: 19px;
+}
+.step-by-step-pages__relationship .step-by-step-pages__overview {
+  color: #121212;
+  font-size: 19px;
+  font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+  .step-by-step-pages__relationship .step-by-step-pages__overview {
+    font-size: 22px;
+  }
+}
+.step-by-step-pages__relationship .step-by-step-pages__overview a {
+  color: #121212;
+  text-decoration: underline;
+  font-weight: 700 !important;
+}
+
+.step-by-step-pages .step-by-step-pages__relationship {
+  display: block;
+}
+.step-by-step-pages .step-master,
+.step-by-step-pages ol.step-list .step .step__title .step-show {
+  background: none;
+  border: none;
+  color: #0059A4;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+.step-by-step-pages ol.step-list .step .step__title .step-show {
+  font-size: .875rem;
+  color: #121212;
+}
+.step-by-step-pages .step-master:focus,
+.step-by-step-pages .step-master:hover,
+.step-by-step-pages .step-master:active,
+.step-by-step-pages ol.step-list .step .step__title .step-show:focus,
+.step-by-step-pages ol.step-list .step .step__title .step-show:hover,
+.step-by-step-pages ol.step-list .step .step__title .step-show:active {
+  background-color: #fb0;
+  color: #121212;
+  text-decoration: none;
+  box-shadow: 0 0 0 0.125rem #fb0;
+}
+.step-by-step-pages ol.step-list {
+  list-style-type: none;
+  counter-reset: section;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 1.5rem 1.5rem 0 0;
+}
+.step-by-step-pages ol.step-list .step {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+.step-by-step-pages ol.step-list .step:before {
+  z-index: 10;
+  position: absolute;
+  top: 0.75rem;
+  counter-increment: section;
+  content: counter(section);
+  height: 1.75rem;
+  width: 1.75rem;
+  color: #121212;
+  background-color: #FFFFFF;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 1.55rem;
+  font-weight: 800;
+  border: 2px solid #DBDFE3;
+}
+.step-by-step-pages ol.step-list .step:not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  top: 2.4rem;
+  left: 0.8438rem;
+  width: 0.0625rem;
+  height: calc(100% - 1rem);
+  background-color: #FFFFFF;
+  border: 1px solid #DBDFE3;
+  transition: all 0.4s;
+  color: #121212;
+}
+.step-by-step-pages ol.step-list .step .step__title {
+  margin: 0 0 0 2.5rem;
+  cursor: pointer;
+  padding: 0.6rem 0 0.8rem 0;
+  display: block;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #121212;
+}
+.step-by-step-pages ol.step-list .step .step__title a {
+  color: #121212;
+  display: block;
+}
+.step-by-step-pages ol.step-list .step .step__summary p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.step-by-step-pages ol.step-list .step.step--active:before {
+  background-color: #551A8B;
+  border: 2px solid #551A8B;
+  color: #FFFFFF;
+}
+.step-by-step-pages ol.step-list .step.step--active:not(:last-of-type):after {
+  border: 1px solid #551A8B;
+}
+.step-by-step-pages ol.step-list .step.step--active .step__title {
+  color: #551A8B;
+}
+.step-by-step-pages ol.step-list .step.step--active .step__title a {
+  color: #551A8B;
+}
+.step-by-step-pages ol.step-list .step:not(:first-child) .step__title {
+  border-top: solid 1px #DBDFE3;
+}
+.step-by-step-pages ol.step-list .step .step__summary {
+  display: none;
+  padding-left: 2.4rem;
+  padding-bottom: 15px;
+}
+.step-by-step-pages ol.step-list .step .step__summary a {
+  text-decoration: underline;
+  color: #551A8B;
+}
+.step-by-step-pages ol.step-list .step .step__summary.step-show-summary {
+  display: block;
+}

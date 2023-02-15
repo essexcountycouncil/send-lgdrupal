@@ -1,0 +1,12 @@
+name: Webform Query
+type: module
+description: Query webform submission data.
+package: Webform
+core_version_requirement: ^8 || ^9
+dependencies:
+  - webform:webform
+
+# Information added by Drupal.org packaging script on 2021-08-23
+version: '8.x-1.0-alpha2'
+project: 'webform_query'
+datestamp: 1629678145

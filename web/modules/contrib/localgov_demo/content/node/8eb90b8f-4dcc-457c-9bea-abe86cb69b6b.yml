@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8eb90b8f-4dcc-457c-9bea-abe86cb69b6b
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    7c3be0a3-c5b6-4f24-8663-17356d86dd31: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Skateboarding
+  created:
+    -
+      value: 1620225282
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /libraries-leisure-and-culture/z-sports-and-activities/skateboarding
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>There is a metal skate board ramp in Rotary Field, a small concrete finish skate facility with quarter pipe&nbsp;and taco ends&nbsp;at South Norwood Recreation Ground. There is also a purpose-built skate park in Wandle Park.&nbsp;</p>\r\n\r\n<p>Wandle skate park is designed for BMX bikes, skateboards, skaters and micro scooters only. &nbsp;It is free to use, unsupervised and has no lighting or roof,&nbsp;&nbsp;Seating is provided around the outside for spectators. &nbsp;It has over 15 items of equipment, including:</p>\r\n\r\n<ul>\r\n\t<li>mini ramps and transitions</li>\r\n\t<li>grind boxes</li>\r\n\t<li>grind rails</li>\r\n\t<li>quarter pipes</li>\r\n\t<li>rollin</li>\r\n\t<li>flat banks</li>\r\n\t<li>spine</li>\r\n\t<li>jumpbox</li>\r\n\t<li>driveway.</li>\r\n</ul>\r\n\r\n<p>Please help us to keep the site clean and safe by following these rules:</p>\r\n\r\n<ul>\r\n\t<li>respect the opening times, other park users and local residents</li>\r\n\t<li>do not use in wet or icy conditions</li>\r\n\t<li>wear suitable protective clothing</li>\r\n\t<li>receive suitable training before using this facility</li>\r\n\t<li>do not use motorcycles or motorised scooters</li>\r\n\t<li>do not enter the skate park just to watch or if you are too young to take part</li>\r\n\t<li>do not take dogs, glass bottles or alcohol into the skate park</li>\r\n\t<li>report any damage or incidents to us using the contact details below</li>\r\n\t<li>use the litter bins provided.</li>\r\n</ul>\r\n\r\n<p>The Council accepts no responsibility for damage, loss or personal injury whilst using these facilities</p>\r\n"
+      format: wysiwyg
+      summary: 'Places to skate.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 7c3be0a3-c5b6-4f24-8663-17356d86dd31

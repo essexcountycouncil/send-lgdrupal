@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Update functions for the LocalGov Directories Promo Page.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\pathauto\Entity\PathautoPattern;
+
+/**
+ * Adds pathauto pattern if there is not one yet.
+ */
+function localgov_directories_promo_page_update_8001() {
+  $pathauto = \Drupal::service('pathauto.generator');
+  $entity = Node::create([
+    'type' => 'localgov_directory_promo_page',
+  ]);
+  $pattern = $pathauto->getPatternByEntity($entity);
+  if (empty($pattern)) {
+    $pattern = PathautoPattern::create([
+      'id' => 'localgov_directories_promo_page',
+      'label' => 'Directory Promo Page',
+      'type' => 'canonical_entities:node',
+      'pattern' => '[node:title]',
+      'selection_logic' => 'and',
+      'weight' => -5,
+    ]);
+    $pattern->getSelectionConditions()->addInstanceId(
+      'cf0a2bbc-3869-4912-a0e7-0f25ba4fcd1e', [
+        'id' => 'entity_bundle:node',
+        'bundles' => [
+          'localgov_directory_promo_page' => 'localgov_directory_promo_page',
+        ],
+        'negate' => FALSE,
+        'context_mapping' => [
+          'node' => 'node',
+        ],
+        'uuid' => 'cf0a2bbc-3869-4912-a0e7-0f25ba4fcd1e',
+      ],
+    );
+    $pattern->save();
+  }
+}

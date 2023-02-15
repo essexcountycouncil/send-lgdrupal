@@ -1,0 +1,4 @@
+geobrowser:
+  css:
+    theme:
+      css/geobrowser.css: {}

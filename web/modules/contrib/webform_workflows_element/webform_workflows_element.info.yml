@@ -1,0 +1,14 @@
+name: Webform Workflows Element
+type: module
+description: Provides a webform element that hooks into the core Workflows module to allow transitioning submissions through workflow states.
+package: Webform
+core_version_requirement: ^9 || ^10
+dependencies:
+  - webform:webform
+  - workflows
+  - token:token
+
+# Information added by Drupal.org packaging script on 2022-07-07
+version: '1.0.0-alpha3'
+project: 'webform_workflows_element'
+datestamp: 1657169710

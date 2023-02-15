@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: e19f2979-22ab-4a77-8d6c-0a2d7f92651c
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631269780
+  label:
+    -
+      value: |-
+        O'Connell Street Lower 5
+        Dublin
+        D01 PK22
+        Ireland
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-6.259375 53.347866)'
+      geo_type: Point
+      lat: 53.347866
+      lon: -6.259375
+      left: -6.259375
+      top: 53.347866
+      right: -6.259375
+      bottom: 53.347866
+      geohash: gc7x3xdjcgp8
+      latlon: '53.347866,-6.259375'
+  postal_address:
+    -
+      langcode: ''
+      country_code: IE
+      administrative_area: ''
+      locality: Dublin
+      dependent_locality: ''
+      postal_code: 'D01 PK22'
+      sorting_code: ''
+      address_line1: 'O''Connell Street Lower 5'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: ab6aecc5-c49c-4958-9690-7b7cf8ffaf3e
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'How to give notice'
+  created:
+    -
+      value: 1620398182
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-5
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>When to give notice</h2>\r\n\r\n<p>Giving notice involves attending an appointment at a register office where you will declare:</p>\r\n\r\n<ul>\r\n\t<li>who you intend to marry or form a civil partnership with</li>\r\n\t<li>where the ceremony will take place</li>\r\n\t<li>that you are legally free to get married or form a civil partnership</li>\r\n</ul>\r\n\r\n<p>This is a legal requirement that must be completed at least 29 days before the ceremony. In certain cases, depending on your immigration status, this may be extended to 71 days. Therefore, we advise that whenever possible you give notice at least 3 to 6 months before your ceremony.</p>\r\n\r\n<h3>If you or your partner is from outside the European Economic Area (EEA) or Switzerland</h3>\r\n\r\n<p>You may need to wait up to 70 days before your ceremony.</p>\r\n\r\n<h2>Where to give notice</h2>\r\n\r\n<p>You must make an appointment to see us at Scarfolk Register Office.</p>\r\n\r\n<p>You must have lived in the district covered by that register office for at least the previous 7 days. If you and your partner live in different registration districts, you must each give notice separately, in the registration district you live in.</p>\r\n\r\n<h3>If you’re planning a Church of England wedding</h3>\r\n\r\n<p>Contact the church you plan to have your ceremony at to check what you must do to give notice.</p>\r\n\r\n<h2>Getting married abroad</h2>\r\n\r\n<p>Visit&nbsp;<a href=\"https://www.gov.uk/marriage-abroad/y\">GOV.UK's getting married abroad webpage</a>&nbsp;to find out where to get advice about local marriage laws and what documents you will need.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'How to give notice'
+  localgov_step_summary:
+    -
+      value: "<p>Before you can get married or have a civil partnership, you and your partner must give notice at a register office. This must happen at least 29 days before your ceremony.</p>\r\n"
+      format: wysiwyg

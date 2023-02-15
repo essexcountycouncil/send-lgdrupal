@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:8.0-cli
+    steps:
+      - run: sudo apt update -y
+      - run: sudo apt install -y libpng-dev libjpeg-dev
+      - run: sudo docker-php-ext-install gd
+      - run: composer create-project drupal-composer/drupal-project:9.x-dev drupal --no-interaction --ignore-platform-reqs
+      # Add all of our dev dependencies.
+      - run: cd drupal && composer require drupal/coder:^8.3 drupal/token:^1.5 phpstan/phpstan:^1 mglaman/phpstan-drupal:^1 phpstan/phpstan-deprecation-rules dealerdirect/phpcodesniffer-composer-installer:dev-master
+      # Also the extra core dev dep.
+      - run: cd drupal && composer require --dev phpspec/prophecy-phpunit:^2
+      - checkout:
+          path: date_recur_source
+      - run: cd drupal && composer config repositories.daterecur "{\"type\":\"path\", \"url\":\"../date_recur_source\", \"options\":{\"symlink\":false}}"
+      - run: cd drupal && composer require drupal/date_recur
+      - save_cache:
+          key: my-key-{{ .Revision }}
+          paths:
+            - drupal/
+
+  coding_standards:
+    docker:
+      - image: circleci/php:8.0-cli
+    steps:
+      - run: sudo apt update -y
+      - run: sudo apt install -y libpng-dev libjpeg-dev
+      - run: sudo docker-php-ext-install gd
+      - checkout
+      - run: composer install --prefer-dist
+      - run: ./vendor/bin/phpcs . > ~/phpcs-report.txt
+      - run: cat ~/phpcs-report.txt
+      - store_artifacts:
+          path: ~/phpcs-report.txt
+
+  static_analysis:
+    docker:
+      - image: circleci/php:8.0-cli
+    steps:
+      - restore_cache:
+          key: my-key-{{ .Revision }}
+      - run: cp drupal/web/modules/contrib/date_recur/phpstan.neon drupal
+      - run: cd drupal && ./vendor/bin/phpstan analyse --memory-limit=-1 --no-progress -c phpstan.neon --level=max web/modules/contrib/date_recur/ > ~/phpstan-report.txt
+      - run: cat ~/phpstan-report.txt
+      - store_artifacts:
+          path: ~/phpstan-report.txt
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build
+      - coding_standards:
+          requires:
+            - build
+      - static_analysis:
+          requires:
+            - build

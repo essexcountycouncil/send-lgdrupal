@@ -1,0 +1,442 @@
+//Nav links and big tab links mobile
+.navbar-dark .nav-item {
+  font-family: $font-family-secondary;
+  font-weight: $font-bold; // for fallbacks only
+  white-space: nowrap;
+  font-size: $font-size-lg;
+}
+
+// Main navigation logo
+.navbar-dark .navbar-brand {
+  font-weight: $font-bold; //For fallback
+  font-size: unset; // we have an image here and the bs font size affects the spacing
+  width: 35%;
+  min-width: 9.375rem;
+
+  @include rem(margin-right, 18);
+
+  @include media-breakpoint-up(sm) {
+    width: 25%;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 16%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 20%;
+  }
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+//Nav links mobile
+.navbar-dark .navbar-nav {
+  @include rem(margin-bottom, 20);
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 0;
+  }
+}
+
+
+// Navbar dropdown menu
+.navbar-dark .navbar-nav,
+.header--expand {
+  .nav-link {
+    padding-top: .4375rem;
+    padding-bottom: .4375rem;
+
+    .fa-chevron-down {
+      transform: rotate(-360deg);
+      transition: transform 150ms ease;
+    }
+
+    &.show-outline,
+    &[aria-expanded="true"] {
+      background-color: unset;
+      outline: 0.1875rem solid $highlight !important;
+      outline-offset: -0.0875rem;
+
+      .dropdown-icon {
+        &.fa-chevron-down {
+          transform: rotate(-180deg);
+          transition: transform 150ms ease;
+        }
+      }
+    }
+  }
+
+  .fa-chevron-down {
+    transform: rotate(-360deg);
+    transition: transform 150ms ease;
+  }
+
+  .dropdown-toggle:after {
+    content: '';
+    border: none;
+  }
+
+  // Dropdown navigation
+  .dropdown > .dropdown-menu,
+  .responsive-services {
+    background: $white;
+    padding: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 0 0.125rem $highlight;
+    transform: translateX(0.125rem);
+    min-width: 100%;
+
+    > .nav-item.dropdown-item {
+      padding: 0;
+    }
+
+    .dropdown-icon {
+      &.fa-chevron-down {
+        transform: rotate(-180deg);
+        transition: transform 150ms ease;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: inherit;
+      }
+    }
+
+    .nav-link {
+      font-size: $font-size-med;
+      font-weight: $font-bold;
+      text-decoration: none;
+      color: $link-color;
+
+      @include rem(line-height, 28);
+
+      &:hover,
+      &:focus {
+        color: $focus;
+        background-color: $link-hover-color;
+        box-shadow: none;
+      }
+
+      &.show-outline,
+      &[aria-expanded="true"] {
+        color: $focus;
+        background-color: unset;
+        outline-offset: -0.1875rem;
+
+        &:hover {
+          background: transparent;
+          color: $focus;
+        }
+      }
+    }
+  }
+}
+
+//Bigtabs tab link alignment
+.navbar-dark.nav-bigtabs .navbar-nav .nav-link {
+  text-align: center;
+}
+
+//Bigtabs hover and focus
+.navbar-dark.nav-bigtabs .navbar-nav .nav-link:hover {
+  background: $indigo;
+  color: $white;
+}
+
+.navbar-dark.nav-bigtabs .navbar-nav .nav-link:focus {
+  background: $white !important;
+  color: $secondary !important;
+}
+// Main navigation anf and big tabs dropdown menu icon (desktop)
+.navbar-dark .nav-link .fa {
+  padding-left: 0 .3125rem;
+}
+
+//Bigtabs make fill width
+.navbar-dark.nav-bigtabs {
+  margin-bottom: ($spacer * 3);
+}
+
+//Bigtabs make fill width
+.navbar-dark.nav-bigtabs .navbar-nav {
+  flex-grow: 100;
+  padding-right: 0;
+}
+
+//Bigtabs make fill width and remove margins
+.navbar-dark.nav-bigtabs .nav-item {
+  align-self: stretch;
+  flex: 1 0 0;
+  margin-bottom: 0;
+}
+
+// Main and big tab navigation active tab
+.navbar-dark .nav-item.active,
+.navbar-dark.nav-bigtabs .nav-item.active {
+  background: $white;
+  padding-left: .9375rem;
+  padding-right: .9375rem;
+  border-bottom: 0.5rem solid $white;
+  margin-bottom: -0.5rem;
+}
+
+// Main navigation dropdown icon
+.navbar-dark .active a:hover {
+  color: $indigo !important;
+}
+
+// Main navigation dropdown icon
+.navbar-dark .nav-item .fa {
+  font-size: 85%;
+}
+
+// Prevent search button wrapping
+.navbar-dark .form-inline {
+  flex-flow: nowrap;
+  background: none;
+}
+// Set search form padding to accomodate tab design
+.navbar-dark form {
+  padding: 0;
+
+  @include media-breakpoint-up(lg) {
+    flex-wrap: nowrap;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+
+  //Set navbar link padding to accomodate tab design
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 1rem 1.125rem;
+  }
+
+  // Make search form auto width (desktop)
+  .navbar-dark form .form-control {
+    width: auto;
+    height: $input-height;
+    padding: .3125rem .9375rem;
+  }
+}
+// Navbar search form 100% width (mobile) and custom font size
+.navbar-dark .form-inline .form-control {
+  width: 100%;
+  border: 0;
+  font-size: $font-size-ex-med;
+}
+// Main navigation toggle button
+#js-nav-toggle {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0.125rem solid $navbar-dark-toggler-border-color;
+
+  @include rem(width, 38);
+  @include rem(height, 38);
+
+  .fa { // Main navigation toggle button
+    color: $white;
+    font-size: $font-size-ex-med;
+  }
+}
+
+// Mobile menu container
+.navbar-menu {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .625rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+  }
+}
+
+// Mobile menu container
+.navbar-dark {
+  .dropdown-menu {
+    margin: 0 0 .625rem 0; //10px;
+  }
+
+  .dropdown-item {
+    font-size: $font-size-ex-med; //18px
+    font-family: $font-family-base;
+    font-weight: $font-normal; // for fallbacks only
+
+    &.active {
+      @include rem(padding-left, 10);
+      @include rem(padding-right, 10);
+    }
+  }
+}
+
+// SIMPLE NAV
+.simple-nav {
+  margin: 0 !important;
+  padding: 0;
+
+  ul {
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+      padding: $input-btn-padding-y 0;
+      font-size: $font-size-ex-med;
+      border-bottom: .0625rem solid $gray !important;
+      margin: 0 !important;
+    }
+  }
+
+  h3 {
+    margin: 0 !important;
+    padding: 0;
+    border-bottom: .0625rem solid $gray !important;
+    padding-bottom: ($spacer * .5) !important;
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none !important;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// NAVIGATION VANILLA - BLOCK NAV - REMOVED, in progress
+.block-nav {
+  ul {
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+      padding: $input-btn-padding-y $input-btn-padding-x;
+      font-size: $font-size-ex-med;
+      border-bottom: .0625rem solid $white !important;
+      background: $purple-tint;
+      margin: 0 !important;
+    }
+  }
+
+  .btn {
+    margin: 0 !important;
+    border-bottom: .0625rem solid $white !important;
+  }
+}
+
+//EXPANDABLE VANILLA
+//Expandable panel
+.expandable {
+  margin-top: ($spacer * 1);
+  margin-bottom: ($spacer * 3);
+  padding: ($spacer * 2) ($spacer * 2);
+}
+
+.expandable-helper {
+  padding: ($spacer * 1) ($spacer * 1.5) ($spacer * 0.2);
+  margin-top: ($spacer * 1);
+  margin-bottom: ($spacer * 3);
+}
+
+.expanded {
+  display: none;
+}
+
+// VANILLA FOOTER NAV BOTTOM
+.navbar-light {
+  a {
+    color: $carbon;
+  }
+
+  ul {
+    li {
+      a {
+        font-weight: $font-normal;
+      }
+    }
+  }
+
+  .nav-item {
+    font-family: $font-family-base;
+    font-weight: normal; // for fallbacks only
+    white-space: nowrap;
+    font-size: .9375rem;
+  }
+
+  .navbar-brand {
+    &:hover,
+    &:focus {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+  .navbar-nav {
+    padding: 0;
+    margin-bottom: 0;
+
+    .nav-link {
+      color: $secondary;
+      padding: 0 2rem 0 0;
+
+      &:hover {
+        color: $indigo;
+        text-decoration: underline;
+      }
+    }
+
+    .active {
+      color: $purple;
+
+      a:hover {
+        color: $indigo !important;
+      }
+
+      > .nav-link {
+        color: $purple;
+      }
+    }
+  }
+}
+
+.copyright {
+  display: flex;
+  color: $gray-dark;
+  justify-content: flex-end;
+  align-self: center;
+
+  p {
+    margin-bottom: 0;
+    font-size: $font-size-sm;
+  }
+}
+
+.progress {
+  li {
+    font-size: $font-size-ex-lg;
+
+    a {
+      font-size: $font-size-ex-lg;
+    }
+  }
+}
+
+.navbar {
+  @include rem(min-height, 65);
+}
+
+.navbar-collapse {
+  .form-inline {
+    flex-flow: nowrap; // position button next to search field
+  }
+}

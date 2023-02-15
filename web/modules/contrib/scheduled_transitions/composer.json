@@ -1,0 +1,28 @@
+{
+    "name": "drupal/scheduled_transitions",
+    "description": "Allows users to schedule a revision to change state.",
+    "type": "drupal-module",
+    "require": {
+        "php": ">=8.0",
+        "drupal/core": "^9.2 || ^10",
+        "drupal/dynamic_entity_reference": "^1.0 || ^2.0 || ^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "drush/drush": "^10 || ^11",
+        "phpstan/phpstan": "^1",
+        "mglaman/phpstan-drupal": "^1",
+        "phpstan/phpstan-deprecation-rules": "*",
+        "dealerdirect/phpcodesniffer-composer-installer": "dev-master"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    },
+    "suggest": {
+        "drupal/token": "Shows Token UI on Add Scheduled Transitions form."
+    }
+}

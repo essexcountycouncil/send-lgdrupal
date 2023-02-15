@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_caption
+    - paragraphs.paragraphs_type.localgov_image
+  module:
+    - text
+id: paragraph.localgov_image.localgov_caption
+field_name: localgov_caption
+entity_type: paragraph
+bundle: localgov_image
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

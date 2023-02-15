@@ -1,0 +1,24 @@
+name: LocalGov Events
+description: Provides events for LocalGov Drupal.
+core_version_requirement: ^8.9 || ^9
+type: module
+package: LocalGov Drupal
+
+dependencies:
+  # Core
+  - drupal:link
+  - drupal:path
+  - drupal:taxonomy
+  - drupal:views
+  # Contrib
+  - date_recur:date_recur
+  - date_recur_modular:date_recur_modular
+  - facets:facets
+  - field_group:field_group
+  - inline_entity_form:inline_entity_form
+  - search_api:search_api
+  - search_api:search_api_db
+  # LocalGov Drupal
+  - localgov_core:localgov_core
+  - localgov_core:localgov_media
+  - localgov_geo:localgov_geo_address

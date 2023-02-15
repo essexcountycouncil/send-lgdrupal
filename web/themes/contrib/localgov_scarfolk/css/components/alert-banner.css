@@ -1,0 +1,5 @@
+.localgov-alert-banner {
+  margin: var(--spacing-large);
+  border: var(--border-large);
+  border-color: var(--color-black);
+}

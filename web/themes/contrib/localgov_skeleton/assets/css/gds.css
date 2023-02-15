@@ -1,0 +1,243 @@
+/**
+ * @file
+ *   A subset of as non-opinionated as possible CSS for (re-)setting Forms to meet basic requirements of the GDS.
+ *
+ * As this will be inherited based by another theme that uses any preprocessor
+ * it's vanilla css. So everything is in em, but things like the radios could
+ * do with the maths being recalculated.
+ */
+
+fieldset.form-item,
+div.form-item,
+div.form-actions {
+  padding-left: 2em;
+}
+
+.messages--error {
+  color: #d4351c;
+  box-shadow: -0.3em 0 0 #d4351c;
+}
+
+.form-item--error {
+  box-shadow: -0.3em 0 0 #d4351c;
+}
+
+.form-item--error-message {
+  color: #d4351c;
+}
+
+.form-required::after {
+  content: none;
+}
+
+fieldset.form-composite legend,
+label.before {
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  padding-bottom: 0.4em;
+}
+
+fieldset.form-composite legend span.form-optional-text,
+label.before span.form-optional-text {
+  font-size: 0.7em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.webform-element-description {
+  font-weight: lighter;
+  padding-bottom: 0.4em;
+}
+
+.form-item input,
+.form-item optgroup,
+.facets-widget-dropdown select,
+.form-item select,
+.form-item textarea {
+  border-style: solid;
+  border-width: 0.106em;
+  border-color: inherit;
+  border-radius: 0;
+  min-height: 2em;
+  padding: 0.3em;
+}
+
+.form-item input:focus,
+.form-item optgroup:focus,
+.facets-widget-dropdown select:focus,
+.form-item select:focus,
+.form-item textarea:focus {
+  outline: 0.159em solid #fd0;
+  outline-offset: 0;
+  -webkit-box-shadow: inset 0 0 0 0.106em;
+  box-shadow: inset 0 0 0 0.106em;
+}
+
+.form-item input.error:focus,
+.form-item textarea.error:focus,
+.form-item select.error:focus {
+  border-color: inherit;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  font-size: 1.2em;
+  border-width: 1px;
+}
+
+button:focus, html input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
+  outline: 0.159em solid #fd0;
+  outline-offset: 0;
+}
+
+/**
+ * Funky stuff to make the big radio buttons fill ok on click
+ * https://design-system.service.gov.uk/components/radios/
+ *
+ * This might be where it would be nice to have a bit of css
+ * computation rather than then em. Some of this doesn't add up.
+ */
+.form-item.form-type-radio {
+  position: relative;
+  padding-left: 2.3em;
+  min-height: 2em;
+  margin-bottom: 0.5em;
+}
+
+.form-item.form-type-radio input[type="radio"] {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 2.3em;
+  height: 2.3em;
+  opacity: 0;
+  margin: 0;
+}
+
+.form-item.form-type-radio label {
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+.form-item.form-type-radio label::before {
+  content: "";
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.3em;
+  height: 2.3em;
+  border: 0.106em solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.form-item.form-type-radio label::after {
+  content: "";
+  position: absolute;
+  top: 0.59em;
+  left: 0.59em;
+  width: 0;
+  height: 0;
+  border: 0.57em solid currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  background: currentColor;
+}
+
+/* If the templates allow users to change label/input order it'll break */
+.form-item.form-type-radio input:focus + label::before {
+  -webkit-box-shadow: 0 0 0 0.212em #fd0;
+  box-shadow: 0 0 0 0.212em #fd0;
+  border-width: 0.212em;
+}
+
+.form-item.form-type-radio input:checked + label::after {
+  opacity: 1;
+}
+
+/**
+ * And the similar funky technique for the checkboxes.
+ */
+.facets-widget-checkbox .facet-item,
+.form-item.form-type-checkbox {
+  position: relative;
+  padding-left: 2.3em;
+  min-height: 2em;
+  margin-bottom: 0.5em;
+}
+
+.facets-widget-checkbox .facet-item input[type="checkbox"],
+.form-item.form-type-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 2.3em;
+  height: 2.2em;
+  margin: 0;
+  opacity: 0;
+}
+
+.facets-widget-checkbox .facet-item label,
+.form-item.form-type-checkbox label {
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+.facets-widget-checkbox .facet-item label::before,
+.form-item.form-type-checkbox label::before {
+  content: "";
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.3em;
+  height: 2.3em;
+  border: 0.106em solid currentColor;
+  background: transparent;
+}
+
+.facets-widget-checkbox .facet-item label::after,
+.form-item.form-type-checkbox label::after {
+  content: "";
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0.63em;
+  left: 0.42em;
+  width: 1.5em;
+  height: 0.7em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border: solid;
+  border-top-color: currentcolor;
+  border-top-width: medium;
+  border-right-width: medium;
+  border-bottom-width: medium;
+  border-left-width: medium;
+  border-width: 0 0 0.3em 0.3em;
+  border-top-color: transparent;
+  opacity: 0;
+  background: transparent;
+}
+
+/* If the templates allow users to change label/input order it'll break */
+.facets-widget-checkbox .facet-item input:focus + label::before,
+.form-item.form-type-checkbox input:focus + label::before {
+  border-width: 0.159em;
+  -webkit-box-shadow: inset 0 0 0 0.159em #fd0;
+  box-shadow: inset 0 0 0 0.159em #fd0;
+}
+
+.facets-widget-checkbox .facet-item input:checked + label::after,
+.form-item.form-type-checkbox input:checked + label::after {
+  opacity: 1;
+}
+

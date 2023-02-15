@@ -1,0 +1,8 @@
+/**
+ * @file
+ * Style rules for the directory search block.
+ */
+
+.block-localgov-directories-channel-search-block .form-text {
+  max-width: 100%;
+}

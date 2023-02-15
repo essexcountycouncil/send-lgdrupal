@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Module file.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\preview_link\PreviewLinkHooks;
+use Drupal\preview_link\Routing\PreviewLinkRouteProvider;
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function preview_link_entity_type_alter(array &$entity_types) {
+  $supported_entity_types = array_filter($entity_types, function (EntityTypeInterface $type) use ($entity_types) {
+    return $type->isRevisionable();
+  });
+
+  /** @var \Drupal\Core\Entity\ContentEntityType $type */
+  foreach ($supported_entity_types as $type) {
+    $providers = $type->getRouteProviderClasses() ?: [];
+    if (empty($providers['preview_link'])) {
+      $providers['preview_link'] = PreviewLinkRouteProvider::class;
+      $type->setHandlerClass('route_provider', $providers);
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function preview_link_cron() {
+  \Drupal::classResolver(PreviewLinkHooks::class)->cron();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function preview_link_theme($existing, $type, $theme, $path) {
+  return [
+    'preview_link' => [
+      'path' => $path . '/templates',
+      'template' => 'preview-link',
+      'variables' => [
+        'title' => NULL,
+        'link' => NULL,
+        'description' => NULL,
+        'remaining_lifetime' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_access().
+ */
+function preview_link_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  $neutral = AccessResult::neutral()
+    ->addCacheableDependency($entity)
+    ->addCacheContexts(['preview_link_route']);
+  if ($operation !== 'view' || !($entity instanceof ContentEntityInterface)) {
+    return $neutral;
+  }
+  return \Drupal::service('access_check.preview_link')->access($entity, \Drupal::routeMatch()->getParameter('preview_token'));
+}

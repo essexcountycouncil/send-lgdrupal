@@ -1,0 +1,6 @@
+# The "Add Menu link group" action button.
+entity.localgov_menu_link_group.add_form:
+  route_name: 'entity.localgov_menu_link_group.add_form'
+  title: 'Add Menu link group'
+  appears_on:
+    - entity.localgov_menu_link_group.collection

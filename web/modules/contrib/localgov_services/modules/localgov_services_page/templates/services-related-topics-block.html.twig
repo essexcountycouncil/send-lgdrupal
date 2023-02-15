@@ -1,0 +1,8 @@
+<div class="section">
+  <h2>Related Topics</h2>
+  <ul class="list-unstyled">
+    {% for link in links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

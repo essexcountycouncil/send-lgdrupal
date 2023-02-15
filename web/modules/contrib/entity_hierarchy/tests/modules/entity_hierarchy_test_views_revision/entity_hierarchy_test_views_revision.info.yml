@@ -1,0 +1,12 @@
+name: Entity Hierarchy Test Views (Revisions)
+hidden: true
+type: module
+core_version_requirement: ^8.8 || ^9.0
+dependencies:
+  - drupal:views
+  - entity_hierarchy:entity_hierarchy
+
+# Information added by Drupal.org packaging script on 2023-01-18
+version: '3.3.4'
+project: 'entity_hierarchy'
+datestamp: 1674007734

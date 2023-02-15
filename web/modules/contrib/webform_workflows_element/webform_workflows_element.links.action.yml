@@ -1,0 +1,7 @@
+entity.webform.handler.add_workflow_email:
+  route_name: entity.webform.handler.add_workflow_email
+  title: 'Add workflow change email'
+  off_canvas: normal
+  class: '\Drupal\webform\Plugin\Menu\LocalAction\WebformDialogLocalAction'
+  appears_on:
+    - entity.webform.handlers

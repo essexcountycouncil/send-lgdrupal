@@ -1,0 +1,11 @@
+name: 'Feeds Tamper test'
+description: Test module for Feeds Tamper.
+type: module
+package: Testing
+dependencies:
+  - feeds_tamper:feeds_tamper
+
+# Information added by Drupal.org packaging script on 2022-12-08
+version: '8.x-2.0-beta3'
+project: 'feeds_tamper'
+datestamp: 1670507599

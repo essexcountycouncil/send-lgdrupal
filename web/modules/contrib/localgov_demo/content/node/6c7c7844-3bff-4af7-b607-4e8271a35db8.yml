@@ -1,0 +1,73 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6c7c7844-3bff-4af7-b607-4e8271a35db8
+  bundle: localgov_directories_page
+  default_langcode: en
+  depends:
+    5f88c33c-6ffe-4afc-8a66-cd1651b212de: node
+    06c1a060-9bda-4ee6-9ed3-7879b678eb5c: localgov_directories_facets
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Careers Wales'
+  created:
+    -
+      value: 1631270748
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/money-employment-and-training-directory/careers-wales
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Career Choices Dewis Gyrfa Ltd (CCDG) is a wholly owned subsidiary of the Welsh Government which was formed on 1 April 2013.</p>\r\n\r\n<p>Trading as Gyrfa Cymru Careers Wales, we provide the all age, independent and impartial careers information, advice and guidance service for Wales.</p>\r\n"
+      format: wysiwyg
+      summary: 'At Careers Wales we can help you to plan your career, prepare to get a job, and find and apply for the right apprenticeships, courses and training.'
+  localgov_directory_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: ''
+      dependent_locality: ''
+      postal_code: ''
+      sorting_code: ''
+      address_line1: ''
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''
+  localgov_directory_channels:
+    -
+      entity: 5f88c33c-6ffe-4afc-8a66-cd1651b212de
+  localgov_directory_facets_select:
+    -
+      entity: 06c1a060-9bda-4ee6-9ed3-7879b678eb5c
+  localgov_directory_website:
+    -
+      uri: 'https://careerswales.gov.wales/'
+      title: ''
+      options: {  }

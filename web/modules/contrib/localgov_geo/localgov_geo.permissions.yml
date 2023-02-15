@@ -1,0 +1,14 @@
+administer geo types:
+  title: 'Administer geo types'
+  description: 'Maintain the types of geo entity.'
+  restrict access: true
+access geo overview:
+  title: 'Access geo overview page'
+delete geo:
+  title: Delete geo
+create geo:
+  title: Create geo
+view geo:
+  title: View geo
+edit geo:
+  title: Edit geo

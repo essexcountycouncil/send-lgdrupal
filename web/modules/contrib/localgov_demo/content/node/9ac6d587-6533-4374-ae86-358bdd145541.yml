@@ -1,0 +1,197 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 9ac6d587-6533-4374-ae86-358bdd145541
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    6e36cf1c-6d7d-4f08-9812-2035ef679d03: media
+    2b336282-d1d7-4c69-b2d6-65cbb2f363eb: node
+    7c3be0a3-c5b6-4f24-8663-17356d86dd31: node
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Test page with a "link and summary" component'
+  created:
+    -
+      value: 1620404717
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/test-page-link-and-summary-component
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 56362f2f-bcff-44cc-b8f8-482d6fe3145c
+          bundle: localgov_banner_secondary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631885739
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e3c87d38-c560-4899-8da3-b59f333f5408
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620404721
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_twocol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 0cfe5695-dd44-4095-9bfb-21d69361da82
+          bundle: localgov_link_and_summary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620404732
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: top
+                  parent_uuid: e3c87d38-c560-4899-8da3-b59f333f5408
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_link:
+            -
+              uri: 'https://localgovdrupal.org/blog/'
+              title: 'The blog of LGD'
+              options: {  }
+          localgov_summary:
+            -
+              value: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.\r\n\r\nCurabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus."
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5fb52e84-c141-4e4a-9db4-ef74d7215831
+          bundle: localgov_link_and_summary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631786517
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: e3c87d38-c560-4899-8da3-b59f333f5408
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_link:
+            -
+              target_uuid: 2b336282-d1d7-4c69-b2d6-65cbb2f363eb
+              title: 'This is another link and  summary component'
+              options: {  }
+          localgov_summary:
+            -
+              value: "Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.\r\n"
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f39a252f-ae4c-4820-aa60-c7ab09342b96
+          bundle: localgov_link_and_summary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631786560
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: e3c87d38-c560-4899-8da3-b59f333f5408
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_link:
+            -
+              target_uuid: 7c3be0a3-c5b6-4f24-8663-17356d86dd31
+              title: 'And another one'
+              options: {  }
+          localgov_summary:
+            -
+              value: "Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.\r\n"
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0
+  localgov_subsites_summary:
+    -
+      value: 'Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.'

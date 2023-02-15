@@ -1,0 +1,21 @@
+{
+  "name": "drupal/entity_reference_facet_link",
+  "description": "Provides a display plugin for Entity Reference fields that links terms to faceted search pages.",
+  "type": "drupal-module",
+  "authors": [
+    {
+      "name": "David Cameron (dcam)",
+      "homepage": "https://www.drupal.org/u/dcam",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://drupal.org/project/issues/entity_reference_facet_link",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "https://cgit.drupalcode.org/entity_reference_facet_link"
+  },
+  "license": "GPL-2.0+",
+  "conflict": {
+    "drupal/facets": "<1.0.0-beta1"
+  }
+}

@@ -1,0 +1,4 @@
+.banner--primary .banner__content {
+  border: var(--border-large);
+  border-color: var(--color-white);
+}

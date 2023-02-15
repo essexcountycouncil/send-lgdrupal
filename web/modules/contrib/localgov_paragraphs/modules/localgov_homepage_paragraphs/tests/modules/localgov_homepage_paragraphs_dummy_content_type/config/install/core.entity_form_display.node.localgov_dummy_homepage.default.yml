@@ -1,0 +1,199 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.localgov_dummy_homepage.localgov_homepage_labelled_icons
+    - field.field.node.localgov_dummy_homepage.localgov_homepage_ia_blocks
+    - field.field.node.localgov_dummy_homepage.localgov_homepage_newsroom
+    - image.style.thumbnail
+    - node.type.localgov_dummy_homepage
+  module:
+    - field_group
+    - image
+    - path
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_description
+        - group_banner
+        - group_icons
+        - group_ca
+        - group_newsroom
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: Tabs
+      region: content
+    group_description:
+      children:
+        - title
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: false
+      label: Description
+      region: content
+    group_icons:
+      children:
+        - localgov_homepage_labelled_icons
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        label: 'Calls to action'
+        formatter: closed
+        description: ''
+        id: ''
+        classes: ''
+        required_fields: false
+      label: 'Calls to action'
+      region: content
+    group_ca:
+      children:
+        - localgov_homepage_ia_blocks
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        label: Services
+        formatter: closed
+        description: ''
+        id: ''
+        classes: ''
+        required_fields: false
+      label: Services
+      region: content
+    group_newsroom:
+      children:
+        - localgov_homepage_newsroom
+      parent_name: group_tabs
+      weight: 24
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: false
+      label: Newsroom
+      region: content
+id: node.localgov_dummy_homepage.default
+targetEntityType: node
+bundle: localgov_dummy_homepage
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_homepage_labelled_icons:
+    type: custom_entity_reference_paragraphs
+    weight: 10
+    settings:
+      title: 'Call to action'
+      title_plural: 'Calls to action'
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: localgov_labelled_icon
+      hide_type: '1'
+      description_field: localgov_labelled_icon_title
+    third_party_settings: {  }
+    region: content
+  localgov_homepage_ia_blocks:
+    type: custom_entity_reference_paragraphs
+    weight: 11
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: localgov_ia_block
+      hide_type: '1'
+      description_field: localgov_ia_block_title
+    third_party_settings: {  }
+    region: content
+  localgov_homepage_newsroom:
+    type: custom_entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Article
+      title_plural: Articles
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: localgov_newsroom_teaser
+      hide_type: '1'
+      description_field: localgov_newsroom_teaser_title
+    third_party_settings: {  }
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 8
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

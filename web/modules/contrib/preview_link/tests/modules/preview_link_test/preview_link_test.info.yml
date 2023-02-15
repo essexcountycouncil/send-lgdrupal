@@ -1,0 +1,9 @@
+name: Preview Link Test
+type: module
+description: General testing support features.
+package: Testing
+
+# Information added by Drupal.org packaging script on 2020-06-25
+version: '8.x-1.7'
+project: 'preview_link'
+datestamp: 1593052168

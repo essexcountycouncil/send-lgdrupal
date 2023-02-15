@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: e08fdcf8-f505-4180-a0e1-1c6cea86932c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: NewForest.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/NewForest.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 339325
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631815902

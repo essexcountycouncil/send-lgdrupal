@@ -1,0 +1,41 @@
+.tabs--initialised .tab-panel {
+  display: none;
+  padding: 1rem;
+  border: var(--tabs-border);
+  border-color: var(--tabs-border-color);
+}
+
+.tabs--initialised .tab-panel--active {
+  display: block;
+}
+
+.tabs--initialised .tabs__controls {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs--initialised .tabs__controls li {
+  margin: 0;
+}
+
+.tabs--initialised .tabs__controls button {
+  margin: 0;
+  cursor: pointer;
+  color: var(--tabs-text-color);
+  border: var(--tabs-border);
+  border-color: var(--tabs-border-color);
+  background: var(--tabs-button-bg-color);
+  font-family: var(--tabs-button-font-family);
+  font-size: var(--tabs-button-font-size);
+}
+
+.tabs--initialised .tabs__controls [aria-selected="true"] {
+  border-bottom-color: var(--tabs-button-active-color);
+  background-color: var(--tabs-button-active-color);
+}
+
+.tabs--initialised .tabs__controls > li + li button {
+  border-left: none;
+}

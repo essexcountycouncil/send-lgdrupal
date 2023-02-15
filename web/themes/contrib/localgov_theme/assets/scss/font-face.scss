@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+@font-face {
+  font-family: 'Roboto Regular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/roboto-regular/4fb585f7f5a2d493cd85baeba22cc983.eot'), // IE9
+  url('../fonts/roboto-regular/4fb585f7f5a2d493cd85baeba22cc983.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('../fonts/roboto-regular/4fb585f7f5a2d493cd85baeba22cc983.woff2') format('woff2'), // chrome,firefox
+  url('../fonts/roboto-regular/4fb585f7f5a2d493cd85baeba22cc983.woff') format('woff'), // chrome,firefox
+  url('../fonts/roboto-regular/4fb585f7f5a2d493cd85baeba22cc983.ttf') format('truetype'); // chrome,firefox,opera,Safari, Android, iOS 4.2+
+}
+
+@font-face {
+  font-family: 'Maven Pro Bold';
+  font-weight: bold;
+  font-style: normal;
+  src: url('../fonts/maven-pro-bold/9280a336215bd036e843a066d1dc1bd2.eot'), // IE9
+  url('../fonts/maven-pro-bold/9280a336215bd036e843a066d1dc1bd2.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('../fonts/maven-pro-bold/9280a336215bd036e843a066d1dc1bd2.woff2') format('woff2'), // chrome,firefox
+  url('../fonts/maven-pro-bold/9280a336215bd036e843a066d1dc1bd2.woff') format('woff'), // chrome,firefox
+  url('../fonts/maven-pro-bold/9280a336215bd036e843a066d1dc1bd2.ttf') format('truetype'); // chrome,firefox,opera,Safari, Android, iOS 4.2+
+}

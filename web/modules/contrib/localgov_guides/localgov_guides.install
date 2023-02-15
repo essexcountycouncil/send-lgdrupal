@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov Guides module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function localgov_guides_install() {
+  $services = \Drupal::moduleHandler()->moduleExists('localgov_services_navigation');
+  $topics = \Drupal::moduleHandler()->moduleExists('localgov_topics');
+  localgov_guides_optional_fields_settings($services, $topics);
+  // Check if simple_sitemap module is installed.
+  $simple_sitemap = \Drupal::moduleHandler()->moduleExists('simple_sitemap');
+  if ($simple_sitemap) {
+    // Install default config, as this does not appear to work in the
+    // config/optional folder.
+    $generator = \Drupal::service('simple_sitemap.generator');
+    $generator->setBundleSettings('node', 'localgov_guides_overview', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+    $generator->setBundleSettings('node', 'localgov_guides_page', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+  }
+}

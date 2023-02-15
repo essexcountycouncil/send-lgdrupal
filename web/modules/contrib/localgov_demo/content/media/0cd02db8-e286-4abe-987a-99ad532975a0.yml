@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 0cd02db8-e286-4abe-987a-99ad532975a0
+  bundle: image
+  default_langcode: en
+  depends:
+    91edb509-43d8-4cd9-aa86-6d4a2ef49151: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Composting-2019_tcm953-439271.jpg
+  created:
+    -
+      value: 1631266596
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 91edb509-43d8-4cd9-aa86-6d4a2ef49151
+      alt: 'vompost bins'
+      title: ''
+      width: 500
+      height: 260

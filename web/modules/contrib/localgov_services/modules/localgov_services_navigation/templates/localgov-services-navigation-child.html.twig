@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Template for a child 'card' in the unreferenced children list.
+ *
+ * Available variables:
+ *  title - Title of child node.
+ *  type - Bundle label of child node.
+ *  url - Path to child node.
+ *  topics - Array of topic labels.
+ *  topics_list - String of topic labels.
+ *  id - Node ID of child.
+ *  reference - Reference string, title (id).
+ *
+ * @see template_preprocess_localgov_services_navigation_child()
+ */
+#}
+<div class="localgov-child-drag" data-localgov-title="{{title}}" data-localgov-url="{{url}}" data-localgov-reference="{{reference}}" id="localgov-child-drag-{{id}}">
+ <span class="localgov-child-type">{{ type }}</span>
+ <span class="localgov-child-title">{{ title }}</span>
+{% if topics_list|length %}
+ <span class="localgov-child-topics">{{ topics_list }}</span>
+{% endif %}
+ <span class="localgov-child-info">id: {{ id }} path: {{ url }}</span>
+</div>

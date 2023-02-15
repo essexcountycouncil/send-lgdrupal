@@ -1,0 +1,59 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a541fe10-0742-4246-a7cf-9dab74e93343
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    b60200f9-b034-45f3-bf79-108f4906db93: paragraphs_library_item
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Re-register a child born to female parents'
+  created:
+    -
+      value: 1631267971
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/re-register-child-born-female-parents
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>Re-register a child born to female parents</h2>\r\n\r\n<p>Following the marriage or civil partnership of two female parents, authorisation is required from the General Register Office to re-register the birth, to show the child as a child of marriage or civil partnership.</p>\r\n\r\n<h2>What you need to do</h2>\r\n\r\n<p>You must&nbsp;contact the General Register Office&nbsp;for the relevant forms, which must be returned to the General Register Office.</p>\r\n\r\n<p><a href=\"https://www.gov.uk/general-register-office\">Contact the General Register Office.</a></p>\r\n\r\n<h2>What happens next</h2>\r\n\r\n<p>The General Register Office will contact us when your application has been authorised. We will then contact you to make an appointment for the re-registration.</p>\r\n"
+      format: wysiwyg
+      summary: 'You can apply to correct a mistake on a birth record by completing an application online or contacting the register office.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_page_components:
+    -
+      entity: b60200f9-b034-45f3-bf79-108f4906db93
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

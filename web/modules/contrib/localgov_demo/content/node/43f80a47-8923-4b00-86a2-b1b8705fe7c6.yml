@@ -1,0 +1,531 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 43f80a47-8923-4b00-86a2-b1b8705fe7c6
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    d2af8444-4898-4daf-9814-6dc0c16cfb26: media
+    d1aa7821-645a-4882-90a2-cd3ed84d4cfa: media
+    7b913fee-9b49-452b-930c-33e10ef608ac: media
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'An example page with different page components'
+  created:
+    -
+      value: 1620397946
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/example-page-different-page-components
+      langcode: en
+      pathauto: 1
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d453c088-9939-4d30-9ed4-619ffc01c120
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620397994
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 7606c2fc-e185-4d47-8b80-f5f2a1577ab5
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398507
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: d453c088-9939-4d30-9ed4-619ffc01c120
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_text:
+            -
+              value: "<p>Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus.</p>\r\n\r\n<p>Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>\r\n\r\n<p>Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 82d098ee-cdca-4b6f-8ae5-a983d94e4f88
+          bundle: localgov_box_links_listing
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398008
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: d453c088-9939-4d30-9ed4-619ffc01c120
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_box_listing_theme:
+            -
+              value: grid
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_paragraphs:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 9ff24215-7648-4cd3-977a-7b6144713e7e
+                  bundle: localgov_box_link
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620398008
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_image:
+                    -
+                      entity: d2af8444-4898-4daf-9814-6dc0c16cfb26
+                  localgov_link:
+                    -
+                      uri: 'https://localgovdrupal.org/'
+                      title: 'Local Gov Drupal docs'
+                      options: {  }
+                  localgov_opens_in_a_new_window:
+                    -
+                      value: false
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 16c64a3f-5a3b-4df4-a9fb-20f610a45175
+                  bundle: localgov_box_link
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620398059
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_image:
+                    -
+                      entity: d1aa7821-645a-4882-90a2-cd3ed84d4cfa
+                  localgov_link:
+                    -
+                      uri: 'https://localgovdrupal.org/blog/'
+                      title: 'The LGD Blog'
+                      options: {  }
+                  localgov_opens_in_a_new_window:
+                    -
+                      value: false
+          localgov_title:
+            -
+              value: 'This in an example box link list'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 22490485-3199-499e-86bf-7d0c35ab8166
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398530
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: d453c088-9939-4d30-9ed4-619ffc01c120
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_text:
+            -
+              value: "<p>Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus.</p>\r\n\r\n<p>Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>\r\n\r\n<p>Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta. Curabitur aliquet quam id dui posuere blandit.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e45b0f82-0d5d-4b34-b19c-d932aed5b170
+          bundle: localgov_call_out_box
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398152
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: d453c088-9939-4d30-9ed4-619ffc01c120
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_background_image:
+            -
+              entity: 7b913fee-9b49-452b-930c-33e10ef608ac
+          localgov_body_text:
+            -
+              value: "<p>A call out box allows for a heading, text and link and an image&nbsp;</p>\r\n"
+              format: wysiwyg
+          localgov_button:
+            -
+              uri: 'https://localgovdrupal.org/blog/'
+              title: 'Blog '
+              options: {  }
+          localgov_colour_theme:
+            -
+              value: default
+          localgov_header_text:
+            -
+              value: 'This is an example call out box'
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398312
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_twocol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 7a3dc1a7-a29a-42b1-8339-50b539ee13e8
+          bundle: localgov_image
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398328
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: top
+                  parent_uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_caption:
+            -
+              value: "<p>This is an image with a caption</p>\r\n"
+              format: wysiwyg
+          localgov_image:
+            -
+              entity: 7b913fee-9b49-452b-930c-33e10ef608ac
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 29e60bbb-786b-4561-8bd1-318bb53dfc87
+          bundle: localgov_quote
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789148
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_author:
+            -
+              value: 'The quote can be attributed. '
+          localgov_text_plain:
+            -
+              value: 'This is a Quote component: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta.'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 456739f2-0f6e-40c0-98e1-7d5d0e1f2b74
+          bundle: localgov_key_facts
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398413
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_paragraphs:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: b71cf492-7ff0-48c2-a8df-f81a343dcdb4
+                  bundle: localgov_key_fact
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620398413
+                  behavior_settings:
+                    -
+                      value: {  }
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_text:
+                    -
+                      value: "<p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>\r\n"
+                      format: wysiwyg
+                  localgov_title:
+                    -
+                      value: 'Fact #1'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 904ea511-c7a2-42e0-a60e-254c87fac59a
+                  bundle: localgov_key_fact
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620398432
+                  behavior_settings:
+                    -
+                      value: {  }
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_text:
+                    -
+                      value: "<p>Vivamus suscipit tortor eget felis porttitor volutpat.</p>\r\n"
+                      format: wysiwyg
+                  localgov_title:
+                    -
+                      value: 'Fact #2'
+          localgov_title:
+            -
+              value: 'Key Facts Component'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1447c95a-e6c1-43ab-95a9-4018a2db4772
+          bundle: localgov_fact_box
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620404879
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_above_text:
+            -
+              value: 'The text which appears above a fact box '
+          localgov_background:
+            -
+              value: fade-red-blue
+          localgov_below_text:
+            -
+              value: 'And this is the text which appears below'
+          localgov_fact:
+            -
+              value: 'Fact box: Did you know that 100% of facts are totally true (This fact box should fade red to blue)'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3fbed61e-58ea-4795-9247-a6f12ec26b7d
+          bundle: localgov_fact_box
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620404985
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 743ac4ba-ff59-4c16-abc2-ace52811951f
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_above_text:
+            -
+              value: 'This is the fact box which is light'
+          localgov_background:
+            -
+              value: fact-box-light
+          localgov_below_text:
+            -
+              value: 'And the text that comes below. '
+          localgov_fact:
+            -
+              value: 'Fact box: And here''s the fact text itself'
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0

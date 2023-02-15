@@ -1,0 +1,63 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: bd79a5ad-d053-4431-8067-d73354c6081e
+  bundle: localgov_news_article
+  default_langcode: en
+  depends:
+    a52491c7-ba55-46a3-aef5-4c25495b47de: media
+    0005f51e-34a8-4313-bdca-63aacf1dec3d: node
+    198d685b-043e-409d-8e92-21452f38a2fe: node
+    04dc2cb5-69f9-443b-9db3-e818855880b7: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Town hall to host wedding services'
+  created:
+    -
+      value: 1631268972
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /news/2021/town-hall-host-wedding-services
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>The move has been triggered by a desire to offer an improved setting for ceremonies in the area which it is hoped will increase demand for wedding services from both the local community and those visiting to spend their special day in the area.&nbsp;</p>\r\n\r\n<p class=\"callout callout-primary\">The Town Hall is an idyllic riverside location for ceremonies and should bring additional revenue in to the town and contribute to the wider local economy.&nbsp;</p>\r\n\r\n<p>Vipal Mensa, Superintendent Registrar and Manager for the Registration Service, said:</p>\r\n\r\n<p>“This is a fantastic opportunity for the people here and the many visitors we welcome every year to enjoy their special day in a stunning location against the backdrop of our beautiful district. We’re delighted to be working alongside our partners at the Town Hall and with the people here to provide a first class service in a wonderful setting.”</p>\r\n\r\n<p>An application to licence the new premises for wedding ceremonies is now available to view on the county council website, and will remain for 3 weeks to allow for any public objections to be raised. After this period, a grant of approval will be produced and a period of implementation and transfer of assets will begin to the new premises.</p>\r\n"
+      format: wysiwyg
+      summary: "A proposal to relocate registration services from HM Coroners offices to the Town Hall was approved unanimously at a meeting of the town council on Thursday 21st\_July."
+  field_media_image:
+    -
+      entity: a52491c7-ba55-46a3-aef5-4c25495b47de
+  localgov_news_date:
+    -
+      value: '2021-09-10'
+  localgov_news_related:
+    -
+      entity: 0005f51e-34a8-4313-bdca-63aacf1dec3d
+    -
+      entity: 198d685b-043e-409d-8e92-21452f38a2fe
+  localgov_newsroom:
+    -
+      entity: 04dc2cb5-69f9-443b-9db3-e818855880b7

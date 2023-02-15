@@ -1,0 +1,12 @@
+events-styling:
+  version: 1.x
+  css:
+    base:
+      css/localgov_events.css: {}
+
+date-picker:
+  version: 1.x
+  js:
+    js/localgov_events_date_picker.js: { }
+  dependencies:
+    - core/jquery

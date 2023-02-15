@@ -1,0 +1,121 @@
+<?php
+
+/**
+ * @file
+ * Local Government Services section navigation.
+ *
+ *   Some of the functionality is related to field that a reused outside the
+ *   Services node bundles. Within the services section navigation integrates
+ *   the bundles, so this is an attempt to collect this functionality together,
+ *   and in the future make refactoring it easier.
+ */
+
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\FieldConfigInterface;
+use Drupal\pathauto\Entity\PathautoPattern;
+use Drupal\localgov_services_navigation\EntityChildRelationshipUi;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_services_navigation_theme() {
+  return [
+    'localgov_services_navigation_children' => [
+      'children' => 'render_element',
+    ],
+    'localgov_services_navigation_child' => [
+      'variables' => [
+        'title' => '',
+        'type' => '',
+        'url' => '',
+        'topics' => [],
+        'id' => '',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function template_preprocess_localgov_services_navigation_child(&$variables) {
+  $variables['reference'] = $variables['title'] . ' (' . $variables['id'] . ')';
+  $variables['topics_list'] = implode(', ', $variables['topics']);
+}
+
+/**
+ * Implements hook_field_wiget_WIDGET_ID_alter().
+ */
+function localgov_services_navigation_field_widget_entity_reference_autocomplete_form_alter(&$element, FormStateInterface $form_state, $context) {
+  if (!empty($element['target_id']) && $element['target_id']['#selection_handler'] == 'localgov_services') {
+    $element['target_id']['#value_callback'] = [
+      'Drupal\localgov_services_navigation\EntityReferenceValue',
+      'valueCallback',
+    ];
+  }
+}
+
+/**
+ * Implements hook_pathauto_pattern_alter().
+ */
+function localgov_services_navigation_pathauto_pattern_alter(PathautoPattern $pattern, array $context) {
+  // If pathauto isn't set to include this entity into services hierarchy, but
+  // it has opt-ed in with the field add the (optional) parent to the path.
+  $entity = reset($context['data']);
+  assert($entity instanceof ContentEntityInterface);
+  if ($entity->hasField('localgov_services_parent') && strpos($pattern->getPattern(), '[node:localgov_services_parent:entity:url:relative]') === FALSE) {
+    $pattern->setPattern('[node:localgov_services_parent:entity:url:relative]/' . $pattern->getPattern());
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function localgov_services_navigation_entity_extra_field_info() {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(EntityChildRelationshipUi::class)
+    ->entityExtraFieldInfo();
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function localgov_services_navigation_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(EntityChildRelationshipUi::class)
+    ->formAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function localgov_services_navigation_field_config_insert(FieldConfigInterface $field) {
+  if (
+    $field->getName() == 'localgov_services_parent' &&
+    $field->getTargetEntityTypeId() == 'node' &&
+    ($destinations = FieldConfig::loadByName('node', 'localgov_services_landing', 'localgov_destinations'))
+  ) {
+    $settings = $destinations->getSetting('handler_settings');
+    $settings['target_bundles'][$field->getTargetBundle()] = $field->getTargetBundle();
+    $destinations->setSetting('handler_settings', $settings);
+    $destinations->save();
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function localgov_services_navigation_field_config_delete(FieldConfigInterface $field) {
+  if (
+    $field->getName() == 'localgov_services_parent' &&
+    $field->getTargetEntityTypeId() == 'node' &&
+    ($destinations = FieldConfig::loadByName('node', 'localgov_services_landing', 'localgov_destinations'))
+  ) {
+    $settings = $destinations->getSetting('handler_settings');
+    unset($settings['target_bundles'][$field->getTargetBundle()]);
+    $destinations->setSetting('handler_settings', $settings);
+    $destinations->save();
+  }
+}

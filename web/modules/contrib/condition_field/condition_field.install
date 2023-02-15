@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains condition_field.install.
+ */
+
+use Drupal\condition_field\Plugin\Field\FieldType\ConditionFieldItem;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Set default field settings.
+ */
+function condition_field_update_8001(&$sandbox) {
+  $skip_condition_ids = ConditionFieldItem::SKIP_CONDITION_IDS;
+
+  if (!\Drupal::service('language_manager')->isMultilingual()) {
+    // Don't display the language condition until we have multiple languages.
+    $skip_condition_ids[] = 'language';
+  }
+
+  $available_contexts = \Drupal::service('context.repository')->getAvailableContexts();
+  $active_conditions = [];
+  foreach (\Drupal::service('plugin.manager.condition')->getDefinitionsForContexts($available_contexts) as $condition_id => $definition) {
+    if (!in_array($condition_id, $skip_condition_ids)) {
+      $active_conditions[$condition_id] = $condition_id;
+    }
+  }
+
+  $field_definitions = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('condition_field');
+  foreach ($field_definitions as $entity_type_id => $field_list) {
+    foreach ($field_list as $field_name => $field_definition) {
+      foreach ($field_definition['bundles'] as $bundle) {
+        /** @var \Drupal\field\Entity\FieldConfig $field_config */
+        $field_config = FieldConfig::loadByName($entity_type_id, $bundle, $field_name);
+        $field_config->setSetting('enabled_plugins', $active_conditions);
+        $field_config->save();
+      }
+    }
+  }
+}

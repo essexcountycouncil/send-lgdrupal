@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: acdeb4ee-eccf-4e59-ae88-e73be24c8821
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    9fd42e4a-aa83-4c9a-9999-1b5bfa96a003: localgov_directories_facets
+    6c093157-8509-4046-869e-4c95eee26d8e: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Annertech
+  created:
+    -
+      value: 1620227640
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/annertech
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>The agency you want to work with for your next digital transformation project.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_email:
+    -
+      value: hello@annertech.com
+  localgov_directory_facets_select:
+    -
+      entity: 9fd42e4a-aa83-4c9a-9999-1b5bfa96a003
+  localgov_directory_phone:
+    -
+      value: '+353 (0)1 524 0312'
+  localgov_directory_website:
+    -
+      uri: 'https://www.annertech.com/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 6c093157-8509-4046-869e-4c95eee26d8e

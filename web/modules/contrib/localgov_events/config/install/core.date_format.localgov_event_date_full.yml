@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_event_date_full
+label: 'Event date full'
+locked: false
+pattern: 'l, jS F Y, g.ia'
