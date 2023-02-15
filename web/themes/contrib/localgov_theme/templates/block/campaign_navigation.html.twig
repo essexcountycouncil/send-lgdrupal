@@ -1,0 +1,28 @@
+<nav class="section-nav" aria-label="Section Navigation">
+  <h3 class="p-4">
+    <span class="float-left col-8 col-md-12 pl-0">
+      {{ heading }}
+    </span>
+    
+    <!--Show hide toggle link -->
+    <span class="float-left mx-2 d-md-none">
+      <a href="#" data-toggle='collapse' data-target="#sectionLinks" class="reveal collapsed">
+        <span id='view_sectionLinks' class='collapse in'><strong>Menu</strong><i class="fas fa-chevron-down pl-2"></i></span>
+        <span id='hide_sectionLinks' class='collapse out'><strong>Menu</strong><i class="fas fa-chevron-up pl-2"></i></span>
+      </a>
+    </span>
+  </h3>
+  <ul class="p-0 collapse dont-collapse-sm out" id="sectionLinks">
+    {% for link in links %}
+      {% if link.class == 'is-active' %}
+        <li class="p-0">
+          <span class="{{ link.class }} pl-4 pr-4 pt-2 pb-2">{{ link.title }}</span>
+        </li>
+      {% else %}
+        <li class="p-0">
+          <a href="{{ link.url }}" class="pl-4 pr-4 pt-2 pb-2">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

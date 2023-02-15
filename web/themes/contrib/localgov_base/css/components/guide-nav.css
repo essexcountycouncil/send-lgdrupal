@@ -1,0 +1,25 @@
+.lgd-guide-nav {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  padding: var(--section-spacing-vertical-guide-nav) var(--section-spacing-horizontal-guide-nav);
+  background-color: var(--color-grey-lighter);
+}
+
+.lgd-guide-nav__list {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 48rem) {
+  .lgd-guide-nav__list {
+    column-count: var(--guide-nav-column-count);
+  }
+}
+
+.lgd-guide-nav__list-item {
+  margin-bottom: var(--spacing);
+  font-size: var(--font-size-large);
+  break-inside: avoid-column;
+}
+
+.lgd-guide-nav__list-item > a {
+  font-weight: bold;
+}

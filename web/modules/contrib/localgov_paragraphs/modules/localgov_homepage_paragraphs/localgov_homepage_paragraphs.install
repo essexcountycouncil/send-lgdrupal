@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * LocalGov homepage paragraphs install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function localgov_homepage_paragraphs_install() {
+
+  // Homepage paragraphs depend on the Fontawesome module which breaks the
+  // display of localgov_theme icons unless configured to to use webfonts.
+  \Drupal::configFactory()
+    ->getEditable('fontawesome.settings')
+    ->set('method', 'webfonts')
+    ->set('allow_pseudo_elements', TRUE)
+    ->set('external_svg_location', 'https://use.fontawesome.com/releases/v5.13.0/css/all.css')
+    ->set('use_shim', FALSE)
+    ->save();
+}

@@ -1,0 +1,10 @@
+name: 'LocalGov Search'
+description: 'Sitewide search for LocalGov Drupal'
+core_version_requirement: ^8.9 || ^9
+type: module
+package: LocalGov Drupal
+
+dependencies:
+  - drupal:node
+  - drupal:views
+  - search_api:search_api

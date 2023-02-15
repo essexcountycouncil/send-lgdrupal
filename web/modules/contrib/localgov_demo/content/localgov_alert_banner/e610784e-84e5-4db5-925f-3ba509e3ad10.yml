@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: e610784e-84e5-4db5-925f-3ba509e3ad10
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is a ''news article'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631892276
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-19--93b3fc76d0c13cefce77873c5c0b9eb19d2991ac
+  short_description:
+    -
+      value: "<p>Add a 'news article' to show updates from your council. The article can be categorised, and promoted to the newsroom page if needed (shows the latest 3 articles that have been promoted). If your site has multiple newsrooms, you can choose where it is shown.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/news/2021/town-hall-host-wedding-services\r\n/news/2021/committed-keeping-vulnerable-adults-safe-new-safeguarding-head\r\n/news/2021/dont-waste-your-waste-get-composting-autumn\r\n/news/2021/update-county-council-services-during-current-lockdown\r\n/news/2021/discounted-compost-bins-can-help-transform-your-garden-over-winter"
+          negate: '0'

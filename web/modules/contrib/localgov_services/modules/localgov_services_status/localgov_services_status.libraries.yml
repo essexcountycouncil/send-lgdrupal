@@ -1,0 +1,27 @@
+# Style rules and behavior for the Service status Views style plugin.
+localgov_services_status:
+  css:
+    layout:
+      css/localgov-services-status.css: {}
+  js:
+    js/localgov-services-status.js: {}
+  dependencies:
+    - core/jquery
+
+bootstrap_cdn:
+  remote: https://getbootstrap.com/
+  version: 4.4.1
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/twbs/bootstrap/master/LICENSE
+    gpl-compatible: true
+  js:
+    https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js: { type: external, minified: true }
+    https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js: { type: external, minified: true }
+  css:
+    component:
+      https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css: { type: external, minified: true}
+    theme:
+      css/extra.css: {}
+  dependencies:
+    - core/jquery

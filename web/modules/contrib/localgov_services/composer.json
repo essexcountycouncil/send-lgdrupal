@@ -1,0 +1,19 @@
+{
+    "name": "localgovdrupal/localgov_services",
+    "description": "LocalGovDrupal distribution: Services features.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_services",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/condition_field": "^2.0",
+        "drupal/entity_browser": "^2.5",
+        "drupal/field_group": "~3.0",
+        "drupal/link_attributes": "^1.2",
+        "drupal/pathauto": "~1.0",
+        "localgovdrupal/localgov_core": "^2.1",
+        "localgovdrupal/localgov_paragraphs": "^2.0",
+        "localgovdrupal/localgov_topics": "^1.0",
+        "localgovdrupal/localgov_page_components": "^1.0"
+    }
+}

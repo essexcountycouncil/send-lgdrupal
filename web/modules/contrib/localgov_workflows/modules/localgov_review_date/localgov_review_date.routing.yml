@@ -1,0 +1,7 @@
+localgov_review_date.settings_form:
+  path: '/admin/config/workflow/localgov-review-date'
+  defaults:
+    _form: '\Drupal\localgov_review_date\Form\ReviewDateSettingsForm'
+    _title: 'LocalGov Review Date settings'
+  requirements:
+    _permission: 'administer localgov_review_date'

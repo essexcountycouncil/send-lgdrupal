@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d0ae89f0-5d25-4f44-a60f-4c7ace53e003
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    71876cba-bc4f-4c29-8ebb-dc2d41513000: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Royal Borough of Kensington and Chelsea'
+  created:
+    -
+      value: 1620226801
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/royal-borough-kensington-and-chelsea
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>The Royal Borough of Kensington and Chelsea is an Inner London borough with royal status.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_phone:
+    -
+      value: '020 7361 3005'
+  localgov_directory_website:
+    -
+      uri: 'https://www.rbkc.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 71876cba-bc4f-4c29-8ebb-dc2d41513000

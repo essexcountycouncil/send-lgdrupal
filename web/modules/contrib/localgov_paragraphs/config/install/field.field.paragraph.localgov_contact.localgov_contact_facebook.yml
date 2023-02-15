@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_contact_facebook
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - link
+id: paragraph.localgov_contact.localgov_contact_facebook
+field_name: localgov_contact_facebook
+entity_type: paragraph
+bundle: localgov_contact
+label: Facebook
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

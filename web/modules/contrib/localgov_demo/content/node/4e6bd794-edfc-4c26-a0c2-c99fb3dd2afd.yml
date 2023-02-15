@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  bundle: localgov_directory
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'LocalGov Drupal Collaborators'
+  created:
+    -
+      value: 1620222246
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>LocalGov Drupal is an open source collaboration between UK public authorities and Drupal developers.</p>\r\n\r\n<p>Explore the contributors and adopters in this directory.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channel_types:
+    -
+      target_id: localgov_directories_page
+    -
+      target_id: localgov_directories_venue
+  localgov_directory_facets_enable:
+    -
+      target_id: organisation_type

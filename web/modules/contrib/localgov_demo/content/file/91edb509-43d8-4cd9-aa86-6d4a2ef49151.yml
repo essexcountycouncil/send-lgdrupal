@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 91edb509-43d8-4cd9-aa86-6d4a2ef49151
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Composting-2019_tcm953-439271.jpg
+  uri:
+    -
+      value: 'public://2021-09/Composting-2019_tcm953-439271.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 47004
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631266596

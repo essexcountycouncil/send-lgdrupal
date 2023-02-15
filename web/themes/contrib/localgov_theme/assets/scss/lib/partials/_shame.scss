@@ -1,0 +1,53 @@
+// Shame file - home for hacks, rule breakers and overrides for BS
+
+// Apply BS '.table' class to all tables. This is here because
+// we cant yet guarantee a table added as content will have a class
+// of '.table'
+
+table {
+  @extend .table;
+}
+
+// The BS '.img-fluid' class alone doesnt set an image to go oversized when responding
+.img-fluid {
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: 100%;
+  }
+}
+
+// temp styling related to soft launch
+.beta-notice-sm,
+.notice {
+  display: none;
+}
+
+// remove gap between multi-line news headers background blocks on hover
+.news-list {
+  h4 {
+    line-height: 1.9rem;
+  }
+}
+
+// iframe and video class to be dealt with later on
+iframe {
+  &.video {
+    width: 100%;
+    height: 21.875rem; // 350px
+    border: 0;
+    margin: 2rem 0; // or equivalent bs spacer class
+  }
+}
+
+// This is a wrapper that appears on the service status page and needs to be 100% but may be used elsewhere
+.views-element-container {
+  width: 100%;
+}
+
+// Remove animations from collapsing events
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+  display: none;
+}

@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Localgov Review Date module hooks.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ */
+function localgov_review_date_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+
+  // Add the review status field to nodes configured for scheduled transitions.
+  if ($entity_type->id() === 'node') {
+    $scheduled_bundles = \Drupal::service('scheduled_transitions.utility')->getBundles();
+
+    if (isset($scheduled_bundles['node']) and in_array($bundle, $scheduled_bundles['node'])) {
+      $fields['localgov_review_date'] = BaseFieldDefinition::create('review_date')
+        ->setLabel(t('Review date'))
+        ->setDisplayOptions('form', [
+          'type' => 'review_date',
+          'weight' => -5,
+        ])
+        ->setDisplayConfigurable('form', TRUE)
+        ->setComputed(TRUE);
+
+      return $fields;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Add submit handler to the scheduled transitions settings form.
+ */
+function localgov_review_date_form_scheduled_transitions_settings_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#submit'][] = 'localgov_review_date_form_scheduled_transitions_settings_submit';
+}
+
+/**
+ * Clear caches after submitting the scheduled transitions settings form.
+ */
+function localgov_review_date_form_scheduled_transitions_settings_submit(array $form, FormStateInterface $form_state) {
+
+  // The review date field is only added to nodes that have scheduled
+  // transitions enabled. It's necessary to rebuild caches after making changes
+  // to scheduled transitions to ensure the field is added.
+  drupal_flush_all_caches();
+}

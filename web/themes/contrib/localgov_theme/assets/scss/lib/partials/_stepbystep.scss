@@ -1,0 +1,362 @@
+// Main content area
+.node--step_by_step_page,
+.node--step_by_step_homepage {
+  main {
+    margin-top: 0;
+  }
+
+  section {
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+  }
+
+  .key-under {
+    margin-bottom: 1.4rem;
+  }
+}
+
+// Links used to navigate between steps
+
+.step-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+
+    &.step--prev {
+      .btn {
+        text-align: left;
+
+        @include rem(padding-left, 34);
+
+        span {
+          @include rem(left, 7);
+        }
+      }
+    }
+
+    &.step--next {
+      .btn {
+        text-align: right;
+
+        @include rem(padding-right, 34);
+
+        span {
+          @include rem(right, 7);
+        }
+      }
+    }
+
+    .btn {
+      margin: 0;
+      position: relative;
+      text-decoration: none;
+
+      span {
+        position: absolute;
+
+        @include rem (top, 15);
+      }
+    }
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+}
+
+// Block that shows the user the Homepage that the step by step is 'Part of'
+
+.step-by-step-pages__relationship {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
+  border-left: 0.3125rem solid $primary;
+  background: $gray-light;
+
+  .step-by-step-pages__part-of {
+    color: $primary;
+    font-weight: $font-bold;
+    font-size: $font-size-lg;
+  }
+
+  .step-by-step-pages__homepage {
+    color: $secondary;
+    font-size: $font-size-lg;
+    font-weight: $font-bold;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-ex-ex-lg;
+    }
+
+    a {
+      color: $secondary;
+      text-decoration: underline;
+      font-weight: $font-bold !important;
+    }
+  }
+}
+
+// Step by step navigation
+
+.step-by-step-pages {
+  .step-by-step-pages__relationship { // hides 'part of' block in sidebar
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  .step-master {
+    font-size: $font-size-base;
+    font-weight: $font-normal !important;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  ol.step-list {
+    list-style-type: none;
+    counter-reset: section;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 1.5rem 0 0 0;
+
+    .step {
+      width: 100%;
+      display: inline-block;
+      position: relative;
+
+      &:before {
+        z-index: 10;
+        position: absolute;
+        top: .75rem;
+        left: 0;
+        counter-increment: section;
+        content: counter(section);
+        height: 1.75rem;
+        width: 1.75rem;
+        color: $secondary;
+        background-color: $white;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 1.55rem;
+        font-weight: $font-bold;
+
+        @include border(2, solid, $gray);
+      }
+
+      &:not(:last-of-type):after {
+        content: '';
+        position: absolute;
+        top: 2.4rem;
+        left: .85rem;
+        width: .0625rem;
+        height: calc(100% - 1rem);
+        background-color: $white;
+        transition: all .4s;
+        color: $secondary;
+
+        @include border(1, solid, $gray);
+      }
+
+      .step__title {
+        margin: 0 0 0 2.5rem;
+        cursor: pointer;
+        padding: .6rem 0 .8rem 0;
+        display: block;
+        font-weight: $font-bold;
+        font-size: $h6-font-size;
+        color: $blue;
+
+        a {
+          display: inline;
+          color: $blue;
+          line-height: 1.5rem;
+          margin-right: 2.5rem;
+
+          &:hover {
+            color: $secondary;
+          }
+        }
+
+        .step-show {
+          font-size: $font-size-ex-sm;
+          color: $secondary;
+          text-decoration: underline;
+          font-weight: $font-thin !important;
+          padding: 0;
+
+          @include rem(font-size, 16);
+
+          &:focus { // remove default form outline attribute
+            outline: none !important;
+          }
+        }
+
+        .step-summary-container {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+
+      &.step--active {
+        &:before {
+          background-color: $primary;
+          color: $white;
+
+          @include border(2, solid, $primary);
+        }
+
+        &:not(:last-of-type):after {
+          @include border(1, solid, $primary);
+        }
+
+        .step__title {
+          color: $primary;
+
+          a {
+            color: $primary;
+
+            &:hover {
+              color: $secondary;
+            }
+          }
+        }
+      }
+
+      &:not(:first-child) {
+        .step__title {
+          @include borderdirection(top, 1, solid, $gray);
+        }
+      }
+
+      .step__summary {
+        display: none; // hide step summaries that are not active
+        float: left;
+        padding: 0 .9375rem .9375rem 2.4rem;
+
+        p {
+          margin-top: 0;
+          margin-bottom: .5rem;
+        }
+
+        ul {
+          padding-left: 0;
+          margin-left: 1.25rem;
+        }
+
+        a {
+          text-decoration: underline;
+          color: $primary;
+        }
+
+        &.step-show-summary {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Modify Step by step navigation when displayed within the 'main' content area
+
+main,
+.block-views-blocklocalgov-step-by-step-navigation-steps-for-overview {
+  .step-by-step-pages {
+    .summaries-control {
+      text-align: right;
+
+      @include borderdirection(bottom, 1, solid, $gray);
+      @include rem(padding-bottom, 15);
+
+      i {
+        &:before {
+          font-size: $font-size-base;
+        }
+      }
+
+      .ml-2 {
+        margin-left: 0 !important;
+      }
+    }
+
+    ol.step-list {
+      .step {
+        &:before {
+          @include rem(width, 33);
+          @include rem(height, 33);
+          @include rem(font-size, 20);
+          @include rem(line-height, 25.4);
+
+          @include media-breakpoint-up(sm) {
+            @include rem(width, 38);
+            @include rem(height, 38);
+            @include rem(font-size, 22);
+            @include rem(line-height, 30.4);
+          }
+        }
+
+        &:not(:last-of-type):after {
+          left: 1rem;
+          top: 2.6rem;
+
+          @include media-breakpoint-up(sm) {
+            left: 1.15rem;
+          }
+        }
+
+        .step__title {
+          margin: 0 0 0 3.5rem;
+          padding: 1rem 0;
+
+          a {
+            font-weight: $font-bold !important;
+            margin: 0.4rem 0;
+
+            @include rem(font-size, 26);
+
+            @include media-breakpoint-up(sm) {
+              @include rem(font-size, 28);
+            }
+
+            &:hover {
+              color: $black;
+            }
+          }
+
+          .step-show {
+            font-weight: $font-thin !important;
+            padding: 0;
+
+            @include rem(font-size, 16);
+
+            &:focus { // remove default form outline attribute
+              outline: none !important;
+            }
+
+            @include media-breakpoint-up(sm) {
+              @include rem(font-size, 17);
+            }
+          }
+        }
+
+        .step__summary {
+          margin: 0 0 0 3.5rem;
+          padding-left: 0;
+
+          p,
+          ol,
+          ul {
+            font-size: 1.1875rem;
+          }
+        }
+      }
+    }
+  }
+}

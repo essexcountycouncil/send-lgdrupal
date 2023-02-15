@@ -1,0 +1,62 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: edede872-d59c-4e65-940d-5b3067d7b88b
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    9fd42e4a-aa83-4c9a-9999-1b5bfa96a003: localgov_directories_facets
+    ef2ba421-f245-4795-9183-20c930e85e19: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Agile Collective'
+  created:
+    -
+      value: 1620222842
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/agile-collective
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Agile Collective is a worker-owned agency that designs, builds and supports websites for purpose-driven organisations.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 9fd42e4a-aa83-4c9a-9999-1b5bfa96a003
+  localgov_directory_website:
+    -
+      uri: 'https://agile.coop/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: ef2ba421-f245-4795-9183-20c930e85e19

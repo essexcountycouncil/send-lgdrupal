@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 9fd42e4a-aa83-4c9a-9999-1b5bfa96a003
+  bundle: organisation_type
+  default_langcode: en
+default:
+  title:
+    -
+      value: Agency
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620222175
+  weight:
+    -
+      value: 0

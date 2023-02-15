@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 18af5010-aede-41c2-bc16-81e9c1ea08ba
+  bundle: type_of_support
+  default_langcode: en
+default:
+  title:
+    -
+      value: 'Computers and the internet'
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620143474
+  weight:
+    -
+      value: 0

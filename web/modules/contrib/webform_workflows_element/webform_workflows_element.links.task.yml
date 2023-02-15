@@ -1,0 +1,11 @@
+webform_workflows_element.config.workflows:
+  title: "Workflows"
+  route_name: webform_workflows_element.config.workflows
+  parent_id: webform.config
+  weight: 85
+
+entity.webform.workflows_summary:
+  title: "Workflows"
+  route_name: entity.webform.workflows_summary
+  base_route: entity.webform.canonical
+  weight: 50

@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: efa7e5be-a266-45d1-b5f8-f9443bfd08d8
+  bundle: country
+  default_langcode: en
+default:
+  title:
+    -
+      value: Scotland
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631786879
+  weight:
+    -
+      value: 0

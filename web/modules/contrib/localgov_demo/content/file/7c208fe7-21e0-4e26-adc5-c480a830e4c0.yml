@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 7c208fe7-21e0-4e26-adc5-c480a830e4c0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: SouthDowns.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/SouthDowns.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 971175
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631816047

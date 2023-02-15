@@ -1,0 +1,60 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 198d685b-043e-409d-8e92-21452f38a2fe
+  bundle: localgov_news_article
+  default_langcode: en
+  depends:
+    a1358f58-1927-4825-8918-70c36f94951f: media
+    35e629ee-5cd0-4e05-b316-0030e7ce2314: taxonomy_term
+    04dc2cb5-69f9-443b-9db3-e818855880b7: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Committed to keeping vulnerable adults safe, new safeguarding head'
+  created:
+    -
+      value: 1631267680
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /news/2021/committed-keeping-vulnerable-adults-safe-new-safeguarding-head
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Appointed last September, Natalia Young has spent the last few months reviewing the work of the board and establishing its programme of work for the next 12 months. Now the board is taking its message to the public in a bid to raise awareness of adult safeguarding.</p>\r\n\r\n<p>Safeguarding means protecting an adult’s right to live safely, free from abuse and neglect.&nbsp; It is about people and organisations working together to prevent and stop both the risks and experience of abuse or neglect, while making sure that the adult’s wellbeing is supported.&nbsp; This includes considering the person’s views, wishing and feelings.</p>\r\n\r\n<p>The role of the chair is to provide independent leadership and strategic vision to the Safeguarding Adults agenda. With a background in policing and local government, including as Head of Special Branch with the MET and Deputy Chief Executive at Manchester City Council, Jeanette brings a wealth of senior experience to the task.</p>\r\n\r\n<p>Commenting on her role, Natalia said:</p>\r\n\r\n<blockquote>\r\n<p>&nbsp;“It’s been a productive few months as I have been meeting a range of people, including professionals, volunteers and those who have been through the safeguarding system, to understand how the board can continue to support improvements to ensure that we have good safeguarding processes in place to protect people when they need it. We’re now at a point where I think it’s important to raise the profile of the board and its purpose more generally with the public.</p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p>&nbsp;“I’m passionate about delivering the best possible service to adults with safeguarding needs. My priority as Chair of the Board is to ensure that all partners have the right services in place and are working together to safeguard adults who have care and support needs or who are vulnerable.&nbsp; That includes the safety of patients in local health services and the quality of local care and support services.”</p>\r\n</blockquote>\r\n\r\n<p>As well as working with partner organisation like local councils, police and health, Natalia believes that engaging with communities is critical.</p>\r\n\r\n<p>Natalia continued:</p>\r\n\r\n<blockquote>\r\n<p>&nbsp;“Communication and engagement is key, we have to speak to those people who have experienced abuse and neglect to understand how best to provide them with support and care. We also need to raise awareness with the general public. Abuse and neglect takes many forms, for example human trafficking, domestic abuse, forced marriage or financial harm, and everyone &nbsp;needs to how to spot the signs that abuse is taking place and know what to do about it.”</p>\r\n</blockquote>\r\n"
+      format: wysiwyg
+      summary: 'The new independent chair of the council''s Adult Safeguarding Board has set out her plans for keeping  vulnerable adults safe, as the board’s revamped website is launched this week.'
+  field_media_image:
+    -
+      entity: a1358f58-1927-4825-8918-70c36f94951f
+  localgov_news_categories:
+    -
+      entity: 35e629ee-5cd0-4e05-b316-0030e7ce2314
+  localgov_news_date:
+    -
+      value: '2021-09-10'
+  localgov_newsroom:
+    -
+      entity: 04dc2cb5-69f9-443b-9db3-e818855880b7

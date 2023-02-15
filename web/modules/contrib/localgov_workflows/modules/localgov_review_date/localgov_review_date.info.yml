@@ -1,0 +1,13 @@
+name: LocalGov Review Date
+description: Provides a review dates entity and widget, along with views for managing content reviews.
+package: LocalGov Drupal
+type: module
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  - drupal:content_moderation
+  - drupal:datetime
+  - drupal:node
+  - drupal:views
+  - scheduled_transitions:scheduled_transitions
+  - localgov_workflows:localgov_workflows

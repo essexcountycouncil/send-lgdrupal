@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 4e027243-58fa-4409-8274-4b0e81a9a93f
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Dartmore.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/Dartmore.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 215067
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631814377

@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 853759e6-e674-47ee-ae6d-ae70621dee1b
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    9ecee357-33a0-4a3b-bb56-268380fa2d62: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Hammersmith and Fulham Council'
+  created:
+    -
+      value: 1620224957
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/hammersmith-and-fulham-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Hammersmith and Fulham London Borough Council is the local authority for the London Borough of Hammersmith and Fulham in Greater London, England. It is a London borough council, one of 32 in the United Kingdom capital of London.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_phone:
+    -
+      value: '020 8748 3020'
+  localgov_directory_website:
+    -
+      uri: 'https://www.lbhf.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 9ecee357-33a0-4a3b-bb56-268380fa2d62

@@ -1,0 +1,12 @@
+type: module
+name: Dummy homepage
+description: A dummy Homepage content type.
+package: LocalGovDrupal
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  # Core modules
+  - drupal:path
+  # Contrib modules
+  - field_group:field_group
+  # LocalGovDrupal modules
+  - localgov_paragraphs:localgov_homepage_paragraphs

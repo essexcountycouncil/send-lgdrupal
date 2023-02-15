@@ -1,0 +1,17 @@
+entity_reference_selection.localgov_directories_entry_types:
+  type: entity_reference_selection
+  label: 'LocalGovDrupal Directory Entry Types selection handler settings'
+  mapping:
+    sort:
+      type: mapping
+      label: 'Sort settings'
+      mapping:
+        field:
+          type: string
+          label: 'Sort by'
+        direction:
+          type: string
+          label: 'Sort direction'
+
+entity_reference_selection.localgov_directories_entry_types.*:
+   type: entity_reference_selection.localgov_directories_entry_types

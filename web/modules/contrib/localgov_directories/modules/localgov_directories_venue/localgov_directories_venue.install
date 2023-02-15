@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov Directories Venue.
+ */
+
+/**
+ * Use new 'Embed' View Mode for Geo if not already altered.
+ */
+function localgov_directories_venue_update_8001() {
+  // Upgrade to LocalGov Geo copies over default to embed view mode; but removes
+  // the new label field from the template. Embed on upgrade should behave the
+  // same as Default did.
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('core.entity_view_display.node.localgov_directories_venue.default');
+  if ($config->get('content.localgov_location.settings.view_mode') == 'default') {
+    $config->set('content.localgov_location.settings.view_mode', 'embed');
+    $config->save(TRUE);
+  }
+}

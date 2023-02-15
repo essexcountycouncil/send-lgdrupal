@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: d0b6e015-23ec-4766-aa8b-81f57f24fcad
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''step by step page'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631890898
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-14--1d23cfb446324cbec1fd8f4c8a4c6dd2a054c7ea
+  short_description:
+    -
+      value: "<p>Add a 'step by step page' when a user needs to follow a specific process. You then relate it to the 'step by step overview' above.&nbsp;</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-3\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-5\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-4\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-2\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-6\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-0\r\n/births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-1\r\n/adult-health-and-social-care/step-by-step/request-support-adult-step-step/find-out-what-support-we\r\n/adult-health-and-social-care/step-by-step/request-support-adult-step-step/apply-financial-support\r\n/adult-health-and-social-care/step-by-step/request-support-adult-step-step/choosing-how-manage-your\r\n/adult-health-and-social-care/step-by-step/request-support-adult-step-step/contact-support-team"
+          negate: '0'

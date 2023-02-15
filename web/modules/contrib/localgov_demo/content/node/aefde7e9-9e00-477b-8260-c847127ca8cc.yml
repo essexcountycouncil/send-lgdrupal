@@ -1,0 +1,67 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: aefde7e9-9e00-477b-8260-c847127ca8cc
+  bundle: localgov_event
+  default_langcode: en
+  depends:
+    13ac08b7-9ee6-4a55-867a-8f9ed2fe5c14: taxonomy_term
+    cc3c3c1d-8cbe-4446-8b9e-73003530678c: taxonomy_term
+    e19f2979-22ab-4a77-8d6c-0a2d7f92651c: localgov_geo
+    a3206157-5bb8-4894-934c-6c3c74ec5500: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'St Patrick''s Festival'
+  created:
+    -
+      value: 1631269514
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /events/st-patricks-festival
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Come join us in celebrating St Patrick's Festival 2022.</p>\r\n\r\n<p>Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. <strong>Nullam quis risus eget urna mollis ornare vel eu leo.</strong> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum.</p>\r\n\r\n<p>Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper.</p>\r\n\r\n<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_event_categories:
+    -
+      entity: 13ac08b7-9ee6-4a55-867a-8f9ed2fe5c14
+    -
+      entity: cc3c3c1d-8cbe-4446-8b9e-73003530678c
+  localgov_event_date:
+    -
+      value: '2022-03-15T00:00:00'
+      end_value: '2022-03-19T23:59:59'
+      rrule: ''
+      timezone: Europe/London
+      infinite: false
+  localgov_event_location:
+    -
+      entity: e19f2979-22ab-4a77-8d6c-0a2d7f92651c
+  localgov_event_price:
+    -
+      entity: a3206157-5bb8-4894-934c-6c3c74ec5500

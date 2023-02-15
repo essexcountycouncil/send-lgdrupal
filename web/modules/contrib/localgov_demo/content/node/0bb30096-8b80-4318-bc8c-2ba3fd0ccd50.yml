@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 0bb30096-8b80-4318-bc8c-2ba3fd0ccd50
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    f590d6ff-97f2-45f1-a387-2d427f3c7c2f: localgov_directories_facets
+    f75bd1bc-ca41-49b3-b1b5-fdabc686ab2c: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Pembrokeshire Coast'
+  created:
+    -
+      value: 1631816914
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /national-parks-uk/pembrokeshire-coast
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Pembrokeshire Coast National Park (Welsh: Parc Cenedlaethol Arfordir Penfro) is a national park along the Pembrokeshire coast in west Wales.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: info@pembrokeshirecoast.org.uk
+  localgov_directory_facets_select:
+    -
+      entity: f590d6ff-97f2-45f1-a387-2d427f3c7c2f
+  localgov_directory_phone:
+    -
+      value: '01646 624800'
+  localgov_directory_website:
+    -
+      uri: 'https://www.pembrokeshirecoast.wales/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: f75bd1bc-ca41-49b3-b1b5-fdabc686ab2c

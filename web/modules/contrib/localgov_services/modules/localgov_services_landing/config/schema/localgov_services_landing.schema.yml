@@ -1,0 +1,15 @@
+field.formatter.settings.button_inside_well:
+  type: field.formatter.settings.link
+  label: 'Link format button inside well'
+
+field.formatter.settings.twitter_feed:
+  type: field.formatter.settings.link
+  label: 'Link format twitter feed'
+
+field.formatter.settings.taxonomy_vertical_list:
+  type: mapping
+  label: 'Taxonomy vertical list'
+  mapping:
+    title:
+      type: string
+      label: 'List title'

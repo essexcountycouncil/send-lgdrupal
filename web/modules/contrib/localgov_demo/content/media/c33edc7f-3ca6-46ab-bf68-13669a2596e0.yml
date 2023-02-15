@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: c33edc7f-3ca6-46ab-bf68-13669a2596e0
+  bundle: image
+  default_langcode: en
+  depends:
+    68109495-89bc-4ff6-ad7e-149b43775652: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: sangga-rima-roman-selia-Nvwza6WtIpc-unsplash.jpg
+  created:
+    -
+      value: 1631885190
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 68109495-89bc-4ff6-ad7e-149b43775652
+      alt: chairs
+      title: ''
+      width: 5151
+      height: 2450

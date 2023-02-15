@@ -1,0 +1,91 @@
+localgov_openreferral.service:
+  path: '/openreferral/v1/services/{entity}'
+  defaults:
+    _title: 'A single service'
+    _controller: '\Drupal\localgov_openreferral\Controller\EndpointsController::single'
+  requirements:
+    _format: 'openreferral_json'
+    _openreferral_type: 'entity:service'
+    _entity_access: 'entity.view'
+  options:
+    parameters:
+      entity:
+        type: entity:node
+
+localgov_openreferral.organization:
+  path: '/openreferral/v1/organization/{entity}'
+  defaults:
+    _title: 'A single organisation'
+    _controller: '\Drupal\localgov_openreferral\Controller\EndpointsController::single'
+  requirements:
+    _format: 'openreferral_json'
+    _openreferral_type: 'entity:organization'
+    _entity_access: 'entity.view'
+  options:
+    parameters:
+      entity:
+        type: entity:node
+
+localgov_openreferral.location:
+  path: '/openreferral/v1/location/{entity}'
+  defaults:
+    _title: 'A single location'
+    _controller: '\Drupal\localgov_openreferral\Controller\EndpointsController::single'
+  requirements:
+    _format: 'openreferral_json'
+    _openreferral_type: 'entity:location'
+    _entity_access: 'entity.view'
+  options:
+    parameters:
+      entity:
+        type: entity:localgov_geo
+
+localgov_openreferral.vocabulary:
+  path: '/openreferral/v1/vocabulary'
+  defaults:
+    _title: 'Vocabularies list'
+    _controller: '\Drupal\localgov_openreferral\Controller\EndpointsController::vocabulary'
+  requirements:
+    _permission: 'access content'
+    _format: 'openreferral_json'
+
+localgov_openreferral.taxonomy:
+  path: '/openreferral/v1/taxonomies'
+  defaults:
+    _title: 'Vocabulary taxonomies list'
+    _controller: '\Drupal\localgov_openreferral\Controller\EndpointsController::taxonomies'
+  requirements:
+    _permission: 'access content'
+    _format: 'openreferral_json'
+
+entity.localgov_openreferral_mapping.collection:
+  path: '/admin/config/services/openreferral'
+  defaults:
+    _entity_list: 'localgov_openreferral_mapping'
+    _title: 'Open Referral Entity Mapping configuration'
+  requirements:
+    _permission: 'administer localgov_openreferral_mapping'
+
+entity.localgov_openreferral_mapping.add_form:
+  path: '/admin/config/services/openreferral/add'
+  defaults:
+    _entity_form: 'localgov_openreferral_mapping.add'
+    _title: 'Add an Open Referral mapping'
+  requirements:
+    _permission: 'administer localgov_openreferral_mapping'
+
+entity.localgov_openreferral_mapping.edit_form:
+  path: '/admin/config/services/openreferral/{localgov_openreferral_mapping}'
+  defaults:
+    _entity_form: 'localgov_openreferral_mapping.edit'
+    _title: 'Edit an Open Referral mapping'
+  requirements:
+    _permission: 'administer localgov_openreferral_mapping'
+
+entity.localgov_openreferral_mapping.delete_form:
+  path: '/admin/config/services/openreferral/{localgov_openreferral_mapping}/delete'
+  defaults:
+    _entity_form: 'localgov_openreferral_mapping.delete'
+    _title: 'Delete an Open Referral mapping'
+  requirements:
+          _permission: 'administer localgov_openreferral_mapping'

@@ -1,0 +1,67 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 10926e58-2b95-41eb-9e64-c1730f631412
+  bundle: localgov_event
+  default_langcode: en
+  depends:
+    13ac08b7-9ee6-4a55-867a-8f9ed2fe5c14: taxonomy_term
+    cc3c3c1d-8cbe-4446-8b9e-73003530678c: taxonomy_term
+    da480050-8099-4e3c-82ea-565c1088803b: media
+    a3206157-5bb8-4894-934c-6c3c74ec5500: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Hogmanay 2021'
+  created:
+    -
+      value: 1620144859
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /events/hogmanay-2021
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p><em><strong>Hogmanay</strong></em>&nbsp;(Scots:&nbsp;<a href=\"https://en.wikipedia.org/wiki/Help:IPA\" title=\"Help:IPA\">[ˌhɔɡməˈneː]</a>;<a href=\"https://en.wikipedia.org/wiki/Hogmanay#cite_note-1\">[1]</a>&nbsp;English:&nbsp;<a href=\"https://en.wikipedia.org/wiki/Help:IPA/English\" title=\"Help:IPA/English\">/ˌhɒɡməˈneɪ/</a>&nbsp;<a href=\"https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key\" title=\"Help:Pronunciation respelling key\"><em>HOG-mə-NAY</em></a><a href=\"https://en.wikipedia.org/wiki/Hogmanay#cite_note-2\">[2]</a>) is the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Scots_language\" title=\"Scots language\">Scots</a>&nbsp;word for the last day of the old year and is synonymous with the celebration of the&nbsp;<a href=\"https://en.wikipedia.org/wiki/New_Year\" title=\"\">New Year</a>&nbsp;in the Scottish manner. It is normally followed by further celebration on the morning of&nbsp;<a href=\"https://en.wikipedia.org/wiki/New_Year%27s_Day\" title=\"Bank holidays in Scotland\">New Year's Day</a>&nbsp;(1 January) or, in some cases, 2 January</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_event_categories:
+    -
+      entity: 13ac08b7-9ee6-4a55-867a-8f9ed2fe5c14
+    -
+      entity: cc3c3c1d-8cbe-4446-8b9e-73003530678c
+  localgov_event_date:
+    -
+      value: '2021-12-31T22:00:00'
+      end_value: '2022-01-01T23:59:59'
+      rrule: ''
+      timezone: Europe/London
+      infinite: false
+  localgov_event_image:
+    -
+      entity: da480050-8099-4e3c-82ea-565c1088803b
+  localgov_event_price:
+    -
+      entity: a3206157-5bb8-4894-934c-6c3c74ec5500

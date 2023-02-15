@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 14f342b9-d4b8-4911-821c-77d55df1f746
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: hansjorg-keller-p7av1ZhKGBQ-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/hansjorg-keller-p7av1ZhKGBQ-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 3611094
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631885243

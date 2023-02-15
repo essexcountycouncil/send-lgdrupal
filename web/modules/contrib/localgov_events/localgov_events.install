@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * LocalGov Events install file.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_events_install($is_syncing) {
+
+  // Don't configure the extra fields or config during config sync operations.
+  if ($is_syncing) {
+    return;
+  }
+
+  // Configure optional fields.
+  $directory_page = \Drupal::moduleHandler()->moduleExists('localgov_directories_page');
+  $directory_venue = \Drupal::moduleHandler()->moduleExists('localgov_directories_venue');
+  localgov_events_optional_fields_settings($directory_page, $directory_venue);
+
+  // Add default event price taxonomy terms.
+  $prices = [
+    'Free',
+    'Paid',
+  ];
+  foreach ($prices as $price) {
+    Term::create([
+      'parent' => [],
+      'name' => $price,
+      'vid' => 'localgov_event_price',
+    ])->save();
+  }
+
+  // Install default config for simple_sitemap, as this does not appear to work
+  // in the config/optional folder.
+  // Discussed on https://www.drupal.org/project/simple_sitemap/issues/3156080
+  if (\Drupal::moduleHandler()->moduleExists('simple_sitemap')) {
+    $generator = \Drupal::service('simple_sitemap.generator');
+    $generator->setBundleSettings('node', 'localgov_event', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+  }
+}
+
+/**
+ * Use new 'Embed' View Mode for Geo if not already altered.
+ */
+function localgov_events_update_8001() {
+  // Upgrade to LocalGov Geo copies over default to embed view mode; but removes
+  // the new label field from the template. Embed on upgrade should behave the
+  // same as Default did.
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('core.entity_view_display.node.localgov_event.default');
+  if ($config->get('content.localgov_event_location.settings.view_mode') == 'default') {
+    $config->set('content.localgov_event_location.settings.view_mode', 'embed');
+    $config->save(TRUE);
+  }
+}

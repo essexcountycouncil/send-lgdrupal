@@ -1,0 +1,18 @@
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.localgov_opening_hours
+field_name: localgov_opening_hours
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+services:
+  access_check.preview_link:
+    class: Drupal\preview_link\Access\PreviewLinkAccessCheck
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: access_check, applies_to: _access_preview_link }
+  access_check.preview_enabled:
+    class: Drupal\preview_link\Access\PreviewEnabledAccessCheck
+    arguments: ['@config.factory']
+    tags:
+      - { name: access_check, applies_to: _access_preview_enabled }
+  cache_context.preview_link_route:
+    class: Drupal\preview_link\PreviewLinkCacheContext
+    arguments: ['@current_route_match']
+    tags:
+      - { name: cache.context }
+  preview_link.link_expiry:
+    class: Drupal\preview_link\LinkExpiry
+    arguments: ['@state']

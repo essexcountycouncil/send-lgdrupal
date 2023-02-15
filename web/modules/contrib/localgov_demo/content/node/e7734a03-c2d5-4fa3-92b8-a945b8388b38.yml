@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: e7734a03-c2d5-4fa3-92b8-a945b8388b38
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    5f46013c-8afd-4304-b073-2a7d12a89ec0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Who is eligible for a Blue Badge'
+  created:
+    -
+      value: 1592939714
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges/who-eligible-blue-badge
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p class=\"callout callout-primary\">Check your&nbsp;eligibility on GOV.UK</p>\r\n\r\n<p>You can use the tool above to find out your eligibility, or&nbsp;<a href=\"https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge\">read GOV.UK's guidance on who can get a Blue Badge</a>.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  localgov_guides_section_title:
+    -
+      value: 'Who is eligible for a Blue Badge'

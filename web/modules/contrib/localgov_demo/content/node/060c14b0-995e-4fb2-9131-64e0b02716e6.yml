@@ -1,0 +1,354 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 060c14b0-995e-4fb2-9131-64e0b02716e6
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    3e428925-c55a-4da9-905b-684865840764: media
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Example page with tables and tabs'
+  created:
+    -
+      value: 1620398814
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/example-page-tables-and-tabs
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: b387e307-b3d5-4e88-b161-78f469a4101e
+          bundle: localgov_banner_secondary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631885957
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 3e428925-c55a-4da9-905b-684865840764
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 507fede3-73d2-47f4-9c85-79f0890ee60c
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398820
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_twocol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 06b97a34-e066-4c1f-b756-92575f10257d
+          bundle: localgov_table
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620398843
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: top
+                  parent_uuid: 507fede3-73d2-47f4-9c85-79f0890ee60c
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_table:
+            -
+              value:
+                0:
+                  - Doe
+                  - 'A deer'
+                  - 'A female'
+                  - Deer
+                  - Ray
+                1:
+                  - 'A drop of golden sun'
+                  - 'Me, a name'
+                  - 'I call myself'
+                  - 'Far, a long long way to run'
+                  - 'Sew, a needle pulling thread'
+                2:
+                  - 'La, a note to follow Sew'
+                  - 'Tea, a drink with jam and bread'
+                  - 'And that brings us back to doe'
+                  - doe
+                  - doe
+                caption: 'This is a minimal table'
+              format: wysiwyg
+              caption: 'This is a minimal table'
+          localgov_table_theme:
+            -
+              value: minimal
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5006fcab-74ea-4ea6-a48d-b33255402881
+          bundle: localgov_table
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631788505
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 507fede3-73d2-47f4-9c85-79f0890ee60c
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_table:
+            -
+              value:
+                0:
+                  - 'Heading 1'
+                  - 'Heading 2'
+                  - 'Heading 3'
+                1:
+                  - 'Mauris blandit Mauris blandit'
+                  - ' Pellentesque in ipsum id orci porta dapibus. '
+                  - ' Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt.'
+                2:
+                  - 'Mauris blanditMauris blandit'
+                  - 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. '
+                  - ' porttitor volutpat.'
+                3:
+                  - 'Mauris blandit Mauris blandit'
+                  - 'Quisque velit nisi, pretium ut lacinia in, e'
+                  - 'Mauris blandit aliquet elit'
+                4:
+                  - 'Mauris blandit Mauris blandit'
+                  - 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Nulla quis lorem ut libero '
+                  - ' Pellentesque in ipsum id orci porta dapibus. '
+                caption: 'This is a headed table'
+              format: wysiwyg
+              caption: 'This is a headed table'
+          localgov_table_theme:
+            -
+              value: headed
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d34f114f-d83a-4b92-9428-d57c6996a326
+          bundle: localgov_table
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631788713
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 507fede3-73d2-47f4-9c85-79f0890ee60c
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_table:
+            -
+              value:
+                0:
+                  - Heading
+                  - Heading
+                  - Heading
+                  - Heading
+                1:
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                2:
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                3:
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                4:
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                  - 'Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. '
+                caption: 'This is a striped table'
+              format: wysiwyg
+              caption: 'This is a striped table'
+          localgov_table_theme:
+            -
+              value: striped
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: fea4c75d-c04e-4a16-8786-0630e8875ed8
+          bundle: localgov_tabs
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620399557
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 507fede3-73d2-47f4-9c85-79f0890ee60c
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_paragraphs:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 57549228-53a0-4381-9640-a5f1d74e0e8d
+                  bundle: localgov_tab_panel
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620399557
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_body_text:
+                    -
+                      value: "<p>Sed porttitor lectus nibh. Proin eget tortor risus. Proin eget tortor risus. Donec sollicitudin molestie malesuada.</p>\r\n\r\n<p>Donec rutrum congue leo eget malesuada. Nulla quis lorem ut libero malesuada feugiat. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>\r\n"
+                      format: wysiwyg
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_title:
+                    -
+                      value: 'I''m not sure when we''ll use this'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 23ab7f58-9b75-4f4e-8935-e56ce8d8247e
+                  bundle: localgov_tab_panel
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620399594
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_body_text:
+                    -
+                      value: "<p>Sed porttitor lectus nibh. Proin eget tortor risus. Proin eget tortor risus. Donec sollicitudin molestie malesuada.</p>\r\n\r\n<p>Donec rutrum congue leo eget malesuada. Nulla quis lorem ut libero malesuada feugiat. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>\r\n"
+                      format: wysiwyg
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_title:
+                    -
+                      value: 'I''m not sure when this is going to be used'
+          localgov_title:
+            -
+              value: 'This is some example tabs'
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0
+  localgov_subsites_summary:
+    -
+      value: "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.\r\n"

@@ -1,0 +1,5 @@
+entity.localgov_openreferral_mapping.add_form:
+  route_name: 'entity.localgov_openreferral_mapping.add_form'
+  title: 'Add Open Referral mapping'
+  appears_on:
+    - entity.localgov_openreferral_mapping.collection

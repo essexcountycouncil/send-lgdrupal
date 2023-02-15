@@ -1,0 +1,45 @@
+.service-landing-page__contact {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  padding: var(--spacing);
+  border-left: var(--border-width-large) var(--border-style) var(--color-accent);
+  background-color: var(--color-grey-lighter);
+}
+
+.service-landing-page__contact-list {
+  padding-left: 0;
+}
+
+.service-landing-page__contact-list-item,
+.service-landing-page__contact-title {
+  display: flex;
+}
+
+.service-landing-page__contact-map {
+  display: flex;
+  align-items: center;
+}
+
+.service-landing-page__contact-icon {
+  margin-right: var(--spacing-smaller);
+  line-height: 1;
+}
+
+.service-landing-page__contact h3 {
+  margin-bottom: 0;
+}
+
+.service-landing-page__contact-containers {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  padding-bottom: var(--vertical-rhythm-spacing);
+  border-bottom: var(--border);
+  border-bottom-color: var(--color-grey-medium);
+}
+
+.service-landing-page__service {
+  display: flex;
+}
+
+.service-landing-page__service-icon svg {
+  flex-shrink: 0;
+  margin-right: var(--spacing-small);
+}

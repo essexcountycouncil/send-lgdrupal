@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * The search_api_best_bets install.
+ */
+
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Update existing field of type search_api_best_bets, allow 360 characters.
+ */
+function search_api_best_bets_update_9301(&$sandbox) {
+  $num_chars = 360;
+
+  // Check for existing field of type search_api_best_bets.
+  $ref_fields = \Drupal::service('entity_type.manager')
+    ->getStorage('field_storage_config')
+    ->loadByProperties(['type' => 'search_api_best_bets']);
+
+  /** @var \Drupal\field\Entity\FieldStorageConfig $ref_field */
+  foreach ($ref_fields as $key => $ref_field) {
+    $field_name = $ref_field->getName();
+
+    $parts = explode('.', $key);
+
+    $entity_type = $parts[0];
+
+    // Resize the columns.
+    $database = \Drupal::database();
+    $database->query("ALTER TABLE {$entity_type}__{$field_name} MODIFY {$field_name}_query_text VARCHAR($num_chars)");
+    $database->query("ALTER TABLE {$entity_type}_revision__{$field_name} MODIFY {$field_name}_query_text VARCHAR($num_chars)");
+
+    // Update storage schema.
+    $storage_key = "{$entity_type}.field_schema_data." . $field_name;
+    $storage_schema = \Drupal::keyValue('entity.storage_schema.sql');
+    $field_schema = $storage_schema->get($storage_key);
+    $field_schema["{$entity_type}__{$field_name}"]['fields']["{$field_name}_query_text"]['length'] = $num_chars;
+    $field_schema["{$entity_type}_revision__{$field_name}"]['fields']["{$field_name}_query_text"]['length'] = $num_chars;
+    $storage_schema->set($storage_key, $field_schema);
+
+    // Update field configuration.
+    $config = \Drupal::configFactory()
+      ->getEditable("field.storage.{$entity_type}.{$field_name}");
+    $config->set('settings.max_length', $num_chars);
+    $config->save(TRUE);
+
+    // Update field storage configuration.
+    FieldStorageConfig::loadByName($entity_type, $field_name)->save();
+  }
+}

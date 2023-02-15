@@ -1,0 +1,13 @@
+name: Entity Hierarchy Workbench Access
+description: Integrates entity hierarchy with workbench access
+package: "Entity Hierarchy"
+core_version_requirement: ^9.0 || ^10.0
+type: module
+dependencies:
+  - workbench_access:workbench_access (>8.x-1.0-beta1)
+  - entity_hierarchy:entity_hierarchy
+
+# Information added by Drupal.org packaging script on 2023-01-18
+version: '3.3.4'
+project: 'entity_hierarchy'
+datestamp: 1674007734

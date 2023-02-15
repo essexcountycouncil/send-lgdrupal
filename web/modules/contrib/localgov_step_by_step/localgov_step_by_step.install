@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov Step By Step module.
+ */
+
+use Drupal\Component\Serialization\Yaml;
+use Drupal\views\Entity\View;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_step_by_step_install() {
+  $services = \Drupal::moduleHandler()->moduleExists('localgov_services_navigation');
+  $topics = \Drupal::moduleHandler()->moduleExists('localgov_topics');
+  localgov_step_by_step_optional_fields_settings($services, $topics);
+  // Check if simple_sitemap module is installed.
+  $simple_sitemap = \Drupal::moduleHandler()->moduleExists('simple_sitemap');
+  if ($simple_sitemap) {
+    // Install default config, as this does not appear to work in the
+    // config/optional folder.
+    // Discussed on https://www.drupal.org/project/simple_sitemap/issues/3156080
+    $generator = \Drupal::service('simple_sitemap.generator');
+    $generator->setBundleSettings('node', 'localgov_step_by_step_overview', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+    $generator->setBundleSettings('node', 'localgov_step_by_step_page', [
+      'index' => TRUE,
+      'priority' => 0.5,
+    ]);
+  }
+}
+
+/**
+ * Update navigation view for step published status.
+ */
+function localgov_step_by_step_update_8001() {
+  $navigation_view = View::load('localgov_step_by_step_navigation');
+  $display = $navigation_view->get('display');
+  $filters = $display['default']['display_options']['filters'];
+  $relationships = $display['default']['display_options']['relationships'];
+  // Don't alter the view if the relevant parts have been changed on the site.
+  if (
+    // Check just has the one filter and these haven't been changed.
+    count($filters) == 1 &&
+    isset($filters['status']) &&
+    // The filters of the default display have not been changed from old
+    // default status of the base node.
+    $filters['status']['value'] == 1 &&
+    empty($filters['status']['expose']['operator']) &&
+    // The relationship for the listed step pages is the same.
+    isset($relationships['localgov_step_by_step_pages_1']) &&
+    $relationships['localgov_step_by_step_pages_1']['table'] == 'node__localgov_step_by_step_pages' &&
+    $relationships['localgov_step_by_step_pages_1']['field'] == 'localgov_step_by_step_pages'
+  ) {
+    // Replace with published or admin on the displayed step node itself,
+    // as per new view.
+    $display['default']['display_options']['filters'] = Yaml::decode(<<<EOY
+status_extra:
+  id: status_extra
+  table: node_field_data
+  field: status_extra
+  relationship: localgov_step_by_step_pages_1
+  group_type: group
+  admin_label: ''
+  operator: '='
+  value: false
+  group: 1
+  exposed: false
+  expose:
+    operator_id: ''
+    label: ''
+    description: ''
+    use_operator: false
+    operator: ''
+    operator_limit_selection: false
+    operator_list: {  }
+    identifier: ''
+    required: false
+    remember: false
+    multiple: false
+    remember_roles:
+      authenticated: authenticated
+  is_grouped: false
+  group_info:
+    label: ''
+    description: ''
+    identifier: ''
+    optional: true
+    widget: select
+    multiple: false
+    remember: false
+    default_group: All
+    default_group_multiple: {  }
+    group_items: {  }
+  entity_type: node
+  plugin_id: node_status
+EOY
+    );
+    $navigation_view->set('display', $display);
+    $navigation_view->save();
+    return t('Step by step navigation view published filter updated.');
+  }
+  else {
+    return t('Step by step navigation view not updated. See release notes for more info.');
+  }
+}

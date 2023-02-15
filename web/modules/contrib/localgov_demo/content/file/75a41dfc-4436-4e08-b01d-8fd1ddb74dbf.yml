@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 75a41dfc-4436-4e08-b01d-8fd1ddb74dbf
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: wedding2_tcm953-422843.jpg
+  uri:
+    -
+      value: 'public://2021-09/wedding2_tcm953-422843.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 171235
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631269214

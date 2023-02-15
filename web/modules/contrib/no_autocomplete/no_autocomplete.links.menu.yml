@@ -1,0 +1,5 @@
+no_autocomplete.admin_settings_form:
+  title: 'No Autocomplete'
+  parent: user.admin_index
+  description: 'Turn on autocomplete=off for key user forms.'
+  route_name: no_autocomplete.admin_settings_form

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: cb2536a8-9340-4de0-b5ae-e33eb17386a6
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: drupalgov-mission-alpha-v2_400x400.png
+  uri:
+    -
+      value: 'public://2021-05/drupalgov-mission-alpha-v2_400x400_3.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 92397
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1620307439

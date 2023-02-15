@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Provides a location extension to directories.
+ */
+
+use Drupal\localgov_directories_location\LocationExtraFieldDisplay;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function localgov_directories_location_entity_extra_field_info() {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LocationExtraFieldDisplay::class)
+    ->entityExtraFieldInfo();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function localgov_directories_location_node_view(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LocationExtraFieldDisplay::class)
+    ->nodeView($build, $node, $display, $view_mode);
+}

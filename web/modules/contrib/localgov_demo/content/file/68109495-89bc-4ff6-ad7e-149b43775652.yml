@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 68109495-89bc-4ff6-ad7e-149b43775652
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: sangga-rima-roman-selia-Nvwza6WtIpc-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/sangga-rima-roman-selia-Nvwza6WtIpc-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 3343989
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631885190

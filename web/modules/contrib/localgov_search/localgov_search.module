@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @file
+ * Contains localgov_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\search_api\Entity\Index;
+use Drupal\views\Entity\View;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ */
+function localgov_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+
+    // Main module help for the localgov_search module.
+    case 'help.page.localgov_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Sitewide search for LocalGov Drupal') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_bundle_create().
+ */
+function localgov_search_entity_bundle_create($entity_type_id, $bundle) {
+  if ($entity_type_id == 'node') {
+
+    // Add bundle's search result view mode to sitewide_search view.
+    if (
+      ($view = View::load('localgov_sitewide_search')) &&
+      $display = $view->get('display')
+    ) {
+      if (isset($display['default']['display_options']['row'])) {
+        $display['default']['display_options']['row']['options']['view_modes']['entity:node'][$bundle] = 'search_result';
+        $view->set('display', $display);
+        $view->save();
+      }
+    }
+
+    // Add bundle's search index view mode to sitewide search index.
+    if (
+      ($index = Index::load('localgov_sitewide_search')) &&
+      $index_field = $index->getField('rendered_item')
+    ) {
+      $field_config = $index_field->getConfiguration();
+      if (!isset($field_config['view_mode']['entity:node'][$bundle])) {
+        $field_config['view_mode']['entity:node'][$bundle] = 'search_index';
+        $index_field->setConfiguration($field_config);
+        $index->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function localgov_search_views_pre_render(ViewExecutable $view) {
+  if (
+    isset($view->element['#name']) &&
+    $view->element['#name'] == 'localgov_sitewide_search' &&
+    isset($view->element['#display_id']) &&
+    $view->element['#display_id'] == 'sitewide_search_page'
+  ) {
+
+    // Hide search results if no search has been made.
+    if (\Drupal::request()->query->get('s') === NULL) {
+      $view->header = [];
+      $view->empty = [];
+    }
+
+    // Add search term to page title.
+    // This currently only sets the title in the header, not the page title,
+    // see: https://github.com/localgovdrupal/localgov_core/issues/93
+    elseif (isset($view->exposed_data['s']) and (int) $view->total_rows > 0) {
+      $title = $view->exposed_data['s'] . ' - ' . $view->getTitle();
+      $view->setTitle($title);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for form hook.
+ */
+function localgov_search_preprocess_form(&$variables) {
+
+  // Add aria role to sitewide search form.
+  if (
+    isset($variables['element']['#id']) &&
+    $variables['element']['#id'] == 'views-exposed-form-localgov-sitewide-search-sitewide-search-page'
+  ) {
+    $variables['attributes']['role'] = 'search';
+    $variables['attributes']['aria-label'] = 'Sitewide';
+  }
+}

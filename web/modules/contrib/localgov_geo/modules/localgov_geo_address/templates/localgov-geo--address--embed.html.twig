@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Address Geo Entity Embedded, without label.
+ *
+ * Expectation is that the address field, which contains a similar value,
+ * is configured and displayed for an embedded rendered entity.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.title'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_localgov_geo()
+ */
+#}
+
+<article{{ attributes }}>
+  {% if content %}
+    {% if content.location['#object'].location|length == 0 %}
+      {{- content|without('label', 'location') -}}
+    {% else %}
+      {{- content|without('label') -}}
+    {% endif %}
+  {% endif %}
+</article>

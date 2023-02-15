@@ -1,0 +1,28 @@
+name: LocalGov Paragraphs
+description: Provides core paragraph components for the LocalGov Drupal distribution.
+package: LocalGov Drupal
+type: module
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  # Drupal
+  - drupal:field
+  - drupal:link
+  - drupal:options
+  - drupal:taxonomy
+  - drupal:telephone
+  - drupal:text
+  - drupal:views
+  # Contrib
+  - address:address
+  - entity_browser:entity_browser
+  - entity_usage:entity_usage
+  - field_group:field_group
+  - geolocation:geolocation
+  - geolocation:geolocation_google_maps
+  - office_hours:office_hours
+  - paragraphs:paragraphs (>=8.x-1.13)
+  - paragraphs:paragraphs_library
+  # LocalGovDrupal
+  - localgov_core:localgov_media
+  - localgov_topics:localgov_topics

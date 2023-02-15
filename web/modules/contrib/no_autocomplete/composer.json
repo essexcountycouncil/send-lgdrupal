@@ -1,0 +1,33 @@
+{
+  "name": "drupal/no_autocomplete",
+  "description": "No browser autocomplete in key user forms.",
+  "type": "drupal-module",
+  "keywords": ["Drupal", "Browser", "Autocomplete", "Forms"],
+  "homepage": "https://www.drupal.org/project/no_autocomplete",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Adrian Cid Almaguer (adriancid)",
+      "email": "adriancid@gmail.com",
+      "homepage": "https://www.drupal.org/u/adriancid",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Randy Fay (rfay)",
+      "homepage": "https://www.drupal.org/u/rfay",
+      "role": "Maintainer"
+    },
+    {
+      "name": " * Dhruvesh Tripathi (dhruveshdtripathi)",
+      "homepage": "https://www.drupal.org/u/dhruveshdtripathi",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/no_autocomplete",
+    "source": "http://cgit.drupalcode.org/no_autocomplete"
+  },
+  "require": {
+    "drupal/core": "^8.7.7 || ^9.0"
+  }
+}

@@ -1,0 +1,5 @@
+# Ignore node files
+/node_modules
+
+# For the development of the theme
+.lando.yml

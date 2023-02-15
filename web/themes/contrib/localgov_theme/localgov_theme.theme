@@ -1,0 +1,234 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal theme file.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Adds these theme variables:
+ * - localgov_front_page: Front page path or URL.  May contain language prefix.
+ * - localgov_front_page_default_lang: Same as above without any language
+ *   prefix.  Useful for building asset paths.
+ *
+ * These variables become available in *all* templates.
+ */
+function localgov_theme_preprocess(&$variables) {
+  $variables['localgov_front_page'] = Url::fromRoute('<front>')->toString();
+  $variables['localgov_front_page_default_lang'] = Url::fromRoute('<front>')->setOption('language', Drupal::service('language.default')->get())->toString();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_theme_preprocess_html(&$variables) {
+  if (\Drupal::routeMatch()->getParameter('node')) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (!$node instanceof NodeInterface) {
+      $node = Node::load($node);
+    }
+
+    if (!$variables['attributes']) {
+      $variables['attributes'] = new Attribute();
+    }
+
+    // Add content type to body class.
+    if (is_object($variables['attributes'])) {
+      $variables['attributes']->addClass('node');
+      $variables['attributes']->addClass('node--' . $node->bundle());
+    }
+    else {
+      $variables['attributes']['class'][] = 'node';
+      $variables['attributes']['class'][] = 'node--' . $node->bundle();
+    }
+  }
+
+  $has_eu_cookie_compliance_module = Drupal::service('module_handler')->moduleExists('eu_cookie_compliance');
+  if ($has_eu_cookie_compliance_module) {
+    $variables['#attached']['library'][] = 'localgov_theme/skip-link-relocation';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_theme_preprocess_page(&$variables) {
+  // Initiate a pageAttibutes variables so we can add classes to the main page
+  // element.
+  $variables['pageAttributes'] = new Attribute(['class' => 'page']);
+  $variables['logopath'] = \Drupal::service('file_url_generator')->generateString(theme_get_setting('logo.url'));
+
+  // Site name and slogan.
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['site_slogan'] = \Drupal::config('system.site')->get('slogan');
+
+  // Add Font Awesome library if the module isn't installed.
+  $module_handler = \Drupal::service('module_handler');
+  if (!$module_handler->moduleExists('fontawesome')) {
+    $variables['#attached']['library'][] = 'localgov_theme/fontawesome';
+  }
+
+  // Work around for Drupal core issue.
+  // Blocks employ lazy building.  This makes it difficult to determine from
+  // **Twig templates** if they will eventually produce empty content or not.
+  // @see https://www.drupal.org/node/953034
+  // @see https://www.drupal.org/forum/support/module-development-and-code-questions/2016-04-07/drupal-8-regions-with-and-empty#comment-12149518
+  $sidebar_first_copy = $variables['page']['sidebar_first'];
+  $sidebar_second_copy = $variables['page']['sidebar_second'];
+  $rendered_sidebar_first = Drupal::service('renderer')->renderPlain($sidebar_first_copy);
+  $rendered_sidebar_second = Drupal::service('renderer')->renderPlain($sidebar_second_copy);
+  $variables['has_sidebar_first'] = trim(strip_tags($rendered_sidebar_first));
+  $variables['has_sidebar_second'] = trim(strip_tags($rendered_sidebar_second));
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * - Adds an Id attribute based on the fieldname.
+ */
+function localgov_theme_preprocess_field(&$variables) {
+  $variables['attributes']['id'] = Html::getUniqueId('field--' . $variables['field_name']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_theme_preprocess_menu(&$variables) {
+  // Add classes to the relevant menu.
+  if ($variables['menu_name'] === 'main') {
+    $variables['attributes']['class'] = [
+      'services-list',
+      'services-list--multi',
+    ];
+  }
+
+  if ($variables['menu_name'] === 'business') {
+    $variables['attributes']['class'] = ['services-list'];
+  }
+
+  if ($variables['menu_name'] === 'about-this-website') {
+    $variables['attributes']['class'] = ['footer-about'];
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for hook_preprocess_office_hours().
+ *
+ * Reformat grouped day names in the **Office hours** field.
+ * "Monday - Thursday" should become "Monday to Thursday".
+ * "Monday - Tuesday" should become "Monday and Tuesday".
+ */
+function localgov_theme_preprocess_office_hours(&$variables) {
+  $slot_num = 0;
+
+  foreach ($variables['office_hours'] as $info) {
+    $number_of_days_in_slot = ($info['endday'] - $info['startday']) + 1;
+
+    $is_two_day_slot = ($number_of_days_in_slot === 2);
+
+    // Saturday = 6, Sunday = 0.
+    $is_weekend = ($number_of_days_in_slot === -5);
+
+    $slot_label = $variables['items'][$slot_num]['label'];
+    if ($is_two_day_slot or $is_weekend) {
+      $updated_slot_label = str_replace(' - ', ' ' . t('and') . ' ', $slot_label);
+    }
+    else {
+      $updated_slot_label = str_replace(' - ', ' ' . t('to') . ' ', $slot_label);
+    }
+
+    $variables['items'][$slot_num++]['label'] = $updated_slot_label;
+    $variables['label_length'] = max($variables['label_length'], mb_strlen($updated_slot_label));
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function localgov_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // Allow page template to be overridden by content type.
+  if ($hook == 'page' && $node = \Drupal::routeMatch()->getParameter('node')) {
+
+    // Load the node if its not already, as revisions return the nid.
+    if (!$node instanceof NodeInterface) {
+      $node = Node::load((int) $node);
+    }
+    // For the frontpage, ensure that *page__front* is always the final
+    // suggestion.
+    $is_front_page = end($suggestions) === 'page__front';
+    if ($is_front_page) {
+      $front_page_tpl_suggestion_key = key($suggestions);
+      unset($suggestions[$front_page_tpl_suggestion_key]);
+
+      if ($node instanceof NodeInterface) {
+        $suggestions[] = 'page__' . $node->bundle();
+      }
+      $suggestions[] = 'page__front';
+    }
+    elseif ($node instanceof NodeInterface) {
+      $suggestions[] = 'page__' . $node->bundle();
+    }
+  }
+
+  // Fields to be rendered through the field--clean.html.twig template.
+  $clean_fields = [
+    'localgov_addressfield',
+    'localgov_category',
+    'localgov_email_address',
+    'localgov_phone',
+    'localgov_website',
+  ];
+  if ($hook === 'field' && in_array($variables['element']['#field_name'], $clean_fields)) {
+    $suggestions[] = 'field__clean';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_theme_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->bundle() === 'localgov_call_out_box') {
+    $image = $paragraph->get('localgov_background_image');
+    if (!$image->isEmpty() && $image->entity) {
+      $variables['image_alt_text'] = $image->entity->field_media_image->first()->alt;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_file_link().
+ *
+ * Changes:
+ * - Inserts file *type* and size into the theme variable.
+ * - Reformats file size.  Example: 123.4KB.
+ * - Appends file metadata to the file link text.
+ *
+ * @see template_preprocess_file_link()
+ */
+function localgov_theme_preprocess_file_link(&$variables) {
+
+  $file = $variables['file'];
+  $filename = $file->getFilename();
+  $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+  $variables['file_type'] = strtoupper($file_extension);
+
+  // 123.45 KB -> 123.45KB
+  $variables['file_size'] = strtr($variables['file_size'], [' ' => '']);
+
+  $variables['link']['#title'] = [
+    '#markup' => "{$variables['link']['#title']} <span class=\"file-meta\">(<span class=\"file-type\">{$variables['file_type']}</span>, <span class=\"file-size\">{$variables['file_size']}</span>)</span>",
+  ];
+}

@@ -1,0 +1,14 @@
+name: LocalGov Core
+description: LocalGov Drupal helper functions and core dependencies.
+package: LocalGov Drupal
+type: module
+core_version_requirement: ^9
+
+dependencies:
+  - drupal:block
+  - drupal:field
+  - drupal:node
+  - field_group:field_group
+
+test_dependencies:
+  - paragraphs:paragraphs

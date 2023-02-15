@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d8fcd842-1c45-48bd-a472-451d4d5ba60f
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Correcting a marriage or civil partnership registration'
+  created:
+    -
+      value: 1631267721
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/correcting-marriage-or-civil-partnership-registration
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>What you need to do</h2>\r\n\r\n<p>You cannot apply for a correction if you have changed your mind about the information originally recorded, or to show new information if circumstances change after the marriage or civil partnership.</p>\r\n\r\n<p>If the mistake was made when copying information from the marriage register to the marriage certificate – you can&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/order-copies-certificates/order-copy-certificate\">order new certificates</a>&nbsp;to replace the incorrect ones.</p>\r\n\r\n<h3>Before you apply for a&nbsp;correction</h3>\r\n\r\n<p>Make sure you read the&nbsp;advice on correcting marriage registrations&nbsp;– as there are no refunds if we are unable to correct the&nbsp;registration.</p>\r\n\r\n<p><a href=\"https://www.gov.uk/correct-marriage-registration\">Advice on correcting marriage registration – GOV.UK</a></p>\r\n\r\n<h3>How to apply for a correction</h3>\r\n\r\n<p>There are two steps you need to follow:</p>\r\n\r\n<ol>\r\n\t<li>Make an appointment by contacting the&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/contact-croydon-register-office\">Register Office</a>.</li>\r\n\t<li>Get the application form to correct a mistake on a death certificate.</li>\r\n</ol>\r\n\r\n<h3>How to get an application form</h3>\r\n\r\n<p>You can either:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"https://www.gov.uk/government/publications/application-form-to-correct-details-on-a-marriage-registration\">download the&nbsp;application form to correct details on a marriage or civil partnership registration&nbsp;–&nbsp;GOV.UK</a></li>\r\n\t<li>collect the it&nbsp;from&nbsp;the Scarfolk<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/contact-croydon-register-office\">&nbsp;Register Office</a></li>\r\n</ul>\r\n\r\n<h3>How much it costs</h3>\r\n\r\n<p>It costs&nbsp;£90 to apply, depending on the type of correction.</p>\r\n\r\n<p>This fee is for your application, even if the correction is not authorised.</p>\r\n\r\n<h2>At your appointment</h2>\r\n\r\n<p>At your appointment at <a href=\"https://scarfolk.blogspot.com/\">Scarfolk Register Office</a>, you should bring:</p>\r\n\r\n<ul>\r\n\t<li>your completed form</li>\r\n\t<li>a debit or credit card to pay the fee</li>\r\n\t<li>documentation that clearly show what the correct information should be – for example: passport, identity card or a bank statement</li>\r\n</ul>\r\n\r\n<p>While you are here, we will check whether the correction can be completed locally or if it needs to be referred to the General Register Office (GRO). If the correction needs to be sent to GRO we will photocopy and certify your documents so that you can keep your originals.</p>\r\n\r\n<p>It can take up to 25 days for your application to be approved by the GRO.</p>\r\n\r\n<h2>What happens next</h2>\r\n\r\n<p>If you are attending the Register Office in person,&nbsp;you will need to observe social distancing at all times and wear&nbsp;adequate personal protective equipment (PPE). For more information, read&nbsp;<a href=\"https://www.gov.uk/government/publications/staying-safe-outside-your-home/staying-safe-outside-your-home\">staying safe outside your home – GOV.UK</a></p>\r\n\r\n<h3>If your change is approved</h3>\r\n\r\n<p>We will contact you to make an appointment to make the correction. You will be able to buy corrected certificates at the appointment for £11 each. You can&nbsp;also buy&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/order-copies-certificates/order-copy-certificate\">certificate copies</a>&nbsp;later.</p>\r\n\r\n<h3>If your change is not approved</h3>\r\n\r\n<p>We will contact you to let you know why it was not approved.</p>\r\n"
+      format: wysiwyg
+      summary: 'During the coronavirus pandemic, corrections to registration certificates may take longer than expected.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

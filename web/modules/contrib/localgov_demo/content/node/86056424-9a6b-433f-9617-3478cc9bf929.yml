@@ -1,0 +1,69 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 86056424-9a6b-433f-9617-3478cc9bf929
+  bundle: localgov_event
+  default_langcode: en
+  depends:
+    8b24be29-f78d-4ff2-8a2d-7e35030e4157: taxonomy_term
+    b7bd2cce-8fe6-4cff-a7fc-15ebd86cd2ad: localgov_geo
+    2d26cc28-44d0-4ccb-8150-dab195d9b7f6: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Sports Player of the Year Awards 2022'
+  created:
+    -
+      value: 1631270812
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /events/sports-player-year-awards-2022
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</p>\r\n\r\n<p>Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod.</p>\r\n\r\n<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam quis risus eget urna mollis ornare vel eu leo.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_event_call_to_action:
+    -
+      uri: 'internal:/'
+      title: 'Get Tickets'
+      options: {  }
+  localgov_event_categories:
+    -
+      entity: 8b24be29-f78d-4ff2-8a2d-7e35030e4157
+  localgov_event_date:
+    -
+      value: '2022-07-22T16:00:00'
+      end_value: '2022-07-22T22:00:00'
+      rrule: ''
+      timezone: Europe/London
+      infinite: false
+  localgov_event_location:
+    -
+      entity: b7bd2cce-8fe6-4cff-a7fc-15ebd86cd2ad
+  localgov_event_price:
+    -
+      entity: 2d26cc28-44d0-4ccb-8150-dab195d9b7f6

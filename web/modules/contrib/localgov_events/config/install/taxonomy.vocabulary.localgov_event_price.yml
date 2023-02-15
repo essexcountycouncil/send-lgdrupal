@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event price'
+vid: localgov_event_price
+description: 'Price used for filtering events.'
+weight: 0

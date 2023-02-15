@@ -1,0 +1,73 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 269d654c-e247-41bc-bf04-66b6fba4b6af
+  bundle: localgov_directories_page
+  default_langcode: en
+  depends:
+    5f88c33c-6ffe-4afc-8a66-cd1651b212de: node
+    06c1a060-9bda-4ee6-9ed3-7879b678eb5c: localgov_directories_facets
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'My World of Work'
+  created:
+    -
+      value: 1631270597
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/money-employment-and-training-directory/my-world-work
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>Career suggestions tailored to you</h2>\r\n\r\n<p>We have advice and tools to help you find out more about yourself and the opportunities open to you. Your My World of Work account will help you discover careers which match your skills, strengths and personality type.</p>\r\n\r\n<h2>Helping you support&nbsp;someone with their career</h2>\r\n\r\n<p>We provide information, advice and resources for parents and carers, teachers, college and university staff and SDS partners.</p>\r\n\r\n<p>If you’re supporting someone else with their career, My World of Work can help.</p>\r\n"
+      format: wysiwyg
+      summary: "My World of Work is Scotland’s career information and advice website.\r\n\r\nIt’s brought to you by Skills Development Scotland (SDS) – Scotland’s national skills agency."
+  localgov_directory_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: ''
+      dependent_locality: ''
+      postal_code: ''
+      sorting_code: ''
+      address_line1: ''
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''
+  localgov_directory_channels:
+    -
+      entity: 5f88c33c-6ffe-4afc-8a66-cd1651b212de
+  localgov_directory_facets_select:
+    -
+      entity: 06c1a060-9bda-4ee6-9ed3-7879b678eb5c
+  localgov_directory_website:
+    -
+      uri: 'https://www.myworldofwork.co.uk/'
+      title: ''
+      options: {  }

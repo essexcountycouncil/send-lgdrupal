@@ -1,0 +1,224 @@
+// Accessible links
+a {
+  color: $link-color;
+  text-decoration: underline;
+  font-weight: $font-bold;
+
+  &:hover,
+  &:focus {
+    background-color: $focus;
+    color: $link-hover-color;
+    text-decoration: none;
+    box-shadow: 0 0 0 0.125rem $focus;
+
+    > img {
+      @include outline(.1875rem, 0, $focus);
+    }
+  }
+}
+
+main.col-sm-8 a {
+  font-weight: $font-normal !important; // remove bold for main copy links
+}
+
+// External Link
+
+.external-link {
+  &:after {
+    font-family: $font-family-icons;
+    content: $fa-external;
+    font-weight: $fa-font-weight;
+    display: inline; // inline prevents icon from wrapping to newline
+    font-size: $font-size-ex-sm;
+    // ie bug fix for removing before/after underline
+    text-decoration: underline;
+
+    @include rem(padding-left, 5);
+  }
+}
+
+
+/* Action Link */
+
+.action-link-container {
+  font-size: $font-size-med;
+
+  @include rem(margin, 30, 0, 40);
+}
+
+.action-link {
+  display: inline-block;
+  font-weight: $font-bold;
+  font-size: $font-size-ex-ex-lg;
+
+  &:before {
+    font-family: $font-family-icons;
+    font-size: $font-size-lg;
+    font-weight: $font-bold;
+    display: inline-block;
+    color: $primary;
+
+    @include rem(padding-right, 10);
+  }
+
+  span,
+  i {
+    color: $tertiary;
+    font-size: $font-size-ex-sm;
+
+    @include rem(margin-right, 5);
+
+    &:hover,
+    &:focus {
+      color: $secondary;
+    }
+  }
+}
+
+button.action-link {
+  color: $primary;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    @include outline(.1875rem, -.1875rem, $focus);
+  }
+
+  i {
+    color: $tertiary;
+    font-size: $font-size-ex-sm;
+
+    @include rem(margin-right, 5);
+
+    &:hover,
+    &:focus {
+      color: $secondary;
+    }
+  }
+
+  &#services--expand-link {
+    &:hover,
+    &:focus {
+      outline: none !important;
+      background-color: $focus;
+      color: $link-hover-color;
+      text-decoration: none;
+      box-shadow: 0 0 0 0.125rem $focus;
+
+      i {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+.action-link--inline {
+  color: $tertiary;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.action-link--print:before {
+  content: $fa-print;
+}
+
+.action-link--save:before {
+  content: $fa-save;
+}
+
+.action-link--share:before {
+  content: $fa-share;
+}
+
+.action-link--load:before {
+  content: $fa-save;
+}
+
+/* Skip Link */
+
+.skip-link {
+  font-size: $font-size-sm;
+  display: inline-block;
+
+  @include rem(line-height, 30);
+  @include rem(padding-right, 5);
+}
+
+.skip-link i {
+  float: left;
+  display: inline-block;
+  font-size: $font-size-sm;
+  color: $gray-dark;
+  margin: 0 0.5rem 0 0.938rem;
+
+  @include rem(line-height, 30);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(0.063rem, 0.063rem, 0.063rem, 0.063rem);
+  overflow: hidden;
+  height: 0.063rem;
+  width: 0.063rem;
+  word-wrap: normal;
+}
+
+.visually-hidden.focusable {
+  &:active,
+  &:focus {
+    position: static !important;
+    clip: auto;
+    overflow: visible;
+    height: auto;
+    width: auto;
+  }
+}
+
+// link blocks generally used on service pages //
+.link-block {
+  padding-left: 0.5rem;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+
+  span,
+  i {
+    font-size: 1rem;
+    color: $tertiary;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+  }
+
+  a {
+    @include rem(line-height, 32); // fix for text cutting off on focus
+  }
+
+  h2 {
+    font-size: $h3-font-size;
+  }
+}
+
+.focus-top {
+  &:before {
+    font-family: $font-family-icons;
+    content: $fa-arrow-up;
+    font-weight: $fa-font-weight;
+    display: inline-block; // inline-block prevents icon from wrapping to newline and removes erroneous underline
+    color: $green;
+
+    @include rem(padding-left, 5);
+  }
+}
+
+a#main-content { // prevent hover colour on 'focus top' anchor
+  &:hover,
+  &:focus {
+    background: none;
+    box-shadow: none;
+  }
+}

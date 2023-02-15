@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: d2af8444-4898-4daf-9814-6dc0c16cfb26
+  bundle: image
+  default_langcode: en
+  depends:
+    cb2536a8-9340-4de0-b5ae-e33eb17386a6: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: drupalgov-mission-alpha-v2_400x400.png
+  created:
+    -
+      value: 1620307439
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: cb2536a8-9340-4de0-b5ae-e33eb17386a6
+      alt: 'Black cat with headphones - Localgov Drupal - Alpha - Growing together'
+      title: ''
+      width: 400
+      height: 400

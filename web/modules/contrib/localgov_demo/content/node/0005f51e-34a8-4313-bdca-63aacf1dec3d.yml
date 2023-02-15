@@ -1,0 +1,64 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 0005f51e-34a8-4313-bdca-63aacf1dec3d
+  bundle: localgov_news_article
+  default_langcode: en
+  depends:
+    a2f99f21-358d-4a2b-84a5-cdfe9af07751: media
+    35e629ee-5cd0-4e05-b316-0030e7ce2314: taxonomy_term
+    198d685b-043e-409d-8e92-21452f38a2fe: node
+    04dc2cb5-69f9-443b-9db3-e818855880b7: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Update on county council services during current lockdown'
+  created:
+    -
+      value: 1631268147
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /news/2021/update-county-council-services-during-current-lockdown
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p class=\"alert alert-info\">There may be some changes to services to ensure the latest public health guidance is followed, and residents should check the council website for further information.&nbsp;</p>\r\n\r\n<h2>Education</h2>\r\n\r\n<p>Schools are closed and have moved teaching online until at least February half-term under a new national lockdown announced by the Prime Minister on Monday evening.</p>\r\n\r\n<p>The new national restrictions mean that there are extra rules in place, in addition to the Tier 4 regulations which already applied. This means that:</p>\r\n\r\n<ul>\r\n\t<li>Colleges, primary and secondary schools will remain open only for vulnerable children and the children of critical workers. All other children will learn remotely until February half term. Please get in touch with your school directly if your child is going to struggle to access remote learning due to lack of technology or other issues.</li>\r\n\t<li>Early years settings (childminders, nurseries) remain open.</li>\r\n</ul>\r\n\r\n<p>Your child’s school will be in touch with you to make arrangements if your child is entitled to free school meals.&nbsp;</p>\r\n\r\n<h3>Follow the guidance</h3>\r\n\r\n<p>You must only leave your house for a few specific reasons (to exercise, shop for food, get essential medical help, if you absolutely cannot work at home or if your safety is threatened).</p>\r\n\r\n<p>Please remember that infection rates are very high, but we can reduce them by strictly following the restrictions and by hand-washing and wearing face coverings. Let's all continue to work together to save lives and protect the NHS.</p>\r\n\r\n<p>If you get even mild symptoms, arrange a test and self-isolate for 10 days.</p>\r\n\r\n<p>Vaccination against the virus is continuing and the NHS is asking everyone to be patient. You will be contacted when it's your turn to get the jab, you do not need to contact your GP - they will contact you. Further information about the vaccination is available on the NHS website.</p>\r\n\r\n<h3>Help is here</h3>\r\n\r\n<p>Scarfolk County Council can provide urgent help and emergency support, including basic food and essential items, or if you are struggling to cope with your current situation for whatever reason.</p>\r\n\r\n<p>You can also email&nbsp;COVID19support@council.gov.uk&nbsp;and you will receive a response within one working day.</p>\r\n\r\n<h2><strong>Scarfolk County Council services update:</strong></h2>\r\n\r\n<h3><strong>Household Waste and Recycling Centres</strong></h3>\r\n\r\n<p>Our Household Waste Recycling Centres are open, and we have no plans for closures during the new lockdown restrictions. There is a booking system in place at certain sites, and all sites are following social distancing guidelines. Please only visit if absolutely necessary, and make use of your local district council kerbside collection services.</p>\r\n\r\n<h3><strong>Libraries</strong></h3>\r\n\r\n<p>In line with government guidance, libraries and archives will no longer be open for public browsing. Scarfolk Libraries will continue to offer essential services such as click and collect and home delivery.&nbsp;</p>\r\n\r\n<h3><strong>Ceremonies</strong></h3>\r\n\r\n<p>Government guidance is that weddings and civil partnerships should only take place in exceptional circumstances, for example, an urgent marriage where one of those getting married is seriously ill and not expected to recover, or is to undergo debilitating treatment or life-changing surgery.</p>\r\n\r\n<p>Where ceremonies do go ahead, a maximum of six people are allowed to be present, not including staff working at the event. Our teams are on hand to speak to customers to advise them of the latest advice and discuss alternative arrangements.&nbsp;</p>\r\n"
+      format: wysiwyg
+      summary: 'Following the recent decision to place England into lockdown measures, the county council will continue to provide a range of essential services throughout this period.'
+  field_media_image:
+    -
+      entity: a2f99f21-358d-4a2b-84a5-cdfe9af07751
+  localgov_news_categories:
+    -
+      entity: 35e629ee-5cd0-4e05-b316-0030e7ce2314
+  localgov_news_date:
+    -
+      value: '2021-09-10'
+  localgov_news_related:
+    -
+      entity: 198d685b-043e-409d-8e92-21452f38a2fe
+  localgov_newsroom:
+    -
+      entity: 04dc2cb5-69f9-443b-9db3-e818855880b7

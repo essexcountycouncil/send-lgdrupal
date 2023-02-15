@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Contains search_api_best_bets.module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function search_api_best_bets_theme() {
+  return [
+    'search_api_best_bets_formatter' => [
+      'variables' => ['query_text' => NULL, 'exclude' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for best bets formatter field templates.
+ *
+ * Default template: search-api-best-bets-formatter.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - query_text: The query text added in UI.
+ *   - exclude: The boolean value of exclude.
+ */
+function template_preprocess_search_api_best_bets_formatter(array &$variables) {
+  $variables['exclude_formatted'] = $variables['exclude'] ? t('Yes') : t('No');
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for search-api-page-result.html.twig template.
+ */
+function search_api_best_bets_preprocess_search_api_page_result(&$variables) {
+  /** @var \Drupal\search_api\Item\ItemInterface  $item */
+  $item = $variables['item'];
+
+  // Add extra attributes if the result item is elevated.
+  $variables['elevated'] = FALSE;
+  if ($item->getExtraData('elevated')) {
+    $variables['title_attributes']['class'][] = 'search-api-elevated';
+    $variables['content_attributes']['class'][] = 'search-api-elevated';
+    $variables['elevated'] = TRUE;
+  }
+
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function search_api_best_bets_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
+  // Check if the current user has access to view or edit the best bets field.
+  if ($field_definition->getType() === 'search_api_best_bets' && in_array($operation, [
+    'edit',
+    'view',
+  ])) {
+    $permission = "$operation search_api_best_bets keywords";
+
+    if (!$account->hasPermission($permission)) {
+      return AccessResult::forbidden();
+    }
+  }
+
+  return AccessResult::neutral();
+}

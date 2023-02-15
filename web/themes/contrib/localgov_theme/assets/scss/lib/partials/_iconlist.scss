@@ -1,0 +1,14 @@
+.iconlist {
+  padding-left: 0;
+
+  li {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+
+    .fa,
+    i {
+      padding-top: .3125rem;
+    }
+  }
+}

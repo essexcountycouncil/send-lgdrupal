@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: c065a456-0319-45e6-b671-b4465345383f
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620224565
+  label:
+    -
+      value: |-
+        Bartholomew Square 10
+        Brighton
+        BN1 1JS
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.1404718 50.8207459)'
+      geo_type: Point
+      lat: 50.8207459
+      lon: -0.1404718
+      left: -0.1404718
+      top: 50.8207459
+      right: -0.1404718
+      bottom: 50.8207459
+      geohash: gcpchg9sqc8tu
+      latlon: '50.8207459,-0.1404718'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: Brighton
+      dependent_locality: ''
+      postal_code: 'BN1 1JS'
+      sorting_code: ''
+      address_line1: 'Bartholomew Square 10'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

@@ -1,0 +1,202 @@
+/*
+  @file Base/element level theming.
+
+  This file sets up default CSS for elements, such as links as
+  well as font sizes, vertical rhythm, etc.
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin-top: 0; /* Removing top margin, for better vertical rhythm layout */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  body {
+    scroll-behavior: auto;
+  }
+}
+
+.dialog-off-canvas-main-canvas {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  /* To give us a sticky footer. */
+  margin-bottom: auto;
+}
+
+a {
+  color: var(--color-link);
+  transition: var(--transition-time);
+}
+
+a:hover {
+  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+}
+
+a:focus {
+  text-decoration: none;
+  color: var(--color-black);
+  outline: 3px solid transparent;
+  background-color: var(--color-focus);
+  -webkit-box-shadow: 0 -2px var(--color-focus), 0 4px var(--color-black);
+  box-shadow: 0 -2px var(--color-focus), 0 4px var(--color-black);
+  -webkit-box-decoration-break: clone;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+.heading {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  font-family: var(--font-secondary);
+}
+
+h1,
+.h1 {
+  font-family: var(--font-heading-1);
+  font-size: var(--font-size-h1);
+  color: var(--heading-1-color);
+  line-height: var(--heading-1-line-height);
+  font-weight: var(--heading-1-font-weight);
+}
+
+h2,
+.h2 {
+  font-family: var(--font-heading-2);
+  font-size: var(--font-size-h2);
+  color: var(--heading-2-color);
+  line-height: var(--heading-2-line-height);
+  font-weight: var(--heading-2-font-weight);
+}
+
+h3,
+.h3 {
+  font-family: var(--font-heading-3);
+  font-size: var(--font-size-h3);
+  color: var(--heading-3-color);
+  line-height: var(--heading-3-line-height);
+  font-weight: var(--heading-3-font-weight);
+}
+
+h4,
+.h4 {
+  font-family: var(--font-heading-4);
+  font-size: var(--font-size-h4);
+  font-weight: bold;
+  color: var(--heading-4-color);
+  line-height: var(--heading-4-line-height);
+  font-weight: var(--heading-4-font-weight);
+}
+
+h5,
+.h5 {
+  font-family: var(--font-heading-5);
+  font-size: var(--font-size-h5);
+  font-variant: small-caps;
+  color: var(--heading-5-color);
+  line-height: var(--heading-5-line-height);
+  font-weight: var(--heading-5-font-weight);
+}
+
+h6,
+.h6 {
+  text-decoration: underline;
+  font-family: var(--font-heading-6);
+  font-size: var(--font-size-h6);
+  font-variant: small-caps;
+  color: var(--heading-6-color);
+  line-height: var(--heading-6-line-height);
+  font-weight: var(--heading-6-font-weight);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  margin-bottom: var(--vertical-rhythm-spacing);
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  line-height: 0;
+}
+
+sup {
+  top: -0.5rem;
+}
+
+sub {
+  bottom: -0.25rem;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border: var(--table-border);
+  border-collapse: collapse;
+}
+
+thead th {
+  padding: var(--table-padding);
+  background-color: var(--table-bg-color);
+}
+
+tbody td {
+  padding: var(--table-padding);
+}
+
+tbody tr {
+  border-bottom: var(--table-border);
+}
+
+input,
+select,
+option,
+textarea,
+button {
+  font-family: var(--font-primary);
+}

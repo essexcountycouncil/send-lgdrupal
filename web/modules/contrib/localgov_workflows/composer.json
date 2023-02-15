@@ -1,0 +1,15 @@
+{
+    "name": "localgovdrupal/localgov_workflows",
+    "description": "Default editorial workflow for LocalGov Drupal content.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_workflows",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "localgovdrupal/localgov_core": "^2.1",
+        "drupal/diff": "^1.0",
+        "drupal/preview_link": "^1.7",
+        "drupal/responsive_preview": "^1.0",
+        "drupal/scheduled_transitions": "^2.1"
+    }
+}

@@ -1,0 +1,94 @@
+main.col-sm-8,
+.block-system-main-block {
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    color: $secondary;
+    text-decoration: none;
+
+    &:visited {
+      color: $secondary;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  h1,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: ($spacer * 1);
+  }
+
+  h2,
+  h3 {
+    margin-bottom: ($spacer * 1.5);
+  }
+
+  legend {
+    margin-bottom: ($spacer * 1.5);
+  }
+
+  ul .fa,
+  ol .fa,
+  ul i,
+  ol i,
+  .sidebar ul .fa {
+    font-size: 85%;
+  }
+
+  // Main text sizes
+  p,
+  ul,
+  ol {
+    font-size: $font-size-base * 1.125;
+  }
+
+  @include media-breakpoint-up(lg) {
+    p,
+    ul,
+    ol {
+      font-size: $font-size-lg;
+    }
+  }
+
+
+  p a .fa,
+  a .fa {
+    padding-right: .3125rem; // 5px
+    padding-left: .3125rem; // 5px
+    color: $secondary;
+  }
+
+  p .fa,
+  p i {
+    font-size: 75%;
+  }
+
+  //List left padding
+  ul,
+  ol {
+    padding-left: 1.2rem;
+  }
+
+  //List items
+  ul li,
+  ol li,
+  .sidebar ul li,
+  .sidebar ol li,
+  footer ul li,
+  footer ol li {
+    margin-bottom: .3125rem;
+  }
+
+  //Small textline height to match small text 85% size setting
+  small {
+    line-height: 1.4rem;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\webform_workflows_element_maestro\Plugin\EngineTasks\MaestroTransitionWebformWorkflowTask;
+
+function webform_workflows_element_maestro_task_console_interactive_link_alter(&$link, $taskTemplate, $queueRecord, $templateMachineName) {
+  if ($taskTemplate['tasktype'] == 'MaestroTransitionWebformWorkflowTask') {
+    $link = $taskTemplate['data']['button_text'] ?? 'Review and change workflow';
+  }
+}
+
+function webform_workflows_element_maestro_execute_title() {
+  $queueId = Drupal::routeMatch()->getParameter('queueid');
+  $submission = MaestroTransitionWebformWorkflowTask::getSubmission($queueId);
+
+  return t('Review submission: @webformTitle', [
+    '@webformTitle' => $submission->getWebform()->label(),
+  ]);
+}

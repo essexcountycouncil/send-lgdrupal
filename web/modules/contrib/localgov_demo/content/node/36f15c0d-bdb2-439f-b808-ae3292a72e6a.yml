@@ -1,0 +1,62 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 36f15c0d-bdb2-439f-b808-ae3292a72e6a
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    7bc9a809-fccc-4f33-9462-223bcc7931b6: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Croydon Council'
+  created:
+    -
+      value: 1620223672
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/croydon-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Croydon London Borough Council is the local authority for the London Borough of Croydon in Greater London, England.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_website:
+    -
+      uri: 'https://www.croydon.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 7bc9a809-fccc-4f33-9462-223bcc7931b6

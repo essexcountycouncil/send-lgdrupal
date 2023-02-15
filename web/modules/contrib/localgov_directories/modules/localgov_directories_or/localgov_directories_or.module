@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Maintains Open Referral mappings for directory facets entity.
+ */
+
+use Drupal\localgov_directories_or\FacetMapping;
+use Drupal\localgov_openreferral\Entity\PropertyMappingInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function localgov_directories_or_node_insert(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_directory') {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(FacetMapping::class)
+      ->synchroniseFacetMappings();
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function localgov_directories_or_node_update(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_directory') {
+    \Drupal::entityTypeManager()->getStorage('node')->resetCache([$node->id()]);
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(FacetMapping::class)
+      ->synchroniseFacetMappings();
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function localgov_directories_or_node_delete(NodeInterface $node) {
+  if ($node->bundle() == 'localgov_directory') {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(FacetMapping::class)
+      ->synchroniseFacetMappings();
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function localgov_directories_or_localgov_openreferral_mapping_insert(PropertyMappingInterface $map) {
+  if ($map->mappedEntityType() == 'node') {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(FacetMapping::class)
+      ->synchroniseFacetMappings();
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function localgov_directories_or_localgov_openreferral_mapping_delete(PropertyMappingInterface $map) {
+  if ($map->mappedEntityType() == 'node') {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(FacetMapping::class)
+      ->synchroniseFacetMappings();
+  }
+}

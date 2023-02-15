@@ -1,0 +1,4 @@
+services:
+  plugin.manager.search_api_best_bets.query_handler:
+    class: Drupal\search_api_best_bets\QueryHandler\QueryHandlerPluginManager
+    parent: default_plugin_manager

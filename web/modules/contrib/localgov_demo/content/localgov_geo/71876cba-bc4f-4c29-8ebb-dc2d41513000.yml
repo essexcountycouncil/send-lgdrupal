@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 71876cba-bc4f-4c29-8ebb-dc2d41513000
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620226931
+  label:
+    -
+      value: |-
+        Hornton Street
+        London
+        W8 7RW
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.195136 51.502233)'
+      geo_type: Point
+      lat: 51.502233
+      lon: -0.195136
+      left: -0.195136
+      top: 51.502233
+      right: -0.195136
+      bottom: 51.502233
+      geohash: gcpugx9ym004
+      latlon: '51.502233,-0.195136'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: London
+      dependent_locality: ''
+      postal_code: 'W8 7RW'
+      sorting_code: ''
+      address_line1: 'Hornton Street'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

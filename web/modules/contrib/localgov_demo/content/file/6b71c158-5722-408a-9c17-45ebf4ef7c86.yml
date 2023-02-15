@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 6b71c158-5722-408a-9c17-45ebf4ef7c86
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: nathan-dumlao-Wr3comVZJxU-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/nathan-dumlao-Wr3comVZJxU-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 4297882
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631787918

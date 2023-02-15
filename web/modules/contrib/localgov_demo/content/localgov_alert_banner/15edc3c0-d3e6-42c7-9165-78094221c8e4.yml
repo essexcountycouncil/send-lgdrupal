@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 15edc3c0-d3e6-42c7-9165-78094221c8e4
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''directory channel'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631815445
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-11--474864d520109b5879c86830a15b62e7bf8b4282
+  short_description:
+    -
+      value: "<p>Add a&nbsp;'directory channel' to group together contact and location information, such as parks, community services or school catchment areas. To add entries to the directory, create a 'directory page' or 'directory venue' and relate it to the channels you want.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/national-parks-uk\r\n/localgov-drupal-collaborators"
+          negate: '0'

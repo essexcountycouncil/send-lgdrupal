@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Provides custom HTML class settings for field formatters.
+ */
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Field\FormatterInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function field_formatter_class_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the fuzzbomb_admin_fields module.
+    case 'help.page.field_formatter_class':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Allows site administrators to add classes to the
+        outer HTML wrapper for any field display, so that CSS and Javascript can
+        target them.') . '</p>';
+      $output .= '<p>' . t("It's particulary useful for adding classes required
+        by various jQuery plugins and CSS grid systems.") . '</p>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('The Field Formatter Class settings are found in the
+        Manage display tab for content types, users, and other entities. A text
+        box is available for each field, revealed by using the formatter
+        settings edit button (gear wheel icon) for that field.') . '</p>';
+      $output .= '<p>' . t('This module supports the use of tokens in the Field
+        Formatter Class setting. For more information about tokens, see the
+        <a href="https://www.drupal.org/node/390482">online token documentation</a>.
+        If the Token module (https://www.drupal.org/project/token) is installed,
+        a token browser link will be available with the formatter settings.')
+        . '</p>';
+      return $output;
+
+    default:
+      break;
+  }
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary_alter().
+ */
+function field_formatter_class_field_formatter_settings_summary_alter(&$summary, $context) {
+
+  $setting = $context['formatter']->getThirdPartySetting('field_formatter_class', 'class');
+
+  if (!empty($setting)) {
+    $summary[] = t('Class: @class', ['@class' => Xss::filter($setting, [])]);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_third_party_settings_form().
+ *
+ * Adds a 'class' textfield to all formatters.
+ */
+function field_formatter_class_field_formatter_third_party_settings_form(FormatterInterface $plugin, FieldDefinitionInterface $field_definition, $view_mode, $form, FormStateInterface $form_state) {
+  $element['class'] = [
+    '#type' => 'textfield',
+    '#title' => t('Field Formatter Class'),
+    '#default_value' => $plugin->getThirdPartySetting('field_formatter_class', 'class'),
+  ];
+  if (\Drupal::moduleHandler()->moduleExists('token')) {
+    $element['token_help'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => [$field_definition->getTargetEntityTypeId()],
+    ];
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field templates.
+ *
+ * Adds a custom class to the field's class attribute
+ * according to the field formatter settings.
+ */
+function field_formatter_class_preprocess_field(&$variables) {
+
+  // Add class for whole field.
+  if (isset($variables['element']['#third_party_settings']['field_formatter_class'])) {
+    $class = $variables['element']['#third_party_settings']['field_formatter_class']['class'];
+    /** @var \Drupal\Core\Utility\Token $token */
+    $token = \Drupal::service('token');
+    /** @var \Drupal\Core\Entity\EntityInterface $object */
+    $object = $variables['element']['#object'];
+    $class = $token->replace($class, [$object->getEntityTypeId() => $object], ['clear' => true]);
+    $class = explode(' ', $class);
+    foreach ($class as $thisClass) {
+      $variables['attributes']['class'][] = Html::escape($thisClass);
+    }
+  }
+}

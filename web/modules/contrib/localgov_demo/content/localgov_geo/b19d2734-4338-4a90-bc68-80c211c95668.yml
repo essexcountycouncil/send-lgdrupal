@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: b19d2734-4338-4a90-bc68-80c211c95668
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620226543
+  label:
+    -
+      value: |-
+        Brixton Hill
+        London
+        SW2 1RP
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.1168226 51.4595616)'
+      geo_type: Point
+      lat: 51.4595616
+      lon: -0.1168226
+      left: -0.1168226
+      top: 51.4595616
+      right: -0.1168226
+      bottom: 51.4595616
+      geohash: gcputrfvtvdcb
+      latlon: '51.4595616,-0.1168226'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: London
+      dependent_locality: ''
+      postal_code: 'SW2 1RP'
+      sorting_code: ''
+      address_line1: 'Brixton Hill'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

@@ -1,0 +1,49 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6c0df0c3-f6e4-4ba4-9316-2693cbd94f29
+  bundle: localgov_services_landing
+  default_langcode: en
+  depends:
+    1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Testing landing page'
+  created:
+    -
+      value: 1592931426
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /testing-landing-page
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Content editing is hard</p>\r\n"
+      format: wysiwyg
+      summary: 'Content editing'
+  localgov_destinations:
+    -
+      entity: 1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42

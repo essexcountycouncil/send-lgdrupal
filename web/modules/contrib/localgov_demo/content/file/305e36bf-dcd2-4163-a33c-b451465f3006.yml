@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 305e36bf-dcd2-4163-a33c-b451465f3006
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: alexander-dummer-UH-xs-FizTk-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/alexander-dummer-UH-xs-FizTk-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 6381658
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631787497

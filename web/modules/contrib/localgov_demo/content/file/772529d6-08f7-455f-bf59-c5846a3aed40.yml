@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 772529d6-08f7-455f-bf59-c5846a3aed40
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: 'Port Meadow.kml'
+  uri:
+    -
+      value: 'public://2021-09/Port Meadow.kml'
+  filemime:
+    -
+      value: application/vnd.google-earth.kml+xml
+  filesize:
+    -
+      value: 3392
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631273039

@@ -1,0 +1,41 @@
+.fact-box {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  text-align: center;
+  border: var(--fact-box-border);
+  border-color: var(--fact-box-border-color);
+}
+
+.fact-box--has-bg {
+  padding:
+    var(--fact-box-padding-vertical)
+    var(--fact-box-padding-horizontal)
+    calc(var(--fact-box-padding-vertical) - var(--vertical-rhythm-spacing));
+}
+
+.fact-box--fact-box-light {
+  background-color: var(--fact-box-bg-light);
+}
+
+.fact-box--fact-box-dark {
+  color: var(--color-white);
+  background-color: var(--fact-box-bg-dark);
+}
+
+.fact-box--fact-box-accent {
+  color: var(--fact-box-text-color-accent);
+  background-color: var(--color-accent);
+}
+
+.fact-box--fade-red-blue {
+  color: var(--color-white);
+  background-image: linear-gradient(var(--fact-box-red), var(--fact-box-blue));
+}
+
+.fact-box__opening,
+.fact-box__closing {
+  font-size: var(--fact-box-title);
+}
+
+.fact-box__fact {
+  font-size: var(--fact-box-fact);
+}

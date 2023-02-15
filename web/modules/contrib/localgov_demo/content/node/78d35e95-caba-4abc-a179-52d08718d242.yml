@@ -1,0 +1,64 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 78d35e95-caba-4abc-a179-52d08718d242
+  bundle: localgov_news_article
+  default_langcode: en
+  depends:
+    a39ba204-ea13-4f42-b30d-8370278e40cf: media
+    acfb5e02-f92b-4822-9f09-d5802314dd52: taxonomy_term
+    90c4eac2-84a2-42c5-a7d6-8d6f79a4e1da: node
+    04dc2cb5-69f9-443b-9db3-e818855880b7: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Don`t waste your waste - get composting this autumn'
+  created:
+    -
+      value: 1631265501
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /news/2021/dont-waste-your-waste-get-composting-autumn
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>With autumn almost upon us, the time has come to prune, trim and prepare the garden for next year.&nbsp; But what should you do with all the debris? Take it to the tip? Overfill your green waste bin? Instead of seeing it as waste, why not see it as something that, with very little work, can be recycled to give you a free supply of top quality compost.&nbsp;</p>\r\n\r\n<p>Simply throw garden waste into a compost bin and over the winter months it will rot down to produce environmentally friendly compost that when added to the garden will suppress weeds and retain moisture in the drier months.&nbsp;</p>\r\n\r\n<p>Home composting has many benefits:&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>It’s easy to make and easy to use.</li>\r\n\t<li>Produces a free continual source of the very best compost.</li>\r\n\t<li>Improves soil structure.</li>\r\n\t<li>Maintains moisture.</li>\r\n\t<li>Helps the soil PH balance.</li>\r\n\t<li>Suppresses plant disease.</li>\r\n\t<li>Reduces the need for polluting bonfires.</li>\r\n\t<li>Reduces carbon emissions</li>\r\n\t<li>Helps to divert organic waste from requiring treatment.</li>\r\n\t<li>Reduces refuse collection and treatment costs.</li>\r\n</ul>\r\n\r\n<p>To encourage residents to get composting,the Council is offering Home Compost Bins at special offer prices from only £11 (with £5.99 delivery). There is also a Buy One Get One Half Price Offer, adding extra value to residents with larger gardens or those who team up with a friend or neighbour to buy a bin.</p>\r\n\r\n<p>Typically, one third of all household rubbish and garden waste is organic matter which can be recycled at home in a compost bin.&nbsp; Home composting not only provides people with an endless supply of nutrient rich compost which can be used in their gardens but it is also an effective and sustainable waste management method helping to reduce the amount of waste requiring further treatment.&nbsp;</p>\r\n\r\n<p>Cllr Jonathan P. McNabb, Cabinet member for Environment, said: \"Composting is one of nature's miracles: turning kitchen and garden waste into a wonderful food for your garden. I've always had a bin or two in my gardens, and this is a tremendous opportunity for households throughout Cumbria to get involved.\"</p>\r\n"
+      format: wysiwyg
+      summary: 'The warmer weather this summer with the occasional almost tropical rain storm has encouraged gardens to flourish, creating an abundance of surplus garden waste.'
+  field_media_image:
+    -
+      entity: a39ba204-ea13-4f42-b30d-8370278e40cf
+  localgov_news_categories:
+    -
+      entity: acfb5e02-f92b-4822-9f09-d5802314dd52
+  localgov_news_date:
+    -
+      value: '2021-09-10'
+  localgov_news_related:
+    -
+      entity: 90c4eac2-84a2-42c5-a7d6-8d6f79a4e1da
+  localgov_newsroom:
+    -
+      entity: 04dc2cb5-69f9-443b-9db3-e818855880b7

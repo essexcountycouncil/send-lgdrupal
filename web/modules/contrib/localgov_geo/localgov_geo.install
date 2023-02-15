@@ -1,0 +1,582 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the localgov_geo module.
+ */
+
+use Drupal\Core\Config\Config;
+use Drupal\user\RoleInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\localgov_geo\Entity\LocalgovGeo;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_geo_install() {
+  // So node.module says don't do this. Media then just does it.
+  // Working assumption here is that exposing geo information is the intention.
+  // Otherwise we could push this into the localgov profile. However, it not
+  // obviously would break things for people installing Directories without
+  // the profile. Like even search api indexes what anonymous can see so you
+  // don't get the location is the search results.
+  if (\Drupal::moduleHandler()->moduleExists('user')) {
+    user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['view geo']);
+    user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['view geo']);
+  }
+}
+
+/**
+ * Add label and configure defaults for label field.
+ */
+function localgov_geo_update_8001() {
+  // Add label field to the geo entity.
+  $field_storage_definition = BaseFieldDefinition::create('string')
+    ->setLabel(t('Label'))
+    ->setDescription(t('Short human identification or description.'))
+    ->setRequired(TRUE)
+    ->setTranslatable(TRUE)
+    ->setRevisionable(TRUE)
+    ->setSetting('max_length', 1275)
+    ->setDisplayOptions('view', [
+      'label' => 'hidden',
+      'type' => 'string',
+      'weight' => -5,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -5,
+      'region' => 'hidden',
+    ])
+    ->setDisplayConfigurable('form', TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('label', 'localgov_geo', 'localgov_geo', $field_storage_definition);
+
+  // Add field for default label token replacement on bundle.
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('localgov_geo.localgov_geo_type.') as $bundle_config_name) {
+    $token = ($bundle_config_name == 'localgov_geo.localgov_geo_type.address') ? '[localgov_geo:postal_address]' : '[localgov_geo:id]';
+    $geo_bundle = $config_factory->getEditable($bundle_config_name);
+    $geo_bundle->set('label_token', $token);
+    $geo_bundle->save(TRUE);
+  }
+
+}
+
+/**
+ * Update all existing localgov_geo enties for new label field.
+ */
+function localgov_geo_update_8002(&$sandbox) {
+  if (!isset($sandbox['total'])) {
+    $sandbox['total'] = \Drupal::entityQuery('localgov_geo')->count()->accessCheck(FALSE)->execute();
+    $sandbox['current'] = 0;
+  }
+
+  $ids = \Drupal::entityQuery('localgov_geo')
+    ->range($sandbox['current'], 50)
+    ->execute();
+  if (empty($ids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+
+  foreach ($ids as $id) {
+    $geo = LocalgovGeo::load($id);
+    $geo->save();
+    $sandbox['current']++;
+  }
+
+  \Drupal::messenger()
+    ->addMessage($sandbox['current'] . ' geo entities processed.');
+
+  if ($sandbox['current'] >= $sandbox['total']) {
+    $sandbox['#finished'] = 1;
+  }
+  else {
+    $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+  }
+}
+
+/**
+ * Add the new Geo Entity view modes.
+ */
+function localgov_geo_update_8003() {
+  $core_entity_view_mode_localgov_geo_embed_yml = <<<EOY
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_geo
+id: localgov_geo.embed
+label: Embed
+targetEntityType: localgov_geo
+cache: true
+EOY;
+  $view_mode = \Drupal::service('config.factory')->getEditable('core.entity_view_mode.localgov_geo.embed');
+  assert($view_mode instanceof Config);
+  if ($view_mode->isNew()) {
+    $view_mode->setData(Yaml::parse($core_entity_view_mode_localgov_geo_embed_yml));
+    $view_mode->save();
+  }
+
+  $core_entity_view_mode_localgov_geo_full_yml = <<<EOY
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_geo
+id: localgov_geo.full
+label: Full
+targetEntityType: localgov_geo
+cache: true
+EOY;
+  $view_mode = \Drupal::service('config.factory')->getEditable('core.entity_view_mode.localgov_geo.full');
+  assert($view_mode instanceof Config);
+  if ($view_mode->isNew()) {
+    $view_mode->setData(Yaml::parse($core_entity_view_mode_localgov_geo_full_yml));
+    $view_mode->save();
+  }
+
+}
+
+/**
+ * Enable localgov_geo_address submodule.
+ */
+function localgov_geo_update_8004() {
+  $extension_config = \Drupal::configFactory()->getEditable('core.extension');
+  $extension_config
+    ->set("module.localgov_geo_address", 0)
+    ->set('module', module_config_sort($extension_config->get('module')))
+    ->save(TRUE);
+  \Drupal::service('update.update_hook_registry')->setInstalledVersion('localgov_geo_address', 0);
+
+  // Copy default view mode to be same as new embed view mode.
+  $default = \Drupal::configFactory()->get('core.entity_view_display.localgov_geo.address.default');
+  $embed = \Drupal::configFactory()->getEditable('core.entity_view_display.localgov_geo.address.embed');
+  if ($embed->isNew()) {
+    $config_array = $default->getRawData();
+    $config_array['dependencies']['config'][] = 'core.entity_view_mode.localgov_geo.embed';
+    $config_array['id'] = 'localgov_geo.address.embed';
+    $config_array['mode'] = 'embed';
+    $embed->setData($config_array);
+    $embed->save();
+  }
+
+}
+
+/**
+ * Add the new Geo Entity Browser and related view.
+ */
+function localgov_geo_update_8005() {
+  $entity_browser_browser_localgov_geo_library_yml = <<<EOY
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_geo_library
+  module:
+    - entity_browser_entity_form
+    - views
+name: localgov_geo_library
+label: 'Geo Browser'
+display: modal
+display_configuration:
+  width: '1200'
+  height: '800'
+  link_text: 'Select location'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  d5750416-1d97-43b9-95b1-f843724c8ecd:
+    settings:
+      view: localgov_geo_library
+      view_display: entity_browser_1
+      submit_text: 'Select location'
+      auto_select: false
+    uuid: d5750416-1d97-43b9-95b1-f843724c8ecd
+    weight: 1
+    label: 'Search existing locations'
+    id: view
+  3edf0a0f-cb61-4324-8d36-1898e23a16ed:
+    settings:
+      entity_type: localgov_geo
+      bundle: address
+      form_mode: inline
+      submit_text: 'Save address'
+    uuid: 3edf0a0f-cb61-4324-8d36-1898e23a16ed
+    weight: 2
+    label: 'Create new address'
+    id: entity_form
+  beda8d11-9000-4069-95e7-dbb4282941db:
+    settings:
+      entity_type: localgov_geo
+      bundle: area
+      form_mode: inline
+      submit_text: 'Save area'
+    uuid: beda8d11-9000-4069-95e7-dbb4282941db
+    weight: 3
+    label: 'Create new area'
+    id: entity_form
+EOY;
+  $entity_browser = \Drupal::service('config.factory')->getEditable('entity_browser.browser.localgov_geo_library');
+  assert($entity_browser instanceof Config);
+  if ($entity_browser->isNew()) {
+    $entity_browser->setData(Yaml::parse($entity_browser_browser_localgov_geo_library_yml));
+    $entity_browser->save();
+  }
+
+  $views_view_localgov_geo_library_yml = <<<EOY
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_browser
+    - localgov_geo
+id: localgov_geo_library
+label: 'Geo library'
+module: views
+description: ''
+tag: ''
+base_table: localgov_geo_field_data
+base_field: id
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: mini
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
+      fields:
+        entity_browser_select:
+          id: entity_browser_select
+          table: localgov_geo
+          field: entity_browser_select
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          use_field_cardinality: false
+          entity_type: localgov_geo
+          plugin_id: entity_browser_select
+        label:
+          table: localgov_geo_field_data
+          field: label
+          id: label
+          entity_type: null
+          entity_field: label
+          plugin_id: field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      filters:
+        label:
+          id: label
+          table: localgov_geo_field_data
+          field: label
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: label_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: label_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: label
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              localgov_editor: '0'
+              localgov_author: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: localgov_geo
+          entity_field: label
+          plugin_id: string
+      sorts: {  }
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags: {  }
+  entity_browser_1:
+    display_plugin: entity_browser
+    id: entity_browser_1
+    display_title: 'Entity browser'
+    position: 1
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags: {  }
+EOY;
+  $view = \Drupal::service('config.factory')->getEditable('views.view.localgov_geo_library');
+  assert($view instanceof Config);
+  if ($view->isNew()) {
+    $view->setData(Yaml::parse($views_view_localgov_geo_library_yml));
+    $view->save();
+  }
+
+}
+
+/**
+ * Correct localgov_geo_address submodule schema.
+ */
+function localgov_geo_update_8006() {
+  if (\Drupal::service('update.update_hook_registry')->getInstalledVersion('localgov_geo_address') == 0) {
+    \Drupal::service('update.update_hook_registry')->setInstalledVersion('localgov_geo_address', 8000);
+  }
+}
+
+/**
+ * Correct import of new config entities.
+ */
+function localgov_geo_update_8807() {
+  foreach ([
+    'entity_view_mode' => 'localgov_geo.embed',
+    'entity_view_mode' => 'localgov_geo.full',
+    'entity_browser' => 'localgov_geo_library',
+    'view' => 'localgov_geo_library',
+  ] as $entity_type => $id) {
+    $service = \Drupal::service('entity_type.manager')->getStorage($entity_type);
+    $config = $service->load($id);
+    $config = $service->createFromStorageRecord($config->toArray());
+    $service->restore($config);
+  }
+}
+
+/**
+ * Correct import of new config entities (part 2).
+ *
+ * Live and learn. The duplicated entity ended up with the same UUID.
+ */
+function localgov_geo_update_8808() {
+  $default = \Drupal::configFactory()->get('core.entity_view_display.localgov_geo.address.default');
+  $embed = \Drupal::configFactory()->getEditable('core.entity_view_display.localgov_geo.address.embed');
+  if ($default->get('uuid') == $embed->get('uuid')) {
+    $config = $embed->getRawData();
+    $embed->delete();
+    unset($config['uuid']);
+    $service = \Drupal::service('entity_type.manager')->getStorage('entity_view_display');
+    $embed = $service->createFromStorageRecord($config);
+    $embed->save();
+  }
+}
+
+/**
+ * Fix for the missing geofield upgrade path for full screen.
+ *
+ * Due to https://www.drupal.org/project/leaflet/issues/3252649#comment-14355445
+ * leaving unused configuration behind.
+ */
+function localgov_geo_update_8809() {
+  if ($geofield_usage = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('geofield')) {
+    foreach ($geofield_usage as $entity_type_id => $fields) {
+      foreach ($fields as $field_name => $field_map) {
+        foreach ($field_map['bundles'] as $bundle) {
+          $properties = [
+            'targetEntityType' => $entity_type_id,
+            'bundle' => $bundle,
+          ];
+          if ($view_displays = \Drupal::entityTypeManager()->getStorage('entity_view_display')->loadByProperties($properties)) {
+            foreach ($view_displays as $view_display) {
+              if ($component = $view_display->getComponent($field_name)) {
+                unset($component['settings']['fullscreen_control']);
+                $view_display->setComponent($field_name, $component)->save();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

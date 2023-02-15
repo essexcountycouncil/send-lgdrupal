@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: topic_list_builder
+label: 'Topic list builder'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+    - localgov_guides
+    - localgov_menu_link_group
+id: localgov_menu_link_group_guide
+group_label: Guide
+weight: 0
+parent_menu: admin
+parent_menu_link: 'admin_toolbar_tools.extra_links:node.add'
+child_menu_links:
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_guides_overview'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_guides_page'

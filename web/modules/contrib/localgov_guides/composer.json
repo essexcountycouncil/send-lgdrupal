@@ -1,0 +1,16 @@
+{
+  "name": "localgovdrupal/localgov_guides",
+  "description": "LocalGovDrupal distribution: Guides feature.",
+  "type": "drupal-module",
+  "homepage": "https://github.com/localgovdrupal/localgov_guides",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "localgovdrupal/localgov_core": "^2.1"
+  },
+  "require-dev": {
+    "localgovdrupal/localgov_services": "^2.0",
+    "localgovdrupal/localgov_topics": "^1.0",
+    "drupal/pathauto": "^1.6"
+  }
+}

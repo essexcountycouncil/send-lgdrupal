@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 65fa3349-2a4b-4aa2-8f78-6d329f4636fb
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: chris-flexen-edBEflTCG_8-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/chris-flexen-edBEflTCG_8-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 661553
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631269112

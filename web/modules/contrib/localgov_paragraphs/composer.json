@@ -1,0 +1,44 @@
+{
+    "name": "localgovdrupal/localgov_paragraphs",
+    "description": "Provides core paragraph components for the LocalGovDrupal distribution.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_paragraphs",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "cweagans/composer-patches": "^1.6",
+        "drupal/address": "^1.8",
+        "drupal/crop": "^2.1",
+        "drupal/entity_browser": "^2.5",
+        "drupal/entity_usage": "^2.0@beta",
+        "drupal/field_formatter_class": "^1.4",
+        "drupal/field_group": "^3.0",
+        "drupal/fontawesome": "^2.18",
+        "drupal/geolocation": "^3.1",
+        "drupal/layout_paragraphs": "^2.0",
+        "drupal/office_hours": "^1.4",
+        "drupal/paragraphs": "^1.13",
+        "drupal/tablefield": "^2.3",
+        "drupal/viewsreference": "^2.0",
+        "localgovdrupal/localgov_core": "^2.0",
+        "localgovdrupal/localgov_topics": "^1.0"
+    },
+    "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/geolocation": {
+                "Fix schema #3138668": "https://www.drupal.org/files/issues/2021-01-27/geolocation-google-maps-schema-update-3138668-5.patch"
+            },
+            "drupal/viewsreference": {
+                "Fix schema #2957529": "https://www.drupal.org/files/issues/2022-07-06/viewsreference_schema-2957529-13.patch"
+            },
+            "drupal/media_library_edit": {
+                "Fix schema #3315757": "https://git.drupalcode.org/issue/media_library_edit-3315757/-/commit/9b590f1d93d8c0f750c50d90c422343ecf5e9e72.patch"
+            }
+        }
+    }
+}

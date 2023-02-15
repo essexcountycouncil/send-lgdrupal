@@ -1,0 +1,9 @@
+no_autocomplete.admin_settings_form:
+  path: '/admin/config/people/no_autocomplete'
+  defaults:
+    _form: '\Drupal\no_autocomplete\Form\NoAutoCompleteAdminSettingsForm'
+    _title: 'No Autocomplete'
+  requirements:
+    _permission: 'administer no_autocomplete'
+  options:
+    _admin_route: TRUE

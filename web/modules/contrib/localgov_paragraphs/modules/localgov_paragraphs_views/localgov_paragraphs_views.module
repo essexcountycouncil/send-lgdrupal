@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal Paragraphs Views module file.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function localgov_paragraphs_views_preprocess_paragraph(&$variables) {
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  // Create heading element for paragraphs with a heading level field and
+  // non-empty title field.
+  if ($paragraph->hasField('localgov_heading_level') && $paragraph->hasField('localgov_title') && !$paragraph->get('localgov_title')->isEmpty()) {
+    $heading_text = $paragraph->get('localgov_title')->value;
+    $heading_level = $paragraph->get('localgov_heading_level')->value;
+    if (is_string($heading_level)) {
+      $variables['heading'] = _localgov_paragraphs_views_create_heading($heading_text, $heading_level);
+    }
+  }
+}
+
+/**
+ * Create a heading element.
+ *
+ * @param string $heading_text
+ *   Heading text.
+ * @param string $heading_level
+ *   Heading level.
+ *
+ * @return null|array
+ *   Heading render element.
+ */
+function _localgov_paragraphs_views_create_heading(string $heading_text, string $heading_level) {
+  $allowed_heading_levels = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+  if (!in_array($heading_level, $allowed_heading_levels)) {
+    return;
+  }
+
+  $heading = [
+    '#type' => 'inline_template',
+    '#template' => '<{{ level }}>{{ text }}</{{ level }}>',
+    '#context' => [
+      'level' => $heading_level,
+      'text' => $heading_text,
+    ],
+  ];
+
+  return $heading;
+}

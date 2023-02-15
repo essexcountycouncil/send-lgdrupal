@@ -1,0 +1,4 @@
+services:
+  webform_workflows_element.manager:
+    class: Drupal\webform_workflows_element\Service\WebformWorkflowsManager
+    arguments: []

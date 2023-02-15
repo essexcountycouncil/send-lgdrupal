@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 62e5b97f-277e-4032-8c43-1af65d021638
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620224708
+  label:
+    -
+      value: |-
+        Southwark Street
+        London
+        SE1 0JF
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.1011429 51.5059985)'
+      geo_type: Point
+      lat: 51.5059985
+      lon: -0.1011429
+      left: -0.1011429
+      top: 51.5059985
+      right: -0.1011429
+      bottom: 51.5059985
+      geohash: gcpvj8qk5nn2u
+      latlon: '51.5059985,-0.1011429'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: London
+      dependent_locality: ''
+      postal_code: 'SE1 0JF'
+      sorting_code: ''
+      address_line1: 'Southwark Street'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

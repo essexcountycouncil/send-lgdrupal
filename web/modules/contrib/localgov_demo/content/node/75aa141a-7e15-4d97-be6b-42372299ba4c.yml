@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 75aa141a-7e15-4d97-be6b-42372299ba4c
+  bundle: localgov_step_by_step_overview
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+    c640601c-541c-46a9-9790-cf088af93ce0: node
+    c280ea14-a864-4246-b9df-211cdf7f4a46: node
+    b54c3592-47d9-455f-8371-7f592a0a9479: node
+    98be264b-c321-44e9-8ac2-5564d337f198: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Request support for an adult: step by step'
+  created:
+    -
+      value: 1592940578
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/step-by-step/request-support-adult-step-step
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p class=\"alert alert-info\"><strong>Important update:</strong><br />\r\n<br />\r\nDue to current circumstances appointments with adult social care staff are now happening on the telephone. If you had an appointment and haven’t heard from your social worker, call&nbsp;555 111 222 333.</p>\r\n\r\n<p>We provide&nbsp;support for people who are older, disabled, or&nbsp;are in need of support for another reason, so they can stay healthy, active and independent. You can apply for&nbsp;yourself or on behalf of&nbsp;someone you know.</p>\r\n\r\n<p class=\"callout callout-danger\">For urgent help, call 555 111 222 333</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_services_parent:
+    -
+      entity: c1d9f01d-c368-4db3-a4ec-c882d217781b
+  localgov_step_by_step_pages:
+    -
+      entity: c640601c-541c-46a9-9790-cf088af93ce0
+    -
+      entity: c280ea14-a864-4246-b9df-211cdf7f4a46
+    -
+      entity: b54c3592-47d9-455f-8371-7f592a0a9479
+    -
+      entity: 98be264b-c321-44e9-8ac2-5564d337f198
+  localgov_step_description:
+    -
+      value: 'We provide support for people who are older, disabled, or are in need of support for another reason, so they can stay healthy, active and independent. You can apply for yourself or on behalf of someone you know.'

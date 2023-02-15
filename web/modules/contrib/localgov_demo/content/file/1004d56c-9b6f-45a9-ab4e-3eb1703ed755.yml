@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 1004d56c-9b6f-45a9-ab4e-3eb1703ed755
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: tyson-Y9UHNFGBKKg-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/tyson-Y9UHNFGBKKg-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 2042371
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631788135

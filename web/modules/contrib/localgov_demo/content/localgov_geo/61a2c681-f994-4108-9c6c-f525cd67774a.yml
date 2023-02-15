@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: 61a2c681-f994-4108-9c6c-f525cd67774a
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620225617
+  label:
+    -
+      value: |-
+        Market Street
+        Bracknell
+        RG12 1JD
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.752981 51.414111)'
+      geo_type: Point
+      lat: 51.414111
+      lon: -0.752981
+      left: -0.752981
+      top: 51.414111
+      right: -0.752981
+      bottom: 51.414111
+      geohash: gcpkqzesykbw
+      latlon: '51.414111,-0.752981'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: Bracknell
+      dependent_locality: ''
+      postal_code: 'RG12 1JD'
+      sorting_code: ''
+      address_line1: 'Market Street'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

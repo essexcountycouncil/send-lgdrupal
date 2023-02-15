@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f444f463-1fa5-42a2-a809-74c99f28e8b1
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    3266e45f-1489-4b88-8d8a-98b25e0ed143: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Online catalogue'
+  created:
+    -
+      value: 1631786714
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: draft
+  path:
+    -
+      alias: /libraries-leisure-and-culture/online-catalogue
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h3>Search&nbsp;and reserve items</h3>\r\n\r\n<p>Use the&nbsp;online catalogue&nbsp;to search and reserve books, CDs, videos, talking books and DVDs at Scarfolk's libraries. If you want to know what newspapers and magazines a library has,&nbsp;contact the library directly.</p>\r\n\r\n<h3>Activating your online account</h3>\r\n\r\n<p>You can activate your account and receive your password by taking your membership card to any Scarfolk&nbsp;library.</p>\r\n\r\n<h2>Renew items</h2>\r\n\r\n<p>You can&nbsp;renew the loan of any library item online, providing:</p>\r\n\r\n<ul>\r\n\t<li>it has not been reserved by another library member</li>\r\n\t<li>you have not already renewed it 10 times; if you have, you must bring it into a Scarfolk library before we can issue it to you again</li>\r\n</ul>\r\n\r\n<p>You can renew an item&nbsp;online&nbsp;before or on the date it is due back. You will be given a new due date which you should write on the date label of each item.</p>\r\n\r\n<p>There is no charge for renewing books, however, if you renew an item after its due date you must pay overdue charges. If you return a video, DVD, talking tape or CD after its due date, you must pay another hire charge.</p>\r\n\r\n<h2>Reservations</h2>\r\n\r\n<p>If you can find an item on the library catalogue, you can&nbsp;reserve it online.&nbsp;See the&nbsp;library charges&nbsp;for more information. If you make a request for a periodical article, there is an additional charge for photocopying.</p>\r\n\r\n<p>We will do our very best to supply your request as soon as possible. However, we cannot&nbsp;guarantee the arrival date.</p>\r\n\r\n<p>If the item is on the shelf in another branch library and you would like to travel there yourself to pick it up, we can ask for it to be put aside for you.</p>\r\n\r\n<p>If you are a library member with a membership card and PIN you can use this service.</p>\r\n"
+      format: wysiwyg
+      summary: 'Browse our online catalogue, login to your library account, or renew and reserve items.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 3266e45f-1489-4b88-8d8a-98b25e0ed143

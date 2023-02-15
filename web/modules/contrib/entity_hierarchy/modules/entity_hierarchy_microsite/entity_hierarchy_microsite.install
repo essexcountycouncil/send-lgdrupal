@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains entity hierarchy microsite updates.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Flag any existing menu links as discovered.
+ */
+function entity_hierarchy_microsite_update_9401(): void {
+  // Mark all menu items from entity-hierarchy microsite as 'discovered'.
+  \Drupal::database()->update('menu_tree')
+    ->fields(['discovered' => 1])
+    ->condition('menu_name', 'entity-hierarchy-microsite')
+    ->condition('provider', 'entity_hierarchy_microsite')
+    ->execute();
+}
+
+/**
+ * Add the generate_menu field.
+ */
+function entity_hierarchy_microsite_update_9402(): void {
+  $menu_field = BaseFieldDefinition::create('boolean')
+    ->setLabel('Generate menu')
+    ->setDisplayOptions('view', [
+      'label' => 'hidden',
+      'type' => 'boolean',
+      'weight' => -5,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'checkbox',
+      'weight' => -5,
+    ])
+    ->setDisplayConfigurable('view', TRUE)
+    ->setDisplayConfigurable('form', TRUE);
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('generate_menu', 'entity_hierarchy_microsite', 'entity_hierarchy_microsite', $menu_field);
+
+  // Set value to replicate existing, but not setInitialValue because we want
+  // the default off.
+  /** @var \Drupal\entity_hierarchy_microsite\Entity\Microsite[] $microsites */
+  $microsites = \Drupal::entityTypeManager()->getStorage('entity_hierarchy_microsite')->loadMultiple();
+  foreach ($microsites as $microsite) {
+    $microsite->set('generate_menu', TRUE);
+    $microsite->save();
+  }
+}

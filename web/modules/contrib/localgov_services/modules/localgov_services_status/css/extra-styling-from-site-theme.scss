@@ -1,0 +1,640 @@
+//*** start _variables.scss ***
+
+// Primary Colours
+$black: #000000 !default;
+$white: #FFFFFF !default;
+$red: #AE1100 !default;
+$yellow: #FFBB00 !default;
+$blue: #0059A4 !default;
+
+// General colours
+$orange: #FF5500 !default;
+$green: #77BB55 !default;
+$purple: #880088 !default;
+// $brown
+// $magenta
+$tan: #f2ba41 !default;
+$cyan: #17A2B8 !default;
+// $olive
+// $maroon
+// $navy
+// $aquamarine
+// $turquoise
+// $silver
+// $lime
+$teal: #006263 !default;
+$indigo: #540055 !default;
+$violet: #F0E6ec !default;
+$pink: #AD52AD !default;
+$gray: #DBDFE3 !default;
+
+//custom
+$gray-dark: #444444 !default;
+$carbon: #121212 !default;
+$graphite: #282828 !default;
+$stonewash: #A0A0A0 !default;
+$gray-tint: #EDEDED !default;
+$gray-bs: #6C757D !default;
+$gray-mid: #ABB4B6 !default;
+$purple-tint: #F8EEF8 !default;
+$green-tint: #EAF5E5 !default;
+$green-alert: #338800 !default;
+$indigo-tint: #EEE5EE !default;
+$success: #338800 !default;
+$danger: #ae1100 !default;
+$light: #ededed !default;
+$dark: #444444 !default;
+$offwhite: #FAFAFA !default;
+
+// Site colours
+
+$primary: $purple !default;
+$secondary: $carbon !default; // used to override the BS and formio colours applied as secondary
+$tertiary: $green !default;
+
+$visited: $secondary !default;
+
+// grays
+$gray-primary: $gray;
+$gray-secondary: $gray-dark;
+$gray-tertiary: $secondary;
+$gray-quaternary: $graphite;
+$gray-quinary: $stonewash;
+$gray-senary: $gray-tint;
+
+
+// Theme colours - SASS Map our varieables above, to 'theme-colours'
+$theme-colors: ( // Bootstrap colours
+'primary': $primary, 'secondary': $secondary, 'success': $success, 'info': $carbon, 'warning': $orange, 'danger': $red, 'light': $light, 'dark': $dark, // Map additional colours to 'theme colours'
+'carbon': $carbon, 'graphite': $graphite, 'stonewash': $stonewash, 'gray-tint': $gray-tint, 'purple-tint': $purple-tint, 'green-tint': $green-tint, 'indigo-tint': $indigo-tint, // Map additional colours to 'theme colours' - can be used for backgrounds for example '.bg-green'
+'blue': $blue, 'indigo': $indigo, 'purple': $purple, 'pink': $pink, 'red': $red, 'orange': $orange, 'yellow': $yellow, 'green': $green, 'teal': $teal, 'cyan': $cyan, 'gray': $gray, 'gray-dark': $gray-dark, 'white': $white, 'visited': $visited, );
+
+// Breadcrumb navigation 
+$breadcrumb: $gray-tertiary;
+
+// Focus highlight colour
+$focus: $yellow; 
+
+// Link colours
+
+$link-hover-color: $indigo;
+
+// Background colours
+$body-bg: $white !default;
+$body-color: $secondary !default;
+$breadcrumb-bg: $white !default;
+$alert-bar-minor: $yellow !default;
+$alert-bar-major: $red !default;
+$alert-bar-notable: $carbon !default;
+
+// Set all border radius to 0 by default
+$border-radius: 0 !default;
+$border-radius-lg: 0 !default;
+$border-radius-sm: 0 !default;
+
+// Font weights
+$font-bold: 700;
+$font-normal: 400;
+$font-thin: 300;
+
+// Fonts
+$font-family-base:'Source Sans Pro', Arial, Helvetica, sans-serif !default; // BS font variable
+$font-family-sanserif:'Source Sans Pro', Arial, Helvetica, sans-serif !default; // BS font variable
+$font-family-secondary: 'Fiendstar W01 Bold', 'Source Sans Pro', Arial, Helvetica, sans-serif !default;
+$font-family-icons: 'Font Awesome 5 Free' !default;
+$line-height-base: 1.5 !default;
+$headings-font-family: $font-family-secondary;
+$headings-line-height: 1.1 !default;
+$headings-font-weight: $font-bold !default; // for fallbacks only
+
+// Font base size
+$font-size-base: 1rem !default; // Assumes the browser default, typically 16px
+// Font sizes
+$font-size-ex-ex-lg: $font-size-base * 1.375 !default; // ~22px ~1.375rem
+$font-size-ex-lg: $font-size-base * 1.25 !default; // ~20px ~1.25rem
+$font-size-lg: $font-size-base * 1.1875 !default; // ~19px ~1.1875rem
+$font-size-ex-med: $font-size-base * 1.125 !default; // ~18px ~1.125rem
+$font-size-med: $font-size-base * 1.063 !default; // ~17px ~1.063rem
+$font-size-sm: $font-size-base * .9375 !default; // ~15px ~.9375rem
+$font-size-ex-sm: $font-size-base * .875 !default; // ~14px ~.875rem
+$font-size-ex-ex-sm: $font-size-base * .8125 !default; // ~13px ~.0.8125rem
+
+// Heading sizes
+$h1-font-size: $font-size-base * 2.375 !default; // ~38px ~2.375
+$h2-font-size: $font-size-base * 2 !default; // ~32px ~2rem
+$h3-font-size: $font-size-base * 1.625 !default; // ~26px ~1.625rem
+$h4-font-size: $font-size-base * 1.5 !default; // ~24px ~1.5rem
+$h5-font-size: $font-size-ex-ex-lg !default; // ~22px ~1.375rem
+$h6-font-size: $font-size-ex-lg !default; // ~20px ~1.25rem
+
+$btn-font-weight: $font-bold !default; // for fallbacks only
+
+//STANDARD BUTTONS
+$input-btn-padding-y: .5rem !default; //8px
+$input-btn-padding-x: .9375rem !default; //15px
+$input-btn-font-size: 1.25rem !default; //20px
+$input-btn-line-height: 1.5 !default; //10px
+
+//SMALL BUTTONS
+$input-btn-padding-y-sm: .3125rem !default; //5px
+$input-btn-padding-x-sm: .9375rem !default; //15px
+
+$input-btn-line-height-sm: 1.5 !default; //10px
+
+//LARGE BUTTONS
+$input-btn-padding-y-lg: .75 !default; //12px
+$input-btn-padding-x-lg: .9375rem !default; //15px
+$input-btn-font-size-lg: 1.375rem !default; //22px
+$input-btn-line-height-lg: 1.5 !default; //10px
+
+$button-icons: $yellow !default;
+$link-button-primary: $green !default;
+$link-button-primary-focus: $teal !default;
+$link-button-secondary: $blue !default;
+$link-button-secondary-focus: $cyan !default;
+$link-button-tertiary: $orange !default;
+$link-button-tertiary-focus: $yellow !default;
+
+// Hide default input focus
+$input-btn-focus-width: 0 !default;
+$component-active-bg: $yellow !default;
+$input-btn-focus-color: rgba($component-active-bg, 1) !default;
+
+
+// Main navigation links
+$navbar-nav-link-padding-x: 0 !default;
+$navbar-nav-link-padding-y: .5rem !default; //8px
+$navbar-brand-font-size: 2.125rem !default; //34px
+$navbar-dark-brand-color: $white !default;
+$navbar-dark-brand-hover-color: rgba($white, .5) !default;
+$navbar-dark-color: $white !default;
+$navbar-dark-hover-color: $yellow !default;
+$navbar-dark-active-color: $purple !default;
+$navbar-dark-disabled-color: rgba($white, .8) !default;
+$navbar-dark-toggler-icon-bg: $purple !default;
+$navbar-dark-toggler-border-color: $white !default;
+// Remove breadcrumb bottom margin
+$breadcrumb-margin-bottom: 0 !default;
+// Dropdown menu
+$dropdown-min-width: 18.125rem !default;
+$dropdown-padding-y: 0 !default;
+$dropdown-margin-y: 0 !default;
+$dropdown-bg: $purple !default;
+$dropdown-border-width: 0 !default;
+// $dropdown-border-color:  !default;
+$dropdown-border-radius: 0 !default;
+$dropdown-box-shadow: none !default;
+$nav-divider-color: $white !default;
+$nav-divider-margin-y: 0 !default;
+// Dropdown hovers 
+$dropdown-link-color: $white !default;
+$dropdown-link-hover-color: $yellow !default;
+$dropdown-link-hover-bg: $purple !default;
+$dropdown-link-active-color: $white !default;
+$dropdown-link-active-bg: $indigo !default;
+$dropdown-item-padding-y: .625rem !default;
+$dropdown-item-padding-x: 0 !default;
+//Horizontal rule
+$hr-margin-y: 1.25rem !default; // 20px
+$hr-border: .0625rem;
+$hr-color: $gray;
+//Small tags
+$small-font-size: 85% !default;
+//Form input remove rounded corners
+$input-border-radius: 0 !default;
+$input-border-radius-sm: 0 !default;
+$input-border-radius-lg: 0 !default;
+$input-color: $gray-dark !default;
+//Alert styles
+$alert-border-width: .1875rem !default; //3px
+$alert-bg-level: 0 !default;
+$alert-border-level: 0 !default;
+$alert-color-level: 0 !default;
+$alert-link-font-weight: $font-bold !default;
+$alert-font-weight: $font-bold !default;
+//Jumbotron
+$jumbo-welcome: 'Welcome to';
+$jumbo-font-regular: $font-size-base * 2.625 !default; // ~42px ~2.625rem
+$jumbo-font-large: $font-size-base * 3.25 !default; // ~52px ~3.25rem
+// Form validation
+$form-feedback-valid-color: $success !default;
+$form-feedback-invalid-color: $danger !default;
+$form-feedback-font-size: 1.063rem !default; //17px
+//Form input
+$input-border-color: $stonewash !important !default;
+// Global Half Margin
+$half-margin: .5rem !default; // 8px
+// Global Half Padding // 5px
+$half-padding: .3125rem !default;
+// Font Awesome Icons
+$fa-times: '\f00d' !default;
+$fa-font-weight: 900 !default;
+$fa-close: $fa-times !default;
+$fa-external: '\f35d' !default;
+$fa-exclaim: '\f06a' !default;
+$fa-check: '\f00c' !default;
+$fa-info: '\f129' !default;
+$fa-exclamation-triangle: '\f071' !default;
+$fa-chevron-right: '\f054' !default;
+$fa-chevron-down: '\f078' !default;
+$fa-chevron-up: '\f077' !default;
+$fa-print: '\f02f' !default;
+$fa-save: '\f0c7' !default;
+$fa-share: '\f064' !default;
+$fa-play: '\f04b' !default;
+$fa-youtube-square: '\f431' !default;
+$fa-search: '\f002' !default;
+$fa-info-circle: '\f05a' !default;
+$fa-plus: '\f067' !default;
+$fa-minus: '\f068' !default;
+
+// Alert Icons
+$alert-success: $fa-check !default;
+$alert-info: $fa-info !default;
+$alert-primary: $fa-exclamation-triangle !default;
+$alert-danger: $fa-exclamation-triangle !default;
+$alert-fail: $fa-times !default;
+$alert-warning: $fa-info-circle !default;
+//Breadcrumb divider
+$breadcrumb-divider: $fa-chevron-right !default;
+$breadcrumb-divider-size: 0.75rem;
+// *** End _variables.scss ***
+
+// *** Start _functions.scss ***
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+  
+@mixin rem($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + ' '};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value/strip-unit($rem-base)}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + ' '};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+// *** End _functions.scss ***
+
+
+.service-status-overview {
+  header {
+    margin: 2rem 0;
+  }
+}
+
+.service-head {
+  p {
+    margin: 0;
+    font-size: $font-size-ex-med;
+  }
+
+  #toggleAccordions-show,
+  #toggleAccordions-hide {
+    a {
+      color: $blue;
+      font-weight: $font-normal;
+    }
+  } 
+}
+.service-status {
+  padding: 0;
+
+  main {
+    margin-top: 0;
+
+    i {
+      padding-right: 0;
+    }
+  }
+
+  .nav-tabs {
+    display: none;
+  }
+
+  .card {
+    border-top: none;
+    border-bottom: 1px solid $gray-mid;
+    border-left: 0;
+    border-right: 0;
+    background: none;
+
+    &:first-child {
+      border-top: 1px solid $gray-mid;
+    }
+
+    .card-header {
+      background: none;
+      border: none;
+      @include rem(padding, 25, 20);
+
+      .status-accordion-header {
+        @include rem(font-size, 26);
+        text-decoration: underline;
+        display: inline;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+          background: $yellow;
+          color: $carbon;
+          box-shadow: none;
+          text-decoration: none;
+        }
+      }
+
+      a {
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        position: relative;
+        padding-right: 1.8rem;
+        
+        &:hover,
+        &:focus {
+          background: none;
+          box-shadow: none;
+        }
+
+        &:after {
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+          content: $fa-minus;
+          width: 1.5rem;
+          height: 1.5rem;
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: $carbon;
+          @include rem(font-size, 26);
+        }
+
+        h2 {
+          color: $blue;
+          text-decoration: underline;
+        }
+
+        &.collapsed {
+          &:after {
+            content: $fa-plus;
+          }
+        }
+      }
+    }
+
+  }
+
+  .service-status-info,
+  .service-status-warning,
+  .service-status-ok {
+    font-weight: $font-normal;
+    color: $carbon;
+    font-size: $font-size-base;
+    @include rem(margin-top, 5);
+
+     &:hover,
+     &:focus {
+      background: none;
+     }
+  }
+
+  .service-status__1-has-issues {
+    a {
+      &.active {
+        .service-status-info {
+          color: $orange;
+          font-weight: $font-bold;
+        }
+      }
+      &[aria-expanded="true"] {
+        .service-status-info {
+          display: none;
+        }
+      }
+      .service-status-info {
+        display: block;
+        i {
+          color: $orange;
+        }
+      }
+      .service-status-warning {
+        display: none;
+      }
+      .service-status-ok {
+        display: none;
+      }
+    }
+  }
+
+  .service-status__2-no-issues {
+    a {
+      &.active {
+        .service-status-ok {
+          color: $green-alert;
+          font-weight: $font-bold;
+        }
+      }
+      &[aria-expanded="true"] {
+        .service-status-ok {
+          display: none;
+        }
+      }
+      .service-status-info {
+        display: none;
+      }
+      .service-status-warning {
+        display: none;
+      }
+      .service-status-ok {
+        display: block;
+
+        i {
+          color: $green-alert;
+        }
+      }
+    }
+  }
+
+  .service-status__0-severe-impact {
+    a {
+      &.active {
+        .service-status-warning {
+          color: $red;
+          font-weight: $font-bold;
+        }
+      }
+      &[aria-expanded="true"] {
+        .service-status-warning {
+          display: none;
+        }
+      }
+      .service-status-info {
+        display: none;
+      }
+      .service-status-warning {
+        display: block;
+
+        i {
+          color: $red;
+        }
+      }
+      .service-status-ok {
+        display:none;
+      }
+    }
+  }
+}
+
+
+//@include media-breakpoint-up(md) {
+@media (min-width: 767px) {
+
+  .tab-content {
+    @include rem (min-height, 600);
+    border: 1px solid $gray-mid;
+
+  }
+
+  .service-status  {
+    padding: inherit;
+
+    .nav-tabs {
+      display: inline-block;
+      background: $offwhite;
+      margin: 0;
+      padding: 0;
+      border-bottom: 0;
+      border-top: 1px solid $gray-mid;
+      border-left: 1px solid $gray-mid;
+      
+      .nav-item {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid $gray-mid;
+        width: 100%;
+
+        .nav-link {
+          display: inline-block;
+          width: 100%;
+          text-decoration: none;
+          color: $blue;
+          border: 0;
+          font-size: $font-size-lg;
+          white-space: normal;
+          line-height: 1.5rem;
+          transition: none;
+
+          &:hover,
+          &:focus {
+            border: 0;
+            box-shadow: none;
+            color: $carbon;
+            text-decoration: none;
+
+            .service-status-title {
+              background: $yellow;
+            }
+          }
+
+          &.active {
+            position: relative;
+            background: $white;
+            border-right: 1px solid white;
+            border-top: 0;
+            border-left: 0;
+            border-radius: 0;
+            margin-left: 1px;
+
+            .service-status-title {
+              color: $carbon;
+              background: $yellow;
+              text-decoration: none;
+            }
+
+            > span {
+              margin-left: -1px;
+            }
+
+            &:after { 
+              content: ''; 
+              z-index: 1000; 
+              display: block; 
+              position: absolute; 
+              right: -2px; 
+              top: 0; 
+              height: 100%; 
+              background: $white; 
+              @include rem(width, 5);
+            }
+          }
+
+          .service-status-title {
+            text-decoration: underline;
+            display: inline;
+            font-size: $font-size-ex-ex-lg;
+            padding: 0;
+
+            &:hover,
+            &:focus {
+              background: $yellow;
+              box-shadow: none;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .card {
+      border: none;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .card-header {
+        display: none;
+      }
+
+      .collapse {
+        display: block;
+      }
+
+      .alert {
+        margin-top: 1rem;
+      }
+    }
+  }
+ 
+}
+
+@media (max-width: 767px) {
+  .tab-pane {
+    display: block !important;
+    opacity: 1;
+  }
+}
+
+.fade:not(.show) { // fix weird BS inherited fade in 
+    opacity: 1;
+}

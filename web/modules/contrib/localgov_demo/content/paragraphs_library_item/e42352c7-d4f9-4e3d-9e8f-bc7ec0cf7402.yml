@@ -1,0 +1,74 @@
+_meta:
+  version: '1.0'
+  entity_type: paragraphs_library_item
+  uuid: e42352c7-d4f9-4e3d-9e8f-bc7ec0cf7402
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  label:
+    -
+      value: 'The middle of the UK'
+  paragraphs:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: ba1c69e0-2f10-44c8-8a40-51390d5fecf3
+          bundle: localgov_contact
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620225002
+          behavior_settings:
+            -
+              value: {  }
+          localgov_contact_address:
+            -
+              langcode: ''
+              country_code: GB
+              administrative_area: ''
+              locality: ''
+              dependent_locality: ''
+              postal_code: ''
+              sorting_code: ''
+              address_line1: ''
+              address_line2: ''
+              organization: ''
+              given_name: ''
+              additional_name: ''
+              family_name: ''
+          localgov_contact_email:
+            -
+              value: example@example.com
+          localgov_contact_heading:
+            -
+              value: 'South Scarfolk Recreation Ground'
+          localgov_contact_location:
+            -
+              lat: 54.00366
+              lng: -2.547855
+              lat_sin: 0.8090545398882
+              lat_cos: 0.58773357185573
+              lng_rad: -0.0444684586134
+              data: {  }
+          localgov_contact_twitter:
+            -
+              uri: 'https://twitter.com/LocalGovDrupal'
+              title: Twitter
+              options: {  }
+  created:
+    -
+      value: 1620225002
+  uid:
+    -
+      target_id: 1

@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 69297010-e255-4192-9bd9-b5b550098b10
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Planning your ceremony'
+  created:
+    -
+      value: 1620223926
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-3
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h3>Plans for marriages and civil partnerships in England&nbsp;</h3>\r\n\r\n<p>As is currently the case, the number allowed to attend includes the couple, witnesses and guests. Staff&nbsp;such as registration officials and venue managers are not included.&nbsp;<br />\r\n<br />\r\nThe planned changes are&nbsp;in 4 steps:</p>\r\n\r\n<ol>\r\n\t<li><strong>From 29 March</strong>&nbsp;- legal limit of 6 attendees but no longer limited to 'exceptional circumstances'<br />\r\n\t&nbsp;</li>\r\n\t<li><strong>No earlier than 12 April</strong>&nbsp;- a legal limit of 15 attendees<br />\r\n\t&nbsp;</li>\r\n\t<li><strong>No earlier than 17 May</strong>&nbsp;- a legal limit of 30 attendees<br />\r\n\t&nbsp;</li>\r\n\t<li><strong>No earlier than 21 June</strong>&nbsp;- no legal limit on attendees&nbsp;</li>\r\n</ol>\r\n\r\n<p>Please note: the plan for no legal limit on attendees will be subject to the outcome of the scientific events research programme. From April, the government will run pilots for events such as large weddings, to help determine if measures such as enhanced testing might allow large groups to attend without social distancing.</p>\r\n\r\n<h3>Getting married abroad</h3>\r\n\r\n<p>Visit&nbsp;<a href=\"https://www.gov.uk/marriage-abroad/y\">GOV.UK's getting married abroad</a>&nbsp;webpage to find out where to get advice about local marriage laws and what documents you will need.</p>\r\n\r\n<h2>Before you have your ceremony in Scarfolk</h2>\r\n\r\n<p>You must:</p>\r\n\r\n<ul>\r\n\t<li>give us at least 29 days notice</li>\r\n\t<li>confirm where your ceremony will be held before you give notice –&nbsp;you should not plan to have it within 29 days unless you have already given us notice</li>\r\n</ul>\r\n\r\n<p>If you plan to have a ceremony outside of Scarfolk, you must give notice in the register office in the Borough in which you live.</p>\r\n\r\n<h3>Types of&nbsp;ceremonies</h3>\r\n\r\n<p>If you are getting married, you can have either a:</p>\r\n\r\n<ul>\r\n\t<li>religious ceremony</li>\r\n\t<li>non-religious civil ceremony&nbsp;</li>\r\n</ul>\r\n\r\n<p>If you are forming a civil partnership you can have a civil ceremony, but not a religious ceremony.</p>\r\n\r\n<h3>Civil ceremonies</h3>\r\n\r\n<p>You can have a civil ceremony at Scarfolk Register Office or in any&nbsp;approved venue.</p>\r\n\r\n<h3>Religious ceremonies</h3>\r\n\r\n<p>You can have a marriage ceremony at any religious building registered as a marriage venue. Your marriage must be registered immediately after the ceremony by an authorised person, such as a religious minister. If the venue does not have an authorised person you must book registrars to attend the ceremony and register the marriage.</p>\r\n\r\n<h3>Ceremony planning guidance</h3>\r\n\r\n<p>Read our&nbsp;guide to planning a ceremony.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Planning your ceremony'
+  localgov_step_summary:
+    -
+      value: "<p>Find out about different types of ceremonies and where you can have them.</p>\r\n"
+      format: wysiwyg

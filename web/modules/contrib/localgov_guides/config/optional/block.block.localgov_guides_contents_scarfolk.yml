@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+  theme:
+    - localgov_scarfolk
+id: localgov_guides_contents_scarfolk
+theme: localgov_scarfolk
+region: content_top
+weight: 0
+provider: null
+plugin: localgov_guides_contents
+settings:
+  id: localgov_guides_contents
+  label: 'Guide contents'
+  provider: localgov_guides
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,21 @@
+# Schema for the configuration files of the LocalGov Geo Address module.
+
+field.widget.settings.localgov_geo_address:
+  type: mapping
+  label: 'Address field with autocomplete geocoding'
+  mapping:
+    providers:
+      type: sequence
+      label: 'Geocoder providers to use'
+      sequence:
+        type: mapping
+        mapping:
+          checked:
+            type: boolean
+            label: 'Geocoder enabled'
+          weight:
+            type: integer
+            label: 'Order weight'
+    geocode_geofield:
+      type: string
+      label: 'Geofield Lon/Lat machine name to populate'

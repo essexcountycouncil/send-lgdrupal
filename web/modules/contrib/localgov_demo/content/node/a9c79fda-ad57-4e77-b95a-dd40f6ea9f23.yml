@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a9c79fda-ad57-4e77-b95a-dd40f6ea9f23
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    57b46ceb-20d3-45cc-9f9b-2bf2a6561c78: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Home monitoring and personal alarms'
+  created:
+    -
+      value: 1592931168
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/support-your-home/home-monitoring-and-personal-alarms
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>&nbsp;</p>\r\n\r\n<p>Telecare services will let people know if you have an accident or problem in your home. Croydon Council's telecare service is called Carelineplus. We offer it to a wide range of people, such as:</p>\r\n\r\n<ul>\r\n\t<li>older people</li>\r\n\t<li>disabled people</li>\r\n\t<li>people who are at risk of falls or injuries at home</li>\r\n</ul>\r\n\r\n<h2>Types of telecare equipment</h2>\r\n\r\n<p>We offer different kinds of equipment depending on your needs, and will tailor them to suit you.</p>\r\n\r\n<p>Our basic telecare package is a unit with a button that can be worn as a pendant or on a wrist strap. Pressing the button will call the response centre and you can to speak to them through the unit.</p>\r\n\r\n<p>If you need a little more support at home or you're unable to press a button, we have a range of telecare equipment that may help.</p>\r\n\r\n<p>Our equipment is designed to prompt and assist you with your everyday activities, and will alert us when you need help. Equipment includes:</p>\r\n\r\n<ul>\r\n\t<li>fall sensors</li>\r\n\t<li>wandering systems</li>\r\n\t<li>GPS devices</li>\r\n\t<li>bed, chair, and floor sensors</li>\r\n\t<li>epilepsy sensors</li>\r\n</ul>\r\n\r\n<h2>Response centre</h2>\r\n\r\n<p>Carelineplus's response centre is open 24 hours a day, 7 days a week, and can send someone out to check on you at home. If they receive an alert, they will:</p>\r\n\r\n<ul>\r\n\t<li>check the monitors</li>\r\n\t<li>try to contact you</li>\r\n\t<li>send someone to your property if they can’t get a response</li>\r\n\t<li>contact emergency services, your family, or support workers if needed</li>\r\n</ul>\r\n\r\n<h2>Benefits</h2>\r\n\r\n<ul>\r\n\t<li>help and support when you need it</li>\r\n\t<li>low cost monitoring and response services</li>\r\n\t<li>helps you stay independent</li>\r\n\t<li>reassurance for family and friends</li>\r\n\t<li>free maintenance and repairs</li>\r\n</ul>\r\n\r\n<h2>How to get a monitor</h2>\r\n\r\n<p>To talk to us about Carelineplus, please call 555 111 222 333.</p>\r\n\r\n<p>To book an installation or a demo, please fill out our online form.</p>\r\n\r\n<h3>Cost of Carelineplus</h3>\r\n\r\n<p>You may be able to get all or some of your costs covered. To find out you will need to apply for a financial assessment.</p>\r\n\r\n<h2>YourCare</h2>\r\n\r\n<p>Telecare equipment is also available to buy from shops, including <a href=\"https://www.yourcare.org.uk/\">YourCare in Scarfolk</a>.</p>\r\n\r\n<p>The showroom is at:</p>\r\n\r\n<p>Scarfolk&nbsp;Living Independently Centre<br />\r\nCouncil Way<br />\r\nSF12 3SF<br />\r\n&nbsp;</p>\r\n"
+      format: wysiwyg
+      summary: 'How to get telecare monitoring and alarm systems to have in your home or carry with you.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78

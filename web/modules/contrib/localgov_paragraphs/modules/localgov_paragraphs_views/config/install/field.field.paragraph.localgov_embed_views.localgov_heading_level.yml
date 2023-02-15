@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_heading_level
+    - paragraphs.paragraphs_type.localgov_embed_views
+  module:
+    - options
+id: paragraph.localgov_embed_views.localgov_heading_level
+field_name: localgov_heading_level
+entity_type: paragraph
+bundle: localgov_embed_views
+label: 'Heading level'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

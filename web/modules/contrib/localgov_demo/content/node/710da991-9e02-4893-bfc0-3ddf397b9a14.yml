@@ -1,0 +1,257 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 710da991-9e02-4893-bfc0-3ddf397b9a14
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    06ef19ba-88f9-4ef4-b3f4-65873933bf01: media
+    99068425-f184-46ac-a121-624e51d7565b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Types of fostering'
+  created:
+    -
+      value: 1620141494
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /fostering/types-fostering
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a2ae93d5-a270-4f53-9d43-071556c70d26
+          bundle: localgov_banner_secondary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620142440
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 06ef19ba-88f9-4ef4-b3f4-65873933bf01
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 0af5b32d-203d-4ae1-bb77-7e5427629773
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620141582
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 6cfd9b4c-7502-41e9-8193-d4755ed95615
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620141601
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: 0af5b32d-203d-4ae1-bb77-7e5427629773
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>During the assessment process, we'll talk with you to understand what type of care you are interested in providing.</p>\r\n\r\n<p>Once you're assessed, we'll try and arrange fostering placements that match your interest.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 9e65c50f-5cfc-455e-9328-b18e9f4902c8
+          bundle: localgov_accordion
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620397621
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: 0af5b32d-203d-4ae1-bb77-7e5427629773
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_paragraphs:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 3d13da41-fe54-4778-a53f-dca3e35a45c4
+                  bundle: localgov_accordion_pane
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620397621
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_body_text:
+                    -
+                      value: "<p>Short-term care involves caring for up to three children or young people for a specified period of time while a decision is made about their future.</p>\r\n\r\n<p>These placements provide opportunities for assessment and often high levels of contact with birth families. Carers will often be involved in working with children, young people and birth families to support a return home. Sometimes, a return home may not be possible. So, support preparing for a move to an adoptive or permanent family placement is needed.</p>\r\n"
+                      format: wysiwyg
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_title:
+                    -
+                      value: 'Short-term foster care'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: e50ae943-8d24-4d15-a40c-a2d4f8ac31cd
+                  bundle: localgov_accordion_pane
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1620397664
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_body_text:
+                    -
+                      value: "<p>Children and young people who are placed in long-term or permanent care will often have significant contact with their birth families, but are not able to live at home. These placements are arranged in a planned way and mean that the child or young person will remain in foster care until they are ready for independence or they reach adulthood. Such placements will often provide a lifelong relationship for all concerned.</p>\r\n"
+                      format: wysiwyg
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_title:
+                    -
+                      value: 'Long-term foster care'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: d7cd30bb-cd85-427e-a739-4777bf81af7b
+                  bundle: localgov_accordion_pane
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1631787793
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_body_text:
+                    -
+                      value: "<p>This type of foster care placement involves offering a safe, stable and loving home to a child or young person from another country. Many have been separated from their families, either in their homeland or during transit to this country, so are often very distressed and frightened as a result.</p>\r\n\r\n<p>As a foster carer specialising in asylum-seeking fostering, you can help and teach these children the skills that they need to successfully build a new life and ways to overcome their traumatic past.</p>\r\n\r\n<p>We try to place children and young people with families where some of the culture or language of the child may be known about. However, this is not always possible, and we therefore want foster carers who are resourceful and will be able to facilitate the young person to maintain their culture. Special training and support is provided.</p>\r\n"
+                      format: wysiwyg
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_title:
+                    -
+                      value: 'Unaccompanied asylum-seeking children'
+          localgov_title:
+            -
+              value: 'This is a test accordion on a subsite page'
+  localgov_subsites_parent:
+    -
+      entity: 99068425-f184-46ac-a121-624e51d7565b
+      weight: 0
+  localgov_subsites_summary:
+    -
+      value: 'Children and young people come into our care for different reasons, so we offer a range of fostering placements to meet their needs.'

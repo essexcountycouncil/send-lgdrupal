@@ -1,0 +1,40 @@
+html {
+  font-family: var(--gin-font);
+  scroll-padding-top: var(--gin-scroll-offset) !important;
+}
+
+body {
+  color: var(--gin-color-text);
+  background: var(--gin-bg-app);
+  overflow-x: hidden;
+
+  @include mq(large) {
+    overflow-x: auto;
+  }
+}
+
+h1, h2, h3 {
+  letter-spacing: -.025em;
+  font-weight: var(--gin-font-weight-normal);;
+}
+
+h2 {
+  font-size: var(--gin-font-size-h2);
+}
+
+h3 {
+  font-size: var(--gin-font-size-h3);
+}
+
+::selection {
+  background: var(--gin-color-primary-light-hover);
+}
+
+::-moz-selection {
+  background: var(--gin-color-primary-light-hover);
+}
+
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

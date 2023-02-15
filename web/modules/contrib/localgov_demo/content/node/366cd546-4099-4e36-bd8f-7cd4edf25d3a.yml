@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 366cd546-4099-4e36-bd8f-7cd4edf25d3a
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    3e41588f-1db1-45bc-b18e-3eb56af9fd59: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Northumberland National Park'
+  created:
+    -
+      value: 1631789387
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/northumberland-national-park
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Northumberland National Park is the northernmost national park in England. It covers an area of more than 1,050 square kilometres (410 sq mi) between the Scottish border in the north to just south of Hadrian''s Wall.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: enquiries@nnpa.org.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '01434 605555'
+  localgov_directory_website:
+    -
+      uri: 'https://www.northumberlandnationalpark.org.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 3e41588f-1db1-45bc-b18e-3eb56af9fd59

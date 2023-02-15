@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_guides_page.body
+    - field.field.node.localgov_guides_page.localgov_guides_parent
+    - field.field.node.localgov_guides_page.localgov_guides_section_title
+    - node.type.localgov_guides_page
+  module:
+    - user
+id: node.localgov_guides_page.search_result
+targetEntityType: node
+bundle: localgov_guides_page
+mode: search_result
+content:
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  links: true
+  localgov_guides_parent: true
+  localgov_guides_section_title: true

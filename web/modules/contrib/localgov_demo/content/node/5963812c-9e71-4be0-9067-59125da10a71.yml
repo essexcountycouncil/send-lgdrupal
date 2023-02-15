@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 5963812c-9e71-4be0-9067-59125da10a71
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    5f46013c-8afd-4304-b073-2a7d12a89ec0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Apply for a Blue Badge'
+  created:
+    -
+      value: 1592939874
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges/apply-blue-badge
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p class=\"callout callout-primary\">Apply for a Blue Badge on GOV.UK</p>\r\n\r\n<p>It's free to apply. If&nbsp;your application is successful you'll be charged a £10 admin fee.</p>\r\n\r\n<p class=\"alert alert-danger\">Do not use unofficial sites which charge a fee for applying.</p>\r\n\r\n<p>It's quicker and easier to apply online, but paper forms are available. Please email or call Travel Services to request a paper form.</p>\r\n\r\n<ul>\r\n\t<li><a href=\"example@example.com\">example@example.com</a></li>\r\n\t<li>555 111 222 333</li>\r\n</ul>\r\n\r\n<p>Scarfolk Council will process the application and carry out any assessments needed.&nbsp;</p>\r\n\r\n<p>Application processing times depend on individual circumstances, but can take 16 weeks or more.&nbsp;</p>\r\n\r\n<h2>Assessments for a Blue Badge</h2>\r\n\r\n<p>If you're unsure if you can get a Blue Badge,&nbsp;<a href=\"https://www.gov.uk/apply-blue-badge\">use the eligibility check on GOV.UK</a>&nbsp;or&nbsp;<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"e7734a03-c2d5-4fa3-92b8-a945b8388b38\" href=\"/node/18\">read the eligibility criteria</a>.&nbsp;</p>\r\n\r\n<p>The eligibility criteria for Blue Badges was expanded on 30 August 2019.&nbsp;</p>\r\n\r\n<p>This is to ensure that people with hidden disabilities, such as mental health disorders, can access the Blue Badge scheme fairly.&nbsp;</p>\r\n\r\n<p>You will now also qualify for a Blue Badge automatically if you have been awarded Personal Independence Payment (PIP) and have specifically scored 10 points in the section \"Planning and following a journey\".</p>\r\n\r\n<p>Your points must have been awarded because you are unable to undertake any journey because of&nbsp;the overwhelming psychological distress (Descriptor E) it would cause.</p>\r\n\r\n<p>If you do not meeting any of the automatic criteria, you can still apply. Your application will be assessed by a Blue Badge eligibility assessor. They may contact you by telephone, or invite you for a face to face assessment to discuss your application further.&nbsp;</p>\r\n\r\n<h2>Appeals</h2>\r\n\r\n<p>If your Blue Badge application is unsuccessful, you can&nbsp;appeal the decision.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  localgov_guides_section_title:
+    -
+      value: 'Apply for a Blue Badge'

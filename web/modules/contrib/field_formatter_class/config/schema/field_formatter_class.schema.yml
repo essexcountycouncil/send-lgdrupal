@@ -1,0 +1,8 @@
+field.formatter.third_party.field_formatter_class:
+  type: mapping
+  label: 'Field Formatter Class entity display settings'
+  mapping:
+    class:
+      type: string
+      label: Class
+

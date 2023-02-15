@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/*
+ * Widget settings
+ */
+.field--type-office-hours {
+  white-space: normal;
+}
+/* Format the 'day' column. */
+.office-hours-label {
+  font-weight: bold;
+  text-align: left;
+}
+/* Format the 'day' column for additional slots. */
+.office-hours-more-label {
+  font-weight: bold;
+  text-align: right;
+  font-style: italic;
+}
+.office-hours__item-label {
+  /* padding: 0 0 0 0; */
+  /* float: left; */
+  /* display: inline-block; */
+  /* vertical-align: text-top; */
+  font-weight: bold;
+}
+/* Make each link unbreakable for responsive widget table. */
+.office-hours-link {
+  white-space: nowrap;
+}
+
+/*
+ * Formatter settings - default formatter
+ */
+span.office-hours__item-label {
+  display: inline-block;
+  vertical-align: text-top;
+}
+span.office-hours__item-slots {
+  display: inline-block;
+  vertical-align: text-top;
+}
+span.office-hours__item-comments {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+/*
+ * Formatter settings - table formatter
+ */
+/* Transparent background, hiding table details from user. */
+tr.office-hours__item {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Do not wrap label, slots, comments in cells. */
+.office-hours__item td {
+  white-space: nowrap;
+  vertical-align: text-top;
+}
+
+/* The currently active time slot. */
+tr.office-hours__item-current {
+}
+
+/*
+ * Formatter settings - status formatter
+ */
+.office-hours-status--closed {
+  font-style: italic;
+}

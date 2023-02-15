@@ -1,0 +1,68 @@
+/**
+ * @file
+ * Style rules for the Service status Views style plugin.
+ *
+ * Displays an Accordion in smaller displays and Tabbed content in wider ones.
+ *
+ * @see https://codepen.io/axelaredz/pen/OEXdPv
+ */
+
+.service-status .nav-tabs {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .service-status .nav-tabs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .service-status .nav-tabs {
+    border-bottom: none;
+    border-right: 1px solid #ddd;
+    display: flex;
+  }
+  .service-status .nav-tabs {
+    margin: 0 15px;
+  }
+  .nav-tabs .nav-item + .nav-item {
+    margin-top: 0.25rem;
+  }
+  .nav-tabs .nav-link {
+    transition: border-color 0.125s ease-in;
+    white-space: nowrap;
+  }
+  .nav-tabs .nav-link:hover {
+    background-color: #f7f7f7;
+    border-color: transparent;
+  }
+  .nav-tabs .nav-link.active {
+    border-bottom-color: #ddd;
+    border-right-color: #fff;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    margin-right: -1px;
+  }
+  .nav-tabs .nav-link.active:hover {
+    background-color: #fff;
+    border-color: #0275d8 #fff #0275d8 #0275d8;
+  }
+
+  .service-status .card {
+    border: none;
+  }
+
+  .service-status .card .card-header {
+    display: none;
+  }
+
+  .service-status .card .collapse {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .tab-pane {
+    display: block !important;
+    opacity: 1;
+  }
+}

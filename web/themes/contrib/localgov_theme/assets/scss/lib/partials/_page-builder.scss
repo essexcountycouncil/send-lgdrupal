@@ -1,0 +1,202 @@
+.paragraph--type--localgov-image {
+  display: block;
+  margin: 0 auto;
+
+  @include rem(max-width, 800);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption {
+    position: absolute;
+    z-index: 2;
+
+    @include rem(bottom, 30);
+    @include rem(height, 50);
+    @include rem(padding-left, 85);
+
+    &:before {
+      content: $fa-play;
+      position: absolute;
+      background: $orange;
+      font-size: $h4-font-size;
+      font-family: $font-family-icons;
+      font-weight: $fa-font-weight;
+      color: $white;
+
+      @include rem(left, 15);
+      @include rem(padding, 11, 0, 0, 15);
+      @include rem(height, 50);
+      @include rem(width, 50);
+      @include rem(-webkit-border-radius, 100);
+      @include rem(-moz-border-radius, 100);
+      @include rem(border-radius, 100);
+    }
+
+    p {
+      margin: 0;
+      color: $white;
+      font-size: $font-size-ex-med;
+
+      @include rem(line-height, 25);
+
+      &:first-child {
+        font-weight: $font-bold;
+
+        @include rem(font-size, 25);
+      }
+    }
+  }
+
+  &:after {
+    display: block;
+    position: relative;
+    width: 100%;
+    content: '';
+
+    @include rem(margin-top, -150);
+    @include rem(height, 150);
+  }
+}
+
+.fact-box {
+  width: 100%;
+  background-color: $indigo;
+  border-bottom: 0.1875rem solid $tan;
+
+  @include rem(margin-bottom, 15);
+  @include rem(padding, 50, 15);
+
+  p {
+    padding-right: 0; // override of 'main' para styling
+    color: $white;
+
+    @include rem(margin-bottom, 10);
+
+    &.fact-opening,
+    &.fact-closing {
+      font-weight: $font-bold;
+      text-align: center;
+
+      @include rem(font-size, 55);
+      @include rem(line-height, 55);
+    }
+
+    &.fact {
+      font-weight: $font-bold;
+      text-align: center;
+
+      @include rem(font-size, 22);
+    }
+  }
+
+  &.fact-box-fact-box-light {
+    background-color: $gray-tint;
+    border-bottom: 0.1875rem solid $purple;
+
+    p {
+      color: $purple;
+
+      &.fact {
+        color: $black;
+      }
+    }
+  }
+}
+
+.call-out-box {
+  padding-bottom: 0;
+
+  @include rem(margin-bottom, 15);
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  .call-out-content {
+    @include rem(margin-bottom, 30);
+
+    h2 {
+      color: $carbon;
+
+      @include rem(font-size, 42);
+      @include rem(line-height, 45);
+    }
+
+    p {
+      color: $carbon;
+
+      @include rem(font-size, 20);
+      @include rem(line-height, 30);
+    }
+  }
+}
+
+.box-link {
+  @include rem(margin-bottom, 15);
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-bottom: 0.313rem solid $yellow;
+    }
+
+    span {
+      display: inline-block;
+      font-weight: $font-bold;
+      width: 100%;
+      position: relative;
+
+      @include rem(padding-left, 16);
+      @include rem(margin-top, 16);
+
+      &:before {
+        content: $fa-chevron-right;
+        position: absolute;
+        left: 0;
+        top: 0.125rem;
+        font-family: $font-family-icons;
+        font-weight: $fa-font-weight;
+        color: $tertiary;
+        font-size: $font-size-ex-ex-sm;
+
+        @include rem(margin-right, 5);
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.pull-out-quote {
+  background: $gray-tint;
+  border-left: 0.313rem solid $purple;
+
+  @include rem(margin-bottom, 15);
+  @include rem(padding, 20);
+
+  footer {
+    font-weight: $font-bold;
+    color: $purple;
+    margin: 0;
+  }
+}
+
+.responsive-container {
+  position: relative;
+  overflow: hidden;
+}

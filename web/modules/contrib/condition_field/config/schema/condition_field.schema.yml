@@ -1,0 +1,21 @@
+field.value.condition_field:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    conditions:
+      type: sequence
+      label: 'Conditions'
+      sequence:
+        type: condition.plugin.[id]
+        label: 'Visibility Condition'
+
+field.field_settings.condition_field:
+  type: mapping
+  label: 'Condition field settings'
+  mapping:
+    enabled_plugins:
+      type: sequence
+      label: 'Enabled plugins'
+      sequence:
+        type: boolean
+        label: 'Condition plugin'

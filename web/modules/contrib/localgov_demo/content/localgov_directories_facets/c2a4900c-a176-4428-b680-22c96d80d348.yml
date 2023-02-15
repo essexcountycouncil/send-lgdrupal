@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: c2a4900c-a176-4428-b680-22c96d80d348
+  bundle: country
+  default_langcode: en
+default:
+  title:
+    -
+      value: 'Northern Ireland'
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631786892
+  weight:
+    -
+      value: 0

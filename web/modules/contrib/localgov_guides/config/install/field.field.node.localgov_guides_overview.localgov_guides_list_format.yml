@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_guides_list_format
+    - node.type.localgov_guides_overview
+  module:
+    - options
+id: node.localgov_guides_overview.localgov_guides_list_format
+field_name: localgov_guides_list_format
+entity_type: node
+bundle: localgov_guides_overview
+label: 'List format'
+description: 'List format will default to bullet points.'
+required: false
+translatable: false
+default_value:
+  -
+    value: unordered
+default_value_callback: ''
+settings: {  }
+field_type: list_string

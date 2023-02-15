@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * LocalGov services navigation install file.
+ */
+
+use Drupal\localgov_core\FieldRenameHelper;
+
+/**
+ * Update Field names in localgov services navigation.
+ *
+ * Field mapping between existing and new names:
+ * field_common_tasks => localgov_common_tasks.
+ *
+ * This change creates and updates Drupal config entities.  Unless configuration
+ * is *exported* after this update, later calls to 'drush deploy' or similar
+ * will revert these changes.
+ */
+function localgov_services_navigation_update_8001(&$sandbox) {
+
+  // Update field_ types fields provided by localgov_services_navigation.
+  FieldRenameHelper::renameField('field_common_tasks', 'localgov_common_tasks', 'node');
+
+  return t('Please export your sites configuration! Config entities for localgov_services_navigation where updated.');
+}

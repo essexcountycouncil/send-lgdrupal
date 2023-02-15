@@ -1,0 +1,19 @@
+# Ignore IDE files.
+/.idea
+/.vscode
+
+# Ignore hidden and temp Mac and Windows files.
+.DS_Store
+._*
+*.LCK
+*.TMP
+Thumbs.db
+_notes
+_vti_*
+*~
+*.rej
+
+# Ignore most Drupal files.
+/vendor
+/web
+/private

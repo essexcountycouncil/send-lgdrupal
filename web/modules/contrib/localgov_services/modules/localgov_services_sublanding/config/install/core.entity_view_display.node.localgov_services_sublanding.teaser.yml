@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_services_sublanding.body
+    - field.field.node.localgov_services_sublanding.localgov_topics
+    - field.field.node.localgov_services_sublanding.localgov_services_parent
+    - node.type.localgov_services_sublanding
+  module:
+    - text
+    - user
+id: node.localgov_services_sublanding.teaser
+targetEntityType: node
+bundle: localgov_services_sublanding
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  localgov_topics: true
+  links: true
+  localgov_services_parent: true

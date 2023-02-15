@@ -1,0 +1,14 @@
+entity_reference_selection.localgov_services:
+  type: entity_reference_selection
+  label: 'LocalGovDrupal Services selection handler settings'
+  mapping:
+    target_bundles:
+      type: sequence
+      label: 'types'
+      nullable: true
+      sequence:
+        type: string
+        label: 'Bundle'
+
+entity_reference_selection.localgov_services.*:
+   type: entity_reference_selection.localgov_services_navigation

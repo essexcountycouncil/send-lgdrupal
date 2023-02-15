@@ -1,0 +1,341 @@
+// Primary Colours
+$black: #000000;
+$white: #FFFFFF;
+$red: #e4251b;
+$yellow: #e5e6e7;
+$blue: #398bcb;
+
+// General colours
+$orange: #ed7522;
+$green: #1ba11b;
+$viridian: #00856a;
+$purple: #652c95;
+$magenta: #880088;
+$tan: #f2ba41;
+$cyan: #17a2b8;
+$teal: #1b1e29;
+$indigo: #6610f2;
+$violet: #F0E6ec;
+$pink: #ff49c3;
+$gray: $gray-600;
+
+//custom
+$gray-light: $gray-300;
+$gray-dark: $gray-800;
+$carbon: #0b0c0c;
+$graphite: #282828;
+$stonewash: #A0A0A0;
+$gray-tint: #EDEDED;
+$gray-bs: #6C757D;
+$gray-mid: #ABB4B6;
+$purple-tint: #F8EEF8;
+$green-tint: #EAF5E5;
+$green-alert: #338800;
+$indigo-tint: #EEE5EE;
+$success: $green;
+$danger: #e4251b;
+$warning: #ed7522;
+$highlight: #a2e796;
+$light: #e5e6e7;
+$dark: #1b1e29;
+$offwhite: #FAFAFA;
+$facebook: #3b5998;
+$twitter: #1DA1F2;
+
+// Site colours
+
+$primary: $purple;
+$secondary: $carbon; // used to override the BS and formio colours applied as secondary
+$tertiary: $green;
+
+$visited: $secondary;
+
+// Socials
+
+$twitter: #1da1f2; // blue
+$facebook: #4267b2; // blue
+$flickr: #ff0184; // pink
+$youtube: #ff0000; // red
+
+// grays
+$gray-primary: $gray;
+$gray-secondary: $gray-dark;
+$gray-tertiary: $secondary;
+$gray-quaternary: $graphite;
+$gray-quinary: $stonewash;
+$gray-senary: $gray-tint;
+
+// Tints
+
+$primary-tint: lighten( $primary, 15% );
+$secondarytint: lighten( $secondary, 15% );
+$green-tint: lighten( $green, 15% );
+$blue-tint: lighten( $blue, 15% );
+$cyan-tint: lighten( $cyan, 15% );
+$indigo-tint: lighten( $indigo, 15% );
+$purple-tint: lighten( $purple, 15% );
+$pink-tint: lighten( $pink, 15% );
+$red-tint: lighten( $red, 15% );
+$orange-tint: lighten( $orange, 15% );
+$yellow-tint: lighten( $yellow, 15% );
+
+
+// Theme colours - SASS Map our variables above, to 'theme-colours'
+$theme-colors: ( // Bootstrap colours
+'primary': $primary, 'secondary': $secondary, 'success': $success, 'info': $carbon, 'warning': $warning, 'danger': $red, 'light': $light, 'dark': $dark, // Map additional colours to 'theme colours'
+'carbon': $carbon, 'graphite': $graphite, 'stonewash': $stonewash, 'gray-tint': $gray-tint, 'purple-tint': $purple-tint, 'green-tint': $green-tint, 'indigo-tint': $indigo-tint, // Map additional colours to 'theme colours' - can be used for backgrounds for example '.bg-green'
+'blue': $blue, 'indigo': $indigo, 'pink': $pink, 'red': $red, 'orange': $orange, 'yellow': $yellow, 'green': $green, 'viridian': $viridian, 'teal': $teal, 'cyan': $cyan, 'gray': $gray, 'gray-dark': $gray-dark, 'white': $white, 'visited': $visited, );
+
+// Breadcrumb navigation
+$breadcrumb: $gray-tertiary;
+
+// Focus highlight colour
+$focus: $highlight;
+
+// Link colours
+$link-color: $primary;
+$link-hover-color: $secondary;
+
+// Background colours
+$body-bg: $white;
+$body-color: $secondary;
+$breadcrumb-bg: $white;
+$alert-bar-announcement: $viridian;
+$alert-bar-minor: $yellow;
+$alert-bar-major: $red;
+$alert-bar-notable: $carbon;
+
+// Set all border radius to 0 by default
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+// Font weights
+$font-bold: 700;
+$font-normal: 400;
+$font-thin: 300;
+
+// Fonts
+$font-family-base:'Roboto Regular', Arial, Helvetica, sans-serif; // BS font variable
+$font-family-sanserif:'Roboto Regular', Arial, Helvetica, sans-serif; // BS font variable
+$font-family-secondary: 'Maven Pro Bold', Arial, Helvetica, sans-serif;
+$font-family-icons: 'Font Awesome 5 Free';
+$line-height-base: 1.5;
+$headings-font-family: $font-family-secondary;
+$headings-line-height: 1.1;
+$headings-font-weight: $font-bold; // for fallbacks only
+
+// Font base size
+$font-size-base: 1rem; // Assumes the browser default, typically 16px
+
+// Font sizes
+$font-size-ex-ex-lg: $font-size-base * 1.375; // ~22px ~1.375rem
+$font-size-ex-lg: $font-size-base * 1.25; // ~20px ~1.25rem
+$font-size-lg: $font-size-base * 1.1875; // ~19px ~1.1875rem
+$font-size-ex-med: $font-size-base * 1.125; // ~18px ~1.125rem
+$font-size-med: $font-size-base * 1.063; // ~17px ~1.063rem
+$font-size-sm: $font-size-base * .9375; // ~15px ~.9375rem
+$font-size-ex-sm: $font-size-base * .875; // ~14px ~.875rem
+$font-size-ex-ex-sm: $font-size-base * .8125; // ~13px ~.0.8125rem
+
+// Heading sizes
+$h1-font-size: $font-size-base * 2.375; // ~38px ~2.375
+$h2-font-size: $font-size-base * 2; // ~32px ~2rem
+$h3-font-size: $font-size-base * 1.625; // ~26px ~1.625rem
+$h4-font-size: $font-size-base * 1.5; // ~24px ~1.5rem
+$h5-font-size: $font-size-ex-ex-lg; // ~22px ~1.375rem
+$h6-font-size: $font-size-ex-lg; // ~20px ~1.25rem
+
+$btn-font-weight: $font-bold; // for fallbacks only
+
+$btn-background: $primary;
+$btn-hover-background: $blue;
+
+$accordion-background: $primary;
+$accordion-background-highlight: $blue;
+
+$skip-main: $primary;
+
+// Campaigns
+
+$campaign-header: $white;
+$campaign-jumbotron: $blue-tint;
+$section-nav-background: $indigo;
+$calloutbg: $blue-tint;
+$socialdefault: $blue;
+$linkblock: $blue;
+
+//STANDARD BUTTONS
+$input-btn-padding-y: .5rem; //8px
+$input-btn-padding-x: .9375rem; //15px
+$input-btn-font-size: 1.25rem; //20px
+$input-btn-line-height: 1.5; //10px
+
+//SMALL BUTTONS
+$input-btn-padding-y-sm: .3125rem; //5px
+$input-btn-padding-x-sm: .9375rem; //15px
+
+$input-btn-line-height-sm: 1.5; //10px
+
+//LARGE BUTTONS
+$input-btn-padding-y-lg: .75; //12px
+$input-btn-padding-x-lg: .9375rem; //15px
+$input-btn-font-size-lg: 1.375rem; //22px
+$input-btn-line-height-lg: 1.5; //10px
+
+$button-icons: $yellow;
+
+$button-text-hover: $white;
+$button-text-focus: $white;
+
+$alert-button-color: $white;
+$alert-button-hover: $carbon;
+$alert-button-background: transparent;
+
+$link-button: $primary;
+$link-button-text: $white;
+$link-button-text-focus: $carbon;
+
+$link-button-primary: $green;
+$link-button-primary-focus: $teal;
+$link-button-primary-text: $carbon;
+$link-button-primary-text-focus: $white;
+
+$link-button-secondary: $blue;
+$link-button-secondary-focus: $cyan;
+$link-button-secondary-text: $carbon;
+$link-button-secondary-text-focus: $white;
+
+$link-button-tertiary: $orange;
+$link-button-tertiary-focus: $yellow;
+$link-button-tertiary-text: $white;
+$link-button-tertiary-text-focus: $carbon;
+
+// Hide default input focus
+$input-btn-focus-width: 0;
+$component-active-bg: $yellow;
+$input-btn-focus-color: rgba($component-active-bg, 1);
+
+// Main navigation links
+$navbar-nav-link-padding-x: 0;
+$navbar-nav-link-padding-y: .5rem; //8px
+$navbar-brand-font-size: 2.125rem; //34px
+$navbar-dark-brand-color: $white;
+$navbar-dark-brand-hover-color: rgba($white, .5);
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: $yellow;
+$navbar-dark-active-color: $gray;
+$navbar-dark-disabled-color: rgba($white, .8);
+$navbar-dark-toggler-icon-bg: #{$gray};
+$navbar-dark-toggler-border-color: $white;
+
+// Remove breadcrumb bottom margin
+$breadcrumb-margin-bottom: 0;
+
+// Dropdown menu
+$dropdown-min-width: 18.125rem;
+$dropdown-padding-y: 0;
+$dropdown-margin-y: 0;
+$dropdown-bg: $gray;
+$dropdown-border-width: 0;
+
+// $dropdown-border-color: ;
+$dropdown-border-radius: 0;
+$dropdown-box-shadow: none;
+$nav-divider-color: $white;
+$nav-divider-margin-y: 0;
+
+// Dropdown hovers
+$dropdown-link-color: $white;
+$dropdown-link-hover-color: $yellow;
+$dropdown-link-hover-bg: $gray;
+$dropdown-link-active-color: $white;
+$dropdown-link-active-bg: $blue;
+$dropdown-item-padding-y: .625rem;
+$dropdown-item-padding-x: 0;
+
+//Horizontal rule
+$hr-margin-y: 1.25rem; // 20px
+$hr-border: .0625rem;
+$hr-color: $gray;
+
+//Small tags
+$small-font-size: 85%;
+
+//Form input remove rounded corners
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
+$input-color: $gray-dark;
+
+//Alert styles
+$alert-border-width: .1875rem; //3px
+$alert-bg-level: 0;
+$alert-border-level: 0;
+$alert-color-level: 0;
+$alert-link-font-weight: $font-bold;
+$alert-font-weight: $font-bold;
+
+//Jumbotron
+$jumbo-font-regular: $font-size-base * 2.625; // ~42px ~2.625rem
+$jumbo-font-large: $font-size-base * 3.25; // ~52px ~3.25rem
+
+// Form validation
+$form-feedback-valid-color: $success;
+$form-feedback-invalid-color: $danger;
+$form-feedback-font-size: 1.063rem; //17px
+
+//Form input
+$input-border-color: $stonewash !important;
+
+// Global Half Margin
+$half-margin: .5rem; // 8px
+
+// Global Half Padding // 5px
+$half-padding: .3125rem;
+
+// Font Awesome Icons
+$fa-times: '\f00d';
+$fa-font-weight: 900;
+$fa-close: $fa-times;
+$fa-external: '\f35d';
+$fa-exclaim: '\f06a';
+$fa-check: '\f00c';
+$fa-info: '\f129';
+$fa-exclamation-triangle: '\f071';
+$fa-chevron-right: '\f054';
+$fa-chevron-down: '\f078';
+$fa-chevron-up: '\f077';
+$fa-print: '\f02f';
+$fa-save: '\f0c7';
+$fa-share: '\f064';
+$fa-play: '\f04b';
+$fa-youtube-square: '\f431';
+$fa-search: '\f002';
+$fa-info-circle: '\f05a';
+$fa-plus: '\f067';
+$fa-minus: '\f068';
+$fa-arrow-up: '\f30c';
+$fa-chevron-left: '\f053';
+$fa-keyboard: '\f11c';
+$fa-moon: '\f186';
+$fa-phone: '\f095';
+$fa-mobile: '\f10b';
+$fa-map-marker: '\f3c5';
+$fa-envelope: '\f0e0';
+$fa-facebook: '\f39e';
+$fa-twitter: '\f099';
+$fa-instagram: '\f16d';
+$fa-share: '\f14d';
+
+// Alert Icons
+$alert-success: $fa-check;
+$alert-info: $fa-info;
+$alert-primary: $fa-exclamation-triangle;
+$alert-danger: $fa-exclamation-triangle;
+$alert-fail: $fa-times;
+$alert-warning: $fa-info-circle;
+
+//Breadcrumb divider
+$breadcrumb-divider: $fa-chevron-right;
+$breadcrumb-divider-size: 0.75rem;

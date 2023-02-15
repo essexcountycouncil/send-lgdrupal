@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\Core\Url;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_theme().
+ *
+ * - Overrides paragraph template for Newsroom teaser, Labelled icon, and
+ *   IA block.
+ */
+function localgov_homepage_paragraphs_theme($existing, $type, $theme, $path) {
+
+  return [
+    'paragraph__localgov_newsroom_teaser' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__localgov_labelled_icon' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__localgov_ia_block' => [
+      'base hook' => 'paragraph',
+    ],
+    'field__localgov_subs_panel_social_links' => [
+      'template'  => 'field--no-item-wrapper',
+      'base hook' => 'field',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for hook_preprocess_paragraph().
+ */
+function localgov_homepage_paragraphs_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->bundle() === 'localgov_labelled_icon') {
+    // Set url in plain text as renderable field in the template.
+    if (!$paragraph->get('localgov_labelled_icon_link')->isEmpty()) {
+      $link = $paragraph->get('localgov_labelled_icon_link')->first()->getValue();
+      $variables['field_link'] = Url::fromUri($link['uri'])->toString();
+    }
+
+    // Create a attributes object to add font awesome classes to div.
+    if (!$paragraph->get('localgov_labelled_icon_icon')->isEmpty()) {
+      $icon = $paragraph->get('localgov_labelled_icon_icon')->first()->getValue();
+      $variables['icon_attributes'] = new Attribute([
+        'class' => [
+          'services--feature-icon',
+          $icon['style'],
+          'fa-' . $icon['icon_name'],
+        ],
+      ]);
+    }
+  }
+  elseif ($paragraph->bundle() === 'localgov_ia_block') {
+    // Check if paragraph is promoted.
+    $variables['promoted'] = (bool) $paragraph->get('localgov_ia_block_promoted')->first()->getValue()['value'];
+
+    // Set url in plain text as renderable field in the template.
+    if (!$paragraph->get('localgov_ia_block_link')->isEmpty()) {
+      $link = $paragraph->get('localgov_ia_block_link')->first()->getValue();
+      $variables['field_link'] = Url::fromUri($link['uri'])->toString();
+    }
+
+    $links = [];
+    foreach ($paragraph->get('localgov_ia_block_links')->getValue() as $link) {
+      $links[] = [
+        'title' => $link['title'],
+        'url' => Url::fromUri($link['uri']),
+      ];
+    }
+
+    $variables['list'] = [
+      '#theme' => 'links',
+      '#links' => $links,
+      '#attributes' => [
+        'class' => [$variables['promoted'] ? 'business-list' : ''],
+      ],
+    ];
+  }
+  elseif ($paragraph->bundle() === 'localgov_newsroom_teaser') {
+    if (!$paragraph->get('localgov_newsroom_teaser_link')->isEmpty()) {
+      $link = $paragraph->get('localgov_newsroom_teaser_link')->first()->getValue();
+      $variables['link'] = Url::fromUri($link['uri']);
+    }
+  }
+  elseif ($paragraph->bundle() === 'localgov_subscribe_panel') {
+    $variables['attributes']['class'][] = 'row';
+  }
+}

@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 23cdd380-08f5-4fa8-b307-7cf8f6766c1e
+  bundle: image
+  default_langcode: en
+  depends:
+    1004d56c-9b6f-45a9-ab4e-3eb1703ed755: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: tyson-Y9UHNFGBKKg-unsplash.jpg
+  created:
+    -
+      value: 1631788135
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 1004d56c-9b6f-45a9-ab4e-3eb1703ed755
+      alt: 'Family sitting down to eat.'
+      title: ''
+      width: 3600
+      height: 4500

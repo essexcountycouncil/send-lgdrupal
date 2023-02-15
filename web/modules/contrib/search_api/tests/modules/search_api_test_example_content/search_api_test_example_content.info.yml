@@ -1,0 +1,12 @@
+type: module
+name: 'Example Content'
+description: 'Provides field definitions for example content.'
+package: Testing
+dependencies:
+  - drupal:entity_test
+hidden: true
+
+# Information added by Drupal.org packaging script on 2022-11-07
+version: '8.x-1.28'
+project: 'search_api'
+datestamp: 1667814123

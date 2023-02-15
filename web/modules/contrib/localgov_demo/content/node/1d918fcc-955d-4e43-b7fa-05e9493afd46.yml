@@ -1,0 +1,158 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 1d918fcc-955d-4e43-b7fa-05e9493afd46
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    6e36cf1c-6d7d-4f08-9812-2035ef679d03: media
+    cfd479d7-f736-4d08-a65a-c3a49b269e6a: media
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'A video page'
+  created:
+    -
+      value: 1620399961
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/video-page
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f0a17d32-4c73-48ce-8d3c-e93caa349a8e
+          bundle: localgov_banner_primary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631786688
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+          localgov_subsites_banner_text:
+            -
+              value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. '
+          localgov_title:
+            -
+              value: 'This page is showing off a video component'
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: a058e8b5-c8f0-40c9-bbe2-557e958b59cb
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620399980
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: adf950ed-763b-4c08-b91f-60ee2b70d716
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631786637
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: a058e8b5-c8f0-40c9-bbe2-557e958b59cb
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_text:
+            -
+              value: "<p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Donec sollicitudin molestie malesuada.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 47042365-af9b-4466-9724-d16e9fc9209b
+          bundle: localgov_video
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620399991
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: a058e8b5-c8f0-40c9-bbe2-557e958b59cb
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          localgov_video:
+            -
+              entity: cfd479d7-f736-4d08-a65a-c3a49b269e6a
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0

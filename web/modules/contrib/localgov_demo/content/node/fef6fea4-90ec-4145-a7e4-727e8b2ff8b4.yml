@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: fef6fea4-90ec-4145-a7e4-727e8b2ff8b4
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    75014398-71e5-4620-a19d-221372161b8a: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'South Downs'
+  created:
+    -
+      value: 1631815944
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/south-downs
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'The South Downs National Park is England''s newest national park, designated on 31 March 2010. The park stretches for 140 kilometres (87 mi) from Winchester in the west to Eastbourne in the east.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: info@southdowns.gov.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '01730 814810'
+  localgov_directory_website:
+    -
+      uri: 'https://www.southdowns.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 75014398-71e5-4620-a19d-221372161b8a

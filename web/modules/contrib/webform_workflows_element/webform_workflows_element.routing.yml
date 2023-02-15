@@ -1,0 +1,33 @@
+entity.webform.handler.add_workflow_email:
+  path: "/admin/structure/webform/manage/{webform}/handlers/add/workflow_email"
+  defaults:
+    _form: '\Drupal\webform\Form\WebformHandlerAddForm'
+    _title: "Add workflow transition email"
+    webform_handler: workflows_transition_email
+  requirements:
+    _entity_access: "webform.update"
+    _custom_access: '\Drupal\webform\Access\WebformHandlerAccess::checkHandlerAccess'
+
+webform_workflows_element.workflows_summary:
+  path: "/webform/{webform}/workflows"
+  defaults:
+    _controller: '\Drupal\webform_workflows_element\Controller\WorkflowsSummaryController::renderSummary'
+    _title: "Workflows summary"
+  requirements:
+    _entity_access: "webform.update"
+
+webform_workflows_element.config.workflows:
+  path: "/admin/structure/webform/config/workflows"
+  defaults:
+    _form: '\Drupal\webform_workflows_element\Form\AdminConfig\WebformAdminConfigWorkflowsForm'
+    _title: "Webforms: workflows configuration"
+  requirements:
+    _permission: "administer webform"
+
+entity.webform.workflows_summary:
+  path: "/admin/structure/webform/manage/{webform}/workflows-summary"
+  defaults:
+    _controller: '\Drupal\webform_workflows_element\Controller\WorkflowsSummaryController::renderSummaryForWebform'
+    _title: "Workflows summary"
+  requirements:
+    _entity_access: "webform.update"

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 6d84bb45-5afa-472f-8e30-41bc4884e5f0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: National_Parks_England-1.geojson
+  uri:
+    -
+      value: 'public://2021-09/National_Parks_England-1.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 3455655
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631790010

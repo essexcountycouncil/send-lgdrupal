@@ -1,0 +1,11 @@
+localgov_geo.type_add:
+  route_name: entity.localgov_geo_type.add_form
+  title: 'Add geo type'
+  appears_on:
+    - entity.localgov_geo_type.collection
+
+localgov_geo.add_page:
+  route_name: entity.localgov_geo.add_page
+  title: 'Add geo'
+  appears_on:
+    - entity.localgov_geo.collection

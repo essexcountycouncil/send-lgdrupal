@@ -1,0 +1,31 @@
+{#
+/**
+* @file
+* Default theme implementation for the guides_contents_block block.
+*/
+#}
+
+{% if not localgov_base_remove_css %}
+  {{ attach_library('localgov_base/guide-nav') }}
+{% endif %}
+
+{% if links %}
+
+  {% if format == 'ordered' %}
+    {% set list_type = 'ol' %}
+    {% else %}
+      {% set list_type = 'ul' %}
+  {% endif %}
+  <nav class="lgd-guide-nav" aria-label="{{ 'Guide'|t }}">
+    <{{ list_type }} class="lgd-guide-nav__list">
+      {% for link in links %}
+        {% if link.url.options.attributes.class == 'active' %}
+          <li class="lgd-guide-nav__list-item lgd-guide-nav__list-item--active" aria-current="page">{{ link.text }}</li>
+          {% else %}
+            <li class="lgd-guide-nav__list-item">{{ link }}</li>
+        {% endif %}
+      {% endfor %}
+    </{{ list_type }}>
+  </nav>
+
+{% endif %}

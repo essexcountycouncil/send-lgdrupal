@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_newsroom_teaser
+label: 'Newsroom teaser'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

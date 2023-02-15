@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.localgov_directory.body
+    - field.field.node.localgov_directory.localgov_directory_channel_types
+    - field.field.node.localgov_directory.localgov_directory_facets_enable
+    - node.type.localgov_directory
+  module:
+    - text
+    - user
+id: node.localgov_directory.search_index
+targetEntityType: node
+bundle: localgov_directory
+mode: search_index
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  localgov_directory_facets_enable:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  localgov_services_parent:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  links: true
+  localgov_directory_channel_types: true
+  localgov_directory_facets: true
+  localgov_directory_map: true
+  localgov_directory_view: true
+  search_api_excerpt: true

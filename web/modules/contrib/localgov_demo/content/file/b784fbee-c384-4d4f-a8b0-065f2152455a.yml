@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b784fbee-c384-4d4f-a8b0-065f2152455a
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: gardenwaste.jpg
+  uri:
+    -
+      value: 'public://2021-09/gardenwaste.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 618616
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631266056

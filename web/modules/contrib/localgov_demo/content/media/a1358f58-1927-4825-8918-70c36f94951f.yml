@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a1358f58-1927-4825-8918-70c36f94951f
+  bundle: image
+  default_langcode: en
+  depends:
+    b3be1d02-eef4-4c2a-b175-7a5c1d246970: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: forcedmarriage.jpg
+  created:
+    -
+      value: 1631267764
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: b3be1d02-eef4-4c2a-b175-7a5c1d246970
+      alt: 'forced marriage'
+      title: ''
+      width: 276
+      height: 182

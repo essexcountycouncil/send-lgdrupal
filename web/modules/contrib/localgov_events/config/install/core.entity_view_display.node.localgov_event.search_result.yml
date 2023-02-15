@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.localgov_event_date_full
+    - core.date_format.localgov_event_date_hour
+    - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.localgov_event_call_to_action
+    - field.field.node.localgov_event.localgov_event_categories
+    - field.field.node.localgov_event.localgov_event_date
+    - field.field.node.localgov_event.localgov_event_image
+    - field.field.node.localgov_event.localgov_event_locality
+    - field.field.node.localgov_event.localgov_event_location
+    - field.field.node.localgov_event.localgov_event_price
+    - node.type.localgov_event
+  module:
+    - date_recur
+    - link
+    - text
+    - user
+id: node.localgov_event.search_result
+targetEntityType: node
+bundle: localgov_event
+mode: search_result
+content:
+  search_api_excerpt:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  content_moderation_control: true
+  links: true
+  localgov_event_call_to_action: true
+  localgov_event_categories: true
+  localgov_event_date: true
+  localgov_event_image: true
+  localgov_event_locality: true
+  localgov_event_location: true
+  localgov_event_price: true
+  localgov_event_provider: true
+  localgov_event_venue: true

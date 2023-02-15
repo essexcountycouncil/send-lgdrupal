@@ -1,0 +1,32 @@
+{
+    "name": "localgovdrupal/localgov_directories",
+    "description": "LocalGovDrupal distribution: Directories feature.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_directories",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/facets": "^2.0",
+        "drupal/pathauto": "^1.6",
+        "drupal/search_api": "^1.17",
+        "drupal/search_api_autocomplete": "^1.3",
+        "localgovdrupal/localgov_core": "^2.1",
+        "localgovdrupal/localgov_geo": "^1.1"
+    },
+    "require-dev": {
+        "localgovdrupal/localgov_services": "^2.0",
+        "localgovdrupal/localgov_openreferral": "^1.0",
+        "localgovdrupal/localgov_paragraphs": "^2.0"
+    },
+    "suggest": {
+        "localgovdrupal/localgov_openreferral": "Enables Open Referral output of Directories",
+        "localgovdrupal/localgov_paragraphs": "For Directory Promo Page content type in Directories"
+    },
+    "extra": {
+        "patches": {
+            "drupal/facets": {
+                "Don't render facet block if backend isn't available: https://www.drupal.org/project/facets/issues/3311856": "https://git.drupalcode.org/issue/facets-3311856/-/commit/765d5ef4228906c7f201e116763f3018a7867c96.patch"
+            }
+        }
+    }
+}

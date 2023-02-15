@@ -1,0 +1,316 @@
+main,
+.block-views-blocklocalgov-step-by-step-navigation-prev-next {
+  .btn {
+    font-size: 1.25rem;
+    padding: .4rem 1rem;
+  }
+
+  .btn-lg {
+    font-size: 1.25rem;
+    padding: .6rem 1rem;
+  }
+
+  .btn-sm {
+    font-size: 1.125rem;
+    padding: .3rem 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    .btn {
+      font-size: 1.375rem;
+    }
+
+    .btn-lg {
+      font-size: 1.5rem;
+    }
+
+    .btn-sm {
+      font-size: 1.1875rem;
+    }
+  }
+}
+
+//Button styles
+main .btn,
+.block-views-blocklocalgov-step-by-step-navigation-prev-next .btn,
+.sidebar .btn {
+  font-family: $headings-font-family;
+  margin-top: ($spacer * 1);
+  margin-bottom: ($spacer * .5);
+  border-radius: 0;
+}
+
+//Button icons
+main .btn .fa,
+.block-views-blocklocalgov-step-by-step-navigation-prev-next .btn .fa,
+aside .btn .fa,
+.sidebar .btn .fa,
+.cookiealert .btn .fa {
+  font-size: 85%;
+  color: $button-icons;
+}
+
+// Button
+.btn {
+  border-radius: 0;
+  padding: .5rem .9375rem;
+  font-size: 1.25rem;
+
+  &:hover {
+    color: $button-text-hover;
+    background: $btn-hover-background;
+    box-shadow: none; // bs override
+  }
+
+  &:focus {
+    color: $button-text-focus;
+    background: $btn-hover-background;
+    box-shadow: none; // bs override
+
+    @include outline(.1875rem, -.1875rem, $focus);
+  }
+
+  &:not(:disabled):not(.disabled).active {
+    &:focus {
+      box-shadow: none; // bs override
+    }
+  }
+
+  &.btn-secondary {
+    background: $secondary;
+    color: $white;
+    border-color: $secondary;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background: $btn-hover-background;
+    }
+  }
+}
+
+// Disabled button
+.btn.disabled,
+.btn:disabled {
+  opacity: .65;
+}
+
+// Upload file button
+.custom-file-label::after {
+  color: $white;
+  content: 'Browse';
+  background-color: $btn-background;
+  line-height: 1.8;
+  font-weight: $font-bold;
+}
+
+.custom-file-label {
+  font-size: $font-size-med;
+  line-height: 1.8;
+}
+
+// Links styled to look like buttons
+
+.link-button {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size-ex-med;
+  font-weight: $font-bold;
+  text-decoration: none;
+  color: $link-button-text;
+  background-color: $link-button;
+
+  @include rem(padding, 15);
+  @include rem(line-height, 22);
+
+  span {
+    width: 100%;
+    text-align: left;
+    display: block;
+
+    // ie10 fix
+    @include width(100%, 0.813rem, 0.8125rem);
+    @include rem(padding-right, 5);
+  }
+
+  &:after {
+    display: flex;
+    align-items: center;
+    font-family: $font-family-icons;
+    content: $fa-chevron-right;
+    font-weight: $fa-font-weight;
+    font-size: $font-size-ex-lg;
+
+    @include rem(margin-top, 2);
+  }
+
+  &:hover {
+    color: $link-button-text-focus;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include outline(.1875rem, -.1875rem, $focus);
+
+    span,
+    &:after {
+      color: $link-button-text-focus;
+    }
+  }
+
+  &:not(:last-child) {
+    @include rem(margin-bottom, 20);
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Link Button Modifiers
+
+.link-button-primary,
+.cta-action {
+  background-color: $link-button-primary;
+
+  span,
+  &:after {
+    color: $link-button-primary-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $link-button-primary-focus;
+
+    span,
+    &:after {
+      color: $link-button-primary-text-focus;
+    }
+  }
+}
+
+.link-button-secondary,
+.cta-info {
+  background-color: $link-button-secondary;
+
+  span,
+  &:after {
+    color: $link-button-secondary-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $link-button-secondary-focus;
+
+    span,
+    &:after {
+      color: $link-button-secondary-text-focus;
+    }
+  }
+}
+
+.link-button-tertiary,
+.cta-orange {
+  background-color: $link-button-tertiary;
+
+  span,
+  &:after {
+    color: $link-button-tertiary-text;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $link-button-tertiary-focus;
+
+    span,
+    &:after {
+      color: $link-button-tertiary-text-focus;
+    }
+  }
+}
+
+.link-button-single,
+.cta-single {
+  width: 100%;
+
+  @include rem(margin-top, 30);
+
+  @include media-breakpoint-up(sm) {
+    @include rem(width, 350);
+  }
+}
+
+.link-button-close,
+.cta-close {
+  width: 100%;
+
+  @include rem(margin-top, 30);
+
+  @include media-breakpoint-up(sm) {
+    @include rem(width, 200);
+  }
+
+  &:after {
+    font-family: $font-family-icons;
+    content: $fa-times;
+    font-weight: $fa-font-weight;
+  }
+}
+
+.link-button-small,
+.cta-small {
+  @include rem(width, 140);
+}
+
+// Start Button
+
+.btn-start {
+  color: $carbon;
+  background-color: $green;
+  border-color: none;
+  font-weight: $font-bold;
+  text-decoration: none;
+  display: flex;
+  align-items: stretch;
+
+  &:after {
+    display: flex;
+    align-self: flex-end;
+    color: $carbon;
+    text-decoration: none;
+    margin-left: auto;
+    font-family: $font-family-icons;
+    content: $fa-chevron-right;
+    font-weight: $fa-font-weight;
+    font-size: $font-size-ex-lg;
+
+    @include rem(margin-top, 2);
+  }
+
+  &.external-link { // control change of icon due to external link on the button
+    position: relative;
+
+    &:after {
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 0;
+      top: 0.6875rem;
+      position: absolute;
+      right: 0.9375rem;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background: $teal;
+    color: $white;
+  }
+
+  &:hover {
+    &:after {
+      color: $white;
+    }
+  }
+}

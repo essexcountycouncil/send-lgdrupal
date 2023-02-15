@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 69a444e1-46be-45c0-97d3-8a30ccd98a0d
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: hansjorg-keller-CQqyv5uldW4-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/hansjorg-keller-CQqyv5uldW4-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 3416350
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631885335

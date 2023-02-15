@@ -1,0 +1,3 @@
+administer localgov_review_date:
+  title: 'Administer LocalGov Review Date'
+  description: 'Manage LocalGov review date settings.'

@@ -1,0 +1,9 @@
+name: 'LocalGov Search Database'
+description: 'Installs initial SQL database index and configuration Sitewide Search'
+core_version_requirement: ^9
+type: module
+package: LocalGov Drupal
+
+dependencies:
+  - localgov_search:localgov_search
+  - search_api:search_api_db

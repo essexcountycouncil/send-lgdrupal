@@ -1,0 +1,224 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.localgov_geo_library
+    - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.localgov_event_call_to_action
+    - field.field.node.localgov_event.localgov_event_categories
+    - field.field.node.localgov_event.localgov_event_date
+    - field.field.node.localgov_event.localgov_event_image
+    - field.field.node.localgov_event.localgov_event_locality
+    - field.field.node.localgov_event.localgov_event_location
+    - field.field.node.localgov_event.localgov_event_price
+    - node.type.localgov_event
+  module:
+    - date_recur_modular
+    - entity_browser
+    - field_group
+    - link
+    - media_library
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_tags:
+      children:
+        - group_details
+        - group_date
+        - group_location
+        - group_facets
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: tags
+    group_details:
+      children:
+        - title
+        - body
+        - localgov_event_image
+        - localgov_event_call_to_action
+      parent_name: group_tags
+      weight: 4
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Details
+    group_date:
+      children:
+        - localgov_event_date
+      parent_name: group_tags
+      weight: 5
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Date
+    group_location:
+      children:
+        - localgov_event_location
+      parent_name: group_tags
+      weight: 6
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Location
+    group_facets:
+      children:
+        - localgov_event_price
+        - localgov_event_locality
+        - localgov_event_categories
+      parent_name: group_tags
+      weight: 7
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Facets
+id: node.localgov_event.default
+targetEntityType: node
+bundle: localgov_event
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_event_call_to_action:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  localgov_event_categories:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  localgov_event_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: date_recur_modular_alpha
+    region: content
+  localgov_event_image:
+    type: media_library_widget
+    weight: 3
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  localgov_event_locality:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  localgov_event_location:
+    weight: 12
+    settings:
+      entity_browser: localgov_geo_library
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  localgov_event_price:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 13
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

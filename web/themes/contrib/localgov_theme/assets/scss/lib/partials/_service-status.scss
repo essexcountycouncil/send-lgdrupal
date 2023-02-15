@@ -1,0 +1,352 @@
+.service-status-overview {
+  header {
+    margin: 2rem 0;
+
+    @extend .key-under;
+  }
+}
+
+.service-head {
+  p {
+    margin: 0;
+    font-size: $font-size-ex-med;
+  }
+
+  #toggleAccordions-show,
+  #toggleAccordions-hide {
+    a {
+      color: $blue;
+      font-weight: $font-normal;
+    }
+  }
+}
+
+.service-status {
+  padding: 0;
+
+  main {
+    margin-top: 0;
+
+    i {
+      padding-right: 0;
+    }
+  }
+
+  .nav-tabs {
+    display: none;
+  }
+
+  .card {
+    border-top: none;
+    border-bottom: 0.0625rem solid $gray-mid;
+    border-left: 0;
+    border-right: 0;
+    background: none;
+
+    &:first-child {
+      border-top: 0.0625rem solid $gray-mid;
+    }
+
+    .card-header {
+      background: none;
+      border: none;
+
+      @include rem(padding, 25, 20);
+
+      .status-accordion-header {
+        text-decoration: underline;
+        display: inline;
+        padding: 0;
+
+        @include rem(font-size, 26);
+
+        &:hover,
+        &:focus {
+          background: $yellow;
+          color: $carbon;
+          box-shadow: none;
+          text-decoration: none;
+        }
+      }
+
+      a {
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        position: relative;
+        padding-right: 1.8rem;
+
+        &:hover,
+        &:focus {
+          background: none;
+          box-shadow: none;
+        }
+
+        &:after {
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+          content: $fa-minus;
+          width: 1.5rem;
+          height: 1.5rem;
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: $carbon;
+
+          @include rem(font-size, 26);
+        }
+
+        h2 {
+          color: $blue;
+          text-decoration: underline;
+        }
+
+        &.collapsed {
+          &:after {
+            content: $fa-plus;
+          }
+        }
+      }
+    }
+  }
+
+  .service-status-info,
+  .service-status-warning,
+  .service-status-ok {
+    font-weight: $font-normal;
+    color: $carbon;
+    font-size: $font-size-base;
+
+    @include rem(margin-top, 5);
+
+    &:hover,
+    &:focus {
+      background: none;
+    }
+  }
+
+  .service-status__has-issues {
+    a {
+      &.active {
+        .service-status-info {
+          color: $orange;
+          font-weight: $font-bold;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        .service-status-info {
+          display: none;
+        }
+      }
+
+      .service-status-info {
+        display: block;
+
+        i {
+          color: $orange;
+        }
+      }
+
+      .service-status-warning {
+        display: none;
+      }
+
+      .service-status-ok {
+        display: none;
+      }
+    }
+  }
+
+  .service-status__no-issues {
+    a {
+      &.active {
+        .service-status-ok {
+          color: $green-alert;
+          font-weight: $font-bold;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        .service-status-ok {
+          display: none;
+        }
+      }
+
+      .service-status-info {
+        display: none;
+      }
+
+      .service-status-warning {
+        display: none;
+      }
+
+      .service-status-ok {
+        display: block;
+
+        i {
+          color: $green-alert;
+        }
+      }
+    }
+  }
+
+  .service-status__severe-impact {
+    a {
+      &.active {
+        .service-status-warning {
+          color: $red;
+          font-weight: $font-bold;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        .service-status-warning {
+          display: none;
+        }
+      }
+
+      .service-status-info {
+        display: none;
+      }
+
+      .service-status-warning {
+        display: block;
+
+        i {
+          color: $red;
+        }
+      }
+
+      .service-status-ok {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  .tab-content {
+    border: 0.0625rem solid $gray-mid;
+
+    @include rem (min-height, 600);
+  }
+
+  .service-status {
+    padding: inherit;
+
+    .nav-tabs {
+      display: inline-block;
+      background: $offwhite;
+      margin: 0;
+      padding: 0;
+      border-bottom: 0;
+      border-top: 0.0625rem solid $gray-mid;
+      border-left: 0.0625rem solid $gray-mid;
+
+      .nav-item {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        border-bottom: 0.0625rem solid $gray-mid;
+        width: 100%;
+
+        .nav-link {
+          display: inline-block;
+          width: 100%;
+          text-decoration: none;
+          color: $blue;
+          border: 0;
+          font-size: $font-size-lg;
+          white-space: normal;
+          line-height: 1.5rem;
+          transition: none;
+
+          &:hover,
+          &:focus {
+            border: 0;
+            box-shadow: none;
+            color: $carbon;
+            text-decoration: none;
+
+            .service-status-title {
+              background: $yellow;
+            }
+          }
+
+          &.active {
+            position: relative;
+            background: $white;
+            border-right: 0.0625rem solid white;
+            border-top: 0;
+            border-left: 0;
+            border-radius: 0;
+            margin-left: 0.0625rem;
+
+            .service-status-title {
+              color: $carbon;
+              background: $yellow;
+              text-decoration: none;
+            }
+
+            > span {
+              margin-left: -0.0625rem;
+            }
+
+            &:after {
+              content: '';
+              z-index: 1000;
+              display: block;
+              position: absolute;
+              right: -0.125rem;
+              top: 0;
+              height: 100%;
+              background: $white;
+
+              @include rem(width, 5);
+            }
+          }
+
+          .service-status-title {
+            text-decoration: underline;
+            display: inline;
+            font-size: $font-size-ex-ex-lg;
+            padding: 0;
+
+            &:hover,
+            &:focus {
+              background: $yellow;
+              box-shadow: none;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .card {
+      border: none;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .card-header {
+        display: none;
+      }
+
+      .collapse {
+        display: block;
+      }
+
+      .alert {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.fade:not(.show) { // fix weird BS inherited fade in
+  opacity: 1;
+}

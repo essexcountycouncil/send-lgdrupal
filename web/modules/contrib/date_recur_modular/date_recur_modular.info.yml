@@ -1,0 +1,14 @@
+name: Date Recur Modular Widget Framework
+description: Provides a framework for developing widgets for Recurring Dates Field, and a few bundled widgets.
+type: module
+core_version_requirement: ^9
+php: 7.3
+package: Field types
+dependencies:
+  - drupal:system
+  - date_recur:date_recur
+
+# Information added by Drupal.org packaging script on 2022-05-11
+version: '3.0.2'
+project: 'date_recur_modular'
+datestamp: 1652252818

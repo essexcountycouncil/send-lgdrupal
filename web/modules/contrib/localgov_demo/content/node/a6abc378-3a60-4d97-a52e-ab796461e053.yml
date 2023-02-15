@@ -1,0 +1,394 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a6abc378-3a60-4d97-a52e-ab796461e053
+  bundle: localgov_subsites_overview
+  default_langcode: en
+  depends:
+    6e36cf1c-6d7d-4f08-9812-2035ef679d03: media
+    3af4f9c5-1600-430e-a163-fe458ef474e0: media
+    3c8a8ef6-078e-4bf8-aa18-bd7ee95023ce: media
+    3e428925-c55a-4da9-905b-684865840764: media
+    cfd479d7-f736-4d08-a65a-c3a49b269e6a: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'A test subsite to demo all the components'
+  created:
+    -
+      value: 1620399828
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: cb1ad4fd-e460-4aca-9404-c655b3a0ad44
+          bundle: localgov_banner_primary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787696
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+          localgov_subsites_banner_text:
+            -
+              value: 'This subsite has been built to demonstrate the components and layouts available on a subsite.'
+          localgov_title:
+            -
+              value: 'Demo subsite'
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620399874
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e06a3cf7-d1e0-4944-8900-1c98b9d5d754
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787802
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h2>Welcome to the demo subsite!</h2>\r\n\r\n<p>Subsites are useful if you're creating content that:</p>\r\n\r\n<ul>\r\n\t<li>needs to be more visual, with photos and videos</li>\r\n\t<li>you need a more flexible layout</li>\r\n\t<li>needs to market or promote a service</li>\r\n</ul>\r\n\r\n<p>You can create a subsite landing page, with links through to connecting pages, as well as an image banner, photos and videos. It is relatively easy to visually make the whole subsite look different to the rest of the site.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5642dee3-dbe3-416b-bf91-db95fc61e629
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400791
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_link:
+            -
+              uri: 'https://localgovdrupal.org/blog/'
+              title: 'Read the LocalGov Drupal blog'
+              options: {  }
+          localgov_media_item:
+            -
+              entity: 3af4f9c5-1600-430e-a163-fe458ef474e0
+          localgov_media_position:
+            -
+              value: top
+          localgov_media_with_text_style:
+            -
+              value: featured
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n\r\n<p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada.<br />\r\n&nbsp;</p>\r\n\r\n<p>This Media item allows for variations in layout.&nbsp;</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: 'Test "Media item with text"'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: efa57fbd-d9db-491f-818f-3b9e1adb7a18
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631787943
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+          localgov_media_position:
+            -
+              value: left
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit.&nbsp;Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: ' "Media item with text" (image left)'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 22fcd43b-222c-4cca-a23b-278ee2b8db1d
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631788007
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: 3c8a8ef6-078e-4bf8-aa18-bd7ee95023ce
+          localgov_media_position:
+            -
+              value: right
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: '"Media item of text" (image right)'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 6c634c65-d67a-4549-aee6-876c4e5b9e26
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631788101
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: 3e428925-c55a-4da9-905b-684865840764
+          localgov_media_position:
+            -
+              value: bottom
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: '"Media item with text" (image bottom)'
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: cf8a7c48-e3b5-4158-9e95-d1004db99020
+          bundle: localgov_media_with_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631788305
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: dbbe6b25-4132-4e64-97be-d0bda89976e1
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_media_item:
+            -
+              entity: cfd479d7-f736-4d08-a65a-c3a49b269e6a
+          localgov_media_position:
+            -
+              value: top
+          localgov_media_with_text_style:
+            -
+              value: default
+          localgov_opens_in_a_new_window:
+            -
+              value: false
+          localgov_text:
+            -
+              value: "<p>A \"Media item with text\" component also allows a video instead of an image.</p>\r\n"
+              format: wysiwyg
+          localgov_title:
+            -
+              value: 'Media item with text (with video)'
+  localgov_subsites_hide_menu:
+    -
+      value: false
+  localgov_subsites_summary:
+    -
+      value: 'This is just a test to show off and demo the components available in a subsite.'
+  localgov_subsites_theme:
+    -
+      value: theme_a

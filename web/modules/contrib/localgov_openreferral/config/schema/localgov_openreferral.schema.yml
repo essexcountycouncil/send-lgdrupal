@@ -1,0 +1,45 @@
+# Schema for Mapping Configuration for Open Referral.
+
+localgov_openreferral.property_mapping.*.*:
+  type: config_entity
+  label: 'Open Referral entity property mapping'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    entity_type:
+      type: string
+      label: 'Entity type'
+    bundle:
+      type: string
+      label: 'Bundle'
+    public_type:
+      type: string
+      label: 'Open Referral class type'
+    public_datatype:
+      type: string
+      label: 'Open Referral data type'
+    property_mappings:  
+      type: sequence
+      label: 'Contexts'
+      sequence:
+        type: sequence
+        label: 'Context bob mapping'
+        sequence:
+          type: mapping
+          label: 'Field to External map'
+          mapping:
+            field_name:
+              type: string
+              label: 'Internal field name'
+            public_name:
+              type: string
+              label: 'Open Referral name'
+
+views.display.openreferral_serializer:
+  type: views.display.rest_export
+  label: 'OpenReferral Serializer options'
+
+views.style.openreferral_serializer:
+  type: views.style.serializer
+  label: 'Open Referral Serialized output format'

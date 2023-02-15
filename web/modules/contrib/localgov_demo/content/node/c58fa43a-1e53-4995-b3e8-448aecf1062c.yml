@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c58fa43a-1e53-4995-b3e8-448aecf1062c
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    f590d6ff-97f2-45f1-a387-2d427f3c7c2f: localgov_directories_facets
+    76aae882-c75d-4ae3-83d7-4cc02203dfd2: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Snowdonia
+  created:
+    -
+      value: 1631816655
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /national-parks-uk/snowdonia-0
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Snowdonia (Welsh: Eryri) is a mountainous region in northwestern Wales and a national park of 823 square miles (2,130 km2) in area.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: tourism@gwynedd.llyw.cymru
+  localgov_directory_facets_select:
+    -
+      entity: f590d6ff-97f2-45f1-a387-2d427f3c7c2f
+  localgov_directory_website:
+    -
+      uri: 'https://www.visitsnowdonia.info/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 76aae882-c75d-4ae3-83d7-4cc02203dfd2

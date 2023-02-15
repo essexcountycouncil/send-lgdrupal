@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 9cd20a2e-0486-4f89-a4c5-584bbc9e1b47
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    5f46013c-8afd-4304-b073-2a7d12a89ec0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Blue Badge fraud'
+  created:
+    -
+      value: 1592939989
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges/blue-badge-fraud
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>You must not:</p>\r\n\r\n<ul>\r\n\t<li>allow&nbsp;someone else to use your blue badge</li>\r\n\t<li>use&nbsp;a fake or altered blue badge&nbsp;</li>\r\n\t<li>use dishonesty or deception to get&nbsp;a blue badge</li>\r\n\t<li>use&nbsp;a cancelled badge while your vehicle is being driven or is parked</li>\r\n\t<li>use&nbsp;a badge that should have been returned while your vehicle is being driven or is parked</li>\r\n</ul>\r\n\r\n<p>Your Blue Badge will be taken away if you misuse it.</p>\r\n\r\n<h2>Report suspected Blue Badge fraud</h2>\r\n\r\n<p>If you suspect someone is misusing a Blue Badge, please&nbsp;report it through the online form.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  localgov_guides_section_title:
+    -
+      value: 'Blue Badge fraud'

@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_homepage_labelled_icons
+    - node.type.localgov_dummy_homepage
+    - paragraphs.paragraphs_type.localgov_labelled_icon
+  module:
+    - entity_reference_revisions
+id: node.localgov_dummy_homepage.localgov_homepage_labelled_icons
+field_name: localgov_homepage_labelled_icons
+entity_type: node
+bundle: localgov_dummy_homepage
+label: 'Calls to action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      localgov_labelled_icon: localgov_labelled_icon
+    target_bundles_drag_drop:
+      localgov_labelled_icon:
+        enabled: true
+        weight: 7
+      localgov_ia_block:
+        weight: 27
+        enabled: false
+field_type: entity_reference_revisions

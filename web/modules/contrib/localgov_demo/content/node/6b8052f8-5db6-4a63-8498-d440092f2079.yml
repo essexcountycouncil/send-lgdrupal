@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6b8052f8-5db6-4a63-8498-d440092f2079
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Information you need to provide'
+  created:
+    -
+      value: 1620398387
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-4
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p class=\"alert alert-info\">If you do not bring the&nbsp;required documentation, or do not meet the residency or other requirements, then the notice appointment will not be able to go ahead. You will need to book another appointment&nbsp;and pay the fee again. All documents provided must be originals.</p>\r\n\r\n<p>You must bring originals of the following documents to your appointment:</p>\r\n\r\n<ul>\r\n\t<li>details of the final venue for your ceremony</li>\r\n\t<li>a valid passport, UK birth certificate (if you were born before 1 January 1983) or national identity card from the&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/eu-eea\">EU, European Economic Area (EEA) or Switzerland&nbsp;– GOV.UK</a></li>\r\n\t<li>proof of your home address</li>\r\n\t<li>proof of any name changes (for example, a copy of a deed poll)</li>\r\n</ul>\r\n\r\n<h3>Additional documents you may need to bring</h3>\r\n\r\n<p>If either of you is divorced or was in a civil partnership that has been dissolved, you must bring:</p>\r\n\r\n<ul>\r\n\t<li>final divorce or dissolution document</li>\r\n\t<li>marriage or civil partnership certificate</li>\r\n\t<li>signed translation of any documents not in English</li>\r\n</ul>\r\n\r\n<h4>Foreign nationals wishing to marry in a Church of England</h4>\r\n\r\n<p>If you are a foreign national wishing to marry in a Church of England, you must bring a completed copy of the&nbsp;Church of England (COF) Approval Form&nbsp;to your Notice of Marriage appointment.</p>\r\n\r\n<h4>If you need us to check&nbsp;any foreign divorce papers</h4>\r\n\r\n<p>It costs £75 for us to check any foreign divorce papers.</p>\r\n\r\n<p>We recommend giving notice 3 months in advance of your planned wedding or civil partnership for the checks to be completed, payable on the day by debit or credit card only.</p>\r\n\r\n<h4>If either of you had a spouse or civil partner that died</h4>\r\n\r\n<p>You must bring:</p>\r\n\r\n<ul>\r\n\t<li>the marriage or civil partnership certificate</li>\r\n\t<li>the spouse or civil partner’s death certificate</li>\r\n</ul>\r\n\r\n<h4>If either of you has changed your name</h4>\r\n\r\n<p>You must bring official proof of the name change.</p>\r\n\r\n<h4>If either of you is under 18 years old</h4>\r\n\r\n<p>You must bring a completed&nbsp;parental consent form&nbsp;(PDF, 611KB).</p>\r\n\r\n<h4>If you're not a UK citizen but you are a citizen of an&nbsp;EEA&nbsp;country or Switzerland</h4>\r\n\r\n<p>You must bring your passport or national identity document.</p>\r\n\r\n<h2>If you or your partner is from outside the EEA or Switzerland</h2>\r\n\r\n<p>Giving notice costs £47 per person if either of you are from outside the&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/eu-eea\">European Economic Area (EEA) or Switzerland</a>&nbsp;and both of&nbsp;you:</p>\r\n\r\n<ul>\r\n\t<li>need a visa to live in the UK</li>\r\n\t<li>do not have a&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/marriage-visa\">Marriage or Civil Partnership Visitor visa</a>&nbsp;or a&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/uk-family-visa\">family visa</a></li>\r\n</ul>\r\n\r\n<p>You must provide a passport style photo of each person. This will go with your application to the Home Office.</p>\r\n\r\n<h3>What you need to do</h3>\r\n\r\n<p>You need to give notice together at&nbsp;Scarfolk Register Office&nbsp;or another&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/government/publications/designated-register-offices-in-england-and-wales\">designated register office</a>, even if you live in different districts.</p>\r\n\r\n<p>The immigration authorities at the Home Office will be told. If this happens you may need to wait up to 70 days before getting married or forming a civil partnership. You must bring a visa or permit proving your right to get married in the UK.</p>\r\n\r\n<p>Check your&nbsp;<a class=\"external-link\" href=\"https://www.gov.uk/marriages-civil-partnerships?step-by-step\">eligibility to get married or form a civil partnership</a>&nbsp;before booking your appointment.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Information you need to provide'
+  localgov_step_summary:
+    -
+      value: "<p>Documents and information you need to provide at your notice appointment.</p>\r\n"
+      format: wysiwyg

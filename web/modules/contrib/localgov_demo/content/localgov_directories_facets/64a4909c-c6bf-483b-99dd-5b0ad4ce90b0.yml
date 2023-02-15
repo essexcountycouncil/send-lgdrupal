@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: 64a4909c-c6bf-483b-99dd-5b0ad4ce90b0
+  bundle: organisation_type
+  default_langcode: en
+default:
+  title:
+    -
+      value: 'Government association'
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620222217
+  weight:
+    -
+      value: 0

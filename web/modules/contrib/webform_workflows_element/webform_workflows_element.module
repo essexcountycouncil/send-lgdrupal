@@ -1,0 +1,829 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Webform Workflows Element module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\Entity\WebformSubmission;
+use Drupal\webform\WebformSubmissionForm;
+use Drupal\webform\WebformSubmissionInterface;
+use Drupal\webform_workflows_element\Element\WebformWorkflowsElement;
+use Drupal\webform_workflows_element\WebformSubmissionWorkflowListBuilder;
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function webform_workflows_element_webform_submission_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  $account = Drupal::currentUser();
+  $webform = $entity->getWebform();
+
+  $workflow_elements = webform_workflows_element_get_available_elements($webform, $account);
+
+  if (count($workflow_elements) > 0 && webform_workflows_element_show_workflow_edit_form($entity)) {
+    $form = Drupal::service('entity.form_builder')->getForm($entity, 'edit');
+
+    $build = array_merge(
+      $build,
+      [
+        'form' => $form,
+      ],
+    );
+  }
+
+  if (webform_workflows_element_check_show_log('view', $entity)) {
+    $build = array_merge(
+      $build,
+      webform_workflows_element_get_rendered_log($entity),
+    );
+  }
+}
+
+/**
+ * Get workflow elements from form.
+ *
+ * @param Webform $webform
+ * @param AccountInterface $account
+ *
+ * @return array
+ */
+function webform_workflows_element_get_available_elements(Webform $webform, AccountInterface $account): array {
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+  $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+  foreach ($workflow_elements as $workflow_element_id => $workflow_element) {
+    if (!$workflowsManager->checkUserCanAccessElement($account, $webform, $workflow_element)) {
+      unset($workflow_elements[$workflow_element_id]);
+    }
+  }
+
+  return $workflow_elements;
+}
+
+/**
+ * Implements hook_webform_element_access().
+ */
+function webform_workflows_element_webform_element_access($operation, array &$element, AccountInterface $account = NULL, array $context = []) {
+  $accessProperty = '#access_' . $operation . '_workflow_enabled';
+
+  if (isset($element['#workflow'])) {
+    if (!isset($element[$accessProperty])) {
+      if ($operation == 'create') {
+        return AccessResult::forbidden();
+      }
+      return AccessResult::neutral();
+    }
+
+    if (!$element[$accessProperty]) {
+      return AccessResult::forbidden();
+    }
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Determine whether we are showing a minimal workflow edit form.
+ *
+ * @return bool
+ *   Whether to show the workflow edit form on the current page.
+ */
+function webform_workflows_element_show_workflow_edit_form(WebformSubmissionInterface $webform_submission): bool {
+  $currentRoute = Drupal::routeMatch()->getRouteName();
+  $onSubmissionViewPage = in_array($currentRoute, [
+    'entity.webform_submission.canonical',
+    'entity.node.webform_submission.canonical',
+    'entity.webform.user.submission',
+  ]);
+
+  $showForAnyElement = FALSE;
+  $account = Drupal::currentUser();
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+  $webform = $webform_submission->getWebform();
+  if ($webform) {
+    $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+    foreach ($workflow_elements as $element_id => $element) {
+      if (!isset($element['#show_workflow_form_on_view']) || $element['#show_workflow_form_on_view']) {
+        $hasAccess = $workflowsManager->checkUserCanAccessElement($account, $webform, $element);
+        if ($hasAccess) {
+          $submissionElement = $webform_submission->getElementData($element_id);
+          if ($submissionElement) {
+            $availableTransitions = WebformWorkflowsElement::getAvailableTransitions($submissionElement);
+          }
+          else {
+            $availableTransitions = WebformWorkflowsElement::getAvailableTransitions($element);
+          }
+
+          // If setting enabled, hide completely
+          if (count($availableTransitions) == 0 && isset($element['#hide_if_no_transitions']) && $element['#hide_if_no_transitions']) {
+            $showForAnyElement = FALSE;
+          }
+          else {
+            $showForAnyElement = TRUE;
+            break;
+          }
+        }
+      }
+    }
+  }
+  return $onSubmissionViewPage && $showForAnyElement;
+}
+
+/**
+ * Add JS for forms, modify workflow form, show editable workflow on submission
+ * view if enabled.
+ *
+ * @param mixed $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param mixed $form_id
+ */
+function webform_workflows_element_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Editing the workflow element itself:
+  if ($form_id == 'webform_ui_element_form') {
+    $form['#attached']['library'][] = 'webform_workflows_element/webform_workflows_element.edit_element';
+  }
+
+  // For the workflow edit form, show which workflows are used:
+  if ($form_id == 'workflow_edit_form') {
+    webform_workflows_element_add_webforms_to_workflow_edit($form, $form_state);
+    return;
+  }
+
+  // Get form object.
+  $form_object = $form_state->getFormObject();
+  if (!$form_object) {
+    return;
+  }
+
+  if (strpos($form_id, 'webform_submission') === 0
+    && $form_object instanceof WebformSubmissionForm) {
+
+    // Attach JS
+    $form['#attached']['library'][] = 'webform_workflows_element/webform_workflows_element.states';
+    $form['#attached']['library'][] = 'webform_workflows_element/webform_workflows_element.ui';
+
+    // Show the webform workflow as editable on the submission view:
+    if (!method_exists($form_object, 'getEntity')) {
+      return;
+    }
+    $webform_submission = $form_object->getEntity();
+    $reduceFormToWorkflowOnly = webform_workflows_element_show_workflow_edit_form($webform_submission);
+
+    if ($reduceFormToWorkflowOnly) {
+      $webform = Webform::load($form['#webform_id']);
+
+      $account = Drupal::currentUser();
+
+      $workflow_elements = webform_workflows_element_get_available_elements($webform, $account);
+
+      // If there are workflows this user can change:
+      if (count($workflow_elements) > 0) {
+        webform_workflows_element_reduce_form_to_workflow($form, $form_state, $workflow_elements);
+      }
+      else {
+        $form['#access'] = FALSE;
+      }
+    }
+  }
+}
+
+/**
+ * Turn a webform submission edit form into just a workflow edit form.
+ *
+ * @param array $form
+ *   Form array.
+ * @param array $workflow_elements
+ *   Array of any workflow elements on the form.
+ */
+function webform_workflows_element_reduce_form_to_workflow(array &$form, FormStateInterface $form_state, array $workflow_elements) {
+  // Remove all other elements, so it's just a workflow editor:
+  foreach ($form['elements'] as $elementId => $element) {
+    if (!in_array($elementId, array_keys($workflow_elements))) {
+      unset($form['elements'][$elementId]);
+    }
+  }
+  unset($form['navigation']);
+  unset($form['information']);
+  unset($form['progress']);
+  unset($form['actions']['cards_prev']);
+  unset($form['actions']['cards_next']);
+  unset($form['webform_message']);
+  unset($form['log_fieldset']);
+  unset($form['author']);
+  unset($form['required']);
+
+  // Rename button as it's only a workflow form:
+  $form['actions']['submit']['#value'] = t('Save workflow');
+
+  // @todo only show button if transition value changed:
+  // $form['actions']['submit']['#states'] = [
+  //   'visible' => [
+  //     ':input[name$="transition]"]' => ['!value' => ''],
+  //   ],
+  // ];
+
+  // If we are specifying a workflow element in the query string,
+  // hide others and rename action button:
+  if (Drupal::request()->query->get('workflow_element')) {
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+    foreach ($workflow_elements as $element_id => $workflow_element) {
+      // If an element is specified in the query string, hide any other workflow elements
+      if (
+        Drupal::request()->query->get('workflow_element') != $element_id
+      ) {
+        unset($form['elements'][$element_id]);
+        continue;
+      }
+
+      // Set button text to the transition name:
+      $preset_transition_id = Drupal::request()->query->get('transition');
+      $workflow_id = $form['elements'][$element_id]['#workflow'];
+      $workflowType = $workflowsManager->getWorkflowType($workflow_id);
+      if ($preset_transition_id && $workflowType && $transition = $workflowType->getTransition($preset_transition_id)) {
+        $form['actions']['submit']['#value'] = $transition->label();
+
+        // Setting the default transition from the query string is handled in:
+        // src/Element/WebformWorkflowsElement.php
+      }
+    }
+  }
+}
+
+/**
+ * Get a rendered table of which webforms use a specific workflow.
+ *
+ * This is shown on the workflow edit form.
+ *
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function webform_workflows_element_add_webforms_to_workflow_edit(array &$form, FormStateInterface $form_state) {
+
+  $workflow = $form_state->getFormObject()->getEntity();
+  $workflowType = $workflow->getTypePlugin();
+  if ($workflowType->getPluginId() != 'webform_workflows_element') {
+    return;
+  }
+
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+  $webformsWithWorkflows = $workflowsManager->getWebformsWithWorkflowElements($workflow->id());
+  $links = [];
+  foreach ($webformsWithWorkflows as $webform) {
+    $links[] = $webform->toLink()->toString();
+  }
+
+  $form['workflows_in_use'] = [
+    '#type' => 'details',
+    '#open' => TRUE,
+    '#title' => 'Webforms using this workflow',
+  ];
+
+  if (count($links) > 0) {
+    $form['workflows_in_use'][] = [
+      '#type' => 'markup',
+      '#markup' => '<ul><li>' . implode('</li><li>', $links) . '</li></ul>',
+    ];
+  }
+  else {
+    $form['workflows_in_use'][] = [
+      '#type' => 'markup',
+      '#markup' => t('No webforms use this workflow.'),
+    ];
+  }
+}
+
+/**
+ * Get a rendered log table of workflow events for a submission.
+ *
+ * @param WebformSubmission $webform_submission
+ *
+ * @return array
+ *
+ * @throws \Drupal\Core\Entity\EntityMalformedException
+ */
+function webform_workflows_element_get_rendered_log(WebformSubmission $webform_submission): ?array {
+  if (!Drupal::moduleHandler()->moduleExists('webform_submission_log')) {
+    return NULL;
+  }
+
+  $webform = NULL;
+  $source_entity = NULL;
+
+  // Entities.
+  if (empty($webform) && !empty($webform_submission)) {
+    $webform = $webform_submission->getWebform();
+  }
+  if (empty($source_entity) && !empty($webform_submission)) {
+    $source_entity = $webform_submission->getSourceEntity();
+  }
+  $webform_entity = $webform_submission ?: $webform;
+
+  // Header.
+  $header = [];
+  // $header['lid'] = ['data' => t('#'), 'field' => 'log.lid', 'sort' => 'desc'];
+  if (empty($webform)) {
+    $header['webform_id'] = [
+      'data' => t('Webform'),
+      'field' => 'log.webform_id',
+      'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+    ];
+  }
+  if (empty($webform_submission)) {
+    $header['sid'] = ['data' => t('Submission'), 'field' => 'log.sid'];
+  }
+  $header['timestamp'] = [
+    'data' => t('Date'),
+    'field' => 'log.timestamp',
+    'sort' => 'desc',
+    'class' => [RESPONSIVE_PRIORITY_LOW],
+  ];
+  $header['uid'] = [
+    'data' => t('User'),
+    'field' => 'user.name',
+    'class' => [RESPONSIVE_PRIORITY_LOW],
+  ];
+  $header['message'] = [
+    'data' => t('Message'),
+    'field' => 'log.message',
+    'class' => [RESPONSIVE_PRIORITY_LOW],
+  ];
+
+  // Query.
+  $options = ['header' => $header, 'limit' => 50];
+  $logs = Drupal::service(
+    'webform_submission_log.manager'
+  )->loadByEntities($webform_entity, $source_entity, NULL, $options);
+
+  // Rows.
+  $rows = [];
+  foreach ($logs as $log) {
+    if (!in_array($log->operation, [
+      'workflow status changed',
+      'submission created',
+    ])) {
+      continue;
+    }
+
+    $row = [];
+
+    // $row['lid'] = $log->lid;
+    if (empty($webform)) {
+      $log_webform = Webform::load($log->webform_id);
+      $row['webform_id'] = $log_webform->toLink($log_webform->label(), 'results-log');
+    }
+
+    if (empty($webform_submission)) {
+      if ($log->sid) {
+        $log_webform_submission = WebformSubmission::load($log->sid);
+        $row['sid'] = [
+          'data' => [
+            '#type' => 'link',
+            '#title' => $log->sid,
+            '#url' => Drupal::service('webform.request')
+              ->getUrl($log_webform_submission, $source_entity, 'webform_submission.log'),
+          ],
+        ];
+      }
+      else {
+        $row['sid'] = '';
+      }
+    }
+    $row['timestamp'] = Drupal::service('date.formatter')
+      ->format($log->timestamp, 'short');
+    $row['uid'] = [
+      'data' => [
+        '#theme' => 'username',
+        '#account' => User::load($log->uid),
+      ],
+    ];
+
+    if (isset($log->variables['@transition_id'])) {
+      // @todo nicer formatting for these logs using technical reference
+      $technicalRefs = explode(':', str_replace("Technical reference: ", "", $log->variables['@transition_id']));
+      $element_id = $technicalRefs[1];
+      $workflow_plugin_id = $technicalRefs[2];
+      $transition_id = $technicalRefs[3];
+      $new_state_id = str_replace(']', '', $technicalRefs[4]);
+      $old_state_id = isset($technicalRefs[5]) ? str_replace(']', '', $technicalRefs[5]) : '';
+
+      // In the meantime just hide the technical reference
+      $log->variables['@transition_id'] = '';
+    }
+
+    $message = new TranslatableMarkup($log->message, $log->variables);
+
+    $row['message'] = [
+      'data' => [
+        '#markup' => $message,
+      ],
+    ];
+
+    $rows[] = $row;
+  }
+
+  $build['table'] = [
+    '#type' => 'table',
+    '#header' => $header,
+    '#rows' => $rows,
+    '#sticky' => TRUE,
+    '#empty' => t('No log messages available.'),
+  ];
+
+  /* $build['pager'] = ['#type' => 'pager']; */
+
+  return [
+    'log_fieldset' => [
+      '#type' => 'details',
+      '#title' => t('Workflow log'),
+      '#weight' => -18,
+      'log' => [
+        '#type' => 'markup',
+        '#group' => 'log_fieldset',
+        '#markup' => Drupal::service('renderer')->render($build),
+      ],
+    ],
+
+  ];
+}
+
+/**
+ * Implements hook_webform_submission_form_alter().
+ */
+function webform_workflows_element_webform_submission_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\webform\WebformSubmissionForm $form_object */
+  $form_object = $form_state->getFormObject();
+
+  /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+  $webform_submission = $form_object->getEntity();
+
+  // Workflow log:
+  $editForm = strpos($form_id, '_add_form') === FALSE;
+  if ($editForm) {
+    $notCanonical = Drupal::routeMatch()
+        ->getRouteName() !== 'entity.webform_submission.canonical';
+    $enabledForForm = webform_workflows_element_check_show_log('edit', $webform_submission);
+    if ($notCanonical && $enabledForForm) {
+      $form = array_merge(
+        webform_workflows_element_get_rendered_log($webform_submission),
+        $form
+      );
+    }
+  }
+}
+
+/**
+ * Determine whether to show workflow log on page.
+ *
+ * @param string $operation
+ * @param WebformSubmissionInterface $webform_submission
+ *
+ * @return boolean
+ */
+function webform_workflows_element_check_show_log(string $operation, WebformSubmissionInterface $webform_submission) {
+
+  if (!Drupal::moduleHandler()->moduleExists('webform_submission_log')) {
+    return FALSE;
+  }
+
+  $account = Drupal::currentUser();
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+  $webform = $webform_submission->getWebform();
+  if ($webform) {
+    $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+    foreach ($workflow_elements as $element_id => $element) {
+      if (!isset($element['#show_log_' . $operation]) || $element['#show_log_' . $operation]) {
+        $hasAccess = $workflowsManager->checkUserCanAccessElement($account, $webform, $element);
+        if ($hasAccess) {
+          return TRUE;
+        }
+      }
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Add filter to results list builder per element
+ *
+ * @param mixed $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param mixed $form_id
+ */
+function webform_workflows_element_form_webform_submission_filter_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+  $webform = NULL;
+
+  $webform_id = Drupal::routeMatch()
+    ->getRawParameter('webform'); // There must be a better way to get the webform...
+  if ($webform_id) {
+    $webform = Webform::load($webform_id);
+  }
+  else {
+    if ($nid = Drupal::routeMatch()->getRawParameter('node')) {
+      if ($node = Node::load($nid)) {
+        /** @var \Drupal\webform\WebformEntityReferenceManagerInterface $entity_reference_manager */
+        $entity_reference_manager = Drupal::service('webform.entity_reference_manager');
+        // Check that the node has a webform field that has been populated.
+        $webform = $entity_reference_manager->getWebform($node);
+      }
+    }
+  }
+
+  if (!$webform) {
+    return;
+  }
+
+  $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+  $form_state->set('workflow_elements', $workflow_elements);
+
+  $colors = [];
+
+  foreach ($workflow_elements as $element_id => $element) {
+    $workflowType = $workflowsManager->getWorkflowType($element['#workflow']);
+    $states = $workflowType->getStates();
+    $options = ['' => ' - Any - '];
+    foreach ($states as $state) {
+      $options[$state->id()] = $state->label();
+    }
+    $colors = array_merge($colors, webform_workflows_element_get_colors_for_states($states, $element));
+
+    $form['filter']['workflow-' . $element_id] = [
+      '#type' => 'select',
+      '#title' => t($element['#title']),
+      '#title_display' => 'before',
+      '#options' => $options,
+      '#attributes' => [
+        'class' => ['webform_workflows_element_filter_states'],
+      ],
+      '#default_value' => Drupal::request()->query->get('workflow-' . $element_id),
+    ];
+
+    if (count($colors) > 0) {
+      $form['#attached']['library'][] = 'webform_workflows_element/default_colors';
+      $form['#attached']['library'][] = 'webform_workflows_element/webform_workflows_element.filters';
+      $form['#attached']['drupalSettings']['webform_workflows_element']['colors'] = $colors;
+    }
+  }
+
+  // Move buttons to end
+  $buttons = ['submit', 'reset'];
+  foreach ($buttons as $button_id) {
+    if (isset($form['filter'][$button_id])) {
+      $button = $form['filter'][$button_id];
+      unset($form['filter'][$button_id]);
+      $form['filter'][$button_id] = $button;
+    }
+  }
+
+  $form['#submit'][] = 'webform_workflows_element_webform_submission_filter_form_submit';
+}
+
+/**
+ * Add state as a query to list builder for results
+ *
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function webform_workflows_element_webform_submission_filter_form_submit(array $form, FormStateInterface $form_state) {
+  $redirect = $form_state->getRedirect();
+  $query = $redirect->getOptions()['query'];
+  foreach ($form_state->get('workflow_elements') as $element_id => $element) {
+    if ($form_state->getValue('workflow-' . $element_id)) {
+      $query['workflow-' . $element_id] = $form_state->getValue('workflow-' . $element_id);
+    }
+  }
+  $query = array_filter($query);
+  $form_state->setRedirect($redirect->getRouteName(), $redirect->getRouteParameters(), [
+    'query' => $query,
+  ]);
+}
+
+
+/**
+ * Make the change to workflow state after checking access.
+ *
+ * Also log it in webform logs.
+ *
+ * @param WebformSubmission $webform_submission
+ */
+function webform_workflows_element_webform_submission_presave(WebformSubmission $webform_submission) {
+  $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+  $webform = $webform_submission->getWebform();
+  $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+  foreach ($workflow_elements as $element_id => $element) {
+    // Run the transition:
+    $newData = $workflowsManager->runTransitionOnElementValue($element, $element_id, $webform_submission);
+
+    // If data is returned, it's a valid transition to run:
+    if ($newData) {
+      // Save data to the element:
+      $webform_submission->setElementData($element_id, $newData);
+
+      // Log if necessary:
+      $workflowsManager->logTransition($element, $element_id, $webform_submission, $newData);
+    }
+  }
+}
+
+/**
+ * Add list builder class to make filterable by state.
+ *
+ * @param array $entity_types
+ *   Array of entity types, by reference.
+ */
+function webform_workflows_element_entity_type_alter(array &$entity_types) {
+  $entity_types['webform_submission']->setHandlerClass('list_builder', WebformSubmissionWorkflowListBuilder::class);
+}
+
+/**
+ * Implements hook_webform_submission_access().
+ *
+ *
+ */
+function webform_workflows_element_webform_submission_access(WebformSubmissionInterface $webform_submission, $operation, AccountInterface $account) {
+  // Allow access to edit submissions if at certain workflow states:
+  // Set on access tab of workflow element.
+  if ($operation == 'update') {
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
+    $webform = $webform_submission->getWebform();
+    $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($webform);
+
+    // Ignore if no workflow elements.
+    if (count($workflow_elements) == 0) {
+      return AccessResult::neutral();
+    }
+
+    // By default, we don't have an opinion.
+    $newAccess = AccessResult::neutral();
+
+    // For each element, check if there's a status that allows this:
+    foreach ($workflow_elements as $workflow_element_id => $workflow_element) {
+      $state_id = NULL;
+
+      // Get current state ID:
+      $workflow_data = $webform_submission->getElementData($workflow_element_id);
+      if (isset($workflow_data['workflow_state']) && $workflow_data['workflow_state']) {
+        $state_id = $workflow_data['workflow_state'];
+      }
+      elseif ($initial_state = $workflowsManager->getInitialStateForElement($workflow_element)) {
+        $state_id = $initial_state->id();
+      }
+
+      // Check if any access based on state:
+      if ($state_id) {
+        $newAccess = $workflowsManager->checkAccessToUpdateBasedOnState($account, $webform_submission, $workflow_element, $state_id);
+
+        // With multiple workflow elements, take the first clear opinion on access.
+        if (!$newAccess->isNeutral()) {
+          return $newAccess;
+        }
+      }
+    }
+    return $newAccess;
+  }
+
+  return AccessResult::neutral();
+}
+
+/* ************************************************************************** */
+// Theme hooks.
+/* ************************************************************************** */
+
+/**
+ * Implements hook_theme().
+ */
+function webform_workflows_element_theme(): array {
+  return [
+    'webform_workflows_element_value' => [
+      'variables' => [
+        'element' => NULL,
+        'values' => NULL,
+        'color_class' => NULL,
+      ],
+    ],
+    'webform_handler_workflows_transition_email_summary' => [
+      'variables' => [
+        'settings' => NULL,
+        'handler' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Add variables for template when displaying value of workflow element.
+ *
+ * @param array $variables
+ *   Variables from theme, by reference.
+ *
+ * @see webform-workflows-element-value.html.twig
+ */
+function template_preprocess_webform_workflows_element_value(array &$variables) {
+  // Provide colour class:
+  $color_css = webform_workflows_element_get_color_class_for_state_from_element($variables['element'], $variables['values']['workflow_state']);
+  if ($color_css) {
+    $variables['color_class'] = 'with-color ' . $color_css;
+  }
+
+  $changedUser = isset($variables['values']['changed_user']) ? User::load($variables['values']['changed_user']) : NULL;
+  $variables['values']['changed_user_name'] = $changedUser ? $changedUser->getDisplayName() : NULL;
+}
+
+/**
+ * Get options for select dropdown of colors.
+ *
+ * We store the name as that's what the user saw to choose;
+ * the class may change but "red" should stay meaning "red".
+ *
+ * @return array|null
+ *   Array of names also keyed by name.
+ */
+function webform_workflows_element_get_color_options(): ?array {
+  $options = [];
+  $values = webform_workflows_element_get_color_options_values();
+  if ($values) {
+    foreach ($values as $name => $class) {
+      $options[$name] = $name;
+    }
+  }
+  return $options;
+}
+
+/**
+ * Load available color classes for webforms.
+ *
+ * @return array|null
+ *   Array of classes keyed by name
+ * @see WebformAdminConfigWorkflowsForm
+ *
+ * @see webform_workflows_element.settings.schema.yml
+ */
+function webform_workflows_element_get_color_options_values(): ?array {
+  $config = Drupal::config('webform_workflows_element.settings');
+  if ($colors = $config->get('ui.color_options')) {
+    $color_options = [];
+    $colors = str_replace(["\r", "\n", "\n\n"], "\n", $colors);
+    $lines = explode("\n", $colors);
+    foreach ($lines as $line) {
+      $values = explode('|', $line);
+      $color_options[$values[0]] = $values[1];
+    }
+    return $color_options;
+  }
+  return NULL;
+}
+
+function webform_workflows_element_get_colors_for_states(array $states, $workflowElement): array {
+  $colors = [];
+
+  foreach ($states as $state) {
+    if (isset($workflowElement['#state_' . $state->id() . '_color'])) {
+      $color_name = $workflowElement['#state_' . $state->id() . '_color'];
+      $color_options = webform_workflows_element_get_color_options_values();
+      $class = $color_options[$color_name];
+      $colors[$state->id()] = $class;
+      $colors[$state->label()] = $class;
+    }
+  }
+  return $colors;
+}
+
+/**
+ * Return CSS class for a state in an element.
+ *
+ * @param mixed $element
+ * @param mixed $state_id
+ *
+ * @return string
+ *   CSS class. Make sure it is always applied with the additional 'with-color'
+ *   class.
+ */
+function webform_workflows_element_get_color_class_for_state_from_element($element, $state_id): ?string {
+  if (isset($element['#state_' . $state_id . '_color']) && $color_name = $element['#state_' . $state_id . '_color']) {
+    $options = webform_workflows_element_get_color_options_values();
+    return $options[$color_name];
+  }
+  return NULL;
+}

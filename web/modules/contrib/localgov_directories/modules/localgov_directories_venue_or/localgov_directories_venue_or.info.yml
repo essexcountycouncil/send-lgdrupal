@@ -1,0 +1,12 @@
+name: 'LocalGov Directories: Venue - Open Referral'
+type: module
+description: 'EXPERIMENTAL - Make venue directory entries Open Referral services, give existing Venues an Organization.'
+package: LocalGov Drupal (Experimental)
+core: 8.x
+core_version_requirement: ^8 || ^9
+experimental: true
+dependencies:
+  - localgov_directories:localgov_directories_venue
+  - localgov_directories:localgov_directories_org
+  - localgov_directories:localgov_directories_or
+  - localgov_openreferral:localgov_openreferral

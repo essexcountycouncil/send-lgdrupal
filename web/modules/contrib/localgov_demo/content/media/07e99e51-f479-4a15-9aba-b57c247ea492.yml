@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 07e99e51-f479-4a15-9aba-b57c247ea492
+  bundle: image
+  default_langcode: en
+  depends:
+    4105a024-4f95-4c64-86a1-717a810b7a31: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: ben-clayton-3giNvjzadgw-unsplash.jpg
+  created:
+    -
+      value: 1631885784
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 4105a024-4f95-4c64-86a1-717a810b7a31
+      alt: 'Cumbria landscape'
+      title: ''
+      width: 4032
+      height: 3024

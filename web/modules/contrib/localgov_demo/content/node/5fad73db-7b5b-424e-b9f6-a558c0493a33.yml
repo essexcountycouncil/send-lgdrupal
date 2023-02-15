@@ -1,0 +1,191 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 5fad73db-7b5b-424e-b9f6-a558c0493a33
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    6e36cf1c-6d7d-4f08-9812-2035ef679d03: media
+    b9f331dc-ad91-4adc-bd8c-5bc50ffdb28d: media
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Test pages with documents'
+  created:
+    -
+      value: 1620400142
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/test-pages-documents
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d29ebcfe-6ba1-4636-9550-da8c438f3c22
+          bundle: localgov_banner_secondary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400533
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c082ed7b-52ab-4000-9699-4ba2db89a491
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400153
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 9127d1cb-4fc5-4dff-92bf-b7d90889023d
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400188
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: c082ed7b-52ab-4000-9699-4ba2db89a491
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>\r\n\r\n<p>Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta.</p>\r\n\r\n<p>Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec rutrum congue leo eget malesuada.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 7d71dc0c-5851-41ee-baf6-9563a9b8bef8
+          bundle: localgov_documents
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400165
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: c082ed7b-52ab-4000-9699-4ba2db89a491
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_documents:
+            -
+              entity: b9f331dc-ad91-4adc-bd8c-5bc50ffdb28d
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 39c33aa2-335b-43fc-86a1-a2e1f83d0302
+          bundle: localgov_documents
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620400177
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: c082ed7b-52ab-4000-9699-4ba2db89a491
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_documents:
+            -
+              entity: b9f331dc-ad91-4adc-bd8c-5bc50ffdb28d
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0

@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the localgov_demo module.
+ */
+
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_demo_install() {
+
+  // Enable area geo bundle in directory venue content type..
+  $localgov_directories_venue_config = \Drupal::service('config.factory')->getEditable('field.field.node.localgov_directories_venue.localgov_location');
+  $localgov_directories_venue_config->set('settings.handler_settings.target_bundles.area', 'area');
+  $localgov_directories_venue_config->save();
+
+  // Set demo front page.
+  $system_site = \Drupal::configFactory()->getEditable('system.site');
+  $system_site->set('page.front', '/localgov-drupal-demo');
+  $system_site->save();
+
+  // Disable unwanted blocks from localgov_base and localgov_scarfolk.
+  $blocks_to_disable = [
+    'block.block.views_block__services_block_service_list_base',
+    'block.block.views_block__services_block_service_list_scarfolk',
+    'block.block.localgov_home_welcome_block_base',
+    'block.block.localgov_home_welcome_block_scarfolk',
+  ];
+  foreach ($blocks_to_disable as $block_id) {
+    // Load block and set disabled.
+    $services_home_block = \Drupal::configFactory()->getEditable($block_id);
+    $services_home_block->set('region', 'disabled');
+    $services_home_block->save();
+  }
+
+  // Set weight of localgov_alert_banner block to float up above the banner.
+  $alert_banner_block = \Drupal::configFactory()->getEditable('block.block.localgov_alert_banner');
+  $alert_banner_block->set('weight', '-10');
+  $alert_banner_block->save();
+
+  // Create a link to Docs.
+  $news_menu_item = MenuLinkContent::create([
+    'title' => 'Docs',
+    'link' => ['uri' => 'https://localgovdrupal.org/'],
+    'menu_name' => 'main',
+    'expanded' => FALSE,
+  ]);
+  $news_menu_item->save();
+  // Create a link to GitHub.
+  $events_menu_item = MenuLinkContent::create([
+    'title' => 'GitHub',
+    'link' => ['uri' => 'https://github.com/localgovdrupal/'],
+    'menu_name' => 'main',
+    'expanded' => FALSE,
+  ]);
+  $events_menu_item->save();
+
+}

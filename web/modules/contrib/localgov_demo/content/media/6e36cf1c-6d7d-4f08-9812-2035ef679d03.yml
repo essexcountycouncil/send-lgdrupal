@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 6e36cf1c-6d7d-4f08-9812-2035ef679d03
+  bundle: image
+  default_langcode: en
+  depends:
+    14f342b9-d4b8-4911-821c-77d55df1f746: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: hansjorg-keller-p7av1ZhKGBQ-unsplash.jpg
+  created:
+    -
+      value: 1631885243
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 14f342b9-d4b8-4911-821c-77d55df1f746
+      alt: 'Council seats'
+      title: ''
+      width: 4592
+      height: 3448

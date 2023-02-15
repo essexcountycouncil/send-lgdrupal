@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 0b18ab71-6022-4b4e-86ee-58f520c677c1
+  bundle: image
+  default_langcode: en
+  depends:
+    a8c1d7b7-416a-45eb-875d-d5a887fcbab4: file
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'London Bridge'
+  created:
+    -
+      value: 1631268607
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: a8c1d7b7-416a-45eb-875d-d5a887fcbab4
+      alt: 'London Bridge at sunset, via unsplash'
+      title: ''
+      width: 1500
+      height: 1169

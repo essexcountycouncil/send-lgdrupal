@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: c0676f68-b06d-4674-89be-09bc1de1fdf5
+  bundle: type_of_support
+  default_langcode: en
+default:
+  title:
+    -
+      value: 'Health and wellbeing'
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620143515
+  weight:
+    -
+      value: 0

@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme implementation for a file link.
+ *
+ * Among other places, this is used by the "Generic file" field formatter.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - file_size: The size of the file.
+ * - file_type: This is the second part of the mimetype e.g. a mimetype of
+ *   "application/pdf" leads to a file type of "pdf".
+ *
+ * Example output markup:
+ * <span><a href="https://example.net/files/foo.pdf">Foo</a></span>
+ * <span class="file-meta">(<span class="file-type">PDF</span><span class="file-size">12.9KB</span>)</span>
+ *
+ * @see template_preprocess_file_link()
+ * @see localgov_theme_croydon_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+<span{{ attributes }}>
+  {{ link }}
+</span>

@@ -1,0 +1,11 @@
+type: module
+name: 'Responsive Preview'
+description: 'Provides a component that previews a page in various device dimensions.'
+package: User interface
+core_version_requirement: ^8.8 || ^9
+configure: entity.responsive_preview_device.collection
+
+# Information added by Drupal.org packaging script on 2021-10-27
+version: '8.x-1.1'
+project: 'responsive_preview'
+datestamp: 1635325846

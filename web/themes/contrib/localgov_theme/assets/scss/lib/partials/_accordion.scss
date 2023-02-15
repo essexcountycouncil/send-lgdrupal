@@ -1,0 +1,55 @@
+//ACCORDION VANILLA
+.accordionWrapper {
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 0;
+  }
+}
+
+.accordionItemHeading {
+  cursor: pointer;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  background: $accordion-background-highlight;
+  color: $white;
+
+  a,
+  a:hover,
+  a:visited,
+  a:visited:hover,
+  a:visited .fa,
+  a:visited:hover .fa {
+    color: $white !important;
+    text-decoration: none !important;
+  }
+
+  a {
+    .fa {
+      font-size: $font-size-ex-med;
+      color: $white;
+      padding-left: 0;
+      padding-right: 0.625rem;
+    }
+  }
+}
+
+.accordionItem {
+  overflow: hidden;
+  margin-bottom: 0.625rem !important;
+}
+
+.close .accordionItemContent {
+  float: left;
+  display: none;
+}
+
+.open .accordionItemContent,
+.open .accordionItemContent:focus-within {
+  display: block;
+}
+
+.open .accordionItemHeading {
+  margin: 0;
+  background-color: $accordion-background;
+  color: $white;
+}

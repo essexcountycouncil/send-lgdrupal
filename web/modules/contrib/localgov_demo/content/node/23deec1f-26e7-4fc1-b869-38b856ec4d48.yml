@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 23deec1f-26e7-4fc1-b869-38b856ec4d48
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Book your ceremony and registrar'
+  created:
+    -
+      value: 1620398971
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-0
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Your choice of room may&nbsp;no longer have the same seating capacity as before due to restrictions. If you are choosing another venue, you&nbsp;will need to contact them&nbsp;to find out what restrictions are in place. For more information and updates, read&nbsp;<a href=\"https://www.gov.uk/government/publications/covid-19-guidance-for-small-marriages-and-civil-partnerships/covid-19-guidance-for-small-marriages-and-civil-partnerships\">GOV.UK's guidance on&nbsp;small marriages and civil partnerships</a>.</p>\r\n\r\n<p>For your ceremony, you will need to book a registrar and a ceremony room. Ceremony rooms are available at approved venues and council-owned locations, whilst registrars need to be booked via the Register Office.&nbsp;</p>\r\n\r\n<h2>Book one of our ceremony rooms</h2>\r\n\r\n<p>Our offices are located in the beautiful Town Hall, a Grade II listed building built in 1895. It has retained many of its original features. We are opposite&nbsp;<a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"288a79a9-510b-4973-ab8b-205f31f25505\" href=\"https://www.croydon.gov.uk/wedding-and-civil-partnership-venues/queens-gardens\">Queen's Gardens</a>&nbsp;–&nbsp;an ideal place for memorable photographs.</p>\r\n\r\n<p>We have 3 ceremony rooms available for weddings and civil partnership ceremonies.</p>\r\n\r\n<p>View our ceremony rooms</p>\r\n\r\n<h3>How to book</h3>\r\n\r\n<p>To book a registrar and room, emailing the Marriage Enquires team with details of:</p>\r\n\r\n<ul>\r\n\t<li>which room you want to use</li>\r\n\t<li>date and time of the ceremony</li>\r\n\t<li>name of bride and groom or partners</li>\r\n</ul>\r\n\r\n<p>Email: <a href=\"mailto:example@example.com\">example@example.com</a></p>\r\n\r\n<p>We will email you within 10 days to confirm your provisional booking with a booking form, which you must return by post with a cheque or postal order for £100 for your deposit. You can also visit the&nbsp;Register Office&nbsp;in person and pay by credit card.</p>\r\n\r\n<p>Once your booking form and payment are received we will send you a confirmation email, containing a marriage pack with details of your choice of ceremonies and details of the remaining payment schedule.</p>\r\n\r\n<h2>Book an approved venue&nbsp;in Scarfolk</h2>\r\n\r\n<p>If you have your ceremony at an approved venue in Scarfolk, you must book our registrars to attend. You must give us at least 29 days notice before your ceremony to book a registrar.</p>\r\n\r\n<p>Contact the venues to discuss your requirements and make a booking.</p>\r\n\r\n<p>Find an approved ceremony venue</p>\r\n\r\n<h3>1. Check a registrar is available</h3>\r\n\r\n<p>You will need to email the Marriage Enquires team to&nbsp;check we have registrars available before you book your ceremony. Our registrars can attend weekday and weekend ceremonies.</p>\r\n\r\n<p>Email:&nbsp;<a href=\"mailto:example@example.com\">example@example.com</a></p>\r\n\r\n<h3>2. Book a registrar</h3>\r\n\r\n<p>After we have confirmed our availability you can book a register by emailing the Marriage Enquires&nbsp;with the following information:</p>\r\n\r\n<ul>\r\n\t<li>name of venue</li>\r\n\t<li>date and time of the ceremony</li>\r\n\t<li>name of bride and groom or partners</li>\r\n</ul>\r\n\r\n<p>Email:&nbsp;example@example.com</p>\r\n\r\n<p>We will provisionally book the registrars for your chosen date. We will send you a registrar booking form, which you must return within 10 days. You can send it by post with a cheque or postal order for £100 for your deposit,&nbsp;or you can visit the&nbsp;Register Office&nbsp;in person and pay by credit card.</p>\r\n\r\n<h3>Registrar fees</h3>\r\n\r\n<p>Our fees are for registrars and 2 marriage or civil partnership certificates.</p>\r\n\r\n<p>Ceremonies after 5pm cost 25% more:</p>\r\n\r\n<ul>\r\n\t<li>Monday to Friday – £400</li>\r\n\t<li>Saturday – £520</li>\r\n\t<li>Sunday – £575</li>\r\n\t<li>bank holiday – £575</li>\r\n\t<li>Easter Sunday – £630</li>\r\n\t<li>New Year’s day – £630</li>\r\n\t<li>change the venue, date or time of your booking – £35</li>\r\n</ul>\r\n\r\n<p><strong>From 1 April 2021</strong></p>\r\n\r\n<ul>\r\n\t<li>Monday to Friday – £490</li>\r\n\t<li>Saturday – £642.40</li>\r\n\t<li>Sunday – £709.60</li>\r\n\t<li>bank holiday – £709.60</li>\r\n\t<li>Easter Sunday – £782.80</li>\r\n\t<li>New Year’s Day – £782.80</li>\r\n\t<li>change the venue, date or time of your booking – £43.20</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Book your ceremony and registrar'
+  localgov_step_summary:
+    -
+      value: "<p>Find out how to book Scarfolk Register Office or an approved venue&nbsp;for your ceremony.</p>\r\n"
+      format: wysiwyg

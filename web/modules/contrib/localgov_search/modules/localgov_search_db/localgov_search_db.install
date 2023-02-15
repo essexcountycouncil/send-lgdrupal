@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains localgov_search_db.install.
+ */
+
+use Drupal\search_api\Entity\Index;
+use Drupal\search_api\Entity\Server;
+use Drupal\Component\Serialization\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_search_db_install($is_syncing) {
+  if (
+    !$is_syncing &&
+    ($index = Index::load('localgov_sitewide_search')) &&
+    ($index->getServerId() == '')
+  ) {
+    $server = Server::load('localgov_sitewide_search');
+    $module_path = \Drupal::service('extension.list.module')->getPath('localgov_search_db');
+    $index_config = Yaml::decode(file_get_contents($module_path . '/config/conditional/search_api.index.localgov_sitewide_search.yml'));
+    $new_config_index = Index::create($index_config);
+    $index->setProcessors($new_config_index->getProcessors());
+    $index->setServer($server);
+    $index->setStatus(TRUE);
+    $index->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function localgov_search_db_uninstall($is_syncing) {
+  if (
+    !$is_syncing &&
+    ($index = Index::load('localgov_sitewide_search')) &&
+    ($index->getServerId() == 'localgov_sitewide_search')
+  ) {
+    $index->setServer(NULL);
+    $index->setStatus(FALSE);
+    $index->save();
+  }
+}

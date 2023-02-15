@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * No_autocomplete.module.
+ *
+ * This module adds the autocomplete=off attribute to selected key user forms.
+ * On a browser that respects this setting, it means that the browser will not
+ * try to autocomplete the password on the user login forms.
+ *
+ * Many browsers, including current Chrome as of this writing and LastPass
+ * do not respect this setting. But it can
+ * 1. Offer some security on the login form
+ * 2. Prevent naive users from getting the browser-fill on the first password
+ *    form and not the second, making them angry and confused.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Cache\Cache;
+
+/**
+ * Implements hook_help().
+ */
+function no_autocomplete_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help.
+    case 'help.page.no_autocomplete':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The No Autocomplete module adds the autocomplete=off attribute to selected key user forms. On a browser that respects this setting, it means that the browser will not try to autocomplete the password on the user login forms.') . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Configuring the module') . '</dt>';
+      $output .= '<dd>' . t("To configure the module visit the <a href=':config-page'>No Autocomplete</a> page, <em>check</em> which feature you'd like to enable and save the configuration. For this you need the <em>Administer No Autocomplete</em> permission.", [':config-page' => Url::fromRoute('no_autocomplete.admin_settings_form')->toString()]) . '</dd>';
+      $output .= '</dl>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Turn off autocomplete on key forms.
+ */
+function no_autocomplete_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Adding cache tags.
+  $form['name']['#cache']['keys'][] = 'no_autocomplete';
+  $form['name']['#cache']['tags'] = Cache::mergeTags(['config:no_autocomplete.settings']);
+
+  // Add to the user_login.
+  if (\Drupal::service('config.factory')->get('no_autocomplete.settings')->get('no_autocomplete_login_form')) {
+    $form['pass']['#attributes']['autocomplete'] = 'off';
+  }
+}

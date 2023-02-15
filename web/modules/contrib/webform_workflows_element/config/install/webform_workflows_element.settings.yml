@@ -1,0 +1,36 @@
+ui:
+  color_options: "Blue|webform-workflow-color-blue\r\nGrey|webform-workflow-color-grey\r\nGreen|webform-workflow-color-green\r\nRed|webform-workflow-color-red\r\nOrange|webform-workflow-color-orange\r\nYellow|webform-workflow-color-yellow\r\nPurple|webform-workflow-color-purple\r\nBlack|webform-workflow-color-black\r\nWhite|webform-workflow-color-white"
+mail:
+  default_body_text: |
+    The submission has been changed to: [webform_submission:values:workflow:workflow_state_label].
+
+    [webform_submission:values:workflow:log_public]
+
+    ***
+
+    View submission at [webform_submission:url:canonical]
+
+    Submitted on [webform_submission:created]
+
+    Submitted by: [webform_submission:user]
+
+    Submitted values are:
+
+    [webform_submission:values]
+
+  default_body_html: |
+    <p>The submission has been changed to: [webform_submission:values:workflow:workflow_state_label].</p>
+
+    <p><em>[webform_submission:values:workflow:log_public]</em></p>
+
+    <hr />
+
+    <p>View submission at <a href="[webform_submission:url:canonical]">[webform_submission:url:canonical]</a></p>
+
+    <p>Submitted on [webform_submission:created]</p>
+
+    <p>Submitted by: [webform_submission:user]</p>
+
+    <p>Submitted values are:</p>
+
+    <p>[webform_submission:values]</p>

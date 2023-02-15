@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 60eb9ad1-7590-4109-a591-94466cb937b8
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an ''events listing'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631892455
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-20--fe5d8d14891bc799145f6530a67ff67c86f97c47
+  short_description:
+    -
+      value: "<p>This page shows all the active 'event' pages on the site, and cannot be directly edited. It has built in search and filtering options.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: /events
+          negate: '0'

@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 67331e44-0173-4faf-a666-11a343bbd28f
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an ''Event'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631892701
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-21--4a6d9852bbc2244ff073e93bfd61a30d9dc5e820
+  short_description:
+    -
+      value: "<p>Add a 'event' to show events run by your council or other local groups. Each can include a location (using the same Geo module as directories), recurring dates, categories and a call to action. The categories are available as filtering options on the 'event listing' page above.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/events/st-patricks-festival\r\n/events/sports-player-year-awards-2022\r\n/events/localgovdrupal-product-group-meetup\r\n/events/localgovdrupal-technical-group-meetup\r\n/events/hogmanay-2021"
+          negate: '0'

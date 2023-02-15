@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 3e428925-c55a-4da9-905b-684865840764
+  bundle: image
+  default_langcode: en
+  depends:
+    69a444e1-46be-45c0-97d3-8a30ccd98a0d: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: hansjorg-keller-CQqyv5uldW4-unsplash.jpg
+  created:
+    -
+      value: 1631885335
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 69a444e1-46be-45c0-97d3-8a30ccd98a0d
+      alt: 'council room'
+      title: ''
+      width: 4328
+      height: 3250

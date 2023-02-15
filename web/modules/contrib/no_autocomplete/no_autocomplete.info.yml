@@ -1,0 +1,12 @@
+name: No Autocomplete
+description: No browser autocomplete in key user forms.
+
+type: module
+core_version_requirement: ^8.7.7 || ^9.0
+
+configure: no_autocomplete.admin_settings_form
+
+# Information added by Drupal.org packaging script on 2021-06-02
+version: '8.x-1.6'
+project: 'no_autocomplete'
+datestamp: 1622643642

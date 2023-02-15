@@ -1,0 +1,7 @@
+field.formatter.settings.link_node_reference:
+  type: mapping
+  label: 'Link Node Reference view mode option'
+  mapping:
+    text_length:
+      type: string
+      label: "View Mode"

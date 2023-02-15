@@ -1,0 +1,110 @@
+{#
+/**
+ * @file
+ * Default node template for localgov_services_landing pages.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'row',
+    'servicehub--contact'
+  ]
+%}
+
+{% if content.localgov_destinations %}
+<section class="container-fluid site-max servicehub--more">
+  {{ content.localgov_destinations }}
+</section>
+{% endif %}
+
+{% if service_updates %}
+{{ service_updates }}
+{% endif %}
+
+<div class="container-fluid site-max">
+  <article{{ attributes.addClass(classes) }}>
+
+    {% if content.localgov_email_address|render or content.localgov_address|render or content.localgov_opening_hours|render or content.localgov_phone|render %}
+    <div class="col-md-8">
+      <div class="contact-container">
+        <div class="contact-top">
+          <h2>Contact this service</h2>
+          <div class="row">
+
+            <div class="col-sm-6">
+              <ul>
+                {% if content.localgov_email_address|render %}
+                <li>
+                  <span class="fa fa-envelope"></span>
+                  <a href="mailto:{{ content.localgov_email_address|render|striptags }}">Send us a message</a>
+                </li>
+                {% endif %}
+
+                {% if content.localgov_phone|render|striptags %}
+                <li>
+                  <span class="fa fa-phone"></span>
+                  {{ content.localgov_phone|render|striptags }}
+                </li>
+                {% endif %}
+              </ul>
+
+              {% if content.localgov_opening_hours|render %}
+              <p class="opening-times">
+                <h3>Opening times</h3>
+                {{ content.localgov_opening_hours }}
+              </p>
+              {% endif %}
+            </div>
+
+            <div class="col-sm-6">
+              {% if content.localgov_address_first_line %}
+              <span class="contact-title"><i class="fa fa-map-marker-alt" aria-hidden="true"></i>{{ content.localgov_address_first_line }}</span>
+              {% endif %}
+              {% if content.localgov_address %}
+              <div class="contact-address">
+                {{ content.localgov_address }}
+                {% if content.localgov_link_to_map|render|striptags %}
+                <a href="{{ content.localgov_link_to_map|render|striptags }}" class="external-link" target="_blank">View map</a>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+        {% if content.localgov_facebook|render or content.localgov_twitter|render or content.localgov_hearing_difficulties_ph|render %}
+        <div class="contact-bottom">
+          {% if content.localgov_facebook|render or content.localgov_twitter|render %}
+          <ul>
+            <li>Find us on</li>
+            {% if content.localgov_facebook|render %}<li><i class="fab fa-facebook-square" aria-hidden="true"></i><a href="{{ content.localgov_facebook|render|striptags }}">Facebook</a></li>{% endif %}
+            {% if content.localgov_twitter|render %}<li><i class="fab fa-twitter-square" aria-hidden="true"></i><a href="{{ content.localgov_twitter|render|striptags }}">Twitter</a></li>{% endif %}
+          </ul>
+          {% endif %}
+          {% if content.localgov_hearing_difficulties_ph %}
+          <p>If you have hearing or speech difficulties, please call <strong>{{ content.localgov_hearing_difficulties_ph }}</strong></p>
+          {% endif %}
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+    {% endif %}
+
+    {% if content.localgov_popular_topics['#items'] is not empty %}
+    <div class="sidebar col-sm-4">
+      <div class="section">
+        {{ content.localgov_popular_topics }}
+      </div>
+    </div>
+    {% endif %}
+
+  </article>
+</div>

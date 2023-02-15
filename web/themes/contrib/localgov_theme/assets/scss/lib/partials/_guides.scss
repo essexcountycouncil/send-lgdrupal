@@ -1,0 +1,38 @@
+// Links used to navigate between guide pages
+.localgov_guides--navigation {
+  a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+
+    span {
+      position: absolute;
+
+      @include rem(top, 14);
+    }
+
+    &.localgov_guides--next {
+      text-align: right;
+
+      @include rem(padding-right, 34);
+
+      span {
+        @include rem(right, 7);
+      }
+    }
+
+    &.localgov_guides--previous {
+      text-align: left;
+
+      @include rem(padding-left, 34);
+
+      span {
+        @include rem(left, 7);
+      }
+    }
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+}

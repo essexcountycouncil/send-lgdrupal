@@ -1,0 +1,88 @@
+/**
+ * @file
+ * Style rules for alert banners
+ */
+
+/* Default */
+.localgov-alert-banner {
+  background-color: #00856A;
+}
+
+.localgov-alert-banner,
+.localgov-alert-banner a {
+  color: #fefefe;
+}
+
+/* Reset the title colour as some themes assign a colour to h2.
+   Also reset the body text colour as Olivero assigns a colour 
+   to .text-content. */
+.localgov-alert-banner .localgov-alert-banner__title,
+.localgov-alert-banner .text-content {
+  color: inherit;
+}
+
+.localgov-alert-banner__close {
+  padding: .5rem .9375rem;
+  line-height: 1.5;
+  border: 1px solid #fff;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0;
+  color: #fff;
+  background-color: transparent;
+}
+
+.localgov-alert-banner--minor .localgov-alert-banner__close {
+  color: #0b0c0c;
+  border-color: #0b0c0c;
+}
+
+.localgov-alert-banner__close:focus,
+.localgov-alert-banner__close:hover {
+  text-decoration: underline;
+  background-color: #fff;
+  border-color: #fff;
+  color: #0b0c0c;
+}
+
+/* Announcement */
+.localgov-alert-banner--announcement {
+  background-color: #00856A;
+}
+
+/* Minor */
+.localgov-alert-banner--minor {
+  background-color: #fc3;
+  color: #121212;
+}
+.localgov-alert-banner--minor a {
+  color: #121212;
+}
+
+/* Major */
+.localgov-alert-banner--major {
+  background-color: #C00010;
+}
+
+/* Death of a notable person */
+.localgov-alert-banner--notable-person {
+  background-color: #000;
+}
+
+.localgov-alert-banner__wrapper {
+  max-width: 73.125rem;
+  margin: 0 auto;
+}
+
+.localgov-alert-banner__inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0.9375rem;
+  padding: 0.625rem 0;
+}
+
+.localgov-alert-banner__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

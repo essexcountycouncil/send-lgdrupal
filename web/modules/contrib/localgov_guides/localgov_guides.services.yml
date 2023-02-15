@@ -1,0 +1,6 @@
+services:
+  # Alter page header.
+  localgov_guides.page_header:
+    class: Drupal\localgov_guides\EventSubscriber\PageHeaderSubscriber
+    tags:
+      - { name: 'event_subscriber' }

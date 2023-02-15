@@ -1,0 +1,59 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f8066c54-cdd4-42c5-bf25-8720757c410b
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    b60200f9-b034-45f3-bf79-108f4906db93: paragraphs_library_item
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Registering a birth'
+  created:
+    -
+      value: 1592931354
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/registering-birth
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>This page shows some of the styles that can be added using the WYSIWYG editor.&nbsp;</p>\r\n\r\n<p class=\"alert alert-info\">(example Alert Info) All non-essential face to face registration and ceremonial services have been suspended until further notice due to the Coronavirus pandemic, including registering a birth. You will be able to register at a later date.</p>\r\n\r\n<p>You will not be penalised for going over the normal 42 day birth registration period if you have been unable to register a birth because of Coronavirus regulations. You can still apply for child benefit or universal credit.</p>\r\n\r\n<h1>H1 Heading</h1>\r\n\r\n<h2>H2 Heading</h2>\r\n\r\n<h3>H3 Heading&nbsp;</h3>\r\n\r\n<h4>H4 Heading</h4>\r\n\r\n<h5>H5 Heading</h5>\r\n\r\n<h6>Heading 6</h6>\r\n\r\n<p class=\"callout callout-primary\">Callout Primary example</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+      format: wysiwyg
+      summary: '(summary field example) You cannot register a birth at the moment because of Coronavirus.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_page_components:
+    -
+      entity: b60200f9-b034-45f3-bf79-108f4906db93
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

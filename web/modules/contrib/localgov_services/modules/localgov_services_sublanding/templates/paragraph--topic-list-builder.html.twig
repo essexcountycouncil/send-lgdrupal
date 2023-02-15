@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Topic list builder paragraph type.
+ */
+#}
+{% if header %}
+<h2 class="col-12 mb-4">{{ header }}</h2>
+{% endif %}
+{{ content.topic_list_links }}
+{% if show_more %}
+<div class="action-link float-right">
+  <span class="fa fa-chevron-right"></span><a href="{{ show_more_path }}">More</a>
+</div>
+{% endif %}

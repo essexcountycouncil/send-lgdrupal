@@ -1,0 +1,303 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the LocalGov Directories module.
+ */
+
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\localgov_directories\Constants;
+use Drupal\node\Entity\NodeType;
+use Drupal\search_api\Entity\Index;
+use Drupal\search_api\IndexInterface;
+use Drupal\search_api\Item\Field;
+use Drupal\views\Entity\View;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_directories_install() {
+  $services = \Drupal::moduleHandler()->moduleExists('localgov_services_navigation');
+  if ($services) {
+    localgov_directories_optional_fields_settings($services);
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function localgov_directories_requirements($phase) {
+  if ($phase != 'runtime') {
+    return [];
+  }
+  // Raise a warning if there is no backend selected, or no
+  // content types.
+  $requirements = [];
+  $index = \Drupal::entityTypeManager()->getStorage('search_api_index')->load(Constants::DEFAULT_INDEX);
+  if ($index instanceof IndexInterface) {
+    if ($index->getServerId() === NULL) {
+      $requirements['server'] = [
+        'title' => t('LocalGov Directories: Server'),
+        'description' => t('Directories requires a server. For the defaut Database server enable the <em>LocalGov Directories Database</em> module.'),
+        'severity' => REQUIREMENT_WARNING,
+      ];
+    }
+    if ($datasource = $index->getDatasource('entity:node')) {
+      $configuration = $datasource->getConfiguration();
+      if (empty($configuration['bundles']['selected'])) {
+        $requirements['content_type'] = [
+          'title' => t('LocalGov Directories: Content type'),
+          'description' => t('Directories requires at least one content. For a simple page enable the <em>LocalGov Directories Page</em> module.'),
+          'severity' => REQUIREMENT_WARNING,
+        ];
+      }
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Adds the "weight" field to Facet related entities.
+ */
+function localgov_directories_update_8001() {
+
+  // First, localgov_directories_facets content entity.
+  // @see Drupal\localgov_directories\Entity\LocalgovDirectoriesFacets::baseFieldDefinitions()
+  $field_storage_def_for_weight = BaseFieldDefinition::create('integer')
+    ->setLabel(t('Weight'))
+    ->setDescription(t('The weight of this Directory facet in relation to other facets.'))
+    ->setDefaultValue(0)
+    ->setInitialValue(0)
+    ->setDisplayOptions('form', [
+      'type' => 'number',
+      'weight' => 50,
+    ])
+    ->setDisplayConfigurable('form', TRUE);
+
+  Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('weight', 'localgov_directories_facets', 'localgov_directories', $field_storage_def_for_weight);
+
+  // Next, localgov_directories_facets_type config entities.
+  $config_factory = Drupal::service('config.factory');
+  $facet_type_config_entities = $config_factory->listAll('localgov_directories.localgov_directories_facets_type.');
+  array_walk($facet_type_config_entities, function ($facet_type_entity_id) use ($config_factory) {
+    $facet_type_config = $config_factory->getEditable($facet_type_entity_id);
+    $has_facet_weight = $facet_type_config->get('weight') ?? FALSE;
+    if (!$has_facet_weight) {
+      $facet_type_config->set('weight', 0);
+      $facet_type_config->save(TRUE);
+    }
+  });
+
+  // Finally, the Facet configuration itself.
+  $dir_facet_config = $config_factory->getEditable('facets.facet.localgov_directories_facets');
+  $has_dir_facet_config = $dir_facet_config->get('id') ?? FALSE;
+  if (!$has_dir_facet_config) {
+    return;
+  }
+  $facet_processor_configs = $dir_facet_config->get('processor_configs');
+  unset($facet_processor_configs['display_value_widget_order']);
+  $facet_processor_configs['weight_property_order'] = [
+    'processor_id' => 'weight_property_order',
+    'weights' => ['sort' => -5],
+    'settings' => ['sort' => 'ASC'],
+  ];
+  $dir_facet_config->set('processor_configs', $facet_processor_configs);
+  $dir_facet_config->save(TRUE);
+}
+
+/**
+ * Renames the Directory label to Channels and facets.
+ */
+function localgov_directories_update_8002() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('core.entity_form_display.node.localgov_directories_page.default');
+  $config->set('third_party_settings.field_group.group_directory.label', 'Channels and facets');
+  $config->save(TRUE);
+
+  $config = $config_factory->getEditable('core.entity_form_display.node.localgov_directories_venue.default');
+  $config->set('third_party_settings.field_group.group_directory.label', 'Channels and facets');
+  $config->save(TRUE);
+}
+
+/**
+ * Add the new title sort field.
+ */
+function localgov_directories_update_8003() {
+  // Add new sort field storage.
+  if (!FieldStorageConfig::loadByName('node', 'localgov_directory_title_sort')) {
+    FieldStorageConfig::create([
+      'field_name' => 'localgov_directory_title_sort',
+      'entity_type' => 'node',
+      'type' => 'string',
+      'settings' => [
+        'max_length' => 255,
+        'is_ascii' => FALSE,
+        'case_sensitive' => FALSE,
+      ],
+      'cardinality' => 1,
+      'translatable' => TRUE,
+    ])->save();
+  }
+  else {
+    return t('Base sort field not added as localgov_directory_title_sort already exists.');
+  }
+}
+
+/**
+ * Add new sort field to Directory pages and venue if enabled.
+ */
+function localgov_directories_update_8004() {
+  $result = [];
+
+  foreach (['localgov_directories_page', 'localgov_directories_venue'] as $bundle) {
+    if (!NodeType::load($bundle)) {
+      continue;
+    }
+    if (!FieldConfig::loadByName('node', $bundle, 'localgov_directory_title_sort')) {
+      FieldConfig::create([
+        'field_name' => 'localgov_directory_title_sort',
+        'entity_type' => 'node',
+        'bundle' => $bundle,
+        'label' => 'Title used for sorting',
+        'description' => "<strong>Can be left blank</strong>. If this field is completed it will be used instead of the <em>Title</em> for alphabetically sorted lists. For example to move 'The' or 'A' from the beginning of a name.",
+        'required' => FALSE,
+      ])->save();
+
+      $result[] = t('Added localgov_directory_title_sort to %bundle.', ['%bundle' => $bundle]);
+    }
+    else {
+      $result[] = t('Not added localgov_directory_title_sort to %bundle as it already exists.', ['%bundle' => $bundle]);
+    }
+
+    // Add to form display.
+    $form_display = EntityFormDisplay::load('node.' . $bundle . '.default');
+    $form_display->setComponent('localgov_directory_title_sort', [
+      'weight' => 1,
+      'settings' => [
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'third_party_settings' => [],
+      'type' => 'string_textfield',
+      'region' => 'content',
+    ]);
+    // Place under title field.
+    $form_group_description = $form_display->getThirdPartySetting('field_group', 'group_description');
+    if (!empty($form_group_description) &&
+        (($title_position = array_search('title', $form_group_description['children'])) !== FALSE)
+    ) {
+      array_splice($form_group_description['children'], $title_position + 1, 0, 'localgov_directory_title_sort');
+      $form_display->setThirdPartySetting('field_group', 'group_description', $form_group_description);
+      foreach ($form_group_description['children'] as $weight => $component_name) {
+        $component = $form_display->getComponent($component_name);
+        $component['weight'] = $weight;
+        $form_display->setComponent($component_name, $component);
+      }
+    }
+    else {
+      $result[] = t('Unable to set position of new sort field under title field on form display for %bundle', ['%bundle' => $bundle]);
+    }
+    $form_display->save();
+    $result[] = t('Updated form display for %bundle.', ['%bundle' => $bundle]);
+  }
+
+  return implode(' ', $result);
+}
+
+/**
+ * Add new sort field to search index.
+ */
+function localgov_directories_update_8005() {
+  // Add to the search index.
+  $index = Index::load('localgov_directories_index_default');
+  if (!$index->getField('localgov_directory_title_sort')) {
+    $sort_title_field = new Field($index, 'localgov_directory_title_sort');
+    $sort_title_field->setLabel('Title (sort)');
+    $sort_title_field->setDatasourceId('entity:node');
+    $sort_title_field->setType('string');
+    $sort_title_field->setPropertyPath('localgov_directory_title_sort');
+    $index->addField($sort_title_field);
+    $index->save();
+    $index->reindex();
+    return t('The directories index has been updated, and a reindex requested. You will need to run an index manually, or wait for it to run on cron, for it to update.');
+  }
+  else {
+    return t('Unable to update search index: localgov_directories_index_default not found.');
+  }
+}
+
+/**
+ * Set sort order of default directories view to use relevance and title.
+ */
+function localgov_directories_update_8006() {
+  // Add sort to view.
+  $directory_view = View::load('localgov_directory_channel');
+  $directory_view_display =& $directory_view->getDisplay('default');
+  if (empty($directory_view_display['display_options']['sorts'])) {
+    $directory_view_display['display_options']['sorts'] = [
+      'search_api_relevance' => [
+        'id' => 'search_api_relevance',
+        'table' => 'search_api_index_localgov_directories_index_default',
+        'field' => 'search_api_relevance',
+        'relationship' => 'none',
+        'group_type' => 'group',
+        'admin_label' => '',
+        'order' => 'DESC',
+        'exposed' => FALSE,
+        'expose' => [
+          'label' => '',
+        ],
+        'plugin_id' => 'search_api',
+      ],
+      'localgov_directory_title_sort' => [
+        'id' => 'localgov_directory_title_sort',
+        'table' => 'search_api_index_localgov_directories_index_default',
+        'field' => 'localgov_directory_title_sort',
+        'relationship' => 'none',
+        'group_type' => 'group',
+        'admin_label' => '',
+        'order' => 'ASC',
+        'exposed' => FALSE,
+        'expose' => [
+          'label' => '',
+        ],
+        'plugin_id' => 'search_api',
+      ],
+    ];
+    $directory_view->save();
+  }
+  else {
+    return t('Unable to update directories view as sort order has already been changed. You may want to manually add sorting by localgov_directory_title_sort');
+  }
+}
+
+/**
+ * Directories Search API database becomes its own module.
+ */
+function localgov_directories_update_8007() {
+  // Prevent clash as config already installed.
+  // So it's enabled, but don't run install.
+  $config = Drupal::configFactory()->getEditable('core.extension');
+  $modules = $config->get('module');
+  $modules['localgov_directories_db'] = 0;
+  $config->set('module', $modules);
+  $config->save();
+}
+
+/**
+ * Add schema version for Directories Search API DB module.
+ */
+function localgov_directories_update_8008() {
+  $config = \Drupal::config('core.extension');
+  $modules = $config->get('module');
+  if (isset($modules['localgov_directories_db']) &&
+    !\Drupal::keyValue('system.schema')->has('localgov_directories_db')
+  ) {
+    \Drupal::keyValue('system.schema')->set('localgov_directories_db', 8000);
+  }
+}

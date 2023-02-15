@@ -1,0 +1,3 @@
+entity.feeds_feed_type.feeds_tamper_extra_links:
+  deriver: \Drupal\feeds_tamper\Plugin\Derivative\ExtraLinks
+  menu_name: admin

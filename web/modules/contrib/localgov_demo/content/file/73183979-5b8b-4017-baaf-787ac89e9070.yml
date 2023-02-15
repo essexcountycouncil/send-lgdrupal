@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 73183979-5b8b-4017-baaf-787ac89e9070
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Cornavirus.jpg
+  uri:
+    -
+      value: 'public://2021-09/Cornavirus.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 67066
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631268441

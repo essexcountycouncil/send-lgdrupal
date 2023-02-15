@@ -1,0 +1,10 @@
+localgov_directories_facets.type_add:
+  route_name: entity.localgov_directories_facets_type.add_form
+  title: 'Add directory facets type'
+  appears_on:
+    - entity.localgov_directories_facets_type.collection
+localgov_directories_facets.add_page:
+  route_name: entity.localgov_directories_facets.add_page
+  title: 'Add directory facets'
+  appears_on:
+    - entity.localgov_directories_facets.collection

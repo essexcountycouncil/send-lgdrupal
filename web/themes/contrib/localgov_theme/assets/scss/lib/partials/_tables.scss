@@ -1,0 +1,65 @@
+// CUSTOMISE THE LOOK AND FEEL OF BOOTSTRAP TABLES
+
+.table {
+  margin-bottom: 2rem;
+
+  tr {
+    th {
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    td {
+      font-size: 1.063rem;
+      padding: 0.75rem;
+      vertical-align: middle;
+      border: 0;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .thead-light {
+    tr {
+      th {
+        color: $carbon;
+        background-color: $white;
+        border-top: 0;
+        border-bottom: 0.063rem solid $carbon;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .table-price {
+    tr {
+      th {
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          min-width: 12.5rem;
+          text-align: right;
+          padding-right: 0;
+        }
+      }
+
+      td {
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+          min-width: 12.5rem;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,71 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 2b336282-d1d7-4c69-b2d6-65cbb2f363eb
+  bundle: localgov_services_sublanding
+  default_langcode: en
+  depends:
+    3266e45f-1489-4b88-8d8a-98b25e0ed143: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Sports and physical activity'
+  created:
+    -
+      value: 1620224277
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /libraries-leisure-and-culture/sports-and-physical-activity
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>A-Z of sports and activities, leisure centres, youth sports, inclusive sports, privacy notices, Scarfolk's sport and physical activity facilities strategy.</p>\r\n"
+      format: wysiwyg
+      summary: 'A-Z of sports and activities, leisure centres, youth sports, inclusive sports, privacy notices, Scarfolk''s sport and physical activity facilities strategy.'
+  localgov_services_parent:
+    -
+      entity: 3266e45f-1489-4b88-8d8a-98b25e0ed143
+  localgov_topics:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: f9fd2904-d3fa-4dd9-a67d-e086acce4eb7
+          bundle: topic_list_builder
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620224318
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a1e083f0-e318-43b9-89a9-234429e5db22
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: juan-cruz-mountford-AMFWArSckYM-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/juan-cruz-mountford-AMFWArSckYM-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 824449
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631787657

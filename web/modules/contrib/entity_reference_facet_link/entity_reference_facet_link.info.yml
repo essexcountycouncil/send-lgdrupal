@@ -1,0 +1,10 @@
+name: Entity Reference Facet Link
+type: module
+description: 'Provides a display plugin for Entity Reference fields that links terms to faceted search pages.'
+package: Search
+core_version_requirement: ^8 || ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2022-07-02
+version: '2.0.1'
+project: 'entity_reference_facet_link'
+datestamp: 1656723986
