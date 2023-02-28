@@ -1,0 +1,59 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 3a3e01c0-9cff-4c23-8294-816416b5e2b7
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    e42352c7-d4f9-4e3d-9e8f-bc7ec0cf7402: paragraphs_library_item
+    7c3be0a3-c5b6-4f24-8663-17356d86dd31: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Basketball
+  created:
+    -
+      value: 1620222842
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /libraries-leisure-and-culture/z-sports-and-activities/basketball
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Basketball can be played at the multi-games courts and some tennis courts have been converted for basketball.&nbsp;They are all free! Just turn up and play.</p>\r\n\r\n<p>You can find them in the parks listed below.&nbsp;</p>\r\n\r\n<h4>Parks with courts</h4>\r\n\r\n<ul>\r\n\t<li>South Scarfolk Lake and Grounds</li>\r\n\t<li>Upper Scarfolk Recreation Ground</li>\r\n\t<li>Scarfolk Recreation Ground</li>\r\n\t<li>Scarfolk Hill</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: 'Shoot Hoops for Free'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_page_components:
+    -
+      entity: e42352c7-d4f9-4e3d-9e8f-bc7ec0cf7402
+  localgov_services_parent:
+    -
+      entity: 7c3be0a3-c5b6-4f24-8663-17356d86dd31

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: localgov_sitewide_search
+name: 'Sitewide search'
+description: 'LocalGov Drupal default sitewide search.'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: prefix

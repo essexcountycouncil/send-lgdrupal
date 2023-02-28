@@ -1,0 +1,62 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6d837143-6f86-4ae1-9b10-f8e953f31d44
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    f590d6ff-97f2-45f1-a387-2d427f3c7c2f: localgov_directories_facets
+    c4488fe0-c65f-4c8e-9c1e-8925c5de6a3a: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Brecon Beacons'
+  created:
+    -
+      value: 1631816448
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /national-parks-uk/brecon-beacons
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'The Brecon Beacons National Park (Welsh: Parc Cenedlaethol Bannau Brycheiniog) is one of three national parks in Wales, and is centred on the Brecon Beacons range of hills in southern Wales.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_facets_select:
+    -
+      entity: f590d6ff-97f2-45f1-a387-2d427f3c7c2f
+  localgov_directory_website:
+    -
+      uri: 'https://www.breconbeacons.org/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: c4488fe0-c65f-4c8e-9c1e-8925c5de6a3a

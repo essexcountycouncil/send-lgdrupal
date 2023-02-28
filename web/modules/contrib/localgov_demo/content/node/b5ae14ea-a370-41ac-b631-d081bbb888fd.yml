@@ -1,0 +1,58 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: b5ae14ea-a370-41ac-b631-d081bbb888fd
+  bundle: localgov_services_status
+  default_langcode: en
+  depends:
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Registry office is closed until further notice'
+  created:
+    -
+      value: 1592931386
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/status/registry-office-closed-until-further-notice
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>All non-essential face to face registration and ceremonial services have been suspended until further notice due to the Coronavirus pandemic, including registering a birth. You will be able to register at a later date.</p>\r\n\r\n<p>You will not be penalised for going over the normal 42 day birth registration period if you have been unable to register a birth because of Coronavirus regulations. You can still apply for child benefit or universal credit.</p>\r\n"
+      format: wysiwyg
+      summary: 'All non-essential face to face registration and ceremonial services have been suspended until further notice due to the Coronavirus pandemic.'
+  localgov_service_status:
+    -
+      value: 0-severe-impact
+  localgov_service_status_on_landi:
+    -
+      value: true
+  localgov_service_status_on_list:
+    -
+      value: true
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

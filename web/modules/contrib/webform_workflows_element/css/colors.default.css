@@ -1,0 +1,106 @@
+.webform-workflow-value > .webform-workflow-state-label {
+  margin-bottom: 0.3em;
+}
+
+.webform-workflow-state-label.with-color {
+  font-weight: bold;
+  padding: 0.3em 0.5em;
+  border-radius: 0.3em;
+  display: inline-block;
+}
+
+/* Dealing with Mermaid styling */
+
+.mermaid .nodes .node {
+  font-weight: normal;
+}
+
+.webform-workflow-state-label.with-color.node rect {
+  fill: unset !important;
+  stroke: unset !important;
+}
+
+/* Filters */
+
+.webform_workflows_element_filter_states .chosen-choices li.search-choice {
+  background-image: none !important;
+}
+
+select.webform_workflows_element_filter_states > option.clear-webform-color {
+  background-color: #fff !important;
+}
+
+/* DEFAULT COLORS BELOW */
+/* If providing custom color classes, always provide:
+    background-color, fill, color, and stroke,
+  to work across normal display and diagrams. */
+.webform-workflow-color-blue {
+  background-color: #cde3fa !important;
+  fill: #cde3fa;
+  color: #2b4d7a !important;
+  stroke: #2b4d7a;
+}
+
+.webform-workflow-color-yellow {
+  background-color: #f7df92 !important;
+  fill: #f7df92;
+  color: #6c530f !important;
+  stroke: #6c530f;
+}
+
+.webform-workflow-color-orange {
+  background-color: #ffbe7e !important;
+  fill: #ffbe7e;
+  color: #6a2900 !important;
+  stroke: #6a2900;
+}
+
+.webform-workflow-color-red {
+  background-color: #f4b8bf !important;
+  fill: #f4b8bf;
+  color: #5e2128 !important;
+  stroke: #5e2128;
+}
+
+.webform-workflow-color-green {
+  background-color: #c2f7bc !important;
+  fill: #c2f7bc;
+  color: #324e2b !important;
+  stroke: #324e2b;
+}
+
+.webform-workflow-color-purple {
+  background-color: #c4a9dc !important;
+  fill: #c4a9dc;
+  color: #573d7d !important;
+  stroke: #573d7d;
+}
+
+.webform-workflow-color-grey {
+  background-color: #d7d8da !important;
+  fill: #d7d8da;
+  color: #1e2027 !important;
+  stroke: #1e2027;
+}
+
+.webform-workflow-color-aqua {
+  background-color: #0ff !important;
+  fill: #0ff;
+  color: #004e4e !important;
+  stroke: #004e4e;
+}
+
+.webform-workflow-color-black {
+  background-color: #000 !important;
+  fill: #000;
+  color: #fff !important;
+  stroke: #fff;
+}
+
+.webform-workflow-color-white {
+  background-color: #fff !important;
+  fill: #fff;
+  color: #000 !important;
+  stroke: #000;
+}
+

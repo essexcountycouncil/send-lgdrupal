@@ -1,0 +1,19 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_directories_facets
+  uuid: f590d6ff-97f2-45f1-a387-2d427f3c7c2f
+  bundle: country
+  default_langcode: en
+default:
+  title:
+    -
+      value: Wales
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1631786884
+  weight:
+    -
+      value: 0

@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Theme template for Media document.
+ *
+ * The "Default" display mode of Media document only displays a file link.
+ * Here we strip out all wrapper tags from the Default display and keep only
+ * the file link for the sake of minimal markup.  Media documents are often
+ * embedded within tWYSIWYG content.  The minimal markup suits that well.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.  This is a File link.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  {{ content }}
+{% endif %}

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_featured_campaign
+label: 'Featured campaign'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

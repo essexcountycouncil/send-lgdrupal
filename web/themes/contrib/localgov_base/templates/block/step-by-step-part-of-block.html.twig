@@ -1,0 +1,19 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+
+{% if not localgov_base_remove_css %}
+  {{ attach_library('localgov_base/step-by-step') }}
+{% endif %}
+
+<div class="step-by-step-pages__relationship">
+  <span class="step-by-step-pages__part-of">{{ 'Part of'|t }} </span><br/>
+  <span class="step-by-step-pages__homepage"> <a href="{{ url }}" title="{{ label }}">{{ label }}</a></span>
+</div>

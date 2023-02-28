@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 7668d546-926e-4d04-a3fd-30465288d93a
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''directory venue'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631815736
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-12--037d1c369e38d4c071dec1e040b77ef563555a6d
+  short_description:
+    -
+      value: "<p>Add a 'directory venue' to show contact and location information for a physical place. You can specify a pin on a map, or upload a geo file (such as&nbsp;.kml or GeoJSON) to describe area boundaries. 'Directory venues' can surface in multiple 'directory channels'.&nbsp;</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/national-parks-uk/*\r\n/localgov-drupal-collaborators/*"
+          negate: '0'

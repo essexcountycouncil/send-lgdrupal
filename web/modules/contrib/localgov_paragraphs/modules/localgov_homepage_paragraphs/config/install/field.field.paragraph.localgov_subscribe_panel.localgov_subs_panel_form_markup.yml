@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_subs_panel_form_markup
+    - paragraphs.paragraphs_type.localgov_subscribe_panel
+  module:
+    - text
+id: paragraph.localgov_subscribe_panel.localgov_subs_panel_form_markup
+field_name: localgov_subs_panel_form_markup
+entity_type: paragraph
+bundle: localgov_subscribe_panel
+label: 'Newsletter subscription form markup'
+description: 'HTML markup for subscribing to the newsletter.  POSTs to an external site.'
+required: false
+translatable: false
+default_value:
+  -
+    value: '<span class="visually-hidden">Placeholder text</span>'
+    format: restricted_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

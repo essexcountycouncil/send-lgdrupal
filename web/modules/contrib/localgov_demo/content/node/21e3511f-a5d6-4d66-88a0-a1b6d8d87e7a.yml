@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 21e3511f-a5d6-4d66-88a0-a1b6d8d87e7a
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    3266e45f-1489-4b88-8d8a-98b25e0ed143: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Free online courses'
+  created:
+    -
+      value: 1631786890
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: draft
+  path:
+    -
+      alias: /libraries-leisure-and-culture/free-online-courses
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>Course providers</h2>\r\n\r\n<h3>Coursera</h3>\r\n\r\n<p>Take the \"world's best courses\",&nbsp;online, for free.</p>\r\n\r\n<p><a href=\"http://www.coursera.org/\">www.coursera.org</a></p>\r\n\r\n<h3>Harvard and MIT</h3>\r\n\r\n<p>Take great&nbsp;online courses&nbsp;from the world's best universities.</p>\r\n\r\n<p><a href=\"http://www.edx.org/\">www.edx.org</a></p>\r\n\r\n<h3>MIT Open Courseware</h3>\r\n\r\n<p>OCW makes the materials used in the teaching of MIT's subjects available on the Web.</p>\r\n\r\n<p><a href=\"http://ocw.mit.edu/\">ocw.mit.edu</a></p>\r\n\r\n<h3>Stanford</h3>\r\n\r\n<p>Stanford Online offers a variety of professional education opportunities in conjunction with many of the University’s schools and departments. an array of free online courses taught by Stanford faculty to lifelong learners worldwide.</p>\r\n\r\n<p><a href=\"http://online.stanford.edu/\">online.stanford.edu</a></p>\r\n\r\n<h3>iversity</h3>\r\n\r\n<p>iversity.org is the European platform for online learning that enables universities to share a broad range courses with students from around the globe, providing them with the opportunity to earn recognised credentials, no matter where they are.</p>\r\n\r\n<p><a href=\"http://iversity.org/\">iversity.org</a></p>\r\n\r\n<h3>Future learn</h3>\r\n\r\n<p>Join 1,618,425 people learning together at FutureLearn. Enjoy&nbsp;free online courses from top universities and cultural&nbsp;institutions.</p>\r\n\r\n<p><a href=\"http://www.futurelearn.com/\">www.futurelearn.com</a></p>\r\n\r\n<h3>The Open University</h3>\r\n\r\n<p>We pioneer teaching and learning methods enabling people to achieve their career and life goals.</p>\r\n\r\n<p><a href=\"http://www.open.ac.uk/\">www.open.ac.uk</a></p>\r\n\r\n<h3>DuoLingo</h3>\r\n\r\n<p>Learn a language for free. Forever.</p>\r\n\r\n<p><a href=\"http://www.duolingo.com/\">www.duolingo.com</a></p>\r\n\r\n<h3>CodeAcademy</h3>\r\n\r\n<p>Learn to code (program computers) interactively, for free.</p>\r\n\r\n<p><a href=\"http://www.codecademy.com/\">www.codecademy.com</a></p>\r\n\r\n<h3>Open Culture</h3>\r\n\r\n<p>The best free cultural &amp; educational media on the web.</p>\r\n\r\n<p><a data-entity-substitution=\"paragraphs_library_item_localgovdrupal\" data-entity-type=\"paragraphs_library_item\" data-entity-uuid=\"f65d6425-b4a5-4825-aa79-29cb902eb215\" href=\"http://www.openculture.com/\">www.openculture.com</a></p>\r\n\r\n<h3>Google Digital Garage</h3>\r\n\r\n<p>Grow your career or business at your own pace, with flexible and personalised training courses designed to build your confidence and help you thrive.<a data-entity-substitution=\"paragraphs_library_item_localgovdrupal\" data-entity-type=\"paragraphs_library_item\" data-entity-uuid=\"902d7b45-8060-43c6-b0a9-8b2eba864efa\" href=\"https://learndigital.withgoogle.com/digitalgarage/\">https://learndigital.withgoogle.com/digitalgarage/</a></p>\r\n"
+      format: wysiwyg
+      summary: 'List of online colleges and other websites that offer free online courses, certificate programs, some degree programs and education resources.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 3266e45f-1489-4b88-8d8a-98b25e0ed143

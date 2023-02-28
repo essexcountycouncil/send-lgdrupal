@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: dba9d4df-48c0-4470-8ca4-228f58c7ee78
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''guide page'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631891066
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-15--fe8be42debb14a86e5179e1befe7e344cda92a59
+  short_description:
+    -
+      value: "<p>Add a 'guide page' when you want to group together related pages, like creating chapters in a book. You then relate it to the 'guide overview' above.&nbsp;</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/order-copy-certificate/order-copy-certificate\r\n/order-copy-certificate/other-certificates\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges/blue-badge-fraud\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges/apply-blue-badge\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges/blue-badges-organisations\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges/report-changes-lost-or-stolen\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges/who-eligible-blue-badge"
+          negate: '0'

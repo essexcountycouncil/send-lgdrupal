@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 98be264b-c321-44e9-8ac2-5564d337f198
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    75aa141a-7e15-4d97-be6b-42372299ba4c: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Contact the support team'
+  created:
+    -
+      value: 1592940903
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/step-by-step/request-support-adult-step-step/contact-support-team
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Let us know why you're looking for support for yourself or for someone you know.&nbsp;Together, we'll&nbsp;decide on the next steps.</p>\r\n\r\n<p>You can either:</p>\r\n\r\n<ul>\r\n\t<li>call us on 555 111 222 333</li>\r\n\t<li>or <a href=\"example@example.com\">email us</a> and we'll get back to you</li>\r\n</ul>\r\n\r\n<p>It's helpful if you can give us as much information as you can about what problems you've been having.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 75aa141a-7e15-4d97-be6b-42372299ba4c
+  localgov_step_section_title:
+    -
+      value: 'Contact the support team'
+  localgov_step_summary:
+    -
+      value: "<p>Let us know about your concerns.</p>\r\n"
+      format: wysiwyg

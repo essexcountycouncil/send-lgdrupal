@@ -1,0 +1,10 @@
+views.filter.webform_workflows_element_state:
+  type: views_filter
+  label: 'Workflow state filter'
+  mapping:
+    webform_id:
+      type: string
+      label: 'Webform ID'
+    workflow_element_id:
+      type: string
+      label: 'Workflow element ID'

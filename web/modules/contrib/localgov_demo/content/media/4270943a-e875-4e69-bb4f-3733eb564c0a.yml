@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 4270943a-e875-4e69-bb4f-3733eb564c0a
+  bundle: image
+  default_langcode: en
+  depends:
+    301a3fb5-c137-4462-9d67-42ce0c92fc35: file
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Camden Gardens'
+  created:
+    -
+      value: 1631268607
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 301a3fb5-c137-4462-9d67-42ce0c92fc35
+      alt: 'Camden Gardens with blue sky and some clouds, via unsplash'
+      title: ''
+      width: 1500
+      height: 2250

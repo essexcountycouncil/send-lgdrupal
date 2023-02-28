@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c390fc16-cf16-4466-bf0b-c8aaa6910443
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    ad23be9e-4553-44e3-af12-6725708213b6: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Yorkshire Dales'
+  created:
+    -
+      value: 1631814560
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/yorkshire-dales
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'The Yorkshire Dales National Park is a 2,178 km2 (841 sq mi) national park in England covering most of the Yorkshire Dales.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: info@yorkshiredales.org.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '0300 456 0030'
+  localgov_directory_website:
+    -
+      uri: 'https://www.yorkshiredales.org.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: ad23be9e-4553-44e3-af12-6725708213b6

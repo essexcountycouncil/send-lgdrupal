@@ -1,0 +1,11 @@
+name: LocalGov Geo Area
+type: module
+description: 'Geo bundle for storing polygons.'
+package: LocalGov Drupal
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - localgov_geo:localgov_geo
+  - geocoder:geocoder
+  - geocoder:geocoder_geofield
+  - geocoder:geocoder_field

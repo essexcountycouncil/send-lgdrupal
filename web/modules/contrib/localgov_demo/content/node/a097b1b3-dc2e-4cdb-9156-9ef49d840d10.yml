@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a097b1b3-dc2e-4cdb-9156-9ef49d840d10
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    f590d6ff-97f2-45f1-a387-2d427f3c7c2f: localgov_directories_facets
+    7c386f7b-3881-4abe-aae3-ed33900be1b1: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Snowdonia
+  created:
+    -
+      value: 1631799929
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/snowdonia
+      langcode: en
+      pathauto: 1
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_facets_select:
+    -
+      entity: f590d6ff-97f2-45f1-a387-2d427f3c7c2f
+  localgov_location:
+    -
+      entity: 7c386f7b-3881-4abe-aae3-ed33900be1b1

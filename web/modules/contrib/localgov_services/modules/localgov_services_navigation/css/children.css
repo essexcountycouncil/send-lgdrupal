@@ -1,0 +1,71 @@
+/**
+ * @file
+ *  Usable CSS for children list on landing page forms.
+ */
+
+div.localgov-services-children-list.item-list {
+  max-height: 20vh;
+  overflow-y: scroll;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #dde;
+  padding: 0.5em;
+}
+
+.localgov-services-children-list h3 {
+  font-size: 1rem;
+}
+
+.localgov-services-children-list.item-list ul,
+.localgov-services-children-list.item-list ul li {
+  list-style-type: none;
+  margin: 0;
+}
+
+.localgov-services-children-list.item-list ul li {
+  display: inline-block;
+	vertical-align: top;
+  margin: 0.1em;
+}
+
+div.localgov-child-drag {
+  min-height: 5em;
+  border: solid 1px black;
+  background-color: #eef;
+	position: relative;
+	top: 0;
+}
+
+div.localgov-child-drag.draggable {
+  cursor: move;
+  padding: 0 0.5em 0.2em 0.5em;
+}
+
+.localgov-child-title {
+  display: block;
+  padding-bottom: 0.2em;
+  font-weight: bold;
+}
+
+.localgov-child-type {
+  display: block;
+  font-weight: lighter;
+  font-size: 0.8em;
+	font-style: italic;
+}
+
+.localgov-child-topics {
+  display: block;
+  font-size: 0.8em;
+}
+
+.localgov-child-info {
+  display: block;
+  font-weight: lighter;
+  font-size: 0.8em;
+  color: #666;
+	text-align: right;
+
+}
+

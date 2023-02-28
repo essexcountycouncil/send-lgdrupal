@@ -1,0 +1,7 @@
+.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-day div,
+.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-day label,
+.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-recurrences div,
+.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-recurrences label {
+  display: inline-block;
+  padding: 0 .25em;
+}

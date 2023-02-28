@@ -1,0 +1,61 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 3cea48b6-09ba-4609-b512-2f49853d0e6f
+  bundle: localgov_guides_overview
+  default_langcode: en
+  depends:
+    1f0e941c-d025-4631-96fa-f1c4c7cd0617: node
+    39cffd9d-3682-4bcc-8417-75605c9322f3: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Order a copy of a certificate'
+  created:
+    -
+      value: 1631267267
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /order-copy-certificate
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>To order copies of a certificate you must give us enough information to find the original record.</p>\r\n\r\n<p>we are very busy at present and ordering copy certificates is taking much longer than usual.&nbsp;Please allow 20 working days from order to delivery.<br />\r\n<br />\r\nIf you need any historic certificates you can order from&nbsp;<a href=\"https://www.gro.gov.uk/gro/content/certificates/login.asp\">The General Register Office</a>.<br />\r\n&nbsp;</p>\r\n\r\n<h2>Birth certificates</h2>\r\n\r\n<p>To order a copy of a birth certificate we need to know:</p>\r\n\r\n<ul>\r\n\t<li>full name at birth</li>\r\n\t<li>date of birth</li>\r\n\t<li>place of birth (hospital or other address)</li>\r\n\t<li>mother's full name (including maiden name if possible)</li>\r\n\t<li>father's full name (if possible)</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_description:
+    -
+      value: "During the coronavirus pandemic, you can only order copies of birth, death, marriage or civil partnership certificates online.\r\n"
+  localgov_guides_list_format:
+    -
+      value: unordered
+  localgov_guides_pages:
+    -
+      entity: 1f0e941c-d025-4631-96fa-f1c4c7cd0617
+    -
+      entity: 39cffd9d-3682-4bcc-8417-75605c9322f3
+  localgov_guides_section_title:
+    -
+      value: 'Information to provide'

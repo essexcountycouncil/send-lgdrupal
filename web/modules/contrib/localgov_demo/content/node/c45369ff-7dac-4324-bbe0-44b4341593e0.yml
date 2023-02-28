@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c45369ff-7dac-4324-bbe0-44b4341593e0
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    9fd42e4a-aa83-4c9a-9999-1b5bfa96a003: localgov_directories_facets
+    9544d238-d4fa-4cbd-9d96-602f34bafd31: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Zoocha
+  created:
+    -
+      value: 1620227311
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/zoocha
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Zoocha is a leading Drupal Development Agency based in Hertford (just north of London) in the UK. We work with a range of clients spanning public sector/ government organisations, innovative start-ups, multi-channel retailers and charities.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_email:
+    -
+      value: info@zoocha.com
+  localgov_directory_facets_select:
+    -
+      entity: 9fd42e4a-aa83-4c9a-9999-1b5bfa96a003
+  localgov_directory_phone:
+    -
+      value: '01992 256700'
+  localgov_directory_website:
+    -
+      uri: 'https://www.zoocha.com/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 9544d238-d4fa-4cbd-9d96-602f34bafd31

@@ -1,0 +1,15 @@
+localgov_geo.localgov_geo_type.*:
+  type: config_entity
+  label: 'Geo type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    label_token:
+      type: string
+      label: 'Default label for entities with token value replacement'

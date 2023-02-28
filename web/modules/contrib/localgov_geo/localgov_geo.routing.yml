@@ -1,0 +1,7 @@
+localgov_geo.autocomplete:
+  path: /localgov_geo/{settings_key}
+  defaults:
+    _controller: \Drupal\localgov_geo\Controller\AutocompleteController::autocomplete
+  requirements:
+    # As core autocomplete this checks the settings key in the controller.
+    _access: 'TRUE'

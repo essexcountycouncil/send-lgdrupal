@@ -1,0 +1,345 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 0bb47866-9363-438a-853e-37b7700cc2ff
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'A page with multi column layouts'
+  created:
+    -
+      value: 1631789457
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/page-multi-column-layouts
+      langcode: en
+      pathauto: 1
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3cc89d25-eed5-4170-9e1c-14a32fcfed6b
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789484
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_twocol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 3f3e3fb4-d881-4839-b538-c00817e2daaa
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789528
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: top
+                  parent_uuid: 3cc89d25-eed5-4170-9e1c-14a32fcfed6b
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>Subsite pages allow us to have 1, 2 or 3 column layouts, you can mix them up on a single page to allow for an interesting layout.&nbsp;</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 8fcbea31-9cb7-48f5-bb85-ae0db5cdfe83
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789506
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: 3cc89d25-eed5-4170-9e1c-14a32fcfed6b
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h2>Section 1 of 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 12591b00-0e63-489c-bd52-587aa3fbe138
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789515
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: 3cc89d25-eed5-4170-9e1c-14a32fcfed6b
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h2>Section 2 of 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 64dcafea-2617-48bd-afd3-419f1556dcbd
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789538
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: bottom
+                  parent_uuid: 3cc89d25-eed5-4170-9e1c-14a32fcfed6b
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: bbb9f464-6edf-4b27-8eec-6b72b908da77
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789544
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_threecol_33_34_33
+                  config:
+                    label: ''
+          revision_translation_affected:
+            -
+              value: true
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: ed08febf-cc8d-4574-91d3-7afadfa2b7d9
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789663
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: top
+                  parent_uuid: bbb9f464-6edf-4b27-8eec-6b72b908da77
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h2>On the same page we can also have a 3 column layout</h2>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 469f8b7f-a428-45e2-9cf1-6c548e5670bd
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789551
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: first
+                  parent_uuid: bbb9f464-6edf-4b27-8eec-6b72b908da77
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h3>Section 1 of 3</h3>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: d1f204c1-48a3-478b-adba-ad21e919f707
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789557
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: second
+                  parent_uuid: bbb9f464-6edf-4b27-8eec-6b72b908da77
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h3>Section 2 of 3</h3>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 092e8238-40d7-4ed1-b543-d5e2e0089d23
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789562
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: third
+                  parent_uuid: bbb9f464-6edf-4b27-8eec-6b72b908da77
+                  layout: ''
+                  config: {  }
+                  parent_delta: 5
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h3>Section 3 of 3</h3>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>\r\n"
+              format: wysiwyg
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0

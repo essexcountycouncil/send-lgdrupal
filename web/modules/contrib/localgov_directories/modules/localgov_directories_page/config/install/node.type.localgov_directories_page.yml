@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Directory page'
+type: localgov_directories_page
+description: 'A simple directory entry.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,5 @@
+back_to_top_settings:
+  title: "Back to Top"
+  description: "Administer Back To Top settings."
+  parent: system.admin_config_ui
+  route_name: back_to_top_settings

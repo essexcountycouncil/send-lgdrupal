@@ -1,0 +1,5 @@
+# Extra style rules for the Child page links of the Sub hub page.
+child_pages:
+  css:
+    theme:
+      css/child-pages.css: {}

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+  theme:
+    - localgov_scarfolk
+id: localgov_servicepagerelatedtopics_scarfolk
+theme: localgov_scarfolk
+region: sidebar_second
+weight: 1
+provider: null
+plugin: localgov_services_related_topics_block
+settings:
+  id: localgov_services_related_topics_block
+  label: 'Service page related topics'
+  provider: localgov_services_page
+  label_display: '0'
+visibility: {  }

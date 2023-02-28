@@ -1,0 +1,55 @@
+/*
+  @file Base styles for call out paragraphs / advanced callout div container
+*/
+.callout {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+  font-size: var(--font-size-large);
+  font-weight: bold;
+}
+
+.callout a {
+  color: var(--color-white);
+}
+.callout a:focus {
+  color: var(--color-white);
+  background-color: var(--color-grey-dark);
+}
+
+/*
+  These modifier classes should have double hyphens, but perhaps too late now
+  to change that since there is already content in many of the websites using
+  this distribution.
+*/
+/* Callout primary bg and link colour */
+.callout-primary {
+  background-color: var(--color-accent);
+}
+
+/* Callout success bg and link colour */
+.callout-success {
+  background-color: var(--color-success);
+}
+
+/* Callout danger bg and link colour */
+.callout-danger {
+  background-color: var(--color-danger);
+}
+
+/* Callout teal bg and link colour */
+.callout-teal {
+  background-color: teal;
+}
+
+/* Callout carbon bg and link colour */
+.callout-carbon {
+  background-color: var(--color-grey-dark);
+}
+
+/* Callout yellow bg and link colour */
+.callout-yellow,
+.callout-yellow a {
+  color: var(--color-grey-dark);
+  background-color: var(--color-yellow);
+}

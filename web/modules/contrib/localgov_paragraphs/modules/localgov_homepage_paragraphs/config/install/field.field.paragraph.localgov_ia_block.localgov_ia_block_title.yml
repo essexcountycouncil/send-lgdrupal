@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_ia_block_title
+    - paragraphs.paragraphs_type.localgov_ia_block
+id: paragraph.localgov_ia_block.localgov_ia_block_title
+field_name: localgov_ia_block_title
+entity_type: paragraph
+bundle: localgov_ia_block
+label: 'Service title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

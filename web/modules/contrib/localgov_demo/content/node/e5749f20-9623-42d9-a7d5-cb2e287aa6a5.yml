@@ -1,0 +1,62 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: e5749f20-9623-42d9-a7d5-cb2e287aa6a5
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    8b5b4847-c9ff-4270-8797-323d1116b798: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Waltham Forest Council'
+  created:
+    -
+      value: 1620225671
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/waltham-forest-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Waltham Forest London Borough Council is the local authority for the London Borough of Waltham Forest in London, England which has existed since the London Government Act 1963 was commenced in 1965, replacing three local authorities: Chingford Borough Council, Leyton Borough Council and Walthamstow Borough Council.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_website:
+    -
+      uri: 'https://www.walthamforest.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 8b5b4847-c9ff-4270-8797-323d1116b798

@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8d774d57-90ee-44bf-82d0-1f468010bbf0
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    57b46ceb-20d3-45cc-9f9b-2bf2a6561c78: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Meals on wheels'
+  created:
+    -
+      value: 1592931205
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/support-your-home/meals-wheels
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Meals on wheels is a home delivery service for hot meals. It’s designed to help people live at home independently if they have problems cooking for themselves.</p>\r\n\r\n<p>Meals are delivered by a contracted company: <a href=\"https://www.apetito.co.uk/\">Apetito</a>. Staff will always display their identification when making a delivery.</p>\r\n\r\n<h2>Apply for meals on wheels</h2>\r\n\r\n<p>You may be able to have part or all of the cost of your meals on wheels covered if you find it hard to cook for yourself. You will need to apply and tell us about about your home and financial situation. You can either:</p>\r\n\r\n<ul>\r\n\t<li>call us on 555 111 222 333</li>\r\n\t<li>fill out this online form</li>\r\n</ul>\r\n\r\n<p>If you have difficulty going out to shop for food or you find other aspects of your daily life difficult, we may be able to suggest other ways to help.</p>\r\n\r\n<p>If you can afford to pay for meals and would rather make your own arrangements, you can <a href=\"https://www.apetito.co.uk/about-us/contact-us/\">contact Apetito directly</a> – or use another meal agency.</p>\r\n\r\n<h2>Meal times</h2>\r\n\r\n<p>A hot meal and a dessert can be delivered 7 days a week any time between 11:30am and 2pm.</p>\r\n\r\n<h2>Diets and menus</h2>\r\n\r\n<p>Apetito will provide you with a menu to choose the meals you would like for the following week.</p>\r\n\r\n<p>There is a wide range of meals available, including:</p>\r\n\r\n<ul>\r\n\t<li>special diets such as vegan, low sugar and gluten free</li>\r\n\t<li>texture-modified meals for people with dysphagia (difficulty swallowing)</li>\r\n\t<li>cuisines such as Mediterranean, East African and Halal Asian</li>\r\n</ul>\r\n\r\n<p>You can see a <a href=\"https://www.apetito.co.uk/our-food/our-range/\">full list of meals on offer on Apetito's website</a>.</p>\r\n\r\n<h2>Cost</h2>\r\n\r\n<p>The current cost is £5.30 per day. The cost of meals is fixed by us each year.</p>\r\n\r\n<p>Payments are by direct debit to Apetito. Other payment options may be available, <a href=\"https://www.apetito.co.uk/about-us/contact-us/\">contact Apetito</a> for further information.</p>\r\n\r\n<h2>Complaints and feedback</h2>\r\n\r\n<p>If you're not satisfied with the meals you have been supplied, please <a href=\"https://www.apetito.co.uk/about-us/contact-us/\">contact Apetito</a>.</p>\r\n\r\n<p><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"98be264b-c321-44e9-8ac2-5564d337f198\" href=\"/node/25\">Contact us</a> if you have a problem with:</p>\r\n\r\n<ul>\r\n\t<li>Apetito</li>\r\n\t<li>the person who delivers your meals</li>\r\n\t<li>any feedback or suggestions</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: 'About the meals on wheels service and how to apply for free or reduced cost meals.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78

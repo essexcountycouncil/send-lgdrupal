@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 71ca557f-4daf-42bd-9a59-42a48dee87f5
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Welcome to the LocalGov Drupal demo site!'
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1620647190
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-2--f9189e8258b5ef508f6c72db969ea3988446796c
+  short_description:
+    -
+      value: "<p>This is an example of a site-wide minor alert - click hide and you should not see me again. Other alerts might be displayed on specific pages.&nbsp;</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 20--minor

@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * @file
+ * Provides a geo entity type.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_geo_theme() {
+  return [
+    'localgov_geo' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for geo templates.
+ *
+ * Default template: localgov-geo.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the geo information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_localgov_geo(array &$variables) {
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_field_widget_complete_WIDGET_TYPE_form_alter().
+ */
+function localgov_geo_field_widget_complete_entity_browser_entity_reference_form_alter(&$field_widget_complete_form, FormStateInterface $form_state, $context) {
+  if ($context['widget']->getSetting('entity_browser') == 'localgov_geo_library') {
+    $field_widget_complete_form['#attached']['library'][] = 'localgov_geo/geobrowser';
+    $field_widget_complete_form['#attributes']['class'][] = 'localgov-geo-geobrowser';
+  }
+}
+
+/**
+ * After build geofield_map element.
+ *
+ * @see localgov_geo_field_widget_form_alter()
+ */
+function _localgov_geo_geofield_widget_alter($element) {
+  unset($element['value']['map']['geocode']);
+  return $element;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function localgov_geo_theme_suggestions_localgov_geo(array $variables) {
+  $suggestions = [];
+
+  $geo = $variables['elements']['#localgov_geo'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'localgov_geo__' . $sanitized_view_mode;
+  $suggestions[] = 'localgov_geo__' . $geo->bundle();
+  $suggestions[] = 'localgov_geo__' . $geo->bundle() . '__' . $sanitized_view_mode;
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * This removes entity forms if the bundle is not enabled for the field.
+ * There are a few patches in the issue queue to remove the need to do this.
+ * The most promising:
+ *   https://www.drupal.org/project/entity_browser/issues/2765295
+ */
+function localgov_geo_form_entity_browser_localgov_geo_library_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $storage = $form_state->getStorage();
+  $bundles = $storage['entity_browser']['widget_context']['target_bundles'];
+  // UUIDs are defined by the configuration we're installing.
+  // @see config/install/entity_browser.browser.localgov_geo_library.yml
+  if (empty($bundles['address'])) {
+    unset($form['widget_selector']['tab_selector_3edf0a0f-cb61-4324-8d36-1898e23a16ed']);
+  }
+  if (empty($bundles['area'])) {
+    unset($form['widget_selector']['tab_selector_beda8d11-9000-4069-95e7-dbb4282941db']);
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function localgov_geo_views_pre_render(ViewExecutable $view) {
+  if ($view->id() == 'localgov_geo_library') {
+    $view->element['#attached']['library'][] = 'localgov_geo/geobrowser';
+  }
+}
+
+/**
+ * Implements hook_localgov_roles_default().
+ */
+function localgov_geo_localgov_roles_default() {
+  return [
+    // @codingStandardsIgnoreLine
+    \Drupal\localgov_roles\RolesHelper::EDITOR_ROLE => [
+      'access geo overview',
+      'create geo',
+      'delete geo',
+      'edit geo',
+    ],
+    // @codingStandardsIgnoreLine
+    \Drupal\localgov_roles\RolesHelper::AUTHOR_ROLE => [
+      'create geo',
+    ],
+  ];
+}

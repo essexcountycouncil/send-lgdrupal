@@ -1,0 +1,21 @@
+parameters:
+  level: 1
+  bootstrapFiles:
+    - bootstrap.php
+  reportUnmatchedIgnoredErrors: false
+  customRulesetUsed: true
+  paths:
+    - .
+  scanFiles:
+    - core/includes/install.inc
+  scanDirectories:
+    - vendor/rlanvin/php-rrule/
+    - core/modules/system/
+  fileExtensions:
+    - module
+    - theme
+    - profile
+    - install
+    - inc
+  ignoreErrors:
+    - '#Unsafe usage of new static\(\).#'

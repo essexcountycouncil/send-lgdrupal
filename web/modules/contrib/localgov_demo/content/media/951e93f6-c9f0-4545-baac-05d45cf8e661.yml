@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 951e93f6-c9f0-4545-baac-05d45cf8e661
+  bundle: image
+  default_langcode: en
+  depends:
+    f0bc4cf6-2ce7-41c0-b67f-9a96df2ab117: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: bin.jpg
+  created:
+    -
+      value: 1631267090
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: f0bc4cf6-2ce7-41c0-b67f-9a96df2ab117
+      alt: 'a bin'
+      title: ''
+      width: 318
+      height: 159

@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a search api best bets formatter.
+ *
+ * Available variables:
+ * - query_text: The query text added in UI.
+ * - exclude: The boolean value from the exclude field.
+ * - exclude_formatted: : Yes or No translated using t().
+ *
+ * @see template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% trans %} Query: {{ query_text }} {% endtrans %}
+  <br>
+  {% trans %} Exclude from results: {{ exclude_formatted }} {% endtrans %}
+{% endapply %}

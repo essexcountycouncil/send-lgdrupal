@@ -1,0 +1,12 @@
+name: Entity Hierarchy Breadcrumb
+description: A module to provide breadcrumbs based on entity hierarchy fields.
+package: "Entity Hierarchy"
+core_version_requirement: ^9.0 || ^10.0
+type: module
+dependencies:
+  - entity_hierarchy:entity_hierarchy
+
+# Information added by Drupal.org packaging script on 2023-01-18
+version: '3.3.4'
+project: 'entity_hierarchy'
+datestamp: 1674007734

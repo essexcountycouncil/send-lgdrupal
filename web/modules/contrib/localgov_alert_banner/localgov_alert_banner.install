@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ * LocalGov Alert Banner install file.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Config\Config;
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_alert_banner_install($is_syncing) {
+
+  // Configure scheduled transitions if enabled.
+  if (\Drupal::moduleHandler()->moduleExists('scheduled_transitions')) {
+    localgov_alert_banner_configure_scheduled_transitions();
+  }
+
+  // Default grant permissions to view all alert banners.
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['view all localgov alert banner entities']);
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['view all localgov alert banner entities']);
+}
+
+/**
+ * Update alert banner entity definition to include the token on the entity.
+ */
+function localgov_alert_banner_update_8801() {
+  $field_storage_definition = BaseFieldDefinition::create('string')
+    ->setSetting('max_length', 64)
+    ->setDisplayConfigurable('form', FALSE)
+    ->setDisplayConfigurable('view', FALSE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('token', 'localgov_alert_banner', 'localgov_alert_banner', $field_storage_definition);
+}
+
+/**
+ * Add visibility field to existing alert banners.
+ */
+function localgov_alert_banner_update_8901() {
+
+  // Enable dependent condition_field module.
+  \Drupal::service('module_installer')->install(['condition_field']);
+
+  $config_directory = new FileStorage(__DIR__ . '/config/install');
+
+  // Add visibility field storage.
+  $field_storage = $config_directory->read('field.storage.localgov_alert_banner.visibility');
+  if ($field_storage && !FieldStorageConfig::loadByName('localgov_alert_banner', 'visibility')) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+
+  // Fetch all configured localgov_alert_banner bundles.
+  $alert_banner_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('localgov_alert_banner');
+  foreach ($alert_banner_bundles as $bundle => $info) {
+
+    // Add visibility field to bundle.
+    $field_record = $config_directory->read('field.field.localgov_alert_banner.localgov_alert_banner.visibility');
+    if ($field_record && !FieldConfig::loadByName('localgov_alert_banner', $bundle, 'visibility')) {
+      $field_record['bundle'] = $bundle;
+      FieldConfig::create($field_record)->save();
+    }
+
+    // Add visibility field to the bundles entity form.
+    $form_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_form_display')
+      ->load('localgov_alert_banner.' . $bundle . '.default');
+    if ($form_display) {
+      $form_display->setComponent('visibility', [
+        'region' => 'content',
+        'settings' => [],
+        'third_party_settings' => [],
+        'type' => 'condition_field_default',
+        'weight' => 5,
+      ]);
+      $form_display->save();
+    }
+  }
+}
+
+/**
+ * Add workflow and configure scheduled transitions if enabled.
+ */
+function localgov_alert_banner_update_9001() {
+
+  // Add localgov_alert_banner workflow config.
+  $workflows_workflow_localgov_alert_banner = <<<EOY
+langcode: en
+status: true
+dependencies:
+  config:
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - content_moderation
+id: localgov_alert_banners
+label: 'Alert banners'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      published: false
+      default_revision: false
+      label: Draft
+      weight: 0
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 1
+    unpublished:
+      label: Unpublished
+      published: false
+      default_revision: true
+      weight: 2
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: 0
+      from:
+        - draft
+        - published
+        - unpublished
+    publish:
+      label: Publish
+      to: published
+      weight: 1
+      from:
+        - draft
+        - published
+        - unpublished
+    unpublish:
+      label: Unpublish
+      to: unpublished
+      weight: 2
+      from:
+        - draft
+        - published
+        - unpublished
+  entity_types:
+    localgov_alert_banner:
+      - localgov_alert_banner
+  default_moderation_state: unpublished
+EOY;
+  $workflow = \Drupal::service('config.factory')->getEditable('workflows.workflow.localgov_alert_banners');
+  assert($workflow instanceof Config);
+  if ($workflow->isNew()) {
+    $workflow->setData(Yaml::parse($workflows_workflow_localgov_alert_banner));
+    $workflow->save();
+  }
+
+  // Hide content moderation field on alert banner display.
+  $alert_banner_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('localgov_alert_banner');
+  foreach ($alert_banner_bundles as $bundle => $info) {
+    $form_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_display')
+      ->load('localgov_alert_banner.' . $bundle . '.default');
+    if ($form_display) {
+      $form_display->setComponent('content_moderation_control', [
+        'region' => 'hidden',
+      ]);
+      $form_display->save();
+    }
+  }
+
+  // Check Scheduled Transitions module is enabled.
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('scheduled_transitions')) {
+
+    // Configure scheduled transitions for alert banners.
+    $scheduled_transitions_config = \Drupal::service('config.factory')->getEditable('scheduled_transitions.settings');
+    $bundles = [];
+    foreach ($alert_banner_bundles as $bundle => $info) {
+      $bundles[] = [
+        'entity_type' => 'localgov_alert_banner',
+        'bundle' => $bundle,
+      ];
+    }
+    $scheduled_transitions_config->set('bundles', $bundles);
+    $scheduled_transitions_config->save();
+
+    Cache::invalidateTags([
+      'scheduled_transition_settings',
+      'config:scheduled_transitions.settings',
+    ]);
+
+    // Add scheduling permissions to the emergency publisher user.
+    $permissions = [];
+    foreach ($alert_banner_bundles as $bundle => $info) {
+      $permissions = array_merge($permissions, [
+        'add scheduled transitions localgov_alert_banner ' . $bundle,
+        'reschedule scheduled transitions localgov_alert_banner ' . $bundle,
+        'view scheduled transitions localgov_alert_banner ' . $bundle,
+      ]);
+    }
+    user_role_grant_permissions('emergency_publisher', $permissions);
+  }
+}
+
+/**
+ * Add view alert banner permission to anonymous and authenticated users.
+ */
+function localgov_alert_banner_update_9002() {
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['view all localgov alert banner entities']);
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['view all localgov alert banner entities']);
+
+  // Also grant permissions on individual types.
+  $alert_banner_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('localgov_alert_banner');
+  foreach ($alert_banner_bundles as $bundle => $info) {
+    user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['view localgov alert banner ' . $bundle . ' entities']);
+    user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['view localgov alert banner ' . $bundle . ' entities']);
+  }
+}

@@ -1,0 +1,80 @@
+.page-content {
+  margin-top: 0;
+
+  > .help,
+  > .region-content,
+  > .region-highlighted {
+    @include mq(small) {
+      margin-top: var(--gin-spacing-l);
+    }
+  }
+}
+
+.layer-wrapper,
+.block-system > form,
+.view-content .views-form,
+.view-without-bulk .view-content,
+.panel,
+.admin-list,
+.view-watchdog .view-content,
+.views-exposed-form.views-exposed-form,
+.system-status-counter,
+.system-status-general-info,
+.system-status-report,
+.views-edit-view,
+.views-preview-wrapper,
+.view-block-content .view-content,
+.view-files .view-content,
+.system-themes-list,
+.modules-tabs,
+#views-entity-list,
+.admin.my-workbench
+{
+  margin-top: 0;
+  box-shadow: var(--gin-shadow-l1);
+  border-radius: var(--gin-border-l);
+
+  .gin--dark-mode & {
+    box-shadow: 0 6px 16px var(--gin-border-color-layer);
+  }
+
+  .gin--high-contrast-mode & {
+    box-shadow: none;
+  }
+}
+
+.layer-wrapper,
+.block-system-main-block > form,
+.view-content .views-form,
+.view-without-bulk .view-content,
+.views-exposed-form.views-exposed-form,
+.panel,
+.admin-list,
+.update,
+.view-files .view-content,
+.view-watchdog .view-content,
+.system-status-general-info,
+.system-status-report,
+.views-edit-view,
+.views-preview-wrapper,
+.view-block-content .view-content,
+.system-themes-list,
+#views-entity-list,
+.admin.my-workbench
+{
+  width: 100%;
+  padding: var(--gin-spacing-s);
+  background: var(--gin-bg-layer);
+  border: 1px solid var(--gin-border-color-layer);
+  box-sizing: border-box;
+
+  @include mq(small) {
+    padding: var(--gin-spacing-l);
+  }
+
+  // Remove extra spacing on top of form.
+  > .form-wrapper:first-of-type .form-item,
+  .layout-region-node-main > .form-wrapper:first-of-type .form-item {
+    margin-top: 0;
+  }
+}

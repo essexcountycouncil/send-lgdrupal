@@ -1,0 +1,26 @@
+# Schema for the configuration files of the localgov_menu_link_group module.
+localgov_menu_link_group.localgov_menu_link_group.*:
+  type: config_entity
+  label: 'LocalGov menu link group config'
+  mapping:
+    id:
+      type: string
+      label: 'Id'
+    group_label:
+      type: label
+      label: 'Group label'
+    weight:
+      type: integer
+      label: 'Menu link weight'
+    parent_menu:
+      type: string
+      label: 'Parent menu name'
+    parent_menu_link:
+      type: string
+      label: 'Parent menu link'
+    child_menu_links:
+      type: sequence
+      label: 'Child menu links'
+      sequence:
+        type: string
+        label: 'Child menu link'

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Creates a field and widget for inserting working or office hours per day.
+ */
+
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+// Add theme.api.php hooks.
+\Drupal::moduleHandler()->loadInclude('office_hours', 'inc', 'office_hours.theme');
+// Add ExceptionItem field formatter theming/preprocessing.
+\Drupal::moduleHandler()->loadInclude('office_hours', 'inc', 'office_hours.theme.exceptions');
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Changes the Field_storage settings form to assure unlimited cardinality.
+ */
+function office_hours_form_field_storage_config_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $entity_type = $form_state->getFormObject()->getEntity()->getType();
+  if ($entity_type == 'office_hours') {
+    $form['cardinality_container']['cardinality'] = [
+      '#options' => [FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED => t('Unlimited')],
+      '#default_value' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
+      '#description' => '<p>' . t("This is unlimited by this field's nature.
+        See 'Number of slots' for limiting the number of slots per day.")
+    ]
+    + $form['cardinality_container']['cardinality'];
+  }
+}
+
+/**
+ * Implements hook_office_hours_time_format_alter().
+ */
+//function office_hours_office_hours_time_format_alter(string &$formatted_time) {
+//  // Only to test the alter hook in office_hours.api.php .
+//}

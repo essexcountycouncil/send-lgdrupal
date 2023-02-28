@@ -1,0 +1,278 @@
+<?php
+
+/**
+ * @file
+ * LocalGov Events module file.
+ */
+
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\localgov_events\Form\EventsAddEditCallbacks;
+use Drupal\localgov_roles\RolesHelper;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_events_theme($existing, $type, $theme, $path) {
+  return [
+    'node__localgov_event__teaser' => [
+      'template' => 'node--localgov-event--teaser',
+      'base hook' => 'node',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_localgov_roles_default().
+ */
+function localgov_events_localgov_roles_default(): array {
+
+  // Content editing permissions.
+  $perms = [
+    RolesHelper::EDITOR_ROLE => [
+      'create localgov_event content',
+      'delete any localgov_event content',
+      'delete localgov_event revisions',
+      'delete own localgov_event content',
+      'edit any localgov_event content',
+      'edit own localgov_event content',
+      'revert localgov_event revisions',
+      'view localgov_event revisions',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'create localgov_event content',
+      'delete own localgov_event content',
+      'edit own localgov_event content',
+      'revert localgov_event revisions',
+      'view localgov_event revisions',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create localgov_event content',
+      'delete own localgov_event content',
+      'edit own localgov_event content',
+      'view localgov_event revisions',
+    ],
+  ];
+
+  // Content scheduling permissions required by localgov_workflows.
+  if (\Drupal::moduleHandler()->moduleExists('localgov_workflows')) {
+    $perms[RolesHelper::EDITOR_ROLE] = array_merge($perms[RolesHelper::EDITOR_ROLE], [
+      'add scheduled transitions node localgov_event',
+      'reschedule scheduled transitions node localgov_event',
+      'view scheduled transitions node localgov_event',
+    ]);
+    $perms[RolesHelper::AUTHOR_ROLE] = array_merge($perms[RolesHelper::AUTHOR_ROLE], [
+      'add scheduled transitions node localgov_event',
+      'reschedule scheduled transitions node localgov_event',
+      'view scheduled transitions node localgov_event',
+    ]);
+    $perms[RolesHelper::CONTRIBUTOR_ROLE] = array_merge($perms[RolesHelper::CONTRIBUTOR_ROLE], [
+      'add scheduled transitions node localgov_event',
+      'reschedule scheduled transitions node localgov_event',
+      'view scheduled transitions node localgov_event',
+    ]);
+  }
+
+  return $perms;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function localgov_events_page_attachments(array &$attachments) {
+  // Attach events styling library to events pages and views.
+  $current_path = \Drupal::service('path.current')->getPath();
+  if (substr($current_path, 0, 7) == '/events') {
+    $attachments['#attached']['library'][] = 'localgov_events/events-styling';
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function localgov_events_modules_installed($modules, $is_syncing) {
+
+  // Don't configure the extra fields during config sync operations.
+  if ($is_syncing) {
+    return;
+  }
+
+  // Configure optional fields.
+  $directory_page = in_array('localgov_directories_page', $modules);
+  $directory_venue = in_array('localgov_directories_venue', $modules);
+  if ($directory_page || $directory_venue) {
+    \Drupal::service('config.installer')->installOptionalConfig();
+    localgov_events_optional_fields_settings($directory_page, $directory_venue);
+  }
+}
+
+/**
+ * Configure form settings for optional provider and venue fields.
+ *
+ * @param bool $directory_page
+ *   If localgov_directories_page is (being) installed.
+ * @param bool $directory_venue
+ *   If localgov_directories_venue is (being) installed.
+ */
+function localgov_events_optional_fields_settings($directory_page, $directory_venue) {
+  if ($directory_page || $directory_venue) {
+
+    $form_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_form_display')
+      ->load('node.localgov_event.default');
+    assert($form_display instanceof EntityFormDisplayInterface);
+    $view_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_display')
+      ->load('node.localgov_event.default');
+    assert($view_display instanceof EntityViewDisplayInterface);
+    $group_location = $form_display->getThirdPartySetting('field_group', 'group_location');
+    $locations = $group_location['children'];
+
+    // Set display for localgov_event_venue field.
+    if ($directory_venue) {
+      if (!$form_display->getComponent('localgov_event_venue')) {
+        $form_display->setComponent('localgov_event_venue', [
+          'type' => 'entity_reference_autocomplete',
+          'region' => 'content',
+          'settings' => [
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'placeholder' => '',
+            'match_limit' => 10,
+          ],
+          'weight' => 11,
+        ])->save();
+        array_unshift($locations, 'localgov_event_venue');
+      }
+      if (!$view_display->getComponent('localgov_event_venue')) {
+        $view_display->setComponent('localgov_event_venue', [
+          'type' => 'entity_reference_label',
+          'region' => 'content',
+          'label' => 'inline',
+          'weight' => 5,
+        ])->save();
+      }
+    }
+
+    // Set display localgov_event_provider field.
+    if (!$form_display->getComponent('localgov_event_provider')) {
+      $form_display->setComponent('localgov_event_provider', [
+        'type' => 'entity_reference_autocomplete',
+        'region' => 'content',
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'placeholder' => '',
+          'match_limit' => 10,
+        ],
+        'weight' => 10,
+      ])->save();
+      array_unshift($locations, 'localgov_event_provider');
+    }
+    if (!$view_display->getComponent('localgov_event_provider')) {
+      $view_display->setComponent('localgov_event_provider', [
+        'type' => 'entity_reference_label',
+        'region' => 'content',
+        'label' => 'inline',
+        'weight' => 4,
+      ])->save();
+    }
+
+    // Set grouped location fields.
+    $group_location['children'] = $locations;
+    $form_display->setThirdPartySetting('field_group', 'group_location', $group_location);
+    $form_display->save();
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for the views_exposed_form form.
+ */
+function localgov_events_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Modify the events listing exposed filters to add a nice date widget.
+  if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-localgov-events-listing-page-all-events') {
+
+    // Date selection options.
+    $date_options = [
+      'choose' => t('Choose date range'),
+      'today' => t('Today'),
+      'tomorrow' => t('Tomorrow'),
+      'this_week' => t('This week'),
+      'this_month' => t('This month'),
+      'next_month' => t('Next month'),
+    ];
+
+    $form['#attached']['library'][] = 'localgov_events/date-picker';
+    $form['date_picker'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Dates'),
+      '#attributes' => ['class' => ['date-picker']],
+    ];
+    $form['date_picker']['dates'] = [
+      '#type' => 'select',
+      '#title' => t('Date range'),
+      '#options' => $date_options,
+      '#default_value' => 'choose',
+      '#attributes' => ['class' => ['js-date-picker']],
+    ];
+    $form['date_picker']['start'] = [
+      '#type' => 'date',
+      '#title' => t('Start date'),
+      '#date_date_format' => 'Y-m-d',
+      '#attributes' => [
+        'type' => 'date',
+        'class' => ['js-date-picker-start'],
+      ],
+    ];
+    unset($form['start']);
+    $form['date_picker']['end'] = [
+      '#type' => 'date',
+      '#title' => t('End date'),
+      '#date_date_format' => 'Y-m-d',
+      '#attributes' => [
+        'type' => 'date',
+        'class' => ['js-date-picker-end'],
+      ],
+    ];
+    unset($form['end']);
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function localgov_events_views_pre_view(ViewExecutable $view) {
+  if ($view->id() == 'localgov_events_listing') {
+
+    // Add one day to end date so events for that day are included.
+    $filters = $view->getExposedInput();
+    if (isset($filters['end']) && strlen($filters['end']) > 0) {
+      $filters['end'] = date('Y-m-d', strtotime($filters['end'] . ' + 1 days'));
+      $view->setExposedInput($filters);
+    }
+
+    // Set default to todays date if empty.
+    if (empty($filters['start'])) {
+      $filters['start'] = date('Y-m-d');
+      $view->setExposedInput($filters);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_localgov_event_form form.
+ */
+function localgov_events_form_node_localgov_event_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Configure node add form.
+  EventsAddEditCallbacks::configureNodeForm($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_localgov_event_edit_form form.
+ */
+function localgov_events_form_node_localgov_event_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Configure node edit form.
+  EventsAddEditCallbacks::configureNodeForm($form);
+}

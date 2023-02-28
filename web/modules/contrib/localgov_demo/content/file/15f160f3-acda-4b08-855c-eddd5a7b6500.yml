@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 15f160f3-acda-4b08-855c-eddd5a7b6500
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Lakes.simplify2.geojson
+  uri:
+    -
+      value: 'public://2021-09/Lakes.simplify2.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 344560
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631814697

@@ -1,0 +1,16 @@
+# List of all the localgov_menu_link_group entities.
+entity.localgov_menu_link_group.collection:
+  title: 'Menu link groups'
+  parent: entity.menu.collection
+  description: 'Configure menu link groups'
+  route_name: entity.localgov_menu_link_group.collection
+  weight: -1
+
+# Menu links generated from the localgov_menu_link_group entities.
+# There should be one such menu link per entity.
+localgov_menu_link_group:
+  deriver: \Drupal\localgov_menu_link_group\Plugin\Deriver\MenuGroups
+  provider: localgov_menu_link_group
+  route_name: <nolink>
+  enabled: 1
+  expanded: 1

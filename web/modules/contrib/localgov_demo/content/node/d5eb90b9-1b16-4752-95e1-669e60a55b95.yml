@@ -1,0 +1,73 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d5eb90b9-1b16-4752-95e1-669e60a55b95
+  bundle: localgov_directories_page
+  default_langcode: en
+  depends:
+    5f88c33c-6ffe-4afc-8a66-cd1651b212de: node
+    18af5010-aede-41c2-bc16-81e9c1ea08ba: localgov_directories_facets
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Get Online at Home'
+  created:
+    -
+      value: 1620143345
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/money-employment-and-training-directory/get-online-home
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Low cost refurbished computers from a number of providers. Includes deals on broadband packages.&nbsp;</p>\r\n\r\n<p>To qualify for the cheaper eligible price you must:</p>\r\n\r\n<ul>\r\n\t<li>be a member of a low-income family receiving any state benefits based on need</li>\r\n\t<li>live in a community with limited access to technology have a disability</li>\r\n</ul>\r\n\r\n<h3>Contact Information</h3>\r\n\r\n<p><a href=\"https://www.getonlineathome.org/\">https://www.getonlineathome.org</a></p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: ''
+      dependent_locality: ''
+      postal_code: ''
+      sorting_code: ''
+      address_line1: ''
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''
+  localgov_directory_channels:
+    -
+      entity: 5f88c33c-6ffe-4afc-8a66-cd1651b212de
+  localgov_directory_facets_select:
+    -
+      entity: 18af5010-aede-41c2-bc16-81e9c1ea08ba
+  localgov_directory_website:
+    -
+      uri: 'https://www.getonlineathome.org'
+      title: ''
+      options: {  }

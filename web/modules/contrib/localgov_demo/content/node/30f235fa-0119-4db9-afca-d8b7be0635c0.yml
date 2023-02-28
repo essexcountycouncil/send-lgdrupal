@@ -1,0 +1,162 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 30f235fa-0119-4db9-afca-d8b7be0635c0
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    aaa24693-6789-4de2-8094-57f848a6e259: media
+    06ef19ba-88f9-4ef4-b3f4-65873933bf01: media
+    99068425-f184-46ac-a121-624e51d7565b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'The fostering process'
+  created:
+    -
+      value: 1620142190
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /fostering/fostering-process
+      langcode: en
+      pathauto: 1
+  localgov_subsites_banner:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: e6ac2d91-8e01-4784-b19c-7a657c851278
+          bundle: localgov_banner_secondary
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631281392
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          localgov_image:
+            -
+              entity: aaa24693-6789-4de2-8094-57f848a6e259
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: be841354-5f05-4f19-9685-ce0d2c5e3937
+          bundle: page_section
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620142234
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: layout_onecol
+                  config:
+                    label: ''
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 566c09e8-cd41-4fea-bce5-8f0cda763845
+          bundle: localgov_text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620142252
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: be841354-5f05-4f19-9685-ce0d2c5e3937
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_text:
+            -
+              value: "<h2>Step 1 - Make an enquiry</h2>\r\n\r\n<p>If you've given some thought to becoming a foster carer and you'd like more information or a quick chat to discuss it, you can call us, complete our online form or email us.</p>\r\n\r\n<p>We'll come back to you within two days if you make an online or email enquiry.</p>\r\n\r\n<h2>Step 2 - We’ll come and visit you</h2>\r\n\r\n<p>Within a week of making your enquiry, we’ll set up a home visit.</p>\r\n\r\n<p>The home visit gives us an opportunity to speak to you about fostering and answer any questions that you might have. We'll complete a questionnaire with you to capture the conversation.</p>\r\n\r\n<p>At this early stage, we need to understand whether you can meet our practical criteria to become a foster carer and how fostering could potentially impact upon your own life given the time and commitment it requires.</p>\r\n\r\n<h2>Step 3 - We’ll do your assessment</h2>\r\n\r\n<p>The formal assessment is a wide-ranging exercise. We'll need to carry out certain checks that may influence whether or not you can foster.</p>\r\n\r\n<p>For example, we'll ask you to complete a health check and criminal record check. At the same time, your training to become a foster carer will begin and you'll complete our ‘skills to foster’ course.</p>\r\n\r\n<h2>Step 4 - You’ll attend our fostering panel</h2>\r\n\r\n<p>When you've completed your assessment, we'll produce a report for our fostering panel.</p>\r\n\r\n<p>The fostering panel is a group of people, including independent people, social work professionals, children who have left care and current foster carers, who'll ask you questions about your assessment. Following this meeting, the panel will make a final recommendation.</p>\r\n\r\n<h2>Step 5 - You become a foster carer</h2>\r\n\r\n<p>Our lead officer for children’s social care will look at the assessment and findings of the fostering panel and make a final decision on your application.</p>\r\n\r\n<p>This is the end of the formal application process and once you've been assessed as suitable for fostering, you'll join our team.</p>\r\n\r\n<p>We'll introduce you to our support staff and begin the induction.</p>\r\n"
+              format: wysiwyg
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 35ef321e-815e-4344-b4d7-68e45e29bbd4
+          bundle: localgov_image
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620142337
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: content
+                  parent_uuid: be841354-5f05-4f19-9685-ce0d2c5e3937
+                  layout: ''
+                  config: {  }
+                  parent_delta: 0
+          revision_translation_affected:
+            -
+              value: true
+          localgov_caption:
+            -
+              value: "<p>This is a caption</p>\r\n"
+              format: wysiwyg
+          localgov_image:
+            -
+              entity: 06ef19ba-88f9-4ef4-b3f4-65873933bf01
+  localgov_subsites_parent:
+    -
+      entity: 99068425-f184-46ac-a121-624e51d7565b
+      weight: 0

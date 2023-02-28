@@ -1,0 +1,18 @@
+{
+    "name": "localgovdrupal/localgov_page_components",
+    "description": "Provides reusable paragraph page components for the LocalGovDrupal distribution.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_page_components",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/entity_browser": "^2.5",
+        "drupal/inline_entity_form": "^1.0-rc6",
+        "drupal/linkit": "^6.0-beta1",
+        "drupal/paragraphs": "^1.11"
+    },
+    "extra": {
+        "patches": {
+        }
+    }
+}

@@ -1,0 +1,15 @@
+localgov_directories.localgov_directories_facets_type.*:
+  type: config_entity
+  label: 'Directory Facets type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    weight:
+      type: integer
+      label: 'Weight'
+    uuid:
+      type: string

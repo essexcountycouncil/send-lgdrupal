@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 2bc69bb5-5bd4-4168-bf0a-a63cec289fd0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: 'Bereavement site - blossom lane.png'
+  uri:
+    -
+      value: 'public://2021-04/Bereavement site - blossom lane_3.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 2346596
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1619779142

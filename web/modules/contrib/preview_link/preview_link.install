@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install file.
+ */
+
+/**
+ * Install the settings object.
+ */
+function preview_link_update_8101() {
+  $config = \Drupal::configFactory()->getEditable('preview_link.settings');
+  $config->set('enabled_entity_types', []);
+  $config->save(TRUE);
+}

@@ -1,0 +1,4 @@
+services:
+  webform_query:
+    class: 'Drupal\webform_query\WebformQuery'
+    arguments: ['@database']

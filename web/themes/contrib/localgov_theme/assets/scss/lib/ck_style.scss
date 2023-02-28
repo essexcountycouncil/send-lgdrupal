@@ -1,0 +1,11 @@
+/* Imports all styles needed to be included within the site's CK editor instances. */
+
+// Functions
+@import 'functions';
+
+// Import Bootstrap css
+// Required
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import 'variables';

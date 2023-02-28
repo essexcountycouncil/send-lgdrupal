@@ -1,0 +1,7 @@
+{
+    "name": "localgovdrupal/localgov_scarfolk",
+    "description": "A demonstration seb theme for LocalGov Drupal websites.",
+    "type": "drupal-theme",
+    "homepage": "https://github.com/localgovdrupal/localgov_scarfolk",
+    "license": "GPL-2.0-or-later"
+}

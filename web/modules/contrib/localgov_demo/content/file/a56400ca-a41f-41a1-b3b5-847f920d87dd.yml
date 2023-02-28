@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a56400ca-a41f-41a1-b3b5-847f920d87dd
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: PeakDistrict.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/PeakDistrict.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 465912
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631797716

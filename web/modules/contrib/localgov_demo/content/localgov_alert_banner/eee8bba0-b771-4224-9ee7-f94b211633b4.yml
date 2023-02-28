@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: eee8bba0-b771-4224-9ee7-f94b211633b4
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Shakespeare''s dead'
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1620320690
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-6--b88a0b0669d380ac8e9585ad4f4447428acf4494
+  short_description:
+    -
+      value: "<p>Thou know'st 'tis common; all that lives must die,<br />\r\nPassing through nature to eternity.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 90--notable-person
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: /births-deaths-marriages-and-citizenship
+          negate: '0'

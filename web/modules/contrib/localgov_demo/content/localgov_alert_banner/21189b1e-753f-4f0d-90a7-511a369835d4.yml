@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 21189b1e-753f-4f0d-90a7-511a369835d4
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''service landing page'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1620647151
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-1--e0d54c3ffe609096513dc5a434afb5ae2d48e83b
+  short_description:
+    -
+      value: "<p>Use a 'service landing page' for the homepage of a section.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/adult-health-and-social-care\r\n/births-deaths-marriages-and-citizenship\r\n/libraries-leisure-and-culture"
+          negate: '0'

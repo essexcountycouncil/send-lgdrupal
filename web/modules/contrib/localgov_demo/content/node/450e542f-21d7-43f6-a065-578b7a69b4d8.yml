@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 450e542f-21d7-43f6-a065-578b7a69b4d8
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Cancelling or changing your ceremony'
+  created:
+    -
+      value: 1620399289
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-1
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>We are giving full refunds if we have to cancel the ceremony due to the current restrictions.</p>\r\n\r\n<h2>If you want to cancel or move your ceremony</h2>\r\n\r\n<p>If you decide to cancel your ceremony, then we will refund all fees minus the £100 deposit.</p>\r\n\r\n<p>If you wish to cancel or move your ceremony then email the Register Office.&nbsp;You will not&nbsp;be charged an amendment fee if you wish to move your ceremony.</p>\r\n\r\n<p>Email:&nbsp;<a href=\"mailto:example@example.com\">example@example.com</a></p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Cancelling or changing your ceremony'
+  localgov_step_summary:
+    -
+      value: "<p>We are giving full refunds if we have to cancel the ceremony due to the current restrictions.</p>\r\n"
+      format: wysiwyg

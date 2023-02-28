@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Hooks for preview_link_test.module
+ */
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function preview_link_test_entity_type_alter(array &$entity_types) {
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  if (isset($entity_types['entity_test_revpub'])) {
+    // Fixes entity_test_revpub link templates + route provider, see also
+    // https://www.drupal.org/project/drupal/issues/3154413.
+    $entityTestRevPub = $entity_types['entity_test_revpub'];
+    $entityTestRevPub->setLinkTemplate('canonical', '/entity_test_revpub/manage/{entity_test_revpub}');
+    // Content moderation already set path based on the wrong canonical path,
+    // override it here.
+    if ($entityTestRevPub->hasLinkTemplate('latest-version')) {
+      $entityTestRevPub->setLinkTemplate('latest-version', '/entity_test_revpub/manage/{entity_test_revpub}/latest');
+    }
+    $routeProviders = $entityTestRevPub->getRouteProviderClasses();
+    $routeProviders['html'] = Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider::class;
+    $entityTestRevPub->setHandlerClass('route_provider', $routeProviders);
+  }
+}

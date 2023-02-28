@@ -1,0 +1,13 @@
+<header>
+  <h1>{{ title }}</h1>
+
+  {% set is_lede_a_render_array = lede is iterable %}
+  {% set is_lede_not_a_render_array = not is_lede_a_render_array %}
+  {% if is_lede_a_render_array and ('#value' in lede|keys) and lede['#value'] %}
+    {{ lede }}
+  {% elseif is_lede_not_a_render_array and lede %}
+    <p>{{ lede }}</p>
+  {% endif %} 
+  <hr />
+</header>
+

@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 030d9a57-f0d8-4e9e-b198-769c93a829a4
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Electronic marriage register'
+  created:
+    -
+      value: 1631267577
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/electronic-marriage-register
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2><strong>Registering your marriage</strong></h2>\r\n\r\n<p>From 4 May 2021, electronic marriage registers will be introduced and paper marriage registers will no longer be used for the registration of marriages.</p>\r\n\r\n<p>This applies to all marriages, both civil ceremonies and ceremonies taking place at churches and places of worship. It does not apply to civil partnerships.</p>\r\n\r\n<p>At your marriage ceremony, you will be asked to sign a marriage schedule/document.&nbsp;The details on the schedule/document will be used to enter your marriage onto the electronic marriage register.</p>\r\n\r\n<p>If your ceremony is taking place with Registrars in attendance, then they will return the marriage schedule to the office.&nbsp;Where we are not in attendance at the ceremony, for example at most church ceremonies, Church Officials are responsible for ensuring the marriage schedule/document is returned to Croydon Register Office.</p>\r\n\r\n<p>For further information,&nbsp;<a href=\"https://www.croydon.gov.uk/sites/default/files/2021-04/MSS%20leaflet%20to%20couples%20Croydon%20v3.pdf\" title=\"MSS leaflet to couples Croydon v3.pdf\">download our guide to&nbsp;changes to&nbsp;marriage law from 4 May 2021</a>&nbsp;(PDF, 761 KB).</p>\r\n\r\n<h2><strong>How you will receive your marriage certificate</strong></h2>\r\n\r\n<p>You will no longer receive a handwritten marriage certificate at your ceremony. All certificates will need to be ordered online.</p>\r\n\r\n<p>You can&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/order-copies-certificates\" title=\"Order a copy of a certificate\">order a copy of your certificate here</a>.</p>\r\n\r\n<p>Once we have entered your marriage into the electronic register, we will attend to your order and post your certificate(s) to you. We aim to complete this process within 7 working days on receipt of the marriage schedule/document. If you require a marriage certificate urgently, please contact us at contact@example.com</p>\r\n\r\n<h2><strong>Why the process is changing</strong></h2>\r\n\r\n<p>The introduction of the electronic register on 4 May gives the couple the opportunity to add parents (mother/father/parent) to their marriage certificate, instead of only their fathers’ names, which is currently the case.</p>\r\n\r\n<p>The Marriages, Civil Partnerships, Marriages and Deaths (Registration Etc.) Act 2019 modernises how marriages are registered for the first time since 1837, through the issue of a marriage schedule system and registration in an electronic register.</p>\r\n"
+      format: wysiwyg
+      summary: "Find out more about electronic marriage registers replacing paper registers.\r\n"
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

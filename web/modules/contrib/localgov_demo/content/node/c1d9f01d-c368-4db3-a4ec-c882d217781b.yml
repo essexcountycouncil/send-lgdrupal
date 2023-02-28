@@ -1,0 +1,129 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c1d9f01d-c368-4db3-a4ec-c882d217781b
+  bundle: localgov_services_landing
+  default_langcode: en
+  depends:
+    8d774d57-90ee-44bf-82d0-1f468010bbf0: node
+    75aa141a-7e15-4d97-be6b-42372299ba4c: node
+    ce3110d2-90f6-45dc-b202-ad8f3df9e5a2: node
+    57b46ceb-20d3-45cc-9f9b-2bf2a6561c78: node
+    1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42: node
+    968ae2b4-a5f3-4f6a-bb83-376a819a77e0: node
+    57297753-c989-4358-8133-d5a8ba197544: node
+    9f43890d-c2c2-4d3d-b036-bb3ae7265752: node
+    acfb5e02-f92b-4822-9f09-d5802314dd52: taxonomy_term
+    df8a65ea-700c-4820-b12b-c81ccac0dd6c: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Adult health and social care'
+  created:
+    -
+      value: 1591357239
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum lacinia leo, eget cursus nisi commodo vel. Morbi blandit, tortor at lacinia bibendum, odio arcu scelerisque sapien, eu porta ex nibh id dolor. Ut volutpat massa eget facilisis imperdiet. Vivamus egestas dolor vel dolor fermentum, eu aliquam neque sollicitudin. Aliquam erat volutpat. Aliquam nibh dui, blandit eu vestibulum nec, volutpat nec enim. Sed ipsum orci, hendrerit id neque eu, condimentum finibus massa. Mauris efficitur purus tellus, ut euismod ligula ultrices id.</p>\r\n\r\n<p>Mauris convallis faucibus dui at condimentum. Aliquam rutrum velit eget ligula ultrices, quis egestas tortor pulvinar. Cras volutpat enim ac facilisis placerat. Nunc convallis odio eget neque finibus finibus. Praesent ut ante dui. Donec elementum ante et nunc consectetur gravida. Fusce lacus purus, congue vitae nisi in, fringilla fringilla mauris. Vestibulum elementum aliquet magna, ac cursus ex congue in. Etiam lacinia, ex a laoreet consectetur, ex sapien imperdiet nulla, id posuere nisl nunc et velit. Maecenas risus ligula, facilisis nec ornare eu, varius et magna. Ut suscipit aliquet nunc, eget placerat ligula tincidunt non. Cras pharetra posuere diam sit amet sollicitudin. Phasellus quam leo, imperdiet vel dui a, sollicitudin tempus urna. Praesent porta mi et imperdiet vestibulum.</p>\r\n\r\n<p>Quisque eu hendrerit elit. Morbi nisi est, congue vel urna vitae, consequat semper purus. Sed eu justo id risus mollis tristique feugiat et felis. Etiam auctor, neque sit amet pharetra condimentum, velit odio efficitur mauris, nec convallis erat nisl viverra diam. Nunc a fermentum tortor. Donec massa dolor, tristique commContent editing is hardodo sollicitudin sed, ultricies a purus. Donec interdum ex justo, nec auctor sapien aliquet a. Praesent tincidunt sapien eu diam auctor, ac vehicula sapien blandit. Fusce sapien massa, efficitur eget eleifend eget, lobortis eget libero. Curabitur imperdiet gravida metus, vitae malesuada nibh rhoncus ultrices. Maecenas ac felis ultricies, eleifend orci quis, suscipit mauris. Ut laoreet cursus laoreet. Proin id odio eget quam aliquam auctor. Phasellus mattis sollicitudin commodo. Sed condimentum auctor auctor. Aenean sit amet maximus orci.</p>\r\n"
+      format: wysiwyg
+      summary: 'Advice and support for adult health and social care'
+  localgov_address:
+    -
+      value: "Makespace Central\r\n21b Park End Street\r\nOxford OX1 1HU"
+      format: plain_text
+  localgov_address_first_line:
+    -
+      value: 'Agile Collective'
+  localgov_common_tasks:
+    -
+      target_uuid: 8d774d57-90ee-44bf-82d0-1f468010bbf0
+      title: 'Find out about meals on wheels'
+      options:
+        type: basic
+    -
+      target_uuid: 75aa141a-7e15-4d97-be6b-42372299ba4c
+      title: 'Step by step page'
+      options:
+        type: action
+    -
+      target_uuid: ce3110d2-90f6-45dc-b202-ad8f3df9e5a2
+      title: 'Find out about occupational therapy'
+      options:
+        type: basic
+  localgov_contact_us_online:
+    -
+      value: 'https://example.com/'
+  localgov_destinations:
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78
+    -
+      entity: 1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42
+    -
+      entity: 968ae2b4-a5f3-4f6a-bb83-376a819a77e0
+    -
+      entity: 57297753-c989-4358-8133-d5a8ba197544
+    -
+      entity: 9f43890d-c2c2-4d3d-b036-bb3ae7265752
+    -
+      entity: 57297753-c989-4358-8133-d5a8ba197544
+    -
+      entity: 1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78
+    -
+      entity: 968ae2b4-a5f3-4f6a-bb83-376a819a77e0
+  localgov_email_address:
+    -
+      value: contact@example.com
+  localgov_hearing_difficulties_ph:
+    -
+      value: '555 111 222 333'
+  localgov_link_to_map:
+    -
+      uri: 'https://goo.gl/maps/JxQN1htPv7XaPMtu6'
+      title: ''
+      options: {  }
+  localgov_opening_hours:
+    -
+      value: 'Monday to Friday 10am to 3pm. Closed on weekends and bank holidays.'
+      format: plain_text
+  localgov_other_team_contacts:
+    -
+      value: 'https://test.com/'
+  localgov_phone:
+    -
+      value: '555 111 222 333'
+  localgov_popular_topics:
+    -
+      entity: acfb5e02-f92b-4822-9f09-d5802314dd52
+    -
+      entity: df8a65ea-700c-4820-b12b-c81ccac0dd6c
+  localgov_twitter:
+    -
+      value: 'https://twitter.com/LocalGovDrupal'

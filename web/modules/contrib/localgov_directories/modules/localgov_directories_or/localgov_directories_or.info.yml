@@ -1,0 +1,9 @@
+name: 'LocalGov Directories: Open Referral'
+type: module
+description: 'Adds mappings for Facets for Open Referral.'
+package: LocalGov Drupal (Experimental)
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - localgov_directories:localgov_directories
+  - localgov_openreferral:localgov_openreferral

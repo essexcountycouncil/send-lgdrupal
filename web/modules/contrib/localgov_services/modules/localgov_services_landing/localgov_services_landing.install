@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * LocalGov services landing install file.
+ */
+
+use Drupal\localgov_core\FieldRenameHelper;
+
+/**
+ * Update Field names in localgov services landing.
+ *
+ * Field mapping between existing and new names:
+ * field_address_first_line         => localgov_address_first_line
+ * field_address                    => localgov_address
+ * field_contact_us_online          => localgov_contact_us_online
+ * field_destinations               => localgov_destination
+ * field_hearing_difficulties_phone => localgov_hearing_difficulties_ph
+ * field_link_to_map                => localgov_link_to_map
+ * field_opening_hours              => localgov_opening_hours
+ * field_other_team_contacts        => localgov_other_team_contacts
+ * field_popular_topics             => localgov_popular_topics.
+ *
+ * This change creates and updates Drupal config entities.  Unless configuration
+ * is *exported* after this update, later calls to 'drush deploy' or similar
+ * will revert these changes.
+ */
+function localgov_services_landing_update_8001(&$sandbox) {
+
+  // Update field_ types fields provided by localgov_services_laniding.
+  $field_names = [
+    'address_first_line',
+    'address',
+    'contact_us_online',
+    'destinations',
+    'hearing_difficulties_phone',
+    'link_to_map',
+    'opening_hours',
+    'other_team_contacts',
+    'popular_topics',
+  ];
+  foreach ($field_names as $field_name_unprefixed) {
+    FieldRenameHelper::renameField('field_' . $field_name_unprefixed, 'localgov_' . $field_name_unprefixed, 'node');
+  }
+
+  return t('Please export your sites configuration! Config entities for localgov_services_landing where updated.');
+}

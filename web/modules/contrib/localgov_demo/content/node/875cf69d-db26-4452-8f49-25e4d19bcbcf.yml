@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 875cf69d-db26-4452-8f49-25e4d19bcbcf
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    7c3be0a3-c5b6-4f24-8663-17356d86dd31: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Walking for health'
+  created:
+    -
+      value: 1620225468
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /libraries-leisure-and-culture/z-sports-and-activities/walking-health
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>We have stopped all Walking for Health activities to help prevent the spread of coronavirus/COVID-19. This includes&nbsp;group walks, social activities and other meetings. All these activities have stopped until at least&nbsp;2 December.</p>\r\n"
+      format: wysiwyg
+      summary: 'Find out about the programme of walks we run locally.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 7c3be0a3-c5b6-4f24-8663-17356d86dd31

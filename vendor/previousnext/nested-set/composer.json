@@ -1,0 +1,35 @@
+{
+    "name": "previousnext/nested-set",
+    "description": "A PHP Doctrine DBAL implementation for Nested Sets.",
+    "type": "library",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Kim Pepper",
+            "email": "kim@pepper.id.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "doctrine/dbal": "~2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "drupal/coder": "~8.0",
+        "pear/console_table": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "PNX\\NestedSet\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PNX\\NestedSet\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}

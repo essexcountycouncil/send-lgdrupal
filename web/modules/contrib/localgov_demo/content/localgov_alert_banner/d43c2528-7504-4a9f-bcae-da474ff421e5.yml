@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: d43c2528-7504-4a9f-bcae-da474ff421e5
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''service page'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631886884
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-13--5440091274648b8949aa74ec3b7c538552f0b7b5
+  short_description:
+    -
+      value: "<p>Use a 'service page' for any general content anywhere on the website.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/births-deaths-marriages-and-citizenship/registering-birth\r\n/wysiwyg-components\r\n/births-deaths-marriages-and-citizenship/registering-birth\r\n/libraries-leisure-and-culture/free-online-courses\r\n/libraries-leisure-and-culture/online-catalogue\r\n/mental-health-support\r\n/births-deaths-marriages-and-citizenship/re-register-child-born-female-parents\r\n/births-deaths-marriages-and-citizenship/remove-wrong-fathers-details\r\n/births-deaths-marriages-and-citizenship/correcting-marriage-or-civil-partnership-registration\r\n/births-deaths-marriages-and-citizenship/electronic-marriage-register\r\n/correcting-marriage-or-civil-partnership-registration\r\n/another-service-landing-page/service-page\r\n/libraries-leisure-and-culture/z-sports-and-activities/basketball\r\n/libraries-leisure-and-culture/z-sports-and-activities/walking-health\r\n/adult-health-and-social-care/support-your-home/meals-wheels\r\n/adult-health-and-social-care/support-your-home/care-home\r\n/adult-health-and-social-care/support-your-home/home-monitoring-and-personal-alarms\r\n/another-service-landing-page/service-page\r\n/libraries-leisure-and-culture/z-sports-and-activities/skateboarding\r\n/adult-health-and-social-care/support-your-home/occupational-therapy-and-equipment-helping-you-stay\r\n/adult-health-and-social-care/another-service-landing-page/service-page"
+          negate: '0'

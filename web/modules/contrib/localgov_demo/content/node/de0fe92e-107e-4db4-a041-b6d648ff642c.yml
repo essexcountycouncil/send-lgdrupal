@@ -1,0 +1,58 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: de0fe92e-107e-4db4-a041-b6d648ff642c
+  bundle: localgov_services_status
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Adult social care service is working normally'
+  created:
+    -
+      value: 1592931277
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/status/adult-social-care-service-working-normally
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra, erat vel laoreet semper, erat urna molestie urna, vel consequat diam magna eget nunc. Vivamus aliquet erat vitae lacus pellentesque interdum.</p>\r\n\r\n<p>Maecenas egestas nisl ac nisl fringilla, sed consectetur mi hendrerit. Vestibulum a lacus sollicitudin, accumsan est in, feugiat nisi. Integer at lacus in risus maximus pulvinar.</p>\r\n\r\n<p>Quisque ullamcorper dui ante, ut porta mauris iaculis a. In feugiat velit id neque maximus, aliquam euismod sapien sodales. Duis viverra nec lectus ac fringilla.</p>\r\n"
+      format: wysiwyg
+      summary: 'It''s all fine now, nothing to see here'
+  localgov_service_status:
+    -
+      value: 2-no-issues
+  localgov_service_status_on_landi:
+    -
+      value: true
+  localgov_service_status_on_list:
+    -
+      value: true
+  localgov_services_parent:
+    -
+      entity: c1d9f01d-c368-4db3-a4ec-c882d217781b

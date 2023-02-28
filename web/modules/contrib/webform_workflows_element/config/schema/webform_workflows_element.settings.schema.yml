@@ -1,0 +1,23 @@
+webform_workflows_element.settings:
+  type: config_object
+  label: "Webform Workflows Element settings"
+  mapping:
+    ui:
+      type: mapping
+      label: "User interface settings"
+      mapping:
+        color_options:
+          type: string
+          label: "Color options"
+    mail:
+      type: mapping
+      label: "Email default settings"
+      mapping:
+        default_body_text:
+          type: text
+          label: "Default workflow change email body (Plain text)"
+          webform_type: text
+        default_body_html:
+          type: text
+          label: "Default workflow change email body (HTML)"
+          webform_type: html

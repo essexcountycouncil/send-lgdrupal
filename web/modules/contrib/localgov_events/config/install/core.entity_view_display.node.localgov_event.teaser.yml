@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.localgov_event_date_full
+    - core.date_format.localgov_event_date_hour
+    - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.localgov_event_call_to_action
+    - field.field.node.localgov_event.localgov_event_categories
+    - field.field.node.localgov_event.localgov_event_date
+    - field.field.node.localgov_event.localgov_event_image
+    - field.field.node.localgov_event.localgov_event_locality
+    - field.field.node.localgov_event.localgov_event_location
+    - field.field.node.localgov_event.localgov_event_price
+    - node.type.localgov_event
+  module:
+    - date_recur
+    - text
+    - user
+id: node.localgov_event.teaser
+targetEntityType: node
+bundle: localgov_event
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  localgov_event_date:
+    type: date_recur_basic_formatter
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      format_type: localgov_event_date_full
+      occurrence_format_type: localgov_event_date_full
+      same_end_date_format_type: localgov_event_date_hour
+      separator: to
+      timezone_override: ''
+      interpreter: ''
+      show_next: 1
+      count_per_item: false
+    third_party_settings: {  }
+  localgov_event_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: localgov_event_thumbnail
+      link: false
+    third_party_settings: {  }
+hidden:
+  links: true
+  localgov_event_call_to_action: true
+  localgov_event_categories: true
+  localgov_event_locality: true
+  localgov_event_location: true
+  localgov_event_price: true
+  search_api_excerpt: true

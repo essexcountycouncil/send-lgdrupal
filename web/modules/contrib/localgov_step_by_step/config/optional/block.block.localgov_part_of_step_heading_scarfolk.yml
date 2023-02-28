@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_step_by_step
+  theme:
+    - localgov_scarfolk
+id: localgov_part_of_step_heading_scarfolk
+theme: localgov_scarfolk
+region: content
+weight: -8
+provider: null
+plugin: step_part_of_block
+settings:
+  id: step_part_of_block
+  label: 'Part of step heading'
+  provider: localgov_step_by_step
+  label_display: '0'
+visibility: {  }

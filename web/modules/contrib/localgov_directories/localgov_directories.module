@@ -1,0 +1,232 @@
+<?php
+
+/**
+ * @file
+ * Provides a directory facets entity type.
+ */
+
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\Element;
+use Drupal\field\FieldConfigInterface;
+use Drupal\localgov_directories\ConfigurationHelper;
+use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
+use Drupal\localgov_roles\RolesHelper;
+use Drupal\node\NodeInterface;
+use Drupal\pathauto\Entity\PathautoPattern;
+use Drupal\search_api\IndexInterface;
+use Drupal\localgov_directories\Constants as Directory;
+
+/**
+ * Implements hook_theme().
+ */
+function localgov_directories_theme() {
+  return [
+    'localgov_directories_facets' => [
+      'render element' => 'elements',
+    ],
+    'facets_item_list__links__localgov_directories_facets' => [
+      'base hook' => 'facets_item_list',
+    ],
+    // Facet Checkboxes are rendered through Javascript.  So the same markup as
+    // "link" Facets suffices.
+    'facets_item_list__checkbox__localgov_directories_facets' => [
+      'base hook' => 'facets_item_list',
+      'template'  => 'facets-item-list--links--localgov-directories-facets',
+    ],
+    'facets_item_list__dropdown__localgov_directories_facets' => [
+      'base hook' => 'facets_item_list',
+      'template'  => 'facets-item-list--dropdown--localgov-directories-facets',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_localgov_role_default().
+ */
+function localgov_directories_localgov_roles_default() {
+  return [
+    RolesHelper::EDITOR_ROLE => [
+      'access directory facets overview',
+      'delete directory facets',
+      'create directory facets',
+      'view directory facets',
+      'edit directory facets',
+      'create localgov_directory content',
+      'delete any localgov_directory content',
+      'delete own localgov_directory content',
+      'edit any localgov_directory content',
+      'edit own localgov_directory content',
+      'revert localgov_directory revisions',
+      'view localgov_directory revisions',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function localgov_directories_modules_installed($modules) {
+  $services = in_array('localgov_services_navigation', $modules);
+  if ($services) {
+    \Drupal::service('config.installer')->installOptionalConfig();
+    localgov_directories_optional_fields_settings($services);
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function localgov_directories_entity_extra_field_info() {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(DirectoryExtraFieldDisplay::class)
+    ->entityExtraFieldInfo();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function localgov_directories_node_view(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(DirectoryExtraFieldDisplay::class)
+    ->nodeView($build, $node, $display, $view_mode);
+}
+
+/**
+ * Implements hook_pathauto_pattern_alter().
+ */
+function localgov_directories_pathauto_pattern_alter(PathautoPattern $pattern, array $context) {
+  // If pathauto isn't set to include this entity into directory, but
+  // it has opt-ed in with the field add the (optional) parent to the path.
+  $entity = reset($context['data']);
+  assert($entity instanceof ContentEntityInterface);
+  if ($entity->hasField('localgov_directory_channels') && strpos($pattern->getPattern(), '[node:localgov_directory_channels:0:entity:url:relative]') === FALSE) {
+    $pattern->setPattern('[node:localgov_directory_channels:0:entity:url:relative]/' . $pattern->getPattern());
+  }
+}
+
+/**
+ * Set form settings for optional services and topic fields on installation.
+ *
+ * @param bool $services
+ *   If localgov_services is (being) installed.
+ */
+function localgov_directories_optional_fields_settings($services) {
+  $properties = [
+    'targetEntityType' => 'node',
+    'bundle' => 'localgov_directory',
+  ];
+  if ($form_displays = \Drupal::entityTypeManager()->getStorage('entity_form_display')->loadByProperties($properties)) {
+    foreach ($form_displays as $form_display) {
+      assert($form_display instanceof EntityFormDisplayInterface);
+      if ($services && !$form_display->getComponent('localgov_services_parent')) {
+        $form_display->setComponent('localgov_services_parent', [
+          'type' => 'entity_reference_autocomplete',
+          'region' => 'content',
+          'settings' => [
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'placeholder' => '',
+            'match_limit' => 10,
+          ],
+          'weight' => 51,
+        ])->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * - Mark new Directory entry content type for indexing.
+ * - Display the Directory channel search block on pages of this new Directory
+ *   entry content type.
+ */
+function localgov_directories_field_config_insert(FieldConfigInterface $field) {
+  if ($field->getName() == Directory::CHANNEL_SELECTION_FIELD) {
+    \Drupal::classResolver(ConfigurationHelper::class)->insertedDirectoryChannelField($field);
+  }
+  elseif ($field->getName() == Directory::FACET_SELECTION_FIELD) {
+    \Drupal::classResolver(ConfigurationHelper::class)->insertedFacetField($field);
+  }
+  elseif ($field->getName() == Directory::TITLE_SORT_FIELD) {
+    \Drupal::classResolver(ConfigurationHelper::class)->insertedTitleSortField($field);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function localgov_directories_field_config_delete(FieldConfigInterface $field) {
+  if ($field->getName() == Directory::CHANNEL_SELECTION_FIELD) {
+    \Drupal::classResolver(ConfigurationHelper::class)->deletedDirectoryChannelField($field);
+  }
+}
+
+/**
+ * Implements theme preprocess_facets_item_list().
+ *
+ * @see facets_preprocess_facets_item_list()
+ */
+function localgov_directories_preprocess_facets_item_list(array &$variables) {
+  if (!empty($variables['facet']) && ($variables['facet']->id() == 'localgov_directories_facets')) {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(DirectoryExtraFieldDisplay::class)
+      ->preprocessFacetList($variables);
+  }
+
+}
+
+/**
+ * Prepares variables for directory facets templates.
+ *
+ * Default template: localgov-directories-facets.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the directory facets
+ *     information and any fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_localgov_directories_facets(array &$variables) {
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_search_api_index_items_alter().
+ *
+ * Populate localgov_directory_title_sort if empty.
+ */
+function localgov_directories_search_api_index_items_alter(IndexInterface $index, array &$items) {
+  foreach ($items as $item) {
+    if ($field = $item->getField('localgov_directory_title_sort')) {
+      $sort_value = $field->getValues();
+      if (empty($sort_value) || empty($sort_value[0])) {
+        // If the field is empty use the item title.
+        $sort_value = [trim($item->getOriginalObject()->getEntity()->label())];
+        $field->setValues($sort_value);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_leaflet_map_view_style_alter().
+ */
+function localgov_directories_leaflet_map_view_style_alter(&$js_settings, $leaflet_map) {
+  // Add a value to the map if there are no features.
+  // https://github.com/localgovdrupal/localgov_directories/issues/229#issuecomment-1271418506
+  // This can be used in template if needed.
+  $js_settings['map']['is_empty'] = empty($js_settings['features']);
+}
+
+/**
+ * Implements hook_facets_search_api_query_type_mapping_alter().
+ */
+function localgov_directories_facets_search_api_query_type_mapping_alter($backend_plugin_id, array &$query_types) {
+  $query_types['localgov_directories'] = 'localgov_directories_query_type';
+}

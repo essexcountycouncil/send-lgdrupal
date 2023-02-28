@@ -1,0 +1,6 @@
+localgov_review_date.review_date:
+  js:
+    js/review-date.js: {}
+  dependencies:
+    - core/drupal.entity-form
+    - core/drupalSettings

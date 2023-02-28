@@ -1,0 +1,31 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 35e629ee-5cd0-4e05-b316-0030e7ce2314
+  bundle: localgov_topic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Marriages and civil partnerships'
+  description:
+    -
+      value: "<p>News about&nbsp;Marriages and civil partnerships</p>\r\n"
+      format: wysiwyg
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0

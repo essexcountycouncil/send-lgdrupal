@@ -1,0 +1,78 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 1c9e5aaf-5ff8-4f96-9c6b-5d8626069a42
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+    b60200f9-b034-45f3-bf79-108f4906db93: paragraphs_library_item
+    57297753-c989-4358-8133-d5a8ba197544: node
+    acfb5e02-f92b-4822-9f09-d5802314dd52: taxonomy_term
+    df8a65ea-700c-4820-b12b-c81ccac0dd6c: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Service page'
+  created:
+    -
+      value: 1591357354
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/another-service-landing-page/service-page
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: " Quisque eu hendrerit elit. Morbi nisi est, congue vel urna vitae, consequat semper Sed eu justo id risus mollis tristique feugiat et felis. Etiam auctor, neque sit amet pharetra condimentum, velit odio efficitur mauris, nec convallis erat nisl viverra diam. Nunc a fermentum tortor. Donec massa dolor, tristique commodo sollicitudin sed, ultricies a purus. Donec interdum ex justo, nec auctor sapien aliquet a. Praesent tincidunt sapien eu diam auctor, ac vehicula sapien blandit. Fusce sapien massa, efficitur eget eleifend eget, lobortis eget libero. Curabitur imperdiet gravida metus, vitae malesuada nibh rhoncus ultrices. Maecenas ac felis ultricies, eleifend orci quis, suscipit mauris. Ut laoreet cursus laoreet. Proin id odio eget quam aliquam auctor. Phasellus mattis sollicitudin commodo. Sed condimentum auctor auctor. Aenean sit amet maximus orci.\r\n\r\nMauris odio ipsum, lobortis vitae aliquam in, ullamcorper vel massa. Maecenas ut tellus at velit imperdiet interdum vel sit amet lorem. Suspendisse ornare faucibus arcu id gravida. Donec sollicitudin nibh mauris, id cursus justo pretium sit amet. Phasellus at sapien mattis, ullamcorper velit in, finibus libero. Nunc interdum est sed mi faucibus, ut molestie velit cursus. In viverra quam sollicitudin ex consequat interdum. Maecenas vel lacinia risus, eu scelerisque ligula. Ut orci mi, posuere ut diam ac, ultricies imperdiet urna. Integer cursus non dui sed malesuada. Sed consequat lectus varius feugiat convallis. Ut ligula ante, rutrum quis eleifend at, rutrum at nunc. Integer non euismod turpis, ac finibus tellus. Sed in dolor eros.\r\n\r\nPhasellus scelerisque purus sed pulvinar fermentum. Mauris blandit congue ex sit amet tempor. Maecenas vel varius est, a porttitor nunc. Donec vitae ultrices massa. Curabitur aliquet tincidunt lacus in tincidunt. Cras consequat rhoncus nulla vitae maximus. Suspendisse potenti. Ut dapibus vitae arcu sit amet egestas. "
+      format: plain_text
+      summary: 'Mauris convallis faucibus dui at condimentum. Aliquam rutrum velit eget ligula ultrices, quis egestas tortor pulvinar. Cras volutpat enim ac facilisis placerat. Nunc convallis odio eget neque finibus finibus.'
+  localgov_common_tasks:
+    -
+      target_uuid: c1d9f01d-c368-4db3-a4ec-c882d217781b
+      title: 'Adult health and social care'
+      options:
+        type: action
+    -
+      uri: 'http://example.com'
+      title: 'Example external link'
+      options:
+        type: basic
+  localgov_hide_related_topics:
+    -
+      value: false
+  localgov_override_related_links:
+    -
+      value: true
+  localgov_page_components:
+    -
+      entity: b60200f9-b034-45f3-bf79-108f4906db93
+  localgov_services_parent:
+    -
+      entity: 57297753-c989-4358-8133-d5a8ba197544
+  localgov_topic_classified:
+    -
+      entity: acfb5e02-f92b-4822-9f09-d5802314dd52
+    -
+      entity: df8a65ea-700c-4820-b12b-c81ccac0dd6c

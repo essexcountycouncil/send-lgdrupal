@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 9c5c7d7b-52d2-4499-8c6f-417e95fbc4a2
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: YInsBG_uizo8bI154Hx2IaX_pjsRBxmdfaMSbhPj21w.jpg
+  uri:
+    -
+      value: 'public://oembed_thumbnails/YInsBG_uizo8bI154Hx2IaX_pjsRBxmdfaMSbhPj21w.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 11562
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1630521549

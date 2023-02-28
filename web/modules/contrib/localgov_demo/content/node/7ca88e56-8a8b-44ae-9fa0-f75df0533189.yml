@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 7ca88e56-8a8b-44ae-9fa0-f75df0533189
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    5f46013c-8afd-4304-b073-2a7d12a89ec0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Blue Badges for organisations'
+  created:
+    -
+      value: 1592939954
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges/blue-badges-organisations
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Organisations are eligible for a Blue Badge if they have responsibility for the continuous care of 5 or more people who are eligible for Blue Badges. Organisations working with fewer than 5 eligible people are advised to support them to&nbsp;<a href=\"https://www.gov.uk/apply-blue-badge\">apply for personal Blue Badges</a>.</p>\r\n\r\n<p>Organisational Blue Badges can only be used in:&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>vehicles taxed under the disabled passenger vehicle (DPV) taxation class</li>\r\n\t<li>Ambulance (NHS) class vehicles</li>\r\n</ul>\r\n\r\n<h2>How to apply</h2>\r\n\r\n<p><a href=\"https://www.gov.uk/apply-blue-badge\">Apply for a Blue Badge on GOV.UK</a></p>\r\n\r\n<p>It's quicker to apply online, but you can also contact Travel Services for an application form. Call&nbsp;555 111 222 333 or email&nbsp;<a href=\"mailto:example@example.com\">example@example.com</a>.</p>\r\n\r\n<p>Please return the completed form with either:&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>a photocopy of your registration certificate V5 showing DPV status</li>\r\n\t<li>another proof of DPV or ambulance status from the DVLA, such as an email about the vehicle</li>\r\n</ul>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  localgov_guides_section_title:
+    -
+      value: 'Blue Badges for organisations'

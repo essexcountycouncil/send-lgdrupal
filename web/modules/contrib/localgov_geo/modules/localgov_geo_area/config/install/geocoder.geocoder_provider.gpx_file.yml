@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_geofield
+id: gpx_file
+label: 'GPX File'
+plugin: gpxfile
+configuration: {  }

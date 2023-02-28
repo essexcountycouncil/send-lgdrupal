@@ -1,0 +1,228 @@
+.node--localgov_campaigns_overview,
+.node--localgov_campaigns_page {
+  main,
+  .sidebar {
+    @include rem(margin-top, 10);
+  }
+
+  .sidebar {
+    @include rem(padding-right, 15);
+
+    nav {
+      @include rem(margin-bottom, 30);
+    }
+  }
+
+  .jumbotron {
+    margin: 0;
+    padding: 0;
+    background-color: $campaign-jumbotron;
+
+    .jumbo-welcome {
+      h1 {
+        color: $campaign-header;
+        text-align: left;
+        padding: 0;
+        line-height: 1.1;
+        font-weight: $font-bold;
+
+        @include rem(font-size, 50);
+        @include rem(letter-spacing, 0);
+
+        @include media-breakpoint-up(sm) {
+          font-size: $jumbo-font-large;
+        }
+
+        @include media-breakpoint-up(lg) {
+          text-align: left;
+
+          @include rem(font-size, 58);
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      background-size: contain;
+      background-position: right;
+    }
+  }
+
+  .section-nav {
+    background: $section-nav-background;
+
+    h3 {
+      color: $white;
+      padding: inherit;
+      overflow: auto;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        background: $white;
+        font-size: 1.125rem;
+        border-bottom: 0.0625rem solid $gray !important;
+
+        a {
+          display: block;
+          width: 100%;
+          border-left: 0.1875rem solid $violet;
+
+          &:hover {
+            border-left: 0.1875rem solid $purple;
+          }
+        }
+
+        span {
+          display: block;
+        }
+
+        .is-active {
+          border-left: 0.1875rem solid $indigo;
+        }
+      }
+    }
+
+    .reveal {
+      color: $white;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: $carbon;
+        text-decoration: none;
+      }
+    }
+  }
+
+  main {
+    .breadcrumb {
+      @include rem(margin-left, -15);
+    }
+
+    .fact-box {
+      p {
+        &.fact-closing {
+          display: none;
+        }
+      }
+    }
+
+    .call-out-box {
+      background-color: $calloutbg;
+    }
+
+    .author {
+      color: $carbon;
+    }
+
+    .socials {
+      span {
+        width: 100%;
+        display: inline-block;
+        padding-bottom: 1rem;
+
+        @include media-breakpoint-up(md) {
+          width: auto;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .social-btn {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 0;
+      overflow: hidden;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 50%;
+
+      @include rem(margin, 10);
+      @include rem(width, 47);
+      @include rem(height, 47);
+
+      i {
+        display: inline-block;
+        width: inherit;
+        color: $white;
+        text-align: center;
+        padding-right: 0;
+
+        @include rem(font-size, 26);
+        @include rem(line-height, 48);
+      }
+
+      &.btn-li {
+        background-color: $socialdefault !important;
+      }
+
+      &.btn-fb {
+        background-color: $facebook !important;
+      }
+
+      &.btn-tw {
+        background-color: $twitter !important;
+      }
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; // fixes collapsing bug
+      height: 0;
+      overflow: hidden;
+
+      @include rem(padding-top, 30);
+      @include rem(margin-bottom, 15);
+    }
+
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    // tmp remove erroneous text
+
+    #field--field_left_column_of_text,
+    #field--field_right_column_of_text {
+      > div:first-child {
+        display: none;
+      }
+    }
+
+    #field--field_left_column_of_text {
+      h2 {
+        margin-top: 0 !important;
+      }
+    }
+
+    .link-block {
+      h2 {
+        margin-top: 0 !important; // stop link block headers inheriting the top margin of generic .content H2s
+      }
+
+      a {
+        color: $linkblock;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .collapse.dont-collapse-sm {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+}

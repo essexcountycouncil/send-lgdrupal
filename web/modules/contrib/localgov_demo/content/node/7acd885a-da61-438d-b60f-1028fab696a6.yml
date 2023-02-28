@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 7acd885a-da61-438d-b60f-1028fab696a6
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    64a4909c-c6bf-483b-99dd-5b0ad4ce90b0: localgov_directories_facets
+    62e5b97f-277e-4032-8c43-1af65d021638: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'London Councils'
+  created:
+    -
+      value: 1620224611
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/london-councils
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>London Councils is the local government association for Greater London, England. It is a cross-party organisation that represents London's 32 borough councils and the City of London. It was formed in 1995 as a merger of the London Boroughs Association and the Association of London Authorities.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 64a4909c-c6bf-483b-99dd-5b0ad4ce90b0
+  localgov_directory_phone:
+    -
+      value: '020 7934 9999'
+  localgov_directory_website:
+    -
+      uri: 'https://www.londoncouncils.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 62e5b97f-277e-4032-8c43-1af65d021638

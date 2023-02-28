@@ -1,0 +1,60 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: d77c62b5-80c9-401f-92aa-066bb535911f
+  bundle: localgov_event
+  default_langcode: en
+  depends:
+    169dd9e6-1975-4aa4-9fa6-158ed4602f88: taxonomy_term
+    d2af8444-4898-4daf-9814-6dc0c16cfb26: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'LocalgovDrupal Technical Group meetup'
+  created:
+    -
+      value: 1620144569
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /events/localgovdrupal-technical-group-meetup
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Donec rutrum congue leo eget malesuada. Nulla quis lorem ut libero malesuada feugiat.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_event_categories:
+    -
+      entity: 169dd9e6-1975-4aa4-9fa6-158ed4602f88
+  localgov_event_date:
+    -
+      value: '2021-05-11T14:00:00'
+      end_value: '2021-05-11T14:30:00'
+      rrule: FREQ=MONTHLY;INTERVAL=1;BYDAY=TU;BYSETPOS=2
+      timezone: Europe/London
+      infinite: true
+  localgov_event_image:
+    -
+      entity: d2af8444-4898-4daf-9814-6dc0c16cfb26

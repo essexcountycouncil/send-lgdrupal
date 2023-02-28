@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal directories venue Open Referral install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function localgov_directories_venue_or_install() {
+  // Enable the new, required, venue organisation reference field on the default
+  // form.
+  $venue_form_display = \Drupal::service('entity_display.repository')
+    ->getFormDisplay('node', 'localgov_directories_venue', 'default');
+  $venue_form_display->setComponent('localgov_directory_organisation', [
+    'weight' => 26,
+    'region' => 'content',
+  ]);
+  $group = $venue_form_display->getThirdPartySetting('field_group', 'group_description');
+  $group['children'][] = 'localgov_directory_organisation';
+  $venue_form_display->setThirdPartySetting('field_group', 'group_description', $group);
+  $venue_form_display->save();
+}

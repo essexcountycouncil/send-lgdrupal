@@ -1,0 +1,62 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 8257ecb5-cb03-4dc1-90bd-1606effee5ca
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    c065a456-0319-45e6-b671-b4465345383f: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Brighton & Hove City Council'
+  created:
+    -
+      value: 1620224454
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/brighton-hove-city-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Brighton and Hove City Council is the local authority of the city of Brighton and Hove. It is a unitary authority, having the powers of a non-metropolitan county and district council combined.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_website:
+    -
+      uri: 'https://www.brighton-hove.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: c065a456-0319-45e6-b671-b4465345383f

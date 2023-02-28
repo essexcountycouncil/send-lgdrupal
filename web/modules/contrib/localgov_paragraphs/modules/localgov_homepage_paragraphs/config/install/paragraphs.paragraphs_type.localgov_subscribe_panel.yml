@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: { }
+id: localgov_subscribe_panel
+label: 'Subscribe panel'
+icon_uuid: null
+icon_default: null
+description: 'Email and social media subscription panel.'
+behavior_plugins: {  }

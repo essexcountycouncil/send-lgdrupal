@@ -1,0 +1,5 @@
+entity.localgov_openreferral_mapping.overview:
+  title: Open Referral
+  parent: system.admin_config_services
+  description: 'List of Open Referral mappings.'
+  route_name: entity.localgov_openreferral_mapping.collection

@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 59fb2bff-97fd-460b-b653-083420c3a86d
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    2d1b8bbe-0e88-478b-868f-caf94aa9b70d: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Book a notice appointment'
+  created:
+    -
+      value: 1620398630
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/marriage-and-civil-partnerships/step-by-step/get-married-2
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>We are currently very busy and the next available appointments are in August 1979</p>\r\n\r\n<p>Once you have planned your ceremony, you must book an appointment to give us notice of your intention to get married or form a civil partnership.</p>\r\n\r\n<p>Notices are venue specific and only valid for 12 months – this means you&nbsp;will not be able to make an appointment more than 12 months ahead of your ceremony date.</p>\r\n\r\n<p>You must observe social distancing rules when you attend your appointment.</p>\r\n\r\n<h2>Book an appointment</h2>\r\n\r\n<p>You and your partner will need to attend the appointment. This means you will have&nbsp;to&nbsp;book a double appointment if you both live in&nbsp;Scarfolk, or if you are&nbsp;attending us as a Designated Office for non-EEA nationals.</p>\r\n\r\n<p>Choose whether you want a civil partnership or marriage notice appointment by using the form.</p>\r\n\r\n<p class=\"callout callout-primary\"><a href=\"https://localgovdrupal.org\">Start now</a></p>\r\n\r\n<h2>How much it costs</h2>\r\n\r\n<p>Giving notice cost&nbsp;from&nbsp;£35 per person.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 2d1b8bbe-0e88-478b-868f-caf94aa9b70d
+  localgov_step_section_title:
+    -
+      value: 'Book a notice appointment'
+  localgov_step_summary:
+    -
+      value: "<p>Once you have planned your ceremony, you must book an appointment to give us notice of your intention to get married or form a civil partnership.</p>\r\n"
+      format: wysiwyg

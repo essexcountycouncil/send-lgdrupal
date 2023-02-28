@@ -1,0 +1,18 @@
+{
+  "name": "drupal/search_api_best_bets",
+  "description": "Let editors define best bets / promoted search results per entity in Drupal.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/search_api_best_bets",
+  "authors": [
+    {
+      "name": "Jens Beltofte",
+      "homepage": "https://www.drupal.org/u/beltofte"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/search_api_best_bets",
+    "source": "http://git.drupal.org/project/search_api_best_bets.git"
+  },
+  "license": "GPL-2.0+",
+  "require": {}
+}

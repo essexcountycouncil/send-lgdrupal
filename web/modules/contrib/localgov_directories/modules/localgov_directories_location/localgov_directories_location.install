@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal directories location install file.
+ */
+
+use Drupal\Component\Serialization\Yaml;
+use Drupal\views\Entity\View;
+
+/**
+ * Implements hook_install().
+ */
+function localgov_directories_location_install() {
+  // Retrieve view display mode config and add it to the existing configuration.
+  $module_path = \Drupal::service('extension.list.module')->getPath('localgov_directories_location');
+  $view_with_map_embed = Yaml::decode(file_get_contents($module_path . '/config/override/views.view.localgov_directory_channel.yml'));
+  $view = View::load('localgov_directory_channel');
+  if ($view) {
+    $display = $view->get('display');
+    $display['embed_map'] = $view_with_map_embed['display']['embed_map'];
+    $view->set('display', $display);
+    $view->save();
+  }
+}
+
+/**
+ * Add new map embed display, but do not enable it as default.
+ *
+ * It is advised that installations remove the old attachment and enable the
+ * new map embed field on the directory channel view mode.
+ */
+function localgov_directories_location_update_8001() {
+  // Retrieve view display mode config and add it to the existing configuration.
+  $module_path = \Drupal::service('extension.list.module')->getPath('localgov_directories_location');
+  $view_with_map_embed = Yaml::decode(file_get_contents($module_path . '/config/override/views.view.localgov_directory_channel.yml'));
+  $view = View::load('localgov_directory_channel');
+  if ($view) {
+    $display = $view->get('display');
+    $display['embed_map'] = $view_with_map_embed['display']['embed_map'];
+    $view->set('display', $display);
+    $view->save();
+  }
+
+  // But don't enable it by default. This sets it as disabled before
+  // extra fields has even added it.
+  $directory_display_modes = \Drupal::service('entity_display.repository')
+    ->getViewModeOptionsByBundle('node', 'localgov_directory');
+  foreach (array_keys($directory_display_modes) as $display_id) {
+    $directory_display = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_display')
+      ->load('node.localgov_directory.' . $display_id);
+    $directory_display->removeComponent('localgov_directory_map')->save();
+  }
+}

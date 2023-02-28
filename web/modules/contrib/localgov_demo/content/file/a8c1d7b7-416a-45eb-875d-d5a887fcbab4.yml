@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a8c1d7b7-416a-45eb-875d-d5a887fcbab4
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: david-monaghan-J-wEJwSiAbQ-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/david-monaghan-J-wEJwSiAbQ-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 261505
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631268675

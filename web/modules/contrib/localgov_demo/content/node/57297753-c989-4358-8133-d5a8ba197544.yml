@@ -1,0 +1,83 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 57297753-c989-4358-8133-d5a8ba197544
+  bundle: localgov_services_sublanding
+  default_langcode: en
+  depends:
+    c1d9f01d-c368-4db3-a4ec-c882d217781b: node
+    df8a65ea-700c-4820-b12b-c81ccac0dd6c: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Another service landing page'
+  created:
+    -
+      value: 1591720223
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/another-service-landing-page
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: " Quisque eu odio odio. Nullam eleifend varius neque. Sed posuere purus quis neque porttitor interdum molestie sed tellus. Praesent sed dolor sed turpis tincidunt fringilla at in metus. Morbi porta tortor ac felis placerat, nec sodales justo tincidunt. Nullam magna sem, ultrices a facilisis a, accumsan in purus. Fusce egestas tellus a odio porta, quis cursus nisl tempor. Aenean tincidunt lorem et neque tristique, eget ornare tellus accumsan. Vivamus sed tincidunt mi.\r\n\r\nAenean ut porta mi. Nulla laoreet semper erat, et scelerisque orci facilisis nec. In nec risus eu sapien lacinia porttitor a eget nunc. Etiam maximus enim nec imperdiet hendrerit. Vivamus finibus massa risus, in vulputate massa placerat quis. Suspendisse neque sem, dapibus eget tempor a, commodo fringilla orci. Praesent ut luctus purus. Maecenas at neque at orci tincidunt lacinia. Aliquam sit amet luctus orci. Cras quis turpis quis urna imperdiet interdum ac aliquet ligula. Sed sagittis commodo velit, a gravida neque rutrum sit amet.\r\n\r\nVestibulum quis congue metus. Maecenas nec libero vel magna sagittis sagittis sed sed augue. Praesent faucibus suscipit libero varius fermentum. Vivamus efficitur ac ex vel pulvinar. Etiam vitae quam sit amet ligula eleifend congue. Quisque sit amet ipsum non erat auctor interdum. Aenean vel sapien nisl. Quisque efficitur aliquet tristique. Sed sodales arcu porta, finibus justo vel, posuere nunc. Etiam iaculis sem sit amet dictum sodales. Maecenas vitae egestas ex. Quisque rhoncus et massa eget pretium. "
+      format: plain_text
+      summary: 'Morbi porta tortor ac felis placerat, nec sodales justo tincidunt. Nullam magna sem, ultrices a facilisis a, accumsan in purus. Fusce egestas tellus a odio porta, quis cursus nisl tempor. '
+  localgov_services_parent:
+    -
+      entity: c1d9f01d-c368-4db3-a4ec-c882d217781b
+  localgov_topics:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: dedb1506-bf23-4364-a189-ac2b4112e08e
+          bundle: topic_list_builder
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1591720277
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          topic_list_header:
+            -
+              value: 'Child pages'
+          topic_list_links:
+            -
+              uri: 'https://example.com/'
+              title: 'Example external link'
+              options: {  }
+          topic_list_term:
+            -
+              entity: df8a65ea-700c-4820-b12b-c81ccac0dd6c

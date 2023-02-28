@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: ad19175d-1368-4d67-b66c-acdd55b13830
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''Subsite page'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631891817
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-17--6804f30255ee0d76af2bc820760eafb9701469e0
+  short_description:
+    -
+      value: "<p>Add a 'subsite page' as a child page in a section which needs to be more visually appealing with images, fact boxes, quotes and more. It features a simple to use page builder allowing a choice of column layouts and page components. You then relate it to the 'subsite overview' above, and it inherits navigation and theme settings.</p>\r\n\r\n<p>Click hide to hide this alert banner.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/test-subsite-demo-all-components/example-page-tables-and-tabs\r\n/test-subsite-demo-all-components/featured-content-page-test\r\n/test-subsite-demo-all-components/test-page-link-and-summary-component\r\n/test-subsite-demo-all-components/video-page\r\n/test-subsite-demo-all-components/test-pages-documents\r\n/fostering/top-myths-about-fostering\r\n/test-subsite-demo-all-components/page-key-contact-component\r\n/test-subsite-demo-all-components/page-multi-column-layouts\r\n/test-subsite-demo-all-components/example-page-different-page-components\r\n/fostering/fostering-process\r\n/fostering/types-fostering"
+          negate: '0'

@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: ef2ba421-f245-4795-9183-20c930e85e19
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620222926
+  label:
+    -
+      value: |-
+        Park End Street
+        Oxford
+        OX1 1JD
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-1.266744 51.752704)'
+      geo_type: Point
+      lat: 51.752704
+      lon: -1.266744
+      left: -1.266744
+      top: 51.752704
+      right: -1.266744
+      bottom: 51.752704
+      geohash: gcpn7jm96er0
+      latlon: '51.752704,-1.266744'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: Oxford
+      dependent_locality: ''
+      postal_code: 'OX1 1JD'
+      sorting_code: ''
+      address_line1: 'Park End Street'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

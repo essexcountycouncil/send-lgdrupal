@@ -1,0 +1,57 @@
+<?php
+
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\Entity\WebformSubmission;
+
+/**
+ * Get all submissions with a specific state for a specific element ID
+ *
+ * @param Webform $webform
+ * @param mixed $workflowElementId
+ * @param mixed $stateId
+ *
+ * @return array of WebformSubmission
+ */
+function webform_workflows_element_queries_get_submission_with_state(Webform $webform, $workflowElementId, $stateId, $uid = NULL): array {
+  $returnSubmissions = [];
+
+  $query = Drupal::service('webform_query');
+  $query->setWebform($webform->id());
+  if ($uid) {
+    $query->addCondition('uid', $uid, '=', 'webform_submission');
+  }
+  $sids = array_column($query->execute(), 'sid');
+  $submissions = WebformSubmission::loadMultiple($sids);
+
+  return webform_workflows_element_queries_filter_by_state($submissions, $workflowElementId, $stateId, $uid);
+}
+
+/**
+ * @param $submissions
+ * @param $workflowElementId
+ * @param $stateId
+ * @param $uid
+ *
+ * @return array
+ */
+function webform_workflows_element_queries_filter_by_state($submissions, $workflowElementId, $stateId, $uid = NULL): array {
+  $returnSubmissions = [];
+  foreach ($submissions as $submission) {
+    $workflowValues = $submission->getElementOriginalData($workflowElementId);
+
+    if ($uid && $submission->getOwnerId() !== $uid) {
+      continue;
+    }
+
+    if (!$workflowValues) {
+      continue;
+    }
+
+    $state = $workflowValues['workflow_state'];
+    if ($state == $stateId) {
+      $returnSubmissions[] = $submission;
+    }
+  }
+
+  return $returnSubmissions;
+}

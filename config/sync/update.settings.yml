@@ -2,11 +2,13 @@ _core:
   default_config_hash: 2QzULf0zovJQx3J06Y9rufzzfi-CY2CTTlEfJJh2Qyw
 check:
   disabled_extensions: false
-  interval_days: 1
+  interval_days: 7
 fetch:
   url: ''
   max_attempts: 2
   timeout: 30
 notification:
-  emails: {  }
-  threshold: all
+  emails:
+    - dclpuk+acx3h1vvy0dqv1jocmpx@boards.trello.com
+    - daniel@annertech.com
+  threshold: security

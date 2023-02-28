@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 5fdb2095-441e-46da-a0b7-2c7f154b2e22
+  bundle: image
+  default_langcode: en
+  depends:
+    407cbf91-2742-4d10-9c24-9166ab84ab5a: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: logo.png
+  created:
+    -
+      value: 1631787071
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 407cbf91-2742-4d10-9c24-9166ab84ab5a
+      alt: 'LocalGov Drupal'
+      title: ''
+      width: 545
+      height: 296

@@ -1,0 +1,15 @@
+{
+    "name": "drupal/back_to_top",
+    "description": "Back To Top adds a button that hovers in the bottom of your screen and allow users to smoothly scroll up the page using jQuery.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/back_top_top",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/back_top_top",
+        "source": "https://git.drupalcode.org/project/back_to_top"
+    },
+    "require": {
+        "drupal/jquery_ui": "*",
+        "drupal/jquery_ui_effects": "*"
+    }
+}

@@ -1,0 +1,84 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 7c3be0a3-c5b6-4f24-8663-17356d86dd31
+  bundle: localgov_services_sublanding
+  default_langcode: en
+  depends:
+    3266e45f-1489-4b88-8d8a-98b25e0ed143: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'A to Z of sports and activities'
+  created:
+    -
+      value: 1620222754
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /libraries-leisure-and-culture/z-sports-and-activities
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>An A to Z of sports and activities available in Croydon, including basketball, football, sailing and tennis.</p>\r\n"
+      format: wysiwyg
+      summary: 'An A to Z of sports and activities available in Croydon, including basketball, football, sailing and tennis.'
+  localgov_services_parent:
+    -
+      entity: 3266e45f-1489-4b88-8d8a-98b25e0ed143
+  localgov_topics:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 1a27a391-57ef-43ab-b70b-596fdb58ed43
+          bundle: topic_list_builder
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1620222754
+          behavior_settings:
+            -
+              value: {  }
+          revision_translation_affected:
+            -
+              value: true
+          topic_list_links:
+            -
+              uri: 'internal:/libraries-leisure-and-culture/z-sports-and-activities/basketball'
+              title: Basketball
+              options: {  }
+            -
+              uri: 'internal:/libraries-leisure-and-culture/z-sports-and-activities/skateboarding'
+              title: Skateboarding
+              options: {  }
+            -
+              uri: 'internal:/libraries-leisure-and-culture/z-sports-and-activities/walking-health'
+              title: 'Walking for health'
+              options: {  }

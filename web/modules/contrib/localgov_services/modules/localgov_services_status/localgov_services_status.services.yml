@@ -1,0 +1,16 @@
+services:
+  localgov_services_status.service_status:
+    class: Drupal\localgov_services_status\ServiceStatus
+    arguments: ['@entity_type.manager', '@entity.repository']
+  localgov_services_status.path_processor:
+    class: Drupal\localgov_services_status\PathProcessor
+    arguments: ['@path_alias.path_processor', '@language_manager']
+    tags:
+      - { name: path_processor_inbound, priority: 50 }
+      - { name: path_processor_outbound, priority: 50 }
+  localgov_services_status.page_header:
+    class: Drupal\localgov_services_status\EventSubscriber\PageHeaderSubscriber
+    arguments:
+      - '@path.current'
+    tags:
+      - { name: 'event_subscriber' }

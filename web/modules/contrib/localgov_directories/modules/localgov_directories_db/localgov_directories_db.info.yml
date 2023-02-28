@@ -1,0 +1,9 @@
+name: 'LocalGov Directories Database'
+description: 'Installs initial SQL database index and configuration for Directories.'
+core_version_requirement: ^9
+type: module
+package: LocalGov Drupal
+
+dependencies:
+  - localgov_directories:localgov_directories
+  - search_api:search_api_db

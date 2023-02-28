@@ -1,0 +1,56 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c640601c-541c-46a9-9790-cf088af93ce0
+  bundle: localgov_step_by_step_page
+  default_langcode: en
+  depends:
+    75aa141a-7e15-4d97-be6b-42372299ba4c: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Find out what support we offer'
+  created:
+    -
+      value: 1592940811
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/step-by-step/request-support-adult-step-step/find-out-what-support-we
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>What we can help with</h2>\r\n\r\n<p>We offer advice and support&nbsp;for a wide range of concerns. Get in touch with us if you have trouble with things like:</p>\r\n\r\n<ul>\r\n\t<li>physical health</li>\r\n\t<li>mental&nbsp;health</li>\r\n\t<li>looking after yourself, such as washing, dressing and going to the toilet</li>\r\n\t<li>looking after your children</li>\r\n\t<li>getting around</li>\r\n\t<li>taking part in your community</li>\r\n\t<li>household tasks like cleaning, shopping or taking the rubbish out</li>\r\n\t<li>keeping your house safe and clean</li>\r\n</ul>\r\n\r\n<h2>What we offer</h2>\r\n\r\n<p>Below, you can find out&nbsp;more about some of the support and advice we can offer.&nbsp;</p>\r\n\r\n<p>If you can not find something that sounds right for you, you can still get in touch with us and we'll try to find an organisation that can help.</p>\r\n\r\n<p>You can read more about each type of support, or get in touch with us to discuss what might be right for you.</p>\r\n\r\n<h3>Support to stay at home</h3>\r\n\r\n<p><strong><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"ce3110d2-90f6-45dc-b202-ad8f3df9e5a2\" href=\"/node/7\">Home adaptations and occupational therapy</a></strong><br />\r\nIf you have trouble with tasks at home.</p>\r\n\r\n<p><strong><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"a9c79fda-ad57-4e77-b95a-dd40f6ea9f23\" href=\"/node/8\">Home monitoring and personal alarms</a></strong><br />\r\nIf you're at risk of harm alone and want someone to check on you.</p>\r\n\r\n<p><strong><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"8d774d57-90ee-44bf-82d0-1f468010bbf0\" href=\"/node/9\">Meals on wheels</a></strong><br />\r\nHot meals delivered to your home regularly.</p>\r\n\r\n<p><strong><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"1633301d-071e-4ef3-83ac-2c01bf18f530\" href=\"/node/10\">Care at home</a></strong><br />\r\nVisits to your home from a carer who can help you stay healthy.</p>\r\n\r\n<p><strong><a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"c640601c-541c-46a9-9790-cf088af93ce0\" href=\"/node/24\">Financial support for home repairs</a></strong><br />\r\nThe Staying Put service offers money towards your home if you might otherwise need to move out.</p>\r\n\r\n<h3><strong>Moving into supported housing</strong></h3>\r\n\r\n<p><strong>Sheltered housing</strong><br />\r\nHousing for people who want to live independently with 24 hour support available.</p>\r\n\r\n<p><strong>Extra care housing</strong><br />\r\nSimilar to sheltered housing, with extra help with personal care and household chores.</p>\r\n\r\n<p><strong>Care homes and respite care</strong><br />\r\nHousing for people who need care and support, including medical care.</p>\r\n\r\n<p><strong>Shared Lives</strong><br />\r\nRental rooms in a family home, with support to live independently.</p>\r\n\r\n<h3>Help with a disability or condition</h3>\r\n\r\n<p><strong>Physical disabilities and learning disabilities</strong><br />\r\nSupport to live an independent, active life.</p>\r\n\r\n<p><strong>Autism</strong><br />\r\nScarfolk Autism Service and other local support for people with autism and families.</p>\r\n\r\n<p><strong>Mental health</strong><br />\r\nHelp if you feel depressed, anxious, or have another mental health concern.</p>\r\n\r\n<p><strong>Sensory impairment</strong><br />\r\nThis service specialises in support for visually impaired, deaf and deafblind people.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_step_parent:
+    -
+      entity: 75aa141a-7e15-4d97-be6b-42372299ba4c
+  localgov_step_section_title:
+    -
+      value: 'Find out what support we offer'
+  localgov_step_summary:
+    -
+      value: "<p>See what social care is available, including:</p>\r\n\r\n<ul>\r\n\t<li>help to stay at home</li>\r\n\t<li>moving into supported housing</li>\r\n\t<li>help with a disability or condition</li>\r\n</ul>\r\n"
+      format: wysiwyg

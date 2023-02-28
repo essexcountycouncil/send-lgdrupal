@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 304bdb82-1ae8-4ec6-b4ba-0841f60a9c80
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    89e36a01-dafc-4c2c-8dbb-6d44580f5699: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Exmoor
+  created:
+    -
+      value: 1631814759
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/exmoor
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Exmoor is loosely defined as an area of hilly open moorland in west Somerset and north Devon in South West England.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: info@exmoor-nationalpark.gov.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '01398 323665'
+  localgov_directory_website:
+    -
+      uri: 'https://www.exmoor-nationalpark.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 89e36a01-dafc-4c2c-8dbb-6d44580f5699

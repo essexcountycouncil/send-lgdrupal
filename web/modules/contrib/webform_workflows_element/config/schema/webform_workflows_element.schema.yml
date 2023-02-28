@@ -1,0 +1,15 @@
+workflow.type_settings.webform_workflows_element:
+  type: mapping
+  label: "Webform workflow"
+  mapping:
+    initial_state:
+      type: string
+      label: "Initial state"
+    states:
+      type: sequence
+      sequence:
+        type: workflows.state
+    transitions:
+      type: sequence
+      sequence:
+        type: workflows.transition

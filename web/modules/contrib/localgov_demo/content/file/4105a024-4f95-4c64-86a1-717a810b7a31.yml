@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 4105a024-4f95-4c64-86a1-717a810b7a31
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: ben-clayton-3giNvjzadgw-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/ben-clayton-3giNvjzadgw-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 1727525
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631885784

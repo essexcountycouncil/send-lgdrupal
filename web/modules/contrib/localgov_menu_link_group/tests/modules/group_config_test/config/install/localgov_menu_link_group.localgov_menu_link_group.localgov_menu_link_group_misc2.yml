@@ -1,0 +1,11 @@
+# Sample config file for a localgov_menu_link_group config entity.
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_menu_link_group_misc2
+group_label: Misc.
+weight: 10
+parent_menu: 'admin'
+parent_menu_link: 'system.admin_config_development'
+child_menu_links:
+  - 'system.admin_config_search'

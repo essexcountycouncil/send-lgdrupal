@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_alert_banner
+  uuid: 3819e0eb-2b08-4178-bf04-60e26724336b
+  bundle: localgov_alert_banner
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'This is an example of a ''guide overview'''
+  display_title:
+    -
+      value: true
+  remove_hide_link:
+    -
+      value: false
+  created:
+    -
+      value: 1631789893
+  revision_translation_affected:
+    -
+      value: true
+  token:
+    -
+      value: alert-10--5e75d63e1b13b7cae6d10454b51409275934db12
+  short_description:
+    -
+      value: "<p>Add a 'guide overview' when you want to group together related pages, like creating chapters in a book. They are similar to 'step by step' pages, but the user is not expected the follow the pages in order. To add more pages, create a 'guide page' and relate it to the overview.</p>\r\n"
+      format: wysiwyg
+  type_of_alert:
+    -
+      value: 00--announcement
+  visibility:
+    -
+      conditions:
+        request_path:
+          pages: "/order-copy-certificate\r\n/adult-health-and-social-care/travel-passes-and-support/blue-badges"
+          negate: '0'

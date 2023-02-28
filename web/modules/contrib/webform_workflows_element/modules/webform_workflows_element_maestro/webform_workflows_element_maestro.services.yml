@@ -1,0 +1,5 @@
+services:
+  webform_workflows_element_maestro.route_subscriber:
+    class: Drupal\webform_workflows_element_maestro\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 995707e9-6f47-436f-b3e1-6adbd415faf2
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    d6d8cf40-dc03-4522-94c5-3092e1b3189b: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Westminster City Council'
+  created:
+    -
+      value: 1620226587
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/westminster-city-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Westminster City Council is the local authority for the City of Westminster in Greater London, England. It is a London borough council and is entitled to be known as a city council, which is a rare distinction in the United Kingdom.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_phone:
+    -
+      value: '020 7641 6000'
+  localgov_directory_website:
+    -
+      uri: 'https://www.westminster.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: d6d8cf40-dc03-4522-94c5-3092e1b3189b

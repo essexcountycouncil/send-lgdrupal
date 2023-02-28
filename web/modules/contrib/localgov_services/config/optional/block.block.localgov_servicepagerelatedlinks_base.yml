@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+  theme:
+    - localgov_base
+id: localgov_servicepagerelatedlinks_base
+theme: localgov_base
+region: sidebar_second
+weight: 0
+provider: null
+plugin: localgov_services_related_links_block
+settings:
+  id: localgov_services_related_links_block
+  label: 'Service page related links'
+  provider: localgov_services_page
+  label_display: '0'
+visibility: {  }

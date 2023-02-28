@@ -1,0 +1,183 @@
+// Search icon button
+.icon-search {
+  width: $input-height;
+  height: $input-height;
+  background: $link-hover-color;
+  color: $white;
+  font-size: $btn-font-size-sm;
+
+  &:hover {
+    background: $tertiary !important;
+
+    .fa {
+      color: $navbar-dark-toggler-border-color;
+    }
+  }
+}
+
+// Margin below nav and above search (mobile)
+.navbar-dark.navbar-nav {
+  margin-bottom: .9375rem; // 15 px
+}
+
+.homepage--search {
+  background: $secondary;
+  color: $white;
+
+  @include rem(padding-top, 30);
+  @include rem(padding-bottom, 30);
+  @include rem(margin-top, -108);
+
+  @include media-breakpoint-up(sm) {
+    background: rgba($secondary, 0.6);
+  }
+
+  label {
+    font-size: $font-size-ex-ex-lg;
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-bold;
+  }
+
+  .input-group-prepend { // adapt bs input group to respond
+    flex-basis: 100%;
+
+    @include rem(padding, 0, 0, 10, 0);
+
+    @include media-breakpoint-up(sm) {
+      flex-basis: initial;
+      padding: 0;
+    }
+  }
+}
+
+.site-search--mobile {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+// Sitewide search page.
+.view-localgov-sitewide-search {
+
+  // Search page form.
+  .views-exposed-form {
+    max-width: 48em;
+    padding: 1em 2em 2em 2em;
+
+    .form-actions {
+      padding-left: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      .form-text {
+        float: left;
+        width: 80%;
+        height: 3em;
+        margin: 0;
+        padding: 0.5em 1em;
+      }
+
+      .form-actions {
+        clear: none;
+        float: right;
+        height: 3em;
+        width: 20%;
+        margin: 0;
+
+        .button {
+          margin-top: 0 !important;
+          padding-top: 0.45em;
+          padding-bottom: 0.4em;
+
+          &:after {
+            top: 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  // Search results.
+  .search-results {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .search-result {
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .search-result__title {
+    margin-top: 1em;
+  }
+}
+
+// Sitewide search block.
+.block-localgov-sitewide-search-block {
+  position: relative;
+  background: none;
+
+  label {
+    display: none;
+  }
+
+  button {
+    background: $gray-bs;
+  }
+
+  .form-text {
+    height: 3em;
+    margin: 0;
+    padding: 0.5em 1em;
+  }
+
+  .form-actions {
+    margin-top: 0.5em;
+    padding-left: 0;
+  }
+
+  .button {
+    height: 2.3em;
+    margin-top: -0.03em !important;
+    padding-top: 0.3em;
+
+    &:after {
+      top: 0.3em;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .form-text {
+      float: left;
+      width: 80%;
+    }
+
+    .form-actions {
+      clear: none;
+      float: right;
+      width: 20%;
+      margin-top: 0;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 21em;
+
+    .form-text {
+      width: 80%;
+    }
+
+    .form-actions {
+      width: 20%;
+    }
+
+    button {
+      span:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_events_price
+  module:
+    - facets
+    - system
+  theme:
+    - localgov_scarfolk
+id: localgov_events_cost_scarfolk
+theme: localgov_scarfolk
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'facet_block:localgov_events_price'
+settings:
+  id: 'facet_block:localgov_events_price'
+  label: 'Events cost'
+  provider: facets
+  label_display: '0'
+  block_id: localgov_events_cost
+visibility:
+  request_path:
+    id: request_path
+    pages: /events/search
+    negate: false
+    context_mapping: {  }

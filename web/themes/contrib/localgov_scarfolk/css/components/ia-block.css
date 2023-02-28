@@ -1,0 +1,4 @@
+.ia-block,
+.link-block {
+  padding-top: var(--spacing);
+}

@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\localgov_menu_link_group\MenuLinkGrouper;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Menu\MenuTreeParameters;
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function localgov_menu_link_group_preprocess_menu(&$variables) {
+  $variables['menu_name'] = $variables['menu_name'] ?? 'admin';
+  _localgov_menu_link_group_filter_menu($variables['items'], $variables['menu_name']);
+}
+
+/**
+ * Filter menu.
+ *
+ * Walk through the menu tree to find menu link groups, and remove any that
+ * the current user does not have access to any child items.
+ *
+ * @param array $items
+ *   (By reference) Menu items tree passed from hook_preprocess_menu.
+ * @param string $menu_name
+ *   Menu name.
+ */
+function _localgov_menu_link_group_filter_menu(array &$items, string $menu_name) {
+  foreach ($items as $route => &$item) {
+    if (strpos($route, 'localgov_menu_link_group') === 0) {
+
+      // Load up the menu tree from this point using the Menu tree service.
+      // Has to be done this was as the menu child items don't appear in a
+      // localgov_menu_group menu link in the 'below' array.
+      $menu_tree_params = new MenuTreeParameters();
+      $menu_tree_params->setRoot($item['original_link']->getPluginId())
+        ->excludeRoot()
+        ->setMaxDepth(1)
+        ->onlyEnabledLinks();
+      $tree = \Drupal::menuTree()->load($menu_name, $menu_tree_params);
+
+      // Test if the user has access to any menu items in this menu group.
+      $enabled = array_map(function ($subtree_item) {
+        $route_name = $subtree_item->link->getRouteName();
+        $route_parameters = $subtree_item->link->getRouteParameters();
+        return (bool) \Drupal::accessManager()->checkNamedRoute($route_name, $route_parameters);
+      }, $tree);
+
+      // If no access to child items, remove the menu group item in this menu.
+      if (!array_filter($enabled)) {
+        unset($items[$route]);
+      }
+    }
+
+    // If there are menu items below this, pass those through this function.
+    if (!empty($item['below'])) {
+      _localgov_menu_link_group_filter_menu($item['below'], $menu_name);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ *
+ * The localgov_menu_link_group entities tell us which menu link should go under
+ * which group.  For each group, we generate a menu link.  This menu link serves
+ * as the parent menu link for all the child menu links attached to that entity.
+ */
+function localgov_menu_link_group_menu_links_discovered_alter(array &$menu_links) {
+
+  $active_groups = Drupal::service('entity_type.manager')->getStorage('localgov_menu_link_group')->loadByProperties(['status' => 1]);
+
+  $menu_link_grouper = new MenuLinkGrouper($menu_links);
+  array_walk($active_groups, [$menu_link_grouper, 'groupChildMenuLinks']);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * Rebuild menu link cache when a new localgov_menu_link_group entity is added.
+ */
+function localgov_menu_link_group_localgov_menu_link_group_insert(EntityInterface $entity) {
+
+  Drupal::service('plugin.manager.menu.link')->rebuild();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function localgov_menu_link_group_localgov_menu_link_group_update(EntityInterface $entity) {
+
+  localgov_menu_link_group_localgov_menu_link_group_insert($entity);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function localgov_menu_link_group_localgov_menu_link_group_delete(EntityInterface $entity) {
+
+  localgov_menu_link_group_localgov_menu_link_group_insert($entity);
+}

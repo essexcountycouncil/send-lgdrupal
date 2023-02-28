@@ -15,7 +15,7 @@ dependencies:
 
 # Configuration of the build of this application.
 build:
-  flavor: composer
+  flavor: none
 
 # The relationships of the application with services or other applications.
 #
@@ -147,9 +147,11 @@ hooks:
   # The deploy hook runs after your application has been deployed and started.
   deploy: |
     cd web
-    drush -y cache-rebuild
-    drush -y updatedb
-    drush -y config-import
+    drush -y cache-rebuild || (PROJECT_TITLE=`platform project:info title` && curl -X POST -H 'Content-Type: application/json' --data "{\"text\":\"Command \`drush -y cache-rebuild\` failed on \`$PROJECT_TITLE\` environment \`$PLATFORM_BRANCH\`\"}" https://annertech.webhook.office.com/webhookb2/aab9b141-3ebb-42ad-8df9-cf6c46e4452c@e238ae4b-5aa0-4900-afd6-30d8410e89b8/IncomingWebhook/7888e87f3a93499f9bd5a10940a262b8/8e779a72-bf95-47c6-83a6-ca97137e73a8)
+    drush -y updatedb || (PROJECT_TITLE=`platform project:info title` && curl -X POST -H 'Content-Type: application/json' --data "{\"text\":\"Command \`drush -y updatedb\` failed on \`$PROJECT_TITLE\` environment \`$PLATFORM_BRANCH\`\"}" https://annertech.webhook.office.com/webhookb2/aab9b141-3ebb-42ad-8df9-cf6c46e4452c@e238ae4b-5aa0-4900-afd6-30d8410e89b8/IncomingWebhook/7888e87f3a93499f9bd5a10940a262b8/8e779a72-bf95-47c6-83a6-ca97137e73a8)
+    drush -y updatedb || (PROJECT_TITLE=`platform project:info title` && curl -X POST -H 'Content-Type: application/json' --data "{\"text\":\"Command \`drush -y updatedb\` failed on \`$PROJECT_TITLE\` environment \`$PLATFORM_BRANCH\`\"}" https://annertech.webhook.office.com/webhookb2/aab9b141-3ebb-42ad-8df9-cf6c46e4452c@e238ae4b-5aa0-4900-afd6-30d8410e89b8/IncomingWebhook/7888e87f3a93499f9bd5a10940a262b8/8e779a72-bf95-47c6-83a6-ca97137e73a8)
+    drush -y config-import || (PROJECT_TITLE=`platform project:info title` && curl -X POST -H 'Content-Type: application/json' --data "{\"text\":\"Command \`drush -y config-import\` failed on \`$PROJECT_TITLE\` environment \`$PLATFORM_BRANCH\`\"}" https://annertech.webhook.office.com/webhookb2/aab9b141-3ebb-42ad-8df9-cf6c46e4452c@e238ae4b-5aa0-4900-afd6-30d8410e89b8/IncomingWebhook/7888e87f3a93499f9bd5a10940a262b8/8e779a72-bf95-47c6-83a6-ca97137e73a8)
+
 
 # The configuration of scheduled execution.
 crons:
@@ -165,16 +167,16 @@ crons:
     # Take a snapshot automatically every night at 1 am (UTC).
     spec: '0 1 * * *'
     cmd: |
-      if [ "$PLATFORM_BRANCH" = master ]; then
+      if [ "$PLATFORM_BRANCH" = main ]; then
           platform snapshot:create --yes --no-wait
       fi
   dbdump:
     # Take a DB-dump automatically every night at 0.30 am (UTC).
     spec: '30 0 * * *'
     cmd: |
-      if [ "$PLATFORM_BRANCH" = master ]; then
+      if [ "$PLATFORM_BRANCH" = main ]; then
           # Create DB-dump.
-          mysqldump --single-transaction --user='user' --password='' --host='database.internal' --port=3306 'main' | gzip -9 > private/db-dump/$(date +%Y-%m-%d)-master.sql.gz
+          mysqldump --single-transaction --user='user' --password='' --host='database.internal' --port=3306 'main' | gzip -9 > private/db-dump/$(date +%Y-%m-%d)-main.sql.gz
           # Remove DB-dumps older than 23 hours.
-          find private/db-dump/ -type f -mmin +1380 -name '*-master.sql.gz' -execdir rm -- '{}' +
+          find private/db-dump/ -type f -mmin +1380 -name '*-main.sql.gz' -execdir rm -- '{}' +
       fi

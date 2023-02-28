@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Template for topic list builder paragraphs topic list links field.
+#}
+<div{{ attributes.addClass('container-fluid') }}>
+  {% for row in items|batch(2) %}
+  <div class="row">
+    {% for item in row %}
+    <div class="topic-list-item col-sm-6">
+      {{ item.content }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>

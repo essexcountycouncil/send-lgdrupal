@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: e96053e0-c947-41bc-88db-13948a7c1018
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    b9dbea76-8a95-459b-847a-7f331ba2b508: node
+    238b9f9b-2230-493d-b795-10e70b9b4af7: localgov_directories_facets
+    a3df1336-346a-4ed5-8f87-f302b52ae34e: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: false
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Dartmoor
+  created:
+    -
+      value: 1631814168
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: archived
+  path:
+    -
+      alias: /national-parks-uk/dartmoor
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: ''
+      format: wysiwyg
+      summary: 'Dartmoor is an upland area in southern Devon, England. The moorland and surrounding land has been protected by National Park status since 1951.'
+  localgov_directory_channels:
+    -
+      entity: b9dbea76-8a95-459b-847a-7f331ba2b508
+  localgov_directory_email:
+    -
+      value: hq@dartmoor.gov.uk
+  localgov_directory_facets_select:
+    -
+      entity: 238b9f9b-2230-493d-b795-10e70b9b4af7
+  localgov_directory_phone:
+    -
+      value: '01626 832093'
+  localgov_directory_website:
+    -
+      uri: 'https://www.dartmoor.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: a3df1336-346a-4ed5-8f87-f302b52ae34e

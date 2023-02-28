@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * LocalGov services page subanding install file.
+ */
+
+use Drupal\localgov_core\FieldRenameHelper;
+
+/**
+ * Update Field names in localgov services page.
+ *
+ * Field mapping between existing and new names:
+ * field_download_links         => localgov_download_links
+ * field_hide_related_topics    => localgov_hide_related_topics
+ * field_override_related_links => localgov_override_related_links
+ * field_related_links          => localgov_related_links.
+ *
+ * This change creates and updates Drupal config entities.  Unless configuration
+ * is *exported* after this update, later calls to 'drush deploy' or similar
+ * will revert these changes.
+ */
+function localgov_services_page_update_8001(&$sandbox) {
+
+  // Update field_ types fields provided by localgov_services_page.
+  $field_names = [
+    'download_links',
+    'hide_related_topics',
+    'override_related_links',
+    'related_links',
+  ];
+  foreach ($field_names as $field_name_unprefixed) {
+    FieldRenameHelper::renameField('field_' . $field_name_unprefixed, 'localgov_' . $field_name_unprefixed, 'node');
+  }
+
+  return t('Please export your sites configuration! Config entities for localgov_services_page where updated.');
+}

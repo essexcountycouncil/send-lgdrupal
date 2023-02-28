@@ -1,0 +1,61 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 3234ce38-ad34-4848-881a-d99c8377cf7d
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    638fe726-4b86-48e5-8d0c-fb24f83bfa5b: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Remove the wrong father''s details'
+  created:
+    -
+      value: 1631269064
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /births-deaths-marriages-and-citizenship/remove-wrong-fathers-details
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h2>Remove the wrong father's details</h2>\r\n\r\n<p>If the wrong father has been recorded on the birth certificate, you can ask for a correction to remove his details. We can make this correction if the child was born in Scarfolk, but this has to be authorised by the General Register Office (GRO) and it can take several weeks to process the change.</p>\r\n\r\n<h3>Before you apply</h3>\r\n\r\n<p>Make sure you read the GRO guidance&nbsp;before you apply, as there are no refunds if we are unable to correct the birth registration.</p>\r\n\r\n<p>Read 'How to apply for a correction to remove the wrong father’s details' on GOV.UK.</p>\r\n\r\n<h3>How to get an application form</h3>\r\n\r\n<p>You can either:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"https://www.gov.uk/government/publications/application-form-to-remove-the-incorrect-fathers-details-from-a-birth-registration\">download the form&nbsp;on&nbsp;GOV.UK</a>, or</li>\r\n\t<li>collect it from the&nbsp;Scarfolk&nbsp;<a href=\"https://lbc-app-w-corpwebsite-p.azurewebsites.net/births-deaths-marriages-and-citizenship/contact-croydon-register-office\">Register Office</a></li>\r\n</ul>\r\n\r\n<p>If you are attending the Register Office in person,&nbsp;you will need to observe social distancing at all times and wear&nbsp;adequate personal protective equipment (PPE). For more information, read&nbsp;<a href=\"https://www.gov.uk/government/publications/staying-safe-outside-your-home/staying-safe-outside-your-home\">staying safe outside your home on GOV.UK</a>.</p>\r\n\r\n<h3>Submit your application</h3>\r\n\r\n<p>You can either:</p>\r\n\r\n<ul>\r\n\t<li>post your application to&nbsp;Scarfolk<a href=\"https://lbc-app-w-corpwebsite-p.azurewebsites.net/births-deaths-marriages-and-citizenship/contact-croydon-register-office\"> Register Office</a></li>\r\n\t<li>take it in person to the Register Office</li>\r\n</ul>\r\n\r\n<h3>What you need to provide</h3>\r\n\r\n<p>You'll need to bring&nbsp;any documentary evidence specified in the&nbsp;<a href=\"https://www.gov.uk/government/publications/application-form-to-remove-the-incorrect-fathers-details-from-a-birth-registration/how-to-apply-for-a-correction-to-remove-the-wrong-fathers-details\">GRO guidance</a>&nbsp;showing the correct information.</p>\r\n\r\n<h3>How much it costs</h3>\r\n\r\n<p>This service costs £75 or £90, depending on the type of correction required. This fee is for your application, even if the correction is not authorised.</p>\r\n\r\n<h2>What happens next</h2>\r\n\r\n<p>We will check whether the correction can be completed locally or if it needs to be referred to the GRO.</p>\r\n\r\n<p>If the correction needs to be sent to GRO we will photocopy and certify your documents so that you can keep your originals.</p>\r\n\r\n<p>It can take between 1 week and 3 months for the application to be decided on, depending on how simple the request is and the quality of the evidence provided. We cannot check the status of an application until 10 weeks after you apply.</p>\r\n\r\n<h3>If your change is approved</h3>\r\n\r\n<p>We will contact you to make an appointment to make the correction. You will be able to buy corrected certificates at the appointment for £11 each. You can&nbsp;also buy&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/order-copies-certificates/order-copy-certificate\">certificate copies</a>&nbsp;later.</p>\r\n\r\n<h3>If your change is not approved</h3>\r\n\r\n<p>We will contact you to let you know why it was not approved.</p>\r\n"
+      format: wysiwyg
+      summary: "You can apply to correct a mistake on a birth record by completing an application online or contacting the register office.\r\n\r\n"
+  localgov_common_tasks:
+    -
+      uri: 'https://localgovdrupal.org'
+      title: 'See the LocalGov Drupal website'
+      options:
+        type: action
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 638fe726-4b86-48e5-8d0c-fb24f83bfa5b

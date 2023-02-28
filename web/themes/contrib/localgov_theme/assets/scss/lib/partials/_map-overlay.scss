@@ -1,0 +1,88 @@
+.ol-overlay-container {
+  &.ol-selectable {
+    @include rem(width, 50);
+    @include rem(height, 50);
+  }
+
+  .popup {
+    background-color: $white;
+    position: absolute;
+    top: -12.938rem;
+    left: -8.125rem;
+    z-index: 99;
+    box-shadow: 0 0.188rem 0.875rem rgba(0, 0, 0, 0.4);
+
+    @include rem(width, 260);
+    @include rem(height, 160);
+    @include rem(padding, 16);
+
+    h2 {
+      margin-bottom: 0;
+
+      a {
+        font-size: $font-size-ex-med;
+
+        @include rem(line-height, 24);
+      }
+    }
+
+    p,
+    li {
+      font-size: $font-size-sm;
+
+      @include rem(line-height, 26);
+    }
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    .fas {
+      @include rem(margin-right, 20);
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 0.6875rem solid transparent;
+      border-right: 0.6875rem solid transparent;
+      border-top: 0.6875rem solid $white;
+      bottom: -0.6875rem;
+      position: absolute;
+      left: 7.438rem;
+      z-index: 199;
+    }
+  }
+
+  .marker {
+    background-color: transparent;
+    background-image: url(../../img/map-marker.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0.125rem 0;
+    background-origin: border-box;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+
+    @include rem(width, 20);
+    @include rem(height, 30);
+
+    &.selected,
+    &:hover {
+      background-position: -1.125rem 0;
+    }
+  }
+}
+
+.ol-control {
+  z-index: 999;
+}

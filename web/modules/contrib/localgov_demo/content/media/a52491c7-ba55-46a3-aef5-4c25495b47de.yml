@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a52491c7-ba55-46a3-aef5-4c25495b47de
+  bundle: image
+  default_langcode: en
+  depends:
+    75a41dfc-4436-4e08-b01d-8fd1ddb74dbf: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: wedding2_tcm953-422843.jpg
+  created:
+    -
+      value: 1631269214
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_image:
+    -
+      entity: 75a41dfc-4436-4e08-b01d-8fd1ddb74dbf
+      alt: wedding
+      title: ''
+      width: 500
+      height: 508

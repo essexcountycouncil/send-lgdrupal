@@ -1,0 +1,8 @@
+scheduled_transitions.tasks:
+  deriver: 'Drupal\scheduled_transitions\Plugin\Derivative\ScheduledTransitionsLocalTasks'
+  weight: 100
+
+entity.scheduled_transition.collection:
+  title: 'Scheduled transitions'
+  route_name: entity.scheduled_transition.collection
+  base_route: system.admin_content

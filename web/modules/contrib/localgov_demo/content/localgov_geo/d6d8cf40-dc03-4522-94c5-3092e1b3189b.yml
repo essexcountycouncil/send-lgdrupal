@@ -1,0 +1,53 @@
+_meta:
+  version: '1.0'
+  entity_type: localgov_geo
+  uuid: d6d8cf40-dc03-4522-94c5-3092e1b3189b
+  bundle: address
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  created:
+    -
+      value: 1620226728
+  label:
+    -
+      value: |-
+        Victoria Street 62-64
+        Westminster
+        SW1E 6QP
+        United Kingdom
+  revision_translation_affected:
+    -
+      value: true
+  location:
+    -
+      value: 'POINT (-0.13734355477368 51.4976144)'
+      geo_type: Point
+      lat: 51.4976144
+      lon: -0.13734355477368
+      left: -0.13734355477368
+      top: 51.4976144
+      right: -0.13734355477368
+      bottom: 51.4976144
+      geohash: gcpuuyggrej5xhuk
+      latlon: '51.4976144,-0.13734355477368'
+  postal_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: England
+      locality: Westminster
+      dependent_locality: ''
+      postal_code: 'SW1E 6QP'
+      sorting_code: ''
+      address_line1: 'Victoria Street 62-64'
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''

@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains localgov_search.install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function localgov_search_install() {
+
+  // Ensure the sitewide search viewmodes are set on view and index.
+  $node_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+  foreach ($node_bundles as $bundle => $info) {
+    localgov_search_entity_bundle_create('node', $bundle);
+  }
+}
+
+/**
+ * Sitewide search database configuration moved to a new module, enable it.
+ */
+function localgov_search_update_8001() {
+  // Prevent clash as config already installed.
+  // So it's enabled, but don't run install.
+  $config = Drupal::configFactory()->getEditable('core.extension');
+  $modules = $config->get('module');
+  $modules['localgov_search_db'] = 0;
+  $config->set('module', $modules);
+  $config->save();
+}
+
+/**
+ * Add schema version for Sitewide Search API DB module.
+ */
+function localgov_search_update_8002() {
+  $config = \Drupal::config('core.extension');
+  $modules = $config->get('module');
+  if (isset($modules['localgov_search_db']) &&
+    !\Drupal::keyValue('system.schema')->has('localgov_search_db')
+  ) {
+    \Drupal::keyValue('system.schema')->set('localgov_search_db', 8000);
+  }
+}

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_geofield
+id: kml_file
+label: 'KML File'
+plugin: kmlfile
+configuration: {  }

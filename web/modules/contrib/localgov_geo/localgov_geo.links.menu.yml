@@ -1,0 +1,5 @@
+entity.localgov_geo_type.collection:
+  title: 'Geo types'
+  parent: system.admin_structure
+  description: 'Manage and CRUD actions on Geo type.'
+  route_name: entity.localgov_geo_type.collection

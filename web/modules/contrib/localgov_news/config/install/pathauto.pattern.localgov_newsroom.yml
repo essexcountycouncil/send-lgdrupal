@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: localgov_newsroom
+label: Newsroom
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  58bd74f7-9aeb-469f-ae66-ee1acf0ac229:
+    id: 'entity_bundle:node'
+    bundles:
+      localgov_newsroom: localgov_newsroom
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 58bd74f7-9aeb-469f-ae66-ee1acf0ac229
+selection_logic: and
+weight: -5
+relationships: {  }

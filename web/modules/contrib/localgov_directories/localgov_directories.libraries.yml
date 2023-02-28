@@ -1,0 +1,10 @@
+localgov_directories_search:
+  version: 1.x
+  css:
+    state:
+      css/localgov_directories.css: {}
+  js:
+    js/localgov_directories_entry_search.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/once

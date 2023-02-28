@@ -1,0 +1,11 @@
+tamper_test.form:
+  path: '/tamper_test/{entity_test_bundle}/{tamper_plugin_id}'
+  defaults:
+    _form: '\Drupal\tamper_test\Form\TamperForm'
+    _title: 'Tamper test form'
+  options:
+    parameters:
+      entity_test_bundle:
+        type: 'entity:entity_test_bundle'
+  requirements:
+    _access: 'TRUE'

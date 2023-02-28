@@ -1,0 +1,71 @@
+// Base style for call out paragraphs / advanced callout div container
+.callout {
+  text-align: center;
+  font-weight: $font-bold;
+  font-size: $font-size-ex-med;
+
+  @include rem(padding, 19);
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-ex-ex-lg;
+  }
+
+  a {
+    font-weight: $font-bold !important;
+
+    &:hover,
+    &:focus {
+      background: $yellow;
+      color: $carbon;
+    }
+  }
+}
+
+// Links inside light callouts
+.callout-yellow a:hover,
+.callout-yellow a:focus {
+  background: $carbon;
+  color: $yellow;
+}
+
+// Callout primary bg and link colour
+.callout-primary,
+.callout-primary a {
+  background: $primary;
+  color: $white;
+}
+
+// Callout success bg and link colour
+.callout-success,
+.callout-success a {
+  background: $success;
+  color: $white;
+}
+
+// Callout danger bg and link colour
+.callout-danger,
+.callout-danger a {
+  background: $danger;
+  color: $white;
+}
+
+// Callout teal bg and link colour
+.callout-teal,
+.callout-teal a {
+  background: $teal;
+  color: $white;
+}
+
+// Callout carbon bg and link colour
+.callout-carbon,
+.callout-carbon a {
+  background: $carbon;
+  color: $white;
+}
+
+// Callout yellow bg and link colour
+.callout-yellow,
+.callout-yellow a {
+  background: $yellow;
+  color: $carbon;
+}

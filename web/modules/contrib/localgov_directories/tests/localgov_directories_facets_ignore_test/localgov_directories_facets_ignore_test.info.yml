@@ -1,0 +1,4 @@
+name: 'Directories Facet Type config ignore test'
+type: module
+package: Testing
+description: Testing module to check directory facets config is not exported.

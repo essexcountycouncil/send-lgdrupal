@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 1f0e941c-d025-4631-96fa-f1c4c7cd0617
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    3cea48b6-09ba-4609-b512-2f49853d0e6f: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Order a copy of a certificate'
+  created:
+    -
+      value: 1631267343
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /order-copy-certificate/order-copy-certificate
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>During the coronavirus&nbsp;pandemic, you can only order copies&nbsp;of certificates online.&nbsp;&nbsp;It&nbsp;can take up to 10 working days to process your order and post it to you.</p>\r\n\r\n<p>We need to be able to find the original registration before we can make a copy. Make sure you are able give us the relevant information.</p>\r\n\r\n<p>You can order a copy of:</p>\r\n\r\n<ul>\r\n\t<li>birth&nbsp;certificates</li>\r\n\t<li>death&nbsp;certificates</li>\r\n\t<li>marriage&nbsp;or&nbsp;civil partnership&nbsp;certificates</li>\r\n</ul>\r\n\r\n<p>Due to current high volumes it can take up to 10 working days to process your order and post it to you.</p>\r\n\r\n<p>There is a different process for ordering&nbsp;<a href=\"https://www.croydon.gov.uk/births-deaths-marriages-and-citizenship/order-copies-certificates/other-certificates\">adoption, citizenship, naturalisation and gender recognition certificates</a>.</p>\r\n\r\n<p><a href=\"https://croydon.zipporah.co.uk/Registrars.Croydon/CertificateProcess\">Start now</a></p>\r\n\r\n<h3>How much it costs</h3>\r\n\r\n<p>Certificates cost £11 each, plus £3&nbsp;(recorded delivery of up to 5 certificates).&nbsp;</p>\r\n\r\n<h3>After you've applied</h3>\r\n\r\n<h2>If the birth, death, marriage or civil partnership took place outside of Scarfolk</h2>\r\n\r\n<p>You must contact the local authority in which the event occurred or&nbsp;<a href=\"https://www.gov.uk/order-copy-birth-death-marriage-certificate\">apply for a certificate –&nbsp;GOV.UK</a>.</p>\r\n\r\n<h2>If you are applying from outside Britain</h2>\r\n\r\n<p>You can only&nbsp;<a href=\"https://www.gro.gov.uk/gro/content/\">order from the General Register Office – GOV.UK</a></p>\r\n\r\n<h2>If the event took place before 1 July 1837</h2>\r\n\r\n<p>Information on how to get a certificate can be found at&nbsp;<a href=\"http://www.nationalarchives.gov.uk/help-with-your-research/research-guides/birth-marriage-death-england-and-wales/\">The National Archive – nationalarchives.gov.uk</a></p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 3cea48b6-09ba-4609-b512-2f49853d0e6f
+  localgov_guides_section_title:
+    -
+      value: 'Order a copy of a certificate'

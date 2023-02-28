@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+    - node
+  theme:
+    - localgov_base
+id: localgov_directories_channel_search_block
+theme: localgov_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: localgov_directories_channel_search_block
+settings:
+  id: localgov_directories_channel_search_block
+  label: 'Directory channel search'
+  provider: localgov_directories
+  label_display: '0'
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      localgov_directory: localgov_directory
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

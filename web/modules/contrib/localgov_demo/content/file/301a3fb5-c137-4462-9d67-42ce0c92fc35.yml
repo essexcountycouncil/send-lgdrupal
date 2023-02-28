@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 301a3fb5-c137-4462-9d67-42ce0c92fc35
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: matthew-waring-rbY7N-PYaQw-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/matthew-waring-rbY7N-PYaQw-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 581246
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631268767

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_geofield
+id: geojson_file
+label: 'GeoJson File'
+plugin: geojsonfile
+configuration: {  }

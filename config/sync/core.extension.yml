@@ -13,6 +13,8 @@ module:
   ckeditor: 0
   condition_field: 0
   config: 0
+  config_filter: 0
+  config_ignore: 0
   content_moderation: 0
   contextual: 0
   crop: 0
@@ -56,8 +58,10 @@ module:
   inline_entity_form: 0
   inline_form_errors: 0
   jquery_ui: 0
+  jquery_ui_autocomplete: 0
   jquery_ui_datepicker: 0
   jquery_ui_effects: 0
+  jquery_ui_menu: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
   language: 0
@@ -171,4 +175,5 @@ theme:
   gin: 0
   localgov_base: 0
   anrt_lgd: 0
+  stable9: 0
 profile: localgov

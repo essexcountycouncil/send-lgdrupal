@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_embed_views.localgov_embed_block_view
+    - field.field.paragraph.localgov_embed_views.localgov_heading_level
+    - field.field.paragraph.localgov_embed_views.localgov_title
+    - paragraphs.paragraphs_type.localgov_embed_views
+  module:
+    - viewsreference
+id: paragraph.localgov_embed_views.default
+targetEntityType: paragraph
+bundle: localgov_embed_views
+mode: default
+content:
+  localgov_embed_block_view:
+    type: viewsreference_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_heading_level:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

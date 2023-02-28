@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * @file
+ * LocalGovDrupal demo module file.
+ */
+
+use Drupal\Core\Serialization\Yaml;
+use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Implements hook_modules_installed().
+ *
+ * Fix entity reference fields in default content.
+ *
+ * @see https://github.com/localgovdrupal/localgov_demo/issues/2
+ */
+function localgov_demo_modules_installed($modules, $is_syncing) {
+  if (!$is_syncing &&
+    in_array('default_content', $modules) &&
+    in_array('localgov_demo', $modules)
+  ) {
+
+    // Set all alert banners to be live by default.
+    $alert_banner_ids = \Drupal::entityQuery('localgov_alert_banner')->execute();
+    $alert_banner_entities = \Drupal::entityTypeManager()->getStorage('localgov_alert_banner')->loadMultiple($alert_banner_ids);
+
+    foreach ($alert_banner_entities as $alert_banner) {
+      $alert_banner->set('moderation_state', 'published');
+      $alert_banner->save();
+    }
+
+    // Entity reference fields to fix.
+    $fix_fields = [
+      'localgov_services_parent',
+      'localgov_guides_parent',
+      'localgov_step_parent',
+    ];
+
+    $entity_repo = \Drupal::service('entity.repository');
+
+    // Iterate over all default node content.
+    $dir = \Drupal::service('extension.list.module')->getPath('localgov_demo') . "/content/node";
+    foreach (glob($dir . "/*.yml") as $filename) {
+
+      // Load serialized content.
+      $contents = file_get_contents($filename);
+      $decoded = Yaml::decode($contents);
+
+      // Get the current node id.
+      $uuid_current_node = $decoded['_meta']['uuid'];
+      $current_node = $entity_repo->loadEntityByUuid('node', $uuid_current_node);
+
+      // Iterate over all field.
+      foreach ($decoded['default'] as $field_name => $field) {
+
+        // Re-save all news nodes, which have the localgov_newsroom field.
+        if ($field_name == 'localgov_newsroom') {
+          // Load the (hopefully only) newsroom and set the news_articles to
+          // reference that newsroom, so that they all show on /news.
+          $newsroom_nids = \Drupal::entityQuery('node')
+            ->condition('type', 'localgov_newsroom')
+            ->accessCheck(FALSE)
+            ->execute();
+          $newsroom_nodes = Node::loadMultiple($newsroom_nids);
+          $newsroom_node_ids = array_keys($newsroom_nodes);
+          $current_node->set('localgov_newsroom', ['target_id' => $newsroom_node_ids[0]]);
+          $current_node->save();
+        }
+
+        // Update entity reference fields.
+        if (in_array($field_name, $fix_fields)) {
+          // Grab the uuid of the target node.
+          $uuid_target_node = $field[0]['entity'];
+          if ($uuid_target_node && $parent = $entity_repo->loadEntityByUuid('node', $uuid_target_node)) {
+            if ($current_node) {
+              $current_node->set($field_name, ['target_id' => $parent->id()]);
+              $current_node->save();
+            }
+          }
+        }
+
+        // Fix topic list builder links.
+        if ($field_name == 'localgov_topics') {
+          foreach ($field as $topic) {
+            if (isset($topic['entity']['default']['topic_list_links']) && count($topic['entity']['default']['topic_list_links']) > 0) {
+              $topic_uuid = $topic['entity']['_meta']['uuid'];
+              $topic_paragraph = $entity_repo->loadEntityByUuid('paragraph', $topic_uuid);
+
+              // Convert link UUID to node ID.
+              $links = [];
+              foreach ($topic['entity']['default']['topic_list_links'] as $link) {
+                if (isset($link['target_uuid'])) {
+                  $link_target = $entity_repo->loadEntityByUuid('node', $link['target_uuid']);
+                  $link['uri'] = 'entity:node/' . $link_target->id();
+                }
+                $links[] = $link;
+              }
+
+              // Replace topic links with those defined in default content.
+              $topic_paragraph->set('topic_list_links', $topic['entity']['default']['topic_list_links']);
+              $topic_paragraph->save();
+            }
+          }
+        }
+
+        // Fix tasks button links.
+        if ($field_name == 'localgov_common_tasks') {
+
+          // Convert link UUID to node ID.
+          $links = [];
+          foreach ($field as $link) {
+            if (isset($link['target_uuid'])) {
+              $link_target = $entity_repo->loadEntityByUuid('node', $link['target_uuid']);
+              $link['uri'] = 'entity:node/' . $link_target->id();
+            }
+            $links[] = $link;
+          }
+
+          // Replace button links with those defined in default content.
+          $current_node->set('localgov_common_tasks', $links);
+          $current_node->save();
+        }
+      }
+    }
+
+    // Set services menu links by uuid as the node ids might change.
+    $services_links = [
+      [
+        'title' => 'Adult health and social care',
+        'uuid' => 'c1d9f01d-c368-4db3-a4ec-c882d217781b',
+      ],
+      [
+        'title' => 'Births, deaths, marriages and citizenship',
+        'uuid' => '638fe726-4b86-48e5-8d0c-fb24f83bfa5b',
+      ],
+      [
+        'title' => 'Libraries, leisure and culture',
+        'uuid' => '3266e45f-1489-4b88-8d8a-98b25e0ed143',
+      ],
+    ];
+    foreach ($services_links as $services_link) {
+      $target_node = \Drupal::service('entity.repository')->loadEntityByUuid('node', $services_link['uuid']);
+      $menu_item = MenuLinkContent::create([
+        'title' => $services_link['title'],
+        'link' => ['uri' => 'internal:/node/' . $target_node->id()],
+        'menu_name' => 'localgov_services_menu',
+        'expanded' => FALSE,
+      ]);
+      $menu_item->save();
+    }
+
+    // Regenerate all path aliases.
+    // This needs to happen after entity reference fixes.
+    $nids = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->getQuery()
+      ->accessCheck(FALSE)
+      ->execute();
+    $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadMultiple($nids);
+    foreach ($nodes as $node) {
+      \Drupal::service('pathauto.generator')->updateEntityAlias($node, 'update');
+    }
+  }
+}

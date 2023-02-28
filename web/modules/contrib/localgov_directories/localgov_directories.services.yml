@@ -1,0 +1,6 @@
+services:
+  localgov_directories.event_subscriber:
+    class: Drupal\localgov_directories\EventSubscriber\DirectoriesConfigSubscriber
+    arguments: ['@config.storage', '@config.storage.sync']
+    tags:
+      - { name: event_subscriber }

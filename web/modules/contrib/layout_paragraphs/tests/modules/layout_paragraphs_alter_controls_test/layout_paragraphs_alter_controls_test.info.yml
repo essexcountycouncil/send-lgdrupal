@@ -1,0 +1,12 @@
+name: Layout Paragraphs Alter Controls Test
+description: Tests that the controls UI element can be altered by third party modules.
+core_version_requirement: ^9.1 || ^10
+package: Layout Paragraphs
+type: module
+dependencies:
+  - layout_paragraphs:layout_paragraphs
+
+# Information added by Drupal.org packaging script on 2022-12-18
+version: '2.0.2'
+project: 'layout_paragraphs'
+datestamp: 1671393658

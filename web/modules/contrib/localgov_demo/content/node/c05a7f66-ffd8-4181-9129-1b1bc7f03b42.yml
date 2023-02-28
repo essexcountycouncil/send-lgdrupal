@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c05a7f66-ffd8-4181-9129-1b1bc7f03b42
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    61a2c681-f994-4108-9c6c-f525cd67774a: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Bracknell Forest Council'
+  created:
+    -
+      value: 1620225487
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/bracknell-forest-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Bracknell Forest is one of six unitary authority areas within Berkshire in southern England. It covers the two towns of Bracknell and Sandhurst and the village of Crowthorne and also includes the areas of North Ascot, Warfield and Winkfield.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_phone:
+    -
+      value: '01344 352000'
+  localgov_directory_website:
+    -
+      uri: 'https://www.bracknell-forest.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: 61a2c681-f994-4108-9c6c-f525cd67774a

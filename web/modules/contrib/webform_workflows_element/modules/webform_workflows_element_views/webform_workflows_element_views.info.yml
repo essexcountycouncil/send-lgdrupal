@@ -1,0 +1,13 @@
+name: Webform Workflows Element Views
+type: module
+description: Provides easy filters for workflow states etc.
+package: Webform
+core_version_requirement: ^9
+dependencies:
+  - webform_workflows_element
+  - webform_views
+
+# Information added by Drupal.org packaging script on 2022-07-07
+version: '1.0.0-alpha3'
+project: 'webform_workflows_element'
+datestamp: 1657169710

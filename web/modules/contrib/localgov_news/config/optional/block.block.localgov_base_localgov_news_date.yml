@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_news_date
+  module:
+    - facets
+    - system
+  theme:
+    - localgov_base
+id: localgov_base_localgov_news_date
+theme: localgov_base
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:localgov_news_date'
+settings:
+  id: 'facet_block:localgov_news_date'
+  label: 'News date'
+  provider: facets
+  label_display: '0'
+  block_id: localgov_news_date
+visibility:
+  request_path:
+    id: request_path
+    pages: '/news/*'
+    negate: false
+    context_mapping: {  }

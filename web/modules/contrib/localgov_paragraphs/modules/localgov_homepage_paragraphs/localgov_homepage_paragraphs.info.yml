@@ -1,0 +1,18 @@
+type: module
+name: LocalGov Drupal homepage paragraphs
+description: Paragraph bundles used in the LocalGov Drupal homepage.
+package: LocalGov Drupal
+core_version_requirement: ^8.8 || ^9
+dependencies:
+  # Drupal core modules.
+  - drupal:link
+  - drupal:node
+  - drupal:options
+  - drupal:responsive_image
+  # Contrib modules.
+  - crop:crop
+  - field_formatter_class:field_formatter_class
+  - fontawesome:fontawesome
+  - paragraphs:paragraphs
+  # LocalGov Drupal modules.
+  - localgov_core:localgov_media

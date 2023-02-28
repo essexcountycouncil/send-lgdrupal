@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_job_title
+    - node.type.localgov_directories_venue
+  enforced:
+    module:
+      - localgov_directories
+id: node.localgov_directories_venue.localgov_directory_job_title
+field_name: localgov_directory_job_title
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Contact job title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

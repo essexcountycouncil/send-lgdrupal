@@ -1,0 +1,73 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 25c7d988-00c8-403a-96f1-d31464a0c535
+  bundle: localgov_directories_page
+  default_langcode: en
+  depends:
+    5f88c33c-6ffe-4afc-8a66-cd1651b212de: node
+    06c1a060-9bda-4ee6-9ed3-7879b678eb5c: localgov_directories_facets
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'National Careers Service'
+  created:
+    -
+      value: 1631270357
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/money-employment-and-training-directory/national-careers-service
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<h3>Who is National Careers Service for?</h3>\r\n\r\n<h3>Citizens</h3>\r\n\r\n<p>We provide anyone aged 13+ with life long careers information, advice and guidance to help you make good career choices, no matter what point of your career journey you’re at.</p>\r\n\r\n<h3>Intermediaries</h3>\r\n\r\n<p>We provide information for parents, teachers, employers, coaches and advisers to support others in their career journey.</p>\r\n\r\n<h3>Stakeholders</h3>\r\n\r\n<p>We work with organisations, employers and professional bodies to promote the importance of up to date careers guidance.</p>\r\n"
+      format: wysiwyg
+      summary: "We provide information, advice and guidance to help you make decisions on learning, training and work.\r\n\r\nThis service is available to people who live in England."
+  localgov_directory_address:
+    -
+      langcode: ''
+      country_code: GB
+      administrative_area: ''
+      locality: ''
+      dependent_locality: ''
+      postal_code: ''
+      sorting_code: ''
+      address_line1: ''
+      address_line2: ''
+      organization: ''
+      given_name: ''
+      additional_name: ''
+      family_name: ''
+  localgov_directory_channels:
+    -
+      entity: 5f88c33c-6ffe-4afc-8a66-cd1651b212de
+  localgov_directory_facets_select:
+    -
+      entity: 06c1a060-9bda-4ee6-9ed3-7879b678eb5c
+  localgov_directory_website:
+    -
+      uri: 'https://nationalcareers.service.gov.uk/'
+      title: ''
+      options: {  }

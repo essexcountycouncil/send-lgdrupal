@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Office hours module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Re-saving data needed.
+ *
+ * @param mixed $sandbox
+ */
+function office_hours_update_8001(&$sandbox) {
+  \Drupal::messenger()->addMessage(
+    'Please review the Field, Widget and Formatter settings,
+    and save them again.');
+}
+
+/**
+ * Add 'comment' column.
+ *
+ * @param mixed $sandbox
+ */
+function office_hours_update_8003(&$sandbox) {
+  $spec = [
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    'description' => "Stores the comment",
+  ];
+
+  $schema = Database::getConnection()->schema();
+  $fields = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('office_hours');
+  foreach ($fields as $entity_type => $entity_fields) {
+    foreach ($entity_fields as $field_name => $field_properties) {
+      \Drupal::entityDefinitionUpdateManager()->getFieldStorageDefinition($field_name, $entity_type);
+
+      $table_names = $schema->findTables("%$field_name%");
+      foreach ($table_names as $table_name) {
+        $schema->addField($table_name, $field_name . '_comment', $spec);
+      }
+    }
+  }
+}
+
+/**
+ * Update 'comment' config.
+ *
+ * @param mixed $sandbox
+ *   The sandbox variable.
+ */
+function office_hours_update_8004(&$sandbox) {
+
+  // Create config factory.
+  $config_factory = \Drupal::configFactory();
+
+  // Find all base storage fields.
+  foreach ($config_factory->listAll('field.storage') as $field_storage_name) {
+    // Load the field conig object.
+    $field = $config_factory->getEditable($field_storage_name);
+    // Grab the field type.
+    $type = $field->get('type');
+    if ($type == 'office_hours') {
+      if ($field->get('settings.comment') === FALSE) {
+        $field->set('settings.comment', 0);
+      }
+      if ($field->get('settings.comment') === TRUE) {
+        $field->set('settings.comment', 1);
+      }
+      // Save the updated config object.
+      $field->save(TRUE);
+    }
+  }
+}

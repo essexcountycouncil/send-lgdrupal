@@ -1,0 +1,88 @@
+// Main.scss - This file imports all sass components
+
+// Functions
+@import 'functions';
+
+// Mixins
+@import 'mixins';
+
+// Import Bootstrap css
+// Required
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import 'variables';
+
+// Optional
+@import '../../../node_modules/bootstrap/scss/alert';
+@import '../../../node_modules/bootstrap/scss/breadcrumb';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/custom-forms';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/forms';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/images';
+@import '../../../node_modules/bootstrap/scss/input-group';
+@import '../../../node_modules/bootstrap/scss/jumbotron';
+@import '../../../node_modules/bootstrap/scss/nav';
+@import '../../../node_modules/bootstrap/scss/navbar';
+@import '../../../node_modules/bootstrap/scss/root';
+@import '../../../node_modules/bootstrap/scss/reboot';
+@import '../../../node_modules/bootstrap/scss/tables';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import '../../../node_modules/bootstrap/scss/type';
+@import '../../../node_modules/bootstrap/scss/utilities';
+// required for form.io
+@import "../../../node_modules/bootstrap/scss/card";
+@import "../../../node_modules/bootstrap/scss/pagination";
+@import "../../../node_modules/bootstrap/scss/badge";
+@import "../../../node_modules/bootstrap/scss/close";
+@import "../../../node_modules/bootstrap/scss/modal";
+@import "../../../node_modules/bootstrap/scss/tooltip";
+@import "../../../node_modules/bootstrap/scss/carousel";
+// Uncomment to use further bootstrap files
+// @import "../../../../node_modules/bootstrap/scss/toasts";
+// @import "../../../../node_modules/bootstrap/scss/spinners";
+// @import "../../../../node_modules/bootstrap/scss/code";
+// @import "../../../../node_modules/bootstrap/scss/button-group";
+// @import "../../../../node_modules/bootstrap/scss/progress";
+// @import "../../../../node_modules/bootstrap/scss/media";
+// @import "../../../../node_modules/bootstrap/scss/list-group";
+// @import "../../../../node_modules/bootstrap/scss/popover";
+// @import "../../../../node_modules/bootstrap/scss/print";
+
+// Import partials
+@import 'partials/account';
+@import 'partials/accordion';
+@import 'partials/alert';
+@import 'partials/admin';
+@import 'partials/base';
+@import 'partials/breadcrumb';
+@import 'partials/buttons';
+@import 'partials/campaigns';
+@import 'partials/cookie';
+@import 'partials/colors';
+@import 'partials/callout';
+@import 'partials/cta';
+@import 'partials/directories';
+@import 'partials/facets';
+@import 'partials/footer';
+@import 'partials/forms';
+@import 'partials/guides';
+@import 'partials/header';
+@import 'partials/iconlist';
+@import 'partials/links';
+@import 'partials/main';
+@import 'partials/map-overlay';
+@import 'partials/modal';
+@import 'partials/nav';
+@import 'partials/notice';
+@import 'partials/page-builder';
+@import 'partials/search';
+@import 'partials/shame';
+@import 'partials/sidebar';
+@import 'partials/service';
+@import 'partials/service-status';
+@import 'partials/services';
+@import 'partials/stepbystep';
+@import 'partials/tables';

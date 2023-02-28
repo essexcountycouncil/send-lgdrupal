@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_organisation
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_venue
+id: node.localgov_directories_venue.localgov_directory_organisation
+field_name: localgov_directory_organisation
+entity_type: node
+bundle: localgov_directories_venue
+label: Organisation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      localgov_directories_org: localgov_directories_org
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

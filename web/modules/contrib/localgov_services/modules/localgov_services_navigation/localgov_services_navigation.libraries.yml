@@ -1,0 +1,9 @@
+children:
+  version: 1.x
+  js:
+    js/children.js: {}
+  css:
+    theme:
+      css/children.css: {}
+  dependencies:
+    - core/jquery

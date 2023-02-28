@@ -1,0 +1,36 @@
+global:
+  css:
+    base:
+      https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i:
+        type: external
+    theme:
+      assets/css/font-face.css: {}
+      assets/css/lib/main.css: {}
+  js:
+    assets/js/bootstrap.min.js: {}
+    assets/js/main.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
+fontawesome:
+  remote: https://fontawesome.com/
+  version: 5.13.0
+  license:
+    name: Font Awesome Free License
+    url: https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt
+  css:
+    theme:
+      https://use.fontawesome.com/releases/v5.13.0/css/all.css:
+        type: external
+        minified: true
+
+# Move skip-link above EU cookie compliance popup.
+skip-link-relocation:
+  js:
+    assets/js/skip-link-relocation.js: {}
+  dependencies:
+    - eu_cookie_compliance/eu_cookie_compliance_bare

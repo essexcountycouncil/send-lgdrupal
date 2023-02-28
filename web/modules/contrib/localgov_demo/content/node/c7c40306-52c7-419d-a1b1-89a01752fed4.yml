@@ -1,0 +1,155 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c7c40306-52c7-419d-a1b1-89a01752fed4
+  bundle: localgov_subsites_page
+  default_langcode: en
+  depends:
+    d1aa7821-645a-4882-90a2-cd3ed84d4cfa: media
+    d2af8444-4898-4daf-9814-6dc0c16cfb26: media
+    a6abc378-3a60-4d97-a52e-ab796461e053: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'A page with a key contact component'
+  created:
+    -
+      value: 1631789808
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /test-subsite-demo-all-components/page-key-contact-component
+      langcode: en
+      pathauto: 1
+  localgov_subsites_content:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: c49ab708-f236-4a8d-ad42-97fadfe8fe1a
+          bundle: localgov_key_contacts
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1631789832
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  region: ''
+                  parent_uuid: ''
+                  layout: ''
+                  config: {  }
+          localgov_heading_level:
+            -
+              value: h2
+          localgov_paragraphs:
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 54b17d7e-8e77-44af-93ff-3c9deccc4b95
+                  bundle: localgov_key_contact_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1631789832
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_colour_theme:
+                    -
+                      value: default
+                  localgov_contact_email:
+                    -
+                      value: hello@localgovdrupal.org
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_image:
+                    -
+                      entity: d1aa7821-645a-4882-90a2-cd3ed84d4cfa
+                  localgov_link:
+                    -
+                      uri: 'https://localgovdrupal.org'
+                      title: 'Visit the docs site'
+                      options: {  }
+                  localgov_title:
+                    -
+                      value: 'Key contact number 1'
+            -
+              entity:
+                _meta:
+                  version: '1.0'
+                  entity_type: paragraph
+                  uuid: 487692d3-0cf3-4922-adf4-2a77bcc34b0f
+                  bundle: localgov_key_contact_item
+                  default_langcode: en
+                default:
+                  status:
+                    -
+                      value: true
+                  created:
+                    -
+                      value: 1631789916
+                  behavior_settings:
+                    -
+                      value: {  }
+                  revision_translation_affected:
+                    -
+                      value: true
+                  localgov_colour_theme:
+                    -
+                      value: default
+                  localgov_contact_email:
+                    -
+                      value: hello@localgovdrupal.org
+                  localgov_heading_level:
+                    -
+                      value: h3
+                  localgov_image:
+                    -
+                      entity: d2af8444-4898-4daf-9814-6dc0c16cfb26
+                  localgov_title:
+                    -
+                      value: 'Key contact number 2'
+          localgov_title:
+            -
+              value: 'This is a key contacts component'
+  localgov_subsites_parent:
+    -
+      entity: a6abc378-3a60-4d97-a52e-ab796461e053
+      weight: 0

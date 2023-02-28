@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c89123ee-a53f-4470-a384-085c596e157b
+  bundle: localgov_guides_page
+  default_langcode: en
+  depends:
+    5f46013c-8afd-4304-b073-2a7d12a89ec0: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Report changes, lost or stolen badges'
+  created:
+    -
+      value: 1592940022
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/travel-passes-and-support/blue-badges/report-changes-lost-or-stolen
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>It's your responsibility to tell us as soon as possible if your details change.</p>\r\n\r\n<p>You can report your badge as lost or stolen online through the&nbsp;gov.uk website:&nbsp;<a href=\"http://www.gov.uk/replace-lost-stolen-blue-badge\">Replace a lost, stolen or damaged Blue Badge</a>.</p>\r\n\r\n<p>Please contact the Travel Service team if:</p>\r\n\r\n<ul>\r\n\t<li>your details have changed, such as address, phone number or email</li>\r\n\t<li>a badge holder has died</li>\r\n</ul>\r\n\r\n<p>For change of address, please send proof of your new address, such as a utility bill or DWP award.&nbsp;</p>\r\n\r\n<p>If a badge holder has died, please cut the badge in half and send it to the address below. Please include a short note that will allow us to update our records accordingly.&nbsp;</p>\r\n\r\n<p>You can email us at&nbsp;<a href=\"mailto:example@example.com\">example@example.com</a>​​​​​​​</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_guides_parent:
+    -
+      entity: 5f46013c-8afd-4304-b073-2a7d12a89ec0
+  localgov_guides_section_title:
+    -
+      value: 'Report changes, lost or stolen badges'

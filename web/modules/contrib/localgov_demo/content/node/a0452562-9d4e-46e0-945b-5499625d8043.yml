@@ -1,0 +1,65 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a0452562-9d4e-46e0-945b-5499625d8043
+  bundle: localgov_directories_venue
+  default_langcode: en
+  depends:
+    4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd: node
+    2162cc8e-60c9-4147-8dfc-c5b0d8625903: localgov_directories_facets
+    feb145a5-a0c0-4396-9b8c-6a1d7888f180: localgov_geo
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Cumbria County Council'
+  created:
+    -
+      value: 1620224764
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /localgov-drupal-collaborators/cumbria-county-council
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>Cumbria County Council is the county council of Cumbria, a county in the North West of England.</p>\r\n"
+      format: wysiwyg
+      summary: ''
+  localgov_directory_channels:
+    -
+      entity: 4e6bd794-edfc-4c26-a0c2-c99fb3dd2afd
+  localgov_directory_facets_select:
+    -
+      entity: 2162cc8e-60c9-4147-8dfc-c5b0d8625903
+  localgov_directory_phone:
+    -
+      value: '01228 606060'
+  localgov_directory_website:
+    -
+      uri: 'https://cumbria.gov.uk/'
+      title: ''
+      options: {  }
+  localgov_location:
+    -
+      entity: feb145a5-a0c0-4396-9b8c-6a1d7888f180

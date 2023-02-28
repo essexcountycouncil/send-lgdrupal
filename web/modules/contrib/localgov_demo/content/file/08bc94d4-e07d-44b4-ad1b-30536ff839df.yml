@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 08bc94d4-e07d-44b4-ad1b-30536ff839df
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: dylan-gillis-KdeqA3aTnBY-unsplash.jpg
+  uri:
+    -
+      value: 'public://2021-09/dylan-gillis-KdeqA3aTnBY-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 1967585
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631885288

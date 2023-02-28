@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 228903c2-f67d-4edc-a54a-22672ee369ea
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Exmore.simplify.geojson
+  uri:
+    -
+      value: 'public://2021-09/Exmore.simplify.geojson'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 390219
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631814814

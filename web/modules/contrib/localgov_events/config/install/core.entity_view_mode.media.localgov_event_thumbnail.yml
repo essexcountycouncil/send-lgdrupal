@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.localgov_event_thumbnail
+label: 'Event thumbnail'
+targetEntityType: media
+cache: true

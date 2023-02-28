@@ -1,0 +1,55 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 1633301d-071e-4ef3-83ac-2c01bf18f530
+  bundle: localgov_services_page
+  default_langcode: en
+  depends:
+    57b46ceb-20d3-45cc-9f9b-2bf2a6561c78: node
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Care at home'
+  created:
+    -
+      value: 1592931244
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: published
+  path:
+    -
+      alias: /adult-health-and-social-care/support-your-home/care-home
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: "<p>You may need help at home because of disability, illness, injury, or simply because you are getting older. Home care is provided so you can be as independent as possible. In most cases, people want to stay in their own home, and this service aims to help you do just that. We can provide help with practical tasks such as cooking, washing and getting dressed.</p>\r\n\r\n<h2>Home care providers</h2>\r\n\r\n<p>Our contracted home care providers have shown that they can meet Scarfolk's quality standards, and are monitored and reviewed regularly. Our standards mean they will:</p>\r\n\r\n<ul>\r\n\t<li>always listen to what you have to say, especially concerning your preferences about how and when your care is to be given</li>\r\n\t<li>make every effort to arrange for your care to be given by the same person(s), but it can help if there is some flexibility in this arrangement</li>\r\n\t<li>provide care at times that suit you</li>\r\n\t<li>make sure that the people who care for you are polite, courteous, punctual and well trained</li>\r\n</ul>\r\n\r\n<p>We will not stop or change your home care without discussing it with you.</p>\r\n\r\n<p>If you find that you need more care than your carer is able to give, please let us know and we will review your care plan. You can contact us by email or phone:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"mailto:example@example.com\">example@example.com</a></li>\r\n\t<li>555 111 222 333</li>\r\n</ul>\r\n\r\n<h2><br />\r\nStopping care</h2>\r\n\r\n<p>Please give us at least 2 weeks' notice to stop your care.</p>\r\n\r\n<p>You can stop your care for up to 6 weeks (such as if you go on holiday) and start it again. If you’re going away, you can usually rearrange your care time with your provider.</p>\r\n\r\n<p>If you stop care for longer than 6 weeks, you will normally have to reapply in order to start it again.</p>\r\n\r\n<h2>Changing your carer</h2>\r\n\r\n<p>If you are unhappy with the service in any way, you should first talk to your home care provider. If the problem continues, you can make a complaint to <a href=\"mailto:example@example.com\">example@example.com</a>.</p>\r\n\r\n<p>Talk to your provider if:</p>\r\n\r\n<ul>\r\n\t<li>the home carer is always late or consistently leaves early</li>\r\n\t<li>the carer keeps changing</li>\r\n\t<li>the carer often fails to turn up and doesn't let you know</li>\r\n\t<li>the carer does not treat you with respect</li>\r\n\t<li>the carer handles you badly or roughly</li>\r\n\t<li>you are suspicious about the carer's honesty</li>\r\n</ul>\r\n\r\n<h2>How to get support</h2>\r\n\r\n<p>You can follow our step-by-step process for getting support. This will take you through:</p>\r\n\r\n<p>telling us about your situation and choosing the support you need<br />\r\nany costs that may come with the support, and how to pay them</p>\r\n\r\n<h2><br />\r\nPaying for private care</h2>\r\n\r\n<p>You can also pay for your private care. If you choose private care, we recommend that you look at your provider's brochure and check:</p>\r\n\r\n<ul>\r\n\t<li>they have a statement of purpose</li>\r\n\t<li>they are approved by Scarfolk council Social Services</li>\r\n\t<li>they are a member of the United Kingdom Home Care Association</li>\r\n\t<li>they are registered with the Commission for Social Care Inspection</li>\r\n\t<li>how much they charge</li>\r\n\t<li>how you pay</li>\r\n\t<li>you can see a copy of the contract to read first</li>\r\n\t<li>the care workers are fully insured for professional, public and employer's liability</li>\r\n\t<li>care staff are appropriately trained and vetted, with references</li>\r\n\t<li>the organisation has a complaints procedure and an emergency contact number</li>\r\n</ul>\r\n\r\n<h2><br />\r\nIf you pay for private care in addition to council care</h2>\r\n\r\n<p>Tell your <a data-entity-substitution=\"canonical\" data-entity-type=\"node\" data-entity-uuid=\"c280ea14-a864-4246-b9df-211cdf7f4a46\" href=\"/node/26\">financial assessment officer</a> so that we can consider it when we calculate how much you can afford to pay.</p>\r\n"
+      format: wysiwyg
+      summary: 'How to get care in your home to help you live independently.'
+  localgov_hide_related_topics:
+    -
+      value: true
+  localgov_override_related_links:
+    -
+      value: false
+  localgov_services_parent:
+    -
+      entity: 57b46ceb-20d3-45cc-9f9b-2bf2a6561c78

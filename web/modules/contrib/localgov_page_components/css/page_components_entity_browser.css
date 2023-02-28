@@ -1,0 +1,20 @@
+/**
+ * @file
+ * Styles rules for the Entity browser widget.
+ *
+ * These rules only apply to the Page components field.  The goal is to display
+ * the selected entities in tabular format.  By default, Entity browser displays
+ * these as inline-block items.
+ */
+
+.entities-list > .item-container::before {
+  /* Character code for the "Up and down arrow". */
+  content: "\21c5";
+}
+.entities-list.sortable > .item-container:hover {
+  opacity: inherit;
+}
+.entities-list > .item-container {
+  display: grid;
+  grid-template-columns: 3% 55% 25% 17%;
+}

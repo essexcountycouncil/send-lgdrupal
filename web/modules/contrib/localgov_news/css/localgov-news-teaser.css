@@ -1,0 +1,22 @@
+.teaser--localgov-news-article {
+  position: relative;
+}
+
+.teaser--localgov-news-article .teaser__image,
+.teaser--localgov-news-article .teaser__content > * {
+  margin-bottom: 1rem;
+}
+
+.teaser--localgov-news-article .teaser__title {
+  margin-top: 0;
+}
+
+.teaser--localgov-news-article .teaser__title a:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}

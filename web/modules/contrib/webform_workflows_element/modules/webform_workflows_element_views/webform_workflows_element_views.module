@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_views_data().
+ */
+function webform_workflows_element_views_views_data() {
+  $data = [];
+
+  // Filters
+  $data['webform_submission']['workflow_state'] = [
+    'title' => t('Workflow state filter'),
+    'filter' => [
+      'id' => 'webform_workflows_element_state',
+    ],
+  ];
+
+  return $data;
+}

@@ -1,0 +1,156 @@
+<?php
+
+/**
+ * @file
+ * Localgov Workflow module hooks.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\localgov_roles\RolesHelper;
+use Drupal\localgov_workflows\RequireLogMessage;
+use Drupal\node\NodeTypeInterface;
+use Drupal\workflows\Entity\Workflow;
+
+/**
+ * Implements hook_localgov_roles_default().
+ */
+function localgov_workflows_localgov_roles_default(): array {
+  return [
+    RolesHelper::EDITOR_ROLE => [
+      'add scheduled transitions node localgov_services_landing',
+      'add scheduled transitions node localgov_services_page',
+      'add scheduled transitions node localgov_services_sublanding',
+      'reschedule scheduled transitions node localgov_services_landing',
+      'reschedule scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_sublanding',
+      'use localgov_editorial transition approve',
+      'use localgov_editorial transition archive',
+      'use localgov_editorial transition archived_draft',
+      'use localgov_editorial transition archived_published',
+      'use localgov_editorial transition create_new_draft',
+      'use localgov_editorial transition publish',
+      'use localgov_editorial transition reject',
+      'use localgov_editorial transition submit_for_review',
+      'view all scheduled transitions',
+      'view any unpublished content',
+      'view latest version',
+      'view scheduled transitions node localgov_services_landing',
+      'view scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_sublanding',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'add scheduled transitions node localgov_services_landing',
+      'add scheduled transitions node localgov_services_page',
+      'add scheduled transitions node localgov_services_sublanding',
+      'reschedule scheduled transitions node localgov_services_landing',
+      'reschedule scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_sublanding',
+      'use localgov_editorial transition archive',
+      'use localgov_editorial transition create_new_draft',
+      'use localgov_editorial transition reject',
+      'use localgov_editorial transition submit_for_review',
+      'use localgov_editorial transition publish',
+      'view all scheduled transitions',
+      'view any unpublished content',
+      'view latest version',
+      'view scheduled transitions node localgov_services_landing',
+      'view scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_sublanding',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'add scheduled transitions node localgov_services_landing',
+      'add scheduled transitions node localgov_services_page',
+      'add scheduled transitions node localgov_services_sublanding',
+      'reschedule scheduled transitions node localgov_services_landing',
+      'reschedule scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_sublanding',
+      'use localgov_editorial transition create_new_draft',
+      'use localgov_editorial transition reject',
+      'use localgov_editorial transition submit_for_review',
+      'view all scheduled transitions',
+      'view any unpublished content',
+      'view latest version',
+      'view scheduled transitions node localgov_services_landing',
+      'view scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_sublanding',
+      'use localgov_editorial transition create_new_draft',
+      'use localgov_editorial transition reject',
+      'use localgov_editorial transition submit_for_review',
+      'view any unpublished content',
+      'view latest version',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function localgov_workflows_node_type_insert(NodeTypeInterface $node_type) {
+  // Add workflow to new localgov_ node bundle with no other workflow.
+  if (strpos($node_type->id(), 'localgov_') === 0) {
+    $types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+    if (empty($types['node']['workflow'])) {
+      $editorial = Workflow::load('localgov_editorial');
+      $type = $editorial->getTypePlugin();
+      $type->addEntityTypeAndBundle('node', $node_type->id());
+      $editorial->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function localgov_workflows_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+
+  // Disabled the default 'content moderation` tab on admin content pages as
+  // this expects the default 'editorial' workflow is enabled and doesn't work
+  // with other workflows without altering the content moderation view.
+  $admin_content_routes = [
+    'system.admin_content',
+    'view.localgov_approvals_dashboard.approvals_dashboard',
+  ];
+  if (in_array($route_name, $admin_content_routes)) {
+
+    // Check if there are more workflows enabled than localgov_editorial.
+    $workflows = \Drupal::entityQuery('workflow')->accessCheck(TRUE)->execute();
+    if (in_array('localgov_editorial', $workflows) && count($workflows) == 1) {
+
+      // Hide the moderated content tab.
+      for ($i = 0; $i < count($data['tabs']); $i++) {
+        foreach ($data['tabs'][$i] as $key => $tab) {
+          if ($key == 'content_moderation.moderated_content') {
+            $data['tabs'][$i][$key]['#access'] = AccessResult::neutral();
+          }
+        }
+      }
+    }
+  }
+
+  // Add cache dependency on workflow.
+  $cacheability->addCacheTags(['config:workflow_list']);
+}
+
+/**
+ * Imlements hook_form_BASE_FORM_ID_alter().
+ */
+function localgov_workflows_form_node_type_form_alter(&$form, FormStateInterface $form_state) {
+  return \Drupal::classResolver(RequireLogMessage::class)
+    ->alterNodeTypeForm($form, $form_state);
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function localgov_workflows_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter' && isset($implementations['localgov_workflows'])) {
+    // field_ui was altering the node_type form before us, copying and hiding
+    // the submit button, and thus handlers. As some other module could do
+    // the same we'll just get in early.
+    $group = $implementations['localgov_workflows'];
+    unset($implementations['localgov_workflows']);
+    $implementations = ['localgov_workflows' => $group] + $implementations;
+  }
+}

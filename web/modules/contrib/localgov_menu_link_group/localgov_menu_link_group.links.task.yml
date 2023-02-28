@@ -1,0 +1,5 @@
+# The "Menu link group" tab for the Menu listing page.
+entity.localgov_menu_link_group.collection:
+  route_name: entity.localgov_menu_link_group.collection
+  title: 'Menu link group'
+  base_route: entity.menu.collection

@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_step_by_step_overview.body
+    - field.field.node.localgov_step_by_step_overview.localgov_step_by_step_pages
+    - field.field.node.localgov_step_by_step_overview.localgov_step_description
+    - node.type.localgov_step_by_step_overview
+  module:
+    - text
+    - user
+id: node.localgov_step_by_step_overview.teaser
+targetEntityType: node
+bundle: localgov_step_by_step_overview
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true
+  localgov_step_by_step_pages: true
+  localgov_step_description: true
+  search_api_excerpt: true

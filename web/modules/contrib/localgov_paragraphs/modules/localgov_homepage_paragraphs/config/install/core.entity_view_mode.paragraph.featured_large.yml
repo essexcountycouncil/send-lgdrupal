@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.featured_large
+label: 'Featured large'
+targetEntityType: paragraph
+cache: true

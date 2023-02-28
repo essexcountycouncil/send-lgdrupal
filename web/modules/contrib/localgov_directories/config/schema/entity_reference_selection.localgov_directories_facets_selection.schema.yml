@@ -1,0 +1,6 @@
+entity_reference_selection.localgov_directories_facets_selection:
+  type: entity_reference_selection_default
+  label: 'LocalGovDrupal Directory Facets selection handler settings'
+
+entity_reference_selection.localgov_directories_facets_selection.*:
+   type: entity_reference_selection.localgov_directories_facets_selection

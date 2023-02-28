@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_website
+    - node.type.localgov_directories_venue
+  enforced:
+    module:
+      - localgov_directories
+  module:
+    - link
+id: node.localgov_directories_venue.localgov_directory_website
+field_name: localgov_directory_website
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Enquiries website'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

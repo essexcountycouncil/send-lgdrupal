@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - localgov_news
+  module:
+    - node
+id: localgov_news
+label: News
+type: 'canonical_entities:node'
+pattern: '[node:localgov_newsroom:entity:url:relative]/[node:localgov_news_date:date:html_year]/[node:title]'
+selection_criteria:
+  fa93e7c4-4c6f-4ed1-988b-ce660e1d6292:
+    id: 'entity_bundle:node'
+    bundles:
+      localgov_news_article: localgov_news_article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: fa93e7c4-4c6f-4ed1-988b-ce660e1d6292
+selection_logic: and
+weight: -5
+relationships: {  }

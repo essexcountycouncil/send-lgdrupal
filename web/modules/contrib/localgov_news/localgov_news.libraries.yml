@@ -1,0 +1,15 @@
+localgov-news-full:
+  css:
+    theme:
+      css/localgov-news-full.css: {}
+
+localgov-news-teaser:
+  css:
+    theme:
+      css/localgov-news-teaser.css: {}
+
+localgov-newsroom:
+  css:
+    theme:
+      css/localgov-news-list.css: {}
+      css/localgov-newsroom-featured.css: {}

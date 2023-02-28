@@ -1,0 +1,22 @@
+{
+    "name": "drupal/field_formatter_class",
+    "description": "Provides custom HTML class settings for field formatters.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/field_formatter_class",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andrew Macpherson",
+            "homepage": "https://www.drupal.org/u/andrewmacpherson",
+            "role": "maintainer"
+        },
+        {
+            "name": "Oleksandr Dekhteruk",
+            "homepage": "https://www.drupal.org/u/pifagor",
+            "role": "maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/field_formatter_class"
+    }
+}

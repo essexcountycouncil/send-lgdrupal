@@ -1,0 +1,7 @@
+{
+    "name": "localgovdrupal/localgov_skeleton",
+    "description": "Bare base theme for LocaGov Drupal sites with no styling.",
+    "type": "drupal-theme",
+    "homepage": "https://github.com/localgovdrupal/localgov_skeleton",
+    "license": "GPL-2.0-or-later"
+}

@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 5656bf30-0217-44b8-9238-fdca8c363857
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: loch-lomond.json
+  uri:
+    -
+      value: 'public://2021-09/loch-lomond.json'
+  filemime:
+    -
+      value: application/octet-stream
+  filesize:
+    -
+      value: 125133
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1631817173

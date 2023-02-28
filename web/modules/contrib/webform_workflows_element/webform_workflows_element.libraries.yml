@@ -1,0 +1,38 @@
+webform_workflows_element.states:
+  version: VERSION
+  js:
+    js/webform_workflows_element.states.js: { }
+  dependencies:
+    - webform/webform.state
+
+webform_workflows_element.ui:
+  version: VERSION
+  js:
+    js/webform_workflows_element.ui.js: { }
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+webform_workflows_element.edit_element:
+  version: VERSION
+  js:
+    js/webform_workflows_element.edit_element.js: { }
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+webform_workflows_element.filters:
+  version: VERSION
+  js:
+    js/webform_workflows_element.filters.js: { }
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+default_colors:
+  version: VERSION
+  css:
+    component:
+      css/colors.default.css: { }
+  dependencies:
+    - core/drupal

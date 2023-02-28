@@ -1,0 +1,34 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: b9f331dc-ad91-4adc-bd8c-5bc50ffdb28d
+  bundle: document
+  default_langcode: en
+  depends:
+    55ed3082-60b2-4862-8587-28141219d343: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: TestPDF.pdf
+  created:
+    -
+      value: 1620225595
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_document:
+    -
+      entity: 55ed3082-60b2-4862-8587-28141219d343
+      display: true
+      description: ''
