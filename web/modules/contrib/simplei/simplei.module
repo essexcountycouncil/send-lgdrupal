@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * This module puts environment indicator in the toolbar.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function simplei_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.simplei':
+      $path = __DIR__ . '/README.txt';
+
+      if (file_exists($path)) {
+        return '<pre>' . file_get_contents($path) . '</pre>';
+      }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function simplei_page_attachments(array &$attachments) {
+  $indicator = trim(Settings::get('simple_environment_indicator', ''));
+
+  if ($indicator) {
+    [$color, $background, $environment] = _simplei_parse_indicator($indicator);
+
+    if (\Drupal::moduleHandler()->moduleExists('toolbar') and \Drupal::currentUser()->hasPermission('access toolbar')) {
+      $attachments['#attached']['drupalSettings']['simplei'] = [
+        'color' => $color,
+        'background' => $background,
+        'environment' => $environment,
+      ];
+
+      $attachments['#attached']['library'][] = 'simplei/simplei';
+    }
+    elseif ($anon = Settings::get('simple_environment_anonymous', FALSE) and \Drupal::currentUser()->isAnonymous()) {
+      if (is_string($anon)) {
+        $css = $anon;
+      }
+      elseif (is_bool($anon)) {
+        $css = "body:after {
+          content: \"[$environment]\";
+          position: fixed;
+          top: 0;
+          left: 0;
+          padding: 0.1em 0.5em;
+          font-family: monospace;
+          font-weight: bold;
+          color: $color;
+          background: $background;
+          border: 1px solid #fff;
+          z-index: 1001; }";
+      }
+
+      $attachments['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          '#tag' => 'style',
+          '#value' => $css,
+          '#attributes' => ['media' => 'all', 'type' => 'text/css'],
+          '#weight' => 100,
+        ],
+        'simpleicss',
+      ];
+    }
+  }
+}
+
+/**
+ * Parse color and environment from $indicator.
+ *
+ * @param string $indicator
+ *   Environment indicator.
+ *
+ * @return array
+ *   color, environment
+ */
+function _simplei_parse_indicator($indicator) {
+  $color = '#ffffff';
+  $background = '#999999';
+
+  if (strpos($indicator, '@') === 0) {
+    $environment = substr($indicator, 1);
+
+    switch (strtolower(substr($environment, 0, 2))) {
+      // production, prod, prd, live.
+      case 'pr':
+      case 'li':
+        $background = 'FireBrick';
+        break;
+
+      // staging, stage, stg, test.
+      case 'st':
+      case 'te':
+        $background = 'GoldenRod';
+        break;
+
+      // Development.
+      default:
+        $background = 'DodgerBlue';
+    }
+  }
+  elseif (preg_match('/(\S+)\s+(.*)/', $indicator, $match)) {
+    if (strpos($match[1], '/')) {
+      [$color, $background] = explode('/', $match[1]);
+    }
+    else {
+      $background = $match[1];
+    }
+
+    $environment = $match[2];
+  }
+
+  return [
+    Html::escape($color),
+    Html::escape($background),
+    Html::escape($environment ?? 'SITE')
+  ];
+}

@@ -1,0 +1,6 @@
+simplei:
+  js:
+    simplei.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
