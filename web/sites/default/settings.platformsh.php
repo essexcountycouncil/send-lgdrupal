@@ -27,6 +27,20 @@ $databases['default']['default'] = [
   'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])],
 ];
 
+// Per environment settings:
+// Enable sitemap index on production (master) environment but not on others.
+// Configure environment indicator (simplei)
+if (isset($platformsh->branch)) {
+  // Production type environment.
+  if ($platformsh->branch == 'main' || $platformsh->onDedicated()) {
+    $settings['simple_environment_indicator'] = '@LIVE';
+  }
+  // Development type environment.
+  else {
+    $settings['simple_environment_indicator'] = '@DEV';
+  }
+}
+
 // Enable Redis caching.
 if ($platformsh->hasRelationship('redis') && !InstallerKernel::installationAttempted() && extension_loaded('redis')) {
   $redis = $platformsh->credentials('redis');
