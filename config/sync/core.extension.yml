@@ -50,6 +50,7 @@ module:
   geofield_map: 0
   geolocation: 0
   geolocation_google_maps: 0
+  gin_toolbar: 0
   help: 0
   history: 0
   honeypot: 0
@@ -143,6 +144,7 @@ module:
   send_directory_check: 0
   serialization: 0
   simple_sitemap: 0
+  simplei: 0
   system: 0
   tablefield: 0
   tamper: 0
