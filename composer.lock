@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8213a0ee7632e76e9ff89745fd992278",
+    "content-hash": "d0b296ea751f1100ec9fdd1979fa232c",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
@@ -9849,16 +9849,16 @@
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.3.1",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "573f3b9a08208ef10b6f3e296dcd27919d89705e"
+                "reference": "f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/573f3b9a08208ef10b6f3e296dcd27919d89705e",
-                "reference": "573f3b9a08208ef10b6f3e296dcd27919d89705e",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8",
+                "reference": "f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9870,9 +9870,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.3.1"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.3"
             },
-            "time": "2023-02-13T14:59:28+00:00"
+            "time": "2023-02-27T17:09:09+00:00"
         },
         {
             "name": "localgovdrupal/localgov_core",

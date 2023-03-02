@@ -3,7 +3,7 @@
         'name' => 'localgovdrupal/localgov-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a66f77d2357d61804bb73e67f49098d4f1a955f0',
+        'reference' => '77b32a5540761082dc7136bc51430029c1d3c9bc',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1438,7 +1438,7 @@
         'localgovdrupal/localgov-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a66f77d2357d61804bb73e67f49098d4f1a955f0',
+            'reference' => '77b32a5540761082dc7136bc51430029c1d3c9bc',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1454,9 +1454,9 @@
             'dev_requirement' => false,
         ),
         'localgovdrupal/localgov_base' => array(
-            'pretty_version' => '1.3.1',
-            'version' => '1.3.1.0',
-            'reference' => '573f3b9a08208ef10b6f3e296dcd27919d89705e',
+            'pretty_version' => '1.4.3',
+            'version' => '1.4.3.0',
+            'reference' => 'f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8',
             'type' => 'drupal-theme',
             'install_path' => __DIR__ . '/../../web/themes/contrib/localgov_base',
             'aliases' => array(),
@@ -1898,8 +1898,8 @@
         'psr/http-factory-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '*',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-message' => array(
@@ -1914,8 +1914,8 @@
         'psr/http-message-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '*',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/log' => array(

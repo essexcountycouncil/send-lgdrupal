@@ -377,8 +377,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -446,8 +446,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
-            1 => __DIR__ . '/..' . '/php-http/message/src',
+            0 => __DIR__ . '/..' . '/php-http/message/src',
+            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'Http\\Discovery\\' => 
         array (
@@ -571,10 +571,10 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
         'Consolidation\\SiteProcess\\' => 
         array (
@@ -884,6 +884,7 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         'Consolidation\\AnnotatedCommand\\Attributes\\FilterDefaultField' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/FilterDefaultField.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Help' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Help.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Hook' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Hook.php',
+        'Consolidation\\AnnotatedCommand\\Attributes\\HookSelector' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/HookSelector.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Misc' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Misc.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Option' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Option.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Topics' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Topics.php',
