@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0b296ea751f1100ec9fdd1979fa232c",
+    "content-hash": "f8bd959a65b7bbcd77dc73ddc175ac6f",
     "packages": [
         {
             "name": "anrt-tools/docksal-configuration",
@@ -7315,6 +7315,55 @@
             "support": {
                 "source": "http://git.drupal.org/project/search_api_best_bets.git",
                 "issues": "https://www.drupal.org/project/issues/search_api_best_bets"
+            }
+        },
+        {
+            "name": "drupal/search_api_exclude_entity",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/search_api_exclude_entity.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_exclude_entity-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "31622687d69b268b0299cfd0ea0b696c1ada48f4"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1674829940",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "beltofte",
+                    "homepage": "https://www.drupal.org/user/151799"
+                },
+                {
+                    "name": "smustgrave",
+                    "homepage": "https://www.drupal.org/user/3252890"
+                }
+            ],
+            "description": "Exclude one or more entities from being indexed in Search API.",
+            "homepage": "https://www.drupal.org/project/search_api_exclude_entity",
+            "support": {
+                "source": "https://git.drupalcode.org/project/search_api_exclude_entity"
             }
         },
         {
