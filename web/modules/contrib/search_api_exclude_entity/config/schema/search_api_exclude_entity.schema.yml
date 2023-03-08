@@ -1,0 +1,25 @@
+field.value.search_api_exclude_entity:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    value:
+      type: boolean
+      label: 'Should it be excluded?'
+field.widget.settings.search_api_exclude_entity_widget:
+  type: mapping
+  label: 'Search API Exclude Entity widget settings'
+  mapping:
+    field_label:
+      type: label
+      label: 'Yes, exclude this entity from the search indexes.'
+plugin.plugin_configuration.search_api_processor.search_api_exclude_entity_processor:
+  type: mapping
+  label: 'Search API Exclude Entity Processor settings'
+  mapping:
+    fields:
+      type: sequence
+      label: 'Fields'
+      sequence:
+        type: sequence
+        sequence:
+          type: string
