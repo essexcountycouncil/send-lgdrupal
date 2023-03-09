@@ -1,0 +1,23 @@
+uuid: 8a5e3355-0e60-45f9-8bd6-83852794a920
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search_result
+    - node.type.localgov_services_page
+  module:
+    - search_api_exclude_entity
+id: node.localgov_services_page.field_exclude_from_search_result
+field_name: field_exclude_from_search_result
+entity_type: node
+bundle: localgov_services_page
+label: 'Exclude from search results'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings: {  }
+field_type: search_api_exclude_entity

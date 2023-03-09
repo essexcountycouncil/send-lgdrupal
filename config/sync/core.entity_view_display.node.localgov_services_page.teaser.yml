@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_exclude_from_search_result
     - field.field.node.localgov_services_page.field_search_weight
     - field.field.node.localgov_services_page.field_sitewide_search_type
     - field.field.node.localgov_services_page.localgov_common_tasks
@@ -36,6 +37,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  field_exclude_from_search_result: true
   field_search_weight: true
   field_sitewide_search_type: true
   langcode: true
