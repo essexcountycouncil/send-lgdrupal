@@ -1255,6 +1255,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/search_api_exclude_entity' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '2.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/search_api_exclude_entity',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/search_api_solr' => array(
             'pretty_version' => '4.2.10',
             'version' => '4.2.10.0',
