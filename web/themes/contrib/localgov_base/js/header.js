@@ -2,12 +2,6 @@
  * @file JS file for the header component.
  */
 
-// Small polyfill needed for IE11
-// We can remove this when we stop supporting IE11.
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
-
 (function headerScript(Drupal) {
   Drupal.behaviors.header = {
     attach: function (context) {
@@ -136,7 +130,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
         handleReset();
 
         if  (window.innerWidth < 768) {
-          if (navInfo.secondary.toggle) {
+          if (Object.keys(navInfo).includes('secondary') && navInfo.secondary.toggle) {
             navInfo.secondary.toggle.removeEventListener('click', handleSecondaryMenuToggleClick, true);
             navInfo.secondary.toggle.removeEventListener('click', handleSecondaryMenuShiftTabClick, true);
           }
@@ -147,7 +141,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           if (navInfo.primary.toggle) {
             navInfo.primary.toggle.removeEventListener('click', handlePrimaryMenuToggleClick, true);
           }
-          if (navInfo.secondary.toggle) {
+          if (Object.keys(navInfo).includes('secondary') && navInfo.secondary.toggle) {
             navInfo.secondary.toggle.addEventListener('click', handleSecondaryMenuToggleClick);
             navInfo.secondary.toggle.addEventListener('click', handleSecondaryMenuShiftTabClick);
           }

@@ -39,6 +39,7 @@
         "drupal/office_hours": "^1.7",
         "drupal/publishcontent": "^1.5",
         "drupal/search_api_best_bets": "^2.0",
+        "drupal/search_api_exclude_entity": "^2.0",
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
@@ -52,6 +53,7 @@
         "drupal/webform_workflows_element": "^1.0@alpha",
         "drush/drush": "^10.6",
         "localgovdrupal/localgov": "^2.0",
+        "localgovdrupal/localgov_base": "^1.4.3",
         "platformsh/config-reader": "^2.4"
     },
     "require-dev": {
