@@ -3,7 +3,7 @@
         'name' => 'localgovdrupal/localgov-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '77b32a5540761082dc7136bc51430029c1d3c9bc',
+        'reference' => '0a66c8860804d39e6bee028301a162c4e1af87ce',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1159,6 +1159,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/simplei' => array(
+            'pretty_version' => '2.1.3',
+            'version' => '2.1.3.0',
+            'reference' => '2.1.3',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/simplei',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/stage_file_proxy' => array(
             'pretty_version' => '2.0.2',
             'version' => '2.0.2.0',
@@ -1438,7 +1447,7 @@
         'localgovdrupal/localgov-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '77b32a5540761082dc7136bc51430029c1d3c9bc',
+            'reference' => '0a66c8860804d39e6bee028301a162c4e1af87ce',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
