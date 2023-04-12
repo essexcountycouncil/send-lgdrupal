@@ -1,0 +1,4 @@
+'administer search api exclude entity':
+  title: Administer search api exclude entity
+  description: Modify per-object exclude settings.
+  'restrict access': TRUE

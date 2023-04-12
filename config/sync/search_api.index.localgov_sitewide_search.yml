@@ -14,6 +14,7 @@ dependencies:
     - localgov_directories
     - search_api
     - search_api_best_bets
+    - search_api_exclude_entity
     - node
 third_party_settings:
   search_api_solr:
@@ -187,6 +188,10 @@ processor_settings:
         - field_search_promotion
     query_handler: solr
     result_elevated_flag: query_handler
+  search_api_exclude_entity_processor:
+    fields:
+      node:
+        - field_exclude_from_search_result
   solr_date_range:
     weights:
       preprocess_index: 0

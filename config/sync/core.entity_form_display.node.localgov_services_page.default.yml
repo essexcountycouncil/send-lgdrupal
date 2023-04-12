@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_exclude_from_search_result
     - field.field.node.localgov_services_page.field_search_weight
     - field.field.node.localgov_services_page.field_sitewide_search_type
     - field.field.node.localgov_services_page.localgov_common_tasks
@@ -24,6 +25,7 @@ dependencies:
     - link_attributes
     - localgov_services
     - path
+    - search_api_exclude_entity
     - text
 third_party_settings:
   field_group:
@@ -112,6 +114,13 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_exclude_from_search_result:
+    type: search_api_exclude_entity_widget
+    weight: 27
+    region: content
+    settings:
+      field_label: 'Yes, exclude this entity from the search indexes.'
     third_party_settings: {  }
   field_search_weight:
     type: options_select
