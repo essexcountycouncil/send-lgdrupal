@@ -215,7 +215,7 @@ body {
 }
 
 .localgov-subsites-overview__content {
-  margin-top: var(--spacing-largest);
+  margin-top: var(--spacing-large);
 }
 
 @media screen and (max-width: 48rem) {
