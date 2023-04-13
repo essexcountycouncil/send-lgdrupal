@@ -1,0 +1,12 @@
+name: 'Configuration Inspector'
+type: module
+description: 'Provides a configuration data and structure inspector tool.'
+package: Development
+configure: config_inspector.overview
+core_version_requirement: ^8 || ^9
+core: 8.x
+
+# Information added by Drupal.org packaging script on 2021-10-03
+version: '8.x-1.4'
+project: 'config_inspector'
+datestamp: 1633293700

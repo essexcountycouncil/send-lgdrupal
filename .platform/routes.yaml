@@ -13,7 +13,7 @@ https://{default}/:
     enabled: false
   type: upstream
   upstream: app:http
-https://www.{default}/:
+http://{default}/:
   redirects:
     expires: -1s
     paths: {}
