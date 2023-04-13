@@ -203,7 +203,7 @@ body {
   }
 
   .banner--primary .banner__content {
-    margin: calc(var(--banner-content-margin) * -6) auto var(--banner-content-margin);
+    margin: calc(var(--banner-content-margin) * -7) auto var(--banner-content-margin);
     padding-top: var(--banner-content-padding);
     color: var(--color-white);
     background-color: var(--color-blue);
