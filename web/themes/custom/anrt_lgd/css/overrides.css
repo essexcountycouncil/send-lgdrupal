@@ -117,7 +117,7 @@ body {
 }
 
 .field--name-localgov-subsites-content>.field__item {
-  margin-bottom: var(--spacing-largest);
+  margin-bottom: var(--spacing-large);
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
@@ -215,7 +215,7 @@ body {
 }
 
 .localgov-subsites-overview__content {
-  margin-top: var(--spacing-large);
+  margin-top: 0;
 }
 
 @media screen and (max-width: 48rem) {
