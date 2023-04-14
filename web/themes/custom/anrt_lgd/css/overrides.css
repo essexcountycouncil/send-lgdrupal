@@ -257,6 +257,9 @@ body {
   .path-frontpage .field--name-localgov-subsites-content>.field__item {
     margin-bottom: 0;
   }
+  .path-frontpage .localgov-subsites-overview__content {
+    margin-top: 0;
+  }
 }
 
 .pager__item.is-active a {
