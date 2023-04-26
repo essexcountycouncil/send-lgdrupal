@@ -15,7 +15,7 @@
   #   build: services/cli
 
 # Use a stock Docksal php7.4 image as the base
-FROM docksal/cli:php7.4-3.0
+FROM docksal/cli:php8.0
 
 RUN set -e; \
     platform self:update -y || echo "Please update the platform.sh CLI on your host sytem as well by doing a platform self:update"
