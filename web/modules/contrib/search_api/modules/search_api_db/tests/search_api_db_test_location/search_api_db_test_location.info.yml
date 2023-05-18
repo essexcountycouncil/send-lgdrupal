@@ -1,6 +1,6 @@
-name: 'Search API Test'
+name: 'Search API location test module'
 type: module
-description: 'Support module for Search API tests'
+description: 'Helper for location search test.  Declares search index "location" data type.'
 package: Testing
 dependencies:
   - search_api:search_api
