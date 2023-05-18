@@ -48,7 +48,7 @@ class Media extends PluginBase implements SubstitutionInterface, ContainerFactor
     if ($source_field && $entity->hasField($source_field->getName()) && $entity->get($source_field->getName())->entity instanceof FileInterface) {
       /** @var \Drupal\file\FileInterface $file */
       $file = $entity->get($source_field->getName())->entity;
-      $url->setGeneratedUrl(file_create_url($file->getFileUri()));
+      $url->setGeneratedUrl($file->createFileUrl());
       $url->addCacheableDependency($entity);
       return $url;
     }

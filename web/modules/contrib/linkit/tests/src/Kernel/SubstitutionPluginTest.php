@@ -5,6 +5,7 @@ namespace Drupal\Tests\linkit\Kernel;
 use Drupal\Core\Site\Settings;
 use Drupal\entity_test\Entity\EntityTest;
 use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
 use Drupal\linkit\Plugin\Linkit\Substitution\Canonical as CanonicalSubstitutionPlugin;
 use Drupal\linkit\Plugin\Linkit\Substitution\File as FileSubstitutionPlugin;
 use Drupal\linkit\Plugin\Linkit\Substitution\Media as MediaSubstitutionPlugin;
@@ -38,7 +39,7 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'file',
     'entity_test',
     'media',
@@ -50,7 +51,7 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
     $this->substitutionManager = $this->container->get('plugin.manager.linkit.substitution');
     $this->entityTypeManager = $this->container->get('entity_type.manager');
@@ -106,10 +107,10 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
       'filename' => 'druplicon.txt',
       'uri' => 'public://druplicon.txt',
       'filemime' => 'text/plain',
-      'status' => FILE_STATUS_PERMANENT,
+      'status' => FileInterface::STATUS_PERMANENT,
     ]);
     $file->save();
-    $this->assertEquals($GLOBALS['base_url'] . '/' . $this->siteDirectory . '/files/druplicon.txt', $fileSubstitution->getUrl($file)->getGeneratedUrl());
+    $this->assertEquals('/' . $this->siteDirectory . '/files/druplicon.txt', $fileSubstitution->getUrl($file)->getGeneratedUrl());
 
     $entity_type = $this->entityTypeManager->getDefinition('file');
     $this->assertTrue(FileSubstitutionPlugin::isApplicable($entity_type), 'The entity type File is applicable the file substitution.');
@@ -158,7 +159,7 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
       'filename' => 'druplicon.txt',
       'uri' => 'public://druplicon.txt',
       'filemime' => 'text/plain',
-      'status' => FILE_STATUS_PERMANENT,
+      'status' => FileInterface::STATUS_PERMANENT,
     ]);
     $file->save();
 
@@ -169,7 +170,7 @@ class SubstitutionPluginTest extends LinkitKernelTestBase {
     $media->save();
 
     $media_substitution = $this->substitutionManager->createInstance('media');
-    $expected = $GLOBALS['base_url'] . '/' . $this->siteDirectory . '/files/druplicon.txt';
+    $expected = '/' . $this->siteDirectory . '/files/druplicon.txt';
     $this->assertEquals($expected, $media_substitution->getUrl($media)->getGeneratedUrl());
 
     // Ensure the url is identical when media entities have a standalone URL
