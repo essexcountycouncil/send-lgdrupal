@@ -18,6 +18,7 @@
         "anrt-tools/docksal-configuration": "dev-master",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/admin_toolbar": "^3.4",
         "drupal/back_to_top": "^2.0",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/config_ignore": "^2.4",
