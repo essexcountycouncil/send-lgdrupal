@@ -32,6 +32,7 @@
 
   .layout-node-form {
     overflow: inherit;
+    display: block;
   }
 
   .layout-region-node-main,
@@ -62,7 +63,6 @@
       .page-title {
         @include mq(large) {
           width: auto;
-          max-width: 800px;
           margin: 0;
           overflow: hidden;
         }

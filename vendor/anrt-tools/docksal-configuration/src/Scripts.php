@@ -15,6 +15,7 @@ class Scripts {
     // Find the directory above the vendor directory.
     $projectRoot = dirname($composer->getConfig()->get('vendor-dir'));
 
+    // Docksal
     $filesystem = new Filesystem();
     // Copy all docksal files into project.
     $filesystem->mirror(
@@ -30,6 +31,16 @@ class Scripts {
     $filesystem->copy(
       $originDirectory . '/docksal.gitignore',
       $projectRoot . '/.docksal/.gitignore'
+    );
+
+    // DDEV
+    $filesystem = new Filesystem();
+    // Copy all ddev files into project.
+    $filesystem->mirror(
+      $originDirectory . '/.ddev',
+      $projectRoot . '/.ddev',
+      null,
+      ['override' => true],
     );
   }
 

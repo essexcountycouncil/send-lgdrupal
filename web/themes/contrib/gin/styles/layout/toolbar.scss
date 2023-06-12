@@ -147,6 +147,7 @@
 }
 
 .toolbar-tray a,
+.toolbar-tray a:visited,
 .toolbar-tray span {
   color: var(--gin-color-text);
 }
@@ -174,13 +175,9 @@
 .toolbar .toolbar-menu {
   background: transparent;
 
-  .toolbar-menu {
-    background: var(--gin-bg-app);
-
-    a,
-    span {
-      color: var(--gin-color-text);
-    }
+  .toolbar-menu a,
+  .toolbar-menu span {
+    color: var(--gin-color-text);
   }
 }
 
@@ -191,6 +188,7 @@
   text-decoration: none;
 
   @include mq($to: medium) {
+    width: 100%;
     background: var(--gin-color-primary-light);
   }
 }
@@ -207,6 +205,10 @@ a.toolbar-menu__trigger,
 @include mq(medium) {
   #toolbar-item-administration-tray {
     display: block;
+  }
+
+  .toolbar .toolbar-menu .toolbar-menu {
+    background: var(--gin-bg-app);
   }
 
   .toolbar-fixed {
@@ -312,9 +314,16 @@ a.toolbar-menu__trigger,
     }
 
     .toolbar-tray-horizontal & {
-      ul li.menu-item--expanded .menu-item.hover-intent ul {
+      ul li.menu-item--expanded .menu-item.hover-intent ul,
+      ul li.menu-item--expanded .menu-item:focus-within ul {
         margin-top: 0;
         margin-left: calc(var(--gin-toolbar-width) - 2px);
+      }
+
+      // admin_toolbar 3.3.1 fix
+      // hide for vertical toolbar
+      .toolbar-icon.toolbar-handle {
+        display: none !important;
       }
     }
 
@@ -462,6 +471,9 @@ a.toolbar-menu__trigger,
 
             .toolbar-icon {
               font-size:var(--gin-font-size);
+              display: block;
+              width: 100%;
+              max-width: calc(100% - var(--gin-spacing-l));
               padding: var(--gin-spacing-s) var(--gin-spacing-xl) var(--gin-spacing-s) var(--gin-spacing-s);
               margin: .25em var(--gin-spacing-s);
               border-radius: var(--gin-border-m);
@@ -488,7 +500,8 @@ a.toolbar-menu__trigger,
       }
     }
 
-    .menu-item.hover-intent > .toolbar-menu {
+    .menu-item.hover-intent > .toolbar-menu,
+    .menu-item:focus-within > .toolbar-menu {
       z-index: 2;
       display: block;
       border-right: 1px solid rgba(0,0,0,.075);
@@ -496,7 +509,8 @@ a.toolbar-menu__trigger,
         -12px 0 0 0 var(--gin-bg-layer);
     }
 
-    .menu-item .menu-item:hover > .toolbar-icon {
+    .menu-item .menu-item:hover > .toolbar-icon,
+    .menu-item .menu-item:hover > .toolbar-box .toolbar-icon {
       color: var(--gin-color-primary-hover);
       background: var(--gin-color-primary-light);
     }

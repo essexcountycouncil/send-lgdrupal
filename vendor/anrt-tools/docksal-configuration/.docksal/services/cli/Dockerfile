@@ -14,8 +14,8 @@
   #   # Run Dockerfile to add or udpdate software.
   #   build: services/cli
 
-# Use a stock Docksal php7.4 image as the base
-FROM docksal/cli:php7.4-3.0
+# Use a stock Docksal php8.1-3 image as the base
+FROM docksal/cli:php8.1-3
 
 RUN set -e; \
     platform self:update -y || echo "Please update the platform.sh CLI on your host sytem as well by doing a platform self:update"

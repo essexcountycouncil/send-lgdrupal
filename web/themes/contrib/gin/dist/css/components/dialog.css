@@ -1,6 +1,5 @@
 .ui-dialog:not(.ui-dialog-off-canvas) {
   max-width: 1280px;
-  margin: var(--gin-spacing-m);
   border: 0 none !important;
   border-radius: var(--gin-border-m);
   background: var(--gin-bg-layer);
@@ -36,7 +35,17 @@
   border: 1px solid var(--gin-border-color-layer);
 }
 
+@media (max-width: 47.99em) {
+  .ui-dialog:not(.ui-dialog-off-canvas) {
+    min-width: 92%;
+    max-width: 92%;
+  }
+}
+
 .ui-dialog {
+  position: absolute;
+  left: 0;
+  top: 0;
   font-family: var(--gin-font);
   outline: none;
 }
@@ -51,12 +60,23 @@
   background: #1b1b1d;
   border: 0 none;
   border-radius: var(--gin-border-m) var(--gin-border-m) 0 0;
+  position: relative;
 }
 
 .ui-dialog .ui-dialog-title {
   font-size: var(--gin-font-size-l);
   font-weight: var(--gin-font-weight-normal);
   color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[dir="ltr"] .ui-dialog .ui-dialog-title {
+  padding-right: var(--gin-spacing-xl);
+}
+
+[dir="rtl"] .ui-dialog .ui-dialog-title {
+  padding-left: var(--gin-spacing-xl);
 }
 
 .ui-dialog .ui-dialog-content {
@@ -96,20 +116,22 @@
 
 .ui-dialog .ui-dialog-titlebar-close {
   position: absolute;
-  top: 18px;
+  top: 50%;
   opacity: .8;
-  margin: 0;
-  transform: none;
+  margin: 0 var(--gin-spacing-l);
+  transform: translateY(-50%);
   background: none;
   border: none;
 }
 
 [dir="ltr"] .ui-dialog .ui-dialog-titlebar-close {
-  right: 24px;
+  left: auto;
+  right: 0;
 }
 
 [dir="rtl"] .ui-dialog .ui-dialog-titlebar-close {
-  left: 24px;
+  right: auto;
+  left: 0;
 }
 
 .ui-dialog .ui-dialog-titlebar-close .ui-icon-closethick {
@@ -121,8 +143,8 @@
   background: #fff;
   -webkit-mask-image: url("../../media/sprite.svg#close-view");
           mask-image: url("../../media/sprite.svg#close-view");
-  -webkit-mask-size: 24px 24px;
-          mask-size: 24px 24px;
+  -webkit-mask-size: var(--gin-icon-size-close) var(--gin-icon-size-close);
+          mask-size: var(--gin-icon-size-close) var(--gin-icon-size-close);
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -145,6 +167,10 @@
   padding-left: var(--gin-spacing-l);
   padding-right: var(--gin-spacing-l);
   background: var(--gin-bg-layer);
+}
+
+.ui-dialog .gin-layer-wrapper {
+  margin-bottom: var(--gin-spacing-l);
 }
 
 .erl-overlay,
@@ -171,6 +197,10 @@
   .layout-paragraphs-dialog {
     width: calc(100% - var(--gin-spacing-xxxl)) !important;
   }
+}
+
+ul.paragraphs-add-dialog-list {
+  margin: var(--gin-spacing-l) 0;
 }
 
 .ui-widget-overlay {
