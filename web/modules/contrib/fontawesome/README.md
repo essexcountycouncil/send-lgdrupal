@@ -1,16 +1,6 @@
+# Font Awesome Icons
 
-CONTENTS OF THIS FILE
----------------------
-
- * Introduction
- * Installation
- * Usage
- * Credits
-
-
-INTRODUCTION 8.2.x version
-------------
-Font Awesome (http://fontawesome.com) is the web's most popular icon set and
+Font Awesome [Font Awesome](http://fontawesome.com) is the web's most popular icon set and
 toolkit. This release of the Font Awesome Icons module supports Font Awesome
 versions higher than 5.0. For older versions of Font Awesome, you should
 download and install Font Awesome Icons 8.1.x. See the Font Awesome Icons
@@ -22,64 +12,71 @@ page on Drupal.org for more information.
 1. Directly inside of any HTML (node/block/view/panel). Inside HTML you can
    place Font Awesome icons just about anywhere with an <i> tag.
 
-   Example for an info icon: <i class="fas fa-camera-retro"></i>
+Example for an info icon: `<i class="fas fa-camera-retro"></i>`
 
-   See more examples of using "Font Awesome" within HTML at:
-   https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
+See more examples of using "Font Awesome" within HTML at:
+- [How To Add Icons](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
 
 
-INSTALLATION
-------------
+## Requirements
 
-1. Using Drush (https://github.com/drush-ops/drush#readme)
+This module requires no modules outside of Drupal core.
 
-    $ drush en fontawesome
+
+## Installation
+
+1. [Using Drush](https://github.com/drush-ops/drush#readme)
+
+    `$ drush en fontawesome`
 
     Upon enabling, this will also attempt to download and install the library
     in `/libraries/fontawesome`. If, for whatever reason, this process
     fails, you can re-run the library install manually by first clearing Drush
     caches:
 
-    $ drush cc drush
+    `$ drush cc drush`
 
     and then using another drush command:-
 
     (Drush 8)
-    $ drush fa-download
+    `$ drush fa-download`
     (Drush 9)
-    $ drush fa:download
+    `$ drush fa:download`
 
 2. Manually
 
     a. Install the "Font Awesome" library following one of these 2 options:
-       - run "drush fa-download" (recommended, it will download the right
+       - run `drush fa-download` (recommended,it will download the right
          package and extract it at the right place for you.)
        - manual install: Download & extract "Font Awesome"
-         (http://fontawesome.com) and place inside
-         "/libraries/fontawesome" directory. The JS file should
-         be at /libraries/fontawesome/js/all.js
+         [Font Awesome](http://fontawesome.com) and place inside
+         `/libraries/fontawesome` directory.The JS file should
+         be at `/libraries/fontawesome/js/all.js`
          Direct link for downloading latest version is:
-         https://fontawesome.com/download
+         [Font Awesome Download](https://fontawesome.com/download)
     b. Enable the module at Administer >> Site building >> Modules.
 
-PERMISSIONS
------------
+
+## Permissions
+
 Access to the Font Awesome additional settings can be granted or removed under
 the permissions settings. Removing these permissions will allow the users to
 select only the icon and not additional configuration.
 
-USAGE
------
+
+## Usage
+
 Font Awesome can be used in many ways - you can manually insert Font Awesome
 tags wherever you see fit after enabling the module, but there are other ways
 as well. See
-  https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
+- [How To Add Icons](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
+
 for information on basic usage.
 
 CSS Pseudo-elements - if you are using the older version of Font Awesome, CSS
 with webfonts, you can use CSS Pseudo-elements for inserting your icons rather
 than the default method. See
-  https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements
+- [CSS Pseudo-elements](https://fontawesome.com/how-to-use/on-the-web/advanced/css-pseudo-elements)
 for more information on how to add the icons through CSS.
 
 Font Awesome icon field - this module includes the option to add a Font Awesome
@@ -94,19 +91,30 @@ Please note that in order to use SVG with JS version of Font Awesome, you will
 need to either disable the "Correct faulty and chopped off HTML" filter, or you
 will have to add the required SVG tags to the exception list. A list of SVG
 tags can be found here:
-  https://www.w3.org/TR/SVG11/eltindex.html
+- [Appendix L: Element Index](https://www.w3.org/TR/SVG11/eltindex.html)
   or
-  https://developer.mozilla.org/en-US/docs/Web/SVG/Element
+- [SVG element reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)
 
-TROUBLESHOOTING
----------------
+
+## Troubleshooting
+
 If the Font Awesome module is installed but icons are not showing, try the
 following steps:
-1. Flush the Drupal cache
+
+1. Flush the Drupal cache.
 2. Check the status report for issues on the libary being loaded.
 3. If you have chosen to load the library manually ("Load Font Awesome libary?"
-  is disabled), confirm that your manual library is loaded properly.
+   is disabled), confirm that your manual library is loaded properly.
 
-CREDITS
--------
-* Daniel Moberly https://drupal.org/u/danielmoberly
+
+## Configuration
+
+The module has no menu or modifiable settings. There is no configuration. When
+enabled, the module will prevent the links from appearing. To get the links
+back, disable the module and clear caches.
+
+
+## Maintainers
+
+- Daniel Moberly - [Daniel.Moberly](https://www.drupal.org/u/danielmoberly)
+- Truls Steenstrup Yggeseth - [truls1502](https://www.drupal.org/u/truls1502)
