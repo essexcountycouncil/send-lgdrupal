@@ -17,7 +17,7 @@ class EntityHierarchyHandler implements EntityHierarchyHandlerInterface {
   public function getAddChildUrl(EntityTypeInterface $entityType, ContentEntityInterface $parent, $bundle, $fieldName) {
     $routeName = "entity.{$entityType->id()}.add_form";
     return Url::fromRoute($routeName, [
-      $entityType->getKey('bundle') => $bundle,
+      ($entityType->getBundleEntityType() ?? $entityType->getKey('bundle')) => $bundle,
     ], [
       'query' => [
         $fieldName => $parent->id(),
