@@ -283,21 +283,21 @@
         },
         {
             "name": "commerceguys/addressing",
-            "version": "v1.4.1",
-            "version_normalized": "1.4.1.0",
+            "version": "v1.4.2",
+            "version_normalized": "1.4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/addressing.git",
-                "reference": "8b1bcd45971733e8f4224e539cb92838f18c4d06"
+                "reference": "406c7b5f0fbe4f6a64155c0fe03b1adb34d01308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/8b1bcd45971733e8f4224e539cb92838f18c4d06",
-                "reference": "8b1bcd45971733e8f4224e539cb92838f18c4d06",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
+                "reference": "406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "^1.2",
+                "doctrine/collections": "^1.2 || ^2.0",
                 "php": ">=7.3"
             },
             "require-dev": {
@@ -310,7 +310,7 @@
             "suggest": {
                 "symfony/validator": "to validate addresses"
             },
-            "time": "2022-08-09T11:42:51+00:00",
+            "time": "2023-02-15T10:11:14+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -344,7 +344,7 @@
             ],
             "support": {
                 "issues": "https://github.com/commerceguys/addressing/issues",
-                "source": "https://github.com/commerceguys/addressing/tree/v1.4.1"
+                "source": "https://github.com/commerceguys/addressing/tree/v1.4.2"
             },
             "install-path": "../commerceguys/addressing"
         },
@@ -588,26 +588,26 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.8.2",
-            "version_normalized": "4.8.2.0",
+            "version": "4.9.1",
+            "version_normalized": "4.9.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "7f5dd1aafb93a10593ed70f3caa6a0cd5a32f0e3"
+                "reference": "e01152f698eff4cb5df3ebfe5e097ef335dbd3c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/7f5dd1aafb93a10593ed70f3caa6a0cd5a32f0e3",
-                "reference": "7f5dd1aafb93a10593ed70f3caa6a0cd5a32f0e3",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/e01152f698eff4cb5df3ebfe5e097ef335dbd3c9",
+                "reference": "e01152f698eff4cb5df3ebfe5e097ef335dbd3c9",
                 "shasum": ""
             },
             "require": {
-                "consolidation/output-formatters": "^4.1.1",
+                "consolidation/output-formatters": "^4.3.1",
                 "php": ">=7.1.3",
-                "psr/log": "^1|^2|^3",
-                "symfony/console": "^4.4.8|^5|^6",
-                "symfony/event-dispatcher": "^4.4.8|^5|^6",
-                "symfony/finder": "^4.4.8|^5|^6"
+                "psr/log": "^1 || ^2 || ^3",
+                "symfony/console": "^4.4.8 || ^5 || ^6",
+                "symfony/event-dispatcher": "^4.4.8 || ^5 || ^6",
+                "symfony/finder": "^4.4.8 || ^5 || ^6"
             },
             "require-dev": {
                 "composer-runtime-api": "^2.0",
@@ -615,7 +615,7 @@
                 "squizlabs/php_codesniffer": "^3",
                 "yoast/phpunit-polyfills": "^0.2.0"
             },
-            "time": "2023-03-11T19:32:28+00:00",
+            "time": "2023-05-20T04:19:01+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -641,7 +641,7 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.8.2"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.9.1"
             },
             "install-path": "../consolidation/annotated-command"
         },
@@ -863,17 +863,17 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "4.2.4",
-            "version_normalized": "4.2.4.0",
+            "version": "4.3.1",
+            "version_normalized": "4.3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "b377db7e9435c50c4e019c26ec164b547e754ca0"
+                "reference": "f65524e9ecd2bd0021c4b18710005caaa6dcbd86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/b377db7e9435c50c4e019c26ec164b547e754ca0",
-                "reference": "b377db7e9435c50c4e019c26ec164b547e754ca0",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/f65524e9ecd2bd0021c4b18710005caaa6dcbd86",
+                "reference": "f65524e9ecd2bd0021c4b18710005caaa6dcbd86",
                 "shasum": ""
             },
             "require": {
@@ -893,7 +893,7 @@
             "suggest": {
                 "symfony/var-dumper": "For using the var_dump formatter"
             },
-            "time": "2023-02-24T03:39:10+00:00",
+            "time": "2023-05-20T03:23:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -914,23 +914,23 @@
             "description": "Format text by applying transformations provided by plug-in formatters.",
             "support": {
                 "issues": "https://github.com/consolidation/output-formatters/issues",
-                "source": "https://github.com/consolidation/output-formatters/tree/4.2.4"
+                "source": "https://github.com/consolidation/output-formatters/tree/4.3.1"
             },
             "install-path": "../consolidation/output-formatters"
         },
         {
             "name": "consolidation/robo",
-            "version": "3.0.11",
-            "version_normalized": "3.0.11.0",
+            "version": "3.0.12",
+            "version_normalized": "3.0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/robo.git",
-                "reference": "820fa0f164f77887e268b7dbfb2283416c7334c1"
+                "reference": "0c3a5085357f46c90a0b756e3d326f44847158b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/robo/zipball/820fa0f164f77887e268b7dbfb2283416c7334c1",
-                "reference": "820fa0f164f77887e268b7dbfb2283416c7334c1",
+                "url": "https://api.github.com/repos/consolidation/robo/zipball/0c3a5085357f46c90a0b756e3d326f44847158b8",
+                "reference": "0c3a5085357f46c90a0b756e3d326f44847158b8",
                 "shasum": ""
             },
             "require": {
@@ -965,7 +965,7 @@
                 "pear/archive_tar": "Allows tar archives to be created and extracted in taskPack and taskExtract, respectively.",
                 "totten/lurkerlite": "For monitoring filesystem changes in taskWatch"
             },
-            "time": "2022-12-07T15:18:26+00:00",
+            "time": "2023-04-30T21:18:09+00:00",
             "bin": [
                 "robo"
             ],
@@ -1016,23 +1016,23 @@
             "description": "Modern task runner",
             "support": {
                 "issues": "https://github.com/consolidation/robo/issues",
-                "source": "https://github.com/consolidation/robo/tree/3.0.11"
+                "source": "https://github.com/consolidation/robo/tree/3.0.12"
             },
             "install-path": "../consolidation/robo"
         },
         {
             "name": "consolidation/self-update",
-            "version": "2.0.5",
-            "version_normalized": "2.0.5.0",
+            "version": "2.2.0",
+            "version_normalized": "2.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3"
+                "reference": "972a1016761c9b63314e040836a12795dff6953a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/8a64bdd8daf5faa8e85f56534dd99caf928164b3",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/972a1016761c9b63314e040836a12795dff6953a",
+                "reference": "972a1016761c9b63314e040836a12795dff6953a",
                 "shasum": ""
             },
             "require": {
@@ -1041,7 +1041,7 @@
                 "symfony/console": "^2.8 || ^3 || ^4 || ^5 || ^6",
                 "symfony/filesystem": "^2.5 || ^3 || ^4 || ^5 || ^6"
             },
-            "time": "2022-02-09T22:44:24+00:00",
+            "time": "2023-03-18T01:37:41+00:00",
             "bin": [
                 "scripts/release"
             ],
@@ -1074,7 +1074,7 @@
             "description": "Provides a self:update command for Symfony Console applications.",
             "support": {
                 "issues": "https://github.com/consolidation/self-update/issues",
-                "source": "https://github.com/consolidation/self-update/tree/2.0.5"
+                "source": "https://github.com/consolidation/self-update/tree/2.2.0"
             },
             "install-path": "../consolidation/self-update"
         },
@@ -1850,31 +1850,35 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "v1.0.0",
-            "version_normalized": "1.0.0.0",
+            "version": "v1.1.1",
+            "version_normalized": "1.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
+                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
+                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1|^8.0"
+                "php": "^7.1 || ^8.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5|^8.5|^9.5",
-                "psr/log": "^1|^2|^3"
+                "phpstan/phpstan": "1.4.10 || 1.10.15",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "psalm/plugin-phpunit": "0.18.4",
+                "psr/log": "^1 || ^2 || ^3",
+                "vimeo/psalm": "4.30.0 || 5.12.0"
             },
             "suggest": {
                 "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
             },
-            "time": "2022-05-02T15:47:09+00:00",
+            "time": "2023-06-03T09:27:29+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1890,7 +1894,7 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
+                "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
             },
             "install-path": "../doctrine/deprecations"
         },
@@ -2355,21 +2359,21 @@
         },
         {
             "name": "drupal/address",
-            "version": "1.11.0",
-            "version_normalized": "1.11.0.0",
+            "version": "1.12.0",
+            "version_normalized": "1.12.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/address.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.11.zip",
-                "reference": "8.x-1.11",
-                "shasum": "1cb40fb1a43e88041b888ac8fb6aa77a45ac85fb"
+                "url": "https://ftp.drupal.org/files/projects/address-8.x-1.12.zip",
+                "reference": "8.x-1.12",
+                "shasum": "67dd4699040aabf0cd6169e437706fa6a39b0b3a"
             },
             "require": {
-                "commerceguys/addressing": "^1.4.0",
+                "commerceguys/addressing": "^1.4.2",
                 "drupal/core": "^9.2 || ^10",
                 "php": "^7.3 || ^8.0"
             },
@@ -2379,8 +2383,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1659989858",
+                    "version": "8.x-1.12",
+                    "datestamp": "1684710176",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2657,18 +2661,18 @@
         },
         {
             "name": "drupal/condition_field",
-            "version": "2.0.2",
-            "version_normalized": "2.0.2.0",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/condition_field.git",
-                "reference": "2.0.2"
+                "reference": "2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/condition_field-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "51c253856cb07ddf0bc0dd03a1bc0b35740094a5"
+                "url": "https://ftp.drupal.org/files/projects/condition_field-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "890a4e9c1c65e691e67fe7a7427d6272e9a170b1"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -2676,8 +2680,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1673783207",
+                    "version": "2.0.3",
+                    "datestamp": "1685284823",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4048,18 +4052,18 @@
         },
         {
             "name": "drupal/entity_hierarchy",
-            "version": "3.3.4",
-            "version_normalized": "3.3.4.0",
+            "version": "3.3.5",
+            "version_normalized": "3.3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_hierarchy.git",
-                "reference": "3.3.4"
+                "reference": "3.3.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_hierarchy-3.3.4.zip",
-                "reference": "3.3.4",
-                "shasum": "24dd44c371ce2b753e21e6c7888d286a7b5d6bab"
+                "url": "https://ftp.drupal.org/files/projects/entity_hierarchy-3.3.5.zip",
+                "reference": "3.3.5",
+                "shasum": "63e27da3bbd0f6fdc458226e00201b4449236cbe"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10.0",
@@ -4072,8 +4076,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.3.4",
-                    "datestamp": "1674007732",
+                    "version": "3.3.5",
+                    "datestamp": "1680218986",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4389,18 +4393,18 @@
         },
         {
             "name": "drupal/feeds",
-            "version": "3.0.0-beta3",
-            "version_normalized": "3.0.0.0-beta3",
+            "version": "3.0.0-beta4",
+            "version_normalized": "3.0.0.0-beta4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/feeds.git",
-                "reference": "8.x-3.0-beta3"
+                "reference": "8.x-3.0-beta4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/feeds-8.x-3.0-beta3.zip",
-                "reference": "8.x-3.0-beta3",
-                "shasum": "60e840f47b4cd13cc1f72381f64e81c1d7e60217"
+                "url": "https://ftp.drupal.org/files/projects/feeds-8.x-3.0-beta4.zip",
+                "reference": "8.x-3.0-beta4",
+                "shasum": "d715c428819b71d7018d022862c8d1c453bcf4d7"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -4413,8 +4417,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-beta3",
-                    "datestamp": "1670512823",
+                    "version": "8.x-3.0-beta4",
+                    "datestamp": "1685558328",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4475,10 +4479,6 @@
                 {
                     "name": "tobby",
                     "homepage": "https://www.drupal.org/user/154797"
-                },
-                {
-                    "name": "tristanoneil",
-                    "homepage": "https://www.drupal.org/user/340659"
                 },
                 {
                     "name": "twistor",
@@ -4710,18 +4710,18 @@
         },
         {
             "name": "drupal/fontawesome",
-            "version": "2.24.0",
-            "version_normalized": "2.24.0.0",
+            "version": "2.25.0",
+            "version_normalized": "2.25.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fontawesome.git",
-                "reference": "8.x-2.24"
+                "reference": "8.x-2.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.24.zip",
-                "reference": "8.x-2.24",
-                "shasum": "a705e1181c056118ad39cf2fc6f63b62e300cc72"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.25.zip",
+                "reference": "8.x-2.25",
+                "shasum": "67f92e961b35c91b1520565669515525b2223cfb"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10"
@@ -4729,8 +4729,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.24",
-                    "datestamp": "1666211201",
+                    "version": "8.x-2.25",
+                    "datestamp": "1676999823",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4767,18 +4767,18 @@
         },
         {
             "name": "drupal/geocoder",
-            "version": "3.31.0",
-            "version_normalized": "3.31.0.0",
+            "version": "3.34.0",
+            "version_normalized": "3.34.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geocoder.git",
-                "reference": "8.x-3.31"
+                "reference": "8.x-3.34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geocoder-8.x-3.31.zip",
-                "reference": "8.x-3.31",
-                "shasum": "f6a24695f1fefa1c52a6119dd02c329410d22ce6"
+                "url": "https://ftp.drupal.org/files/projects/geocoder-8.x-3.34.zip",
+                "reference": "8.x-3.34",
+                "shasum": "6eb44d0b055f4239a4bd65f3fedef5829a761fce"
             },
             "require": {
                 "davedevelopment/stiphle": "^0.9.2",
@@ -4821,8 +4821,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.31",
-                    "datestamp": "1663974561",
+                    "version": "8.x-3.34",
+                    "datestamp": "1682585666",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4893,18 +4893,18 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.52.0",
-            "version_normalized": "1.52.0.0",
+            "version": "1.53.0",
+            "version_normalized": "1.53.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.52"
+                "reference": "8.x-1.53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.52.zip",
-                "reference": "8.x-1.52",
-                "shasum": "e53392cc8f5eecc32ee7bf1215225a7aeba0f0a6"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.53.zip",
+                "reference": "8.x-1.53",
+                "shasum": "b915c1374731f1f8c4ccfd81ea1c0ad0b1466c99"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10",
@@ -4913,8 +4913,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.52",
-                    "datestamp": "1674235694",
+                    "version": "8.x-1.53",
+                    "datestamp": "1682551435",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4941,14 +4941,6 @@
                     "name": "Pablo López",
                     "homepage": "https://www.drupal.org/u/plopesc",
                     "role": "Drupal 7 Maintainer"
-                },
-                {
-                    "name": "phayes",
-                    "homepage": "https://www.drupal.org/user/47098"
-                },
-                {
-                    "name": "plopesc",
-                    "homepage": "https://www.drupal.org/user/282415"
                 }
             ],
             "description": "Stores geographic and location data (points, lines, and polygons).",
@@ -5150,18 +5142,18 @@
         },
         {
             "name": "drupal/gin_login",
-            "version": "1.4.0",
-            "version_normalized": "1.4.0.0",
+            "version": "1.6.0",
+            "version_normalized": "1.6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin_login.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin_login-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "ec3e71a80544653469c2660bd8549b7d21e1de9f"
+                "url": "https://ftp.drupal.org/files/projects/gin_login-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "4f328c2533ba9a77c908478dc5298981c1e30aab"
             },
             "require": {
                 "drupal/core": "^8.9 || ^9 || ^10"
@@ -5169,8 +5161,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1674724507",
+                    "version": "8.x-1.6",
+                    "datestamp": "1683024096",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6002,21 +5994,21 @@
         },
         {
             "name": "drupal/layout_paragraphs",
-            "version": "2.0.2",
-            "version_normalized": "2.0.2.0",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_paragraphs.git",
-                "reference": "2.0.2"
+                "reference": "2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layout_paragraphs-2.0.2.zip",
-                "reference": "2.0.2",
-                "shasum": "5157a05120d81f0978093ddbdf92c3ead2e11010"
+                "url": "https://ftp.drupal.org/files/projects/layout_paragraphs-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "e0703d8b7c93931c4840167883d3993846485f44"
             },
             "require": {
-                "drupal/core": "^9.1 || ^10",
+                "drupal/core": "^9.2 || ^10",
                 "drupal/paragraphs": "^1.6"
             },
             "require-dev": {
@@ -6027,8 +6019,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.2",
-                    "datestamp": "1671393681",
+                    "version": "2.0.3",
+                    "datestamp": "1683938207",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6063,18 +6055,18 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "10.0.8",
-            "version_normalized": "10.0.8.0",
+            "version": "10.0.14",
+            "version_normalized": "10.0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "10.0.8"
+                "reference": "10.0.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.8.zip",
-                "reference": "10.0.8",
-                "shasum": "0c0c7c9fc70aea62bdcc9e911c67bd070fff7430"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.14.zip",
+                "reference": "10.0.14",
+                "shasum": "50e4446c97c3bd727c5d745cef9cca8e3b638014"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -6083,8 +6075,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "10.0.8",
-                    "datestamp": "1675200187",
+                    "version": "10.0.14",
+                    "datestamp": "1684779365",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6138,18 +6130,18 @@
         },
         {
             "name": "drupal/link_attributes",
-            "version": "1.12.0",
-            "version_normalized": "1.12.0.0",
+            "version": "1.13.0",
+            "version_normalized": "1.13.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/link_attributes.git",
-                "reference": "8.x-1.12"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.12.zip",
-                "reference": "8.x-1.12",
-                "shasum": "02f166dcfe3277656e2a91f86ff36e8a18e55524"
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "695821dfbde30c4e74c28455985fbc5d92dca8d1"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -6157,8 +6149,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.12",
-                    "datestamp": "1668801560",
+                    "version": "8.x-1.13",
+                    "datestamp": "1677018560",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6375,18 +6367,18 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.23.0",
-            "version_normalized": "1.23.0.0",
+            "version": "1.25.0",
+            "version_normalized": "1.25.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.23"
+                "reference": "8.x-1.25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.23.zip",
-                "reference": "8.x-1.23",
-                "shasum": "d0e53e4f41c759ea8ca4c504fc6fee9a5184a701"
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.25.zip",
+                "reference": "8.x-1.25",
+                "shasum": "8603d84df3b93dd02dae601d57a6347598829e56"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -6397,7 +6389,7 @@
                 "drupal/hal": "^9 || ^1 || ^2",
                 "drupal/metatag_dc": "*",
                 "drupal/metatag_open_graph": "*",
-                "drupal/page_manager": "^4.0",
+                "drupal/page_manager": "*",
                 "drupal/panelizer": "^4.0",
                 "drupal/redirect": "^1.0",
                 "drupal/webprofiler": "^9 || ^10",
@@ -6406,8 +6398,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.23",
-                    "datestamp": "1683903480",
+                    "version": "8.x-1.25",
+                    "datestamp": "1685541226",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6822,27 +6814,27 @@
         },
         {
             "name": "drupal/office_hours",
-            "version": "1.7.0",
-            "version_normalized": "1.7.0.0",
+            "version": "1.9.0",
+            "version_normalized": "1.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/office_hours.git",
-                "reference": "8.x-1.7"
+                "reference": "8.x-1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/office_hours-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "00d9fdbb1825dfe2707cb36425b31caa5cfc995b"
+                "url": "https://ftp.drupal.org/files/projects/office_hours-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "4c4100d73a8f7655745efe21a6d3412a3dda44cd"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8 || ^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1657202675",
+                    "version": "8.x-1.9",
+                    "datestamp": "1684500042",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7718,6 +7710,79 @@
             "install-path": "../../web/modules/contrib/search_api_exclude_entity"
         },
         {
+            "name": "drupal/search_api_location",
+            "version": "dev-1.x",
+            "version_normalized": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/search_api_location.git",
+                "reference": "16ba62af992ceb17175c0f63b5bc5db8c3560eea"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/search_api": "^1.28",
+                "itamair/geophp": "^1.2"
+            },
+            "require-dev": {
+                "drupal/facets": "3.x",
+                "drupal/geocoder": "^4.4",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha3+4-dev",
+                    "datestamp": "1677158649",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "installation-source": "source",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mattias Michaux",
+                    "homepage": "https://www.drupal.org/u/mollux"
+                },
+                {
+                    "name": "drunken monkey",
+                    "homepage": "https://www.drupal.org/user/205582"
+                },
+                {
+                    "name": "JeroenT",
+                    "homepage": "https://www.drupal.org/user/2228934"
+                },
+                {
+                    "name": "mollux",
+                    "homepage": "https://www.drupal.org/user/785804"
+                },
+                {
+                    "name": "Nick_vh",
+                    "homepage": "https://www.drupal.org/user/122682"
+                },
+                {
+                    "name": "ygerasimov",
+                    "homepage": "https://www.drupal.org/user/257311"
+                }
+            ],
+            "description": "Provides location based search for the Search API module.",
+            "homepage": "https://www.drupal.org/project/search_api_location",
+            "support": {
+                "source": "http://git.drupal.org/project/search_api_location.git",
+                "issues": "https://www.drupal.org/project/issues/search_api_location",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
+            },
+            "install-path": "../../web/modules/contrib/search_api_location"
+        },
+        {
             "name": "drupal/search_api_solr",
             "version": "4.2.10",
             "version_normalized": "4.2.10.0",
@@ -8006,18 +8071,18 @@
         },
         {
             "name": "drupal/simplei",
-            "version": "2.1.3",
-            "version_normalized": "2.1.3.0",
+            "version": "2.1.4",
+            "version_normalized": "2.1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simplei.git",
-                "reference": "2.1.3"
+                "reference": "2.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simplei-2.1.3.zip",
-                "reference": "2.1.3",
-                "shasum": "f9a42abb94a14544491ddfcd798cbe041b549474"
+                "url": "https://ftp.drupal.org/files/projects/simplei-2.1.4.zip",
+                "reference": "2.1.4",
+                "shasum": "1ed4dad4e1b3190645e20e768453f588db544e58"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -8025,8 +8090,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.3",
-                    "datestamp": "1677279328",
+                    "version": "2.1.4",
+                    "datestamp": "1677733354",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8144,27 +8209,27 @@
         },
         {
             "name": "drupal/tablefield",
-            "version": "2.3.0",
-            "version_normalized": "2.3.0.0",
+            "version": "2.4.0",
+            "version_normalized": "2.4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tablefield.git",
-                "reference": "8.x-2.3"
+                "reference": "8.x-2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tablefield-8.x-2.3.zip",
-                "reference": "8.x-2.3",
-                "shasum": "ee37306ebb9710f954f0358b558e9d674b225a06"
+                "url": "https://ftp.drupal.org/files/projects/tablefield-8.x-2.4.zip",
+                "reference": "8.x-2.4",
+                "shasum": "ef024051b3a02aaf8c41b50fc27ab535d7618980"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.1 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.3",
-                    "datestamp": "1659345818",
+                    "version": "8.x-2.4",
+                    "datestamp": "1677254141",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8227,18 +8292,18 @@
         },
         {
             "name": "drupal/tamper",
-            "version": "1.0.0-alpha3",
-            "version_normalized": "1.0.0.0-alpha3",
+            "version": "1.0.0-alpha4",
+            "version_normalized": "1.0.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/tamper.git",
-                "reference": "8.x-1.0-alpha3"
+                "reference": "8.x-1.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tamper-8.x-1.0-alpha3.zip",
-                "reference": "8.x-1.0-alpha3",
-                "shasum": "c0fa28949b11137c3d216f85f47f27d1f2ef2b4f"
+                "url": "https://ftp.drupal.org/files/projects/tamper-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "ab591ab64adb923a9901390119bbe0beabc23859"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10"
@@ -8246,11 +8311,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha3",
-                    "datestamp": "1670507777",
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1684984837",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -8568,46 +8633,46 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.1.4",
-            "version_normalized": "6.1.4.0",
+            "version": "6.1.5",
+            "version_normalized": "6.1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.1.4"
+                "reference": "6.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.1.4.zip",
-                "reference": "6.1.4",
-                "shasum": "b1c27c2a210670b6d149cdd92cbb37100b19cf64"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.1.5.zip",
+                "reference": "6.1.5",
+                "shasum": "a6d3f10b377add2db2823134b819d443f7a88f86"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^9.3"
             },
             "require-dev": {
-                "drupal/address": "~1.0",
-                "drupal/bootstrap": "~3.0",
-                "drupal/captcha": "~1.0",
-                "drupal/chosen": "~3.0",
-                "drupal/clientside_validation": "*",
+                "drupal/address": "1.x-dev",
+                "drupal/bootstrap": "3.x-dev",
+                "drupal/captcha": "1.x-dev",
+                "drupal/chosen": "3.0.x-dev",
+                "drupal/clientside_validation": "3.0.x-dev",
                 "drupal/clientside_validation_jquery": "*",
-                "drupal/devel": "*",
-                "drupal/entity": "~1.0",
-                "drupal/entity_print": "*",
+                "drupal/devel": "5.x-dev",
+                "drupal/entity": "1.x-dev",
+                "drupal/entity_print": "2.x-dev",
                 "drupal/gnode": "*",
-                "drupal/group": "*",
-                "drupal/jquery_ui": "~1.0",
-                "drupal/jquery_ui_checkboxradio": "*",
-                "drupal/jquery_ui_datepicker": "~1.0",
-                "drupal/lingotek": "~3.0",
-                "drupal/mailsystem": "~4.0",
-                "drupal/paragraphs": "~1.0",
-                "drupal/select2": "~1.0",
-                "drupal/smtp": "~1.0",
-                "drupal/styleguide": "~2.0",
-                "drupal/telephone_validation": "~2.0",
-                "drupal/token": "*",
-                "drupal/variationcache": "~1.0",
+                "drupal/group": "1.x-dev",
+                "drupal/jquery_ui": "1.x-dev",
+                "drupal/jquery_ui_checkboxradio": "1.x-dev",
+                "drupal/jquery_ui_datepicker": "1.x-dev",
+                "drupal/lingotek": "4.0.x-dev",
+                "drupal/mailsystem": "4.x-dev",
+                "drupal/paragraphs": "1.x-dev",
+                "drupal/select2": "1.x-dev",
+                "drupal/smtp": "1.x-dev",
+                "drupal/styleguide": "1.x-dev",
+                "drupal/telephone_validation": "2.x-dev",
+                "drupal/token": "1.x-dev",
+                "drupal/variationcache": "1.x-dev",
                 "drupal/webform-webform_group": "*",
                 "drupal/webform_access": "*",
                 "drupal/webform_attachment": "*",
@@ -8627,8 +8692,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.1.4",
-                    "datestamp": "1673535467",
+                    "version": "6.1.5",
+                    "datestamp": "1686599078",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8681,28 +8746,28 @@
         },
         {
             "name": "drupal/webform_query",
-            "version": "1.0.0-alpha2",
-            "version_normalized": "1.0.0.0-alpha2",
+            "version": "1.0.0-alpha3",
+            "version_normalized": "1.0.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform_query.git",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "8.x-1.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform_query-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "3592f4310b906181312a860b9d96c70c7e94f5cd"
+                "url": "https://ftp.drupal.org/files/projects/webform_query-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "940eae20320fc2011519e3795458f78575f3fe09"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.7.7 || ^9 || ^10",
                 "drupal/webform": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1629678143",
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1676586611",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -9003,17 +9068,17 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "3.2.5",
-            "version_normalized": "3.2.5.0",
+            "version": "3.2.6",
+            "version_normalized": "3.2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "b531a2311709443320c786feb4519cfaf94af796"
+                "reference": "e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/b531a2311709443320c786feb4519cfaf94af796",
-                "reference": "b531a2311709443320c786feb4519cfaf94af796",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7",
+                "reference": "e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7",
                 "shasum": ""
             },
             "require": {
@@ -9028,7 +9093,7 @@
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
             },
-            "time": "2023-01-02T17:26:14+00:00",
+            "time": "2023-06-01T07:04:22+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9061,7 +9126,7 @@
             ],
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/3.2.5"
+                "source": "https://github.com/egulias/EmailValidator/tree/3.2.6"
             },
             "funding": [
                 {
@@ -9274,17 +9339,17 @@
         },
         {
             "name": "geocoder-php/nominatim-provider",
-            "version": "5.6.0",
-            "version_normalized": "5.6.0.0",
+            "version": "5.7.0",
+            "version_normalized": "5.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/nominatim-provider.git",
-                "reference": "a59c34388542e25e3ba3eecd4f07d731b1fa98fe"
+                "reference": "a50486161f6babad7b1ed7ee7bf86147b0844413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/a59c34388542e25e3ba3eecd4f07d731b1fa98fe",
-                "reference": "a59c34388542e25e3ba3eecd4f07d731b1fa98fe",
+                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/a50486161f6babad7b1ed7ee7bf86147b0844413",
+                "reference": "a50486161f6babad7b1ed7ee7bf86147b0844413",
                 "shasum": ""
             },
             "require": {
@@ -9301,7 +9366,7 @@
                 "php-http/message": "^1.0",
                 "phpunit/phpunit": "^9.5"
             },
-            "time": "2022-07-30T12:09:30+00:00",
+            "time": "2023-03-01T10:18:27+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -9330,7 +9395,7 @@
             "description": "Geocoder Nominatim adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
             "support": {
-                "source": "https://github.com/geocoder-php/nominatim-provider/tree/5.6.0"
+                "source": "https://github.com/geocoder-php/nominatim-provider/tree/5.7.0"
             },
             "install-path": "../geocoder-php/nominatim-provider"
         },
@@ -9752,24 +9817,85 @@
             "install-path": "../guzzlehttp/psr7"
         },
         {
-            "name": "itamair/geophp",
-            "version": "1.4",
-            "version_normalized": "1.4.0.0",
+            "name": "halaxa/json-machine",
+            "version": "1.1.3",
+            "version_normalized": "1.1.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/itamair/geoPHP.git",
-                "reference": "ced300d09ddda1b7212ebe1a9a53aa065e5f9585"
+                "url": "https://github.com/halaxa/json-machine.git",
+                "reference": "514025c5ebbdb8a058745b573b4a1e81d685802c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itamair/geoPHP/zipball/ced300d09ddda1b7212ebe1a9a53aa065e5f9585",
-                "reference": "ced300d09ddda1b7212ebe1a9a53aa065e5f9585",
+                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/514025c5ebbdb8a058745b573b4a1e81d685802c",
+                "reference": "514025c5ebbdb8a058745b573b4a1e81d685802c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "ext-json": "To run JSON Machine out of the box without custom decoders.",
+                "guzzlehttp/guzzle": "To run example with GuzzleHttp"
+            },
+            "time": "2022-10-12T11:40:33+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "JsonMachine\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "src/autoloader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Halaxa",
+                    "email": "filip@halaxa.cz"
+                }
+            ],
+            "description": "Efficient, easy-to-use and fast JSON pull parser",
+            "support": {
+                "issues": "https://github.com/halaxa/json-machine/issues",
+                "source": "https://github.com/halaxa/json-machine/tree/1.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/G2G57KTE4",
+                    "type": "other"
+                }
+            ],
+            "install-path": "../halaxa/json-machine"
+        },
+        {
+            "name": "itamair/geophp",
+            "version": "1.5",
+            "version_normalized": "1.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itamair/geoPHP.git",
+                "reference": "645f3262ebaa7443d58910207c65f386c733f614"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itamair/geoPHP/zipball/645f3262ebaa7443d58910207c65f386c733f614",
+                "reference": "645f3262ebaa7443d58910207c65f386c733f614",
                 "shasum": ""
             },
             "require-dev": {
                 "phpunit/phpunit": "4.1.* || 9.5.*"
             },
-            "time": "2023-02-05T00:00:51+00:00",
+            "time": "2023-04-26T23:16:44+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -9796,7 +9922,7 @@
             "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
             "homepage": "https://github.com/itamair/geoPHP",
             "support": {
-                "source": "https://github.com/itamair/geoPHP/tree/1.4"
+                "source": "https://github.com/itamair/geoPHP/tree/1.5"
             },
             "install-path": "../itamair/geophp"
         },
@@ -10181,17 +10307,17 @@
         },
         {
             "name": "localgovdrupal/localgov",
-            "version": "2.3.13",
-            "version_normalized": "2.3.13.0",
+            "version": "2.3.16",
+            "version_normalized": "2.3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov.git",
-                "reference": "bc81151a7e42ff55dbe771a36aec517762e263bc"
+                "reference": "06b9739a27c1ff4fc1da669e19be7ded70b6d2b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/bc81151a7e42ff55dbe771a36aec517762e263bc",
-                "reference": "bc81151a7e42ff55dbe771a36aec517762e263bc",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/06b9739a27c1ff4fc1da669e19be7ded70b6d2b1",
+                "reference": "06b9739a27c1ff4fc1da669e19be7ded70b6d2b1",
                 "shasum": ""
             },
             "require": {
@@ -10226,7 +10352,7 @@
             "require-dev": {
                 "drupal/core-dev": "^9.1"
             },
-            "time": "2023-01-30T14:54:45+00:00",
+            "time": "2023-06-05T13:48:43+00:00",
             "type": "drupal-profile",
             "extra": {
                 "enable-patching": true,
@@ -10253,23 +10379,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov/issues",
-                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.13"
+                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.16"
             },
             "install-path": "../../web/profiles/contrib/localgov"
         },
         {
             "name": "localgovdrupal/localgov_alert_banner",
-            "version": "1.5.4",
-            "version_normalized": "1.5.4.0",
+            "version": "1.5.7",
+            "version_normalized": "1.5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_alert_banner.git",
-                "reference": "a7b4c324d013f034f01df156367f10fbfd0576f7"
+                "reference": "7e88fc67f0b5cbeb10a57dd2f44d5da49ffe10d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_alert_banner/zipball/a7b4c324d013f034f01df156367f10fbfd0576f7",
-                "reference": "a7b4c324d013f034f01df156367f10fbfd0576f7",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_alert_banner/zipball/7e88fc67f0b5cbeb10a57dd2f44d5da49ffe10d8",
+                "reference": "7e88fc67f0b5cbeb10a57dd2f44d5da49ffe10d8",
                 "shasum": ""
             },
             "require": {
@@ -10282,7 +10408,7 @@
                 "drupal/scheduled_transitions": "Gives the ability to schedule the publishing and unpublishing of alert banners",
                 "localgovdrupal/localgov_core": "^1 || ^2"
             },
-            "time": "2023-01-30T15:12:23+00:00",
+            "time": "2023-05-22T13:41:42+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10293,26 +10419,26 @@
             "homepage": "https://github.com/localgovdrupal/localgov_alert_banner",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_alert_banner/issues",
-                "source": "https://github.com/localgovdrupal/localgov_alert_banner/tree/1.5.4"
+                "source": "https://github.com/localgovdrupal/localgov_alert_banner/tree/1.5.7"
             },
             "install-path": "../../web/modules/contrib/localgov_alert_banner"
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.4.3",
-            "version_normalized": "1.4.3.0",
+            "version": "1.4.8",
+            "version_normalized": "1.4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8"
+                "reference": "d52c80a02525eebb14324a3d85ae51ee2eb45343"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8",
-                "reference": "f4dbd8dccfbdc48f03b0dec6c6fab7f17dbf17c8",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/d52c80a02525eebb14324a3d85ae51ee2eb45343",
+                "reference": "d52c80a02525eebb14324a3d85ae51ee2eb45343",
                 "shasum": ""
             },
-            "time": "2023-02-27T17:09:09+00:00",
+            "time": "2023-05-22T13:44:15+00:00",
             "type": "drupal-theme",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10323,23 +10449,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.3"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.8"
             },
             "install-path": "../../web/themes/contrib/localgov_base"
         },
         {
             "name": "localgovdrupal/localgov_core",
-            "version": "2.1.10",
-            "version_normalized": "2.1.10.0",
+            "version": "2.11.2",
+            "version_normalized": "2.11.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_core.git",
-                "reference": "29b2b41401e2887ed1e17d53f09abda33bbf03a1"
+                "reference": "e15adc89367ad2e566f2d5818570c9c52dbfb41d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_core/zipball/29b2b41401e2887ed1e17d53f09abda33bbf03a1",
-                "reference": "29b2b41401e2887ed1e17d53f09abda33bbf03a1",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_core/zipball/e15adc89367ad2e566f2d5818570c9c52dbfb41d",
+                "reference": "e15adc89367ad2e566f2d5818570c9c52dbfb41d",
                 "shasum": ""
             },
             "require": {
@@ -10356,7 +10482,7 @@
             "require-dev": {
                 "drupal/paragraphs": "^1.12"
             },
-            "time": "2022-11-17T12:56:32+00:00",
+            "time": "2023-05-15T13:52:51+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
@@ -10374,7 +10500,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_core",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_core/issues",
-                "source": "https://github.com/localgovdrupal/localgov_core/tree/2.1.10"
+                "source": "https://github.com/localgovdrupal/localgov_core/tree/2.11.2"
             },
             "install-path": "../../web/modules/contrib/localgov_core"
         },
@@ -10424,24 +10550,25 @@
         },
         {
             "name": "localgovdrupal/localgov_directories",
-            "version": "2.4.1",
-            "version_normalized": "2.4.1.0",
+            "version": "2.5.3",
+            "version_normalized": "2.5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_directories.git",
-                "reference": "0a33e62fa1100cb2807fe3f9741a790ef1566020"
+                "reference": "65f13125b0823e594f5c4deaa904a87e029e5f92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_directories/zipball/0a33e62fa1100cb2807fe3f9741a790ef1566020",
-                "reference": "0a33e62fa1100cb2807fe3f9741a790ef1566020",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_directories/zipball/65f13125b0823e594f5c4deaa904a87e029e5f92",
+                "reference": "65f13125b0823e594f5c4deaa904a87e029e5f92",
                 "shasum": ""
             },
             "require": {
                 "drupal/facets": "^2.0",
                 "drupal/pathauto": "^1.6",
-                "drupal/search_api": "^1.17",
+                "drupal/search_api": "^1.29",
                 "drupal/search_api_autocomplete": "^1.3",
+                "drupal/search_api_location": "1.x-dev",
                 "localgovdrupal/localgov_core": "^2.1",
                 "localgovdrupal/localgov_geo": "^1.1"
             },
@@ -10454,7 +10581,7 @@
                 "localgovdrupal/localgov_openreferral": "Enables Open Referral output of Directories",
                 "localgovdrupal/localgov_paragraphs": "For Directory Promo Page content type in Directories"
             },
-            "time": "2023-02-13T14:22:08+00:00",
+            "time": "2023-05-15T13:53:43+00:00",
             "type": "drupal-module",
             "extra": {
                 "patches": {
@@ -10475,23 +10602,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_directories",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_directories/issues",
-                "source": "https://github.com/localgovdrupal/localgov_directories/tree/2.4.1"
+                "source": "https://github.com/localgovdrupal/localgov_directories/tree/2.5.3"
             },
             "install-path": "../../web/modules/contrib/localgov_directories"
         },
         {
             "name": "localgovdrupal/localgov_events",
-            "version": "2.0.12",
-            "version_normalized": "2.0.12.0",
+            "version": "2.0.15",
+            "version_normalized": "2.0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_events.git",
-                "reference": "9fc60ff941d16265fe7f0751f2004a2074745385"
+                "reference": "fb2196a36ea7d465f41e039f6e7d975677055976"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_events/zipball/9fc60ff941d16265fe7f0751f2004a2074745385",
-                "reference": "9fc60ff941d16265fe7f0751f2004a2074745385",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_events/zipball/fb2196a36ea7d465f41e039f6e7d975677055976",
+                "reference": "fb2196a36ea7d465f41e039f6e7d975677055976",
                 "shasum": ""
             },
             "require": {
@@ -10506,7 +10633,7 @@
             "require-dev": {
                 "localgovdrupal/localgov_directories": "^2.0"
             },
-            "time": "2022-12-05T14:27:45+00:00",
+            "time": "2023-06-07T13:15:39+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
@@ -10529,7 +10656,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_events",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_events/issues",
-                "source": "https://github.com/localgovdrupal/localgov_events/tree/2.0.12"
+                "source": "https://github.com/localgovdrupal/localgov_events/tree/2.0.15"
             },
             "install-path": "../../web/modules/contrib/localgov_events"
         },
@@ -10582,17 +10709,17 @@
         },
         {
             "name": "localgovdrupal/localgov_guides",
-            "version": "2.0.10",
-            "version_normalized": "2.0.10.0",
+            "version": "2.0.12",
+            "version_normalized": "2.0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_guides.git",
-                "reference": "54d3980e3fe4680ab924e36d083e93c7f5b407a6"
+                "reference": "ea56f1eaa126e805400bcd1ad2ea145b58a90c17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_guides/zipball/54d3980e3fe4680ab924e36d083e93c7f5b407a6",
-                "reference": "54d3980e3fe4680ab924e36d083e93c7f5b407a6",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_guides/zipball/ea56f1eaa126e805400bcd1ad2ea145b58a90c17",
+                "reference": "ea56f1eaa126e805400bcd1ad2ea145b58a90c17",
                 "shasum": ""
             },
             "require": {
@@ -10603,7 +10730,7 @@
                 "localgovdrupal/localgov_services": "^2.0",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2022-10-31T14:55:22+00:00",
+            "time": "2023-05-22T13:47:04+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10614,7 +10741,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_guides",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_guides/issues",
-                "source": "https://github.com/localgovdrupal/localgov_guides/tree/2.0.10"
+                "source": "https://github.com/localgovdrupal/localgov_guides/tree/2.0.12"
             },
             "install-path": "../../web/modules/contrib/localgov_guides"
         },
@@ -10650,17 +10777,17 @@
         },
         {
             "name": "localgovdrupal/localgov_news",
-            "version": "2.2.3",
-            "version_normalized": "2.2.3.0",
+            "version": "2.2.4",
+            "version_normalized": "2.2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_news.git",
-                "reference": "88eade2de8e6e87bc4e639b9e6750ed7e3daf452"
+                "reference": "517cd1061f9c55f86f60da97b159729fa3d65501"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/88eade2de8e6e87bc4e639b9e6750ed7e3daf452",
-                "reference": "88eade2de8e6e87bc4e639b9e6750ed7e3daf452",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/517cd1061f9c55f86f60da97b159729fa3d65501",
+                "reference": "517cd1061f9c55f86f60da97b159729fa3d65501",
                 "shasum": ""
             },
             "require": {
@@ -10679,7 +10806,7 @@
             "require-dev": {
                 "localgovdrupal/localgov_search": "^1.1"
             },
-            "time": "2022-09-09T13:52:05+00:00",
+            "time": "2023-02-27T14:35:37+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10690,7 +10817,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_news",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_news/issues",
-                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.2.3"
+                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.2.4"
             },
             "install-path": "../../web/modules/contrib/localgov_news"
         },
@@ -10771,17 +10898,17 @@
         },
         {
             "name": "localgovdrupal/localgov_paragraphs",
-            "version": "2.2.7",
-            "version_normalized": "2.2.7.0",
+            "version": "2.2.9",
+            "version_normalized": "2.2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_paragraphs.git",
-                "reference": "90e0cebf9a32164daccbb1a724b96a82f6ac12f4"
+                "reference": "b9556433bc82792bcb47a736edc5128857518b61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/90e0cebf9a32164daccbb1a724b96a82f6ac12f4",
-                "reference": "90e0cebf9a32164daccbb1a724b96a82f6ac12f4",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/b9556433bc82792bcb47a736edc5128857518b61",
+                "reference": "b9556433bc82792bcb47a736edc5128857518b61",
                 "shasum": ""
             },
             "require": {
@@ -10795,14 +10922,14 @@
                 "drupal/fontawesome": "^2.18",
                 "drupal/geolocation": "^3.1",
                 "drupal/layout_paragraphs": "^2.0",
-                "drupal/office_hours": "^1.4",
+                "drupal/office_hours": "^1.8",
                 "drupal/paragraphs": "^1.13",
                 "drupal/tablefield": "^2.3",
                 "drupal/viewsreference": "^2.0",
                 "localgovdrupal/localgov_core": "^2.0",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-02-02T15:43:19+00:00",
+            "time": "2023-04-03T13:48:11+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
@@ -10831,26 +10958,26 @@
             "homepage": "https://github.com/localgovdrupal/localgov_paragraphs",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_paragraphs/issues",
-                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.2.7"
+                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.2.9"
             },
             "install-path": "../../web/modules/contrib/localgov_paragraphs"
         },
         {
             "name": "localgovdrupal/localgov_scarfolk",
-            "version": "1.1.2",
-            "version_normalized": "1.1.2.0",
+            "version": "1.1.3",
+            "version_normalized": "1.1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_scarfolk.git",
-                "reference": "351760c0950d4e1c325861ecf519b4f19974d603"
+                "reference": "cac9163a6de91bf60bda3b2c9a8f94a34aaff409"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_scarfolk/zipball/351760c0950d4e1c325861ecf519b4f19974d603",
-                "reference": "351760c0950d4e1c325861ecf519b4f19974d603",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_scarfolk/zipball/cac9163a6de91bf60bda3b2c9a8f94a34aaff409",
+                "reference": "cac9163a6de91bf60bda3b2c9a8f94a34aaff409",
                 "shasum": ""
             },
-            "time": "2023-01-30T14:46:39+00:00",
+            "time": "2023-03-13T15:03:32+00:00",
             "type": "drupal-theme",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10861,23 +10988,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_scarfolk",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_scarfolk/issues",
-                "source": "https://github.com/localgovdrupal/localgov_scarfolk/tree/1.1.2"
+                "source": "https://github.com/localgovdrupal/localgov_scarfolk/tree/1.1.3"
             },
             "install-path": "../../web/themes/contrib/localgov_scarfolk"
         },
         {
             "name": "localgovdrupal/localgov_search",
-            "version": "1.1.3",
-            "version_normalized": "1.1.3.0",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_search.git",
-                "reference": "bd1ffbc5ec5c290764495a1cf5c87d80ff7d13cb"
+                "reference": "bab686e7f80a77d5ca1c5f6ed155f937230e1b5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_search/zipball/bd1ffbc5ec5c290764495a1cf5c87d80ff7d13cb",
-                "reference": "bd1ffbc5ec5c290764495a1cf5c87d80ff7d13cb",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_search/zipball/bab686e7f80a77d5ca1c5f6ed155f937230e1b5a",
+                "reference": "bab686e7f80a77d5ca1c5f6ed155f937230e1b5a",
                 "shasum": ""
             },
             "require": {
@@ -10889,7 +11016,7 @@
             "suggest": {
                 "drupal/search_api_solr": "If solr integration, rather that database search, is required."
             },
-            "time": "2022-10-24T13:11:41+00:00",
+            "time": "2023-06-05T13:25:31+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10900,23 +11027,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_search",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_search/issues",
-                "source": "https://github.com/localgovdrupal/localgov_search/tree/1.1.3"
+                "source": "https://github.com/localgovdrupal/localgov_search/tree/1.1.4"
             },
             "install-path": "../../web/modules/contrib/localgov_search"
         },
         {
             "name": "localgovdrupal/localgov_services",
-            "version": "2.0.16",
-            "version_normalized": "2.0.16.0",
+            "version": "2.0.19",
+            "version_normalized": "2.0.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_services.git",
-                "reference": "c1f686cb0e577a52f151e5df26c683d68bbad9a9"
+                "reference": "c59abbc6dd5fe53e96ad6883627af8e90a002e22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/c1f686cb0e577a52f151e5df26c683d68bbad9a9",
-                "reference": "c1f686cb0e577a52f151e5df26c683d68bbad9a9",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/c59abbc6dd5fe53e96ad6883627af8e90a002e22",
+                "reference": "c59abbc6dd5fe53e96ad6883627af8e90a002e22",
                 "shasum": ""
             },
             "require": {
@@ -10930,7 +11057,7 @@
                 "localgovdrupal/localgov_paragraphs": "^2.0",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-02-13T15:21:40+00:00",
+            "time": "2023-06-05T13:25:23+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10941,7 +11068,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_services",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_services/issues",
-                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.0.16"
+                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.0.19"
             },
             "install-path": "../../web/modules/contrib/localgov_services"
         },
@@ -10977,17 +11104,17 @@
         },
         {
             "name": "localgovdrupal/localgov_step_by_step",
-            "version": "2.0.7",
-            "version_normalized": "2.0.7.0",
+            "version": "2.0.10",
+            "version_normalized": "2.0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_step_by_step.git",
-                "reference": "41847b656abc7282f6d07ff9e57b6670f76a0cd6"
+                "reference": "b817d50c91d7fd2c9e41fba4aae69e9c41432fc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_step_by_step/zipball/41847b656abc7282f6d07ff9e57b6670f76a0cd6",
-                "reference": "41847b656abc7282f6d07ff9e57b6670f76a0cd6",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_step_by_step/zipball/b817d50c91d7fd2c9e41fba4aae69e9c41432fc0",
+                "reference": "b817d50c91d7fd2c9e41fba4aae69e9c41432fc0",
                 "shasum": ""
             },
             "require": {
@@ -10998,7 +11125,7 @@
                 "localgovdrupal/localgov_services": "^2.0",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2022-09-09T13:42:31+00:00",
+            "time": "2023-05-22T13:47:26+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11009,7 +11136,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_step_by_step",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_step_by_step/issues",
-                "source": "https://github.com/localgovdrupal/localgov_step_by_step/tree/2.0.7"
+                "source": "https://github.com/localgovdrupal/localgov_step_by_step/tree/2.0.10"
             },
             "install-path": "../../web/modules/contrib/localgov_step_by_step"
         },
@@ -11092,20 +11219,20 @@
         },
         {
             "name": "localgovdrupal/localgov_topics",
-            "version": "1.0.0",
-            "version_normalized": "1.0.0.0",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_topics.git",
-                "reference": "de362b0edc90263ca2ec84c0c827509c48b7bedb"
+                "reference": "b61ad738361a0bf159d4af631c7946e878af1a88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_topics/zipball/de362b0edc90263ca2ec84c0c827509c48b7bedb",
-                "reference": "de362b0edc90263ca2ec84c0c827509c48b7bedb",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_topics/zipball/b61ad738361a0bf159d4af631c7946e878af1a88",
+                "reference": "b61ad738361a0bf159d4af631c7946e878af1a88",
                 "shasum": ""
             },
-            "time": "2021-05-04T16:23:13+00:00",
+            "time": "2023-03-08T16:59:35+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11116,23 +11243,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_topics",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_topics/issues",
-                "source": "https://github.com/localgovdrupal/localgov_topics/tree/1.0.0"
+                "source": "https://github.com/localgovdrupal/localgov_topics/tree/1.0.1"
             },
             "install-path": "../../web/modules/contrib/localgov_topics"
         },
         {
             "name": "localgovdrupal/localgov_workflows",
-            "version": "1.1.3",
-            "version_normalized": "1.1.3.0",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_workflows.git",
-                "reference": "9eb67e47d5ea409e271bbfbb8c8874f7be305f86"
+                "reference": "c9617ae8d0ad4affe6d24835695a08938e0a81ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/9eb67e47d5ea409e271bbfbb8c8874f7be305f86",
-                "reference": "9eb67e47d5ea409e271bbfbb8c8874f7be305f86",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/c9617ae8d0ad4affe6d24835695a08938e0a81ad",
+                "reference": "c9617ae8d0ad4affe6d24835695a08938e0a81ad",
                 "shasum": ""
             },
             "require": {
@@ -11142,7 +11269,7 @@
                 "drupal/scheduled_transitions": "^2.1",
                 "localgovdrupal/localgov_core": "^2.1"
             },
-            "time": "2022-06-06T13:26:54+00:00",
+            "time": "2023-03-20T14:32:52+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11153,7 +11280,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_workflows",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_workflows/issues",
-                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.1.3"
+                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.1.4"
             },
             "install-path": "../../web/modules/contrib/localgov_workflows"
         },
@@ -11830,17 +11957,17 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.15.2",
-            "version_normalized": "1.15.2.0",
+            "version": "1.18.1",
+            "version_normalized": "1.18.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "5cc428320191ac1d0b6520034c2dc0698628ced5"
+                "reference": "f258b3a1d16acb7b21f3b42d7a2494a733365237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/5cc428320191ac1d0b6520034c2dc0698628ced5",
-                "reference": "5cc428320191ac1d0b6520034c2dc0698628ced5",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/f258b3a1d16acb7b21f3b42d7a2494a733365237",
+                "reference": "f258b3a1d16acb7b21f3b42d7a2494a733365237",
                 "shasum": ""
             },
             "require": {
@@ -11848,7 +11975,8 @@
                 "php": "^7.1 || ^8.0"
             },
             "conflict": {
-                "nyholm/psr7": "<1.0"
+                "nyholm/psr7": "<1.0",
+                "zendframework/zend-diactoros": "*"
             },
             "provide": {
                 "php-http/async-client-implementation": "*",
@@ -11865,7 +11993,7 @@
                 "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
                 "symfony/phpunit-bridge": "^6.2"
             },
-            "time": "2023-02-11T08:28:41+00:00",
+            "time": "2023-05-17T08:53:10+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Http\\Discovery\\Composer\\Plugin",
@@ -11875,7 +12003,10 @@
             "autoload": {
                 "psr-4": {
                     "Http\\Discovery\\": "src/"
-                }
+                },
+                "exclude-from-classmap": [
+                    "src/Composer/Plugin.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11901,7 +12032,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.15.2"
+                "source": "https://github.com/php-http/discovery/tree/1.18.1"
             },
             "install-path": "../php-http/discovery"
         },
@@ -11977,36 +12108,31 @@
         },
         {
             "name": "php-http/httplug",
-            "version": "2.3.0",
-            "version_normalized": "2.3.0.0",
+            "version": "2.4.0",
+            "version_normalized": "2.4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/httplug.git",
-                "reference": "f640739f80dfa1152533976e3c112477f69274eb"
+                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/httplug/zipball/f640739f80dfa1152533976e3c112477f69274eb",
-                "reference": "f640739f80dfa1152533976e3c112477f69274eb",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/625ad742c360c8ac580fcc647a1541d29e257f67",
+                "reference": "625ad742c360c8ac580fcc647a1541d29e257f67",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0",
                 "php-http/promise": "^1.1",
                 "psr/http-client": "^1.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0 || ^2.0"
             },
             "require-dev": {
-                "friends-of-phpspec/phpspec-code-coverage": "^4.1",
-                "phpspec/phpspec": "^5.1 || ^6.0"
+                "friends-of-phpspec/phpspec-code-coverage": "^4.1 || ^5.0 || ^6.0",
+                "phpspec/phpspec": "^5.1 || ^6.0 || ^7.0"
             },
-            "time": "2022-02-21T09:52:22+00:00",
+            "time": "2023-04-14T15:10:03+00:00",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
@@ -12036,30 +12162,30 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/httplug/issues",
-                "source": "https://github.com/php-http/httplug/tree/2.3.0"
+                "source": "https://github.com/php-http/httplug/tree/2.4.0"
             },
             "install-path": "../php-http/httplug"
         },
         {
             "name": "php-http/message",
-            "version": "1.13.0",
-            "version_normalized": "1.13.0.0",
+            "version": "1.14.0",
+            "version_normalized": "1.14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "7886e647a30a966a1a8d1dad1845b71ca8678361"
+                "reference": "2ccee04a28c3d98eb3f2b85ce1e2fcff70c0e63b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/7886e647a30a966a1a8d1dad1845b71ca8678361",
-                "reference": "7886e647a30a966a1a8d1dad1845b71ca8678361",
+                "url": "https://api.github.com/repos/php-http/message/zipball/2ccee04a28c3d98eb3f2b85ce1e2fcff70c0e63b",
+                "reference": "2ccee04a28c3d98eb3f2b85ce1e2fcff70c0e63b",
                 "shasum": ""
             },
             "require": {
                 "clue/stream-filter": "^1.5",
                 "php": "^7.1 || ^8.0",
                 "php-http/message-factory": "^1.0.2",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0 || ^2.0"
             },
             "provide": {
                 "php-http/message-factory-implementation": "1.0"
@@ -12078,13 +12204,8 @@
                 "laminas/laminas-diactoros": "Used with Diactoros Factories",
                 "slim/slim": "Used with Slim Framework PSR-7 implementation"
             },
-            "time": "2022-02-11T13:41:14+00:00",
+            "time": "2023-04-14T14:26:18+00:00",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.10-dev"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "files": [
@@ -12113,34 +12234,34 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/message/issues",
-                "source": "https://github.com/php-http/message/tree/1.13.0"
+                "source": "https://github.com/php-http/message/tree/1.14.0"
             },
             "install-path": "../php-http/message"
         },
         {
             "name": "php-http/message-factory",
-            "version": "v1.0.2",
-            "version_normalized": "1.0.2.0",
+            "version": "1.1.0",
+            "version_normalized": "1.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message-factory.git",
-                "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1"
+                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message-factory/zipball/a478cb11f66a6ac48d8954216cfed9aa06a501a1",
-                "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+                "url": "https://api.github.com/repos/php-http/message-factory/zipball/4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
+                "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0 || ^2.0"
             },
-            "time": "2015-12-19T14:08:53+00:00",
+            "time": "2023-04-14T14:16:17+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -12170,8 +12291,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/message-factory/issues",
-                "source": "https://github.com/php-http/message-factory/tree/master"
+                "source": "https://github.com/php-http/message-factory/tree/1.1.0"
             },
+            "abandoned": "psr/http-factory",
             "install-path": "../php-http/message-factory"
         },
         {
@@ -12874,17 +12996,17 @@
         },
         {
             "name": "rlanvin/php-rrule",
-            "version": "v2.4.0",
-            "version_normalized": "2.4.0.0",
+            "version": "v2.4.1",
+            "version_normalized": "2.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rlanvin/php-rrule.git",
-                "reference": "2acd9950e803ea65514d6440212d39096df9c528"
+                "reference": "7ddef3d49b7a6461dc070f671f0d94509c9a537b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rlanvin/php-rrule/zipball/2acd9950e803ea65514d6440212d39096df9c528",
-                "reference": "2acd9950e803ea65514d6440212d39096df9c528",
+                "url": "https://api.github.com/repos/rlanvin/php-rrule/zipball/7ddef3d49b7a6461dc070f671f0d94509c9a537b",
+                "reference": "7ddef3d49b7a6461dc070f671f0d94509c9a537b",
                 "shasum": ""
             },
             "require": {
@@ -12897,7 +13019,7 @@
             "suggest": {
                 "ext-intl": "Intl extension is needed for humanReadable()"
             },
-            "time": "2023-01-06T10:19:10+00:00",
+            "time": "2023-06-07T13:15:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -12920,28 +13042,29 @@
             ],
             "support": {
                 "issues": "https://github.com/rlanvin/php-rrule/issues",
-                "source": "https://github.com/rlanvin/php-rrule/tree/v2.4.0"
+                "source": "https://github.com/rlanvin/php-rrule/tree/v2.4.1"
             },
             "install-path": "../rlanvin/php-rrule"
         },
         {
             "name": "solarium/solarium",
-            "version": "6.2.8",
-            "version_normalized": "6.2.8.0",
+            "version": "6.3.0",
+            "version_normalized": "6.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/solariumphp/solarium.git",
-                "reference": "0bca4fdcd53e86dea19754b0081f91fe17248a9d"
+                "reference": "26295386d896d01937a4ec21436581aac86a3e9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/0bca4fdcd53e86dea19754b0081f91fe17248a9d",
-                "reference": "0bca4fdcd53e86dea19754b0081f91fe17248a9d",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/26295386d896d01937a4ec21436581aac86a3e9a",
+                "reference": "26295386d896d01937a4ec21436581aac86a3e9a",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": ">=2.0",
                 "ext-json": "*",
+                "halaxa/json-machine": "^1.1",
                 "php": "^7.3 || ^8.0",
                 "psr/event-dispatcher": "^1.0",
                 "psr/http-client": "^1.0",
@@ -12950,19 +13073,19 @@
             },
             "require-dev": {
                 "escapestudios/symfony2-coding-standard": "^3.11",
+                "ext-curl": "*",
                 "ext-iconv": "*",
-                "guzzlehttp/guzzle": "^7.2",
-                "nyholm/psr7": "^1.2",
-                "php-http/guzzle7-adapter": "^0.1",
+                "nyholm/psr7": "^1.8",
+                "php-http/guzzle7-adapter": "^1.0",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.6",
                 "roave/security-advisories": "dev-master",
                 "symfony/event-dispatcher": "^4.3 || ^5.0 || ^6.0"
             },
-            "time": "2022-12-06T10:22:19+00:00",
+            "time": "2023-06-13T07:45:42+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -12989,7 +13112,7 @@
             ],
             "support": {
                 "issues": "https://github.com/solariumphp/solarium/issues",
-                "source": "https://github.com/solariumphp/solarium/tree/6.2.8"
+                "source": "https://github.com/solariumphp/solarium/tree/6.3.0"
             },
             "install-path": "../solarium/solarium"
         },
@@ -15552,17 +15675,17 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.23",
-            "version_normalized": "5.4.23.0",
+            "version": "v5.4.24",
+            "version_normalized": "5.4.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "9a8a5b6d6508928174ded2109e29328a55342a42"
+                "reference": "8e12706bf9c68a2da633f23bfdc15b4dce5970b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/9a8a5b6d6508928174ded2109e29328a55342a42",
-                "reference": "9a8a5b6d6508928174ded2109e29328a55342a42",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/8e12706bf9c68a2da633f23bfdc15b4dce5970b3",
+                "reference": "8e12706bf9c68a2da633f23bfdc15b4dce5970b3",
                 "shasum": ""
             },
             "require": {
@@ -15571,7 +15694,6 @@
                 "symfony/polyfill-php80": "^1.16"
             },
             "conflict": {
-                "phpunit/phpunit": "<5.4.3",
                 "symfony/console": "<4.4"
             },
             "require-dev": {
@@ -15586,7 +15708,7 @@
                 "ext-intl": "To show region name in time zone dump",
                 "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
             },
-            "time": "2023-04-18T09:26:27+00:00",
+            "time": "2023-05-25T13:05:00+00:00",
             "bin": [
                 "Resources/bin/var-dump-server"
             ],
@@ -15624,7 +15746,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.23"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.24"
             },
             "funding": [
                 {
