@@ -8,7 +8,7 @@ dependencies:
   - drupal:text
 configure: entity.lp_host_entity.settings
 
-# Information added by Drupal.org packaging script on 2022-12-18
-version: '2.0.2'
+# Information added by Drupal.org packaging script on 2023-05-13
+version: '2.0.3'
 project: 'layout_paragraphs'
-datestamp: 1671393658
+datestamp: 1683938209

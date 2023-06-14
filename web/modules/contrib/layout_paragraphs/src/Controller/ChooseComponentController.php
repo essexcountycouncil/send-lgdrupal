@@ -80,23 +80,23 @@ class ChooseComponentController extends ControllerBase {
     $route_params = [
       'layout_paragraphs_layout' => $layout_paragraphs_layout->id(),
     ];
-    $query_params = $this->getQueryParams($request);
+    $context = $this->getContextFromRequest($request);
     // If inserting a new item adjecent to a sibling component, the region
     // passed in the URL will be incorrect if the existing sibling component
     // was dragged into another region. In that case, always use the existing
     // sibling's region.
-    if ($query_params['sibling_uuid']) {
-      $sibling = $layout_paragraphs_layout->getComponentByUuid($query_params['sibling_uuid']);
-      $query_params['region'] = $sibling->getRegion();
+    if ($context['sibling_uuid']) {
+      $sibling = $layout_paragraphs_layout->getComponentByUuid($context['sibling_uuid']);
+      $context['region'] = $sibling->getRegion();
     }
-    $types = $this->getAllowedComponentTypes($layout_paragraphs_layout, $query_params['parent_uuid'], $query_params['region']);
+    $types = $this->getAllowedComponentTypes($layout_paragraphs_layout, $context);
     // If there is only one type to render,
     // return the component form instead of a list of links.
     if (count($types) === 1) {
-      return $this->componentForm(key($types), $layout_paragraphs_layout, $query_params);
+      return $this->componentForm(key($types), $layout_paragraphs_layout, $context);
     }
     else {
-      return $this->componentMenu($types, $route_params, $query_params);
+      return $this->componentMenu($types, $route_params, $context);
     }
   }
 
@@ -107,22 +107,22 @@ class ChooseComponentController extends ControllerBase {
    *   The component (paragraph) type.
    * @param \Drupal\layout_paragraphs\LayoutParagraphsLayout $layout_paragraphs_layout
    *   The layout paragraphs layout object.
-   * @param array $query_params
-   *   An array of query parameters.
+   * @param array $context
+   *   The context for the new component.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse|array
    *   An ajax response or form render array.
    */
-  protected function componentForm(string $type_name, LayoutParagraphsLayout $layout_paragraphs_layout, array $query_params) {
+  protected function componentForm(string $type_name, LayoutParagraphsLayout $layout_paragraphs_layout, array $context) {
     $type = $this->entityTypeManager()->getStorage('paragraphs_type')->load($type_name);
     $form = $this->formBuilder()->getForm(
-      '\Drupal\layout_paragraphs\Form\InsertComponentForm',
+      $this->getInsertComponentFormClass(),
       $layout_paragraphs_layout,
       $type,
-      $query_params['parent_uuid'],
-      $query_params['region'],
-      $query_params['sibling_uuid'],
-      $query_params['placement']
+      $context['parent_uuid'],
+      $context['region'],
+      $context['sibling_uuid'],
+      $context['placement']
     );
     if ($this->isAjax()) {
       $response = new AjaxResponse();
@@ -138,20 +138,13 @@ class ChooseComponentController extends ControllerBase {
    *
    * @param array $types
    *   The component types.
-   * @param array $route_params
-   *   The route parameters.
-   * @param array $query_params
-   *   The query parameters.
    *
    * @return array
    *   The component menu render array.
    */
-  protected function componentMenu(array $types, array $route_params, array $query_params) {
-    $route_name = 'layout_paragraphs.builder.insert';
+  protected function componentMenu(array $types) {
     foreach ($types as &$type) {
-      $url_route_params = $route_params + ['paragraph_type' => $type['id']];
-      $url_options = ['query' => $query_params];
-      $type['url'] = Url::fromRoute($route_name, $url_route_params, $url_options)->toString();
+      $type['url'] = $type['url_object']->toString();
       $type['link_attributes'] = new Attribute([
         'class' => ['use-ajax'],
       ]);
@@ -186,15 +179,21 @@ class ChooseComponentController extends ControllerBase {
   }
 
   /**
-   * Returns an array of the query parameters to be paseed to a component form.
+   * Returns an array that defines the context for the component being added.
+   *
+   * A context may have a parent_uuid and region, or a sibling_uuid and
+   * placement. If the former, the item is being inserted in the region of a
+   * layout component with the uuid of "parent_uuid". If the latter, the new
+   * component is being inserted alongside the component with the uuid of
+   * "sibling_uuid", based on the value in "placement" (before or after).
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The request object.
    *
    * @return array
-   *   An array of query paramters.
+   *   The context into which the new component is being iserted.
    */
-  protected function getQueryParams(Request $request) {
+  protected function getContextFromRequest(Request $request) {
     return [
       'parent_uuid' => $request->query->get('parent_uuid', NULL),
       'region' => $request->query->get('region', NULL),
@@ -220,10 +219,11 @@ class ChooseComponentController extends ControllerBase {
    * @return array[]
    *   Returns an array of allowed component types.
    */
-  public function getAllowedComponentTypes(LayoutParagraphsLayout $layout, $parent_uuid = NULL, $region = NULL) {
+  public function getAllowedComponentTypes(LayoutParagraphsLayout $layout, $context) {
+
     // @todo Document and add tests for what is happening here.
-    $component_types = $this->getComponentTypes($layout);
-    $event = new LayoutParagraphsAllowedTypesEvent($component_types, $layout, $parent_uuid, $region);
+    $component_types = $this->getComponentTypes($layout, $context);
+    $event = new LayoutParagraphsAllowedTypesEvent($component_types, $layout, $context);
     $this->eventDispatcher->dispatch($event, LayoutParagraphsAllowedTypesEvent::EVENT_NAME);
     return $event->getTypes();
   }
@@ -233,11 +233,13 @@ class ChooseComponentController extends ControllerBase {
    *
    * @param \Drupal\layout_paragraphs\LayoutParagraphsLayout $layout
    *   The layout paragraphs layout.
+   * @param array $context
+   *   The context for the component to be added.
    *
    * @return array
    *   An array of available component types.
    */
-  public function getComponentTypes(LayoutParagraphsLayout $layout) {
+  public function getComponentTypes(LayoutParagraphsLayout $layout, array $context) {
 
     $items = $layout->getParagraphsReferenceField();
     $settings = $items->getSettings()['handler_settings'];
@@ -255,12 +257,18 @@ class ChooseComponentController extends ControllerBase {
         if (method_exists($paragraphs_type, 'getIconUrl')) {
           $path = $paragraphs_type->getIconUrl();
         }
+        $route_params = [
+          'layout_paragraphs_layout' => $layout->id(),
+          'paragraph_type' => $paragraphs_type->id(),
+        ];
+        $query_params = $context;
         $types[$bundle] = [
           'id' => $paragraphs_type->id(),
           'label' => $paragraphs_type->label(),
           'image' => $path,
           'description' => $paragraphs_type->getDescription(),
           'is_section' => $section_component,
+          'url_object' => Url::fromRoute('layout_paragraphs.builder.insert', $route_params, ['query' => $context]),
         ];
       }
     }
@@ -322,6 +330,13 @@ class ChooseComponentController extends ControllerBase {
     }
     uasort($return_bundles, 'Drupal\Component\Utility\SortArray::sortByWeightElement');
     return $return_bundles;
+  }
+
+  /**
+   * Returns the insert component form class.
+   */
+  protected function getInsertComponentFormClass() {
+    return '\Drupal\layout_paragraphs\Form\InsertComponentForm';
   }
 
 }

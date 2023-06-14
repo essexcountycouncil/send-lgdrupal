@@ -195,7 +195,7 @@ class LayoutParagraphsBuilder extends RenderElement implements ContainerFactoryP
       ],
       'id' => Html::getUniqueId($this->layoutParagraphsLayout->id()),
       'data-lpb-id' => $this->layoutParagraphsLayout->id(),
-    ];
+    ] + ($element['#attributes'] ?? []);
     $element['#attached']['library'] = ['layout_paragraphs/builder'];
     $element['#attached']['drupalSettings']['lpBuilder'][$this->layoutParagraphsLayout->id()] = $this->layoutParagraphsLayout->getSettings();
     $element['#is_empty'] = $this->layoutParagraphsLayout->isEmpty();

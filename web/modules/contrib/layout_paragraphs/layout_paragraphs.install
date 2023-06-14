@@ -29,6 +29,7 @@ function layout_paragraphs_update_9001(&$sandbox) {
   }
 
   $ids = Drupal::entityQuery('paragraph')
+    ->accessCheck(FALSE)
     ->condition('behavior_settings', '_disabled', 'CONTAINS')
     ->condition('behavior_settings', 'layout_paragraphs', 'CONTAINS')
     ->range(0, 20)
