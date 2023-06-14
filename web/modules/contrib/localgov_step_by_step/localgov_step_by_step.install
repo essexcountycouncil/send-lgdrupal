@@ -107,3 +107,28 @@ EOY
     return t('Step by step navigation view not updated. See release notes for more info.');
   }
 }
+
+/**
+ * Update navigation view for step title h2.
+ */
+function localgov_step_by_step_update_8002() {
+  $navigation_view = View::load('localgov_step_by_step_navigation');
+  $display = $navigation_view->get('display');
+  $fields = $display['default']['display_options']['fields'];
+  // Don't alter the view if the relevant parts have been changed on the site.
+  if (
+    isset($fields['localgov_step_section_title']) &&
+    ($section_title = $fields['localgov_step_section_title']) &&
+    ($section_title['element_class'] == 'step__title') &&
+    ($section_title['element_type'] == 'div')
+  ) {
+    $display['default']['display_options']['fields']['localgov_step_section_title']['element_type'] = 'h2';
+    $navigation_view->set('display', $display);
+    $navigation_view->save();
+    return t('Step by step navigation view step title changed from div to h2.');
+  }
+  else {
+    return t('Step by step navigation view not updated. See release notes for more info.');
+  }
+
+}
