@@ -1224,7 +1224,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
       }
 
       // Clear the target.
-      $this->clearTarget($entity, $this->feedType->getTargetPlugin($delta), $mapping['target']);
+      $this->clearTarget($feed, $entity, $this->feedType->getTargetPlugin($delta), $mapping['target']);
     }
 
     // Gather all of the values for this item.
@@ -1285,6 +1285,8 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
   /**
    * Clears the target on the entity.
    *
+   * @param \Drupal\feeds\FeedInterface $feed
+   *   The feed object.
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity to clear the target on.
    * @param \Drupal\feeds\Plugin\Type\Target\TargetInterface $target
@@ -1292,7 +1294,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
    * @param string $target_name
    *   The property to clear on the entity.
    */
-  protected function clearTarget(EntityInterface $entity, TargetInterface $target, $target_name) {
+  protected function clearTarget(FeedInterface $feed, EntityInterface $entity, TargetInterface $target, $target_name) {
     if (!$target->isMutable()) {
       // Don't clear immutable targets.
       return;
@@ -1322,7 +1324,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
       }
     }
 
-    unset($entity_target->{$target_name});
+    $target->clearTarget($feed, $entity_target, $target_name);
   }
 
   /**

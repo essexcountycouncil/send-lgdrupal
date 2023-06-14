@@ -7,6 +7,7 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Queue\QueueFactory;
 use Drupal\Core\Session\AccountSwitcherInterface;
 use Drupal\feeds\Exception\EmptyFeedException;
+use Drupal\feeds\Result\FetcherResultInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -66,6 +67,9 @@ class FeedsQueueExecutable extends FeedsExecutable {
    */
   protected function handleException(FeedInterface $feed, $stage, array $params, \Exception $exception) {
     if ($exception instanceof EmptyFeedException) {
+      if (isset($params['fetcher_result']) && $params['fetcher_result'] instanceof FetcherResultInterface) {
+        $params['fetcher_result']->cleanUp();
+      }
       $feed->finishImport();
       return;
     }

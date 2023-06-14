@@ -2,12 +2,14 @@
 
 namespace Drupal\Tests\feeds\Unit\Feeds\Target;
 
+use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\feeds\EntityFinderInterface;
 use Drupal\feeds\Plugin\Type\Target\TargetInterface;
+use Drupal\file\FileRepositoryInterface;
 use GuzzleHttp\ClientInterface;
 
 /**
@@ -51,6 +53,20 @@ abstract class FileTargetTestBase extends FieldTargetTestBase {
   protected $entityFinder;
 
   /**
+   * The file repository.
+   *
+   * @var Drupal\file\FileRepositoryInterface
+   */
+  protected $fileRepository;
+
+  /**
+   * The config service for system.file.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $fileConfig;
+
+  /**
    * {@inheritdoc}
    */
   public function setUp(): void {
@@ -63,6 +79,8 @@ abstract class FileTargetTestBase extends FieldTargetTestBase {
     $this->entityFieldManager->getFieldStorageDefinitions('file')->willReturn([]);
     $this->entityFinder = $this->prophesize(EntityFinderInterface::class);
     $this->fileSystem = $this->prophesize(FileSystemInterface::class);
+    $this->fileRepository = $this->prophesize(FileRepositoryInterface::class);
+    $this->fileConfig = $this->prophesize(ImmutableConfig::class);
   }
 
   /**
@@ -89,7 +107,7 @@ abstract class FileTargetTestBase extends FieldTargetTestBase {
       'feed_type' => $this->createMock('Drupal\feeds\FeedTypeInterface'),
       'target_definition' => $method($field_definition_mock),
     ];
-    return new $target_class($configuration, static::$pluginId, [], $this->entityTypeManager->reveal(), $this->client->reveal(), $this->token->reveal(), $this->entityFieldManager->reveal(), $this->entityFinder->reveal(), $this->fileSystem->reveal());
+    return new $target_class($configuration, static::$pluginId, [], $this->entityTypeManager->reveal(), $this->client->reveal(), $this->token->reveal(), $this->entityFieldManager->reveal(), $this->entityFinder->reveal(), $this->fileSystem->reveal(), $this->fileRepository->reveal(), $this->fileConfig->reveal());
   }
 
 }

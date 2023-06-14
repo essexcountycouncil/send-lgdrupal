@@ -146,6 +146,31 @@ trait FeedsCommonTrait {
   }
 
   /**
+   * Asserts that the given number of terms exist.
+   *
+   * @param int $expected_term_count
+   *   The expected number of terms in the taxonomy_term_data table.
+   * @param string $message
+   *   (optional) The message to assert.
+   */
+  protected function assertTermCount($expected_term_count, $message = '') {
+    if (!$message) {
+      $message = '@expected terms have been created (actual: @count).';
+    }
+
+    $term_count = $this->container->get('database')
+      ->select('taxonomy_term_data')
+      ->fields('taxonomy_term_data', [])
+      ->countQuery()
+      ->execute()
+      ->fetchField();
+    $this->assertEquals($expected_term_count, $term_count, strtr($message, [
+      '@expected' => $expected_term_count,
+      '@count' => $term_count,
+    ]));
+  }
+
+  /**
    * Asserts that the given number of queue items exist for the specified queue.
    *
    * @param int $expected

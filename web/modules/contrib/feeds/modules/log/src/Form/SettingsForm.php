@@ -88,7 +88,7 @@ class SettingsForm extends ConfigFormBase {
       '#type' => 'feeds_uri',
       '#title' => $this->t('Feeds log directory'),
       '#description' => $this->t('Directory where logged files get stored. Prefix the path with a scheme. Available schemes: @schemes.', ['@schemes' => implode(', ', $this->getSchemes())]),
-      '#default_value' => !empty($config->get('log_dir')) ? $config->get('log_dir') : $this->logFileManager->getFeedsLogDirectory(),
+      '#default_value' => !empty($config->get('log_dir')) ? $config->get('log_dir') : $this->logFileManager->getFeedsDirectory(),
       '#allowed_schemes' => $this->getSchemes(),
     ];
 

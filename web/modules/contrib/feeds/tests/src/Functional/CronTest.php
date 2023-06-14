@@ -28,6 +28,22 @@ class CronTest extends FeedsBrowserTestBase {
   }
 
   /**
+   * Returns the file from the Feeds "in progress" directory.
+   *
+   * @param string $subdirectory
+   *   The subdirectory to get the progress file for.
+   *
+   * @return object
+   *   The found file.
+   */
+  protected function getInProgressFile(string $subdirectory) {
+    // Assert that a file exists in the in_progress dir.
+    $files = $this->container->get('file_system')->scanDirectory('private://feeds/in_progress/' . $subdirectory, '/.*/');
+    $this->assertCount(1, $files, 'The feeds "in progress" dir contains one file.');
+    return reset($files);
+  }
+
+  /**
    * Tests importing through cron.
    */
   public function test() {
@@ -254,6 +270,58 @@ class CronTest extends FeedsBrowserTestBase {
 
     // Assert that the queue is empty.
     $this->assertQueueItemCount(0, 'feeds_feed_refresh:' . $feed_type->id());
+  }
+
+  /**
+   * Tests that an import gets aborted when the file to import gets removed.
+   */
+  public function testAbortImportWhenTemporaryFileIsDeleted() {
+    // Install module that alters how many items can be processed per cron run.
+    $this->container->get('module_installer')->install([
+      'feeds_test_multiple_cron_runs',
+    ]);
+    $this->rebuildContainer();
+
+    // Create a feed type.
+    $feed_type = $this->createFeedTypeForCsv([
+      'guid' => 'GUID',
+      'title' => 'Title',
+    ], [
+      'fetcher' => 'http',
+      'fetcher_configuration' => [],
+      'parser_configuration' => [
+        // Only parse 5 lines at a time.
+        'line_limit' => 5,
+      ],
+      'mappings' => [
+        [
+          'target' => 'feeds_item',
+          'map' => ['guid' => 'guid'],
+        ],
+        [
+          'target' => 'title',
+          'map' => ['value' => 'title'],
+        ],
+      ],
+    ]);
+
+    // Create a feed and a schedule an import.
+    $feed = $this->createFeed($feed_type->id(), [
+      'source' => $this->resourcesUrl() . '/csv/many_nodes_ordered.csv',
+    ]);
+    $feed->startCronImport();
+
+    // Run the first cron. Five nodes should have been imported.
+    $this->cronRun();
+    $this->assertNodeCount(5);
+
+    // Remove file.
+    $file = $this->getInProgressFile($feed->id());
+    $this->assertTrue($this->container->get('file_system')->delete($file->uri));
+
+    // Run cron again and assert that no more nodes are imported.
+    $this->cronRun();
+    $this->assertNodeCount(5);
   }
 
   /**

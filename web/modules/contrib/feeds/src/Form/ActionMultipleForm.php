@@ -13,16 +13,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Provides a feed deletion confirmation form.
+ * Provides a confirmation form for a feed action.
  */
-class DeleteMultiple extends ConfirmFormBase {
+abstract class ActionMultipleForm extends ConfirmFormBase {
 
   /**
-   * The array of feeds to delete.
+   * A selection of feed ID's.
    *
    * @var array
    */
-  protected $feeds = [];
+  protected $feedIds = [];
 
   /**
    * The tempstore factory.
@@ -43,7 +43,7 @@ class DeleteMultiple extends ConfirmFormBase {
    *
    * @var \Drupal\Core\Session\AccountInterface
    */
-  protected $user;
+  protected $currentUser;
 
   /**
    * Constructs a DeleteMultiple form object.
@@ -52,13 +52,13 @@ class DeleteMultiple extends ConfirmFormBase {
    *   The tempstore factory.
    * @param \Drupal\feeds\FeedStorageInterface $storage
    *   The feed storage.
-   * @param \Drupal\Core\Session\AccountInterface $user
+   * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    */
-  public function __construct(PrivateTempStoreFactory $temp_store_factory, FeedStorageInterface $storage, AccountInterface $user) {
+  public function __construct(PrivateTempStoreFactory $temp_store_factory, FeedStorageInterface $storage, AccountInterface $current_user) {
     $this->tempStoreFactory = $temp_store_factory;
     $this->storage = $storage;
-    $this->user = $user;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -76,14 +76,7 @@ class DeleteMultiple extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'feeds_feed_multiple_delete_confirm';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getQuestion() {
-    return $this->formatPlural(count($this->feeds), 'Are you sure you want to delete this item?', 'Are you sure you want to delete these items?');
+    return static::ACTION;
   }
 
   /**
@@ -96,41 +89,20 @@ class DeleteMultiple extends ConfirmFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getConfirmText() {
-    return $this->t('Delete');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $this->feeds = $this->tempStoreFactory->get('feeds_feed_multiple_delete_confirm')->get($this->user->id());
-    if (empty($this->feeds)) {
+    $this->feedIds = $this->tempStoreFactory->get(static::ACTION)->get($this->currentUser->id() . ':feeds_feed');
+    if (empty($this->feedIds)) {
       return new RedirectResponse($this->getCancelUrl()->setAbsolute()->toString());
     }
+    $feeds = $this->storage->loadMultiple($this->feedIds);
 
     $form['feeds'] = [
       '#theme' => 'item_list',
       '#items' => array_map(function ($feed) {
         return Html::escape($feed->label());
-      }, $this->feeds),
+      }, $feeds),
     ];
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    if ($form_state->getValue('confirm') && !empty($this->feeds)) {
-      $this->storage->delete($this->feeds);
-      $this->tempStoreFactory->get('feeds_feed_multiple_delete_confirm')->delete($this->user->id());
-      $count = count($this->feeds);
-      $this->logger('feeds')->notice('Deleted @count feeds.', ['@count' => $count]);
-      $this->messenger()->addMessage($this->formatPlural($count, 'Deleted 1 feed.', 'Deleted @count feeds.'));
-    }
-
-    $form_state->setRedirectUrl($this->getCancelUrl());
   }
 
 }

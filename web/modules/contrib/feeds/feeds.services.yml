@@ -1,4 +1,5 @@
 services:
+  # Feeds plugin managers.
   plugin.manager.feeds.fetcher:
     class: Drupal\feeds\Plugin\Type\FeedsPluginManager
     arguments: ['fetcher', '@container.namespaces', '@cache.default', '@language_manager', '@module_handler']
@@ -17,11 +18,29 @@ services:
   plugin.manager.feeds.target:
     class: Drupal\feeds\Plugin\Type\FeedsPluginManager
     arguments: ['target', '@container.namespaces', '@cache.default', '@language_manager', '@module_handler']
+
+  # Access handlers.
   access_check.feeds.feed_add:
     class: Drupal\feeds\Access\FeedAddAccessCheck
     arguments: ['@entity_type.manager']
     tags:
       - { name: access_check, applies_to: _feeds_feed_add_access }
+  access_check.feeds_clear_multiple:
+    class: Drupal\feeds\Access\FeedClearMultipleAccessCheck
+    arguments: ['@entity_type.manager', '@tempstore.private', '@request_stack']
+    tags:
+      - { name: access_check, applies_to: _feeds_feed_clear_multiple_access }
+  access_check.feeds_delete_multiple:
+    class: Drupal\feeds\Access\FeedDeleteMultipleAccessCheck
+    arguments: ['@entity_type.manager', '@tempstore.private', '@request_stack']
+    tags:
+      - { name: access_check, applies_to: _feeds_feed_delete_multiple_access }
+  access_check.feeds_import_multiple:
+    class: Drupal\feeds\Access\FeedImportMultipleAccessCheck
+    arguments: ['@entity_type.manager', '@tempstore.private', '@request_stack']
+    tags:
+      - { name: access_check, applies_to: _feeds_feed_import_multiple_access }
+
   feeds.pubsubhubbub:
     class: Drupal\feeds\EventSubscriber\PubSubHubbub
     arguments: ['@entity_type.manager']
@@ -31,6 +50,8 @@ services:
     class: Drupal\feeds\EventSubscriber\LazySubscriber
     tags:
       - { name: event_subscriber }
+
+  # Feed readers for the syndication parser.
   feeds.bridge.reader:
     class: Drupal\feeds\Component\ZfExtensionManagerSfContainer
     calls:
@@ -41,6 +62,7 @@ services:
     class: Drupal\feeds\Laminas\Extension\Georss\Entry
   feed.reader.mediarssentry:
     class: Drupal\feeds\Laminas\Extension\Mediarss\Entry
+
   cache.feeds_download:
     class: Drupal\Core\Cache\CacheBackendInterface
     tags:
@@ -51,6 +73,9 @@ services:
   feeds.entity_finder:
     class: Drupal\feeds\EntityFinder
     arguments: ['@entity_type.manager', '@entity.repository']
+  feeds.file_system.in_progress:
+    class: Drupal\feeds\File\InProgress
+    arguments: ['@config.factory', '@file_system', '@stream_wrapper_manager']
   feeds.lock:
     class: Drupal\feeds\Lock\FeedsLockBackend
     arguments: ['@database', '@entity_type.manager', '@config.factory', '@logger.channel.feeds']

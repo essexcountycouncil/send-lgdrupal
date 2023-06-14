@@ -10,13 +10,6 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 class FieldTargetDefinition extends TargetDefinition {
 
   /**
-   * The target plugin id.
-   *
-   * @var string
-   */
-  protected $pluginId;
-
-  /**
    * The wrapped field definition.
    *
    * @var \Drupal\Core\Field\FieldDefinitionInterface
@@ -47,20 +40,6 @@ class FieldTargetDefinition extends TargetDefinition {
    */
   protected function setFieldDefinition(FieldDefinitionInterface $field_definition) {
     $this->fieldDefinition = $field_definition;
-    return $this;
-  }
-
-  /**
-   * Sets the plugin id.
-   *
-   * @param string $plugin_id
-   *   The plugin id.
-   *
-   * @return $this
-   *   An instance of itself.
-   */
-  public function setPluginId($plugin_id) {
-    $this->pluginId = $plugin_id;
     return $this;
   }
 

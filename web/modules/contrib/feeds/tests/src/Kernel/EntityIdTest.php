@@ -53,6 +53,9 @@ class EntityIdTest extends FeedsKernelTestBase {
     foreach ($messages['warning'] as $warning) {
       $this->assertStringNotContainsString('SQLSTATE', $warning);
     }
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
@@ -163,6 +166,9 @@ class EntityIdTest extends FeedsKernelTestBase {
     foreach ($messages['warning'] as $warning) {
       $this->assertStringNotContainsString('SQLSTATE', $warning);
     }
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
 }

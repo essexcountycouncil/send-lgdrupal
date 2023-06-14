@@ -10,6 +10,7 @@ use Drupal\feeds\Event\ReportEvent;
 /**
  * Status of the import or clearing operation of a Feed.
  */
+#[\AllowDynamicProperties]
 class State implements StateInterface {
 
   use DependencySerializationTrait;

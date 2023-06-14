@@ -9,16 +9,9 @@ use Drupal\Core\TempStore\PrivateTempStore;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Redirects to a feed deletion form.
- *
- * @Action(
- *   id = "feeds_feed_delete_action",
- *   label = @Translation("Delete selected feeds"),
- *   type = "feeds_feed",
- *   confirm_form_route_name = "feeds.multiple_delete_confirm"
- * )
+ * Actions for manipulating multiple feeds.
  */
-class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
+abstract class FeedActionBase extends ActionBase implements ContainerFactoryPluginInterface {
 
   /**
    * The tempstore object.
@@ -32,10 +25,10 @@ class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
    *
    * @var \Drupal\Core\Session\AccountInterface
    */
-  protected $user;
+  protected $currentUser;
 
   /**
-   * Constructs a DeleteFeed object.
+   * Constructs a new FeedActionBase object.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -45,12 +38,12 @@ class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
    *   The plugin implementation definition.
    * @param \Drupal\Core\TempStore\PrivateTempStore $temp_store
    *   The tempstore factory.
-   * @param \Drupal\Core\Session\AccountInterface $user
+   * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    */
-  public function __construct(array $configuration, $plugin_id, array $plugin_definition, PrivateTempStore $temp_store, AccountInterface $user) {
+  public function __construct(array $configuration, $plugin_id, array $plugin_definition, PrivateTempStore $temp_store, AccountInterface $current_user) {
     $this->tempStore = $temp_store;
-    $this->user = $user;
+    $this->currentUser = $current_user;
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
 
@@ -58,7 +51,7 @@ class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    $temp_store = $container->get('tempstore.private')->get('feeds_feed_multiple_delete_confirm');
+    $temp_store = $container->get('tempstore.private')->get(static::ACTION);
 
     return new static(
       $configuration,
@@ -73,7 +66,12 @@ class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function executeMultiple(array $entities) {
-    $this->tempStore->set($this->user->id(), $entities);
+    /** @var \Drupal\feeds\FeedInterface[] $entities */
+    $selection = [];
+    foreach ($entities as $entity) {
+      $selection[$entity->id()] = $entity->id();
+    }
+    $this->tempStore->set($this->currentUser->id() . ':feeds_feed', $selection);
   }
 
   /**
@@ -81,13 +79,6 @@ class DeleteFeed extends ActionBase implements ContainerFactoryPluginInterface {
    */
   public function execute($object = NULL) {
     $this->executeMultiple([$object]);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function access($object, AccountInterface $account = NULL, $return_as_object = FALSE) {
-    return TRUE;
   }
 
 }

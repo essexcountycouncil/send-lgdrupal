@@ -78,6 +78,7 @@ class FeedsEventsTest extends FeedsKernelTestBase {
 
     // Clear messages.
     \Drupal::messenger()->deleteAll();
+    $this->logger->clearMessages();
 
     // Now create a feed type with the same settings. This time, ensure that
     // \Drupal\feeds_test_events\EventSubscriber::prevalidate() sets a title on

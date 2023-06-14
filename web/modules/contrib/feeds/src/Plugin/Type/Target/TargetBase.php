@@ -2,8 +2,10 @@
 
 namespace Drupal\feeds\Plugin\Type\Target;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\PluginFormInterface;
+use Drupal\feeds\FeedInterface;
 use Drupal\feeds\Plugin\Type\ConfigurablePluginTrait;
 use Drupal\feeds\Plugin\Type\PluginBase;
 
@@ -55,6 +57,13 @@ abstract class TargetBase extends PluginBase implements TargetInterface, PluginF
     // Calling setConfiguration() ensures the configuration is clean and
     // defaults are set.
     $this->setConfiguration($configuration);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function clearTarget(FeedInterface $feed, EntityInterface $entity, string $target) {
+    unset($entity->{$target});
   }
 
   /**

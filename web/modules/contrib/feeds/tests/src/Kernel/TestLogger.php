@@ -22,7 +22,21 @@ class TestLogger implements LoggerInterface {
    * {@inheritdoc}
    */
   public function log($level, $message, array $context = []): void {
-    $this->messages[] = strtr($message, $context);
+    // Remove any context that does not start with a placeholder.
+    foreach ($context as $key => $value) {
+      $placeholder_key = mb_substr($key, 0, 1);
+      switch ($placeholder_key) {
+        case '@':
+        case '%':
+        case ':':
+          break;
+
+        default:
+          unset($context[$key]);
+      }
+    }
+
+    $this->messages[$level][] = strtr($message, $context);
   }
 
   /**
@@ -33,6 +47,13 @@ class TestLogger implements LoggerInterface {
    */
   public function getMessages(): array {
     return $this->messages;
+  }
+
+  /**
+   * Clears all logged messages.
+   */
+  public function clearMessages() {
+    $this->messages = [];
   }
 
 }

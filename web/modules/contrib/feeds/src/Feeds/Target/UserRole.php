@@ -217,7 +217,7 @@ class UserRole extends ConfigEntityReference {
     $form['revoke_roles'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Revoke roles'),
-      '#description' => t('If enabled, roles that are not provided by the feed will be revoked for the user. This affects only the "Allowed roles" as configured above.'),
+      '#description' => $this->t('If enabled, roles that are not provided by the feed will be revoked for the user. This affects only the "Allowed roles" as configured above.'),
       '#default_value' => $this->configuration['revoke_roles'],
     ];
 

@@ -6,10 +6,10 @@ use Drupal\feeds\Entity\Feed;
 use Drupal\Tests\feeds\Functional\FeedsBrowserTestBase;
 
 /**
- * @coversDefaultClass \Drupal\feeds\Plugin\Action\DeleteFeed
+ * @coversDefaultClass \Drupal\feeds\Plugin\Action\DeleteFeedAction
  * @group feeds
  */
-class DeleteFeedTest extends FeedsBrowserTestBase {
+class DeleteFeedActionTest extends FeedsBrowserTestBase {
 
   /**
    * {@inheritdoc}
@@ -52,7 +52,7 @@ class DeleteFeedTest extends FeedsBrowserTestBase {
     $this->submitForm($edit, 'Apply to selected items');
 
     // Assert a confirmation page is shown.
-    $this->assertSession()->pageTextContains('Are you sure you want to delete these items?');
+    $this->assertSession()->pageTextContains('Are you sure you want to delete these feeds?');
     $this->submitForm([], 'Delete');
 
     // Assert that feed 1 and feed 2 are deleted, but feed 3 is not.

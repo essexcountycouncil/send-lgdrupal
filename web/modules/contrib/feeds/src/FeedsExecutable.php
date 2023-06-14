@@ -20,8 +20,6 @@ use Drupal\feeds\Exception\EmptyFeedException;
 use Drupal\feeds\Exception\LockException;
 use Drupal\feeds\Feeds\Item\ItemInterface;
 use Drupal\feeds\Result\FetcherResultInterface;
-use Exception;
-use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -122,7 +120,7 @@ class FeedsExecutable implements FeedsExecutableInterface, ContainerInjectionInt
           break;
       }
     }
-    catch (Exception $exception) {
+    catch (\Exception $exception) {
       return $this->handleException($feed, $stage, $params, $exception);
     }
     finally {
@@ -177,13 +175,16 @@ class FeedsExecutable implements FeedsExecutableInterface, ContainerInjectionInt
    * @throws \Exception
    *   Thrown if the exception should not be ignored.
    */
-  protected function handleException(FeedInterface $feed, $stage, array $params, Exception $exception) {
+  protected function handleException(FeedInterface $feed, $stage, array $params, \Exception $exception) {
+    if (isset($params['fetcher_result']) && $params['fetcher_result'] instanceof FetcherResultInterface) {
+      $params['fetcher_result']->cleanUp();
+    }
     $feed->finishImport();
 
     if ($exception instanceof EmptyFeedException) {
       return;
     }
-    if ($exception instanceof RuntimeException) {
+    if ($exception instanceof \RuntimeException) {
       $this->messenger->addError($exception->getMessage());
       return;
     }
@@ -331,6 +332,7 @@ class FeedsExecutable implements FeedsExecutableInterface, ContainerInjectionInt
       return FALSE;
     }
     else {
+      $fetcher_result->cleanUp();
       $feed->finishImport();
       return TRUE;
     }

@@ -4,6 +4,7 @@ namespace Drupal\feeds\Form;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\SortArray;
 use Drupal\Core\Config\Entity\ConfigEntityStorageInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormState;
@@ -27,7 +28,7 @@ class MappingForm extends FormBase {
   /**
    * The feed type.
    *
-   * @var \Drupal\feeds\FeedTypeInterface
+   * @var \Drupal\feeds\FeedTypeInterface|null
    */
   protected $feedType;
 
@@ -43,7 +44,28 @@ class MappingForm extends FormBase {
    *
    * @var array
    */
-  protected $mappings;
+  protected $mappings = [];
+
+  /**
+   * The mapping targets for this feed type.
+   *
+   * @var array
+   */
+  protected $targets = [];
+
+  /**
+   * A list of available mapping sources, used for a select form element.
+   *
+   * @var array
+   */
+  protected $sourceOptions = [];
+
+  /**
+   * The custom source plugin manager.
+   *
+   * @var \Drupal\Component\Plugin\PluginManagerInterface
+   */
+  protected $customSourcePluginManager;
 
   /**
    * Constructs a new MappingForm object.
@@ -133,19 +155,7 @@ class MappingForm extends FormBase {
     $form['#suffix'] = '</div>';
     $form['#attached']['library'][] = 'feeds/feeds';
 
-    $table = [
-      '#type' => 'table',
-      '#header' => [
-        $this->t('Source'),
-        $this->t('Target'),
-        $this->t('Summary'),
-        $this->t('Configure'),
-        $this->t('Unique'),
-        $this->t('Remove'),
-      ],
-      '#sticky' => TRUE,
-    ];
-
+    $table = [];
     foreach ($feed_type->getMappings() as $delta => $mapping) {
       $table[$delta] = $this->buildRow($form, $form_state, $mapping, $delta);
     }
@@ -192,7 +202,147 @@ class MappingForm extends FormBase {
       }
     }
 
+    // In the after build callback, put the mapping form in a table.
+    $form['mappings']['#after_build'][] = [$this, 'afterBuild'];
+
     return $form;
+  }
+
+  /**
+   * Puts mapping form in a table, with one row per property.
+   */
+  public function afterBuild($element, FormStateInterface $form_state) {
+    $element['#type'] = 'table';
+    $header = [
+      'source' => $this->t('Source'),
+      'target' => $this->t('Target'),
+      'summary' => $this->t('Summary'),
+      'configure' => $this->t('Configure'),
+      'unique' => $this->t('Unique'),
+      'remove' => $this->t('Remove'),
+    ];
+    $element['#header'] = [];
+    foreach ($header as $key => $label) {
+      $element['#header'][$key] = [
+        'class' => $key,
+        'data' => $label,
+      ];
+    }
+    $element['#sticky'] = TRUE;
+
+    $rows = [];
+    // Loop through all mapping rows.
+    foreach (Element::children($element) as $index) {
+      // Check if the form element is a mapping row. One form element that is
+      // not a mapping row is the row for adding a new mapping target.
+      if (!isset($element[$index]['map'])) {
+        // Not a mapping row, but set to turn off striping to prevent that this
+        // row gets a css class called 'odd' or 'even'.
+        $element[$index]['#attributes']['no_striping'] = TRUE;
+        continue;
+      }
+
+      $properties = Element::children($element[$index]['map']);
+      // Count how many properties there are for the current mapping, this is
+      // used to span some columns across multiple rows.
+      $property_count = count($properties);
+      // Keep track of on which number of property we are. Some columns only
+      // need a value for the first property row.
+      $property_delta = 0;
+
+      // Loop through all properties of the current mapping row.
+      foreach ($properties as $property) {
+        $row = [
+          '#attributes' => [
+            'class' => ['mapping-property'],
+            'data-drupal-selector' => 'edit-mappings-' . $index . '-' . $property,
+            // Prevent css classes from 'odd' or 'even' being added as that
+            // could make it harder to see which table rows belong to the same
+            // mapping row.
+            'no_striping' => TRUE,
+          ],
+          '#weight' => $element[$index]['#weight'],
+          '#parents' => $element['#parents'] + [
+            $index . '.' . $property,
+          ],
+          '#array_parents' => $element['#array_parents'] + [
+            $index . '.' . $property,
+          ],
+        ];
+        // Add a css class for the mapping's first property.
+        if ($property_delta === 0) {
+          $row['#attributes']['class'][] = 'mapping-property-first';
+        }
+        // Add a css class for the mapping's last property.
+        if ($property_delta == $property_count - 1) {
+          $row['#attributes']['class'][] = 'mapping-property-last';
+        }
+
+        // Source column.
+        $row['source'] = $element[$index]['map'][$property];
+
+        // Target column.
+        $row['target'] = $element[$index]['targets'][$property];
+
+        // Summary and configure columns, these are only displayed once per
+        // mapping row.
+        if ($property_delta === 0) {
+          $row['summary'] = $element[$index]['settings'] + [
+            '#wrapper_attributes' => [
+              'rowspan' => $property_count,
+            ],
+          ];
+          $row['configure'] = $element[$index]['configure'] + [
+            '#wrapper_attributes' => [
+              'rowspan' => $property_count,
+            ],
+          ];
+        }
+
+        // Unique column. Not every property can be configured as unique.
+        if (isset($element[$index]['unique'][$property])) {
+          $row['unique'] = $element[$index]['unique'][$property];
+        }
+        else {
+          $row['unique'] = [
+            '#markup' => '',
+            '#parents' => $element['#parents'] + [
+              $index . '.' . $property,
+              'unique',
+            ],
+            '#array_parents' => $element['#array_parents'] + [
+              $index . '.' . $property,
+              'unique',
+            ],
+          ];
+        }
+
+        // Remove column. This is only displayed once per mapping row.
+        if ($property_delta === 0) {
+          $row['remove'] = $element[$index]['remove'] + [
+            '#wrapper_attributes' => [
+              'rowspan' => $property_count,
+            ],
+          ];
+        }
+
+        $rows[$index . '.' . $property] = $row;
+        $property_delta++;
+      }
+
+      // Remove the old built mapping row.
+      unset($element[$index]);
+    }
+
+    $element = array_merge($element, $rows);
+
+    // Set weight of "add" row.
+    $element['add']['#weight'] = 100;
+
+    // And sort again.
+    uasort($element, [SortArray::class, 'sortByWeightProperty']);
+
+    return $element;
   }
 
   /**
@@ -242,6 +392,7 @@ class MappingForm extends FormBase {
       $target_definition = MissingTargetDefinition::create();
     }
 
+    // If a config wheel is clicked, check which one was clicked.
     $ajax_delta = -1;
     $triggering_element = (array) $form_state->getTriggeringElement() + ['#op' => ''];
     if ($triggering_element['#op'] === 'configure') {
@@ -250,11 +401,6 @@ class MappingForm extends FormBase {
 
     $row = ['#attributes' => ['class' => ['draggable', 'tabledrag-leaf']]];
     $row['map'] = ['#type' => 'container'];
-    $row['targets'] = [
-      '#theme' => 'item_list',
-      '#items' => [],
-      '#attributes' => ['class' => ['target']],
-    ];
 
     if ($target_definition instanceof MissingTargetDefinition) {
       $row['#attributes']['class'][] = 'missing-target';
@@ -266,6 +412,8 @@ class MappingForm extends FormBase {
         unset($mapping['map'][$column]);
         continue;
       }
+
+      // Source selection.
       $row['map'][$column] = [
         'select' => [
           '#type' => 'select',
@@ -277,8 +425,8 @@ class MappingForm extends FormBase {
       ];
       $this->buildCustomSourceForms($row['map'][$column], $form_state, $delta, $column);
 
+      // Target label.
       $label = Html::escape($target_definition->getLabel() . ' (' . $mapping['target'] . ')');
-
       if (count($mapping['map']) > 1) {
         $desc = $target_definition->getPropertyLabel($column);
       }
@@ -288,7 +436,7 @@ class MappingForm extends FormBase {
       if ($desc) {
         $label .= ': ' . $desc;
       }
-      $row['targets']['#items'][] = $label;
+      $row['targets'][$column] = ['#markup' => $label];
     }
 
     $default_button = [
@@ -305,6 +453,7 @@ class MappingForm extends FormBase {
     $row['configure']['#markup'] = '';
     if ($plugin && $this->pluginHasSettingsForm($plugin, $form_state)) {
       if ($delta == $ajax_delta) {
+        // The settings form is open.
         $row['settings'] = $plugin->buildConfigurationForm([], $form_state);
         $row['settings']['actions'] = [
           '#type' => 'actions',
@@ -326,6 +475,7 @@ class MappingForm extends FormBase {
         $row['#attributes']['class'][] = 'feeds-mapping-settings-editing';
       }
       else {
+        // The settings form is closed.
         $row['settings'] = [
           '#parents' => ['config_summary', $delta],
         ] + $this->buildSummary($plugin);
@@ -342,7 +492,7 @@ class MappingForm extends FormBase {
       if (!empty($summary)) {
         $row['settings'] = [
           '#parents' => ['config_summary', $delta],
-        ] + $this->buildSummary($plugin);
+        ] + $summary;
       }
     }
 
@@ -734,7 +884,7 @@ class MappingForm extends FormBase {
             $plugin = $this->customSourcePluginManager->createInstance($custom_source_plugin_id, [
               'feed_type' => $this->feedType,
             ]);
-            $element = $form['mappings'][$delta]['map'][$column][$select];
+            $element = $form['mappings'][$delta . '.' . $column]['source'][$select];
             $plugin->validateConfigurationForm($element, $plugin_state);
 
             // Move errors to form_state above.

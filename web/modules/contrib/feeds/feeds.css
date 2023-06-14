@@ -17,6 +17,24 @@
   background: #d5e9f2;
 }
 
+.feeds-mapping-form tr.mapping-property {
+  border-bottom: none;
+}
+.feeds-mapping-form tr.mapping-property td {
+  padding: 0.2rem 1rem;
+  vertical-align: middle;
+  border: 0;
+}
+.feeds-mapping-form tr.mapping-property-last {
+  border-bottom: 3px double #e6e4df;
+}
+.feeds-mapping-form tr.mapping-property-first td {
+  padding-top: 0.5rem;
+}
+.feeds-mapping-form tr.mapping-property-last td {
+  padding-bottom: 0.5rem;
+}
+
 .feeds-feed-type-secondary-settings {
   clear: both;
 }

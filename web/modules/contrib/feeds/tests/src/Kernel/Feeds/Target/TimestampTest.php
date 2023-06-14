@@ -62,6 +62,9 @@ class TimestampTest extends FeedsKernelTestBase {
       $node = Node::load($nid);
       $this->assertEquals($value, $node->created->value);
     }
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
@@ -103,6 +106,9 @@ class TimestampTest extends FeedsKernelTestBase {
     $this->assertCount(1, $messages);
     $this->assertStringContainsString('The content <em class="placeholder">Eodem modo typi</em> failed to validate', (string) $messages[0]);
     $this->assertStringContainsString('created.0.value: This value should be of the correct primitive type.', (string) $messages[0]);
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**

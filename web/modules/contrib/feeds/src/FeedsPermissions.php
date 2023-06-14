@@ -2,6 +2,7 @@
 
 namespace Drupal\feeds;
 
+use Drupal\Core\Entity\BundlePermissionHandlerTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\feeds\Entity\FeedType;
@@ -11,6 +12,7 @@ use Drupal\feeds\Entity\FeedType;
  */
 class FeedsPermissions {
 
+  use BundlePermissionHandlerTrait;
   use StringTranslationTrait;
 
   /**
@@ -35,13 +37,7 @@ class FeedsPermissions {
    *   Permissions for operations on feed types.
    */
   public function feedTypePermissions() {
-    $perms = [];
-    // Generate feeds permissions for all feeds types.
-    foreach (FeedType::loadMultiple() as $type) {
-      $perms += $this->buildPermissions($type);
-    }
-
-    return $perms;
+    return $this->generatePermissions(FeedType::loadMultiple(), [$this, 'buildPermissions']);
   }
 
   /**

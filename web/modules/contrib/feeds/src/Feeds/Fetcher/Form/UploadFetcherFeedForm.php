@@ -38,7 +38,7 @@ class UploadFetcherFeedForm extends ExternalPluginFormBase implements ContainerI
   protected $uuid;
 
   /**
-   * Constructs an HttpFeedForm object.
+   * Constructs an UploadFetcherFeedForm object.
    *
    * @param \Drupal\file\FileStorageInterface $file_storage
    *   The file storage backend.

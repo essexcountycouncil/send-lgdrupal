@@ -789,6 +789,9 @@ class ImportTest extends FeedsLogKernelTestBase {
     // Assert that logging is now disabled for the feed.
     $feed = $this->reloadEntity($feed);
     $this->assertEquals(0, $feed->feeds_log->value);
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
