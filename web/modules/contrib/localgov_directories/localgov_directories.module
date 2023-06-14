@@ -29,13 +29,26 @@ function localgov_directories_theme() {
     'facets_item_list__links__localgov_directories_facets' => [
       'base hook' => 'facets_item_list',
     ],
+    // Facets for proximity search look no different.
+    'facets_item_list__links__localgov_directories_facets_proximity_search' => [
+      'base hook' => 'facets_item_list',
+      'template'  => 'facets-item-list--links--localgov-directories-facets',
+    ],
     // Facet Checkboxes are rendered through Javascript.  So the same markup as
     // "link" Facets suffices.
     'facets_item_list__checkbox__localgov_directories_facets' => [
       'base hook' => 'facets_item_list',
       'template'  => 'facets-item-list--links--localgov-directories-facets',
     ],
+    'facets_item_list__checkbox__localgov_directories_facets_proximity_search' => [
+      'base hook' => 'facets_item_list',
+      'template'  => 'facets-item-list--links--localgov-directories-facets',
+    ],
     'facets_item_list__dropdown__localgov_directories_facets' => [
+      'base hook' => 'facets_item_list',
+      'template'  => 'facets-item-list--dropdown--localgov-directories-facets',
+    ],
+    'facets_item_list__dropdown__localgov_directories_facets_proximity_search' => [
       'base hook' => 'facets_item_list',
       'template'  => 'facets-item-list--dropdown--localgov-directories-facets',
     ],
@@ -70,7 +83,9 @@ function localgov_directories_localgov_roles_default() {
 function localgov_directories_modules_installed($modules) {
   $services = in_array('localgov_services_navigation', $modules);
   if ($services) {
-    \Drupal::service('config.installer')->installOptionalConfig();
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'field.storage.node.localgov_services_parent',
+    ]);
     localgov_directories_optional_fields_settings($services);
   }
 }
@@ -130,7 +145,7 @@ function localgov_directories_optional_fields_settings($services) {
             'placeholder' => '',
             'match_limit' => 10,
           ],
-          'weight' => 51,
+          'weight' => -10,
         ])->save();
       }
     }
@@ -171,12 +186,11 @@ function localgov_directories_field_config_delete(FieldConfigInterface $field) {
  * @see facets_preprocess_facets_item_list()
  */
 function localgov_directories_preprocess_facets_item_list(array &$variables) {
-  if (!empty($variables['facet']) && ($variables['facet']->id() == 'localgov_directories_facets')) {
+  if (!empty($variables['facet']) && ($variables['facet']->id() === Directory::FACET_CONFIG_ENTITY_ID || $variables['facet']->id() === Directory::FACET_CONFIG_ENTITY_ID_FOR_PROXIMITY_SEARCH)) {
     \Drupal::service('class_resolver')
       ->getInstanceFromDefinition(DirectoryExtraFieldDisplay::class)
       ->preprocessFacetList($variables);
   }
-
 }
 
 /**

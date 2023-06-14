@@ -9,3 +9,5 @@ dependencies:
   - localgov_directories:localgov_directories
   - localgov_geo:localgov_geo_address
   - leaflet:leaflet_views
+  - search_api_location:search_api_location_views
+  - search_api_location:search_api_location_geocoder

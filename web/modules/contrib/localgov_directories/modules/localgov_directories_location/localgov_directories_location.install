@@ -6,13 +6,26 @@
  */
 
 use Drupal\Component\Serialization\Yaml;
+use Drupal\localgov_directories\Constants as Directory;
 use Drupal\views\Entity\View;
+use Drupal\localgov_directories_location\ProximitySearchSetup;
 
 /**
  * Implements hook_install().
+ *
+ * - Adds location field to search index.
+ * - Adds extra displays to the Directory channel view.
+ * - Adds the Proximity search configuration field to the Directory channel
+ *   form.  Also hides it from entity view.
  */
-function localgov_directories_location_install() {
-  // Retrieve view display mode config and add it to the existing configuration.
+function localgov_directories_location_install($is_syncing) {
+
+  if ($is_syncing) {
+    return;
+  }
+
+  // Retrieves view display mode config and adds location-related sections to
+  // the existing configuration.
   $module_path = \Drupal::service('extension.list.module')->getPath('localgov_directories_location');
   $view_with_map_embed = Yaml::decode(file_get_contents($module_path . '/config/override/views.view.localgov_directory_channel.yml'));
   $view = View::load('localgov_directory_channel');
@@ -52,4 +65,28 @@ function localgov_directories_location_update_8001() {
       ->load('node.localgov_directory.' . $display_id);
     $directory_display->removeComponent('localgov_directory_map')->save();
   }
+}
+
+/**
+ * Sets up proximity search.
+ */
+function localgov_directories_location_update_8003() {
+
+  $proximity_search_setup = \Drupal::classResolver(ProximitySearchSetup::class);
+  if (!$proximity_search_setup->hasLocationSearch()) {
+    return t('Search index is not ready for location search.');
+  }
+
+  Drupal::service('module_installer')->install([
+    'search_api_location_views',
+    'search_api_location_geocoder',
+  ]);
+
+  $location_field_configs = \Drupal::service('entity_type.manager')
+    ->getStorage('field_config')
+    ->loadByProperties([
+      'field_name'  => Directory::LOCATION_FIELD,
+      'entity_type' => 'node',
+    ]);
+  array_walk($location_field_configs, 'localgov_directories_location_field_config_insert');
 }

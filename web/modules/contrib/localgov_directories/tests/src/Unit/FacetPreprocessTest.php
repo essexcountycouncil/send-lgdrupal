@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
-
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacets;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacetsType;
 use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
@@ -41,7 +41,7 @@ class FacetPreprocessTest extends UnitTestCase {
    */
   public function testFacetTypeSorting() {
 
-    $test_obj = new DirectoryExtraFieldDisplay($this->mockEntityTypeManager, $this->mockEntityRepository, $this->mockEntityFieldManager, $this->mockBlockPluginManager, $this->mockFormBuilder);
+    $test_obj = new DirectoryExtraFieldDisplay($this->mockEntityTypeManager, $this->mockEntityRepository, $this->mockEntityFieldManager, $this->mockBlockPluginManager, $this->mockFormBuilder, $this->mockRouteMatch);
 
     $facet_tpl_variables = [
       'items' => [
@@ -138,6 +138,7 @@ class FacetPreprocessTest extends UnitTestCase {
     $this->mockEntityFieldManager = $this->createMock(EntityFieldManagerInterface::class);
     $this->mockBlockPluginManager = $this->createMock(BlockManagerInterface::class);
     $this->mockFormBuilder        = $this->createMock(FormBuilderInterface::class);
+    $this->mockRouteMatch         = $this->createMock(RouteMatchInterface::class);
   }
 
   /**
@@ -174,5 +175,12 @@ class FacetPreprocessTest extends UnitTestCase {
    * @var \Drupal\Core\Form\FormBuilderInterface
    */
   protected $mockFormBuilder;
+
+  /**
+   * Mock route match.
+   *
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  protected $mockRouteMatch;
 
 }
