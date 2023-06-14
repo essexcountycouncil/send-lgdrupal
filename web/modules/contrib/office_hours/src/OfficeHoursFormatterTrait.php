@@ -3,6 +3,7 @@
 namespace Drupal\office_hours;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem;
 
 /**
@@ -20,11 +21,11 @@ trait OfficeHoursFormatterTrait {
   protected $nextDay = NULL;
 
   /**
-   * An array representing the current slot, if any.
+   * An array of items, keyed by UNIX timestamp, representing the current slot, if any.
    *
-   * @var null|array
+   * @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemBase[]
    */
-  protected $currentSlot = NULL;
+  protected $currentSlot = [];
 
   /**
    * Returns the items of a field.
@@ -39,16 +40,22 @@ trait OfficeHoursFormatterTrait {
    *   The field settings.
    * @param array $third_party_settings
    *   The third party settings.
-   * @param $time
-   *   A time stamp. Defaults to 'REQUEST_TIME'.
+   * @param int $time
+   *   A UNIX time stamp. Defaults to 'REQUEST_TIME'.
    *
    * @return array
    *   The formatted list of slots.
    */
-  public function getRows(array $values, array $settings, array $field_settings, array $third_party_settings = [], $time = NULL) {
+  public function getRows(array $values, array $settings, array $field_settings, array $third_party_settings = [], int $time = 0) {
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $this */
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
 
+    // Get the current time. May be adapted for User Timezone.
+    $time = $this->getRequestTime($time);
+
+    // Initialize the 'next' and 'current' slots for later usage,
+    // before cloning or removing excessive exception days.
+    $current_item = $this->getCurrent($time);
     // Clone the Item list, since the following code will change the items,
     // while custom installations need complete $items in theme preprocessing.
     $itemList = clone $this;
@@ -59,8 +66,8 @@ trait OfficeHoursFormatterTrait {
     $default_office_hours = [
       'day' => NULL,
       'endday' => NULL,
-      'current' => FALSE,
-      'next' => FALSE,
+      'is_current' => FALSE,
+      'is_next' => FALSE,
       'slots' => [],
       'formatted_slots' => [],
       'comments' => [],
@@ -93,15 +100,14 @@ trait OfficeHoursFormatterTrait {
       $office_hours[$day] = ['day' => $day] + $default_office_hours;
     }
 
-    // Initialize the 'next' and 'current' slots for later usage.
-    $current_item = $itemList->getCurrent($time);
-
     // Move items to $office_hours.
     $iterator = $itemList->getIterator();
     while ($iterator->valid()) {
       $item = $iterator->current();
       $value = $item->getValue();
       $day = $value['day'];
+      $day_delta = $value['day_delta'];
+
       // This should already exist for weekdays, not for Exception days.
       $office_hours[$day] = $office_hours[$day]
         ?? ['day' => $day] + $default_office_hours;
@@ -114,15 +120,17 @@ trait OfficeHoursFormatterTrait {
       ];
       // Add item, in order to use code using OO Item, not $value.
       $office_hours[$day]['items'][] = $item;
-      if ($current_item && $day == $current_item->getValue()['day']) {
-        $office_hours[$day]['current'] = TRUE;
-      }
 
       $iterator->next();
     }
 
+    // Mark the current time slot.
+    if ($current_item) {
+      $day = $current_item->getValue()['day'];
+      $office_hours[$day]['is_current'] = TRUE;
+    }
     if ($itemList->nextDay !== NULL) {
-      $office_hours[$itemList->nextDay]['next'] = TRUE;
+      $office_hours[$itemList->nextDay]['is_next'] = TRUE;
     }
 
     /*
@@ -162,7 +170,7 @@ trait OfficeHoursFormatterTrait {
         break;
 
       case 'current':
-        $office_hours = $itemList->keepCurrentDay($office_hours);
+        $office_hours = $itemList->keepCurrentDay($office_hours, $time);
         break;
     }
     return $office_hours;
@@ -178,7 +186,6 @@ trait OfficeHoursFormatterTrait {
    *   Reformatted office hours array.
    */
   protected function compressSlots(array $office_hours) {
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $compressed_item */
 
     foreach ($office_hours as $key => &$info) {
       if (is_array($info['slots']) && !empty($info['slots'])) {
@@ -219,8 +226,8 @@ trait OfficeHoursFormatterTrait {
         if ($day['slots'] == $previous_day['slots']) {
           $day['endday'] = $day['day'];
           $day['day'] = $previous_day['day'];
-          $day['current'] = $day['current'] || $previous_day['current'];
-          $day['next'] = $day['next'] || $previous_day['next'];
+          $day['is_current'] = $day['is_current'] || $previous_day['is_current'];
+          $day['is_next'] = $day['is_next'] || $previous_day['is_next'];
           unset($office_hours[(int) $previous_key]);
         }
       }
@@ -266,7 +273,7 @@ trait OfficeHoursFormatterTrait {
   protected function keepNextDay(array $office_hours) {
     $result = [];
     foreach ($office_hours as $key => $info) {
-      if ($info['current'] || $info['next']) {
+      if ($info['is_current'] || $info['is_next']) {
         $result[$key] = $info;
       }
     }
@@ -278,20 +285,17 @@ trait OfficeHoursFormatterTrait {
    *
    * @param array $office_hours
    *   Office hours array.
-   * @param int|mixed $time
-   *   A time stamp. Defaults to 'REQUEST_TIME'.
+   * @param int $time
+   *   A UNIX time stamp.
    *
    * @return array
    *   Reformatted office hours array.
    */
-  protected function keepCurrentDay(array $office_hours, $time = NULL) {
+  protected function keepCurrentDay(array $office_hours, int $time) {
     $result = [];
 
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $this */
-    // Get the current time. May be adapted for User Timezone.
-    $time = $this->getRequestTime($time);
     // Get day_number (0=Sun, 6=Sat).
-    // Convert day number to integer to get '0' for Sunday, not 'false'.
+    // Convert weekday number to integer to get '0' for Sunday, not 'false'.
     $today = (int) idate('w', $time);
 
     // Loop through all items.
@@ -381,10 +385,6 @@ trait OfficeHoursFormatterTrait {
           ? $this->t(Html::escape($settings['exceptions']['all_day_format']))
           : $this->t(Html::escape($settings['all_day_format']));
       }
-//      elseif ($info['formatted_slots'] == [0 => '']
-  //      && $info['comments'] == [0 => '']) {
-    //    $info['formatted_slots'] = $this->t(Html::escape($settings['closed_format']));
-  //    }
       elseif (empty($info['formatted_slots'])) {
         $info['formatted_slots'] = $this->t(Html::escape($settings['closed_format']));
       }
@@ -427,22 +427,22 @@ trait OfficeHoursFormatterTrait {
   /**
    * {@inheritdoc}
    */
-  public function getCurrent($time = NULL) {
+  public function getCurrent(int $time = 0) {
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $this */
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
-
-    if (isset($this->currentSlot)) {
-      return $this->currentSlot;
-    }
 
     // Get the current time. May be adapted for User Timezone.
     $time = $this->getRequestTime($time);
+
+    if (array_key_exists($time, $this->currentSlot)) {
+      return $this->currentSlot[$time];
+    }
+
     // Convert day number to integer to get '0' for Sunday, not 'false'.
     $today = (int) idate('w', $time); // Get day_number (0=Sun, 6=Sat).
     $now = date('Hi', $time); // 'Hi' format, with leading zero (0900).
 
     $next_day = NULL;
-    $current_slot = NULL;
+    $current_slot = FALSE;
 
     $iterator = $this->getIterator();
     while ($iterator->valid()) {
@@ -528,27 +528,31 @@ trait OfficeHoursFormatterTrait {
     }
 
     $this->nextDay = $next_day;
-    $this->currentSlot = $current_slot;
+    $this->currentSlot[$time] = $current_slot;
 
-    return $this->currentSlot;
+    return $this->currentSlot[$time];
   }
 
   /**
    * Returns the timestamp for the current request.
+   *
+   * @param int $time
+   *   The actual UNIX date/timestamp to use.
    *
    * @return int
    *   A Unix timestamp.
    *
    * @see \Drupal\Component\Datetime\TimeInterface
    */
-  public function getRequestTime($time) {
+  public function getRequestTime(int $time = 0) {
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $this */
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
 
-    $time = ($time) ?? \Drupal::time()->getRequestTime();
-    // Call hook. Allows to alter the current time using a timezone.
-    $entity = $this->getEntity();
-    \Drupal::moduleHandler()->alter('office_hours_current_time', $time, $entity);
+    if (!$time) {
+      $time = \Drupal::time()->getRequestTime();
+      // Call hook. Allows to alter the current time using a timezone.
+      $entity = $this->getEntity();
+      \Drupal::moduleHandler()->alter('office_hours_current_time', $time, $entity);
+    }
 
     return $time;
   }
@@ -573,7 +577,7 @@ trait OfficeHoursFormatterTrait {
   /**
    * {@inheritdoc}
    */
-  public function isOpen($time = NULL) {
+  public function isOpen(int $time = 0) {
     $current_item = $this->getCurrent($time);
     return (bool) $current_item;
   }

@@ -3,6 +3,7 @@
 namespace Drupal\office_hours\Element;
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\office_hours\OfficeHoursDateHelper;
 
 /**
  * Provides a one-line text field form element for Exception days.
@@ -38,7 +39,7 @@ class OfficeHoursExceptionsSlot extends OfficeHoursListSlot {
         // Add 'day_delta' to facilitate changing and closing Exception days.
         ? 'exception_day_delta'
         // Format the numeric day number to Y-m-d format for the widget.
-        : ((is_numeric($day)) ? date('Y-m-d', $day) : ''),
+        : (is_numeric($day) ? date(OfficeHoursDateHelper::DATE_STORAGE_FORMAT, $day) : ''),
     ];
     if (isset($element['all_day'])) {
       $element['all_day'] = [

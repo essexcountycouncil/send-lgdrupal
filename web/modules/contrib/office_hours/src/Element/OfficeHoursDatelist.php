@@ -23,18 +23,16 @@ class OfficeHoursDatelist extends Datelist {
       '#input' => TRUE,
       '#tree' => TRUE,
       '#element_validate' => [[static::class, 'validateOfficeHoursDatelist']],
-      '#process' => [[static::class, 'processOfficeHoursDatelist']],
       // @see Drupal\Core\Datetime\Element\Datelist.
-      '#date_part_order' => ['year', 'month', 'day', 'hour', 'minute'],
+      '#date_part_order' => ['hour', 'minute', 'ampm'],
       '#date_year_range' => '1900:2050',
+      '#date_time_element' => 'time',
+      // @todo Add Timezone.
       '#date_timezone' => '+0000',
-      // Callbacks, used to add a jQuery time picker or an 'all_day' checkbox.
-      '#date_time_callbacks' => [],
     ];
 
     // #process, #validate bottom-up.
     $info['#element_validate'] = array_merge($parent_info['#element_validate'], $info['#element_validate']);
-    $info['#process'] = array_merge($parent_info['#process'], $info['#process']);
 
     return $info + $parent_info;
   }
@@ -105,8 +103,17 @@ class OfficeHoursDatelist extends Datelist {
    * @return array
    *   The screen element.
    */
-  public static function processOfficeHoursDatelist(array &$element, FormStateInterface $form_state, array &$complete_form) {
-    $element['hour']['#options'] = $element['#hour_options'];
+  public static function processDatelist(&$element, FormStateInterface $form_state, &$complete_form) {
+    $element = parent::processDatelist($element, $form_state, $complete_form);
+
+    $time_format = $element['#field_settings']['time_format'];
+    $limit_start = $element['#field_settings']['limit_start'];
+    $limit_end = $element['#field_settings']['limit_end'];
+
+    // Get the valid, restricted hours.
+    // Date API doesn't provide a straight method for this.
+    $element['hour']['#options'] = OfficeHoursDateHelper::hours($time_format, FALSE, $limit_start, $limit_end);
+
     return $element;
   }
 

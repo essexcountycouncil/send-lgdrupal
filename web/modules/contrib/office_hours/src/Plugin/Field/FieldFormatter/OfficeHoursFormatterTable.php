@@ -74,7 +74,7 @@ class OfficeHoursFormatterTable extends OfficeHoursFormatterDefault {
         'no_striping' => TRUE,
         'class' => ['office-hours__item'],
       ];
-      if ($item['current'] == TRUE) {
+      if ($item['is_current'] == TRUE) {
         $table_rows[$delta]['class'][] = 'office-hours__item-current';
       }
 

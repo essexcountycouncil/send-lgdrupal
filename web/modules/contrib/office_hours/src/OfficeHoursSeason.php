@@ -111,6 +111,13 @@ class OfficeHoursSeason {
       // If season ID is 0, then end-weekday = 6 for regular weekdays.
       $this->to = ($id) ? $to : $this->to;
     }
+    if (!is_numeric($this->from)) {
+      $this->from = strtotime($this->from);
+    }
+    if (!is_numeric($this->to)) {
+      $this->to = strtotime($this->to);
+    }
+
     return $this;
   }
 
@@ -128,14 +135,14 @@ class OfficeHoursSeason {
   /**
    * Creates a date object from an array of date parts.
    *
-   * @param string $value
+   * @param array $value
    *   The Time slot to be manipulated, or
    *   Empty, if the season data must be encoded as time slot.
    *
    * @return array
    *   An array, formatted as a time slot.
    */
-  public function toTimeSlotArray($value = '') {
+  public function toTimeSlotArray(array $value = []) {
 
     if ($value) {
       // Return the manipulated time slot.
@@ -151,8 +158,8 @@ class OfficeHoursSeason {
       $value = [
         'day' => OfficeHoursSeason::SEASON_DAY + $this->id,
         'all_day' => FALSE,
-        'starthours' => strtotime($this->from),
-        'endhours' => strtotime($this->to),
+        'starthours' => $this->from,
+        'endhours' => $this->to,
         'comment' => $this->name,
       ];
     }

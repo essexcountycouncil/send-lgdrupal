@@ -2,7 +2,6 @@
 
 namespace Drupal\office_hours\Element;
 
-use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\FormElement;
 use Drupal\Core\Url;
@@ -155,17 +154,14 @@ class OfficeHoursBaseSlot extends FormElement {
     $element['starthours'] = [
       '#type' => $field_settings['element_type'], // datelist, datetime.
       '#field_settings' => $field_settings,
+      '#date_increment' => $field_settings['increment'],
+
+      // Attributes for element \Drupal\Core\Datetime\Element\Datelist - Start.
       // Get the valid, restricted hours.
       // Date API doesn't provide a straight method for this.
-      '#hour_options' => OfficeHoursDateHelper::hours($time_format, FALSE, $field_settings['limit_start'], $field_settings['limit_end']),
-      // Attributes for element \Drupal\Core\Datetime\Element\Datelist - Start.
       '#date_part_order' => in_array($time_format, ['g', 'h'])
         ? ['hour', 'minute', 'ampm']
         : ['hour', 'minute'],
-      '#date_increment' => $field_settings['increment'],
-      '#date_time_element' => 'time',
-      '#date_time_format' => OfficeHoursDateHelper::getTimeFormat($time_format),
-      '#date_timezone' => '+0000',
       // Attributes for element \Drupal\Core\Datetime\Element\Datelist - End.
     ];
     $element['endhours'] = $element['starthours'];
@@ -236,10 +232,8 @@ class OfficeHoursBaseSlot extends FormElement {
     // Return an array with starthours, endhours, comment.
     // Do not use NestedArray::getValue();
     // It does not return formatted values from valueCallback().
-    // $input_exists = FALSE;
-    // $input = NestedArray::getValue($form_state->getValues(), $element['#parents'], $input_exists);
     // The valueCallback() has populated the #value array.
-    $input = $element['#value'];
+    $input = $element['#value'] ?? [];
     $day = $input['day'];
 
     // Avoid complex validation below. Remove comment, only in validation.
@@ -252,14 +246,19 @@ class OfficeHoursBaseSlot extends FormElement {
       return;
     }
 
-    // Exception: end time 00:00 --> 24:00.
-    $start = OfficeHoursDateHelper::format($input['starthours'], 'H:i', FALSE);
-    $end = OfficeHoursDateHelper::format($input['endhours'], 'H:i', TRUE);
-
     $field_settings = $element['#field_settings'];
+    $date_helper = new OfficeHoursDateHelper();
+
+    // Exception: end time 00:00 --> 24:00.
+    $start = $date_helper->format($input['starthours'], 'Gi', FALSE);
+    $end = $date_helper->format($input['endhours'], 'Gi', TRUE);
+
+    $time_format = $date_helper->getTimeFormat($field_settings['time_format']);
     $validate_hours = $field_settings['valhrs'];
-    $limit_start = $field_settings['limit_start'];
-    $limit_end = $field_settings['limit_end'];
+    $limit_start = (int) $field_settings['limit_start'] * 100;
+    $limit_end = (int) $field_settings['limit_end'] * 100;
+    $all_day_allowed = $field_settings['all_day'];
+
     // If any field of slot is filled, check for required time fields.
     $required_start = $validate_hours || $field_settings['required_start'] ?? FALSE;
     $required_end = $validate_hours || $field_settings['required_end'] ?? FALSE;
@@ -267,7 +266,7 @@ class OfficeHoursBaseSlot extends FormElement {
 
     $label = static::getLabel('long', $input);
     if ($day !== 0 && !$day) {
-      $label = t('Day');;
+      $label = t('Day');
       $error_text = 'A day is required when hours are entered.';
       $erroneous_element = &$element['day'];
     }
@@ -284,11 +283,7 @@ class OfficeHoursBaseSlot extends FormElement {
       $error_text = 'Closing hours are earlier than Opening hours.';
       $erroneous_element = &$element;
     }
-    elseif ((!empty($limit_start) || !empty($limit_end))) {
-      $limit_start = (int) $field_settings['limit_start'];
-      $limit_end = (int) $field_settings['limit_end'];
-      $limit_start = OfficeHoursDateHelper::format($limit_start * 100, 'H:i', FALSE);
-      $limit_end = OfficeHoursDateHelper::format($limit_end * 100, 'H:i', TRUE);
+    elseif (!$all_day_allowed && (!empty($limit_start) || !empty($limit_end))) {
       if ($start && ($limit_start > $start)
         || ($end && ($limit_end < $end))
       ) {
@@ -302,8 +297,8 @@ class OfficeHoursBaseSlot extends FormElement {
         . ': '
         . t($error_text,
           [
-            '@start' => $limit_start,
-            '@end' => $limit_end,
+            '@start' => $date_helper->format($limit_start, $time_format, FALSE),
+            '@end' => $date_helper->format($limit_end, $time_format, FALSE),
           ],
           ['context' => 'office_hours']
         );

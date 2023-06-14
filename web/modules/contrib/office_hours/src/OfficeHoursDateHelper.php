@@ -24,6 +24,13 @@ class OfficeHoursDateHelper extends DateHelper {
   const DAYS_PER_WEEK = 7;
 
   /**
+   * Defines the format that dates should be stored in.
+   *
+   * @var \Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface::DATE_STORAGE_FORMAT;
+   */
+  const DATE_STORAGE_FORMAT = 'Y-m-d';
+
+  /**
    * Gets the day number of first day of the week.
    *
    * @param string $first_day
@@ -141,6 +148,9 @@ class OfficeHoursDateHelper extends DateHelper {
       // SelectList datelist element.
       $time = '';
       if (($element['hour'] !== '') || ($element['minute'] !== '')) {
+        if (isset($element['ampm']) && $element['ampm'] === 'pm') {
+          $element['hour'] += 12;
+        }
         $time = ((int) $element['hour']) * 100 + (int) $element['minute'];
       }
     }
@@ -149,7 +159,7 @@ class OfficeHoursDateHelper extends DateHelper {
       $time = $element;
     }
 
-    if ($time === NULL || $time === '' ) {
+    if ($time === NULL || $time === '') {
       return NULL;
     }
 
@@ -181,7 +191,7 @@ class OfficeHoursDateHelper extends DateHelper {
    *
    * {@inheritdoc}
    */
-  public static function hours($format = 'H', $required = FALSE, $start = 0, $end = 23) {
+  public static function hours($time_format = 'H', $required = FALSE, $start = 0, $end = 23) {
     $hours = [];
 
     // Get the valid hours. DateHelper API doesn't provide
@@ -189,18 +199,18 @@ class OfficeHoursDateHelper extends DateHelper {
     $add_midnight = empty($end);
     $start = (empty($start)) ? 0 : max(0, (int) $start);
     $end = (empty($end)) ? 23 : min(23, (int) $end);
+    $with_zeroes = in_array($time_format, ['H', 'h']);
 
     // Begin modified copy from date_hours().
-    if ($format == 'h' || $format == 'g') {
+    if (in_array($time_format, ['g', 'h'])) {
       // 12-hour format.
       $min = 1;
       $max = 24;
       for ($i = $min; $i <= $max; $i++) {
         if ((($i >= $start) && ($i <= $end)) || ($end - $start >= 11)) {
           $hour = ($i <= 12) ? $i : $i - 12;
-          $hours[$hour] = $hour < 10 && ($format == 'H' || $format == 'h') ? "0$hour" : (string) $hour;
+          $hours[$hour] = $hour < 10 && ($with_zeroes) ? "0$hour" : (string) $hour;
         }
-
       }
       $hours = array_unique($hours);
     }
@@ -209,11 +219,11 @@ class OfficeHoursDateHelper extends DateHelper {
       $max = $end;
       for ($i = $min; $i <= $max; $i++) {
         $hour = $i;
-        $hours[$hour] = $hour < 10 && ($format == 'H' || $format == 'h') ? "0$hour" : (string) $hour;
+        $hours[$hour] = $hour < 10 && ($with_zeroes) ? "0$hour" : (string) $hour;
       }
     }
     if ($add_midnight) {
-      $hours[00] = ($format == 'H' || $format == 'h') ? "00" : (string) "0";
+      $hours[00] = $with_zeroes ? "00" : (string) "0";
     }
 
     $none = ['' => ''];
@@ -284,7 +294,6 @@ class OfficeHoursDateHelper extends DateHelper {
     // Do an initial re-sort on day number for Weekdays and Exception days.
     // Removed. Already done at loading in OfficeHoursItemList::setValue().
     // ksort($office_hours);
-
     // Fetch first day of week from field settings, if not given already.
     $first_day = OfficeHoursDateHelper::getFirstDay($first_day);
 

@@ -97,6 +97,9 @@ class OfficeHoursItemBase extends FieldItemBase {
      */
 
     // Added for propertyDefinition.
+    if ($field_settings['season'] ?? FALSE) {
+      $properties['season'][$parent] = t('Season name');
+    }
     $properties['day'][$parent] = t('Day');
     $properties['all_day'][$parent] = t('All day');
     if (!($field_settings['all_day'] ?? TRUE)) {
@@ -216,7 +219,7 @@ class OfficeHoursItemBase extends FieldItemBase {
       '#options' => [
         'G' => t('24 hour time @example', ['@example' => '(9:00)']),
         'H' => t('24 hour time @example', ['@example' => '(09:00)']),
-        'g' => t('12 hour time @example', ['@example' => '9:00 am)']),
+        'g' => t('12 hour time @example', ['@example' => '(9:00 am)']),
         'h' => t('12 hour time @example', ['@example' => '(09:00 am)']),
       ],
       '#default_value' => $settings['time_format'],

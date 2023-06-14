@@ -95,7 +95,7 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
   public function sort() {
     // Sort the transitions on state weight.
     uasort($this->list, [
-      'Drupal\office_hours\Plugin\Field\FieldType\OfficehoursItemBase',
+      'Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemBase',
       'sort',
     ]);
   }
@@ -125,7 +125,7 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
   /**
    * {@inheritdoc}
    */
-  public function getRows(array $settings, array $field_settings, array $third_party_settings, $time = NULL) {
+  public function getRows(array $settings, array $field_settings, array $third_party_settings, int $time = 0) {
     return $this->getFieldRows($this->getValue(), $settings, $field_settings, $third_party_settings, $time);
   }
 
@@ -194,12 +194,11 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
     $seasons = [];
     $season_id = 0;
 
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
     if ($add_weekdays_as_season) {
       $seasons[$season_id] = new OfficeHoursSeason($season_id);
     }
 
-    // @todo Use Iterator.
+    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
     foreach ($this->list as $item) {
       if ($item->isSeasonHeader()) {
         $season_id = $item->getSeasonId();

@@ -96,9 +96,15 @@ abstract class OfficeHoursFormatterBase extends FormatterBase implements Contain
   protected function mergeDefaults() {
     // Override parent, since that does not support sub-arrays.
     if (isset($this->settings['exceptions'])) {
+      if (!is_array($this->settings['exceptions'])) {
+        $this->settings['exceptions'] = [];
+      }
       $this->settings['exceptions'] += static::defaultSettings()['exceptions'];
     }
     if (isset($this->settings['schema'])) {
+      if (!is_array($this->settings['schema'])) {
+        $this->settings['schema'] = [];
+      }
       $this->settings['schema'] += static::defaultSettings()['schema'];
     }
     parent::mergeDefaults();

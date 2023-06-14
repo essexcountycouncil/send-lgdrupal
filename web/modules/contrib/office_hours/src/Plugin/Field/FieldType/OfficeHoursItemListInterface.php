@@ -21,7 +21,7 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
    * @param array $third_party_settings
    *   The formatter's third party settings.
    * @param int $time
-   *   A time.
+   *   A UNIX time stamp. Defaults to 'REQUEST_TIME'.
    *
    * @return array
    *   The formatted list of slots.
@@ -31,7 +31,7 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
    * Since twig filters are static methods, a trait is not really an option.
    * Some installations are also subclassing this class.
    */
-  public function getRows(array $settings, array $field_settings, array $third_party_settings, $time = NULL);
+  public function getRows(array $settings, array $field_settings, array $third_party_settings, int $time = 0);
 
   /**
    * {@inheritdoc}
@@ -66,13 +66,13 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
    * - Variable $this->currentSlot is set to slot data.
    * - Variable $this->currentSlot is returned.
    *
-   * @param mixed $time
-   *   The desired timestamp.
+   * @param int $time
+   *   A UNIX time stamp. Defaults to 'REQUEST_TIME'.
    *
    * @return null|\Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem
    *   The current slot data, if any.
    */
-  public function getCurrent($time = NULL);
+  public function getCurrent(int $time = 0);
 
   /**
    * Determines if the Entity has Exception days.
@@ -86,11 +86,11 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
    * Determines if the Entity is Open or Closed.
    *
    * @param int $time
-   *   A time.
+   *   A UNIX time stamp. Defaults to 'REQUEST_TIME'.
    *
    * @return bool
    *   Indicator whether the entity is Open or Closed at the given time.
    */
-  public function isOpen($time = NULL);
+  public function isOpen(int $time = 0);
 
 }

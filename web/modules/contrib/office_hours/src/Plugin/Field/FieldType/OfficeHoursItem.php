@@ -183,7 +183,7 @@ class OfficeHoursItem extends OfficeHoursItemBase {
   /**
    * Normalizes the contents of the Item.
    *
-   * @param array|NULL $value
+   * @param array|null $value
    *   The value of a time slot; day, start, end, comment.
    *
    * @return array
@@ -242,9 +242,9 @@ class OfficeHoursItem extends OfficeHoursItemBase {
       // Process Exception days with 'more slots'.
       // This cannot be done in above form, since we parse $day over items.
       // Process 'day_delta' first, to avoid problem in isExceptionDay().
-      elseif ($value['day'] == 'exception_day_delta') {
-          $day = $previous_day;
-          $day_delta++;
+      elseif ($value['day'] === 'exception_day_delta') {
+        $day = $previous_day;
+        $day_delta++;
       }
       else {
         $previous_day = $day;
@@ -255,8 +255,13 @@ class OfficeHoursItem extends OfficeHoursItemBase {
     $starthours = $value['starthours'] ?? NULL;
     $endhours = $value['endhours'] ?? NULL;
     // Format to 'Hi' format, with leading zero (0900).
-    $starthours = OfficeHoursDateHelper::format($starthours, 'Hi');
-    $endhours = OfficeHoursDateHelper::format($endhours, 'Hi');
+    // Note: the value may also contain a season date.
+    if (!is_numeric($starthours)) {
+      $starthours = OfficeHoursDateHelper::format($starthours, 'Hi');
+    }
+    if (!is_numeric($endhours)) {
+      $endhours = OfficeHoursDateHelper::format($endhours, 'Hi');
+    }
     // Cast the time to integer, to avoid core's error
     // "This value should be of the correct primitive type."
     // This is needed for e.g., '0000' and '0030'.

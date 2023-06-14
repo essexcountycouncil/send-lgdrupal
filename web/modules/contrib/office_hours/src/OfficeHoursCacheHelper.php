@@ -58,7 +58,7 @@ class OfficeHoursCacheHelper implements CacheableDependencyInterface {
   protected $items = NULL;
 
   /**
-   * An array of fromatted office_hours, according to formatter.
+   * An array of formatted office_hours, according to formatter.
    *
    * @var array
    */
@@ -79,7 +79,7 @@ class OfficeHoursCacheHelper implements CacheableDependencyInterface {
   public function getCacheContexts() {
     // Do not set caching for anonymous users.
     if (\Drupal::currentUser()->isAnonymous()) {
-      // return ['session';
+    // return ['session'];
     }
     return [];
   }

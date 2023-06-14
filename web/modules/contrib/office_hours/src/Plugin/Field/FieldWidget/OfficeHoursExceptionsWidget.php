@@ -187,7 +187,7 @@ class OfficeHoursExceptionsWidget extends OfficeHoursListWidget {
    * 'Widget of widgets' OfficeHoursComplexWeekWidget,
    * since current widget is a ListWidget, not a WeekWidget subclass.
    */
-  static public function _massageFormValues(array $values, array $form, FormStateInterface $form_state) {
+  public static function _massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     $values = $values['value'];
 
     if (!is_array($values)) {
@@ -202,4 +202,5 @@ class OfficeHoursExceptionsWidget extends OfficeHoursListWidget {
     }
     return $values;
   }
+
 }

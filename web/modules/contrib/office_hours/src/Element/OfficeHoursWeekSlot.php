@@ -3,7 +3,6 @@
 namespace Drupal\office_hours\Element;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem;
 
 /**
  * Provides a one-line text field form element for the Week Widget.
