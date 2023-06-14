@@ -17,9 +17,11 @@ function office_hours_theme() {
       'office_hours' => [],
       // Pass (unfiltered) office_hours items to twig theming.
       'office_hours_field' => [],
+      'is_open' => FALSE,
+      'open_text' => NULL,
+      'closed_text' => NULL,
       'item_separator' => '<br />',
       'slot_separator' => ', ',
-      'closed_text' => NULL,
     ],
     'file' => 'office_hours.theme.inc',
   ];
@@ -130,6 +132,7 @@ function office_hours_theme_suggestions_office_hours(array $variables) {
   $suggestions = [];
 
   $hook_name = $variables['hook_name'] ?? 'office_hours';
+  /** @var \Drupal\field\Entity\FieldConfig $parent */
   $parent = $variables['parent'];
 
   if ($parent) {

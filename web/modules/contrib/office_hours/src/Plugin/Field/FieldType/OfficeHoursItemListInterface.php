@@ -28,27 +28,51 @@ interface OfficeHoursItemListInterface extends FieldItemListInterface {
    *
    * @usage The function is not used anymore in module, but is used in local
    * installations theming in twig, skipping the Drupal field UI/formatters.
-   * Since twig filters are static methods, using a trait isnt really an option.
+   * Since twig filters are static methods, a trait is not really an option.
    * Some installations are also subclassing this class.
    */
   public function getRows(array $settings, array $field_settings, array $third_party_settings, $time = NULL);
 
   /**
-   * Returns the formatter caching time of a field.
+   * {@inheritdoc}
    *
-   * @param array $settings
-   *   The formatter settings.
-   * @param array $field_settings
-   *   The field settings.
-   * @param array $third_party_settings
-   *   The formatter's third party settings.
+   * Create a custom field definition for office_hours_* items.
    *
-   * @return int
-   *   The time that a render element (formatter) can be cached.
+   * Ideally, we just use the basic 'office_hours' field definition.
+   * However, this causes either:
+   * 1- to display the 'technical' widgets (exception, season) in Field UI,
+   *   (with annotation: field_types = {"office_hours"}), or
+   * 2- to have the widget refused by WidgetPluginManager~getInstance().
+   *   (with annotation: no_ui = TRUE),
+   *   FieldType has annotation 'no_ui', FieldWidget and FieldFormatter haven't.
+   * So, the Exceptions and Season widgets are now declared for their
+   * specific type.
    *
-   * @see https://www.drupal.org/docs/8/api/cache-api/cache-max-age
+   * @param string $field_type
+   *   The field type, 'office_hours' by default.
+   *   If set otherwise a new FieldDefinition is returned.
+   *
+   * @return \Drupal\Core\Field\FieldDefinitionInterface
+   *   The field definition. BaseField, not ConfigField,
+   *   because easier to construct.
    */
-  public function getCacheTime(array $settings, array $field_settings, array $third_party_settings);
+  public function getFieldDefinition($field_type = '');
+
+  /**
+   * Get the current slot and the next day from the Office hours.
+   *
+   * - Variable $this->nextDay is set to day number.
+   * - Attribute 'current' is set on the active slot.
+   * - Variable $this->currentSlot is set to slot data.
+   * - Variable $this->currentSlot is returned.
+   *
+   * @param mixed $time
+   *   The desired timestamp.
+   *
+   * @return null|\Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem
+   *   The current slot data, if any.
+   */
+  public function getCurrent($time = NULL);
 
   /**
    * Determines if the Entity has Exception days.

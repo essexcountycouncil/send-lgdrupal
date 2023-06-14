@@ -2,13 +2,9 @@
 
 namespace Drupal\office_hours\Plugin\Field\FieldType;
 
-use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Field\FieldItemBase;
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\office_hours\Element\OfficeHoursDatetime;
 use Drupal\office_hours\OfficeHoursDateHelper;
+use Drupal\office_hours\OfficeHoursSeason;
 
 /**
  * Plugin implementation of the 'office_hours' field type.
@@ -22,231 +18,39 @@ use Drupal\office_hours\OfficeHoursDateHelper;
  *   list_class = "\Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList",
  * )
  */
-class OfficeHoursItem extends FieldItemBase {
+class OfficeHoursItem extends OfficeHoursItemBase {
 
   /**
-   * {@inheritdoc}
-   */
-  public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    return [
-      'columns' => [
-        'day' => [
-          'type' => 'int',
-          'not null' => FALSE,
-        ],
-        'starthours' => [
-          'type' => 'int',
-          'not null' => FALSE,
-        ],
-        'endhours' => [
-          'type' => 'int',
-          'not null' => FALSE,
-        ],
-        'comment' => [
-          'type' => 'varchar',
-          'length' => 255,
-          'not null' => FALSE,
-        ],
-      ],
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['day'] = DataDefinition::create('integer')
-      ->setLabel(t('Day'))
-      ->setDescription("Stores the day of the week's numeric representation (0=Sun, 6=Sat)");
-    $properties['starthours'] = DataDefinition::create('integer')
-      ->setLabel(t('Start hours'))
-      ->setDescription("Stores the start hours value");
-    $properties['endhours'] = DataDefinition::create('integer')
-      ->setLabel(t('End hours'))
-      ->setDescription("Stores the end hours value");
-    $properties['comment'] = DataDefinition::create('string')
-      ->setLabel(t('Comment'))
-      ->addConstraint('Length', ['max' => 255])
-      ->setDescription("Stores the comment");
-
-    return $properties;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function defaultStorageSettings() {
-    $defaultStorageSettings = [
-      'time_format' => 'G',
-      'element_type' => 'office_hours_datelist',
-      'increment' => 30,
-      'required_start' => FALSE,
-      'required_end' => FALSE,
-      'limit_start' => '',
-      'limit_end' => '',
-      'comment' => 1,
-      'valhrs' => FALSE,
-      'cardinality_per_day' => 2,
-    ] + parent::defaultStorageSettings();
-
-    return $defaultStorageSettings;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function storageSettingsForm(array &$form, FormStateInterface $form_state, $has_data) {
-
-    $settings = $this->getFieldDefinition()
-      ->getFieldStorageDefinition()
-      ->getSettings();
-
-    return parent::storageSettingsForm($form, $form_state, $has_data)
-    + $this->getStorageSettingsElement($settings);
-  }
-
-  /**
-   * Returns a form for the storage-level settings.
+   * The minimum day number for Exception days.
    *
-   * Isolated as a static form, to be invoked from both class OfficeHoursItem
-   * and class WebFormOfficeHours (extends WebformCompositeBase).
-   *
-   * @param array $settings
-   *   The field settings.
-   *
-   * @return array
-   *   The form definition for the field settings.
+   * @var int
    */
-  public static function getStorageSettingsElement(array $settings) {
+  const EXCEPTION_DAY = 1000000001;
 
-    // Get a formatted list of valid hours values.
-    $hours = OfficeHoursDateHelper::hours('H', FALSE);
-    foreach ($hours as &$hour) {
-      if (!empty($hour)) {
-        $hrs = OfficeHoursDateHelper::format($hour . '00', 'H:i');
-        $ampm = OfficeHoursDateHelper::format($hour . '00', 'g:i a');
-        $hour = "$hrs ($ampm)";
-      }
-    }
+  /**
+   * Determines whether the item is a seasonal or regular Weekday.
+   *
+   * @return int
+   *   0 if the Item is a regular Weekday,E.g., 1..9 -> 0.
+   *   season_id if a seasonal weekday, E.g., 301..309 -> 100..100.
+   */
+  public function getSeasonId() {
+    $day = $this->getValue()['day'];
 
-    $element['#element_validate'] = [
-      [static::class, 'validateOfficeHoursSettings'],
-    ];
-    $description = t(
-      'The maximum number of time slots, that are allowed per day.
-      <br/><strong> Warning! Lowering this setting after data has been created
-      could result in the loss of data! </strong><br/> Be careful when using
-      more then 2 slots per day, since not all external services (like Google
-      Places) support this.');
-    $element['cardinality_per_day'] = [
-      '#type' => 'select',
-      '#title' => t('Number of time slots per day'),
-      '#options' => array_combine(range(1, 12), range(1, 12)),
-      '#default_value' => $settings['cardinality_per_day'],
-      '#description' => $description,
-    ];
-
-    // @todo D8 Move to widget settings. Align with DateTimeDatelistWidget.
-    $element['time_format'] = [
-      '#type' => 'select',
-      '#title' => t('Time notation'),
-      '#options' => [
-        'G' => t('24 hour time @example', ['@example' => '(9:00)']),
-        'H' => t('24 hour time @example', ['@example' => '(09:00)']),
-        'g' => t('12 hour time @example', ['@example' => '9:00 am)']),
-        'h' => t('12 hour time @example', ['@example' => '(09:00 am)']),
-      ],
-      '#default_value' => $settings['time_format'],
-      '#required' => FALSE,
-      '#description' => t('Format of the time in the widget.'),
-    ];
-    $element['element_type'] = [
-      '#type' => 'select',
-      '#title' => t('Time element type'),
-      '#description' => t('Select the widget type for selecting the time.'),
-      '#options' => [
-        'office_hours_datelist' => 'Select list',
-        'office_hours_datetime' => 'HTML5 time input',
-      ],
-      '#default_value' => $settings['element_type'],
-    ];
-    // @todo D8 Align with DateTimeDatelistWidget.
-    $element['increment'] = [
-      '#type' => 'select',
-      '#title' => t('Time increments'),
-      '#default_value' => $settings['increment'],
-      '#options' => [
-        1 => t('1 minute'),
-        5 => t('5 minute'),
-        15 => t('15 minute'),
-        30 => t('30 minute'),
-        60 => t('60 minute'),
-      ],
-      '#required' => FALSE,
-      '#description' => t('Restrict the input to fixed fractions of an hour.'),
-    ];
-
-    $element['comment'] = [
-      '#type' => 'select',
-      '#title' => t('Allow a comment per time slot'),
-      '#required' => FALSE,
-      '#default_value' => $settings['comment'],
-      '#options' => [
-        0 => t('No comments allowed'),
-        1 => t('Allow comments (HTML tags possible)'),
-        2 => t('Allow translatable comments (no HTML)'),
-      ],
-    ];
-    $element['valhrs'] = [
-      '#type' => 'checkbox',
-      '#title' => t('Validate hours'),
-      '#required' => FALSE,
-      '#default_value' => $settings['valhrs'],
-      '#description' => t('Assure that endhours are later then starthours.
-        Please note that this will work as long as both hours are set and
-        the opening hours are not through midnight.'),
-    ];
-    $element['required_start'] = [
-      '#type' => 'checkbox',
-      '#title' => t('Require Start time'),
-      '#default_value' => $settings['required_start'],
-    ];
-    $element['required_end'] = [
-      '#type' => 'checkbox',
-      '#title' => t('Require End time'),
-      '#default_value' => $settings['required_end'],
-    ];
-    $element['limit_start'] = [
-      '#type' => 'select',
-      '#title' => t('Limit hours - from'),
-      '#description' => t('Restrict the hours available - select options will start from this hour.'),
-      '#default_value' => $settings['limit_start'],
-      '#options' => $hours,
-    ];
-    $element['limit_end'] = [
-      '#type' => 'select',
-      '#title' => t('Limit hours - until'),
-      '#description' => t('Restrict the hours available - select options
-         will end at this hour. You may leave \'until\' time empty.
-         Use \'00:00\' for closing at midnight.'),
-      '#default_value' => $settings['limit_end'],
-      '#options' => $hours,
-    ];
-
-    return $element;
+    return OfficeHoursItem::isSeasonDay($this->getValue())
+      ? $day - $day % 100
+      : 0;
   }
 
   /**
-   * {@inheritdoc}
+   * Determines whether the item is a seasonal or regular Weekday.
+   *
+   * @return int
+   *   0 if the Item is a regular Weekday,E.g., 1..9 -> 0.
+   *   season_id if a seasonal weekday, E.g., 301..309 -> 100..100.
    */
-  public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-    $value = [
-      'day' => mt_rand(0, 6),
-      'starthours' => mt_rand(00, 23) * 100,
-      'endhours' => mt_rand(00, 23) * 100,
-      'comment' => mt_rand(0, 1) ? 'additional text' : '',
-    ];
-    return $value;
+  public function isSeasonHeader() {
+    return OfficeHoursSeason::isSeasonHeader($this->getValue());
   }
 
   /**
@@ -255,37 +59,8 @@ class OfficeHoursItem extends FieldItemBase {
    * @return bool
    *   TRUE if the item is Exception day, FALSE otherwise.
    */
-  public function isExceptionDay() {
+  public function isException() {
     return FALSE;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getValue() {
-    $value = parent::getValue();
-
-    if (!$value) {
-      $this->applyDefaultValue();
-    }
-
-    $value = $this->formatValue($value);
-    return $value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function applyDefaultValue($notify = TRUE) {
-    // Default to no default value.
-    $value = [
-      'day' => '',
-      'starthours' => NULL,
-      'endhours' => NULL,
-      'comment' => '',
-    ];
-    $this->setValue($value, $notify);
-    return $this;
   }
 
   /**
@@ -299,7 +74,8 @@ class OfficeHoursItem extends FieldItemBase {
    * Determines whether the data structure is empty.
    *
    * @param array $value
-   *   The value of a time slot; day, start, end, comment.
+   *   The value of a time slot: day, all_day, start, end, comment.
+   *   A value 'day_delta' must be added in case of widgets and formatters.
    *   Example from HTML5 input, without comments enabled.
    *   @code
    *     array:3 [
@@ -324,17 +100,29 @@ class OfficeHoursItem extends FieldItemBase {
       return TRUE;
     }
 
-    // Check Exception day.
-    if (OfficeHoursDateHelper::isExceptionDay($value)) {
-      if (isset($value['day_delta']) && $value['day_delta'] == 0) {
-        // @todo Why is day_delta sometimes not set?
-        // First slot is never empty if an Exception day is set.
-        return FALSE;
+    // If all_day is set, day is not empty.
+    if ($value['all_day'] ?? FALSE) {
+      return FALSE;
+    }
+
+    // Facilitate closed Exception days - first slots are never empty.
+    if (OfficeHoursItem::isExceptionDay($value)) {
+      switch ($value['day_delta'] ?? 0) {
+        case 0:
+          // First slot is never empty if an Exception day is set.
+          // In this case, on that date, the entity is 'Closed'.
+          // Note: day_delta is not set upon load, since not in database.
+          // In ExceptionsSlot (Widget), 'day_delta' is added explicitly.
+          // In Formatter ..?
+          return FALSE;
+
+        default:
+          // Following slots. Continue with check for Weekdays.
       }
     }
 
     // Allow Empty time field with comment (#2070145).
-    // For 'select list ' and 'html5 datetime' hours element.
+    // For 'select list' and 'html5 datetime' hours element.
     if (isset($value['day'])) {
       if (OfficeHoursDatetime::isEmpty($value['starthours'] ?? '')
       && OfficeHoursDatetime::isEmpty($value['endhours'] ?? '')
@@ -348,99 +136,238 @@ class OfficeHoursItem extends FieldItemBase {
   }
 
   /**
-   * Determines whether the data structure is empty.
+   * Returns whether the day number an Exception day.
    *
    * @param array $value
+   *   The Office hours data structure, having 'day' as weekday
+   *   (using date_api as key (0=Sun, 6=Sat)) or Exception day date.
+   * @param bool $include_empty_day
+   *   Set to TRUE if the 'add Exception' empty day is also an Exception day.
+   *
+   * @return bool
+   *   True if the day_number is a date (unix timestamp).
+   */
+  public static function isExceptionDay(array $value, $include_empty_day = FALSE) {
+    // Do NOT convert to integer, since day may be empty.
+    $day = $value['day'];
+    if ($include_empty_day && $day === '') {
+      return TRUE;
+    }
+    return (is_numeric($day) && $day >= OfficeHoursItem::EXCEPTION_DAY);
+  }
+
+  /**
+   * Determines whether the item is a seasonal or a regular Weekday.
+   *
+   * @param array $value
+   *   The Office hours data structure, having 'day' as weekday
+   *   (using date_api as key (0=Sun, 6=Sat)) or Exception day date.
+   *
+   * @return bool
+   *   True if the day_number is a seasonal weekday (100 to 100....7).
+   */
+  public static function isSeasonDay(array $value) {
+    $day = (int) $value['day'];
+    return ($day > OfficeHoursSeason::SEASON_DAY
+      && $day < OfficeHoursItem::EXCEPTION_DAY);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setValue($value, $notify = TRUE) {
+    $this->formatValue($value);
+    parent::setValue($value, $notify);
+  }
+
+  /**
+   * Normalizes the contents of the Item.
+   *
+   * @param array|NULL $value
    *   The value of a time slot; day, start, end, comment.
    *
    * @return array
    *   The normalised value of a time slot.
    */
-  public static function formatValue(array &$value) {
-    if (isset($value['day'])) {
-      $day = $value['day'];
-      if ($day !== '') {
-        // When Form is displayed the first time, $day is an integer.
-        // When 'Add exception' is pressed, $day is a string "yyyy-mm-dd".
-        $day = is_numeric($day) ? $day : strtotime($day);
-        // Convert day number to integer to get '0' for Sunday, not 'false'.
-        $day = (int) $day;
-      }
-      // Format to 'Hi' format, with leading zero (0900).
-      $starthours = OfficeHoursDateHelper::format($value['starthours'] ?? NULL, 'Hi');
-      $endhours = OfficeHoursDateHelper::format($value['endhours'] ?? NULL, 'Hi');
+  public static function formatValue(&$value) {
+    $day = $value['day'] ?? NULL;
 
-      $value = [
-        'day' => $day,
-        // 1. Cast the time to integer, to avoid core's error
-        // "This value should be of the correct primitive type."
-        // This is needed for e.g., '0000' and '0030'.
-        'starthours' => $starthours ? (int) $starthours : NULL,
-        'endhours' => $endhours ? (int) $endhours : NULL,
-        // Set default value of comment to empty string.
-        'comment' => $value['comment'] ?? '',
-      ] + $value;
+    if ($day == OfficeHoursItem::EXCEPTION_DAY) {
+      // An ExceptionItem is created with ['day' => EXCEPTION_DAY,].
+      $day = NULL;
+      $value = [];
     }
-    else {
-      // Set default values for new, empty widget.
-      $value = [
+
+    // Set default values for new, empty widget.
+    if ($day === NULL) {
+      return $value += [
         'day' => '',
+        'all_day' => FALSE,
         'starthours' => NULL,
         'endhours' => NULL,
         'comment' => '',
       ];
     }
 
+    // Handle day formatting.
+    if ($day && !is_numeric($day)) {
+      // When Form is displayed the first time, $day is an integer.
+      // When 'Add exception' is pressed, $day is a string "yyyy-mm-dd".
+      $day = (int) strtotime($day);
+    }
+    elseif ($day !== '') {
+      // Convert day number to integer to get '0' for Sunday, not 'false'.
+      $day = (int) $day;
+    }
+
+    // Handle exception day 'more' slots.
+    // The following should be in slot::valueCallback(),
+    // But the results are not propagated into the widget.
+    if ($value !== FALSE) {
+
+      // This function is called in a loop over widget items.
+      // Save the exception day for the first delta,
+      // then use it in the following delta's of a day.
+      static $day_delta = 0;
+      static $previous_day = NULL;
+
+      if ($previous_day === $day) {
+        $day_delta++;
+      }
+      // Note: in ideal implementation, this is only needed in valueCallback(),
+      // but values are not copied from slot to widget.
+      // Only need to widget-specific massaging of form values,
+      // All logical changes will be done in ItemList->setValue($values),
+      // where the formatValue() function will be called, also.
+      // Process Exception days with 'more slots'.
+      // This cannot be done in above form, since we parse $day over items.
+      // Process 'day_delta' first, to avoid problem in isExceptionDay().
+      elseif ($value['day'] == 'exception_day_delta') {
+          $day = $previous_day;
+          $day_delta++;
+      }
+      else {
+        $previous_day = $day;
+        $day_delta = 0;
+      }
+    }
+
+    $starthours = $value['starthours'] ?? NULL;
+    $endhours = $value['endhours'] ?? NULL;
+    // Format to 'Hi' format, with leading zero (0900).
+    $starthours = OfficeHoursDateHelper::format($starthours, 'Hi');
+    $endhours = OfficeHoursDateHelper::format($endhours, 'Hi');
+    // Cast the time to integer, to avoid core's error
+    // "This value should be of the correct primitive type."
+    // This is needed for e.g., '0000' and '0030'.
+    $starthours = ($starthours === NULL) ? NULL : (int) $starthours;
+    $endhours = ($endhours === NULL) ? NULL : (int) $endhours;
+
+    // Handle the all_day checkbox.
+    $all_day = (bool) ($value['all_day'] ?? FALSE);
+    if ($all_day) {
+      $starthours = $endhours = 0;
+    }
+    elseif ($starthours === 0 && $endhours === 0) {
+      $all_day = TRUE;
+      $starthours = $endhours = 0;
+    }
+
+    $value = [
+      'day' => $day,
+      'day_delta' => $day_delta,
+      'all_day' => $all_day,
+      'starthours' => $starthours,
+      'endhours' => $endhours,
+      'comment' => $value['comment'] ?? '',
+    ];
+
     return $value;
   }
 
   /**
-   * {@inheritdoc}
+   * Formats a time slot, to be displayed in Formatter.
+   *
+   * @param array $settings
+   *   The formatter settings.
+   *
+   * @return string
+   *   Returns formatted time.
    */
-  public function getConstraints() {
-    $constraints = [];
-    // @todo When adding parent::getConstraints(), only English is allowed...
-    // $constraints = parent::getConstraints();
-    $max_length = $this->getSetting('max_length');
-    if ($max_length) {
-      $constraint_manager = \Drupal::typedDataManager()
-        ->getValidationConstraintManager();
-      $constraints[] = $constraint_manager->create('ComplexData', [
-        'value' => [
-          'Length' => [
-            'max' => $max_length,
-            'maxMessage' => $this->t('%name: may not be longer than @max characters.', [
-              '%name' => $this->getFieldDefinition()->getLabel(),
-              '@max' => $max_length,
-            ]),
-          ],
-        ],
-      ]);
+  public function formatTimeSlot(array $settings) {
+    $format = OfficeHoursDateHelper::getTimeFormat($settings['time_format']);
+    $separator = $settings['separator']['hours_hours'];
+
+    $start = OfficeHoursDateHelper::format($this->starthours, $format, FALSE);
+    $end = OfficeHoursDateHelper::format($this->endhours, $format, TRUE);
+
+    if (OfficeHoursDatetime::isEmpty($start)
+      && OfficeHoursDatetime::isEmpty($end)) {
+      // Empty time fields.
+      return '';
     }
-    return $constraints;
+
+    $formatted_time = $start . $separator . $end;
+    \Drupal::moduleHandler()->alter('office_hours_time_format', $formatted_time);
+
+    return $formatted_time;
   }
 
   /**
-   * Implements the #element_validate callback for storageSettingsForm().
+   * Formats the labels of a Render element, like getLabel().
    *
-   * Verifies the office hours limits.
-   * "Please note that this will work as long as the opening hours
-   * "are not through midnight.
-   * "You may leave 'until' time empty. Use '00:00' for closing at midnight."
+   * @param array $settings
+   *   The formatter settings.
    *
-   * @param array $element
-   *   The element.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The form state object.
+   * @return string
+   *   The translated formatted day label.
    */
-  public static function validateOfficeHoursSettings(array $element, FormStateInterface &$form_state) {
-    if (!empty($element['limit_end']['#value']) &&
-      $element['limit_end']['#value'] < $element['limit_start']['#value']) {
-      $form_state->setError($element['limit_start'], t('%start is later then %end.', [
-        '%start' => $element['limit_start']['#title'],
-        '%end' => $element['limit_end']['#title'],
-      ]));
+  public function getLabel(array $settings) {
+    return $this->formatLabel($settings, $this->getValue());
+  }
+
+  /**
+   * Formats the labels of a Render element, like getLabel().
+   *
+   * @param array $settings
+   *   The formatter settings.
+   * @param array $value
+   *   The Item values.
+   *
+   * @return string
+   *   The translated formatted day label.
+   */
+  public static function formatLabel(array $settings, array $value) {
+    $label = '';
+
+    if ($value['day'] == OfficeHoursItem::EXCEPTION_DAY) {
+      // @todo Remove code from file office_hours.theme.exceptions.inc .
+      // @todo Move into OfficeHoursDateHelper::getLabel ??
+      $label = $settings['exceptions']['title'] ?? '';
+      return t($label);
     }
+
+    $pattern = $settings['day_format'];
+    // Return fast if weekday is not to be display.
+    if ($pattern == 'none') {
+      return $label;
+    }
+
+    // Get the label.
+    $label = OfficeHoursDateHelper::getLabel($pattern, $value);
+    $days_suffix = $settings['separator']['day_hours'];
+
+    // Extend the label for Grouped days.
+    if (isset($value['endday'])) {
+      $day = $value['endday'];
+      $label2 = OfficeHoursDateHelper::getLabel($pattern, ['day' => $day]);
+
+      $group_separator = $settings['separator']['grouped_days'];
+      $label .= $group_separator . $label2;
+    }
+    $label .= $days_suffix;
+
+    return $label;
   }
 
 }

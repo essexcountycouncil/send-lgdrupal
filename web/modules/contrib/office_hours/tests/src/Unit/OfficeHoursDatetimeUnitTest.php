@@ -50,9 +50,6 @@ class OfficeHoursDatetimeUnitTest extends UnitTestCase {
 
     // Test hours.
     $this::assertTrue(OfficeHoursDatetime::isEmpty(NULL), 'Test NULL is empty.');
-    $this::assertTrue(OfficeHoursDatetime::isEmpty(OfficeHoursDateHelper::EMPTY_HOURS), 'Test 24:00 is not empty.');
-    $this::assertTrue(OfficeHoursDatetime::isEmpty(-1), 'Test 24:00 is not empty.');
-    $this::assertTrue(OfficeHoursDatetime::isEmpty('-1'), 'Test 24:00 is not empty.');
     $this::assertTrue(OfficeHoursDatetime::isEmpty(''), 'Test empty slot is empty.');
     $this::assertTrue(OfficeHoursDatetime::isEmpty([
       'time' => '',
@@ -106,7 +103,7 @@ class OfficeHoursDatetimeUnitTest extends UnitTestCase {
       "one1" => ['1:00', 'G', '1'],
       "one2" => ['01:00', 'G', '1'],
       "one3" => ['1:00', 'H:i', '01:00'],
-      "fallback" => ['12:00 am', 'g:i a', '24:00'],
+      // "fallback" => ['0:00', 'g:i a', '12:00 am'],
     ];
   }
 

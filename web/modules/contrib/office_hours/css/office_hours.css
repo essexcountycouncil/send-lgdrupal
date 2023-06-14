@@ -5,6 +5,7 @@
  */
 .field--type-office-hours {
   white-space: normal;
+/* vertical-align: middle; */
 }
 /* Format the 'day' column. */
 .office-hours-label {
@@ -30,42 +31,39 @@
 }
 
 /*
- * Formatter settings - default formatter
+ * Formatter settings
  */
-span.office-hours__item-label {
-  display: inline-block;
+/* Formatter settings - default formatter */
+.office-hours__item-label {
   vertical-align: text-top;
 }
-span.office-hours__item-slots {
-  display: inline-block;
+.office-hours__item-slots {
   vertical-align: text-top;
 }
-span.office-hours__item-comments {
-  display: inline-block;
+.office-hours__item-comments {
   vertical-align: text-top;
 }
 
-/*
- * Formatter settings - table formatter
- */
-/* Transparent background, hiding table details from user. */
+/* Formatter settings - table formatter */
 tr.office-hours__item {
+  /* Transparent background, hiding table details from user. */
   background: rgba(0, 0, 0, 0);
 }
 
-/* Do not wrap label, slots, comments in cells. */
 .office-hours__item td {
+  /* Do not wrap label, slots, comments in cells. */
   white-space: nowrap;
   vertical-align: text-top;
 }
-
-/* The currently active time slot. */
-tr.office-hours__item-current {
+/* Formatter - the currently active time slot. */
+.office-hours__item-current {
+  background: rgba(0, 0, 0, 0);
 }
-
-/*
- * Formatter settings - status formatter
- */
-.office-hours-status--closed {
+/* Formatter - status formatter. */
+.office-hours-status.office-hours-status--closed {
   font-style: italic;
+  /* color: #e20e17; */
+}
+.office-hours-status.office-hours-status--open {
+  /* color: #10a90b; */
 }

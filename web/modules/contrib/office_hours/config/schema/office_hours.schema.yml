@@ -13,6 +13,9 @@ field.storage_settings.office_hours:
     increment:
       type: integer
       label: 'Restrict the input to fixed fractions of an hour'
+    valhrs:
+      type: boolean
+      label: 'Validate hours'
     required_start:
       type: boolean
       label: 'Required widget hours - from'
@@ -25,12 +28,18 @@ field.storage_settings.office_hours:
     limit_end:
       type: string
       label: 'Limit widget hours - until'
+    all_day:
+      type: boolean
+      label: 'Expose all_day checkbox in widget'
+    exceptions:
+      type: boolean
+      label: 'Allow exceptions in extended weekwidget'
+    seasons:
+      type: boolean
+      label: 'Allow seasons in extended weekwidget'
     comment:
       type: integer
       label: 'Allow a comment per time slot'
-    valhrs:
-      type: boolean
-      label: 'Validate hours'
     cardinality_per_day:
       type: integer
       label: 'Cardinality per day'
@@ -56,7 +65,10 @@ field.formatter.settings.office_hours:
       label: 'Number of days to show'
     closed_format:
       type: text
-      label: 'Empty days notation'
+      label: 'Empty day notation'
+    all_day_format:
+      type: text
+      label: 'All day notation'
     separator:
       type: mapping
       label: 'Separators'
@@ -68,11 +80,11 @@ field.formatter.settings.office_hours:
           type: label
           label: 'Separator between grouped days'
         day_hours:
-         type: label
-         label: 'Separator between day and the hours'
+          type: label
+          label: 'Separator between day and the hours'
         hours_hours:
-         type: label
-         label: 'Separator between the hours of a time slot'
+          type: label
+          label: 'Separator between the hours of a time slot'
         more_hours:
           type: label
           label: 'Separator between time slots'
@@ -87,21 +99,24 @@ field.formatter.settings.office_hours:
           type: label
           label: 'Currently open message'
         closed_text:
-         type: label
-         label: 'Currently closed message'
+          type: label
+          label: 'Currently closed message'
     exceptions:
       type: mapping
-      label: 'Exception dates'
+      label: 'Exception days'
       mapping:
+        title:
+          type: label
+          label: 'Title for exceptions'
         restrict_exceptions_to_num_days:
           type: integer
           label: 'Restrict exceptions display to x days in future'
         date_format:
           type: string
           label: 'Date format for exception day'
-        title:
-         type: label
-         label: 'Title for exceptions'
+        all_day_format:
+          type: text
+          label: 'All day notation for exceptions'
     timezone_field:
       type: string
       label: 'Timezone field'
@@ -130,6 +145,14 @@ field.formatter.settings.office_hours_status:
       type: label
       label: 'Currently closed message'
 
+field.widget.settings.office_hours_default:
+  type: mapping
+  label: 'Office hours default widget settings'
+  mapping:
+    collapsed:
+      type: boolean
+      label: 'Collapsed'
+
 field.value.office_hours:
   type: mapping
   label: 'Default value'
@@ -137,6 +160,9 @@ field.value.office_hours:
     day:
       type: integer
       label: 'Day'
+    all_day:
+      type: boolean
+      label: 'All day'
     starthours:
       type: integer
       label: 'Start hours'

@@ -3,6 +3,7 @@
 namespace Drupal\office_hours\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem;
 
 /**
  * Plugin implementation of the formatter.
@@ -15,7 +16,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   }
  * )
  */
-class OfficeHoursFormatterTable extends OfficeHoursFormatterBase {
+class OfficeHoursFormatterTable extends OfficeHoursFormatterDefault {
 
   /**
    * {@inheritdoc}
@@ -30,28 +31,36 @@ class OfficeHoursFormatterTable extends OfficeHoursFormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $items */
-    $elements = [];
+    $elements = parent::viewElements($items, $langcode);
 
     // If no data is filled for this entity, do not show the formatter.
     if ($items->isEmpty()) {
       return $elements;
     }
 
-    $settings = $this->getSettings();
-    $third_party_settings = $this->getThirdPartySettings();
-    $field_definition = $items->getFieldDefinition();
+    // Process the given formatters.
+    $hours_formatter = NULL;
+    foreach ($elements as $key => $element) {
+      switch ($element['#theme'] ?? '') {
+        case 'office_hours':
+        case 'office_hours_table':
+          // Fetch the Office Hours formatter.
+          $hours_formatter = &$elements[$key];
+          break;
+      }
+    }
+
+    if (!$hours_formatter) {
+      return $elements;
+    }
+
     // N.B. 'Show current day' may return nothing in getRows(),
     // while other days are filled.
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items */
-    $office_hours = $items->getRows($settings, $this->getFieldSettings(), $third_party_settings);
+    $office_hours = $hours_formatter['#office_hours'];
 
-    // If no data is filled for this entity, do not show the formatter.
-    if ($items->isEmpty()) {
-      return $elements;
-    }
-
-    // For accessibility (a11y) screen readers, a header/title is introduced.
+    $settings = $this->getSettings();
+    $field_definition = $items->getFieldDefinition();
+    // Add a label/header/title for accessibility (a11y) screen readers.
     // Superfluous comments are removed. @see #3110755 for examples.
     $isLabelEnabled = $settings['day_format'] != 'none';
     $isTimeSlotEnabled = TRUE;
@@ -106,37 +115,27 @@ class OfficeHoursFormatterTable extends OfficeHoursFormatterBase {
     ];
 
     if ($isCommentEnabled) {
+      $labels = OfficeHoursItem::getPropertyLabels('data', $this->getFieldSettings() + ['slots' => TRUE]);
+
       if ($isLabelEnabled) {
-        $table['#header'][] = [
-          'data' => $this->t('Day'),
+        $table['#header']['label'] = [
+          'data' => $labels['day']['data'],
           'class' => 'visually-hidden',
         ];
       }
-      $table['#header'][] = [
-        'data' => $this->t('Time slot'),
+      $table['#header']['slots'] = [
+        'data' => $labels['slots']['data'],
         'class' => 'visually-hidden',
       ];
-      $table['#header'][] = [
-        'data' => $this->t('Comment'),
+      $table['#header']['comments'] = [
+        'data' => $labels['comment']['data'],
         'class' => 'visually-hidden',
       ];
     }
 
-    $elements[] = [
-      '#theme' => 'office_hours_table',
-      '#table' => $table,
-      // Pass filtered office_hours structures to twig theming.
-      '#office_hours' => $office_hours,
-      // Pass (unfiltered) office_hours items to twig theming.
-      '#office_hours_field' => $items,
-    ];
-
-    $elements = $this->addSchemaFormatter($items, $langcode, $elements);
-    $elements = $this->addStatusFormatter($items, $langcode, $elements);
-
-    // Add a ['#cache']['max-age'] attribute to $elements.
-    // Note: This invalidates a previous Cache in Status Formatter.
-    $this->addCacheMaxAge($items, $elements);
+    // Overwrite parent.
+    $hours_formatter['#theme'] = 'office_hours_table';
+    $hours_formatter['#table'] = $table;
 
     return $elements;
   }

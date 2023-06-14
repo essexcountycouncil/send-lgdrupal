@@ -2,14 +2,12 @@
 
 namespace Drupal\office_hours\Plugin\Field\FieldType;
 
-use Drupal\Core\Cache\Cache;
-use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldItemList;
+use Drupal\field\Entity\FieldConfig;
 use Drupal\office_hours\Event\OfficeHoursEvents;
 use Drupal\office_hours\Event\OfficeHoursUpdateEvent;
-use Drupal\office_hours\OfficeHoursDateHelper;
 use Drupal\office_hours\OfficeHoursFormatterTrait;
+use Drupal\office_hours\OfficeHoursSeason;
 
 /**
  * Represents an Office hours field.
@@ -21,48 +19,51 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
   }
 
   /**
-   * An integer representing the next open day.
-   *
-   * @var int
-   */
-  protected $nextDay = NULL;
-
-  /**
    * Helper for creating a list item object of several types.
    *
    * {@inheritdoc}
    */
   protected function createItem($offset = 0, $value = NULL) {
+    // @todo Move static variables to class plugin.
+    static $pluginManager = NULL;
+    $pluginManager = $pluginManager ?? \Drupal::service('plugin.manager.field.field_type');
 
-    if (!isset($value['day'])) {
-      // Empty (added?) Item from List Widget.
-      return parent::createItem($offset, $value);
+    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
+    $value = $value ?? [];
+    $day = $value['day'] ?? NULL;
+    if ($day === NULL) {
+      // Empty Item from List Widget (or added item via AddMore button?).
+      $item = parent::createItem($offset, $value);
     }
-
-    // Normalize the data in the structure. @todo Needed? Also in getValue().
-    $value = OfficeHoursItem::formatValue($value);
-
-    // Use quasi Factory pattern to return Weekday or Exception item.
-    if (!OfficeHoursDateHelper::isExceptionDay($value)) {
+    elseif (OfficeHoursItem::isExceptionDay($value)) {
+      // Use quasi Factory pattern to create Exception day item.
+      $field_type = 'office_hours_exceptions';
+      $field_definition = $this->getFieldDefinition($field_type);
+      $configuration = [
+        'data_definition' => $field_definition->getItemDefinition(),
+        'name' => $this->getName(),
+        'parent' => $this,
+      ];
+      $item = $this->typedDataManager->createInstance("field_item:$field_type", $configuration);
+      $item->setValue($value);
+    }
+    elseif (OfficeHoursItem::isSeasonDay($value)) {
+      // Add (seasonal) Weekday Item.
+      // Copied from FieldTypePluginManager->createInstance().
+      $field_type = 'office_hours_season';
+      $field_definition = $this->getFieldDefinition($field_type);
+      $configuration = [
+        'data_definition' => $field_definition->getItemDefinition(),
+        'name' => $this->getName(),
+        'parent' => $this,
+      ];
+      $item = $this->typedDataManager->createInstance("field_item:$field_type", $configuration);
+      $item->setValue($value);
+    }
+    else {
       // Add Weekday Item.
-      return parent::createItem($offset, $value);
+      $item = parent::createItem($offset, $value);
     }
-
-    // Add Exception day Item.
-    // @todo Move static variables to class level.
-    static $pluginManager;
-    static $exceptions_list = NULL;
-    // First, create a special ItemList with Exception day field definition.
-    if (!$exceptions_list) {
-      $pluginManager = \Drupal::service('plugin.manager.field.field_type');
-      // Get field definition of ExceptionsItem.
-      $plugin_id = 'office_hours_exceptions';
-      $field_definition = BaseFieldDefinition::create($plugin_id);
-      // Create an ItemList with OfficeHoursExceptionsItem items.
-      $exceptions_list = OfficeHoursItemList::createInstance($field_definition, $this->name, NULL);
-    }
-    // Then, add an item to the list with Exception day field definition.
-    $item = $pluginManager->createFieldItem($exceptions_list, $offset, $value);
 
     // Pass item to parent, where it appears amongst Weekdays.
     return $item;
@@ -70,254 +71,33 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
 
   /**
    * {@inheritdoc}
-   */
-  public function getRows(array $settings, array $field_settings, array $third_party_settings, $time = NULL) {
-    // @todo Move more from getRows here, using itemList, not values.
-    $this->getCurrentSlot($time);
-    $this->keepExceptionDaysInHorizon($settings['exceptions']['restrict_exceptions_to_num_days'] ?? 0);
-    return $this->getFieldRows($this->getValue(), $settings, $field_settings, $third_party_settings, $time);
-  }
-
-  /**
-   * Returns the timestamp for the current request.
    *
-   * @return int
-   *   A Unix timestamp.
-   *
-   * @see \Drupal\Component\Datetime\TimeInterface
+   * Make user all (exception) days are in correct sort order,
+   * independent of database order, so formatter is correct.
+   * (Widget or other sources may store exceptions day in other sort order).
    */
-  public function getRequestTime($time) {
-    $time = ($time) ?? \Drupal::time()->getRequestTime();
-    // Call hook. Allows to alter the current time using a timezone.
-    $entity = $this->getEntity();
-    \Drupal::moduleHandler()->alter('office_hours_current_time', $time, $entity);
+  public function setValue($values, $notify = TRUE) {
+    parent::setValue($values, $notify);
+    // Sort the database values by day number.
+    $this->sort();
 
-    return $time;
-  }
-
-  /**
-   * Get the current slot and the next day from the Office hours.
-   *
-   * - Variable $this->nextDay is set to day number.
-   * - Attribute 'current' is set on the active slot.
-   *
-   * @param $time
-   *   The desired timestamp.
-   */
-  protected function getCurrentSlot($time = NULL) {
-
-    if (isset($this->nextDay)) {
-      return;
-    }
-
-    // Detect the current slot and the open/closed status.
-    $time = $this->getRequestTime($time);
-    $today = (int) idate('w', $time); // Get day_number: (0=Sun, 6=Sat).
-    $now = date('Hi', $time); // 'Hi' format, with leading zero (0900).
-
-    $next_day = NULL;
-
-    $iterator = $this->getIterator();
-    while ($iterator->valid()) {
-      /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
-      $item = $iterator->current();
-      $slot = $item->getValue();
-      $day = $slot['day'];
-
-      if ($day <= $today) {
-        // Initialize to first day of (next) week, in case we're closed
-        // the rest of the week. This works for any first_day.
-        if (!isset($first_day_next_week) || ($day < $first_day_next_week)) {
-          $first_day_next_week = $day;
-        }
-      }
-
-      if ($day == $today) {
-        $start = $slot['starthours'];
-        $end = $slot['endhours'];
-        if ($start > $now) {
-          // We will open later today.
-          $next_day = $day;
-        }
-        elseif (($start < $end) && ($end < $now)) {
-          // We were open today, but are already closed.
-        }
-        else {
-          $next_day = $day;
-          // We are still open. @todo move to end of code.
-          $slot['current'] = TRUE;
-          $iterator->current()->setValue($slot);
-        }
-      }
-      elseif ($day > $today) {
-        if ($next_day === NULL) {
-          $next_day = $day;
-        }
-        elseif ($next_day < $today) {
-          $next_day = $day;
-        }
-        else {
-          // Just for analysis.
-        }
-      }
-      else {
-        // Just for analysis.
-      }
-
-      $iterator->next();
-    }
-
-    if (!isset($next_day) && isset($first_day_next_week)) {
-      $next_day = $first_day_next_week;
-    }
-
-    // Set the result: $nextDay
-    // Note: also $slot['current'] is set. See above.
-    if (isset($next_day)) {
-      $this->nextDay = $next_day;
-    }
-
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheTime(array $settings, array $field_settings, array $third_party_settings) {
-
-    // @see https://www.drupal.org/docs/drupal-apis/cache-api/cache-max-age
-    // If there are no open days, cache forever.
-    if ($this->isEmpty()) {
-      return Cache::PERMANENT;
-    }
-
-    $date = new DrupalDateTime('now');
-    $today = $date->format('w');
-    $now = $date->format('Hi');
-    $seconds = $date->format('s');
-
-    $next_time = '0000';
-    $add_days = 0;
-
-    // Take the 'open/closed' indicator, if set, since it is the lowest.
-    $cache_setting = $settings['show_closed'];
-    if ($settings['current_status']['position'] !== '') {
-      $cache_setting = 'next';
-    }
-    // Get some settings from field. Do not overwrite defaults.
-    // Return the filtered days/slots/items/rows.
-    switch ($cache_setting) {
-      case 'all':
-      case 'open':
-      case 'none':
-        // These caches never expire, since they are always correct.
-        return Cache::PERMANENT;
-
-      case 'current':
-        // Cache expires at midnight.
-        $next_time = '0000';
-        $add_days = 1;
-        break;
-
-      case 'next':
-        // Get the first (and only) day of the list.
-        // Make sure we only receive 1 day, only to calculate the cache.
-        $office_hours = $this->getRows($settings, $field_settings, []);
-        $next_day = array_shift($office_hours);
-        if (!$next_day) {
-          return Cache::PERMANENT;
-        }
-
-        // Get the difference in hours/minutes between 'now' and next open/closing time.
-        foreach ($next_day['slots'] as $slot) {
-          $start = $slot['start'];
-          $end = $slot['end'];
-
-          if ($next_day['startday'] != $today) {
-            // We will open tomorrow or later.
-            $next_time = $start;
-            $add_days = ($next_day['startday'] - $today + OfficeHoursDateHelper::DAYS_PER_WEEK)
-              % OfficeHoursDateHelper::DAYS_PER_WEEK;
-            break;
-          }
-          elseif ($start > $now) {
-            // We will open later today.
-            $next_time = $start;
-            $add_days = 0;
-            break;
-          }
-          elseif (($start > $end) // We are open until after midnight.
-            || ($start == $end) // We are open 24hrs per day.
-            || (($start < $end) && ($end > $now)) // We are open, normal time slot.
-          ) {
-            $next_time = $end;
-            $add_days = ($start < $end) ? 0 : 1; // Add 1 day if open until after midnight.
-            break;
-          }
-          else {
-            // We were open today. Take the first slot of the day.
-            if (!isset($first_time_slot_found)) {
-              $first_time_slot_found = TRUE;
-
-              $next_time = $start;
-              $add_days = OfficeHoursDateHelper::DAYS_PER_WEEK;
-            }
-            continue; // A new slot might come along.
-          }
-        }
-        break;
-
-      default:
-        // We should have covered all options above.
-        return Cache::PERMANENT;
-    }
-
-    // Set to 0 to avoid php error if time field is not set.
-    $next_time = is_numeric($next_time) ? $next_time : '0000';
-    // Calculate the remaining cache time.
-    $time_left = $add_days * 24 * 3600;
-    $time_left += ((int) substr($next_time, 0, 2) - (int) substr($now, 0, 2)) * 3600;
-    $time_left += ((int) substr($next_time, 2, 2) - (int) substr($now, 2, 2)) * 60;
-    $time_left -= $seconds; // Correct for the current minute.
-
-    return $time_left;
-  }
-
-  /**
-   * {@inheritdoc}
-   *
-   * @todo Enable isOpen() for Exception days.
-   */
-  public function hasExceptionDays() {
-    $exception_exists = FALSE;
-    // Check if an exception day exists in the table.
-    foreach ($this->getValue() as $day => $item) {
-      $is_exception_day = OfficeHoursDateHelper::isExceptionDay($item);
-      $exception_exists |= $is_exception_day;
-    }
-
-    return $exception_exists;
-  }
-
-  /**
-   * {@inheritdoc}
-   *
-   * @todo Enable isOpen() for Exception days.
-   */
-  public function isOpen($time = NULL) {
-    $office_hours = $this->keepCurrentSlot($this->getValue(), $time);
-    return ($office_hours !== []);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setValue($value, $notify = TRUE) {
-    // Allow other modules to allow $values.
+    // Allow other modules to alter $values.
     if (FALSE) {
+      $values = $this->getValue();
       // @todo Disabled until #3063782 is resolved.
-      $this->dispatchUpdateEvent(OfficeHoursEvents::OFFICE_HOURS_UPDATE, $value);
+      $this->dispatchUpdateEvent(OfficeHoursEvents::OFFICE_HOURS_UPDATE, $values);
     }
-    parent::setValue($value, $notify);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function sort() {
+    // Sort the transitions on state weight.
+    uasort($this->list, [
+      'Drupal\office_hours\Plugin\Field\FieldType\OfficehoursItemBase',
+      'sort',
+    ]);
   }
 
   /**
@@ -333,12 +113,106 @@ class OfficeHoursItemList extends FieldItemList implements OfficeHoursItemListIn
    *   The dispatched event.
    */
   protected function dispatchUpdateEvent($event_name, &$value) {
-    /** @var \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispatcher */
+    // Allow other modules to alter $values.
     $event_dispatcher = \Drupal::service('event_dispatcher');
+    /** @var \Drupal\office_hours\Event\OfficeHoursUpdateEvent $event */
     $event = new OfficeHoursUpdateEvent($value);
     $event = $event_dispatcher->dispatch($event);
     $value = $event->getValues();
     return $event;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getRows(array $settings, array $field_settings, array $third_party_settings, $time = NULL) {
+    return $this->getFieldRows($this->getValue(), $settings, $field_settings, $third_party_settings, $time);
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   * Create a custom field definition for office_hours_* items.
+   *
+   * Ideally, we just use the basic 'office_hours' field definition.
+   * However, this causes either:
+   * 1- to display the 'technical' widgets (exception, season) in Field UI,
+   *   (with annotation: field_types = {"office_hours"}), or
+   * 2- to have the widget refused by WidgetPluginManager~getInstance().
+   *   (with annotation: no_ui = TRUE),
+   *   FieldType has annotation 'no_ui', FieldWidget and FieldFormatter haven't.
+   * So, the Exceptions and Season widgets are now declared for their
+   * specific type.
+   *
+   * @param string $field_type
+   *   The field type, 'office_hours' by default.
+   *   If set otherwise a new FieldDefinition is returned.
+   *
+   * @return \Drupal\Core\Field\FieldDefinitionInterface
+   *   The field definition. BaseField, not ConfigField,
+   *   because easier to construct.
+   */
+  public function getFieldDefinition($field_type = '') {
+    static $field_definitions = [];
+    switch ($field_type) {
+      case '':
+      case 'office_hours':
+        return parent::getFieldDefinition();
+
+      case 'office_hours_exceptions':
+      case 'office_hours_season':
+      default:
+        $field_definitions[$field_type] = $field_definitions[$field_type]
+          ?? FieldConfig::create([
+            'entity_type' => $this->getEntity()->getEntityTypeId(),
+            'bundle' => $this->getEntity()->bundle(),
+            'field_name' => $this->getName(),
+            'field_type' => $field_type,
+          ]);
+        /*
+        ?? BaseFieldDefinition::create($field_type)
+        ->setName($this->fieldDefinition->getName())
+        ->setSettings($this->fieldDefinition->getSettings());
+         */
+    }
+    return $field_definitions[$field_type];
+
+  }
+
+  /**
+   * Create an array of seasons. (Do not collect regular or exception days.)
+   *
+   * @param bool $add_weekdays_as_season
+   *   True, if the weekdays must be added as season with ID = 0.
+   * @param bool $add_new_season
+   *   True, when a default, empty, season must be added.
+   *
+   * @return \Drupal\office_hours\OfficeHoursSeason[]
+   *   A keyed array of seasons. Key = Season ID.
+   */
+  public function getSeasons($add_weekdays_as_season = FALSE, $add_new_season = FALSE) {
+    $seasons = [];
+    $season_id = 0;
+
+    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
+    if ($add_weekdays_as_season) {
+      $seasons[$season_id] = new OfficeHoursSeason($season_id);
+    }
+
+    // @todo Use Iterator.
+    foreach ($this->list as $item) {
+      if ($item->isSeasonHeader()) {
+        $season_id = $item->getSeasonId();
+        $seasons[$season_id] = new OfficeHoursSeason($item);
+      }
+    }
+    if ($add_new_season) {
+      // Add 'New season', until we have a proper 'Add season' button.
+      $season_id += OfficeHoursSeason::SEASON_ID_FACTOR;
+      $seasons[$season_id] = new OfficeHoursSeason($season_id);
+    }
+
+    return $seasons;
   }
 
 }

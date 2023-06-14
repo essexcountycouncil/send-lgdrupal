@@ -30,13 +30,13 @@ class OfficeHoursUpdateSubscriber implements EventSubscriberInterface {
     /*
     // Process of modification values, e.g.,
     $values = array_map(function ($value) {
-      if ($value['day'] == '1') {
-        $value['starthours'] = '1430';
-        return $value;
-      }
-      return $value;
+    if ($value['day'] == '1') {
+    $value['starthours'] = '1430';
+    return $value;
+    }
+    return $value;
     }, $values);
-    */
+     */
     $event->setValues($values);
   }
 

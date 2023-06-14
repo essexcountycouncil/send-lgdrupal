@@ -25,15 +25,16 @@ class OfficeHoursFieldDiffBuilder extends FieldDiffBuilderBase {
   public function build(FieldItemListInterface $items) {
     $result = [];
 
+    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $this */
+    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
     $items->filterEmptyItems();
-    foreach ($items as $field_key => $field_item) {
-      $value = $field_item->getValue();
-      $label = OfficeHoursDateHelper::getLabel($pattern = 'long', $value);
-      $result[$field_key][] =
+    foreach ($items as $key => $item) {
+      $label = $item->getLabel(['day_format' => 'long']);
+      $result[$key][] =
         $label
-        . ': ' . OfficeHoursDateHelper::format($value['starthours'], 'H:i')
-        . ' - ' . OfficeHoursDateHelper::format($value['endhours'], 'H:i')
-        . ' ' . $value['comment'];
+        . ': ' . OfficeHoursDateHelper::format($item->getValue()['starthours'], 'H:i')
+        . ' - ' . OfficeHoursDateHelper::format($item->getValue()['endhours'], 'H:i')
+        . ' ' . $item->getValue()['comment'];
     }
     return $result;
   }
