@@ -60,13 +60,6 @@ class NewsPageTest extends BrowserTestBase {
       'administer node fields',
     ]);
     $this->nodeStorage = $this->container->get('entity_type.manager')->getStorage('node');
-
-    // Newsroom.
-    $this->createNode([
-      'title' => 'News',
-      'type' => 'localgov_newsroom',
-      'status' => NodeInterface::PUBLISHED,
-    ]);
   }
 
   /**
@@ -99,6 +92,20 @@ class NewsPageTest extends BrowserTestBase {
     $media_field->save();
 
     $this->drupalLogin($this->adminUser);
+
+    // If there are no newsrooms a warning message is displayed.
+    $this->drupalGet('/node/add/localgov_news_article');
+    $this->assertSession()->pageTextContains('Warning message');
+    $this->assertSession()->pageTextContains('There are no Newsrooms.');
+    $this->assertSession()->responseContains('name="localgov_newsroom"');
+
+    // Newsroom.
+    $this->createNode([
+      'title' => 'News',
+      'type' => 'localgov_newsroom',
+      'status' => NodeInterface::PUBLISHED,
+    ]);
+
     // By default there should not be a newsroom field displayed,
     // but all news goes into the one newsroom.
     $this->drupalGet('/node/add/localgov_news_article');
@@ -138,6 +145,14 @@ class NewsPageTest extends BrowserTestBase {
    * Test node edit form promote checkbox.
    */
   public function testNewsEditPromoteCheckbox() {
+
+    // Newsroom.
+    $newsroom = $this->createNode([
+      'title' => 'News',
+      'type' => 'localgov_newsroom',
+      'status' => NodeInterface::PUBLISHED,
+    ]);
+
     // Filling in the media field is a bit fiddly.
     $media_field = $this->container
       ->get('entity_type.manager')
@@ -147,6 +162,7 @@ class NewsPageTest extends BrowserTestBase {
     $media_field->save();
 
     $this->drupalLogin($this->adminUser);
+
     // Add article.
     $this->drupalGet('/node/add/localgov_news_article');
     $this->submitForm([
@@ -156,7 +172,8 @@ class NewsPageTest extends BrowserTestBase {
       'Promote on newsroom' => 1,
       'Published' => 1,
     ], 'Save');
-    $newsroom = $this->getNodeByTitle('News');
+    $this->nodeStorage->resetCache();
+    $newsroom = $this->nodeStorage->load($newsroom->id());
     $article = $this->getNodeByTitle('News article 1');
     $promoted = $newsroom->localgov_newsroom_featured->getValue();
     $this->assertTrue(in_array(['target_id' => $article->id()], $promoted));
@@ -219,9 +236,15 @@ class NewsPageTest extends BrowserTestBase {
    * News article, newsroom, featured news.
    */
   public function testNewsPages() {
+
+    // Newsroom.
+    $newsroom = $this->createNode([
+      'title' => 'News',
+      'type' => 'localgov_newsroom',
+      'status' => NodeInterface::PUBLISHED,
+    ]);
+
     $news_articles = [];
-    // Default newsroom generated on install.
-    $newsroom = $this->getNodeByTitle('News');
 
     // Post news into default newsroom.
     $body = $this->randomMachineName(64);
