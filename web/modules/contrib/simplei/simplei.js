@@ -4,14 +4,15 @@
       // Classic
       let [toolbar] = once('simplei-toolbar', '#toolbar-administration #toolbar-bar', context);
       if (toolbar) {
-        toolbar.style.background = 'linear-gradient(195deg, rgba(255,255,255,1) 20%, rgba(50,50,0,1) 100%)';
+        toolbar.style.background = drupalSettings.simplei.background;
 
         let [toolbar_admin] = once('simplei-toolbar-admin', '#toolbar-item-administration', toolbar);
         if (toolbar_admin) {
-          toolbar_admin.textContent = drupalSettings.simplei.environment;
+          toolbar_admin.textContent += ' (' + drupalSettings.simplei.environment + ')';
           toolbar_admin.style.fontWeight = 'bold';
           toolbar_admin.style.color = drupalSettings.simplei.color;
           toolbar_admin.style.backgroundColor = drupalSettings.simplei.background;
+          toolbar_admin.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%)';
         }
       }
 
