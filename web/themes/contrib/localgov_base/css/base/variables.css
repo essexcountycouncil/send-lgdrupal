@@ -204,7 +204,6 @@ body {
   --color-post-footer-link: var(--color-link);
   --color-post-footer-text: var(--color-text);
 
-
   /* Page Title */
   --page-title-border: var(--border);
   --page-title-width: var(--width-medium);
@@ -361,6 +360,7 @@ body {
   --call-out-box-link-padding: var(--spacing-smaller);
   --call-out-box-bg-color: var(--color-accent);
   --call-out-box-text-color: var(--color-white);
+  --call-out-box-title-color: var(--call-out-box-text-color);
 
   /* Service Statuses */
   --service-statuses-padding: var(--spacing);
