@@ -1,0 +1,15 @@
+facets_map:
+  js:
+    //unpkg.com/leaflet@1.1.0/dist/leaflet.js: { type: external, weight: -21 }
+    //cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/leaflet.markercluster.js: { type: external, weight: -20 }
+    //intermezzo-coop.eu/mapping/geostats/lib/geostats.min.js: { type: external, weight: -19 }
+    //cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js: {type: external, weight: -18 }
+    js/facets_map.js: { weight: -17 }
+  css:
+    component:
+      //unpkg.com/leaflet@1.1.0/dist/leaflet.css: { type: external }
+      //cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.6/MarkerCluster.Default.css: { type: external }
+      css/facets_map.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
