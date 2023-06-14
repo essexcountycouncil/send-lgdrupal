@@ -1,4 +1,4 @@
-/* 
+/*
   This file applies CSS that we want to load on every page.
 
   Please do not use it as a dumping ground for all your CSS;
@@ -16,6 +16,3 @@ table {
   border-top: var(--border-large);
   border-top-color: var(--color-accent);
 }
-
-
-
