@@ -1,8 +1,42 @@
-# Tamper #
+# Tamper
 
-[![Build Status](https://travis-ci.org/ericgsmith/tamper.svg?branch=master)](https://travis-ci.org/ericgsmith/tamper)
-[![Maintainability](https://api.codeclimate.com/v1/badges/494ae79569ca56e13d24/maintainability)](https://codeclimate.com/github/ericgsmith/tamper/maintainability)
+Tamper is a generic plugin system for transforming data.
 
-Tamper module playground. 
+For a full description of the module, visit the
+[project page](https://www.drupal.org/project/tamper).
 
-[Follow the conversation on Drupal.org](https://www.drupal.org/node/2921727)
+Submit bug reports and feature suggestions, or track changes in the
+[issue queue](https://www.drupal.org/project/issues/tamper).
+
+
+## Table of contents
+
+- Requirements
+- Installation
+- Configuration
+- Maintainers
+
+
+## Requirements
+
+This module requires no modules outside of Drupal core.
+
+
+## Installation
+
+Install as you would normally install a contributed Drupal module. For further
+information, see
+[Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/installing-drupal-modules).
+
+
+## Configuration
+
+This module does not have any configuration.
+
+
+## Maintainers
+
+- Youri van Koppen - [MegaChriz](https://www.drupal.org/u/MegaChriz)
+- Eric Smith - [ericgsmith](https://www.drupal.org/u/ericgsmith)
+- James Dixon - [jamesdixon](https://www.drupal.org/u/jamesdixon)
+- Chris Leppanen - [twistor](https://www.drupal.org/u/twistor)
