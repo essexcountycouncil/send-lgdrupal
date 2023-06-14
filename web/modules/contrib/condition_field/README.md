@@ -25,7 +25,8 @@ This module requires no modules outside of Drupal core.
 
 ## Installation
 
-Install the Condition Field module as you would normally install a contributed Drupal module.
+Install the Condition Field module as you would normally install a
+contributed Drupal module.
 Visit [Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/installing-drupal-modules) for further information.
 
 
@@ -38,7 +39,8 @@ Visit [Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/i
 ```
 Example:
 
-function hook_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function hook_entity_view(array &$build, EntityInterface $entity,
+EntityViewDisplayInterface $display, $view_mode) {
   if ($entity->get('CONDITION_FIELDNAME')->isEmpty()) {
     return TRUE;
   }

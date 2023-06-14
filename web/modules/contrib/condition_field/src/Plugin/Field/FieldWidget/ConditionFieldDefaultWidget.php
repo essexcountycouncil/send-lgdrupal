@@ -11,7 +11,6 @@ use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Plugin\Context\ContextRepositoryInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -78,9 +77,9 @@ class ConditionFieldDefaultWidget extends WidgetBase {
    * {@inheritdoc}
    */
   /*public static function defaultSettings() {
-    return [
-    // TODO: condition plugins.
-    ] + parent::defaultSettings();
+  return [
+  // @todo condition plugins.
+  ] + parent::defaultSettings();
   }*/
 
   /**
@@ -89,8 +88,7 @@ class ConditionFieldDefaultWidget extends WidgetBase {
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = [];
 
-    // TODO: condition plugin checkboxes.
-
+    // @todo condition plugin checkboxes.
     return $elements;
   }
 
@@ -100,8 +98,7 @@ class ConditionFieldDefaultWidget extends WidgetBase {
   public function settingsSummary() {
     $summary = [];
 
-    // TODO: show selected condition plugins.
-
+    // @todo show selected condition plugins.
     return $summary;
   }
 
@@ -114,11 +111,11 @@ class ConditionFieldDefaultWidget extends WidgetBase {
     $form_state->setTemporaryValue('gathered_contexts', $this->contextRepository->getAvailableContexts());
     // Drupal\condition_field\Plugin\Field\FieldType\ConditionFieldItem.
     $value = $items->get($delta)->getValue();
-    $conditions = isset($value['conditions']) ? $value['conditions'] : [];
+    $conditions = $value['conditions'] ?? [];
     $element['conditions'] = $this->buildVisibilityInterface([], $form_state, $conditions);
-    // TODO
+    // @todo .
     /*'#element_validate' => [
-      [$this, 'validate'],
+    [$this, 'validate'],
     ],*/
 
     return $element;
@@ -142,9 +139,9 @@ class ConditionFieldDefaultWidget extends WidgetBase {
   protected function buildVisibilityInterface(array $form, FormStateInterface $form_state, array $condition_config = []) {
     $enabled_plugins = $this->fieldDefinition->getSetting('enabled_plugins');
     // Unique name to support multiple instances on tha same page.
-    // TODO: use something nicer here for unique field names.
+    // @todo use something nicer here for unique field names.
     $group_name = Html::getUniqueId('visibility_tabs');
-    // TODO: Show "Not restricted" and other info on vertical tabs.
+    // @todo Show "Not restricted" and other info on vertical tabs.
     $form[$group_name] = [
       '#type' => 'vertical_tabs',
       '#title' => $this->t('Visibility'),
@@ -155,7 +152,7 @@ class ConditionFieldDefaultWidget extends WidgetBase {
         ],
       ],
     ];
-    // TODO: use field settings.
+    // @todo use field settings.
     $skip_condition_ids = ConditionFieldItem::SKIP_CONDITION_IDS;
     if (!$this->language->isMultilingual()) {
       // Don't display the language condition until we have multiple languages.
@@ -166,7 +163,7 @@ class ConditionFieldDefaultWidget extends WidgetBase {
         continue;
       }
       /** @var \Drupal\Core\Condition\ConditionInterface $condition */
-      $condition = $this->manager->createInstance($condition_id, isset($condition_config[$condition_id]) ? $condition_config[$condition_id] : []);
+      $condition = $this->manager->createInstance($condition_id, $condition_config[$condition_id] ?? []);
       $form_state->set(['conditions', $condition_id], $condition);
       $condition_form = $condition->buildConfigurationForm([], $form_state);
       $condition_form['#type'] = 'details';
@@ -198,5 +195,5 @@ class ConditionFieldDefaultWidget extends WidgetBase {
     return $form;
   }
 
-  // TODO see Drupal\block\BlockForm::validateForm()
+  // @todo see Drupal\block\BlockForm::validateForm()
 }

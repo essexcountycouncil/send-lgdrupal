@@ -91,7 +91,7 @@ class ConditionFieldFormatter extends FormatterBase implements ContainerFactoryP
     $conditions = $item->conditions;
     foreach ($conditions as $condition_id => $config) {
       /** @var \Drupal\Core\Condition\ConditionInterface $condition */
-      $condition = $this->manager->createInstance($condition_id, isset($config) ? $config : []);
+      $condition = $this->manager->createInstance($condition_id, $config ?? []);
       $label = $condition->getPluginDefinition()['label'];
       $summary = $condition->summary();
       $summaries[$condition_id] = $this->t(
@@ -102,7 +102,7 @@ class ConditionFieldFormatter extends FormatterBase implements ContainerFactoryP
 
     return [
       '#theme' => 'item_list',
-      '#items' => $summaries
+      '#items' => $summaries,
     ];
   }
 
