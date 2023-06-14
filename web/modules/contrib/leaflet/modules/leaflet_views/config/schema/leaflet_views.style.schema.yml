@@ -70,6 +70,16 @@ views.style.leaflet_map:
         options:
           type: text
           label: 'Options'
+    map_scale:
+      type: mapping
+      label: 'Map Scale Control'
+      mapping:
+        control:
+          type: boolean
+          label: 'Control'
+        options:
+          type: text
+          label: 'Options'
     locate:
       type: mapping
       label: 'Locate User Position'
@@ -100,6 +110,9 @@ views.style.leaflet_map:
             lon:
               type: float
               label: 'Longitude'
+        zoomControlPosition:
+          type: string
+          label: 'Position'
         zoom:
           type: integer
           label: 'Zoom'
@@ -222,11 +235,21 @@ views.style.leaflet_map:
       mapping:
         control:
           type: boolean
-          label: 'Control'
+          label: 'Enable Geocoder map control'
         settings:
           type: mapping
-          label: 'Geocoder'
+          label: 'Geocoder settings'
           mapping:
+            autocomplete:
+              type: mapping
+              label: 'Autocomplete'
+              mapping:
+                placeholder:
+                  type: string
+                  label: 'Placeholder'
+                title:
+                  type: string
+                  label: 'Title'
             position:
               type: string
               label: 'Path'
@@ -260,3 +283,10 @@ views.style.leaflet_map:
             options:
               type: string
               label: 'Options'
+    map_lazy_load:
+      type: mapping
+      label: Map lazy load
+      mapping:
+        lazy_load:
+          type: boolean
+          label: Lazy load

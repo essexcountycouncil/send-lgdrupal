@@ -34,6 +34,9 @@ field.widget.settings.leaflet_widget_default:
                 lon:
                   type: float
                   label: 'Lon'
+            zoomControlPosition:
+              type: string
+              label: 'Position'
             zoom:
               type: integer
               label: 'Zoom'
@@ -115,6 +118,29 @@ field.widget.settings.leaflet_widget_default:
         options:
           type: text
           label: 'Options'
+    map_scale:
+      type: mapping
+      label: 'Map Scale Control'
+      mapping:
+        control:
+          type: boolean
+          label: 'Control'
+        options:
+          type: text
+          label: 'Options'
+    fullscreen:
+      type: mapping
+      label: 'Leaflet Fullscreen'
+      mapping:
+        control:
+          type: boolean
+          label: 'Control'
+        options:
+          type: text
+          label: 'Options'
+    path:
+      type: text
+      label: 'Path'
     locate:
       type: mapping
       label: 'Locate User Position'
@@ -128,31 +154,27 @@ field.widget.settings.leaflet_widget_default:
         automatic:
           type: boolean
           label: 'Automatically locate user current position'
-    fullscreen:
-      type: mapping
-      label: 'Leaflet Fullscreen'
-      mapping:
-        control:
-          type: boolean
-          label: 'Control'
-        options:
-          type: text
-          label: 'Options'
-
-    path:
-      type: text
-      label: 'Path'
     geocoder:
       type: mapping
-      label: 'Gecoder map control'
+      label: 'Geocoder'
       mapping:
         control:
           type: boolean
           label: 'Enable Geocoder map control'
         settings:
           type: mapping
-          label: 'Gecoder settings'
+          label: 'Geocoder settings'
           mapping:
+            autocomplete:
+              type: mapping
+              label: 'Autocomplete'
+              mapping:
+                placeholder:
+                  type: string
+                  label: 'Placeholder'
+                title:
+                  type: string
+                  label: 'Title'
             position:
               type: string
               label: 'Position'
@@ -223,6 +245,16 @@ field.formatter.settings.leaflet_formatter_default:
         options:
           type: text
           label: 'Options'
+    map_scale:
+      type: mapping
+      label: 'Map Scale Control'
+      mapping:
+        control:
+          type: boolean
+          label: 'Control'
+        options:
+          type: text
+          label: 'Options'
     locate:
       type: mapping
       label: 'Locate User Position'
@@ -284,6 +316,9 @@ field.formatter.settings.leaflet_formatter_default:
             lon:
               type: float
               label: 'Longitude'
+        zoomControlPosition:
+          type: string
+          label: 'Position'
         zoom:
           type: integer
           label: 'Zoom'
@@ -409,7 +444,7 @@ field.formatter.settings.leaflet_formatter_default:
           label: 'Values'
     geocoder:
       type: mapping
-      label: 'Geocoder map control'
+      label: 'Geocoder'
       mapping:
         control:
           type: boolean
@@ -418,6 +453,16 @@ field.formatter.settings.leaflet_formatter_default:
           type: mapping
           label: 'Geocoder settings'
           mapping:
+            autocomplete:
+              type: mapping
+              label: 'Autocomplete'
+              mapping:
+                placeholder:
+                  type: string
+                  label: 'Placeholder'
+                title:
+                  type: string
+                  label: 'Title'
             position:
               type: string
               label: 'Position'
@@ -452,3 +497,10 @@ field.formatter.settings.leaflet_formatter_default:
             options:
               type: string
               label: 'Options'
+    map_lazy_load:
+      type: mapping
+      label: Map lazy load
+      mapping:
+        lazy_load:
+          type: boolean
+          label: Lazy load
