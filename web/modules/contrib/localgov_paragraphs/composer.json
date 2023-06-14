@@ -16,7 +16,7 @@
         "drupal/fontawesome": "^2.18",
         "drupal/geolocation": "^3.1",
         "drupal/layout_paragraphs": "^2.0",
-        "drupal/office_hours": "^1.4",
+        "drupal/office_hours": "^1.8",
         "drupal/paragraphs": "^1.13",
         "drupal/tablefield": "^2.3",
         "drupal/viewsreference": "^2.0",
