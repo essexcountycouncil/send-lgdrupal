@@ -39,6 +39,7 @@
 
 .gin--edit-form .layout-node-form {
   overflow: inherit;
+  display: block;
 }
 
 .gin--edit-form .layout-region-node-main,
@@ -80,7 +81,6 @@
 @media (min-width: 64em) {
   .gin--edit-form .page-wrapper__node-edit-form .block-page-title-block .page-title {
     width: auto;
-    max-width: 800px;
     margin: 0;
     overflow: hidden;
   }

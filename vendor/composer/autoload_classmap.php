@@ -3848,6 +3848,7 @@ return array(
     'League\\Csv\\Stream' => $vendorDir . '/league/csv/src/Stream.php',
     'League\\Csv\\SyntaxError' => $vendorDir . '/league/csv/src/SyntaxError.php',
     'League\\Csv\\TabularDataReader' => $vendorDir . '/league/csv/src/TabularDataReader.php',
+    'League\\Csv\\TabularDataWriter' => $vendorDir . '/league/csv/src/TabularDataWriter.php',
     'League\\Csv\\UnableToProcessCsv' => $vendorDir . '/league/csv/src/UnableToProcessCsv.php',
     'League\\Csv\\UnavailableFeature' => $vendorDir . '/league/csv/src/UnavailableFeature.php',
     'League\\Csv\\UnavailableStream' => $vendorDir . '/league/csv/src/UnavailableStream.php',
