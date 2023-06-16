@@ -82,6 +82,7 @@ module:
   localgov_directories_org: 0
   localgov_directories_page: 0
   localgov_directories_venue: 0
+  localgov_events: 0
   localgov_geo: 0
   localgov_geo_address: 0
   localgov_guides: 0
