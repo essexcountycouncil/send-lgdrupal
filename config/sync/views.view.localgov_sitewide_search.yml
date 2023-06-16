@@ -221,6 +221,7 @@ display:
               localgov_directories_page: teaser
               localgov_directories_venue: teaser
               localgov_directory: teaser
+              localgov_event: search_result
               localgov_guides_overview: teaser
               localgov_guides_page: teaser
               localgov_news_article: teaser
@@ -265,6 +266,7 @@ display:
         - user.permissions
       tags:
         - 'config:search_api.index.localgov_sitewide_search'
+        - 'search_api_list:localgov_sitewide_search'
   sitewide_search_page:
     id: sitewide_search_page
     display_title: Page
@@ -297,3 +299,4 @@ display:
       tags:
         - 'config:facets.facet.sitewide_search_type'
         - 'config:search_api.index.localgov_sitewide_search'
+        - 'search_api_list:localgov_sitewide_search'

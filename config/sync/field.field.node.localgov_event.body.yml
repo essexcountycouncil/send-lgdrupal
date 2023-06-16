@@ -1,0 +1,25 @@
+uuid: 0d15ef56-6943-4e82-a004-6873e7a97193
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.localgov_event
+  module:
+    - text
+_core:
+  default_config_hash: YtNkxaK2pSTaOWvUC9-_xmLO-cJSG0SKkRb4Us72YN0
+id: node.localgov_event.body
+field_name: body
+entity_type: node
+bundle: localgov_event
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

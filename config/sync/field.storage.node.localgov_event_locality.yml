@@ -1,0 +1,22 @@
+uuid: 4dcbee69-389a-4ca3-a1f5-be5053be09ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: fbAUrUbyy03mOco3Xvq26Qq01e9vC-xmHVU3PW-NcKc
+id: node.localgov_event_locality
+field_name: localgov_event_locality
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

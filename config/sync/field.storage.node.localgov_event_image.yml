@@ -1,0 +1,22 @@
+uuid: 45b182a5-ee12-4c63-b806-d9058b928ced
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: TWGsuhQypXPCYexMuMpErACUOvF-0bIOlchfUn9STl4
+id: node.localgov_event_image
+field_name: localgov_event_image
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
