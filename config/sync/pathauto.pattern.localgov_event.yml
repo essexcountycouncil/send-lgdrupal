@@ -1,0 +1,24 @@
+uuid: 695dd575-e177-44cc-a523-d3e2bb8c5a0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 1_uG_9Lt_oGr6JMRVC-JxXg61T5bUEgdmg9SHxuWRqY
+id: localgov_event
+label: Event
+type: 'canonical_entities:node'
+pattern: 'events/[node:title]'
+selection_criteria:
+  29d4ed96-d72f-468e-9e44-f3c38f79cbcf:
+    id: 'entity_bundle:node'
+    bundles:
+      localgov_event: localgov_event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 29d4ed96-d72f-468e-9e44-f3c38f79cbcf
+selection_logic: and
+weight: -5
+relationships: {  }

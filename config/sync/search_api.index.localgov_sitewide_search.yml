@@ -114,6 +114,7 @@ field_settings:
           localgov_directories_page: default
           localgov_directories_venue: default
           localgov_directory: search_index
+          localgov_event: search_index
           localgov_guides_overview: search_index
           localgov_guides_page: search_index
           localgov_news_article: search_index
