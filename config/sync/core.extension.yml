@@ -20,7 +20,10 @@ module:
   crop: 0
   csv_serialization: 0
   ctools: 0
+  date_recur: 0
+  date_recur_modular: 0
   datetime: 0
+  datetime_range: 0
   dbal: 0
   dblog: 0
   diff: 0
@@ -82,6 +85,7 @@ module:
   localgov_directories_org: 0
   localgov_directories_page: 0
   localgov_directories_venue: 0
+  localgov_events: 0
   localgov_geo: 0
   localgov_geo_address: 0
   localgov_guides: 0
@@ -107,6 +111,7 @@ module:
   matomo: 0
   media: 0
   media_library: 0
+  media_library_edit: 0
   menu_link_content: 0
   menu_ui: 0
   metatag: 0

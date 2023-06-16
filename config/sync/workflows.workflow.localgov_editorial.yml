@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.localgov_directory
+    - node.type.localgov_event
     - node.type.localgov_guides_overview
     - node.type.localgov_guides_page
     - node.type.localgov_news_article
@@ -106,6 +107,7 @@ type_settings:
   entity_types:
     node:
       - localgov_directory
+      - localgov_event
       - localgov_guides_overview
       - localgov_guides_page
       - localgov_news_article

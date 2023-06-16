@@ -9,6 +9,7 @@ dependencies:
     - media.type.remote_video
     - node.type.localgov_directories_page
     - node.type.localgov_directories_venue
+    - node.type.localgov_event
     - node.type.localgov_guides_overview
     - node.type.localgov_guides_page
     - node.type.localgov_services_landing
@@ -49,6 +50,7 @@ permissions:
   - 'access toolbar'
   - 'add scheduled transitions node localgov_directories_page'
   - 'add scheduled transitions node localgov_directories_venue'
+  - 'add scheduled transitions node localgov_event'
   - 'add scheduled transitions node localgov_guides_overview'
   - 'add scheduled transitions node localgov_guides_page'
   - 'add scheduled transitions node localgov_services_landing'
@@ -62,6 +64,7 @@ permissions:
   - 'create image media'
   - 'create localgov_directories_page content'
   - 'create localgov_directories_venue content'
+  - 'create localgov_event content'
   - 'create localgov_guides_overview content'
   - 'create localgov_guides_page content'
   - 'create localgov_services_landing content'
@@ -80,6 +83,7 @@ permissions:
   - 'delete own image media'
   - 'delete own localgov_directories_page content'
   - 'delete own localgov_directories_venue content'
+  - 'delete own localgov_event content'
   - 'delete own localgov_guides_overview content'
   - 'delete own localgov_guides_page content'
   - 'delete own localgov_services_landing content'
@@ -97,6 +101,7 @@ permissions:
   - 'edit own image media'
   - 'edit own localgov_directories_page content'
   - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_event content'
   - 'edit own localgov_guides_overview content'
   - 'edit own localgov_guides_page content'
   - 'edit own localgov_services_landing content'
@@ -110,6 +115,7 @@ permissions:
   - 'edit paragraph library item'
   - 'reschedule scheduled transitions node localgov_directories_page'
   - 'reschedule scheduled transitions node localgov_directories_venue'
+  - 'reschedule scheduled transitions node localgov_event'
   - 'reschedule scheduled transitions node localgov_guides_overview'
   - 'reschedule scheduled transitions node localgov_guides_page'
   - 'reschedule scheduled transitions node localgov_services_landing'
@@ -130,6 +136,7 @@ permissions:
   - 'view latest version'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
+  - 'view localgov_event revisions'
   - 'view localgov_guides_overview revisions'
   - 'view localgov_guides_page revisions'
   - 'view localgov_services_landing revisions'
@@ -143,6 +150,7 @@ permissions:
   - 'view own unpublished media'
   - 'view scheduled transitions node localgov_directories_page'
   - 'view scheduled transitions node localgov_directories_venue'
+  - 'view scheduled transitions node localgov_event'
   - 'view scheduled transitions node localgov_guides_overview'
   - 'view scheduled transitions node localgov_guides_page'
   - 'view scheduled transitions node localgov_services_landing'
