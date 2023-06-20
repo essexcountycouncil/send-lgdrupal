@@ -48,9 +48,6 @@ class ConditionFieldItem extends FieldItemBase {
     // Prevent early t() calls by using the TranslatableMarkup.
     $properties['conditions'] = MapDataDefinition::create()
       ->setLabel(new TranslatableMarkup('Conditions'));
-    // TODO:
-    //->setClass('\Drupal\ino_pt_vgroup\VisibilityCondition');
-
     return $properties;
   }
 
@@ -59,8 +56,7 @@ class ConditionFieldItem extends FieldItemBase {
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
 
-    // TODO: set up proper storage.
-
+    // @todo set up proper storage.
     $schema = [
       'columns' => [
         'conditions' => [
@@ -93,7 +89,7 @@ class ConditionFieldItem extends FieldItemBase {
     $enabled_plugins = [];
     $settings = $this->getSettings();
 
-    /* @var \Drupal\Core\Condition\ConditionManager $manager */
+    /** @var \Drupal\Core\Condition\ConditionManager $manager */
     $manager = \Drupal::service('plugin.manager.condition');
     foreach ($manager->getDefinitionsForContexts($form_state->getTemporaryValue('gathered_contexts')) as $condition_id => $definition) {
       if (in_array($condition_id, self::SKIP_CONDITION_IDS)) {
@@ -127,11 +123,11 @@ class ConditionFieldItem extends FieldItemBase {
     // @todo Typed data plugins cannot receive injected dependencies, see
     // core example: Drupal\path\Plugin\Field\FieldType\PathItem
     // https://www.drupal.org/node/2053415.
-    //$constraint_manager = \Drupal::typedDataManager()->getValidationConstraintManager();
+    // $constraint_manager = \Drupal::typedDataManager()
+    // ->getValidationConstraintManager();
     $constraints = parent::getConstraints();
 
-    // TODO: add validation constraints.
-
+    // @todo add validation constraints.
     return $constraints;
   }
 
@@ -140,8 +136,28 @@ class ConditionFieldItem extends FieldItemBase {
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
     $values['conditions'] = new ConditionFieldData($field_definition);
-    // TODO: set some random values.
+    // @todo set some random values.
     return $values;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setValue($values, $notify = TRUE) {
+    if (is_array($values)) {
+      $properties = $this->getProperties();
+      $property_keys = array_keys($properties);
+
+      $value_keys = array_keys($values);
+
+      if (empty(array_intersect($property_keys, $value_keys))) {
+        $values = [
+          static::mainPropertyName() => $values,
+        ];
+      }
+    }
+
+    parent::setValue($values, $notify);
   }
 
   /**

@@ -10,7 +10,7 @@ id: node.localgov_directory.localgov_services_parent
 field_name: localgov_services_parent
 entity_type: node
 bundle: localgov_directory
-label: 'Services: Parent'
+label: 'Parent page'
 description: 'Optionally add the directory to a Service.'
 required: false
 translatable: true

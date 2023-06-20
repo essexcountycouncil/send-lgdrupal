@@ -53,7 +53,7 @@ class OfficeHoursFormatterStatus extends OfficeHoursFormatterBase {
     $settings = $this->getSettings();
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items */
     $field_definition = $items->getFieldDefinition();
-    $elements += [
+    $elements[0] = [
       '#theme' => 'office_hours_status',
       '#parent' => $field_definition,
       '#is_open' => $items->isOpen(),

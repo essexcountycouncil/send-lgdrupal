@@ -5,7 +5,7 @@
           <i class="fas fa-info-circle"></i>
           <h3>Service updates</h3>
       </span>
-      <a href="{{ see_all_link }}" class="hidden-xs action-link pull-right"><i class="action-link--icon fas fa-chevron-right"></i>See all</a>
+      <a href="{{ see_all_link }}" aria-label="{{ 'See all updates for this service'|t }}" class="hidden-xs action-link pull-right"><i class="action-link--icon fas fa-chevron-right"></i>See all</a>
   </div>
 
   <div class="servicehub--update_inner">
@@ -13,10 +13,10 @@
     <ul>
       <li>{{ item.date|date("d.m.Y") }}</li>
       <li><strong>{{ item.title }} - </strong>{{ item.description }}</li>
-      <li><a class="read-more" href="{{ item.url }}">Read more</a></li>
+      <li><a class="read-more" aria-label="{{ 'Read more about status:'|t }} {{ item.title }}" href="{{ item.url }}">Read more</a></li>
     </ul>
     {% endfor %}
   </div>
-  <a href="{{ see_all_link|render }}" class="visible-xs action-link margin-top--20"><i class="action-link--icon fas fa-chevron-right"></i>See all</a>
+  <a href="{{ see_all_link|render }}" aria-label="{{ 'See all updates for this service'|t }}" class="visible-xs action-link margin-top--20"><i class="action-link--icon fas fa-chevron-right"></i>See all</a>
 </div>
 {% endif %}

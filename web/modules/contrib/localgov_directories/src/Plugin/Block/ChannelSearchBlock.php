@@ -9,6 +9,7 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\localgov_directories\Constants as Directory;
 use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
 use Drupal\node\NodeInterface;
 use Drupal\views\Form\ViewsExposedForm;
@@ -34,17 +35,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
-  const CHANNEL_VIEW = 'localgov_directory_channel';
-  const CHANNEL_VIEW_DISPLAY = 'node_embed';
-  const CHANNEL_NODE_BUNDLE = 'localgov_directory';
-  const CHANNEL_SELECTION_FIELD = 'localgov_directory_channels';
-
   /**
    * {@inheritdoc}
    */
   public function build() {
 
-    $channel_view = Views::getView(self::CHANNEL_VIEW);
+    $channel_view = Views::getView(Directory::CHANNEL_VIEW);
     if (empty($channel_view)) {
       return [];
     }
@@ -55,13 +51,13 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
     }
 
     $is_directory_entry   = $this->isDirEntry($host_node);
-    $is_directory_channel = ($host_node->bundle() === self::CHANNEL_NODE_BUNDLE);
+    $is_directory_channel = ($host_node->bundle() === Directory::CHANNEL_NODE_BUNDLE);
 
     if ($is_directory_entry) {
       $build = $this->getDirEntryForm($host_node);
     }
     elseif ($is_directory_channel) {
-      $build = $this->prepareDirChannelForm($channel_view);
+      $build = $this->prepareDirChannelForm($host_node, $channel_view);
     }
     else {
       $build = [];
@@ -111,9 +107,10 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
    *
    * This form is for Directory channel pages.
    */
-  public function prepareDirChannelForm(ViewExecutable $channel_view): array {
+  public function prepareDirChannelForm(NodeInterface $channel_node, ViewExecutable $channel_view): array {
 
-    $channel_view->setDisplay(self::CHANNEL_VIEW_DISPLAY);
+    $views_display = DirectoryExtraFieldDisplay::determineChannelViewDisplay($channel_node);
+    $channel_view->setDisplay($views_display);
     $channel_view->initHandlers();
 
     $form_state = (new FormState())
@@ -138,7 +135,7 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
   public function getCacheTags() {
 
     $host_node = $this->getContextValue('node');
-    $channel_view = Views::getView(self::CHANNEL_VIEW);
+    $channel_view = Views::getView(Directory::CHANNEL_VIEW);
 
     $cache_tags = Cache::mergeTags(parent::getCacheTags(), $host_node->getCacheTags());
     $cache_tags = Cache::mergeTags($cache_tags, $channel_view->getCacheTags());
@@ -156,8 +153,8 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
    */
   public function getCacheContexts() {
 
-    $channel_view = Views::getView(self::CHANNEL_VIEW);
-    $channel_view->setDisplay(self::CHANNEL_VIEW_DISPLAY);
+    $channel_view = Views::getView(Directory::CHANNEL_VIEW);
+    $channel_view->setDisplay(Directory::CHANNEL_VIEW_DISPLAY);
     $contexts = $channel_view->display_handler->getCacheMetadata()->getCacheContexts();
     return Cache::mergeContexts(parent::getCacheContexts(), $contexts);
   }
@@ -167,7 +164,7 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
    */
   protected function isDirEntry(NodeInterface $node): bool {
 
-    return $node->hasField(self::CHANNEL_SELECTION_FIELD);
+    return $node->hasField(Directory::CHANNEL_SELECTION_FIELD);
   }
 
   /**
@@ -179,7 +176,7 @@ class ChannelSearchBlock extends BlockBase implements ContainerFactoryPluginInte
 
     $directory_channels = array_filter(array_map(function (EntityReferenceItem $ref_item) {
       return $ref_item->entity;
-    }, iterator_to_array($directory_entry->{self::CHANNEL_SELECTION_FIELD})));
+    }, iterator_to_array($directory_entry->{Directory::CHANNEL_SELECTION_FIELD})));
 
     $cache_tags = array_reduce(
       $directory_channels,

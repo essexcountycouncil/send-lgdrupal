@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
-use Drupal\office_hours\OfficeHoursDateHelper;
+use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem;
 
 /* @see File core/modules/field_ui/field_ui.api.php
  *
@@ -23,22 +23,22 @@ use Drupal\office_hours\OfficeHoursDateHelper;
 /**
  * Implements hook_preprocess_field().
  */
-function office_hours_exceptions_preprocess_field(array &$variables) {
+function office_hours_exceptions_preprocess_field(array &$variables, $hook) {
   if (substr($variables['field_type'], 0, 12) !== 'office_hours') {
     return;
   }
 
-  $entity = $variables['element']['#object'];
-  $view_mode = $variables['element']['#view_mode'];
-  $field_name = $variables['element']['#field_name'];
+  $element = $variables['element'];
+  $entity = $element['#object'];
+  $view_mode = $element['#third_party_settings']['layout_builder']['view_mode'] ?? $element['#view_mode'];
+  $field_name = $element['#field_name'];
 
   // Get the field formatter settings.
   $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
-  $settings = $entity_display->getComponent($field_name)['settings'];
+  $settings = $entity_display->getComponent($field_name)['settings'] ?? [];
 
-  /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $items */
+  /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items */
   $items = &$variables['element']['#items'];
-  $langcode = $variables['element']['#language'];
   $elements = &$variables['items'];
 
   if ($items->isEmpty()) {
@@ -61,7 +61,6 @@ function office_hours_exceptions_preprocess_field(array &$variables) {
   }
 
   // Loop over formatters: $elements contains table/status/schema formatter.
-  $label = $settings['exceptions']['title'] ?? '';
   foreach ($elements as $key => &$element) {
     if (is_numeric($key)) {
       // If there is an exception, add an extra row to label the exceptions.
@@ -71,23 +70,23 @@ function office_hours_exceptions_preprocess_field(array &$variables) {
 
         case 'office_hours_table':
           $formatter_rows = &$element['content']['#table']['#rows'];
-          if ($label && $formatter_rows) {
-            // Set the title for the exceptions.
-            $exception_header['data']['label']['data']['#markup'] = $label;
-            $exception_header['class'] = [
+          if ($formatter_rows[OfficeHoursItem::EXCEPTION_DAY] ?? NULL) {
+            $exception_header = $formatter_rows[OfficeHoursItem::EXCEPTION_DAY];
+            $exception_header['data']['label']['class'] = [
               'office-hours__exceptions-label',
             ];
             $exception_header['id'] = ['office-hours-exception__title'];
+            // Set everything but title to NULL.
+            $exception_header['data']['slots'] = NULL;
+            $exception_header['data']['comments'] = NULL;
           }
           break;
 
         case 'office_hours':
           $formatter_rows = &$element['content']['#office_hours'];
-          if ($label && $formatter_rows) {
-            // Set the title for the exceptions.
-            $exception_header['title'] = $label;
-            $exception_header['label'] = $label;
-            // Set everything else to NULL.
+          if ($formatter_rows[OfficeHoursItem::EXCEPTION_DAY] ?? NULL) {
+            $exception_header = $formatter_rows[OfficeHoursItem::EXCEPTION_DAY];
+            // Set everything but title to NULL.
             $exception_header['slots'] = NULL;
             $exception_header['formatted_slots'] = NULL;
             $exception_header['index'] = NULL;
@@ -96,17 +95,15 @@ function office_hours_exceptions_preprocess_field(array &$variables) {
           break;
 
         case 'office_hours_schema':
-          // @todo Test/Enhance this formatter.
+          // @todo Test/Enhance this formatter for Exception days.
         case 'office_hours_status':
-          // @todo Test/Enhance this formatter.
+          // @todo Test/Enhance this formatter for Exception days.
         default:
           break;
       }
       if ($exception_header) {
-        // Keys 0-7 are for sorted weekdays, so adding our 8.
-        $formatter_rows[8] = $exception_header;
-        // Sort, to ensure that the header is before the exceptions.
-        $formatter_rows = OfficeHoursDateHelper::weekDaysOrdered($formatter_rows, $settings['office_hours_first_day']);
+        // Complete the exception header.
+        $formatter_rows[OfficeHoursItem::EXCEPTION_DAY] = $exception_header;
       }
     }
   }

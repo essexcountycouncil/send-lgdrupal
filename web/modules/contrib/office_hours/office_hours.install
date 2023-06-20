@@ -11,6 +11,7 @@ use Drupal\Core\Database\Database;
  * Re-saving data needed.
  *
  * @param mixed $sandbox
+ *   The sandbox variable.
  */
 function office_hours_update_8001(&$sandbox) {
   \Drupal::messenger()->addMessage(
@@ -22,6 +23,7 @@ function office_hours_update_8001(&$sandbox) {
  * Add 'comment' column.
  *
  * @param mixed $sandbox
+ *   The sandbox variable.
  */
 function office_hours_update_8003(&$sandbox) {
   $spec = [
@@ -58,7 +60,7 @@ function office_hours_update_8004(&$sandbox) {
 
   // Find all base storage fields.
   foreach ($config_factory->listAll('field.storage') as $field_storage_name) {
-    // Load the field conig object.
+    // Load the field config object.
     $field = $config_factory->getEditable($field_storage_name);
     // Grab the field type.
     $type = $field->get('type');
@@ -73,4 +75,46 @@ function office_hours_update_8004(&$sandbox) {
       $field->save(TRUE);
     }
   }
+}
+
+/**
+ * Update database column description.
+ */
+function office_hours_update_8005(&$sandbox) {
+
+  /** @var \Drupal\Core\Database\Schema $schema */
+  $schema = Database::getConnection()->schema();
+
+  $fields = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('office_hours');
+  foreach ($fields as $entity_type => $entity_fields) {
+    foreach ($entity_fields as $field_name => $field_properties) {
+
+      $table_names = $schema->findTables("%$field_name%");
+      foreach ($table_names as $table_name) {
+
+        $column_name = $field_name . '_starthours';
+        if ($schema->fieldExists($table_name, $column_name)) {
+          $schema->changeField($table_name, $column_name, $column_name, [
+            'type' => 'int',
+            'description' => 'From',
+            'not null' => FALSE,
+          ]);
+        }
+        $column_name = $field_name . '_endhours';
+        if ($schema->fieldExists($table_name, $column_name)) {
+          $schema->changeField($table_name, $column_name, $column_name, [
+            'type' => 'int',
+            'description' => 'To',
+            'not null' => FALSE,
+          ]);
+        }
+
+      }
+
+      $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+      $field_storage_definition = $entity_definition_update_manager->getFieldStorageDefinition($field_name, $entity_type);
+      $entity_definition_update_manager->updateFieldStorageDefinition($field_storage_definition);
+    }
+  }
+
 }

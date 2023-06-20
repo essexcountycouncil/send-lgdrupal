@@ -31,6 +31,13 @@ class CustomSourceEditForm extends FormBase {
   protected $plugin;
 
   /**
+   * The feed type for which custom sources are displayed.
+   *
+   * @var \Drupal\feeds\FeedTypeInterface|null
+   */
+  protected $feedType;
+
+  /**
    * Constructs a new CustomSourceEditForm object.
    *
    * @param \Drupal\Component\Plugin\PluginManagerInterface $plugin_manager

@@ -1,0 +1,4 @@
+services:
+  plugin.manager.search_api_location.location_input:
+    class: Drupal\search_api_location\LocationInput\LocationInputPluginManager
+    parent: default_plugin_manager

@@ -30,6 +30,13 @@ class CustomSourceListController extends ControllerBase {
   protected $customSourcePluginManager;
 
   /**
+   * The feed type for which custom sources are displayed.
+   *
+   * @var \Drupal\feeds\FeedTypeInterface|null
+   */
+  protected $feedType;
+
+  /**
    * Constructs a new CustomSourcesListController object.
    *
    * @param \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $feed_type_storage

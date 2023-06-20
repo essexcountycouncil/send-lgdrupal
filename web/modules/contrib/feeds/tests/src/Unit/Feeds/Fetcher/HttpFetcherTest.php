@@ -9,6 +9,7 @@ use Drupal\feeds\Exception\EmptyFeedException;
 use Drupal\feeds\FeedInterface;
 use Drupal\feeds\FeedTypeInterface;
 use Drupal\feeds\Feeds\Fetcher\HttpFetcher;
+use Drupal\feeds\File\FeedsFileSystemInterface;
 use Drupal\feeds\State;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -58,17 +59,16 @@ class HttpFetcherTest extends FeedsUnitTestCase {
     $cache = $this->createMock(CacheBackendInterface::class);
 
     $file_system = $this->prophesize(FileSystemInterface::class);
-    $file_system->tempnam(Argument::type('string'), Argument::type('string'))->will(function ($args) {
+
+    $feeds_file_system = $this->prophesize(FeedsFileSystemInterface::class);
+    $feeds_file_system->tempnam(Argument::type(FeedInterface::class), Argument::type('string'))->will(function ($args) {
       // We suppress any notices as since PHP 7.1, this results into a warning
       // when the temporary directory is not configured in php.ini. We are not
       // interested in that artefact for this test.
-      return @tempnam($args[0], $args[1]);
-    });
-    $file_system->realpath(Argument::type('string'))->will(function ($args) {
-      return realpath($args[0]);
+      return @tempnam('public://', $args[1]);
     });
 
-    $this->fetcher = new HttpFetcher(['feed_type' => $feed_type], 'http', [], $client, $cache, $file_system->reveal());
+    $this->fetcher = new HttpFetcher(['feed_type' => $feed_type], 'http', [], $client, $cache, $file_system->reveal(), $feeds_file_system->reveal());
     $this->fetcher->setStringTranslation($this->getStringTranslationStub());
 
     $this->feed = $this->prophesize(FeedInterface::class);

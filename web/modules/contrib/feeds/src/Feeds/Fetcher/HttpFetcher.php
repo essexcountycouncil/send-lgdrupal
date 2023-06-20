@@ -7,6 +7,7 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\feeds\Exception\EmptyFeedException;
 use Drupal\feeds\FeedInterface;
+use Drupal\feeds\File\FeedsFileSystemInterface;
 use Drupal\feeds\Plugin\Type\ClearableInterface;
 use Drupal\feeds\Plugin\Type\Fetcher\FetcherInterface;
 use Drupal\feeds\Plugin\Type\PluginBase;
@@ -56,6 +57,13 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
   protected $fileSystem;
 
   /**
+   * Drupal file system helper for Feeds.
+   *
+   * @var \Drupal\Core\File\FeedsFileSystemInterface
+   */
+  protected $feedsFileSystem;
+
+  /**
    * Constructs an UploadFetcher object.
    *
    * @param array $configuration
@@ -70,11 +78,14 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
    *   The cache backend.
    * @param \Drupal\Core\File\FileSystemInterface $file_system
    *   The Drupal file system helper.
+   * @param \Drupal\Core\File\FeedsFileSystemInterface $feeds_file_system
+   *   The Drupal file system helper for Feeds.
    */
-  public function __construct(array $configuration, $plugin_id, array $plugin_definition, ClientInterface $client, CacheBackendInterface $cache, FileSystemInterface $file_system) {
+  public function __construct(array $configuration, $plugin_id, array $plugin_definition, ClientInterface $client, CacheBackendInterface $cache, FileSystemInterface $file_system, FeedsFileSystemInterface $feeds_file_system) {
     $this->client = $client;
     $this->cache = $cache;
     $this->fileSystem = $file_system;
+    $this->feedsFileSystem = $feeds_file_system;
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
 
@@ -88,7 +99,8 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
       $plugin_definition,
       $container->get('http_client'),
       $container->get('cache.feeds_download'),
-      $container->get('file_system')
+      $container->get('file_system'),
+      $container->get('feeds.file_system.in_progress')
     );
   }
 
@@ -96,8 +108,7 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
    * {@inheritdoc}
    */
   public function fetch(FeedInterface $feed, StateInterface $state) {
-    $sink = $this->fileSystem->tempnam('temporary://', 'feeds_http_fetcher');
-    $sink = $this->fileSystem->realpath($sink);
+    $sink = $this->feedsFileSystem->tempnam($feed, 'http_fetcher_');
 
     // Get cache key if caching is enabled.
     $cache_key = $this->useCache() ? $this->getCacheKey($feed) : FALSE;
@@ -114,7 +125,7 @@ class HttpFetcher extends PluginBase implements ClearableInterface, FetcherInter
       throw new EmptyFeedException();
     }
 
-    return new HttpFetcherResult($sink, $response->getHeaders());
+    return new HttpFetcherResult($sink, $response->getHeaders(), $this->fileSystem);
   }
 
   /**

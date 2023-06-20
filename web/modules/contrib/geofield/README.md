@@ -40,24 +40,24 @@ any entity type/bundle and then choose the preferred widget or formatter.
 
 ## Advanced Mapping and Geocoding with Geofield
 
-It is possible to implement Advanced Mapping and Geocoding functionalities
-adding compatible and specialized modules for Drupal, such as:
+Geofield perfectly matches and extends itself with its dependent most adopted
+third party modules, such as::
 
 - [Geofield Map](https://www.drupal.org/project/geofield_map): an advanced,
-complete and easy-to-use Geo Mapping solution that lets you manage the Geofield
-with an interactive Map both in back-end and in the front-end;
+  complete and easy-to-use Geo Mapping solution that lets you manage the Geofield
+  with an interactive Map both in back-end and in the front-end;
 - [Leaflet](https://www.drupal.org/project/leaflet): Drupal advanced integration
-with the Leaflet JS mapping library. Advanced features for creating and editing
-Points and Geometries Layers (Linestring, Polygon) so as for managing Leaflet
-Views styles and Formatters;
+  with the Leaflet JS mapping library. Advanced features for creating and editing
+  Points and Geometries Layers (Linestring, Polygon) so as for managing Leaflet
+  Views styles and Formatters;
 - [Geocoder](https://www.drupal.org/project/geocoder): most advanced, complete
-and easy to use solution to process Geocode and Reverse Geocode operations on
-Drupal Entities;
+  and easy to use solution to process Geocode and Reverse Geocode operations on
+  Drupal Entities;
 - [Address](https://www.drupal.org/project/address): Provides functionality for
-storing, validating and displaying international postal addresses;
+  storing, validating and displaying international postal addresses;
 - [Search API Location](https://www.drupal.org/project/search_api_location):
-Adds geospatial-based searching to the Search API module;
-- etc. (others created in the wild of the Drupal community);
+  Adds geospatial-based searching to the Search API module;
+- etc. (others created in the wild of the Drupal community) ...
 
 ## Api Notes
 

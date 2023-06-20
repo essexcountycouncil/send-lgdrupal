@@ -2,6 +2,7 @@
 
 namespace Drupal\office_hours\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
@@ -22,7 +23,12 @@ class OfficeHoursFormatterDefault extends OfficeHoursFormatterBase {
    */
   public function settingsSummary() {
     $summary = parent::settingsSummary();
-    $summary[] = '(When using multiple slots per day, better use the table formatter.)';
+
+    if (get_class($this) == __CLASS__) {
+      // Avoids message when class overridden. Parent repeats it when needed.
+      $summary[] = '(When using multiple slots per day, better use the table formatter.)';
+    }
+
     return $summary;
   }
 
@@ -30,7 +36,6 @@ class OfficeHoursFormatterDefault extends OfficeHoursFormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $items */
     $elements = [];
 
     // If no data is filled for this entity, do not show the formatter.
@@ -46,11 +51,6 @@ class OfficeHoursFormatterDefault extends OfficeHoursFormatterBase {
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items */
     $office_hours = $items->getRows($settings, $this->getFieldSettings(), $third_party_settings);
 
-    // If no data is filled for this entity, do not show the formatter.
-    if ($items->isEmpty()) {
-      return $elements;
-    }
-
     $elements[] = [
       '#theme' => 'office_hours',
       '#parent' => $field_definition,
@@ -58,7 +58,9 @@ class OfficeHoursFormatterDefault extends OfficeHoursFormatterBase {
       '#office_hours' => $office_hours,
       // Pass (unfiltered) office_hours items to twig theming.
       '#office_hours_field' => $items,
-      '#item_separator' => $settings['separator']['days'],
+      // Pass formatting options to twig theming.
+      '#is_open' => $items->isOpen(),
+      '#item_separator' => Xss::filter($settings['separator']['days'], ['br']),
       '#slot_separator' => $settings['separator']['more_hours'],
       '#attributes' => [
         'class' => ['office-hours'],

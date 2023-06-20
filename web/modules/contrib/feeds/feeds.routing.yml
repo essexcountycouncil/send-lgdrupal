@@ -15,13 +15,29 @@ feeds.item_list:
     _entity_access: 'feeds_feed.view'
     feeds_feed: \d+
 
+# Bulk action confirmation pages.
+feeds.multiple_clear_confirm:
+  path: '/admin/content/feed/clear'
+  defaults:
+    _form: 'Drupal\feeds\Form\ClearMultipleForm'
+  requirements:
+    _feeds_feed_clear_multiple_access: 'feeds_feed'
+
 feeds.multiple_delete_confirm:
   path: '/admin/content/feed/delete'
   defaults:
-    _form: 'Drupal\feeds\Form\DeleteMultiple'
+    _form: 'Drupal\feeds\Form\DeleteMultipleForm'
   requirements:
-    _permission: 'administer feeds'
+    _feeds_feed_delete_multiple_access: 'feeds_feed'
 
+feeds.multiple_import_confirm:
+  path: '/admin/content/feed/import'
+  defaults:
+    _form: 'Drupal\feeds\Form\ImportMultipleForm'
+  requirements:
+    _feeds_feed_import_multiple_access: 'feeds_feed'
+
+# Feed entity pages.
 entity.feeds_feed.import_form:
   path: '/feed/{feeds_feed}/import'
   defaults:
@@ -62,6 +78,7 @@ entity.feeds_feed.unlock:
     _entity_access: 'feeds_feed.unlock'
     feeds_feed: \d+
 
+# PubSubHubbub.
 entity.feeds_feed.receive:
   path: '/feed/{feeds_subscription}/{feeds_push_token}/push_callback'
   defaults:

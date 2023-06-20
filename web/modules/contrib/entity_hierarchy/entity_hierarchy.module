@@ -108,12 +108,24 @@ function entity_hierarchy_form_alter(&$form, FormStateInterface $form_state, $fo
     $parentFields = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('entity_reference_hierarchy');
     if (isset($parentFields[$entity->getEntityTypeId()])) {
       // We have a parent field.
+      $requestQuery = \Drupal::request()->query;
       foreach ($parentFields[$entity->getEntityTypeId()] as $field_name => $detail) {
-        if ($entity->hasField($field_name) && \Drupal::request()->query->has($field_name) &&
-        isset($form[$field_name]['widget'][0]['target_id']['target_id']) &&
-          ($target_entity = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId())->load(\Drupal::request()->query->get($field_name))) &&
-        $target_entity->access('view')) {
-          $form[$field_name]['widget'][0]['target_id']['target_id']['#default_value'] = $target_entity;
+        if (
+          $entity->hasField($field_name)
+          && $requestQuery->has($field_name)
+          && (isset($form[$field_name]['widget'][0]['target_id']['target_id']) || $form[$field_name]['widget'][0]['target_id']['#type'] === 'select')
+          && ($target_entity = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId())->load($requestQuery->get($field_name)))
+          && $target_entity->access('view')
+        ) {
+          if (
+            isset($form[$field_name]['widget'][0]['target_id']['#type'])
+            && $form[$field_name]['widget'][0]['target_id']['#type'] === 'select'
+          ) {
+            $form[$field_name]['widget'][0]['target_id']['#default_value'] = $target_entity->id();
+          }
+          else {
+            $form[$field_name]['widget'][0]['target_id']['target_id']['#default_value'] = $target_entity;
+          }
         }
       }
     }

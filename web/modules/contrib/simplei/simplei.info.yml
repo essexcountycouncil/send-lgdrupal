@@ -4,7 +4,7 @@ package: Administration
 type: module
 core_version_requirement: ^9 || ^10
 
-# Information added by Drupal.org packaging script on 2023-02-24
-version: '2.1.3'
+# Information added by Drupal.org packaging script on 2023-03-02
+version: '2.1.4'
 project: 'simplei'
-datestamp: 1677279329
+datestamp: 1677733356

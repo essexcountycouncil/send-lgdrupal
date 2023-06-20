@@ -132,6 +132,9 @@ class RevisionableEntityTest extends FeedsKernelTestBase {
     $this->createUser([
       'uid' => 42,
     ]);
+    $this->createUser([
+      'uid' => 32,
+    ]);
 
     // Create a feed type, map to body field. Set it to update existing items
     // and enable revision setting.

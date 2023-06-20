@@ -102,6 +102,8 @@ abstract class FileTestBase extends FeedsKernelTestBase {
         $this->entityFieldManager->reveal(),
         $this->entityFinder->reveal(),
         $this->fileSystem->reveal(),
+        $this->container->get('file.repository'),
+        $this->container->get('config.factory')->get('system.file'),
       ])
       ->getMock();
 

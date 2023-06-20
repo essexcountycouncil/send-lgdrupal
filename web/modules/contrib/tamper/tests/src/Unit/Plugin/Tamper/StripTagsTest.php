@@ -44,12 +44,19 @@ class StripTagsTest extends TamperPluginTestBase {
   }
 
   /**
+   * Test the plugin behaviour with null.
+   */
+  public function testNullTamper() {
+    $this->assertEquals(NULL, $this->plugin->tamper(NULL));
+  }
+
+  /**
    * Test the plugin behaviour without string data.
    */
   public function testNoStringTamper() {
     $this->expectException(TamperException::class);
     $this->expectExceptionMessage('Input should be a string.');
-    $this->plugin->tamper(NULL);
+    $this->plugin->tamper(['this is an array']);
   }
 
 }

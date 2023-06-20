@@ -3,9 +3,9 @@
   <div class="serviceub--update_inner">
     {% for item in items %}
     <ul>
-      <li>{{ item.date|date("d.m.Y") }}</li>
+      <li><time datetime="{{ item.date|date("Y-m-d") }}">{{ item.date|date("d.m.Y") }}</time></li>
       <li><strong>{{ item.title }} - </strong>{{ item.description }}</li>
-      <li><a class="read-more" href="{{ item.url }}">Read more</a></li>
+      <li><a class="read-more" aria-label="{{ 'Read more about status:'|t }} {{ item.title }}" href="{{ item.url }}">Read more</a></li>
     </ul>
     {% endfor %}
   </div>

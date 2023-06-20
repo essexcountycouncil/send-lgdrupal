@@ -74,6 +74,7 @@ function leaflet_leaflet_map_info() {
           'scrollWheelZoom' => TRUE,
           'doubleClickZoom' => TRUE,
           'zoomControl' => TRUE,
+          'zoomControlPosition' => 'topleft',
           'attributionControl' => TRUE,
           'trackResize' => TRUE,
           'fadeAnimation' => TRUE,

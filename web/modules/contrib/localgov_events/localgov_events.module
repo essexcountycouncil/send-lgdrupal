@@ -102,10 +102,17 @@ function localgov_events_modules_installed($modules, $is_syncing) {
   // Configure optional fields.
   $directory_page = in_array('localgov_directories_page', $modules);
   $directory_venue = in_array('localgov_directories_venue', $modules);
-  if ($directory_page || $directory_venue) {
-    \Drupal::service('config.installer')->installOptionalConfig();
-    localgov_events_optional_fields_settings($directory_page, $directory_venue);
+  if ($directory_page) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'node.type.localgov_directories_page',
+    ]);
   }
+  if ($directory_venue) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'node.type.localgov_directories_venue',
+    ]);
+  }
+  localgov_events_optional_fields_settings($directory_page, $directory_venue);
 }
 
 /**

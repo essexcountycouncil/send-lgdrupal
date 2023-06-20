@@ -19,6 +19,9 @@ settings:
   required_end: false
   limit_start: ''
   limit_end: ''
+  all_day: false
+  exceptions: true
+  seasons: false
 module: office_hours
 locked: false
 cardinality: -1

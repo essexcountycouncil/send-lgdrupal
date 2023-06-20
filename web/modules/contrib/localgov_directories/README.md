@@ -19,8 +19,19 @@ Entries section below.
 Facets types, and their facet values. Create types (eg. "Size"), and values (eg.
 "Large", "Medium", "Small"). These can then be used on entries to filter to them.
 
-By design the intention is that these can be excluded from configuration export,
-and controlled on the site by administrators who create tyes as required.
+The automatically enabled Facets are their own entity type. They are intended
+for creation and management by content editors on the production site. Adding
+a facet type will automatically make it available on Directory Channels, and
+add any values to the Facet block on the page, without any additional site
+building. As such by design they are excluded from configuration export.
+
+### Using Taxonomy Term Facets
+
+If you want a controlled or imported taxonomy you can add standard taxonomy term
+facets to you directory index. Do this as you would with any search api index:
+This requires creating the vocabulary. Adding the vocabulary to the appropriate
+content type. Adding it to the index. Placing the block on the appropriate
+channel pages.
 
 ## Directories (Channels)
 
@@ -113,15 +124,36 @@ export the facet types set:
 and it will be exported with other configuration. Any types that exist in
 configuration will be imported.
 
+### Proximity search
+
+Proximity search is made available when:
+- The Directory search backend supports location search.  At the moment the *search_api_solr* search backend from the [search_api_solr module](https://www.drupal.org/project/search_api_solr) is the only such known backend.
+- At least one of the available Directory entry content types (e.g. localgov_directories_venue) is using location through the
+localgov_location field.
+
+When location search is available, a new "Proximity search settings" choice field becomes available in Directory channel forms.  Activating this will present a Proximity search filter as part of the channel search form.
+
+The Proximity search filter uses the following distances out-of-the-box: 1km for 1/2 mile, 2km for 1 mile, 3km for 2 miles, 5km for 3 miles, 8km for 5 miles, and 16km for 10 miles.  These mappings are not exact.  This is due to Solr's insistence on using round Kilometer values during location-based filtering.  To update these distance values, edit the Proximity filter's settings in the *Directory channel* view's *Embed: Proximity search* and *Embed map* displays.
+
+#### Supported database backends
+The [dev release of the search_api module](https://www.drupal.org/project/search_api/releases/8.x-1.x-dev) now supports location-based search in database search backends.  Supported database versions are:
+- MySQL 5.7 and later.
+- MariaDB 10.2.38, 10.3.29, 10.4.19, 10.5.10 and later.
+
 ## Block placement
 
-When using a theme other than the default LocalGov theme, the
-**Directory channel search** (machine id: localgov_directories_channel_search_block)
-and **Directory facets** (machine id: facet_block:localgov_directories_facets)
+When using a theme other than the default LocalGov Base or LocalGov Scarfolk, the
+**Directory channel search** (machine id: localgov_directories_channel_search_block),
+**Directory facets** (machine id: facet_block:localgov_directories_facets) and
+**Directory facets for proximity search** (machine id: facet_block:localgov_directories_facets_proximity_search)
 blocks should be made visible for the **Directory Channel** content type.
-They can be added to a sidebar region (or equivalent) of the site theme.  Note
-that the facet_block:localgov_directories_facets block becomes available only
-after you have created at least one Directory entry content type.
+They can be added to a sidebar region (or equivalent) of the site theme.
+
+Note that the facet_block:localgov_directories_facets block becomes available only
+after you have created at least one Directory entry content type.  On the other
+hand the facet_block:localgov_directories_facets_proximity_search block becomes
+available when a Directory entry content type with a localgov_location field is
+created (e.g. localgov_directories_venue).
 
 On the Directory entry content types the blocks are also available as 'fields'
 in the Fields display configuration if you prefer to place them within the

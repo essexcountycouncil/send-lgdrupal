@@ -187,7 +187,10 @@ class ConfigurationHelper implements ContainerInjectionInterface {
       $this->indexAddFacetField($index);
       $index->save();
     }
-    $this->createFacet();
+
+    if ($index && $index->status()) {
+      $this->createFacet(Constants::FACET_CONFIG_ENTITY_ID, Constants::FACET_CONFIG_FILE);
+    }
   }
 
   /**
@@ -314,14 +317,16 @@ class ConfigurationHelper implements ContainerInjectionInterface {
   /**
    * Import config entity for the directory Facet.
    */
-  public function createFacet(): void {
-    if ($this->entityTypeManager->getStorage('facets_facet')->load(Constants::FACET_CONFIG_ENTITY_ID)) {
+  public function createFacet(string $facet_id, string $facet_cfg_file): void {
+    if ($this->entityTypeManager->getStorage('facets_facet')->load($facet_id)) {
       return;
     }
 
     $conditional_config_path = $this->moduleExtensionList->getPath('localgov_directories') . '/config/conditional';
-    if ($this->importConfigEntity('facets_facet', $conditional_config_path, Constants::FACET_CONFIG_FILE)) {
-      $this->configInstaller->installOptionalConfig();
+    if ($this->importConfigEntity('facets_facet', $conditional_config_path, $facet_cfg_file)) {
+      $this->configInstaller->installOptionalConfig(NULL, [
+        'config' => 'facets.facet.localgov_directories_facets',
+      ]);
     }
   }
 

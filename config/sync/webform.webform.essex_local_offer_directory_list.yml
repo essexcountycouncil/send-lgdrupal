@@ -44,14 +44,18 @@ elements: |-
           	<li>be based in Essex or can be reasonably accessed by families in Essex</li>
           </ul>
 
-          <div class=""><p>Private sector providers must also either:</p>
+          <div>
+          <p>We do not accept listings from:</p>
 
           <ul>
-          	<li>have a clear link with a professional body</li>
-          	<li>be registered and approved by a recognised regulatory body.</li>
+          	<li>private tutors</li>
+          	<li>private&nbsp;therapists</li>
+          	<li>Facebook groups</li>
+          	<li>alternative provisions providers</li>
           </ul>
 
-          <p>This form takes around 15 minutes to complete. If you need to go back a page, only use the back button on the form otherwise you may lose your progress.</p></div>
+          <p>This form takes around 15 minutes to complete. If you need to go back a page, only use the back button on the form otherwise you may lose your progress.</p>
+          </div>
       before_you_start:
         '#type': webform_markup
         '#markup': |-

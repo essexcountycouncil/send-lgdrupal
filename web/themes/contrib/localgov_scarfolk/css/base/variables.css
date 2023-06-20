@@ -37,7 +37,7 @@ body {
   --color-accent: #01738f;
   --color-accent-alt: #ffe146;
   --font-primary: "Open Sans", roboto, oxygen, ubuntu, cantarell, "Helvetica Neue", sans-serif;
-  --font-secondary: 'Mulish', var(--font-primary);
+  --font-secondary: "Mulish", var(--font-primary);
   --sidebar-exposed-form-bg-color: var(--color-grey-lightest);
 
   /* Apply Variables */
@@ -46,5 +46,4 @@ body {
   --breadcrumbs-link-color: var(--color-black);
   --alert-banner-bg-color-minor: var(--color-accent-alt);
   --color-section-pre-footer-bg: var(--color-accent);
-
 }

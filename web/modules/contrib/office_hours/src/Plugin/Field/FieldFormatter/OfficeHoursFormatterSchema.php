@@ -2,6 +2,7 @@
 
 namespace Drupal\office_hours\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
@@ -85,7 +86,8 @@ class OfficeHoursFormatterSchema extends OfficeHoursFormatterBase {
       '#office_hours' => $office_hours,
       // Pass (unfiltered) office_hours items to twig theming.
       '#office_hours_field' => $items,
-      '#item_separator' => $settings['separator']['days'],
+      // Pass formatting options to twig theming.
+      '#item_separator' => Xss::filter($settings['separator']['days'], ['br']),
       '#slot_separator' => $settings['separator']['more_hours'],
       '#attributes' => [
         'class' => ['office-hours'],

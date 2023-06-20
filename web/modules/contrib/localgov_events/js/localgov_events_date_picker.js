@@ -7,6 +7,14 @@
   Drupal.behaviors.localgovEventsDatePicker = {
     attach: function attach(context, settings) {
 
+      const firstDayOfWeek = function(date) {
+        return new Date(date.setDate(date.getDate() - date.getDay() + (date.getDay() === 0 ? -6:1) ));
+      }
+
+      const lastDayOfWeek = function(date) {
+        return new Date(date.setDate(date.getDate() - date.getDay() +7));
+      }
+
       $('.js-date-picker').on('change', function() {
 
         let start_date = null;
@@ -27,12 +35,8 @@
             break;
 
           case 'this_week':
-            // First day is the day of the month - the day of the week.
-            const first = today.getDate() - today.getDay() + 1;
-            // Last day is the first day + 6.
-            const last = first + 6;
-            start_date = new Date(today.setDate(first));
-            end_date = new Date(today.setDate(last));
+            start_date = firstDayOfWeek(today)
+            end_date = lastDayOfWeek(today);
             break;
 
           case 'this_month':

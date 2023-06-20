@@ -17,6 +17,7 @@ use Drupal\Tests\field\Kernel\FieldKernelTestBase;
  * @package Drupal\Tests\office_hours\Kernel
  *
  * @group office_hours
+ * @coversDefaultClass \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem
  */
 class OfficeHoursItemTest extends FieldKernelTestBase {
 
@@ -142,29 +143,82 @@ class OfficeHoursItemTest extends FieldKernelTestBase {
 
     // Verify changing the field value.
     $new_value = [
+      // Normal day with 1 time slot.
       [
-        'day' => '2',
+        'day' => '0',
+        'all_day' => FALSE,
         'starthours' => '1430',
         'endhours' => '2000',
         'comment' => '',
       ],
+      // @todo Normal day with multiple time slots.
+      //
+      // 'all_day' is checked, hours will be overwritten.
       [
-        'day' => '3',
-        'starthours' => '1900',
-        'endhours' => '2000',
+        'day' => '1',
+        'all_day' => TRUE,
+        'starthours' => '1100',
+        'endhours' => '1330',
         'comment' => '',
       ],
+      // 'all_day' is not checked, user sets 00:00-00:00.
+      [
+        'day' => '2',
+        'starthours' => '0000',
+        'endhours' => '0000',
+        'comment' => '',
+      ],
+      // Weekday without hours, with comment.
+      [
+        'day' => '3',
+        'comment' => 'An empty weekday with comment',
+      ],
+      // Weekday without hours, without comment.
+      [
+        'day' => '4',
+      ],
+      /*
+      [
+        'day' => '5',
+        // 'all_day' => TRUE,
+        'starthours' => '',
+        'endhours' => '',
+        'comment' => '',
+      ],
+       */
     ];
-    // $entity->$field_name->value = $new_value;
     $entity->$field_name->setValue($new_value);
-    $test_value = $entity->$field_name->first()->getValue();
 
     // Read changed entity and assert changed values.
     $this->entityValidateAndSave($entity);
     $entity = EntityTest::load($id);
+    // Normal day with 1 time slot.
+    $index = 0;
     $test_value = $entity->$field_name->first()->getValue();
-    $this->assertEquals(implode('/', $new_value[0]), implode('/', $test_value));
+    $test_value = implode('/', $test_value);
+    $this->assertEquals(implode('/', $new_value[$index]), $test_value);
+    // All_day, hours will be overwritten.
+    $index = 1;
+    $test_value = $entity->$field_name->get($index)->getValue();
+    $test_value = implode('/', $test_value);
+    $this->assertEquals('1/1/0/0/', $test_value);
+    // 'all_day' is not checked, user sets 00:00-00:00.
+    $index = 2;
+    $test_value = $entity->$field_name->get($index)->getValue();
+    $test_value = implode('/', $test_value);
+    $this->assertEquals('2/1/0/0/', $test_value);
+    // Weekday without hours, with comment.
+    $index = 3;
+    $test_value = $entity->$field_name->get($index)->getValue();
+    $test_value = implode('/', $test_value);
+    $this->assertEquals('3////An empty weekday with comment', $test_value);
+    // Weekday without hours, without comment. This is not stored.
+    $index = 4;
+    $test_value = $entity->$field_name->get($index);
+    $this->assertEquals(NULL, $test_value);
 
+    // @todo Add tests for Exception day, in each of above cases.
+    // ...
     // Test the generateSampleValue() method.
     $entity = EntityTest::create();
     $entity->$field_name->generateSampleItems();

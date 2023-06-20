@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Adds location based search capabilities for Search API searches.
+ */
+
+/**
+ * Returns an array of distance units.
+ *
+ * Distance searching is kilometer based, so all multipliers must be relative to
+ * 1 kilometer.
+ *
+ * @return array
+ *   An associative array with supported distance units and their
+ *   specifications.
+ */
+function search_api_location_get_units() {
+  $units = &drupal_static(__FUNCTION__);
+
+  if (!isset($units)) {
+    $units = [
+      'km' => [
+        'id' => 'km',
+        'multiplier' => 1,
+        'label' => 'Kilometers',
+        'abbreviation' => 'km',
+      ],
+      'mi' => [
+        'id' => 'mi',
+        'multiplier' => 1.60935,
+        'label' => 'Miles',
+        'abbreviation' => 'mi',
+      ],
+    ];
+
+    \Drupal::moduleHandler()->alter('search_api_location_units', $units);
+  }
+
+  return $units;
+}

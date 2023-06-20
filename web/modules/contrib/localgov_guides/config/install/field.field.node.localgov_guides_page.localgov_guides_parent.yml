@@ -9,8 +9,8 @@ id: node.localgov_guides_page.localgov_guides_parent
 field_name: localgov_guides_parent
 entity_type: node
 bundle: localgov_guides_page
-label: 'Guide overview'
-description: ''
+label: 'Parent page'
+description: 'The guide overview page this guide page is part of.'
 required: true
 translatable: false
 default_value: {  }
@@ -22,6 +22,7 @@ settings:
       localgov_guides_overview: localgov_guides_overview
     sort:
       field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

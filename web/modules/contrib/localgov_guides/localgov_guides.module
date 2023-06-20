@@ -178,8 +178,17 @@ function localgov_guides_node_presave(NodeInterface $node) {
 function localgov_guides_modules_installed($modules) {
   $services = in_array('localgov_services_navigation', $modules);
   $topics = in_array('localgov_topics', $modules);
+  if ($services) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'field.storage.node.localgov_services_parent',
+    ]);
+  }
+  if ($topics) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'field.storage.node.localgov_topic_classified',
+    ]);
+  }
   if ($services || $topics) {
-    \Drupal::service('config.installer')->installOptionalConfig();
     localgov_guides_optional_fields_settings($services, $topics);
   }
 }

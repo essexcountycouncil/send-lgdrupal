@@ -47,6 +47,13 @@ class LayoutParagraphsAllowedTypesEvent extends Event {
   protected $region;
 
   /**
+   * The context a new compoment is being added into.
+   *
+   * @var array
+   */
+  protected $context;
+
+  /**
    * Class cosntructor.
    *
    * @param array $types
@@ -58,11 +65,12 @@ class LayoutParagraphsAllowedTypesEvent extends Event {
    * @param string $region
    *   The region.
    */
-  public function __construct(array $types, LayoutParagraphsLayout $layout, $parent_uuid = '', $region = '') {
+  public function __construct(array $types, LayoutParagraphsLayout $layout, $context) {
     $this->types = $types;
     $this->layout = $layout;
-    $this->parentUuid = $parent_uuid;
-    $this->region = $region;
+    $this->context = $context;
+    $this->parentUuid = $context['parent_uuid'];
+    $this->region = $context['region'];
   }
 
   /**
@@ -106,6 +114,16 @@ class LayoutParagraphsAllowedTypesEvent extends Event {
    */
   public function getRegion() {
     return $this->region;
+  }
+
+  /**
+   * Get the context.
+   *
+   * @return array
+   *   The context.
+   */
+  public function getContext() {
+    return $this->context;
   }
 
   /**

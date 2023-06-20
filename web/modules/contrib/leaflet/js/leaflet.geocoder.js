@@ -36,9 +36,9 @@
 
       // Set CSS for the control search interior.
       let controlSearch = document.createElement('input');
-      controlSearch.placeholder = Drupal.t('Search Address');
+      controlSearch.placeholder = Drupal.t(geocoder_settings['autocomplete']['placeholder'] || 'Search Address');
       controlSearch.id = mapid + '--leaflet--geocoder-control';
-      controlSearch.title = Drupal.t('Search an Address on the Map');
+      controlSearch.title = Drupal.t(geocoder_settings['autocomplete']['title'] ||  'Search an Address on the Map');
       controlSearch.style.color = 'rgb(25,25,25)';
       controlSearch.style.padding = '0.2em 1em';
       controlSearch.style.borderRadius = '3px';

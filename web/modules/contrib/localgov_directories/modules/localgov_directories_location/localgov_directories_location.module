@@ -5,9 +5,15 @@
  * Provides a location extension to directories.
  */
 
-use Drupal\localgov_directories_location\LocationExtraFieldDisplay;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\field\FieldConfigInterface;
+use Drupal\localgov_directories\ConfigurationHelper;
+use Drupal\localgov_directories\Constants as Directory;
+use Drupal\localgov_directories_location\LocationExtraFieldDisplay;
+use Drupal\localgov_directories_location\ProximitySearchSetup;
 use Drupal\node\NodeInterface;
+use Drupal\search_api\Entity\Index as SearchIndex;
+use Drupal\search_api\IndexInterface as SearchIndexInterface;
 
 /**
  * Implements hook_entity_extra_field_info().
@@ -25,4 +31,80 @@ function localgov_directories_location_node_view(array &$build, NodeInterface $n
   return \Drupal::service('class_resolver')
     ->getInstanceFromDefinition(LocationExtraFieldDisplay::class)
     ->nodeView($build, $node, $display, $view_mode);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * Once the localgov_location field is available, we need to add it to the
+ * Directories search index and also enable the Proximity search display of the
+ * Directory channel View.
+ *
+ * In a fresh installation of localgov_directories, saving the search index
+ * drops the localgov_directory_channels and localgov_directory_title_sort
+ * fields from the index as they are not attached to any content type yet.  So
+ * we add them again as we are now certain that they are attached to a content
+ * type.
+ */
+function localgov_directories_location_field_config_insert(FieldConfigInterface $field) {
+
+  $proximity_search_setup = \Drupal::classResolver(ProximitySearchSetup::class);
+  if (!$proximity_search_setup->hasLocationSearch()) {
+    return;
+  }
+
+  $index = SearchIndex::load(Directory::DEFAULT_INDEX);
+  $new_field_name = $field->getName();
+  $is_node_entity_type = $field->getTargetEntityTypeId() === 'node';
+
+  if ($new_field_name === Directory::LOCATION_FIELD && $is_node_entity_type && $index && $index->status() && !$index->getField(Directory::LOCATION_FIELD)) {
+    if ($proximity_search_setup->setup($field, $index)) {
+      \Drupal::classResolver(ConfigurationHelper::class)->createFacet(Directory::FACET_CONFIG_ENTITY_ID_FOR_PROXIMITY_SEARCH, Directory::FACET_CONFIG_FILE_FOR_PROXIMITY_SEARCH);
+    }
+  }
+  elseif (in_array($new_field_name, [
+    Directory::CHANNEL_SELECTION_FIELD,
+    Directory::TITLE_SORT_FIELD,
+  ]) && $is_node_entity_type && $index) {
+    // The channel selection and title sort fields may have gone missing from
+    // the search index when we added localgov_location.
+    $proximity_search_setup->repairSearchIndex($index);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for hook_search_api_index_update().
+ *
+ * Whenever the Directory search index is updated, check if we need to setup
+ * proximity search.  This is useful where location search was unavailable when
+ * this module was installed but has now become available.
+ */
+function localgov_directories_location_search_api_index_update(SearchIndexInterface $search_index) {
+
+  $has_proximity_search_setup_ended = &drupal_static(__FUNCTION__);
+  if (isset($has_proximity_search_setup_ended)) {
+    return;
+  }
+  $has_proximity_search_setup_ended = TRUE;
+
+  if ($search_index->id() !== Directory::DEFAULT_INDEX) {
+    return;
+  }
+
+  if ($search_index->getField(Directory::LOCATION_FIELD)) {
+    return;
+  }
+
+  $proximity_search_setup = \Drupal::classResolver(ProximitySearchSetup::class);
+  if (!$proximity_search_setup->hasLocationSearch()) {
+    return;
+  }
+
+  $location_field_configs = \Drupal::service('entity_type.manager')
+    ->getStorage('field_config')
+    ->loadByProperties([
+      'field_name'  => Directory::LOCATION_FIELD,
+      'entity_type' => 'node',
+    ]);
+  array_walk($location_field_configs, 'localgov_directories_location_field_config_insert');
 }

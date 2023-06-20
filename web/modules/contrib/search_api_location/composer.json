@@ -1,0 +1,26 @@
+{
+  "name": "drupal/search_api_location",
+  "description": "Provides location based search for the Search API module.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/search_api_location",
+  "authors": [
+    {
+      "name": "Mattias Michaux",
+      "homepage": "https://www.drupal.org/u/mollux"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/search_api_location",
+    "irc": "irc://irc.freenode.org/drupal-search-api",
+    "source": "http://git.drupal.org/project/search_api_location.git"
+  },
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/search_api": "^1.28",
+    "itamair/geophp": "^1.2"
+  },
+  "require-dev": {
+    "drupal/geocoder": "^4.4",
+    "drupal/facets": "3.x"
+  }
+}

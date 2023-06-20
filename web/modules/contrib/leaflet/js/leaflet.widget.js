@@ -32,7 +32,7 @@
     this.mapid = this.widgetsettings.map_id;
     this.map_container = map_container;
     this.container = $(map_container).parent();
-    this.widgetsettings.path_style = this.widgetsettings.path ? JSON.parse(this.widgetsettings.path) : {};
+    this.widgetsettings.path_style = this.map_settings.path ? JSON.parse(this.map_settings.path) : {};
     this.json_selector = this.widgetsettings.jsonElement;
 
     if (settings['langcode'] && lMap.pm) {
@@ -165,6 +165,10 @@
     // Always clear the layers in drawnItems on map updates.
     this.drawnItems.clearLayers();
 
+    // Apply styles to pm drawn items.
+    this.map.pm.setGlobalOptions({
+      pathOptions: this.widgetsettings.path_style
+    });
     // Nothing to do if we don't have any data.
     if (value.length === 0) {
       // If no layer available, and the Map Center is not forced, locate the user position.
@@ -186,10 +190,6 @@
           return L.circleMarker(latlng);
         };
       }
-      // Apply styles to pm drawn items.
-      this.map.pm.setGlobalOptions({
-        pathOptions: this.widgetsettings.path_style
-      });
       let obj = L.geoJson(JSON.parse(value), layerOpts);
       // See https://github.com/Leaflet/Leaflet.draw/issues/398
       obj.eachLayer(function(layer) {

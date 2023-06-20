@@ -81,6 +81,16 @@ function localgov_news_field_widget_multivalue_form_alter(array &$elements, Form
   $field_definition = $context['items']->getFieldDefinition();
   if ($field_definition->getName() == 'localgov_newsroom' && isset($elements['#options'])) {
     $options = $elements['#options'];
+
+    // If there are no newsrooms display a warning.
+    if (count($options) == 1 && isset($options['_none'])) {
+      $create_newsroom_path = 'localgov_newsroom';
+      if (\Drupal::hasService('domain_group_resolver') && !is_null(\Drupal::service('domain_group_resolver')->getCurrentRouteGroupDomain())) {
+        $create_newsroom_path = 'group_node:' . $create_newsroom_path;
+      }
+      \Drupal::messenger()->addWarning(t('There are no Newsrooms. Please <a href="./@link">create a Newsroom</a> first, before creating this news article.', ['@link' => $create_newsroom_path]));
+    }
+
     unset($options['_none']);
     if (count($options) == 1) {
       $elements['#value'] = key($options);

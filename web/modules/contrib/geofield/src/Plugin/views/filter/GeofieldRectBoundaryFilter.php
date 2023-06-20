@@ -39,27 +39,6 @@ class GeofieldRectBoundaryFilter extends FilterPluginBase implements ContainerFa
   /**
    * {@inheritdoc}
    */
-  public function acceptExposedInput($input) {
-    if (
-      !empty($this->value['group']['lat_north_east'])
-      && !empty($this->value['group']['lng_north_east'])
-      && !empty($this->value['group']['lat_south_west'])
-      && !empty($this->value['group']['lng_south_west'])
-    ) {
-      return TRUE;
-    }
-
-    $return_value = parent::acceptExposedInput($input);
-
-    if (empty($this->value)) {
-      $this->value = [];
-    }
-    return $return_value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function valueForm(&$form, FormStateInterface $form_state) {
 
     parent::valueForm($form, $form_state);

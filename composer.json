@@ -37,7 +37,7 @@
         "drupal/migrate_source_csv": "^3.5",
         "drupal/migrate_tools": "^6.0",
         "drupal/no_autocomplete": "^1.6",
-        "drupal/office_hours": "^1.7",
+        "drupal/office_hours": "^1.11",
         "drupal/publishcontent": "^1.5",
         "drupal/search_api_best_bets": "^2.0",
         "drupal/search_api_exclude_entity": "^2.0",

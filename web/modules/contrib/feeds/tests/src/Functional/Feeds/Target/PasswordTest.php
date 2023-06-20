@@ -40,6 +40,12 @@ class PasswordTest extends FeedsBrowserTestBase {
   public function setUp(): void {
     parent::setUp();
 
+    // Install Password Compatibility module if it exists.
+    $module_data = $this->container->get('extension.list.module')->reset()->getList();
+    if (isset($module_data['phpass'])) {
+      $this->container->get('module_installer')->install(['phpass']);
+    }
+
     // Create a feed type for importing users with passwords.
     $this->feedType = $this->createFeedTypeForCsv([
       'name' => 'name',

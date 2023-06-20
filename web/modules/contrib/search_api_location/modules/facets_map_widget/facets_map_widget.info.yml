@@ -1,0 +1,10 @@
+name: 'Facets Map Widget'
+type: module
+description: 'Provides a map interface that can be used to narrow down Geo-Spatial search results.'
+core_version_requirement: ^8.8 || ^9 || ^10
+package: Search
+configure: facets.overview
+dependencies:
+  - facets:facets
+  - search_api:search_api
+  - search_api_location:search_api_location

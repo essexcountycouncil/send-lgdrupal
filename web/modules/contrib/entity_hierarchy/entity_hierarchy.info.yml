@@ -9,7 +9,7 @@ dependencies:
 test_dependencies:
   - workbench_access:workbench_access
 
-# Information added by Drupal.org packaging script on 2023-01-18
-version: '3.3.4'
+# Information added by Drupal.org packaging script on 2023-03-30
+version: '3.3.5'
 project: 'entity_hierarchy'
-datestamp: 1674007734
+datestamp: 1680218989
