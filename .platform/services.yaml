@@ -1,6 +1,6 @@
 mysqldb:
   type: mariadb:10.3
-  disk: 5120
+  disk: 4120
 
 # rediscache:
 #   type: redis:5.0
