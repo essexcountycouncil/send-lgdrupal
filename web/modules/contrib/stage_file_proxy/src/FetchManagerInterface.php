@@ -9,6 +9,9 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Interface for FetchManager.
+ *
+ * @deprecated Deprecated in 2.1, will be removed in 3.0. Use
+ *   \Drupal\stage_file_proxy\DownloadManagerInterface instead.
  */
 interface FetchManagerInterface {
 
