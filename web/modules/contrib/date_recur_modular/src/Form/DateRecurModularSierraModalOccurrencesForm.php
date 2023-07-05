@@ -321,6 +321,7 @@ class DateRecurModularSierraModalOccurrencesForm extends FormBase {
           ],
         ],
         'callback' => [$this, 'ajaxSubmitForm'],
+        'disable-refocus' => TRUE,
       ],
     ];
 
@@ -377,7 +378,8 @@ class DateRecurModularSierraModalOccurrencesForm extends FormBase {
     // Rebuild original set without EXDATES.
     $rset = new RSet();
     if (isset($helper)) {
-      array_walk($helper->getRules(), function (DateRecurRuleInterface $rule) use ($rset) {
+      $rules = $helper->getRules();
+      array_walk($rules, function (DateRecurRuleInterface $rule) use ($rset) {
         $parts = $rule->getParts();
         unset($parts['DTSTART']);
         $rset->addRRule($parts);

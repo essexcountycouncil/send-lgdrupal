@@ -53,7 +53,7 @@
         "drupal/webform_views": "^5.0@beta",
         "drupal/webform_workflows_element": "^1.0@alpha",
         "drush/drush": "^10.6",
-        "localgovdrupal/localgov": "^2.0",
+        "localgovdrupal/localgov": "^2.3",
         "localgovdrupal/localgov_base": "^1.4.3",
         "platformsh/config-reader": "^2.4"
     },

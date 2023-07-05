@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\localgov_workflows\Functional;
 
-use Drupal\Tests\BrowserTestBase;
 use Drupal\localgov_roles\RolesHelper;
+use Drupal\Tests\BrowserTestBase;
 use Drupal\workflows\Entity\Workflow;
 
 /**

@@ -113,23 +113,31 @@ class ValidHierarchyReferenceConstraintValidator extends ConstraintValidator imp
     /** @var \PNX\NestedSet\Storage\DbalNestedSet $storage */
     $storage = $this->nestedSetStorageFactory->get($value->getFieldDefinition()->getFieldStorageDefinition()->getName(), $target_type);
     $descendant_nested_set_nodes = $storage->findDescendants($thisNode);
-    $descendant_nested_set_node_ids = array_map(function (Node $node) {
-      return $node->getId();
-    }, $descendant_nested_set_nodes);
-    $descendant_entities = $this->entityTypeManager->getStorage($this_entity->getEntityTypeId())->loadMultiple($descendant_nested_set_node_ids);
-    $children = [];
-    foreach ($descendant_nested_set_nodes as $descendant_nested_set_node) {
-      $node_id = $descendant_nested_set_node->getId();
-      $entity = $descendant_entities[$node_id] ?? FALSE;
-      if (!$entity || ($entity->getEntityType()->hasKey('revision') && $descendant_nested_set_node->getRevisionId() != $entity->getRevisionId())) {
-        // Bypass non default revisions and deleted items.
-        continue;
+
+    // Cannot reference self.
+    $children = [$this_entity->id()];
+    if (!empty($descendant_nested_set_nodes)) {
+      $descendant_nested_set_node_ids = array_map(function (Node $node) {
+        return $node->getId();
+      }, $descendant_nested_set_nodes);
+      $has_revisions = $this_entity->getEntityType()->hasKey('revision');
+      $descendant_entities = \Drupal::entityQuery($this_entity->getEntityTypeId())
+        ->condition($this_entity->getEntityType()->getKey('id'), $descendant_nested_set_node_ids, 'IN')
+        ->accessCheck(false)
+        ->execute();
+      $descendant_entities = array_flip($descendant_entities);
+      foreach ($descendant_nested_set_nodes as $descendant_nested_set_node) {
+        $node_id = $descendant_nested_set_node->getId();
+        if (!isset($descendant_entities[$node_id])) {
+          continue;
+        }
+        if ($has_revisions && $descendant_nested_set_node->getRevisionId() != $descendant_entities[$node_id]) {
+          continue;
+        }
+        $children[] = $node_id;
       }
-      $children[] = $node_id;
+      $children = array_unique($children);
     }
-    $children = array_unique($children);
-    // Cannot reference self either.
-    $children[] = $this_entity->id();
 
     // Add violations on deltas with a target_id that is not valid.
     if ($target_ids && $children) {

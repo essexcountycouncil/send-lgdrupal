@@ -462,7 +462,7 @@ class LeafletService {
    *   The Leaflet Icon Documentation Link.
    */
   public function leafletIconDocumentationLink() {
-    return $this->link->generate($this->t('Leaflet Icon Documentation'), Url::fromUri('https://leafletjs.com/reference-1.3.0.html#icon', [
+    return $this->link->generate($this->t('Leaflet Icon Documentation'), Url::fromUri('https://leafletjs.com/reference.html#icon', [
       'absolute' => TRUE,
       'attributes' => ['target' => 'blank'],
     ]));

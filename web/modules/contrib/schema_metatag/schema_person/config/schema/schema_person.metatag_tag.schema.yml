@@ -31,6 +31,9 @@ metatag.metatag_tag.schema_person_gender:
 metatag.metatag_tag.schema_person_given_name:
   type: text
   label: 'given_name'
+metatag.metatag_tag.schema_person_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_person_image:
   type: text
   label: 'image'

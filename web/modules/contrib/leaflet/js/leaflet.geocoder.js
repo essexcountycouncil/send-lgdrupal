@@ -33,12 +33,14 @@
       let controlUI = L.DomUtil.create('div','geocoder leaflet-control-geocoder-container');
       controlUI.id = mapid + '--leaflet-control-geocoder-container';
       controlDiv.appendChild(controlUI);
+      const autocomplete_placeholder = geocoder_settings['autocomplete'] ? geocoder_settings['autocomplete']['placeholder'] : 'Search Address';
+      const autocomplete_title = geocoder_settings['autocomplete'] ? geocoder_settings['autocomplete']['title'] : 'Search an Address on the Map';
 
       // Set CSS for the control search interior.
       let controlSearch = document.createElement('input');
-      controlSearch.placeholder = Drupal.t(geocoder_settings['autocomplete']['placeholder'] || 'Search Address');
+      controlSearch.placeholder = Drupal.t(autocomplete_placeholder);
       controlSearch.id = mapid + '--leaflet--geocoder-control';
-      controlSearch.title = Drupal.t(geocoder_settings['autocomplete']['title'] ||  'Search an Address on the Map');
+      controlSearch.title = Drupal.t(autocomplete_title);
       controlSearch.style.color = 'rgb(25,25,25)';
       controlSearch.style.padding = '0.2em 1em';
       controlSearch.style.borderRadius = '3px';

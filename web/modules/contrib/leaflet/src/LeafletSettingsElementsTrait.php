@@ -418,10 +418,10 @@ trait LeafletSettingsElementsTrait {
       '#title' => t('Icon Source'),
       '#default_value' => isset($icon_options['iconType']) ? $icon_options['iconType'] : $default_settings['icon']['iconType'],
       '#options' => [
-        'marker' => 'Icon Image Url/Path',
-        'html' => 'Field (html DivIcon)',
+        'marker' => $this->t('Icon Image Url/Path'),
+        'html' => $this->t('Field (html DivIcon)'),
         'circle_marker' => $this->t('Circle Marker (@more_info)', [
-          '@more_info' => $this->link->generate('more info', Url::fromUri('https://leafletjs.com/reference-1.6.0.html#circlemarker', [
+          '@more_info' => $this->link->generate('more info', Url::fromUri('https://leafletjs.com/reference.html#circlemarker', [
             'absolute' => TRUE,
             'attributes' => ['target' => 'blank'],
           ])
@@ -504,7 +504,7 @@ trait LeafletSettingsElementsTrait {
       '#rows' => 2,
       '#title' => $this->t('Circle Marker Options'),
       '#description' => $this->t('An object literal of Circle Marker options, that comply with the @leaflet_circle_marker_object.<br>The syntax should respect the javascript object notation (json) format.<br>As suggested in the field placeholder, always use double quotes (") both for the indexes and the string values.<br><b>Note: </b> Use <strong>Replacement Patterns</strong> to input dynamic values.<br>Empty value will fallback to default Leaflet Circle Marker style.', [
-        '@leaflet_circle_marker_object' => $this->link->generate('Leaflet Circle Marker object', Url::fromUri('https://leafletjs.com/reference-1.6.0.html#circlemarker', [
+        '@leaflet_circle_marker_object' => $this->link->generate('Leaflet Circle Marker object', Url::fromUri('https://leafletjs.com/reference.html#circlemarker', [
           'absolute' => TRUE,
           'attributes' => ['target' => 'blank'],
         ])
@@ -521,7 +521,7 @@ trait LeafletSettingsElementsTrait {
     ];
 
     if (method_exists($this, 'getProvider') && $this->getProvider() == 'leaflet_views') {
-      $twig_link = $this->link->generate('Twig', Url::fromUri('http://twig.sensiolabs.org/documentation', [
+      $twig_link = $this->link->generate('Twig', Url::fromUri('https://twig.symfony.com/doc/', [
         'absolute' => TRUE,
         'attributes' => ['target' => 'blank'],
       ])
@@ -733,7 +733,7 @@ trait LeafletSettingsElementsTrait {
         ])),
       ]);
     $path_description = $this->t('Set here options that will be applied to the rendering of Map Path Geometries (Lines & Polylines, Polygons, Multipolygons, etc.).<br>Refer to the @polygons_documentation.<br>Note: If empty the default Leaflet path style, or the one choosen and defined in leaflet.api/hook_leaflet_map_info, will be used.<br>@token_replacement_disclaimer', [
-      '@polygons_documentation' => $this->link->generate($this->t('Leaflet Path Documentation'), Url::fromUri('https://leafletjs.com/reference-1.0.3.html#path', [
+      '@polygons_documentation' => $this->link->generate($this->t('Leaflet Path Documentation'), Url::fromUri('https://leafletjs.com/reference.html#path', [
         'absolute' => TRUE,
         'attributes' => ['target' => 'blank'],
       ])),
@@ -1064,7 +1064,7 @@ trait LeafletSettingsElementsTrait {
         '#title' => $this->t('Enable Markeclustering of Paths elements'),
         '#default_value' => $settings['leaflet_markercluster']['include_path'] ?? $default_settings['leaflet_markercluster']['include_path'],
         '#description' => $this->t("Check this options to extend Markerclustering to the Leaflet Map features extending the @path_class_link (Polygon, Polyline, Circle).", [
-          '@path_class_link' => $this->link->generate($this->t('Leaflet Path class'), Url::fromUri('https://leafletjs.com/reference-1.7.1.html#path', [
+          '@path_class_link' => $this->link->generate($this->t('Leaflet Path class'), Url::fromUri('https://leafletjs.com/reference.html#path', [
             'absolute' => TRUE,
             'attributes' => ['target' => 'blank'],
           ])),

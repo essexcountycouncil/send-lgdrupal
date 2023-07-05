@@ -6,7 +6,7 @@ hidden: true
 dependencies:
   - schema_metatag:schema_metatag
 
-# Information added by Drupal.org packaging script on 2022-12-06
-version: '8.x-2.4'
+# Information added by Drupal.org packaging script on 2023-06-22
+version: '8.x-2.5'
 project: 'schema_metatag'
-datestamp: 1670328797
+datestamp: 1687460394

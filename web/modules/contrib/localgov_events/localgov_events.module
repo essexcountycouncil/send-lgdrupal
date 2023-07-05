@@ -8,9 +8,9 @@
 use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\ViewExecutable;
 use Drupal\localgov_events\Form\EventsAddEditCallbacks;
 use Drupal\localgov_roles\RolesHelper;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_theme().

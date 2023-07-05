@@ -22,7 +22,7 @@ class ServicesBlockTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $profile = 'localgov';
+  protected $profile = 'testing';
 
   /**
    * {@inheritdoc}

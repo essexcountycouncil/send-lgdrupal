@@ -73,14 +73,14 @@ function localgov_news_form_alter(array &$form, FormStateInterface $form_state, 
 }
 
 /**
- * Implements hook_field_widget_multivalue_form_alter().
+ * Implements hook_field_widget_complete_form_alter().
  */
-function localgov_news_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, array $context) {
+function localgov_news_field_widget_complete_form_alter(&$field_widget_complete_form, FormStateInterface $form_state, $context) {
   // If the localgov_newsroom field only has one newsroom to choose, just select
   // it and hide the field.
   $field_definition = $context['items']->getFieldDefinition();
-  if ($field_definition->getName() == 'localgov_newsroom' && isset($elements['#options'])) {
-    $options = $elements['#options'];
+  if ($field_definition->getName() == 'localgov_newsroom' && isset($field_widget_complete_form['widget']['#options'])) {
+    $options = $field_widget_complete_form['widget']['#options'];
 
     // If there are no newsrooms display a warning.
     if (count($options) == 1 && isset($options['_none'])) {
@@ -93,8 +93,8 @@ function localgov_news_field_widget_multivalue_form_alter(array &$elements, Form
 
     unset($options['_none']);
     if (count($options) == 1) {
-      $elements['#value'] = key($options);
-      $elements['#type'] = 'value';
+      $field_widget_complete_form['widget']['#value'] = key($options);
+      $field_widget_complete_form['widget']['#type'] = 'value';
     }
   }
 
@@ -107,9 +107,9 @@ function localgov_news_field_widget_multivalue_form_alter(array &$elements, Form
     if ($form_state->getFormObject() instanceof EntityFormInterface) {
       $nid = $form_state->getformObject()->getEntity()->id();
     }
-    foreach ($elements as $delta => $element) {
+    foreach ($field_widget_complete_form['widget'] as $delta => $element) {
       if (!empty($element['target_id']) && $element['target_id']['#selection_handler'] == 'views') {
-        $elements[$delta]['target_id']['#selection_settings']['view']['arguments'] = [$nid];
+        $field_widget_complete_form['widget'][$delta]['target_id']['#selection_settings']['view']['arguments'] = [$nid];
       }
     }
   }

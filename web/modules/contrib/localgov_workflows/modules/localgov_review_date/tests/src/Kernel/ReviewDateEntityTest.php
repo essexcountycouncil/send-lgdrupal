@@ -4,11 +4,11 @@ namespace Drupal\Tests\localgov_review_date\Kernel;
 
 use Drupal\Core\Cache\Cache;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\localgov_review_date\Entity\ReviewDate;
 use Drupal\scheduled_transitions\Entity\ScheduledTransition;
 use Drupal\scheduled_transitions\Form\ScheduledTransitionsSettingsForm;
 use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
-use Drupal\localgov_review_date\Entity\ReviewDate;
 use Drupal\workflows\Entity\Workflow;
 
 /**

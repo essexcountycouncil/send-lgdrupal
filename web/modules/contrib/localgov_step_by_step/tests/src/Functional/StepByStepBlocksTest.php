@@ -18,6 +18,16 @@ class StepByStepBlocksTest extends BrowserTestBase {
   use TestFileCreationTrait;
 
   /**
+   * {@inheritdoc}
+   */
+  protected $profile = 'testing';
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * Modules to enable.
    *
    * @var array
@@ -25,11 +35,6 @@ class StepByStepBlocksTest extends BrowserTestBase {
   protected static $modules = [
     'localgov_step_by_step',
   ];
-
-  /**
-   * {@inheritdoc}
-   */
-  protected $defaultTheme = 'stable';
 
   /**
    * A user with the 'administer blocks' permission.

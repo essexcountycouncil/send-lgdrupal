@@ -18,11 +18,9 @@ class NewsSearchTest extends BrowserTestBase {
   use CronRunTrait;
 
   /**
-   * Test search in the Localgov profile.
-   *
-   * @var string
+   * {@inheritdoc}
    */
-  protected $profile = 'localgov';
+  protected $profile = 'testing';
 
   /**
    * {@inheritdoc}
@@ -41,7 +39,7 @@ class NewsSearchTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'localgov_news',
     'localgov_search',
     'localgov_search_db',
@@ -50,7 +48,7 @@ class NewsSearchTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->adminUser = $this->drupalCreateUser([

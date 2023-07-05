@@ -13,6 +13,9 @@ metatag.metatag_tag.schema_course_description:
 metatag.metatag_tag.schema_course_educational_credential_awarded:
   type: text
   label: 'educationalCredentialAwarded'
+metatag.metatag_tag.schema_course_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_course_name:
   type: text
   label: 'name'

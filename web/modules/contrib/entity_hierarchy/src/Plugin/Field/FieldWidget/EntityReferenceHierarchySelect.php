@@ -66,7 +66,6 @@ class EntityReferenceHierarchySelect extends OptionsWidgetBase {
     ];
 
     $widget = [
-      '#attributes' => ['class' => ['form--inline', 'clearfix']],
       '#theme_wrappers' => ['container'],
     ];
 
@@ -78,6 +77,7 @@ class EntityReferenceHierarchySelect extends OptionsWidgetBase {
       ];
     }
     else {
+      $widget['#attributes'] = ['class' => ['form--inline', 'clearfix']];
       $widget['weight'] = [
         '#type' => 'number',
         '#size' => '4',

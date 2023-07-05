@@ -18,7 +18,7 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
@@ -73,10 +73,10 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
     $this->drupalGet($entity->toUrl('edit-form'));
 
     if ($clickAllDay) {
-      $this->getSession()->getPage()->find('css', '.parts--is-all-day .form-radios> *:nth-child(1) label')->click();
+      $this->getSession()->getPage()->find('xpath', '//label[@for="edit-dr-0-is-all-day-all-day"]')->click();
     }
 
-    $this->drupalPostForm(NULL, $values, 'Save');
+    $this->submitForm($values, 'Save');
     $this->assertSession()->pageTextContains('has been updated.');
 
     $entity = DrEntityTest::load($entity->id());
@@ -396,7 +396,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_end]' => '08:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('End time must be after start time.');
   }
 
@@ -414,7 +415,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_end]' => '09:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('has been updated.');
   }
 
@@ -432,7 +434,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_end]' => '10:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('has been updated.');
   }
 
@@ -449,7 +452,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_end]' => '09:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('Invalid start time.');
   }
 
@@ -466,7 +470,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_start]' => '09:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('Invalid end time.');
   }
 
@@ -483,7 +488,8 @@ class DateRecurModularOscarTest extends WebDriverTestBase {
       'dr[0][times][time_end]' => '09:00:00am',
       'dr[0][weekdays][MO]' => TRUE,
     ];
-    $this->drupalPostForm($entity->toUrl('edit-form'), $edit, 'Save');
+    $this->drupalGet($entity->toUrl('edit-form'));
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('Invalid start day.');
   }
 

@@ -24,13 +24,14 @@ class ContentsBlockTest extends BrowserTestBase {
     'block',
     'path',
     'options',
+    'system',
     'localgov_guides',
   ];
 
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * A user with the 'administer blocks' permission.
@@ -75,16 +76,16 @@ class ContentsBlockTest extends BrowserTestBase {
     ]);
 
     $this->drupalGet('node');
-    $this->assertSession()->responseNotContains('block-localgov-guides-contents');
+    $this->assertSession()->responseNotContains('Guide overview');
 
     $this->drupalGet($overview->toUrl()->toString());
-    $this->assertSession()->responseContains('block-localgov-guides-contents');
+    $this->assertSession()->responseContains('Guide page');
 
     $this->drupalGet($page->toUrl()->toString());
-    $this->assertSession()->responseContains('block-localgov-guides-contents');
+    $this->assertSession()->responseContains('Guide overview');
 
     $this->drupalGet($orphan->toUrl()->toString());
-    $this->assertSession()->responseNotContains('block-localgov-guides-contents');
+    $this->assertSession()->responseNotContains('Guide overview');
   }
 
   /**

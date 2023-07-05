@@ -3,8 +3,8 @@
 namespace Drupal\localgov_services_status\EventSubscriber;
 
 use Drupal\Core\Path\CurrentPathStack;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\localgov_core\Event\PageHeaderDisplayEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Hide page title.

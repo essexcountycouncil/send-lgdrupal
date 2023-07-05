@@ -3,9 +3,9 @@
 namespace Drupal\localgov_guides\EventSubscriber;
 
 use Drupal\Core\Cache\Cache;
+use Drupal\localgov_core\Event\PageHeaderDisplayEvent;
 use Drupal\node\Entity\Node;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Drupal\localgov_core\Event\PageHeaderDisplayEvent;
 
 /**
  * Set page title.

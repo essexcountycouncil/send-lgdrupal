@@ -1,13 +1,24 @@
-## Leaflet module
-(for Drupal 9 & 10)
+# Leaflet module
 
-### General Information
+Advanced Drupal integration with the Leaflet JS mapping library.
+
+> A Modern, Lightweight Open-Source JavaScript Library for Interactive Web Mapping.
+
+
+## General Information
 
 **Leaflet module**  provides integration with
-[Leaflet JS library](http://leafletjs.com).
+[Leaflet JS library](https://leafletjs.com).
 It is dependent on the Drupal [Geofield](https://www.drupal.org/project/geofield) Module.
 
-### Featured options and functionalities.
+
+## Requirements
+
+The Leaflet module requires the 
+[Geofield](https://www.drupal.org/project/geofield) module.
+
+
+## Featured options and functionalities.
 
 - Easy to use API for extended Leaflet Map definition & customisation;
 - Leaflet Default Widget, with advanced integration with [Leaflet-Geoman plugin](https://github.com/geoman-io/leaflet-geoman)
@@ -31,10 +42,11 @@ same page;
 - Drupal hooks for altering and interacting with its functionalities;
 - etc. ...
 
-### Installation and Use
+
+## Installation and Use
 - Require/Download the Leaflet module using Composer, which is simply running
-the following command from your project package root   (where the main
-composer.json file is sited):
+the following command from your project package root (where the main
+composer.json file is situated):
 
   `composer require drupal/leaflet`
 
@@ -50,12 +62,12 @@ and select the Leaflet Map style in the Display Format;
 [__Leaflet Markercluster Js plugin__](https://github.com/Leaflet/Leaflet.markercluster)
 functionalities, both in the Leaflet Map Formatter and Leaflet Map View;
 
-- Add/enable and configure the ["Geoocoder" module](https://www.drupal.org/project/geocoder)
+- Add/enable and configure the [Geoocoder](https://www.drupal.org/project/geocoder) module
 to implement Geocoding Control(with Autocomplete) for Leaflet Map Address search,
 in Leaflet Map Widget, Formatter and View;
 
 
-### API Usage
+## API Usage
 
 Rendering a Leaflet map programmatically is as simple as instantiating the
 LeafletService and its leafletRenderMap method:
@@ -72,29 +84,33 @@ defines a default map with a OpenStreet Maps base layer.
 This is an associative array of all the Leaflet features you
 want to plot on the map. A feature can be a point, linestring, polygon,
 multipolygon, multipolygon, or json object. Additionally, features can be
-grouped into [leaflet layer groups](http://leafletjs.com/reference-1.3.0.html#layergroup),
+grouped into [Leaflet layer groups](https://leafletjs.com/reference.html#layergroup),
 so they can be controlled together,
 
 * $height:
 The map height, expressed in css units.
 
-### Tips & Tricks
 
-- #### Bind events on geojson (json) features
-  @see: https://www.drupal.org/project/leaflet/issues/3186029
+## Tips & Tricks
 
-  $features[] = [
-    'type' => 'json',
-    'json' => $geojson,
-    'events' => [
-      'click' => 'Drupal.manageGeojsonClick', // or whatever callback
-    ],
-  ];
-  $this->leaflet->leafletRenderMap($map_info, $features, $height),
+- ### Bind events on geojson (json) features
 
-### Authors/Credits
-* [itamair](https://www.drupal.org/u/itamair) (main maintainer since Drupal 8)
-* [levelos](http://drupal.org/user/54135) (creator)
-* [pvhee](http://drupal.org/user/108811)
-* [rdeboer](http://drupal.org/user/108811)
+@see: https://www.drupal.org/project/leaflet/issues/3186029
+
+    $features[] = [
+      'type' => 'json',
+      'json' => $geojson,
+      'events' => [
+        'click' => 'Drupal.manageGeojsonClick', // or whatever callback
+      ],
+    ];
+    $this->leaflet->leafletRenderMap($map_info, $features, $height),
+
+
+## Authors/Credits
+
+* Italo Mairo - [itamair](https://www.drupal.org/u/itamair) (main maintainer since Drupal 8)
+* Lev Tsypin - [levelos](https://www.drupal.org/u/levelos) (creator)
+* Peter Vanhee - [pvhee](https://www.drupal.org/u/pvhee)
+* Rik de Boer - [RdeBoer](https://www.drupal.org/u/rdeboer)
 * and other great people from the magic Drupal community ...

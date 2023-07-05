@@ -1,10 +1,11 @@
 name: 'LocalGov News: Core'
 description: Base module shared for LocalGov News with news article content type and optional Newsroom sub-module.
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 type: module
 package: LocalGov Drupal
 
 dependencies:
+  - drupal:content_moderation
   - drupal:datetime
   - drupal:field
   - drupal:link
@@ -13,6 +14,7 @@ dependencies:
   - drupal:path
   - drupal:taxonomy
   - drupal:text
+  - drupal:toolbar
   - drupal:user
   - entity_browser:entity_browser
   - entity_reference_facet_link:entity_reference_facet_link
@@ -20,6 +22,7 @@ dependencies:
   - field_group:field_group
   - link_attributes:link_attributes
   - localgov_core:localgov_core
+  - localgov_core:localgov_media
   - localgov_topics:localgov_topics
   - pathauto:pathauto
   - search_api:search_api

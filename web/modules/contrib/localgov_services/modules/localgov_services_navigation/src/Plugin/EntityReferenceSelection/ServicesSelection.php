@@ -12,8 +12,8 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\node\NodeInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'Services' entity_reference.
@@ -167,7 +167,8 @@ class ServicesSelection extends SelectionPluginBase implements ContainerFactoryP
    */
   public function getReferenceableEntities($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
     $entities = [];
-    $query = $this->buildEntityQuery($match, $match_operator);
+    $query = $this->buildEntityQuery($match, $match_operator)
+      ->accessCheck(TRUE);
     if ($limit > 0) {
       $query->range(0, $limit);
     }
@@ -265,6 +266,7 @@ class ServicesSelection extends SelectionPluginBase implements ContainerFactoryP
       $entity_type = $this->entityTypeManager->getDefinition('node');
       $query = $this->buildEntityQuery();
       $result = $query
+        ->accessCheck(TRUE)
         ->condition($entity_type->getKey('id'), $ids, 'IN')
         ->execute();
     }

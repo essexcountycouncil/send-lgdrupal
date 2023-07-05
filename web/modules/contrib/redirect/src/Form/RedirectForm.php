@@ -10,6 +10,8 @@ use Drupal\Core\Routing\MatchingRouteNotFoundException;
 use Drupal\Core\Url;
 use Drupal\redirect\Entity\Redirect;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class RedirectForm extends ContentEntityForm {
 
@@ -141,6 +143,32 @@ class RedirectForm extends ContentEntityForm {
           [
             '%source' => $source['path'],
             '@edit-page' => $redirect->toUrl('edit-form')->toString()]));
+      }
+    }
+
+    // If creating a new Redirect and the source path is an existing path, recommend an alias instead.
+    if ($this->entity->isNew() && $source['path'] && !($form_state->getStorage()['redirect_source_warning'] ?? NULL) && !$form_state->hasAnyErrors()) {
+      $source_path = trim($source['path']);
+
+      // Warning about creating a redirect from a valid path.
+      //
+      // @todo Exception driven logic. Find a better way to determine if we have a valid path.
+      try {
+        \Drupal::service('router')->match('/' . $form_state->getValue(['redirect_source', 0, 'path']));
+        $storage = $form_state->getStorage();
+        $storage['redirect_source_warning'] = TRUE;
+        $form_state->setStorage($storage);
+        $form_state->setRebuild();
+        $this->messenger()->addWarning($this->t('The source path %path appears to be a valid path. It is preferred to <a href="@url-alias">create URL aliases</a> for existing paths rather than redirects.', [
+          '%path' => $source_path,
+          '@url-alias' => Url::fromRoute('entity.path_alias.add_form')->toString(),
+        ]));
+      }
+      catch (ResourceNotFoundException $e) {
+        // Do nothing, expected behaviour.
+      }
+      catch (AccessDeniedHttpException $e) {
+        // Do nothing, expected behaviour.
       }
     }
   }

@@ -23,16 +23,9 @@ class PagesIntegrationTest extends BrowserTestBase {
   use CronRunTrait;
 
   /**
-   * Test breadcrumbs in the Standard profile.
-   *
-   * @var string
-   */
-  protected $profile = 'standard';
-
-  /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * A user with permission to bypass content access checks.
@@ -120,7 +113,6 @@ class PagesIntegrationTest extends BrowserTestBase {
     $form->fillField('edit-localgov-services-parent-0-target-id', "Sublanding 1 ({$sublanding->id()})");
     $form->checkField('edit-status-value');
     $form->pressButton('edit-submit');
-
     $this->assertSession()->pageTextContains('Guide 1');
     $trail = ['' => 'Home'];
     $trail += ['landing-page-1' => 'Landing Page 1'];

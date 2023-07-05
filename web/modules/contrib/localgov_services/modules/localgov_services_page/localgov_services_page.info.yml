@@ -1,6 +1,6 @@
 name: 'LocalGov Services: Page'
 description: Basic page content within a service.
-core_version_requirement: ^8.9 || ^9
+core_version_requirement: ^9 || ^10
 type: module
 package: LocalGov Drupal
 

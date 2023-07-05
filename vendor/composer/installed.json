@@ -3495,29 +3495,29 @@
         },
         {
             "name": "drupal/date_recur_modular",
-            "version": "3.0.2",
-            "version_normalized": "3.0.2.0",
+            "version": "3.1.0",
+            "version_normalized": "3.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/date_recur_modular.git",
-                "reference": "3.0.2"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/date_recur_modular-3.0.2.zip",
-                "reference": "3.0.2",
-                "shasum": "2a5af2d549fd1485b7f04737203c6a24a48f4ef5"
+                "url": "https://ftp.drupal.org/files/projects/date_recur_modular-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "6fd4e4fc47faa7c0a36893bf2a45a1994bba476b"
             },
             "require": {
-                "drupal/core": "^9",
-                "drupal/date_recur": "^3",
-                "php": ">=7.3"
+                "drupal/core": ">=9.5",
+                "drupal/date_recur": "^3.2",
+                "php": ">=8.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.2",
-                    "datestamp": "1652252815",
+                    "version": "3.1.0",
+                    "datestamp": "1687499482",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4049,18 +4049,18 @@
         },
         {
             "name": "drupal/entity_hierarchy",
-            "version": "3.3.5",
-            "version_normalized": "3.3.5.0",
+            "version": "3.3.6",
+            "version_normalized": "3.3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_hierarchy.git",
-                "reference": "3.3.5"
+                "reference": "3.3.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_hierarchy-3.3.5.zip",
-                "reference": "3.3.5",
-                "shasum": "63e27da3bbd0f6fdc458226e00201b4449236cbe"
+                "url": "https://ftp.drupal.org/files/projects/entity_hierarchy-3.3.6.zip",
+                "reference": "3.3.6",
+                "shasum": "7bca9cdda9dac1157b6b00bd963ecc64e5b8e03e"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10.0",
@@ -4073,8 +4073,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.3.5",
-                    "datestamp": "1680218986",
+                    "version": "3.3.6",
+                    "datestamp": "1687393446",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4707,18 +4707,18 @@
         },
         {
             "name": "drupal/fontawesome",
-            "version": "2.25.0",
-            "version_normalized": "2.25.0.0",
+            "version": "2.26.0",
+            "version_normalized": "2.26.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fontawesome.git",
-                "reference": "8.x-2.25"
+                "reference": "8.x-2.26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.25.zip",
-                "reference": "8.x-2.25",
-                "shasum": "67f92e961b35c91b1520565669515525b2223cfb"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.26.zip",
+                "reference": "8.x-2.26",
+                "shasum": "22e67458e1ebc274c3a8b494ce2c4056a3d2af29"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10"
@@ -4726,8 +4726,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.25",
-                    "datestamp": "1676999823",
+                    "version": "8.x-2.26",
+                    "datestamp": "1688063477",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6052,18 +6052,18 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "10.0.14",
-            "version_normalized": "10.0.14.0",
+            "version": "10.0.16",
+            "version_normalized": "10.0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "10.0.14"
+                "reference": "10.0.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.14.zip",
-                "reference": "10.0.14",
-                "shasum": "50e4446c97c3bd727c5d745cef9cca8e3b638014"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.16.zip",
+                "reference": "10.0.16",
+                "shasum": "5b37163e3b1fde2e247bfa2c95e898f81888f903"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -6072,8 +6072,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "10.0.14",
-                    "datestamp": "1684779365",
+                    "version": "10.0.16",
+                    "datestamp": "1688332238",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6127,18 +6127,18 @@
         },
         {
             "name": "drupal/link_attributes",
-            "version": "1.13.0",
-            "version_normalized": "1.13.0.0",
+            "version": "1.14.0",
+            "version_normalized": "1.14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/link_attributes.git",
-                "reference": "8.x-1.13"
+                "reference": "8.x-1.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.13.zip",
-                "reference": "8.x-1.13",
-                "shasum": "695821dfbde30c4e74c28455985fbc5d92dca8d1"
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.14.zip",
+                "reference": "8.x-1.14",
+                "shasum": "fa4f27ecaed7e6b3c58c0adc679918a9beb7ded5"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -6146,8 +6146,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.13",
-                    "datestamp": "1677018560",
+                    "version": "8.x-1.14",
+                    "datestamp": "1687393687",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7190,6 +7190,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2022-09-01/3057250-53.patch"
                 }
             },
             "installation-source": "dist",
@@ -7401,18 +7404,18 @@
         },
         {
             "name": "drupal/schema_metatag",
-            "version": "2.4.0",
-            "version_normalized": "2.4.0.0",
+            "version": "2.5.0",
+            "version_normalized": "2.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/schema_metatag.git",
-                "reference": "8.x-2.4"
+                "reference": "8.x-2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/schema_metatag-8.x-2.4.zip",
-                "reference": "8.x-2.4",
-                "shasum": "4ea69916a78192e0af6e2a7d0f4f6d3f0e891b0a"
+                "url": "https://ftp.drupal.org/files/projects/schema_metatag-8.x-2.5.zip",
+                "reference": "8.x-2.5",
+                "shasum": "543b9d624711379e29dde58c22e2cc0a66822c87"
             },
             "require": {
                 "drupal/core": "^9.0 || ^10",
@@ -7428,8 +7431,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.4",
-                    "datestamp": "1670328794",
+                    "version": "8.x-2.5",
+                    "datestamp": "1687460392",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8006,28 +8009,28 @@
         },
         {
             "name": "drupal/simple_sitemap",
-            "version": "3.11.0",
-            "version_normalized": "3.11.0.0",
+            "version": "4.1.6",
+            "version_normalized": "4.1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_sitemap.git",
-                "reference": "8.x-3.11"
+                "reference": "4.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-3.11.zip",
-                "reference": "8.x-3.11",
-                "shasum": "5fdd4ed5af5e37e3c707e401d094a179f52e7711"
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-4.1.6.zip",
+                "reference": "4.1.6",
+                "shasum": "5ea5ee97ab4d59b43db86dd6279c3ac5ecbe69b9"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^9.3 || ^10",
                 "ext-xmlwriter": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.11",
-                    "datestamp": "1658781789",
+                    "version": "4.1.6",
+                    "datestamp": "1686288643",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8035,7 +8038,7 @@
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9 || ^10"
+                        "drush.services.yml": ">=9"
                     }
                 }
             },
@@ -8060,8 +8063,7 @@
             "homepage": "https://drupal.org/project/simple_sitemap",
             "support": {
                 "source": "https://cgit.drupalcode.org/simple_sitemap",
-                "issues": "https://drupal.org/project/issues/simple_sitemap",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
+                "issues": "https://drupal.org/project/issues/simple_sitemap"
             },
             "install-path": "../../web/modules/contrib/simple_sitemap"
         },
@@ -10400,17 +10402,17 @@
         },
         {
             "name": "localgovdrupal/localgov",
-            "version": "2.3.16",
-            "version_normalized": "2.3.16.0",
+            "version": "2.3.18",
+            "version_normalized": "2.3.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov.git",
-                "reference": "06b9739a27c1ff4fc1da669e19be7ded70b6d2b1"
+                "reference": "356da8041a9a30d54debf2fcd948af50fc9cfbfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/06b9739a27c1ff4fc1da669e19be7ded70b6d2b1",
-                "reference": "06b9739a27c1ff4fc1da669e19be7ded70b6d2b1",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov/zipball/356da8041a9a30d54debf2fcd948af50fc9cfbfb",
+                "reference": "356da8041a9a30d54debf2fcd948af50fc9cfbfb",
                 "shasum": ""
             },
             "require": {
@@ -10420,8 +10422,9 @@
                 "drupal/gin": "^3.0@alpha",
                 "drupal/gin_login": "^1.0@RC",
                 "drupal/gin_toolbar": "^1.0@beta",
+                "drupal/preview_link": "^1.7",
                 "drupal/search_api": "^1.21",
-                "drupal/simple_sitemap": "^3.7",
+                "drupal/simple_sitemap": "^4.1",
                 "drush/drush": ">=10",
                 "localgovdrupal/localgov_alert_banner": "^1.2.0",
                 "localgovdrupal/localgov_base": "^1.0.0",
@@ -10445,7 +10448,7 @@
             "require-dev": {
                 "drupal/core-dev": "^9.1"
             },
-            "time": "2023-06-05T13:48:43+00:00",
+            "time": "2023-06-26T13:46:22+00:00",
             "type": "drupal-profile",
             "extra": {
                 "enable-patching": true,
@@ -10472,7 +10475,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov/issues",
-                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.16"
+                "source": "https://github.com/localgovdrupal/localgov/tree/2.3.18"
             },
             "install-path": "../../web/profiles/contrib/localgov"
         },
@@ -10518,20 +10521,20 @@
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.4.8",
-            "version_normalized": "1.4.8.0",
+            "version": "1.4.10",
+            "version_normalized": "1.4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "d52c80a02525eebb14324a3d85ae51ee2eb45343"
+                "reference": "66bbf83d0f96189ffb88644d4622ecaf7f697a21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/d52c80a02525eebb14324a3d85ae51ee2eb45343",
-                "reference": "d52c80a02525eebb14324a3d85ae51ee2eb45343",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/66bbf83d0f96189ffb88644d4622ecaf7f697a21",
+                "reference": "66bbf83d0f96189ffb88644d4622ecaf7f697a21",
                 "shasum": ""
             },
-            "time": "2023-05-22T13:44:15+00:00",
+            "time": "2023-06-26T13:48:52+00:00",
             "type": "drupal-theme",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10542,23 +10545,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.8"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.10"
             },
             "install-path": "../../web/themes/contrib/localgov_base"
         },
         {
             "name": "localgovdrupal/localgov_core",
-            "version": "2.11.2",
-            "version_normalized": "2.11.2.0",
+            "version": "2.12.0",
+            "version_normalized": "2.12.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_core.git",
-                "reference": "e15adc89367ad2e566f2d5818570c9c52dbfb41d"
+                "reference": "1ff4939aa61af7f1a02628bbdaaba5ee79ae2431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_core/zipball/e15adc89367ad2e566f2d5818570c9c52dbfb41d",
-                "reference": "e15adc89367ad2e566f2d5818570c9c52dbfb41d",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_core/zipball/1ff4939aa61af7f1a02628bbdaaba5ee79ae2431",
+                "reference": "1ff4939aa61af7f1a02628bbdaaba5ee79ae2431",
                 "shasum": ""
             },
             "require": {
@@ -10575,10 +10578,15 @@
             "require-dev": {
                 "drupal/paragraphs": "^1.12"
             },
-            "time": "2023-05-15T13:52:51+00:00",
+            "time": "2023-06-22T13:26:33+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
+                "patches": {
+                    "drupal/redirect": {
+                        "Validation issue on adding url redirect: https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2022-09-01/3057250-53.patch"
+                    }
+                },
                 "composer-exit-on-patch-failure": true,
                 "patchLevel": {
                     "drupal/core": "-p2"
@@ -10593,7 +10601,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_core",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_core/issues",
-                "source": "https://github.com/localgovdrupal/localgov_core/tree/2.11.2"
+                "source": "https://github.com/localgovdrupal/localgov_core/tree/2.12.0"
             },
             "install-path": "../../web/modules/contrib/localgov_core"
         },
@@ -10701,17 +10709,17 @@
         },
         {
             "name": "localgovdrupal/localgov_events",
-            "version": "2.0.15",
-            "version_normalized": "2.0.15.0",
+            "version": "2.0.16",
+            "version_normalized": "2.0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_events.git",
-                "reference": "fb2196a36ea7d465f41e039f6e7d975677055976"
+                "reference": "3aa7fd80298896bf1fe0417b43a70a1554914200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_events/zipball/fb2196a36ea7d465f41e039f6e7d975677055976",
-                "reference": "fb2196a36ea7d465f41e039f6e7d975677055976",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_events/zipball/3aa7fd80298896bf1fe0417b43a70a1554914200",
+                "reference": "3aa7fd80298896bf1fe0417b43a70a1554914200",
                 "shasum": ""
             },
             "require": {
@@ -10726,7 +10734,7 @@
             "require-dev": {
                 "localgovdrupal/localgov_directories": "^2.0"
             },
-            "time": "2023-06-07T13:15:39+00:00",
+            "time": "2023-06-26T13:46:27+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
@@ -10749,7 +10757,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_events",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_events/issues",
-                "source": "https://github.com/localgovdrupal/localgov_events/tree/2.0.15"
+                "source": "https://github.com/localgovdrupal/localgov_events/tree/2.0.16"
             },
             "install-path": "../../web/modules/contrib/localgov_events"
         },
@@ -10802,28 +10810,28 @@
         },
         {
             "name": "localgovdrupal/localgov_guides",
-            "version": "2.0.12",
-            "version_normalized": "2.0.12.0",
+            "version": "2.1.1",
+            "version_normalized": "2.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_guides.git",
-                "reference": "ea56f1eaa126e805400bcd1ad2ea145b58a90c17"
+                "reference": "24a7628e1a08d6e6286d4434c12bde2803bca4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_guides/zipball/ea56f1eaa126e805400bcd1ad2ea145b58a90c17",
-                "reference": "ea56f1eaa126e805400bcd1ad2ea145b58a90c17",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_guides/zipball/24a7628e1a08d6e6286d4434c12bde2803bca4be",
+                "reference": "24a7628e1a08d6e6286d4434c12bde2803bca4be",
                 "shasum": ""
             },
             "require": {
-                "localgovdrupal/localgov_core": "^2.1"
+                "localgovdrupal/localgov_core": "^2.12"
             },
             "require-dev": {
                 "drupal/pathauto": "^1.6",
-                "localgovdrupal/localgov_services": "^2.0",
+                "localgovdrupal/localgov_services": "^2.1",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-05-22T13:47:04+00:00",
+            "time": "2023-06-26T13:48:14+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10834,26 +10842,26 @@
             "homepage": "https://github.com/localgovdrupal/localgov_guides",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_guides/issues",
-                "source": "https://github.com/localgovdrupal/localgov_guides/tree/2.0.12"
+                "source": "https://github.com/localgovdrupal/localgov_guides/tree/2.1.1"
             },
             "install-path": "../../web/modules/contrib/localgov_guides"
         },
         {
             "name": "localgovdrupal/localgov_menu_link_group",
-            "version": "1.0.3",
-            "version_normalized": "1.0.3.0",
+            "version": "1.1.0",
+            "version_normalized": "1.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_menu_link_group.git",
-                "reference": "15a9b8cbcb39c4f06dee4dedd9de7be22be7e6b6"
+                "reference": "df14359a786cbe5d1ecf9e10d6bc0331b3f8c26f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_menu_link_group/zipball/15a9b8cbcb39c4f06dee4dedd9de7be22be7e6b6",
-                "reference": "15a9b8cbcb39c4f06dee4dedd9de7be22be7e6b6",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_menu_link_group/zipball/df14359a786cbe5d1ecf9e10d6bc0331b3f8c26f",
+                "reference": "df14359a786cbe5d1ecf9e10d6bc0331b3f8c26f",
                 "shasum": ""
             },
-            "time": "2022-01-31T15:13:52+00:00",
+            "time": "2023-06-22T15:11:41+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10864,23 +10872,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_menu_link_group",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_menu_link_group/issues",
-                "source": "https://github.com/localgovdrupal/localgov_menu_link_group/tree/1.0.3"
+                "source": "https://github.com/localgovdrupal/localgov_menu_link_group/tree/1.1.0"
             },
             "install-path": "../../web/modules/contrib/localgov_menu_link_group"
         },
         {
             "name": "localgovdrupal/localgov_news",
-            "version": "2.2.4",
-            "version_normalized": "2.2.4.0",
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_news.git",
-                "reference": "517cd1061f9c55f86f60da97b159729fa3d65501"
+                "reference": "894ca7d400fc5c3435425f5b7dae6669047dc226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/517cd1061f9c55f86f60da97b159729fa3d65501",
-                "reference": "517cd1061f9c55f86f60da97b159729fa3d65501",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_news/zipball/894ca7d400fc5c3435425f5b7dae6669047dc226",
+                "reference": "894ca7d400fc5c3435425f5b7dae6669047dc226",
                 "shasum": ""
             },
             "require": {
@@ -10893,13 +10901,13 @@
                 "drupal/schema_metatag": "^2.1",
                 "drupal/search_api": "^1.17",
                 "drupal/search_api_autocomplete": "^1.3",
-                "localgovdrupal/localgov_core": "^2.0",
+                "localgovdrupal/localgov_core": "^2.12",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
             "require-dev": {
                 "localgovdrupal/localgov_search": "^1.1"
             },
-            "time": "2023-02-27T14:35:37+00:00",
+            "time": "2023-06-26T13:40:11+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -10910,7 +10918,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_news",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_news/issues",
-                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.2.4"
+                "source": "https://github.com/localgovdrupal/localgov_news/tree/2.3.0"
             },
             "install-path": "../../web/modules/contrib/localgov_news"
         },
@@ -10952,17 +10960,17 @@
         },
         {
             "name": "localgovdrupal/localgov_page_components",
-            "version": "1.0.2",
-            "version_normalized": "1.0.2.0",
+            "version": "1.1.0",
+            "version_normalized": "1.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_page_components.git",
-                "reference": "044853ed3f09a2b1bb6940d0e1840a4969133afd"
+                "reference": "92e6875903c09a57129bee21dd98483d1fc8f105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_page_components/zipball/044853ed3f09a2b1bb6940d0e1840a4969133afd",
-                "reference": "044853ed3f09a2b1bb6940d0e1840a4969133afd",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_page_components/zipball/92e6875903c09a57129bee21dd98483d1fc8f105",
+                "reference": "92e6875903c09a57129bee21dd98483d1fc8f105",
                 "shasum": ""
             },
             "require": {
@@ -10971,7 +10979,7 @@
                 "drupal/linkit": "^6.0-beta1",
                 "drupal/paragraphs": "^1.11"
             },
-            "time": "2022-09-05T13:36:00+00:00",
+            "time": "2023-06-22T13:29:08+00:00",
             "type": "drupal-module",
             "extra": {
                 "patches": []
@@ -10985,23 +10993,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_page_components",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_page_components/issues",
-                "source": "https://github.com/localgovdrupal/localgov_page_components/tree/1.0.2"
+                "source": "https://github.com/localgovdrupal/localgov_page_components/tree/1.1.0"
             },
             "install-path": "../../web/modules/contrib/localgov_page_components"
         },
         {
             "name": "localgovdrupal/localgov_paragraphs",
-            "version": "2.2.9",
-            "version_normalized": "2.2.9.0",
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_paragraphs.git",
-                "reference": "b9556433bc82792bcb47a736edc5128857518b61"
+                "reference": "1de8d5b6f52679aa9f40cc95ac78961aaaa45022"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/b9556433bc82792bcb47a736edc5128857518b61",
-                "reference": "b9556433bc82792bcb47a736edc5128857518b61",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/1de8d5b6f52679aa9f40cc95ac78961aaaa45022",
+                "reference": "1de8d5b6f52679aa9f40cc95ac78961aaaa45022",
                 "shasum": ""
             },
             "require": {
@@ -11019,10 +11027,10 @@
                 "drupal/paragraphs": "^1.13",
                 "drupal/tablefield": "^2.3",
                 "drupal/viewsreference": "^2.0",
-                "localgovdrupal/localgov_core": "^2.0",
+                "localgovdrupal/localgov_core": "^2.12",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-04-03T13:48:11+00:00",
+            "time": "2023-06-22T13:29:19+00:00",
             "type": "drupal-module",
             "extra": {
                 "enable-patching": true,
@@ -11051,7 +11059,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_paragraphs",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_paragraphs/issues",
-                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.2.9"
+                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.3.0"
             },
             "install-path": "../../web/modules/contrib/localgov_paragraphs"
         },
@@ -11087,17 +11095,17 @@
         },
         {
             "name": "localgovdrupal/localgov_search",
-            "version": "1.1.4",
-            "version_normalized": "1.1.4.0",
+            "version": "1.2.0",
+            "version_normalized": "1.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_search.git",
-                "reference": "bab686e7f80a77d5ca1c5f6ed155f937230e1b5a"
+                "reference": "7236b54e0f165a5db9418438c844b769fde1902e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_search/zipball/bab686e7f80a77d5ca1c5f6ed155f937230e1b5a",
-                "reference": "bab686e7f80a77d5ca1c5f6ed155f937230e1b5a",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_search/zipball/7236b54e0f165a5db9418438c844b769fde1902e",
+                "reference": "7236b54e0f165a5db9418438c844b769fde1902e",
                 "shasum": ""
             },
             "require": {
@@ -11109,7 +11117,7 @@
             "suggest": {
                 "drupal/search_api_solr": "If solr integration, rather that database search, is required."
             },
-            "time": "2023-06-05T13:25:31+00:00",
+            "time": "2023-06-22T14:27:00+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11120,23 +11128,23 @@
             "homepage": "https://github.com/localgovdrupal/localgov_search",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_search/issues",
-                "source": "https://github.com/localgovdrupal/localgov_search/tree/1.1.4"
+                "source": "https://github.com/localgovdrupal/localgov_search/tree/1.2.0"
             },
             "install-path": "../../web/modules/contrib/localgov_search"
         },
         {
             "name": "localgovdrupal/localgov_services",
-            "version": "2.0.19",
-            "version_normalized": "2.0.19.0",
+            "version": "2.1.1",
+            "version_normalized": "2.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_services.git",
-                "reference": "c59abbc6dd5fe53e96ad6883627af8e90a002e22"
+                "reference": "ce06332d7c4a4c1a91be21199d53ffac9c72edc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/c59abbc6dd5fe53e96ad6883627af8e90a002e22",
-                "reference": "c59abbc6dd5fe53e96ad6883627af8e90a002e22",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/ce06332d7c4a4c1a91be21199d53ffac9c72edc0",
+                "reference": "ce06332d7c4a4c1a91be21199d53ffac9c72edc0",
                 "shasum": ""
             },
             "require": {
@@ -11145,12 +11153,12 @@
                 "drupal/field_group": "~3.0",
                 "drupal/link_attributes": "^1.2",
                 "drupal/pathauto": "~1.0",
-                "localgovdrupal/localgov_core": "^2.1",
-                "localgovdrupal/localgov_page_components": "^1.0",
-                "localgovdrupal/localgov_paragraphs": "^2.0",
+                "localgovdrupal/localgov_core": "^2.12",
+                "localgovdrupal/localgov_page_components": "^1.1",
+                "localgovdrupal/localgov_paragraphs": "^2.3",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-06-05T13:25:23+00:00",
+            "time": "2023-07-03T13:59:56+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11161,7 +11169,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_services",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_services/issues",
-                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.0.19"
+                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.1.1"
             },
             "install-path": "../../web/modules/contrib/localgov_services"
         },
@@ -11197,28 +11205,28 @@
         },
         {
             "name": "localgovdrupal/localgov_step_by_step",
-            "version": "2.0.10",
-            "version_normalized": "2.0.10.0",
+            "version": "2.1.0",
+            "version_normalized": "2.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_step_by_step.git",
-                "reference": "b817d50c91d7fd2c9e41fba4aae69e9c41432fc0"
+                "reference": "9109189b63547ba96907efa25cb09d0ed48ad7f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_step_by_step/zipball/b817d50c91d7fd2c9e41fba4aae69e9c41432fc0",
-                "reference": "b817d50c91d7fd2c9e41fba4aae69e9c41432fc0",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_step_by_step/zipball/9109189b63547ba96907efa25cb09d0ed48ad7f5",
+                "reference": "9109189b63547ba96907efa25cb09d0ed48ad7f5",
                 "shasum": ""
             },
             "require": {
-                "localgovdrupal/localgov_core": "^2.1"
+                "localgovdrupal/localgov_core": "^2.12"
             },
             "require-dev": {
                 "drupal/pathauto": "^1.6",
-                "localgovdrupal/localgov_services": "^2.0",
+                "localgovdrupal/localgov_services": "^2.1",
                 "localgovdrupal/localgov_topics": "^1.0"
             },
-            "time": "2023-05-22T13:47:26+00:00",
+            "time": "2023-06-22T15:50:57+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11229,33 +11237,33 @@
             "homepage": "https://github.com/localgovdrupal/localgov_step_by_step",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_step_by_step/issues",
-                "source": "https://github.com/localgovdrupal/localgov_step_by_step/tree/2.0.10"
+                "source": "https://github.com/localgovdrupal/localgov_step_by_step/tree/2.1.0"
             },
             "install-path": "../../web/modules/contrib/localgov_step_by_step"
         },
         {
             "name": "localgovdrupal/localgov_subsites",
-            "version": "2.2.2",
-            "version_normalized": "2.2.2.0",
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_subsites.git",
-                "reference": "ecb12869c8be0b45db32481e2777a24ee3e12b99"
+                "reference": "db261f2fc42c9d0e28879a0520cb9179fae619b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_subsites/zipball/ecb12869c8be0b45db32481e2777a24ee3e12b99",
-                "reference": "ecb12869c8be0b45db32481e2777a24ee3e12b99",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_subsites/zipball/db261f2fc42c9d0e28879a0520cb9179fae619b9",
+                "reference": "db261f2fc42c9d0e28879a0520cb9179fae619b9",
                 "shasum": ""
             },
             "require": {
                 "drupal/entity_hierarchy": "^3.3",
                 "drupal/tablefield": "^2.2",
                 "drupal/viewsreference": "^2.0",
-                "localgovdrupal/localgov_core": "^2.1",
-                "localgovdrupal/localgov_paragraphs": "^2.2"
+                "localgovdrupal/localgov_core": "^2.12",
+                "localgovdrupal/localgov_paragraphs": "^2.3"
             },
-            "time": "2022-12-19T14:41:52+00:00",
+            "time": "2023-06-26T13:39:32+00:00",
             "type": "drupal-module",
             "extra": {
                 "composer-exit-on-patch-failure": true,
@@ -11273,7 +11281,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_subsites",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_subsites/issues",
-                "source": "https://github.com/localgovdrupal/localgov_subsites/tree/2.2.2"
+                "source": "https://github.com/localgovdrupal/localgov_subsites/tree/2.3.0"
             },
             "install-path": "../../web/modules/contrib/localgov_subsites"
         },
@@ -11342,27 +11350,26 @@
         },
         {
             "name": "localgovdrupal/localgov_workflows",
-            "version": "1.1.4",
-            "version_normalized": "1.1.4.0",
+            "version": "1.1.5",
+            "version_normalized": "1.1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_workflows.git",
-                "reference": "c9617ae8d0ad4affe6d24835695a08938e0a81ad"
+                "reference": "4b13e4aa9f2269b0ba4e6bdffa45dedb106d8085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/c9617ae8d0ad4affe6d24835695a08938e0a81ad",
-                "reference": "c9617ae8d0ad4affe6d24835695a08938e0a81ad",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/4b13e4aa9f2269b0ba4e6bdffa45dedb106d8085",
+                "reference": "4b13e4aa9f2269b0ba4e6bdffa45dedb106d8085",
                 "shasum": ""
             },
             "require": {
                 "drupal/diff": "^1.0",
-                "drupal/preview_link": "^1.7",
                 "drupal/responsive_preview": "^1.0",
                 "drupal/scheduled_transitions": "^2.1",
                 "localgovdrupal/localgov_core": "^2.1"
             },
-            "time": "2023-03-20T14:32:52+00:00",
+            "time": "2023-06-19T13:54:21+00:00",
             "type": "drupal-module",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -11373,7 +11380,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_workflows",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_workflows/issues",
-                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.1.4"
+                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.1.5"
             },
             "install-path": "../../web/modules/contrib/localgov_workflows"
         },
@@ -11987,17 +11994,17 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.18.1",
-            "version_normalized": "1.18.1.0",
+            "version": "1.19.0",
+            "version_normalized": "1.19.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "f258b3a1d16acb7b21f3b42d7a2494a733365237"
+                "reference": "1856a119a0b0ba8da8b5c33c080aa7af8fac25b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/f258b3a1d16acb7b21f3b42d7a2494a733365237",
-                "reference": "f258b3a1d16acb7b21f3b42d7a2494a733365237",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/1856a119a0b0ba8da8b5c33c080aa7af8fac25b4",
+                "reference": "1856a119a0b0ba8da8b5c33c080aa7af8fac25b4",
                 "shasum": ""
             },
             "require": {
@@ -12023,7 +12030,7 @@
                 "phpspec/phpspec": "^5.1 || ^6.1 || ^7.3",
                 "symfony/phpunit-bridge": "^6.2"
             },
-            "time": "2023-05-17T08:53:10+00:00",
+            "time": "2023-06-19T08:45:36+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Http\\Discovery\\Composer\\Plugin",
@@ -12062,7 +12069,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.18.1"
+                "source": "https://github.com/php-http/discovery/tree/1.19.0"
             },
             "install-path": "../php-http/discovery"
         },

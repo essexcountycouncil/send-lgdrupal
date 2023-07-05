@@ -1,6 +1,6 @@
 name: 'LocalGov Services: Navigation'
 description: Navigation shared by Services Pages, and external pages that link into Services.
-core_version_requirement: ^8.9 || ^9
+core_version_requirement: ^9 || ^10
 type: module
 package: LocalGov Drupal
 
