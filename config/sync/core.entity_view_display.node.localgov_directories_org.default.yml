@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_org.feeds_item
+    - field.field.node.localgov_directories_org.field_commissioner_date
+    - field.field.node.localgov_directories_org.field_commissioner_email
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -150,9 +152,9 @@ content:
         open_text: 'Currently open!'
         closed_text: 'Currently closed'
       exceptions:
+        title: 'Exception hours'
         restrict_exceptions_to_num_days: 7
         date_format: long
-        title: 'Exception hours'
       timezone_field: ''
       office_hours_first_day: ''
       schema:
@@ -208,6 +210,8 @@ content:
 hidden:
   content_moderation_control: true
   feeds_item: true
+  field_commissioner_date: true
+  field_commissioner_email: true
   field_directory_available_online: true
   field_directory_facebook: true
   field_directory_instagram: true

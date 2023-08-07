@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_directories_org.feeds_item
+    - field.field.node.localgov_directories_org.field_commissioner_date
+    - field.field.node.localgov_directories_org.field_commissioner_email
     - field.field.node.localgov_directories_org.field_directory_additional_age
     - field.field.node.localgov_directories_org.field_directory_available_online
     - field.field.node.localgov_directories_org.field_directory_cost
@@ -55,6 +57,8 @@ content:
 hidden:
   content_moderation_control: true
   feeds_item: true
+  field_commissioner_date: true
+  field_commissioner_email: true
   field_directory_additional_age: true
   field_directory_available_online: true
   field_directory_cost: true
