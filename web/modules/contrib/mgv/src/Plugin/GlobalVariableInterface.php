@@ -3,7 +3,7 @@
 namespace Drupal\mgv\Plugin;
 
 /**
- * Interface GlobalVariableInterface.
+ * Contains Interface GlobalVariableInterface.
  *
  * @package Drupal\mgv\Plugin
  */

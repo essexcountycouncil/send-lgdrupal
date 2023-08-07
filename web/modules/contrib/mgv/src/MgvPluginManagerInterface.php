@@ -6,7 +6,7 @@ use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\mgv\Plugin\GlobalVariableInterface;
 
 /**
- * Interface MgvPluginManagerInterface.
+ * An interface for the MGV plugin manager.
  *
  * @package Drupal\mgv
  */

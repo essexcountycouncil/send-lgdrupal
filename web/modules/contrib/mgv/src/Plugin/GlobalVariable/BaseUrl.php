@@ -5,7 +5,7 @@ namespace Drupal\mgv\Plugin\GlobalVariable;
 use Drupal\mgv\Plugin\GlobalVariable;
 
 /**
- * Class BaseUrlGlobalVariable.
+ * Contains the BaseUrlGlobalVariable.
  *
  * @package Drupal\mgv\Plugin\GlobalVariable
  *

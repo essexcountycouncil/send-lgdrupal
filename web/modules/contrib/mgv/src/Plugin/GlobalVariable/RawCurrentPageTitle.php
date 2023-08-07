@@ -3,10 +3,10 @@
 namespace Drupal\mgv\Plugin\GlobalVariable;
 
 use Drupal\Core\Controller\TitleResolverInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\mgv\Plugin\GlobalVariable;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class RawCurrentPageTitle.

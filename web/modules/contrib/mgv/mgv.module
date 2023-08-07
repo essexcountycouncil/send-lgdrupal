@@ -39,7 +39,7 @@ function mgv_help($route_name, RouteMatchInterface $route_match) {
             'data' => [
               '#markup' => $mgv->createInstance($id, $definition)->getValue(),
             ],
-            'data-mgv-id' => $id,
+            'data-mgv-id' => str_replace('\\', '--', $id),
           ],
         ];
       }
@@ -96,7 +96,8 @@ function mgv_help($route_name, RouteMatchInterface $route_match) {
 4.2) Facebook - {{ global_variables.social_sharing.facebook }}
 4.3) LinkedIn - {{ global_variables.social_sharing.linkedin }}
 4.4) Email - {{ global_variables.social_sharing.email }}
-4.5) WhatsApp - {{ global_variables.social_sharing.whatsapp }}'),
+4.5) WhatsApp - {{ global_variables.social_sharing.whatsapp }}
+4.6) Email with queries - {{ global_variables.social_sharing.email_with_queries }}'),
           ],
         ],
       ];
