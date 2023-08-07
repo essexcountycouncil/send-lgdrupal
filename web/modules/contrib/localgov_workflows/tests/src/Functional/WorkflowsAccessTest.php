@@ -26,6 +26,7 @@ class WorkflowsAccessTest extends BrowserTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
+    'localgov_services_page',
     'localgov_workflows',
   ];
 
@@ -36,10 +37,6 @@ class WorkflowsAccessTest extends BrowserTestBase {
     parent::setUp();
 
     // Create a content type with the LocalGov editorial workflow enabled.
-    $this->drupalCreateContentType([
-      'type' => 'localgov_services_page',
-      'title' => 'Page',
-    ]);
     $workflow = Workflow::load('localgov_editorial');
     $workflow->getTypePlugin()->addEntityTypeAndBundle('node', 'localgov_services_page');
     $workflow->save();
@@ -94,6 +91,10 @@ class WorkflowsAccessTest extends BrowserTestBase {
     $other_node = $this->drupalCreateNode([
       'type' => 'localgov_services_page',
       'title' => $this->randomMachineName(12),
+      'body' => [
+        'summary' => 'Summary',
+        'value' => 'Body',
+      ],
       'uid' => 1,
       'moderation_state' => 'draft',
     ]);
@@ -130,6 +131,10 @@ class WorkflowsAccessTest extends BrowserTestBase {
     $node3 = $this->drupalCreateNode([
       'type' => 'localgov_services_page',
       'title' => $this->randomMachineName(12),
+      'body' => [
+        'summary' => 'Summary',
+        'value' => 'Body',
+      ],
       'uid' => 1,
       'moderation_state' => 'review',
     ]);
@@ -139,6 +144,10 @@ class WorkflowsAccessTest extends BrowserTestBase {
     $node4 = $this->drupalCreateNode([
       'type' => 'localgov_services_page',
       'title' => $this->randomMachineName(12),
+      'body' => [
+        'summary' => 'Summary',
+        'value' => 'Body',
+      ],
       'uid' => 1,
       'moderation_state' => 'review',
     ]);
@@ -172,6 +181,8 @@ class WorkflowsAccessTest extends BrowserTestBase {
     $this->submitForm([
       'title[0][value]' => $title,
       'moderation_state[0][state]' => $state,
+      'body[0][summary]' => 'Summary',
+      'body[0][value]' => 'Body',
     ], 'Save');
     $node = $this->getNodeByTitle($title);
     $this->assertEquals($state, $node->moderation_state->value);

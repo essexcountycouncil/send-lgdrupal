@@ -44,6 +44,7 @@
         "drupal/search_api_solr": "^4.2",
         "drupal/search_api_spellcheck": "^4.0",
         "drupal/seckit": "^2.0",
+        "drupal/simple_sitemap": "^4.1",
         "drupal/simplei": "^2.1",
         "drupal/stage_file_proxy": "^2.0",
         "drupal/twig_tweak": "^3.1",
@@ -53,7 +54,7 @@
         "drupal/webform_views": "^5.0@beta",
         "drupal/webform_workflows_element": "^1.0@alpha",
         "drush/drush": "^10.6",
-        "localgovdrupal/localgov": "^2.3",
+        "localgovdrupal/localgov": "2.3.20",
         "localgovdrupal/localgov_base": "^1.4.3",
         "platformsh/config-reader": "^2.4"
     },

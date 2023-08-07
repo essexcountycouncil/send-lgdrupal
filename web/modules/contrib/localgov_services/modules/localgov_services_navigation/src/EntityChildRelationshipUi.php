@@ -227,6 +227,12 @@ class EntityChildRelationshipUi implements ContainerInjectionInterface {
           continue;
         }
 
+        // If the paragraph does not have a topic_list_links field then skip.
+        // @todo Check for other link fields.
+        if (!$paragraphs->entity->hasField('topic_list_links')) {
+          continue;
+        }
+
         foreach ($paragraphs->entity->topic_list_links as $link) {
           if (
             !$link->isEmpty() &&

@@ -199,7 +199,7 @@ default:
                   parent_delta: 0
           localgov_link:
             -
-              uri: 'https://localgovdrupal.org/'
+              uri: 'https://docs.localgovdrupal.org/'
               title: 'Read the docs'
               options: {  }
           localgov_opens_in_a_new_window:
@@ -1031,7 +1031,7 @@ default:
               format: wysiwyg
           localgov_button:
             -
-              uri: 'https://localgovdrupal.org/'
+              uri: 'https://docs.localgovdrupal.org/'
               title: 'Go to the documentation (opens new tab)'
               options: {  }
           localgov_colour_theme:

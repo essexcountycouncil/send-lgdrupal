@@ -8,6 +8,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface;
 
 /**
@@ -32,6 +33,8 @@ use Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface;
  * )
  */
 class ReviewDate extends ContentEntityBase implements ReviewDateInterface {
+
+  use StringTranslationTrait;
 
   /**
    * Workflow state that transition content to on the next review date.
@@ -85,6 +88,20 @@ class ReviewDate extends ContentEntityBase implements ReviewDateInterface {
   /**
    * {@inheritdoc}
    */
+  public function label() {
+
+    // If this review references an entity, use that as the label.
+    if ($this->hasEntity()) {
+      return $this->t('Review of @label', [
+        '@label' => $this->getEntity()->label(),
+      ]);
+    }
+    return parent::label();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function isActive(): bool {
     return $this->get('active')->value;
   }
@@ -125,6 +142,13 @@ class ReviewDate extends ContentEntityBase implements ReviewDateInterface {
   protected function setCreatedTime($created) {
     $this->set('created', $created);
     return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function hasEntity(): bool {
+    return ($this->get('entity')->entity instanceof EntityInterface);
   }
 
   /**

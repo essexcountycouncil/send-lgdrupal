@@ -10,7 +10,7 @@ entity_type: node
 bundle: localgov_directory
 label: 'Enabled Facets'
 description: 'Which facets are enabled to be shown on this directory channel, and will be added when editing content to be added to this directory.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

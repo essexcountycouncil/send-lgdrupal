@@ -27,6 +27,7 @@ class ApprovalsDashboardTest extends BrowserTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
+    'localgov_services_page',
     'localgov_workflows',
   ];
 
@@ -57,15 +58,6 @@ class ApprovalsDashboardTest extends BrowserTestBase {
    */
   public function testApprovalsDashboardView() {
 
-    // Create a content type with the LocalGov editorial workflow enabled.
-    $this->drupalCreateContentType([
-      'type' => 'localgov_services_page',
-      'title' => 'Page',
-    ]);
-    $workflow = Workflow::load('localgov_editorial');
-    $workflow->getTypePlugin()->addEntityTypeAndBundle('node', 'localgov_services_page');
-    $workflow->save();
-
     // Create an editor and an author.
     $editor = $this->drupalCreateUser();
     $editor->addRole(RolesHelper::EDITOR_ROLE);
@@ -80,6 +72,10 @@ class ApprovalsDashboardTest extends BrowserTestBase {
       'type' => 'localgov_services_page',
       'title' => $title,
       'uid' => 1,
+      'body' => [
+        'summary' => 'summary',
+        'value' => 'body',
+      ],
       'moderation_state' => 'draft',
     ]);
 
@@ -101,14 +97,10 @@ class ApprovalsDashboardTest extends BrowserTestBase {
     $this->assertSession()->elementContains('css', '.views-table', 'Edit');
 
     // Check review content not editable by authors.
-    // This is dependent on the permissions set in:
-    // https://github.com/localgovdrupal/localgov_core/pull/99
-    // @codingStandardsIgnoreStart
-    // $this->drupalLogin($author);
-    // $this->drupalGet('admin/content/localgov_approvals');
-    // $this->assertSession()->pageTextContains($title);
-    // $this->assertSession()->elementNotContains('css', '.views-table', 'Edit');
-    // @codingStandardsIgnoreEnd
+    $this->drupalLogin($author);
+    $this->drupalGet('admin/content/localgov_approvals');
+    $this->assertSession()->pageTextContains($title);
+    $this->assertSession()->elementNotContains('css', '.views-table', 'Edit');
 
     // Check published content not included.
     $node->set('moderation_state', 'published');

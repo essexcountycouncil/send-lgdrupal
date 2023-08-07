@@ -2,7 +2,8 @@
 
 namespace Drupal\leaflet_views\Plugin\views\style;
 
-use Drupal\search_api\Plugin\views\ResultRow;
+use Drupal\search_api\Plugin\views\ResultRow as SearchApiResultRow;
+use Drupal\views\ResultRow;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Field\FieldTypePluginManagerInterface;
 use Drupal\Core\Render\BubbleableMetadata;
@@ -311,7 +312,7 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
   public function getFieldValue($index, $field) {
     $result = $this->view->result[$index];
 
-    if ($result instanceof ResultRow) {
+    if ($result instanceof SearchApiResultRow) {
       $search_api_field = $result->_item->getField($field, FALSE);
       if ($search_api_field !== NULL) {
         $values = $search_api_field->getValues();
@@ -326,10 +327,16 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
       }
     }
 
-    $this->view->row_index = $index;
-    $value = isset($this->view->field[$field]) ? $this->view->field[$field]->getValue($this->view->result[$index]) : NULL;
-    unset($this->view->row_index);
-    return $value;
+    // Check and return values coming from normal View or Search Api View,
+    // or return NULL Otherwise.
+    if (isset($this->view->field[$field]) &&
+      ($this->view->result[$index] instanceof ResultRow || $this->view->result[$index] instanceof SearchApiResultRow)
+    ) {
+      return $this->view->field[$field]->getValue($this->view->result[$index]);
+    }
+    else {
+      return NULL;
+    }
   }
 
   /**
@@ -341,12 +348,12 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
   protected function getAvailableDataSources() {
     $fields_geo_data = [];
 
-    /* @var \Drupal\views\Plugin\views\ViewsHandlerInterface $handler) */
+    /** @var \Drupal\views\Plugin\views\ViewsHandlerInterface $handler) */
     foreach ($this->displayHandler->getHandlers('field') as $field_id => $handler) {
       $label = $handler->adminLabel() ?: $field_id;
       $this->viewFields[$field_id] = $label;
       if (is_a($handler, '\Drupal\views\Plugin\views\field\EntityField')) {
-        /* @var \Drupal\views\Plugin\views\field\EntityField $handler */
+        /** @var \Drupal\views\Plugin\views\field\EntityField $handler */
         try {
           $entity_type = $handler->getEntityType();
         }
@@ -903,7 +910,7 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
                     $entity_language = $entity->language()->getId();
                   }
                 }
-                elseif ($result instanceof ResultRow) {
+                elseif ($result instanceof SearchApiResultRow) {
                   $id = $result->_item->getId();
                   $search_api_id_parts = explode(':', $result->_item->getId());
                   $id_parts = explode('/', $search_api_id_parts[1]);
@@ -915,7 +922,7 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
                 // Render the entity with the selected view mode.
                 if (!empty($entity_id) && !empty($entity_type)) {
                   // Get and set (if not set) the Geofield cardinality.
-                  /* @var \Drupal\Core\Field\FieldItemList $geofield_entity */
+                  /** @var \Drupal\Core\Field\FieldItemList $geofield_entity */
                   if (!isset($map['geofield_cardinality']) && isset($entity)) {
                     try {
                       $geofield_entity = $entity->get($geofield_name);
@@ -950,7 +957,7 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
                   ];
                   if (isset($dynamic_renderers[$rendering_language])) {
                     /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
-                    $langcode = isset($result->$entity_type_langcode_attribute) ? $result->$entity_type_langcode_attribute : $entity_language;
+                    $langcode = $result->$entity_type_langcode_attribute ?? $entity_language;
                   }
                   else {
                     if (strpos($rendering_language, '***LANGUAGE_') !== FALSE) {
@@ -1029,7 +1036,7 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
                     $tokens[$field_name] = $field_value;
                   }
 
-                  $icon_type = isset($this->options['icon']['iconType']) ? $this->options['icon']['iconType'] : 'marker';
+                  $icon_type = $this->options['icon']['iconType'] ?? 'marker';
 
                   // Relates each result feature with additional properties.
                   foreach ($features as &$feature) {
@@ -1184,8 +1191,13 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
             }
           }
         }
+
         // Order the data features based on the 'weight' element.
-        uasort($features_group, ['Drupal\Component\Utility\SortArray', 'sortByWeightElement']);
+        uasort($features_group, [
+          'Drupal\Component\Utility\SortArray',
+          'sortByWeightElement',
+        ]
+        );
 
         // Generate Features Groups in case of Grouping.
         if (count($view_results_groups) > 1) {
@@ -1214,8 +1226,14 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
         }
       }
 
-      // Order the data features groups based on the 'weight' element.
-      uasort($features_group, ['Drupal\Component\Utility\SortArray', 'sortByWeightElement']);
+      // Order the data features based on the 'weight' element.
+      if ($features_group && count($features_group) > 1) {
+        // Order the data features groups based on the 'weight' element.
+        uasort($features_group, [
+          'Drupal\Component\Utility\SortArray',
+          'sortByWeightElement',
+        ]);
+      }
 
       // Define the Js Settings.
       // Features is defined as Features Groups or single Features in case of a

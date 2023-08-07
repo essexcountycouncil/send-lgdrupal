@@ -6,8 +6,8 @@
  */
 
 use Drupal\Core\Serialization\Yaml;
-use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_modules_installed().

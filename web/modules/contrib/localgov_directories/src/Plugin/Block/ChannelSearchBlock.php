@@ -13,8 +13,8 @@ use Drupal\localgov_directories\Constants as Directory;
 use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
 use Drupal\node\NodeInterface;
 use Drupal\views\Form\ViewsExposedForm;
-use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**

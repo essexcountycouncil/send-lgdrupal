@@ -18,7 +18,7 @@ abstract class ResponsivePreviewTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'claro';
 
   /**
    * Return the default devices.

@@ -218,7 +218,7 @@ class LeafletService {
    *   The leaflet_map render array.
    */
   public function leafletRenderMap(array $map, array $features = [], $height = '400px') {
-    $map_id = isset($map['id']) ? $map['id'] : Html::getUniqueId('leaflet_map');
+    $map_id = $map['id'] ?? Html::getUniqueId('leaflet_map');
 
     $attached_libraries = ['leaflet/general', 'leaflet/leaflet-drupal'];
 
@@ -313,7 +313,7 @@ class LeafletService {
       return $map_info;
     }
     else {
-      return isset($map_info[$map]) ? $map_info[$map] : [];
+      return $map_info[$map] ?? [];
     }
 
   }
@@ -339,8 +339,8 @@ class LeafletService {
     $data = [];
     foreach ($items as $item) {
       // Auto-detect and parse the format (e.g. WKT, JSON etc).
-      /* @var \GeometryCollection $geom */
-      if (!($geom = $this->geoPhpWrapper->load(isset($item['wkt']) ? $item['wkt'] : $item))) {
+      /** @var \GeometryCollection $geom */
+      if (!($geom = $this->geoPhpWrapper->load($item['wkt'] ?? $item))) {
         continue;
       }
       $data[] = $this->leafletProcessGeometry($geom);
@@ -371,9 +371,9 @@ class LeafletService {
         break;
 
       case 'linestring':
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $components = $geom->getComponents();
-        /* @var \Geometry $component */
+        /** @var \Geometry $component */
         foreach ($components as $component) {
           $datum['points'][] = [
             'lat' => $component->getY(),
@@ -383,12 +383,12 @@ class LeafletService {
         break;
 
       case 'polygon':
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $tmp = $geom->getComponents();
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $geom = $tmp[0];
         $components = $geom->getComponents();
-        /* @var \Geometry $component */
+        /** @var \Geometry $component */
         foreach ($components as $component) {
           $datum['points'][] = [
             'lat' => $component->getY(),
@@ -403,12 +403,12 @@ class LeafletService {
           $datum['type'] = 'multipolyline';
           $datum['multipolyline'] = TRUE;
         }
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $components = $geom->getComponents();
-        /* @var \GeometryCollection $component */
+        /** @var \GeometryCollection $component */
         foreach ($components as $key => $component) {
           $subcomponents = $component->getComponents();
-          /* @var \Geometry $subcomponent */
+          /** @var \Geometry $subcomponent */
           foreach ($subcomponents as $subcomponent) {
             $datum['component'][$key]['points'][] = [
               'lat' => $subcomponent->getY(),
@@ -421,9 +421,9 @@ class LeafletService {
 
       case 'multipolygon':
         $components = [];
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $tmp = $geom->getComponents();
-        /* @var \GeometryCollection $polygon */
+        /** @var \GeometryCollection $polygon */
         foreach ($tmp as $polygon) {
           $polygon_component = $polygon->getComponents();
           foreach ($polygon_component as $linestring) {
@@ -432,7 +432,7 @@ class LeafletService {
         }
         foreach ($components as $key => $component) {
           $subcomponents = $component->getComponents();
-          /* @var \Geometry $subcomponent */
+          /** @var \Geometry $subcomponent */
           foreach ($subcomponents as $subcomponent) {
             $datum['component'][$key]['points'][] = [
               'lat' => $subcomponent->getY(),
@@ -444,7 +444,7 @@ class LeafletService {
 
       case 'geometrycollection':
       case 'multipoint':
-        /* @var \GeometryCollection $geom */
+        /** @var \GeometryCollection $geom */
         $components = $geom->getComponents();
         foreach ($components as $key => $component) {
           $datum['component'][$key] = $this->leafletProcessGeometry($component);
@@ -491,8 +491,8 @@ class LeafletService {
           case "svg":
             if ($xml = simplexml_load_file($icon_url)) {
               $attr = $xml->attributes();
-              $feature["icon"]["iconSize"]["x"] = $attr->width->__toString();
-              $feature["icon"]["iconSize"]["y"] = $attr->height->__toString();
+              $feature["icon"]["iconSize"]["x"] = isset($attr->width) ? $attr->width->__toString() : 40;
+              $feature["icon"]["iconSize"]["y"] = isset($attr->height) ? $attr->height->__toString() : 40;
             }
             break;
 

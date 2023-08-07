@@ -204,15 +204,15 @@ class LeafletMarker extends RowPluginBase implements ContainerFactoryPluginInter
     parent::buildOptionsForm($form, $form_state);
 
     // Get a list of fields and a sublist of geo data fields in this view.
-    // @TODO use $fields = $this->displayHandler->getFieldLabels();
+    // @todo use $fields = $this->displayHandler->getFieldLabels();
     $fields = [];
     $fields_geo_data = [];
-    /* @var \Drupal\views\Plugin\views\ViewsHandlerInterface $handler */
+    /** @var \Drupal\views\Plugin\views\ViewsHandlerInterface $handler */
     foreach ($this->displayHandler->getHandlers('field') as $field_id => $handler) {
       $label = $handler->adminLabel() ?: $field_id;
       $fields[$field_id] = $label;
       if (is_a($handler, 'Drupal\views\Plugin\views\field\EntityField')) {
-        /* @var \Drupal\views\Plugin\views\field\EntityField $handler */
+        /** @var \Drupal\views\Plugin\views\field\EntityField $handler */
         $field_storage_definitions = $this->entityFieldManager
           ->getFieldStorageDefinitions($handler->getEntityType());
         $field_storage_definition = $field_storage_definitions[$handler->definition['field_name']];
@@ -300,14 +300,14 @@ class LeafletMarker extends RowPluginBase implements ContainerFactoryPluginInter
    * {@inheritdoc}
    */
   public function render($row) {
-    /* @var \Drupal\views\ResultRow $row */
+    /** @var \Drupal\views\ResultRow $row */
     $geofield_value = $this->view->getStyle()->getFieldValue($row->index, $this->options['data_source']);
 
     if (empty($geofield_value)) {
       return FALSE;
     }
 
-    // @TODO This assumes that the user has selected WKT as the geofield output
+    // @todo This assumes that the user has selected WKT as the geofield output
     // formatter in the views field settings, and fails otherwise. Very brittle.
     $result = $this->leafletService->leafletProcessGeofield($geofield_value);
 

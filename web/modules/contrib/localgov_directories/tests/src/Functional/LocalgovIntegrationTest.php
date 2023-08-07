@@ -2,13 +2,13 @@
 
 namespace Drupal\Tests\localgov_directories\Functional;
 
-use Drupal\Tests\Traits\Core\CronRunTrait;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacets;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacetsType;
 use Drupal\node\NodeInterface;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\system\Functional\Menu\AssertBreadcrumbTrait;
+use Drupal\Tests\Traits\Core\CronRunTrait;
 
 /**
  * Tests pages working together with LocalGov: pathauto, services, search.

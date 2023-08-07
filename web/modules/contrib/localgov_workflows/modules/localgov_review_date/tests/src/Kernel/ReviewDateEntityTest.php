@@ -126,6 +126,7 @@ class ReviewDateEntityTest extends KernelTestBase {
     $review_date = ReviewDate::newReviewDate($this->node, 'en', $scheduled_transition);
     $this->assertTrue($review_date->isActive());
     $this->assertEquals($this->node->id(), $review_date->getEntity()->id());
+    $this->assertEquals('Review of ' . $this->node->label(), $review_date->label());
     $this->assertEquals('en', $review_date->getLanguage());
     $this->assertEquals($reviewed, $review_date->getReviewTime());
     $this->assertEquals($scheduled_transition->id(), $review_date->getScheduledTransition()->id());
@@ -144,6 +145,27 @@ class ReviewDateEntityTest extends KernelTestBase {
     $review_date->setScheduledTransition($scheduled_transition2);
     $this->assertEquals($reviewed2, $review_date->getReviewTime());
     $this->assertEquals($scheduled_transition2->id(), $review_date->getScheduledTransition()->id());
+
+    // Check a blank orphan review date.
+    $delete_node = $this->createNode([
+      'type' => 'page',
+      'title' => $this->randomMachineName(12),
+    ]);
+    $delete_reviewed = (new \DateTime('1 Jan 2020 12am'))->getTimestamp();
+    $delete_scheduled_transition = ScheduledTransition::create([
+      'entity' => $delete_node,
+      'entity_revision_id' => 1,
+      'author' => 1,
+      'workflow' => 'localgov_editorial',
+      'moderation_state' => 'published',
+      'transition_on' => $delete_reviewed,
+    ]);
+    $delete_review_date = ReviewDate::newReviewDate($delete_node, 'en', $delete_scheduled_transition);
+    $delete_node->delete();
+
+    // If there is no entity, label will be NULL.
+    // Assert here to verify no PHP error.
+    $this->assertNull($delete_review_date->label());
   }
 
   /**

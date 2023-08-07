@@ -7,8 +7,8 @@
 
 use Drupal\Component\Serialization\Yaml;
 use Drupal\localgov_directories\Constants as Directory;
-use Drupal\views\Entity\View;
 use Drupal\localgov_directories_location\ProximitySearchSetup;
+use Drupal\views\Entity\View;
 
 /**
  * Implements hook_install().

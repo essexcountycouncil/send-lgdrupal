@@ -30,7 +30,7 @@
       // jQuery.once() returns a jQuery set. It will be empty if no unprocessed
       // elements are found. window and window.parent are equivalent unless the
       // Drupal page is itself wrapped in an iframe.
-      var $body = $(window.parent.document.body).once('responsive-preview');
+      var $body = $(once('responsive-preview', window.parent.document.body));
 
       if ($body.length) {
         // If this window is itself in an iframe it must be marked as processed.
@@ -38,7 +38,7 @@
         // When attach() is called again for the preview iframe, it will check
         // its parent window and find it has been processed. In most cases, the
         // following code will have no effect.
-        $(window.document.body).once('responsive-preview');
+        $(once('responsive-preview', window.document.body));
 
         var envModel = Drupal.responsivePreview.models.envModel = new Drupal.responsivePreview.EnvironmentModel({
           dir: document.documentElement.getAttribute('dir')
@@ -59,7 +59,7 @@
         });
 
         // The toolbar tab view.
-        var $tab = $('#responsive-preview-toolbar-tab').once('responsive-preview');
+        var $tab = $(once('responsive-preview', '#responsive-preview-toolbar-tab'));
         if ($tab.length > 0) {
           Drupal.responsivePreview.views.tabView = new Drupal.responsivePreview.TabView({
             el: $tab.get(),
@@ -73,7 +73,7 @@
           });
         }
         // The control block view.
-        var $block = $('#block-responsivepreviewcontrols').once('responsive-preview');
+        var $block = $(once('responsive-preview', '#block-responsivepreviewcontrols'));
         if ($block.length > 0) {
           Drupal.responsivePreview.views.blockView = new Drupal.responsivePreview.BlockView({
             el: $block.get(),
@@ -1131,4 +1131,4 @@
     }
   });
 
-}(jQuery, Backbone, Drupal, drupalSettings, Popper));
+}(jQuery, Backbone, Drupal, drupalSettings, Popper, once));

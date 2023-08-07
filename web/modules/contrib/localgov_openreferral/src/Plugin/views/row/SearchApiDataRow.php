@@ -2,9 +2,9 @@
 
 namespace Drupal\localgov_openreferral\Plugin\views\row;
 
-use Drupal\rest\Plugin\views\row\DataEntityRow;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
+use Drupal\rest\Plugin\views\row\DataEntityRow;
 use Drupal\search_api\LoggerTrait;
 use Drupal\search_api\Plugin\views\query\SearchApiQuery;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;

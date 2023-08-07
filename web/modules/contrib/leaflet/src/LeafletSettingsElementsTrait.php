@@ -540,7 +540,7 @@ trait LeafletSettingsElementsTrait {
       $optgroup_fields = (string) t('Fields');
       if (isset($this->displayHandler)) {
         foreach ($this->displayHandler->getHandlers('field') as $id => $field) {
-          /* @var \Drupal\views\Plugin\views\field\EntityField $field */
+          /** @var \Drupal\views\Plugin\views\field\EntityField $field */
           $options[$optgroup_fields]["{{ $id }}"] = substr(strrchr($field->label(), ":"), 2);
         }
       }

@@ -11,12 +11,12 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Render\Element;
 use Drupal\field\FieldConfigInterface;
 use Drupal\localgov_directories\ConfigurationHelper;
+use Drupal\localgov_directories\Constants as Directory;
 use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
 use Drupal\localgov_roles\RolesHelper;
 use Drupal\node\NodeInterface;
 use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\search_api\IndexInterface;
-use Drupal\localgov_directories\Constants as Directory;
 
 /**
  * Implements hook_theme().

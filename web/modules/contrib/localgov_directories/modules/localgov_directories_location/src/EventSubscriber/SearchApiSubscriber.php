@@ -3,8 +3,8 @@
 namespace Drupal\localgov_directories_location\EventSubscriber;
 
 use Drupal\facets\FacetManager\DefaultFacetManager;
-use Drupal\search_api\Event\SearchApiEvents;
 use Drupal\search_api\Event\QueryPreExecuteEvent;
+use Drupal\search_api\Event\SearchApiEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

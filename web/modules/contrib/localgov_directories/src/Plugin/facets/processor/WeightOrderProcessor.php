@@ -7,8 +7,8 @@ namespace Drupal\localgov_directories\Plugin\facets\processor;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\facets\Processor\SortProcessorPluginBase;
-use Drupal\facets\Result\ResultInterface;
 use Drupal\facets\Result\Result;
+use Drupal\facets\Result\ResultInterface;
 use Drupal\localgov_directories\Constants as Directory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

@@ -152,7 +152,7 @@ default:
                       entity: d2af8444-4898-4daf-9814-6dc0c16cfb26
                   localgov_link:
                     -
-                      uri: 'https://localgovdrupal.org/'
+                      uri: 'https://docs.localgovdrupal.org/'
                       title: 'Local Gov Drupal docs'
                       options: {  }
                   localgov_opens_in_a_new_window:
