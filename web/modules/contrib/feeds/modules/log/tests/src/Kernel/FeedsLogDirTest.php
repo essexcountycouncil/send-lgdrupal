@@ -31,7 +31,7 @@ class FeedsLogDirTest extends FeedsLogKernelTestBase {
     ]);
     $feed->import();
 
-    // Assert location where files has been logged.
+    // Assert location where files have been logged.
     $import_log = ImportLog::load(1);
     $this->assertEquals('public://logs/foo/bar/1/source/content.csv', $import_log->sources->value);
     $this->assertFileIsReadable('public://logs/foo/bar/1/source/content.csv');

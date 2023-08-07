@@ -491,6 +491,7 @@ class LayoutParagraphsLayout implements ThirdPartySettingsInterface {
    * @return $this
    */
   public function appendComponent(ParagraphInterface $new_paragraph) {
+    $new_paragraph->setParentEntity($this->getEntity(), $this->getFieldName());
     $this->paragraphsReferenceField->appendItem(['entity' => $new_paragraph]);
     return $this;
   }

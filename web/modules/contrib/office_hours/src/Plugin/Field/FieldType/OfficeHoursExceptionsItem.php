@@ -9,8 +9,9 @@ use Drupal\Core\Field\FieldDefinitionInterface;
  *
  * @FieldType(
  *   id = "office_hours_exceptions",
- *   label = @Translation("Office hours exception day"),
+ *   label = @Translation("Office hours exception"),
  *   list_class = "\Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList",
+ *   no_ui = TRUE,
  * )
  */
 class OfficeHoursExceptionsItem extends OfficeHoursItem {
@@ -20,57 +21,88 @@ class OfficeHoursExceptionsItem extends OfficeHoursItem {
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
     // @todo Add random Exception day value in past and in near future.
-    $value = [
-      'day' => mt_rand(0, 6),
-      'starthours' => mt_rand(00, 23) * 100,
-      'endhours' => mt_rand(00, 23) * 100,
-      'comment' => mt_rand(0, 1) ? 'additional exception text' : '',
-    ];
+    $value = [];
     return $value;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function isExceptionDay() {
-    return TRUE;
+  public function formatTimeSlot(array $settings) {
+    if ($this->day == OfficeHoursItem::EXCEPTION_DAY) {
+      // Exceptions header does not have time slot.
+      return '';
+    }
+    return parent::formatTimeSlot($settings);
   }
 
   /**
-   * Returns if a timestamp is in the past.
-   *
-   * @return bool
-   *   TRUE if the timestamp is in the past.
+   * {@inheritdoc}
    */
-  public function isExceptionDayInPast() {
-    $day = $this->getValue()['day'];
-    if ($day < strtotime('today midnight')) {
-      return TRUE;
+  public function getLabel(array $settings) {
+    $day = $this->day;
+    if ($day === '' || $day === NULL) {
+      // A new Exception slot.
+      // @todo Value deteriorates in ExceptionsSlot::validate().
+      $label = '';
     }
-    return FALSE;
+    elseif ($day == OfficeHoursItem::EXCEPTION_DAY) {
+      $label = $settings['exceptions']['title'] ?? '';
+    }
+    else {
+      $exceptions_day_format = $settings['exceptions']['date_format'] ?? NULL;
+      $day_format = $settings['day_format'];
+      $days_suffix = $settings['separator']['day_hours'];
+      $pattern = $exceptions_day_format ? $exceptions_day_format : $day_format;
+
+      if ($pattern == 'l') {
+        // Convert date into weekday in widget.
+        $label = \Drupal::service('date.formatter')->format($day, 'custom', $pattern);
+      }
+      else {
+        $label = \Drupal::service('date.formatter')->format($day, $pattern);
+        // Remove excessive time part.
+        $label = str_replace(' - 00:00', '', $label);
+      }
+      $label .= $days_suffix;
+    }
+
+    return $label;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function isException() {
+    return TRUE;
   }
 
   /**
    * Returns if a timestamp is in date range of x days to the future.
    *
-   * Prerequisite: $item->isExceptionDay() must be TRUE.
+   * Prerequisite: $item->isException() must be TRUE.
    *
-   * @param int $rangeInDays
+   * @param int $from
+   *   The days into the past/future we want to check the timestamp against.
+   * @param int $to
    *   The days into the future we want to check the timestamp against.
    *
    * @return bool
    *   TRUE if the timestamp is in range.
    *   TRUE if $rangeInDays has a negative value.
    */
-  public function isExceptionDayInRange($rangeInDays) {
-    if ($rangeInDays <= 0) {
+  public function isInRange($from, $to) {
+    if ($to <= 0) {
       return TRUE;
     }
-    if ($this->isExceptionDayInPast()) {
+
+    // @todo Allow other values then 0.
+    $day = $this->getValue()['day'];
+    if ($day < strtotime('today midnight')) {
       return FALSE;
     }
-    $day = $this->getValue()['day'];
-    $maxTime = time() + $rangeInDays * 24 * 60 * 60;
+
+    $maxTime = time() + $to * 24 * 60 * 60;
     if ($day > $maxTime) {
       return FALSE;
     }

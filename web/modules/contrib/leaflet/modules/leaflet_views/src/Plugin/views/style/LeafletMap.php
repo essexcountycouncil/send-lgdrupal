@@ -718,6 +718,9 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
     // Generate the Leaflet Map Reset Control.
     $this->setResetMapViewControl($form, $this->options);
 
+    // Generate the Leaflet Map Scale Control.
+    $this->setMapScaleControl($form, $this->options);
+
     // Generate the Leaflet Map Position Form Element.
     $form['map_position'] = $this->generateMapPositionElement($this->options['map_position']);
 
@@ -746,6 +749,9 @@ class LeafletMap extends StylePluginBase implements ContainerFactoryPluginInterf
     // Set Map Geocoder Control Element, if the Geocoder Module exists,
     // otherwise output a tip on Geocoder Module Integration.
     $this->setGeocoderMapControl($form, $this->options);
+
+    // Set Map Lazy Load Element.
+    $this->setMapLazyLoad($form, $this->options);
 
     unset($form["#pre_render"]);
 

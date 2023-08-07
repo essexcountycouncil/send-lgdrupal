@@ -482,7 +482,7 @@ class FunctionCommentSniff implements Sniff
             $commentLines = [];
             if ($tokens[($tag + 2)]['code'] === T_DOC_COMMENT_STRING) {
                 $matches = [];
-                preg_match('/([^$&]*)(?:((?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
+                preg_match('/((?:(?![$.]|&(?=\$)).)*)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
 
                 $typeLen   = strlen($matches[1]);
                 $type      = trim($matches[1]);
@@ -618,7 +618,7 @@ class FunctionCommentSniff implements Sniff
                     $variableArguments = true;
                 }
 
-                if ($typeLen === 0) {
+                if ($typeLen === 0 && $variableArguments === false) {
                     $error = 'Missing parameter type';
                     // If there is just one word as comment at the end of the line
                     // then this is probably the data type. Move it before the
@@ -677,14 +677,23 @@ class FunctionCommentSniff implements Sniff
             while (isset($realParams[($checkPos)]) === true) {
                 $realName = $realParams[$checkPos]['name'];
 
-                if ($realName === $param['var'] || ($realParams[$checkPos]['pass_by_reference'] === true
+                if ($realName === $param['var']
+                    || ($realParams[$checkPos]['pass_by_reference'] === true
                     && ('&'.$realName) === $param['var'])
+                    || ($realParams[$checkPos]['variable_length'] === true
+                    && ('...'.$realName) === $param['var'])
                 ) {
                     $matched = true;
                     break;
                 }
 
                 $checkPos++;
+            }
+
+            // Support variadic arguments.
+            if (preg_match('/(\s+)\.{3}$/', $param['type'], $matches) === 1) {
+                $param['type_space'] = strlen($matches[1]);
+                $param['type']       = preg_replace('/\s+\.{3}$/', '', $param['type']);
             }
 
             // Check the param type value. This could also be multiple parameter
@@ -696,12 +705,6 @@ class FunctionCommentSniff implements Sniff
             }
 
             $suggestedType = implode('|', $suggestedNames);
-
-            // Support variadic arguments.
-            if (preg_match('/(\s+)\.{3}$/', $param['type'], $matches) === 1) {
-                $param['type_space'] = strlen($matches[1]);
-                $param['type']       = preg_replace('/\s+\.{3}$/', '', $param['type']);
-            }
 
             if (preg_match('/\s/', $param['type']) === 1) {
                 // Do not check PHPStan types that contain any kind of brackets.
@@ -920,9 +923,10 @@ class FunctionCommentSniff implements Sniff
             return $type;
         }
 
-        // Also allow "-" and "<>" for special type hints supported by PHPStan
+        // Also allow some more characters for special type hints supported by
+        // PHPStan:
         // https://phpstan.org/writing-php-code/phpdoc-types#basic-types .
-        $type = preg_replace('/[^a-zA-Z0-9_\\\[\]\-<>]/', '', $type);
+        $type = preg_replace('/[^a-zA-Z0-9_\\\[\]\-<> ,"\{\}\?\':\*\|\&]/', '', $type);
 
         return $type;
 

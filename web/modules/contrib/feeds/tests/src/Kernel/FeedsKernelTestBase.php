@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\feeds\Kernel;
 
+use Drupal\Core\Logger\RfcLogLevel;
 use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
 use Drupal\Tests\feeds\Traits\FeedCreationTrait;
 use Drupal\Tests\feeds\Traits\FeedsCommonTrait;
@@ -31,6 +32,13 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
   ];
 
   /**
+   * An object that catches any logged messages.
+   *
+   * @var \Drupal\Tests\feeds\Kernel\TestLogger
+   */
+  protected $logger;
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
@@ -43,8 +51,20 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
     $this->installSchema('node', 'node_access');
     $this->installConfig(['feeds']);
 
+    // Add a logger.
+    $this->logger = new TestLogger();
+    $this->container->get('logger.factory')->addLogger($this->logger);
+
     // Create a content type.
     $this->setUpNodeType();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function tearDown(): void {
+    $this->assertNoLoggedErrors();
+    parent::tearDown();
   }
 
   /**
@@ -139,6 +159,28 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
         'settings' => ['file_extensions' => 'svg'],
       ],
     ]);
+  }
+
+  /**
+   * Asserts that no warnings nor errors were logged.
+   *
+   * If there are logged messages, they may be info or debug messages.
+   */
+  protected function assertNoLoggedErrors() {
+    $logs = $this->logger->getMessages();
+    if (!empty($logs)) {
+      $lowest_log_level = min(array_keys($logs));
+      if ($lowest_log_level < RfcLogLevel::INFO) {
+        $errors = [];
+        foreach ($logs as $level => $messages) {
+          if ($level < RfcLogLevel::INFO) {
+            $errors = array_merge($errors, $messages);
+          }
+        }
+        $this->fail(implode("\n", $errors));
+      }
+    }
+    $this->assertTrue(TRUE, 'There are no errors nor warnings logged.');
   }
 
 }

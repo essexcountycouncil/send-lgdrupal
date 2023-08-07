@@ -11,7 +11,7 @@ class ConditionAccessResolver {
 
   use ConditionAccessResolverTrait;
 
-  // TODO: do more conditions related work.
+  // @todo do more conditions related work.
 
   /**
    * Resolves the given conditions based on the condition logic ('and'/'or').

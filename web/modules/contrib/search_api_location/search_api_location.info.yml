@@ -1,0 +1,8 @@
+type: module
+name: 'Search API location'
+description: 'Provides location based search for the Search API module'
+package: Search
+core_version_requirement: ^8.8 || ^9 || ^10
+configure: search_api.overview
+dependencies:
+  - search_api:search_api

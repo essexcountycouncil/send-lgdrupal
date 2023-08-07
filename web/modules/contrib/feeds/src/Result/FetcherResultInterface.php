@@ -33,4 +33,11 @@ interface FetcherResultInterface {
    */
   public function getFilePath();
 
+  /**
+   * Called after import is finished to perform clean up tasks.
+   *
+   * This can be used to remove temporary created files.
+   */
+  public function cleanUp();
+
 }

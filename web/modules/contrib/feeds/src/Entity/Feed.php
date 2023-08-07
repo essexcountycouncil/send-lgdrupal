@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\feeds\Event\DeleteFeedsEvent;
 use Drupal\feeds\Event\EntityEvent;
 use Drupal\feeds\Event\FeedsEvents;
@@ -385,11 +386,21 @@ class Feed extends ContentEntityBase implements FeedInterface {
   }
 
   /**
+   * Returns the storage on which temporary values for the feed are saved.
+   *
+   * @return \Drupal\Core\KeyValueStore\KeyValueStoreInterface
+   *   The key/value storage collection for this feed.
+   */
+  protected function getStateStorage(): KeyValueStoreInterface {
+    return \Drupal::keyValue('feeds_feed.' . $this->id());
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function getState($stage) {
     if (!isset($this->states[$stage])) {
-      $state = \Drupal::keyValue('feeds_feed.' . $this->id())->get($stage);
+      $state = $this->getStateStorage()->get($stage);
 
       if (empty($state)) {
         // @todo move this logic to a factory or alike.
@@ -421,7 +432,7 @@ class Feed extends ContentEntityBase implements FeedInterface {
    */
   public function clearStates() {
     $this->states = [];
-    \Drupal::keyValue('feeds_feed.' . $this->id())->deleteAll();
+    $this->getStateStorage()->deleteAll();
 
     // Clean up references in feeds_clean_list table for this feed.
     \Drupal::database()->delete(CleanState::TABLE_NAME)
@@ -433,8 +444,8 @@ class Feed extends ContentEntityBase implements FeedInterface {
    * {@inheritdoc}
    */
   public function saveStates() {
-    \Drupal::keyValue('feeds_feed.' . $this->id())->setMultiple($this->states);
-    \Drupal::keyValue('feeds_feed.' . $this->id())->set('last_activity', time());
+    $this->getStateStorage()->setMultiple($this->states);
+    $this->getStateStorage()->set('last_activity', time());
   }
 
   /**
@@ -526,6 +537,9 @@ class Feed extends ContentEntityBase implements FeedInterface {
     $this->setQueuedTime(0);
     $this->clearQueueTasks();
     $this->save();
+
+    // Clean up stuff.
+    \Drupal::service('feeds.file_system.in_progress')->removeFiles((string) $this->id());
   }
 
   /**

@@ -136,8 +136,8 @@ class CSVOfficeHoursField extends OfficeHoursField {
           // Override empty values because it is not well handled if there
           // is a comment associated with a day. But if there is no comment
           // it has to be empty.
-          'starthours' => (int) ($value_of_item['starthours'] ?? OfficeHoursDateHelper::EMPTY_HOURS),
-          'endhours' => (int) ($value_of_item['endhours'] ?? OfficeHoursDateHelper::EMPTY_HOURS),
+          'starthours' => $value_of_item['starthours'],
+          'endhours' => $value_of_item['endhours'],
           // Set default value of comment to empty string.
           'comment' => trim($value[$i]),
         ] + $value_of_item;

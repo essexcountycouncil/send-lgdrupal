@@ -1,0 +1,9 @@
+id: feeds_feed_clear_action
+label: 'Delete imported items of selected feeds'
+status: true
+langcode: en
+type: feeds_feed
+plugin: feeds_feed_clear_action
+dependencies:
+  module:
+    - feeds

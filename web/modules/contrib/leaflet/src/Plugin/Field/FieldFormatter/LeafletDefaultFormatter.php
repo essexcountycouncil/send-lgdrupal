@@ -211,6 +211,9 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
     // Generate the Leaflet Map Reset Control.
     $this->setResetMapViewControl($form, $settings);
 
+    // Generate the Leaflet Map Scale Control.
+    $this->setMapScaleControl($form, $settings);
+
     // Generate the Leaflet Map Position Form Element.
     $map_position_options = $settings['map_position'];
     $form['map_position'] = $this->generateMapPositionElement($map_position_options);
@@ -237,6 +240,9 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
     // Set Map Geocoder Control Element, if the Geocoder Module exists,
     // otherwise output a tip on Geocoder Module Integration.
     $this->setGeocoderMapControl($form, $settings);
+
+    // Set Map Lazy Load Element.
+    $this->setMapLazyLoad($form, $settings);
 
     return $form;
   }

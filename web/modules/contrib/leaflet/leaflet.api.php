@@ -20,6 +20,7 @@ function leaflet_map_info_default_settings() {
     'scrollWheelZoom' => TRUE,
     'doubleClickZoom' => TRUE,
     'zoomControl' => TRUE,
+    'zoomControlPosition' => 'topleft',
     'attributionControl' => TRUE,
     'trackResize' => TRUE,
     'fadeAnimation' => TRUE,

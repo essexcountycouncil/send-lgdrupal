@@ -8,6 +8,7 @@
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
+use Drupal\image\ImageStyleInterface;
 use Drupal\image\Entity\ImageStyle;
 
 /**
@@ -142,7 +143,14 @@ function localgov_subsites_paragraphs_preprocess_paragraph(&$variables) {
     if (!$paragraph->get('localgov_background_image')->isEmpty()) {
       $fid = $paragraph->get('localgov_background_image')->entity->field_media_image[0]->getValue()['target_id'];
       $file_url = File::load($fid)->getFileUri();
-      $variables['background_url'] = ImageStyle::load('large_21_9')->buildUrl($file_url);
+
+      // Get the image url for the background, falling back to the full
+      // url if the image style is not defined.
+      $variables['background_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_url);
+      $image_style = ImageStyle::load('large_21_9');
+      if ($image_style instanceof ImageStyleInterface) {
+        $variables['background_url'] = $image_style->buildUrl($file_url);
+      }
     }
     $heading_text = $paragraph->get('localgov_header_text')->value ?: '';
     $heading_level = $paragraph->get('localgov_heading_level')->value ?: 'h2';

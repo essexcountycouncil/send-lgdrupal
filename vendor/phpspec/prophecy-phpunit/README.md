@@ -1,6 +1,6 @@
 # Prophecy
 
-[![Build Status](https://travis-ci.org/phpspec/prophecy-phpunit.png?branch=master)](https://travis-ci.org/phpspec/prophecy-phpunit)
+[![Build Status](https://github.com/phpspec/prophecy-phpunit/actions/workflows/ci.yml/badge.svg)](https://github.com/phpspec/prophecy-phpunit/actions/workflows/ci.yml)
 
 Prophecy PhpUnit integrates the [Prophecy](https://github.com/phpspec/prophecy) mocking
 library with [PHPUnit](https://phpunit.de) to provide an easier mocking in your testsuite.
@@ -15,7 +15,7 @@ Prophecy PhpUnit requires PHPUnit 9.1 or greater. Older versions of PHPUnit are 
 ### Setup through composer
 
 ```bash
-$> composer require --dev phpspec/prophecy-phpunit
+composer require --dev phpspec/prophecy-phpunit
 ```
 
 You can read more about Composer on its [official webpage](https://getcomposer.org).

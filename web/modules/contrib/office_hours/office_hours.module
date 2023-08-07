@@ -7,11 +7,47 @@
 
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\office_hours\OfficeHoursCacheHelper;
 
 // Add theme.api.php hooks.
 \Drupal::moduleHandler()->loadInclude('office_hours', 'inc', 'office_hours.theme');
 // Add ExceptionItem field formatter theming/preprocessing.
 \Drupal::moduleHandler()->loadInclude('office_hours', 'inc', 'office_hours.theme.exceptions');
+
+/**
+ * Implements hook_help().
+ */
+function office_hours_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.office_hours':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Office Hours module provides a "weekly office hours" field type. It allows to add a field to any Content type, in order to display when a location is open or closed on a weekly basis.') . '</p>';
+      $output .= '<h4>' . t('Functionalities') . '</h4>';
+      $output .= '<p>' . t('The module defines 2 widgets:') . '</p>';
+      $output .= '<ul><li>' . t('<strong>Week</strong> widget shows all days of the week;') . '</li>';
+      $output .= '<li>' . t('<strong>List</strong> widget allows to add a timeslot day by day.') . '</li></ul>';
+      $output .= '<p>' . t('The widget provides:') . '</p>';
+      $output .= '<ul><li>' . t('<i>allowed hours</i> restrictions;') . '</li>';
+      $output .= '<li>' . t('input validation;') . '</li>';
+      $output .= '<li>' . t('use of either a 24 or 12 hour clock;') . '</li>';
+      $output .= '<li>' . t('using 1, 2 or even more <i>time blocks</i> per day;') . '</li>';
+      $output .= '<li>' . t('a comment per time slot (E.g., <i>First friday of the month</i>);') . '</li>';
+      $output .= '<li>' . t('links to easily copy or delete time slots;') . '</li>';
+      $output .= '<li>' . t('adding exception days;') . '</li></ul>';
+      $output .= '<p>' . t('The formatter provides:') . '</p>';
+      $output .= '<ul><li>' . t("an 'open now'/'closed now' indicator (formatter);") . '</li>';
+      $output .= '<li>' . t('options to group days (E.g., <i>Mon-Fri 12:00-22:00</i>);') . '</li>';
+      $output .= '<li>' . t('options to maintain <i>Exception days</i>;') . '</li>';
+      $output .= '<li>' . t('options to display a <i>Select List</i>, that can be opened/closed;') . '</li>';
+      $output .= '<li>' . t('integration for openingHours metadata;') . '</li>';
+      $output .= '<li>' . t('integration for openingHoursSpecification metadata;') . '</li>';
+      $output .= '<li>' . t('a hook to alter the formatted time (see office_hours.api.php);') . '</li>';
+      $output .= '<li>' . t('a hook to alter the <i>current</i> time for timezones (see office_hours.api.php).') . '</li></ul>';
+      return $output;
+  }
+  return '';
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -25,7 +61,7 @@ function office_hours_form_field_storage_config_edit_form_alter(&$form, FormStat
       '#options' => [FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED => t('Unlimited')],
       '#default_value' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
       '#description' => '<p>' . t("This is unlimited by this field's nature.
-        See 'Number of slots' for limiting the number of slots per day.")
+        See 'Number of slots' for limiting the number of slots per day."),
     ]
     + $form['cardinality_container']['cardinality'];
   }
@@ -34,6 +70,6 @@ function office_hours_form_field_storage_config_edit_form_alter(&$form, FormStat
 /**
  * Implements hook_office_hours_time_format_alter().
  */
-//function office_hours_office_hours_time_format_alter(string &$formatted_time) {
-//  // Only to test the alter hook in office_hours.api.php .
-//}
+// function office_hours_office_hours_time_format_alter(string &$formatted_time) {
+//   // Only to test the alter hook in office_hours.api.php .
+// }

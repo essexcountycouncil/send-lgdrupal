@@ -5,13 +5,11 @@ dependencies:
     - field.storage.node.localgov_services_parent
     - node.type.localgov_services_landing
     - node.type.localgov_services_status
-  module:
-    - localgov_services_navigation
 id: node.localgov_services_status.localgov_services_parent
 field_name: localgov_services_parent
 entity_type: node
 bundle: localgov_services_status
-label: 'Service landing page'
+label: 'Parent page'
 description: ''
 required: false
 translatable: true
@@ -21,9 +19,10 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      service_hub: localgov_services_landing
+      localgov_services_landing: localgov_services_landing
     sort:
       field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

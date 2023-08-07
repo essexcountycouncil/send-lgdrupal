@@ -25,7 +25,7 @@ abstract class FieldTargetBase extends TargetBase implements ConfigurableTargetI
    *
    * @var array
    */
-  protected $fieldSettings;
+  protected $settings;
 
   /**
    * The language manager.

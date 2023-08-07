@@ -9,8 +9,8 @@ id: node.localgov_step_by_step_page.localgov_step_parent
 field_name: localgov_step_parent
 entity_type: node
 bundle: localgov_step_by_step_page
-label: 'Step by step overview'
-description: ''
+label: 'Parent page'
+description: 'The step by step overview page this step page is part of.'
 required: false
 translatable: true
 default_value: {  }
@@ -22,6 +22,7 @@ settings:
       localgov_step_by_step_overview: localgov_step_by_step_overview
     sort:
       field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -110,10 +110,16 @@ class ServiceStatus {
     foreach ($service_status as $node) {
       /** @var \Drupal\node\Entity\Node $node */
       $node = $this->entityRepository->getTranslationFromContext($node);
+      if ($node->hasField('body') && $body = $node->get('body')->first()) {
+        $summary = $body->getValue()['summary'];
+      }
+      else {
+        $summary = '';
+      }
       $items[] = [
         'date' => $node->getCreatedTime(),
         'title' => $node->label(),
-        'description' => $node->get('body')->first()->getValue()['summary'],
+        'description' => $summary,
         'url' => $node->toUrl(),
       ];
     }

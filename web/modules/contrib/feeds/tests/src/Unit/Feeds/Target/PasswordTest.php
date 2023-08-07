@@ -3,6 +3,7 @@
 namespace Drupal\Tests\feeds\Unit\Feeds\Target;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Password\PasswordInterface;
 use Drupal\Core\Password\PhpassHashedPassword;
 use Drupal\feeds\Exception\TargetValidationException;
@@ -35,6 +36,7 @@ class PasswordTest extends FieldTargetTestBase {
    */
   public function setUp(): void {
     $this->passwordHasher = $this->prophesize(PasswordInterface::class);
+    $this->moduleHandler = $this->prophesize(ModuleHandlerInterface::class);
 
     $container = new ContainerBuilder();
     $container->set('string_translation', $this->getStringTranslationStub());
@@ -52,7 +54,7 @@ class PasswordTest extends FieldTargetTestBase {
       'target_definition' => $method($this->getMockFieldDefinition()),
     ];
 
-    return new Password($configuration, static::$pluginId, [], $this->passwordHasher->reveal());
+    return new Password($configuration, static::$pluginId, [], $this->passwordHasher->reveal(), $this->moduleHandler->reveal());
   }
 
   /**

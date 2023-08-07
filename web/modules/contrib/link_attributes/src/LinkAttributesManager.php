@@ -8,6 +8,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Plugin\Discovery\ContainerDerivativeDiscoveryDecorator;
 use Drupal\Core\Plugin\Discovery\YamlDiscovery;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Provides the link_attributes plugin manager.
@@ -61,6 +62,12 @@ class LinkAttributesManager extends DefaultPluginManager implements PluginManage
     if (empty($definition['type'])) {
       $definition['type'] = 'textfield';
     }
+    // Translate options.
+    if(!empty($definition['options'])){
+      foreach($definition['options'] as $property => $option){
+        $definition['options'][$property] = new TranslatableMarkup($option);
+      }
+    }    
   }
 
 }

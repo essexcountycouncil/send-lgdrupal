@@ -64,3 +64,13 @@ function localgov_paragraphs_update_9002() {
     '%action-msg' => '**export site configuration**',
   ]);
 }
+
+/**
+ * Resave the localgov_contact_office_hours field to update schema changes.
+ */
+function localgov_paragraphs_update_9003() {
+
+  \Drupal::entityTypeManager()->getStorage('field_storage_config')
+    ->load('paragraph.localgov_contact_office_hours')
+    ->save();
+}

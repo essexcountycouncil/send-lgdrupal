@@ -1,4 +1,5 @@
-<div class="office-hours-status office-hours-status--{% if is_open %}open{% else %}closed{% endif %}">
+{% set classes = "office-hours-status office-hours-status--" ~ (is_open ? "open" : "closed") %}
+<div{{ attributes.addClass(classes) }}>
   {% if is_open %}
     {{ open_text }}
   {% else %}

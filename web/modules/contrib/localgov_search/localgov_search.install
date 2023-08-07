@@ -8,12 +8,14 @@
 /**
  * Implements hook_install().
  */
-function localgov_search_install() {
+function localgov_search_install($is_syncing) {
 
-  // Ensure the sitewide search viewmodes are set on view and index.
-  $node_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
-  foreach ($node_bundles as $bundle => $info) {
-    localgov_search_entity_bundle_create('node', $bundle);
+  if (!$is_syncing) {
+    // Ensure the sitewide search viewmodes are set on view and index.
+    $node_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+    foreach ($node_bundles as $bundle => $info) {
+      localgov_search_entity_bundle_create('node', $bundle);
+    }
   }
 }
 

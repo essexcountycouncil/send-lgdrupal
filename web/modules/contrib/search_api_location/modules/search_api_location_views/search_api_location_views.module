@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Provide Views integration for Search API Location.
+ */
+
+use Drupal\search_api\Entity\Index;
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function search_api_location_views_views_data_alter(&$data) {
+  /** @var \Drupal\search_api\IndexInterface $index */
+  foreach (Index::loadMultiple() as $index) {
+    $table = &$data['search_api_index_' . $index->id()];
+
+    /** @var \Drupal\search_api\Item\FieldInterface $field */
+    foreach ($index->getFields(TRUE) as $field_id => $field) {
+      if ($field->getType() == 'location') {
+        $field_alias = _search_api_location_views_get_field_alias($field_id, $table);
+
+        // Adding filter to location fields.
+        $table[$field_alias]['filter']['title'] = $field->getLabel();
+        $table[$field_alias]['filter']['id'] = 'search_api_location';
+        $table[$field_alias]['filter']['help'] = $field->getDescription();
+        $table[$field_alias]['argument']['id'] = 'search_api_location_point';
+
+        // We currently have no way of knowing the alias of the distance pseudo
+        // field (e.g. Solr backend doesn't add any info when defining the
+        // field).
+        // So for now we just appending '__distance' to the field_id, but this
+        // should be defined in the back-ends.
+        /* @see \Drupal\search_api_solr\Plugin\search_api\backend\SearchApiSolrBackend::getBackendDefinedFields */
+        $distance_field_alias = _search_api_location_views_get_field_alias($field_id . '__distance', $table);
+
+        // Set separate sort and argument plugin for the distance psuedo field.
+        $table[$distance_field_alias]['sort']['id'] = 'search_api_location_distance';
+        $table[$distance_field_alias]['argument']['id'] = 'search_api_location_radius';
+
+        // Remove filtering on the pseudo distance field, as the location field
+        // does this.
+        unset($table[$distance_field_alias]['filter']);
+      }
+    }
+  }
+}
+
+/**
+ * Finds the field alias for a field in a Views table definition.
+ *
+ * @param string $field_id
+ *   The original ID of the Search API field.
+ * @param array $table
+ *   The Views table definition.
+ *
+ * @return string|false
+ *   The field alias of the field or FALSE.
+ */
+function _search_api_location_views_get_field_alias($field_id, array $table) {
+  // We need to determine the Views field alias based on the Search API
+  // field_id.
+  // We can't use _search_api_views_find_field_alias, as that would generate
+  // a new name.
+  $field_alias = FALSE;
+  if (isset($table[$field_id])) {
+    $field_alias = $field_id;
+  }
+  else {
+    foreach ($table as $field_name => $field_info) {
+      if (!empty($field_info['real field']) && $field_info['real field'] == $field_id) {
+        $field_alias = $field_name;
+        break;
+      }
+    }
+  }
+
+  return $field_alias;
+}

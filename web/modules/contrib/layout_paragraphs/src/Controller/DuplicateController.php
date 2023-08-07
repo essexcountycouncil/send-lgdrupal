@@ -72,7 +72,7 @@ class DuplicateController extends ControllerBase {
         '#layout_paragraphs_layout' => $this->layoutParagraphsLayout,
         '#uuid' => $uuid,
       ];
-      $response->addCommand(new AfterCommand('[data-uuid="' . $source_uuid . '"', $rendered_item));
+      $response->addCommand(new AfterCommand('[data-uuid="' . $source_uuid . '"]', $rendered_item));
       $response->addCommand(new LayoutParagraphsEventCommand($this->layoutParagraphsLayout, $uuid, 'component:insert'));
       return $response;
     }

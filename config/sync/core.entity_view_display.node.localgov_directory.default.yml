@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.localgov_directory.field_sitewide_search_type
     - field.field.node.localgov_directory.localgov_directory_channel_types
     - field.field.node.localgov_directory.localgov_directory_facets_enable
+    - field.field.node.localgov_directory.localgov_proximity_search_cfg
     - field.field.node.localgov_directory.localgov_services_parent
     - node.type.localgov_directory
   module:
@@ -31,15 +32,10 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  localgov_directory_map:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   localgov_directory_view:
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
 hidden:
   field_sitewide_search_type: true
@@ -48,6 +44,8 @@ hidden:
   localgov_directory_channel_types: true
   localgov_directory_facets: true
   localgov_directory_facets_enable: true
+  localgov_directory_map: true
   localgov_directory_view_with_search: true
+  localgov_proximity_search_cfg: true
   localgov_services_parent: true
   search_api_excerpt: true

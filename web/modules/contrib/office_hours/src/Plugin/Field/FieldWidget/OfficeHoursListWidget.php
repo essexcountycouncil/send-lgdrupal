@@ -26,19 +26,23 @@ class OfficeHoursListWidget extends OfficeHoursWidgetBase {
 
     /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItem $item */
     $item = $items[$delta];
-    if ($item->isExceptionDay()) {
+    // On fieldSettings page admin/structure/types/manage/<TYPE>/fields/<FIELD>,
+    // $delta may be 0 for an empty list, so $item does not exist.
+    if (!$item || $item->isException()) {
       // @todo Enable List widget for Exception days.
       return [];
     }
+
+    static $day_index = 0;
+    $day_index++;
+
     $default_value = $item->getValue();
-    $day = $default_value['day'];
     $element['value'] = [
-      '#day' => $day,
-      // Make sure the value is shown in OfficeHoursSlot().
-      '#daydelta' => 0,
       '#type' => 'office_hours_list',
       '#default_value' => $default_value,
-      // Wrap all of the select elements with a fieldset.
+      '#day_index' => $day_index,
+      '#day_delta' => 0,
+        // Wrap all of the select elements with a fieldset.
       '#theme_wrappers' => [
         'fieldset',
       ],
@@ -47,7 +51,6 @@ class OfficeHoursListWidget extends OfficeHoursWidgetBase {
           'container-inline',
         ],
       ],
-
     ] + $element['value'];
 
     return $element;
@@ -58,7 +61,7 @@ class OfficeHoursListWidget extends OfficeHoursWidgetBase {
    *
    * Reformat the $values, before passing to database.
    *
-   * @see formElement(), formMultipleElements().
+   * @see formElement(),formMultipleElements()
    *
    * {@inheritdoc}
    */

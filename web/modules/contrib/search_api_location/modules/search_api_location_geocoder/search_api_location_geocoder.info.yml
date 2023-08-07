@@ -1,0 +1,9 @@
+type: module
+name: 'Search API location geocoder'
+description: 'Adds support for the geocoder module to Search API location.'
+package: Search
+core_version_requirement: ^8.8 || ^9 || ^10
+dependencies:
+  - search_api:search_api
+  - search_api_location:search_api_location
+  - geocoder:geocoder

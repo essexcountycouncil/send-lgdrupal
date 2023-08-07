@@ -3,6 +3,7 @@
 namespace Drupal\office_hours\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface;
 
 /**
  * Plugin implementation of the formatter.
@@ -32,73 +33,78 @@ class OfficeHoursFormatterTableSelectList extends OfficeHoursFormatterTable {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
 
-    /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemList $items */
+    // Activate the current_status position. It might be off in Field UI.
+    // This is needed for correct addCacheMaxAge().
+    $this->settings['current_status']['position'] = 'before';
+
     $elements = parent::viewElements($items, $langcode);
 
-    // Get the formatters.
-    $status_formatter = NULL;
+    // If no data is filled for this entity, do not show the formatter.
+    if ($items->isEmpty()) {
+      return $elements;
+    }
+
+    // Process the given formatters.
     $hours_formatter = NULL;
     foreach ($elements as $key => $element) {
-      if (isset($element['#theme'])) {
-        switch ($element['#theme']) {
-          case 'office_hours':
-          case 'office_hours_table':
-            $hours_key = $key;
-            break;
+      switch ($element['#theme'] ?? '') {
+        case 'office_hours':
+        case 'office_hours_table':
+          // Fetch the Office Hours formatter.
+          $hours_formatter = &$elements[$key];
+          break;
 
-          case 'office_hours_status':
-            $status_formatter[0] = $element;
-            // Remove, since moved to Details Title.
-            unset($elements[$key]);
-            break;
-        }
+        case 'office_hours_status':
+          // Remove the Status Formatter. Moved/Re-determined to Details Title.
+          unset($elements[$key]);
+          break;
       }
     }
 
-    // Convert formatter to Select List ('details' render element).
-    if (isset($hours_key)) {
-      // Get/create the status formatter, holding the 'current'/'next' time slot.
-      $position = $this->settings['current_status']['position'];
-      $this->settings['current_status']['position'] = 'before';
-      $status_formatter = $status_formatter ?? $this->addStatusFormatter($items, $langcode, []);
-      $status_formatter = reset($status_formatter);
-
-      // Add a ['#cache']['max-age'] attribute to $elements.
-      // Note: This invalidates a previous Cache in Status Formatter.
-      $this->addCacheMaxAge($items, $elements);
-
-      // Reset the attribute.
-      $this->settings['current_status']['position'] = $position;
-
-      // Get the 'current' time slot, if applicable.
-      $current_slot = NULL;
-      $is_open = $status_formatter['#is_open'];
-      $hours_formatter = $elements[$hours_key];
-      if ($is_open) {
-        // Get currently open slot.
-        // @todo Add to OfficeHoursItemList? But this is already formatted.
-        // $current_slot = $items->getCurrentSlot();.
-        foreach ($hours_formatter['#office_hours'] as $item) {
-          if ($item['current'] == TRUE) {
-            $current_slot = $item['formatted_slots'];
-          }
-        }
-      }
-
-      // Use the 'open_text' and 'current' slot to set the title.
+    if ($hours_formatter) {
+      // Convert formatter to Select List ('details' render element),
+      // adding the extra render element data.
       // Note: The theming class for 'current' is set in the parent formatter.
-      $title = $is_open
-        ? $this->t($status_formatter['#open_text']) . ' ' . $current_slot ?? ''
-        : $this->t($status_formatter['#closed_text']);
-
-      // Add the extra render element data.
-      $elements[$hours_key] += [
+      /** @var \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items */
+      $hours_formatter += [
         '#type' => 'details',
-        '#title' => $title,
+        '#title' => $this->getStatusTitle($items, $hours_formatter),
       ];
     }
 
     return $elements;
+  }
+
+  /**
+   * Generates the title for the 'details' formatter.
+   *
+   * @param \Drupal\office_hours\Plugin\Field\FieldType\OfficeHoursItemListInterface $items
+   *   An Office Hours ItemList object.
+   * @param array $hours_formatter
+   *   An Office Hours formatter array.
+   *
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup|string
+   *   Title of the element.
+   */
+  private function getStatusTitle(OfficeHoursItemListInterface $items, array $hours_formatter) {
+    $settings = $this->getSettings();
+
+    // Use the 'open_text' and 'current' slot to set the title.
+    $current_item = $items->getCurrent();
+    if ($current_item) {
+      // Get details from currently open slot.
+      $item = $hours_formatter['#office_hours'][$current_item->getValue()['day']];
+      $formatted_slots = $item['formatted_slots'];
+      $label = $item['label'];
+      $status_text = $this->t($settings['current_status']['open_text']);
+      $title = $status_text . ' ' . $label . ' ' . $formatted_slots;
+    }
+    else {
+      $status_text = $this->t($settings['current_status']['closed_text']);
+      $title = $status_text;
+    }
+
+    return $title;
   }
 
 }

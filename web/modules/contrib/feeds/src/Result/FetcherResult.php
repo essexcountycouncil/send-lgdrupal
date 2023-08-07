@@ -112,4 +112,9 @@ class FetcherResult implements FetcherResultInterface {
     return $this->filePath;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function cleanUp() {}
+
 }

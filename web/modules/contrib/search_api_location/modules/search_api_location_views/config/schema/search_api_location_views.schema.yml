@@ -1,0 +1,104 @@
+views.filter.search_api_location:
+  type: views_filter
+  label: 'Search API Location'
+  mapping:
+    plugin:
+      type: string
+      label: 'Location input plugin name'
+    plugin-geocode:
+      type: mapping
+      label: 'Geocode input plugin'
+      mapping:
+        plugins:
+          type: sequence
+          label: 'List of geocode plugins'
+          sequence:
+            type: mapping
+            label: 'Plugin record'
+            mapping:
+              checked:
+                type: string
+                label: 'Is the plugin enabled?'
+              weight:
+                type: string
+                label: 'Display weight of the plugin name.'
+        radius_type:
+          type: string
+          label: 'Dropdown box or textfield.'
+        radius_options:
+          type: string
+          label: 'Available selection of radius values.'
+        radius_units:
+          type: string
+          label: 'Unit of distance such as "km".'
+    plugin-geocode_map:
+      type: mapping
+      label: 'geocode map plugin'
+      mapping:
+        radius_border_color:
+          type: string
+          label: 'Map radius border color'
+        radius_border_weight:
+          type: string
+          label: 'Map radius border weight'
+        radius_background_color:
+          type: string
+          label: 'Map radius background color'
+        radius_background_transparency:
+          type: string
+          label: 'Map radius background transparency'
+        marker_image:
+          type: string
+          label: 'Map radius marker image'
+        radius_type:
+          type: string
+          label: 'Dropdown box or textfield.'
+        radius_options:
+          type: string
+          label: 'Available selection of radius values.'
+        radius_units:
+          type: string
+          label: 'Unit of distance such as "km".'
+    plugin-raw:
+      type: mapping
+      label: 'Raw input plugin'
+      mapping:
+        radius_type:
+          type: string
+          label: 'Dropdown box or textfield.'
+        radius_options:
+          type: string
+          label: 'Available selection of radius values.'
+        radius_units:
+          type: string
+          label: 'Unit of distance such as "km".'
+    radius_type:
+      type: string
+      label: 'Radius type'
+    radius_options:
+      type: string
+      label: 'Radius options'
+    radius_units:
+      type: views.filter_value.numeric
+      label: 'Radius units'
+    value:
+      type: mapping
+      label: 'A mapping of values'
+      mapping:
+        value:
+          type: string
+          label: 'Value'
+        distance:
+          type: mapping
+          label: 'Distance'
+          mapping:
+            from:
+              type: string
+              label: 'Distance from'
+            to:
+              type: string
+              label: 'Distance to'
+
+
+views.filter_value.search_api_location:
+  type: string

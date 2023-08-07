@@ -144,9 +144,11 @@ class WebformQuery {
    * @param string $table
    *   The table of the field.
    * @param string $group_by
-   *   Optional field to group results. E.g. " webform_id";
+   *   Optional field to group results. E.g. "webform_id".
+   * @param array $condition
+   *   Optional field to add WHERE condition. ['field', 'operator', 'value']
    */
-  public function addMinMax($function, $table = 'webform_submission', $group_by = '') {
+  public function addMinMax($function, $table = 'webform_submission', $group_by = '', $condition = []) {
     if ($function !== 'MIN') {
       $function = 'MAX';
     }
@@ -154,6 +156,7 @@ class WebformQuery {
     $this->minmax[] = [
       'function' => $function,
       'table' => $table,
+      'condition' => $condition,
       'group_by' => $group_by,
     ];
 
@@ -234,6 +237,16 @@ class WebformQuery {
       // "et": Expression Table.
       $minmax_alias = 'mm' . $key;
       $query .= ' AND sid IN (SELECT ' . $function['function'] . '(' . $minmax_alias . '.sid) FROM {' . $function['table'] . '} ' . $minmax_alias;
+      // Check for condition.
+      if (!empty($function['condition'])) {
+        $minmax_condition = $function['condition'];
+        if (empty($minmax_condition[1])) {
+          $minmax_condition[1] = '=';
+        }
+        // Validate operator.
+        $operator = $this->validateOperator($minmax_condition[1]);
+        $query .= ' WHERE ' . $minmax_condition[0] . ' ' . $operator . ' ' . $minmax_condition[2];
+      }
       if ($function['group_by'] !== '') {
         $query .= ' GROUP BY ' . $function['group_by'];
       }

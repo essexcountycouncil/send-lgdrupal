@@ -258,8 +258,17 @@ function _localgov_step_by_step_mark_current_step(string $current_nid, array &$v
 function localgov_step_by_step_modules_installed($modules) {
   $services = in_array('localgov_services_navigation', $modules);
   $topics = in_array('localgov_topics', $modules);
+  if ($services) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'field.storage.node.localgov_services_parent',
+    ]);
+  }
+  if ($topics) {
+    \Drupal::service('config.installer')->installOptionalConfig(NULL, [
+      'config' => 'field.storage.node.localgov_topic_classified',
+    ]);
+  }
   if ($services || $topics) {
-    \Drupal::service('config.installer')->installOptionalConfig();
     localgov_step_by_step_optional_fields_settings($services, $topics);
   }
 }

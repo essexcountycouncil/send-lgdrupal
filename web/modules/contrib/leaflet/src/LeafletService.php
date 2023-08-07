@@ -222,6 +222,11 @@ class LeafletService {
 
     $attached_libraries = ['leaflet/general', 'leaflet/leaflet-drupal'];
 
+    // Add the intersection_observer library, if lazy load is enabled.
+    if (isset($map['settings']['map_lazy_load']) && $map['settings']['map_lazy_load']['lazy_load']) {
+      $attached_libraries[] = 'leaflet/intersection_observer';
+    }
+
     // Add the Leaflet Reset View library, if requested.
     if (isset($map['settings']['reset_map']) && $map['settings']['reset_map']['control']) {
       $attached_libraries[] = 'leaflet/leaflet.reset_map_view';

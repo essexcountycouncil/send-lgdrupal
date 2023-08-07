@@ -1,0 +1,19 @@
+uuid: f2984dad-6970-4dc8-ae28-f70da1171d6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_commissioner_email
+    - node.type.localgov_directories_org
+id: node.localgov_directories_org.field_commissioner_email
+field_name: field_commissioner_email
+entity_type: node
+bundle: localgov_directories_org
+label: 'Commissioner contact email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

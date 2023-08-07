@@ -39,6 +39,18 @@ interface TargetInterface extends DependentWithRemovalPluginInterface {
   public function setTarget(FeedInterface $feed, EntityInterface $entity, $target, array $values);
 
   /**
+   * Clears the target on an object.
+   *
+   * @param \Drupal\feeds\FeedInterface $feed
+   *   The feed object.
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *   The target object.
+   * @param string $target
+   *   The name of the target to unset.
+   */
+  public function clearTarget(FeedInterface $feed, EntityInterface $entity, string $target);
+
+  /**
    * Returns the target's definition.
    *
    * @return \Drupal\feeds\TargetDefinitionInterface
@@ -62,7 +74,7 @@ interface TargetInterface extends DependentWithRemovalPluginInterface {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The target object.
    * @param string $target
-   *   The name of the target to set.
+   *   The name of the target to check.
    *
    * @return bool
    *   True if the value on the entity is empty. False otherwise.

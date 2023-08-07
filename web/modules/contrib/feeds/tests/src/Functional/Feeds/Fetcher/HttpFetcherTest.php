@@ -120,6 +120,9 @@ class HttpFetcherTest extends FeedsBrowserTestBase {
     $this->assertSession()->pageTextContains('Created 6');
     $this->assertNodeCount(6);
 
+    // Assert that the temporary file is cleaned up.
+    $this->assertCountFilesInProgressDir(0);
+
     $xml = new \SimpleXMLElement($filepath, 0, TRUE);
 
     $expected_terms = [
@@ -251,6 +254,29 @@ class HttpFetcherTest extends FeedsBrowserTestBase {
 
     $this->batchImport($feed);
     $this->assertSession()->pageTextContains('Updated 2');
+  }
+
+  /**
+   * Tests if the file to import gets removed when unlocking a feed.
+   */
+  public function testRemoveTempFileAfterUnlock() {
+    $feed = $this->createFeed($this->feedType->id(), [
+      'source' => $this->resourcesUrl() . '/rss/googlenewstz.rss2',
+    ]);
+
+    // Start a cron import. This will put items on the queue.
+    $feed->startCronImport();
+
+    // Run the first queue task, which is fetching the http source. This will
+    // create the file in the Feeds in progress dir.
+    $this->runQueue('feeds_feed_refresh:' . $this->feedType->id(), 1);
+    // Assert that a file exist in the Feeds in progress dir.
+    $this->assertCountFilesInProgressDir(1, '', 'public');
+    $this->assertCountFilesInProgressDir(1, $feed->id(), 'public');
+
+    // Now unlock the feed and assert that the file to import gets removed.
+    $feed->unlock();
+    $this->assertCountFilesInProgressDir(0, '', 'public');
   }
 
 }

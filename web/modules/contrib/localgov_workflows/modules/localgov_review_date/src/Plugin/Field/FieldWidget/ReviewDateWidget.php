@@ -7,6 +7,7 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\localgov_review_date\Entity\ReviewDate;
 use Drupal\localgov_review_date\Form\ReviewDateSettingsForm;
@@ -62,7 +63,7 @@ class ReviewDateWidget extends WidgetBase implements ContainerFactoryPluginInter
 
     // Get current review status object.
     $entity = $items->getEntity();
-    $langcode = $form_state->get('langcode');
+    $langcode = $form_state->get('langcode') ?? LanguageInterface::LANGCODE_NOT_SPECIFIED;
     $review_date = ReviewDate::getActiveReviewDate($entity, $langcode);
 
     // Calculate next review date.

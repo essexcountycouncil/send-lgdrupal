@@ -170,6 +170,9 @@ class UserRoleTest extends FeedsKernelTestBase {
     // - manager.
     $roles = $this->roleStorage->loadMultiple();
     $this->assertEquals(1, count($roles), 'Only one role exists.');
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
@@ -317,6 +320,9 @@ class UserRoleTest extends FeedsKernelTestBase {
     // - tester.
     $roles = $this->roleStorage->loadMultiple();
     $this->assertEquals(2, count($roles), 'Two roles exist.');
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
@@ -503,6 +509,9 @@ class UserRoleTest extends FeedsKernelTestBase {
     $this->assertHasRole($account, 'manager', 'Pugsley still has the manager role.');
     $this->assertHasRole($account, 'editor', 'Pugsley still has the editor role.');
     $this->assertRoleCount(2, $account, 'Pugsley has two roles.');
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
   /**
@@ -542,6 +551,9 @@ class UserRoleTest extends FeedsKernelTestBase {
     $this->assertHasRole($account, 'editor');
     // Assert that there is only 1 role, editor.
     $this->assertRoleCount(1, $account);
+
+    // Clear the logged messages so no failure is reported on tear down.
+    $this->logger->clearMessages();
   }
 
 }
