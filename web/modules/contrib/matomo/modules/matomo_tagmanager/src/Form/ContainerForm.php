@@ -144,6 +144,7 @@ class ContainerForm extends EntityForm {
     return (bool) $this->entityTypeManager->getStorage($container->getEntityTypeId())
       ->getQuery()
       ->condition($container->getEntityType()->getKey('id'), $value)
+      ->accessCheck(TRUE)
       ->execute();
   }
 

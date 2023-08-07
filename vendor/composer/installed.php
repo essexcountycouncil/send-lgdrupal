@@ -3,7 +3,7 @@
         'name' => 'localgovdrupal/localgov-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '655eedf371ffa6fb39a81a08ff41370449295d74',
+        'reference' => '3bc3d8750c86bef6c932e63f6eef60aa8eb5844c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1058,9 +1058,9 @@
             'dev_requirement' => false,
         ),
         'drupal/matomo' => array(
-            'pretty_version' => '1.21.0',
-            'version' => '1.21.0.0',
-            'reference' => '8.x-1.21',
+            'pretty_version' => '1.22.0',
+            'version' => '1.22.0.0',
+            'reference' => '8.x-1.22',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/matomo',
             'aliases' => array(),
@@ -1641,7 +1641,7 @@
         'localgovdrupal/localgov-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '655eedf371ffa6fb39a81a08ff41370449295d74',
+            'reference' => '3bc3d8750c86bef6c932e63f6eef60aa8eb5844c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1998,15 +1998,15 @@
         'php-http/async-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
+                1 => '1.0',
             ),
         ),
         'php-http/client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
+                1 => '1.0',
             ),
         ),
         'php-http/discovery' => array(
@@ -2274,8 +2274,8 @@
         'psr/http-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
+                1 => '1.0',
             ),
         ),
         'psr/http-factory' => array(
