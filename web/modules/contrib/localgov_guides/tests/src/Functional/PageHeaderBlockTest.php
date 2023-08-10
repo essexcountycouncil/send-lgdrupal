@@ -30,7 +30,7 @@ class PageHeaderBlockTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * A user with the 'administer blocks' permission.

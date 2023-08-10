@@ -4,6 +4,9 @@
 metatag.metatag_tag.schema_service_description:
   type: text
   label: 'description'
+metatag.metatag_tag.schema_service_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_service_image:
   type: text
   label: 'image'

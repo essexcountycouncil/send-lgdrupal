@@ -2,13 +2,13 @@
 
 namespace Drupal\Tests\localgov_services_navigation\Kernel;
 
-use Drupal\language\Entity\ConfigurableLanguage;
-use Drupal\Tests\pathauto\Functional\PathautoTestHelperTrait;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\node\NodeInterface;
 use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
 use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
+use Drupal\Tests\pathauto\Functional\PathautoTestHelperTrait;
 
 /**
  * Kernel test check Services Pathauto.

@@ -16,6 +16,9 @@ metatag.metatag_tag.schema_job_posting_employment_type:
 metatag.metatag_tag.schema_job_posting_hiring_organization:
   type: text
   label: 'hiringOrganization'
+metatag.metatag_tag.schema_job_posting_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_job_posting_identifier:
   type: text
   label: 'identifier'

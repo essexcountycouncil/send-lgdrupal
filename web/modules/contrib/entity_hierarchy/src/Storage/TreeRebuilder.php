@@ -143,6 +143,10 @@ class TreeRebuilder {
     $entity->get($field_name)->postSave(TRUE);
     self::debug(sprintf('Rebuilt %s', $entity_id));
     $context['results'][] = $entity_id;
+
+    $context['message'] = new TranslatableMarkup('Processing entity with id: "@id"', [
+      '@id' => $entity_id,
+    ]);
   }
 
   /**

@@ -104,7 +104,7 @@ default:
                       entity: d1aa7821-645a-4882-90a2-cd3ed84d4cfa
                   localgov_link:
                     -
-                      uri: 'https://localgovdrupal.org'
+                      uri: 'https://docs.localgovdrupal.org'
                       title: 'Visit the docs site'
                       options: {  }
                   localgov_title:

@@ -25,7 +25,7 @@ class ResponsivePreviewContentFormTest extends ResponsivePreviewTestBase {
    *
    * @var \Drupal\user\UserInterface
    */
-  protected $previewUser;
+  protected $testUser;
 
   /**
    * {@inheritdoc}

@@ -26,7 +26,7 @@ class GuidePagesTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * A user with permission to bypass content access checks.

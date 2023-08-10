@@ -141,7 +141,7 @@ class ServiceStatus {
    */
   public function statusUpdateCount(NodeInterface $landing_node, $hide_from_list, $hide_from_landing): int {
     $query = $this->statusUpdatesQuery($landing_node->id(), $hide_from_list, $hide_from_landing);
-    return $query->count()->accessCheck(TRUE)->execute();
+    return $query->count()->execute();
   }
 
   /**
@@ -162,7 +162,8 @@ class ServiceStatus {
       ->condition('type', 'localgov_services_status')
       ->condition('localgov_services_parent', $landing_nid)
       ->condition('status', NodeInterface::PUBLISHED)
-      ->addTag('node_access');
+      ->addTag('node_access')
+      ->accessCheck(TRUE);
     if ($hide_from_list) {
       $query->condition('localgov_service_status_on_list', 1);
     }

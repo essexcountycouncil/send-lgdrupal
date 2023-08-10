@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\localgov_directories\Kernel;
 
-use Drupal\KernelTests\KernelTestBase;
 use Drupal\Core\Site\Settings;
+use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Tests DirectoriesConfigSubscriber.

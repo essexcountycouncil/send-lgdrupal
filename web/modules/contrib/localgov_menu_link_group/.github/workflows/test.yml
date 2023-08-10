@@ -1,4 +1,7 @@
-name: Test LocalGov Drupal Menu Link Group module
+##
+# Managed by https://github.com/localgovdrupal/github_workflow_manager
+---
+name: Test localgovdrupal/localgov_menu_link_group drupal-module
 
 on:
   push:
@@ -7,6 +10,10 @@ on:
   pull_request:
     branches:
       - '1.x'
+
+env:
+  LOCALGOV_DRUPAL_PROJECT: localgovdrupal/localgov_menu_link_group
+  LOCALGOV_DRUPAL_PROJECT_PATH: web/modules/contrib/localgov_menu_link_group
 
 jobs:
 
@@ -18,9 +25,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+          - localgov-version: '2.x'
+            drupal-version: '~9.4'
+            php-version: '8.1'
+          - localgov-version: '3.x'
+            drupal-version: '~10.0'
+            php-version: '8.1'
 
     steps:
 
@@ -29,14 +39,15 @@ jobs:
         run: |
           echo "GIT_BASE=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-          echo "GIT_REPO=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+          echo "HEAD_USER=localgovdrupal" >> $GITHUB_ENV
 
       - name: Save git branch and git repo names to env if this is a pull request
         if: github.event_name == 'pull_request'
         run: |
           echo "GIT_BASE=${GITHUB_BASE_REF}" >> $GITHUB_ENV
           echo "GIT_BRANCH=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
-          echo "GIT_REPO=${{ github.event.pull_request.head.repo.full_name }}" >> $GITHUB_ENV
+          export HEAD="${{ github.event.pull_request.head.label }}"
+          echo "HEAD_USER=${HEAD%%:*}" >> $GITHUB_ENV
 
       - name: Set composer branch reference for version branches
         if: endsWith(github.ref, '.x')
@@ -71,16 +82,23 @@ jobs:
 
       - name: Create LocalGov Drupal project
         run: |
+          composer global config github-oauth.github.com ${{ github.token }}
           composer create-project --stability dev --no-install localgovdrupal/localgov-project ./html "${{ matrix.localgov-version }}"
           composer --working-dir=./html require --no-install localgovdrupal/localgov:${{ matrix.localgov-version }}-dev
           composer --working-dir=./html require --no-install drupal/core-recommended:${{ matrix.drupal-version }} drupal/core-composer-scaffold:${{ matrix.drupal-version }} drupal/core-project-message:${{ matrix.drupal-version }} drupal/core-dev:${{ matrix.drupal-version }}
           composer --working-dir=./html install
 
-      - name: Obtain the test target from the repo that triggered this workflow
+      - name: Obtain the test target using Composer
+        if: env.HEAD_USER == 'localgovdrupal'
         run: |
-          composer --working-dir=html config repositories.1 vcs git@github.com:${GIT_REPO}.git
-          composer global config github-oauth.github.com ${{ github.token }}
-          composer --working-dir=./html require --with-all-dependencies localgovdrupal/${{ github.event.repository.name }}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+          composer --working-dir=./html config repositories.1 vcs git@github.com:${LOCALGOV_DRUPAL_PROJECT}.git
+          composer --working-dir=./html require --with-all-dependencies ${LOCALGOV_DRUPAL_PROJECT}:"${COMPOSER_REF} as ${LATEST_RELEASE}"
+
+      - name: Obtain the test target using Git
+        if: env.HEAD_USER != 'localgovdrupal'
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}
 
   phpcs:
     name: Coding standards checks
@@ -91,9 +109,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+          - localgov-version: '2.x'
+            drupal-version: '~9.4'
+            php-version: '8.1'
+          - localgov-version: '3.x'
+            drupal-version: '~10.0'
+            php-version: '8.1'
 
     steps:
 
@@ -108,12 +129,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-version }}
 
       - name: Run coding standards checks
         run: |
           cd html
-          ./bin/phpcs -p
+          ./bin/phpcs -p ${LOCALGOV_DRUPAL_PROJECT_PATH}
 
   phpstan:
     name: Deprecated code checks
@@ -124,9 +145,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+          - localgov-version: '2.x'
+            drupal-version: '~9.4'
+            php-version: '8.1'
+          - localgov-version: '3.x'
+            drupal-version: '~10.0'
+            php-version: '8.1'
 
     steps:
 
@@ -141,13 +165,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php-version }}
 
       - name: Run deprecated code checks
         run: |
           cd html
-          ./bin/phpstan analyse -c ./phpstan.neon ./web/profiles/contrib/localgov/ ./web/modules/contrib/localgov_*
-
+          ./bin/phpstan analyse -c ./phpstan.neon ${LOCALGOV_DRUPAL_PROJECT_PATH}
   phpunit:
     name: PHPUnit tests
     needs: build
@@ -157,9 +180,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - localgov-version: "2.x"
-            drupal-version: "~9.1"
-            php-version: "7.4"
+          - localgov-version: '2.x'
+            drupal-version: '~9.4'
+            php-version: '8.1'
+          - localgov-version: '3.x'
+            drupal-version: '~10.0'
+            php-version: '8.1'
 
     steps:
 
@@ -183,8 +209,6 @@ jobs:
       - name: Run PHPUnit tests
         run: |
           mkdir -p ./html/web/sites/simpletest && chmod 777 ./html/web/sites/simpletest
-          # Older versions of Paratest (the one required by LocalGov 1.x) don't pickup
-          # environmental variables, so it's necessary to change the config file directly.
           sed -i "s#http://localgov.lndo.site#http://drupal#" ./html/phpunit.xml.dist
           docker exec -t drupal bash -c 'chown docker:docker -R /var/www/html'
-          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4"
+          docker exec -u docker -t drupal bash -c "cd /var/www/html && ./bin/paratest --processes=4 ${{ env.LOCALGOV_DRUPAL_PROJECT_PATH }}"

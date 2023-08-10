@@ -14,8 +14,8 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\FieldConfigInterface;
-use Drupal\pathauto\Entity\PathautoPattern;
 use Drupal\localgov_services_navigation\EntityChildRelationshipUi;
+use Drupal\pathauto\Entity\PathautoPattern;
 
 /**
  * Implements hook_theme().
@@ -46,9 +46,9 @@ function template_preprocess_localgov_services_navigation_child(&$variables) {
 }
 
 /**
- * Implements hook_field_wiget_WIDGET_ID_alter().
+ * Implements hook_field_widget_single_element_WIDGET_TYPE_form_alter().
  */
-function localgov_services_navigation_field_widget_entity_reference_autocomplete_form_alter(&$element, FormStateInterface $form_state, $context) {
+function localgov_services_navigation_field_widget_single_element_entity_reference_autocomplete_form_alter(&$element, FormStateInterface $form_state, $context) {
   if (!empty($element['target_id']) && $element['target_id']['#selection_handler'] == 'localgov_services') {
     $element['target_id']['#value_callback'] = [
       'Drupal\localgov_services_navigation\EntityReferenceValue',

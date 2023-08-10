@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace Drupal\localgov_menu_link_group\Controller;
 
+use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Component\Render\MarkupInterface;
 use Drupal\Core\Config\Entity\DraggableListBuilder;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Menu\MenuLinkManagerInterface;
-use Drupal\Component\Render\MarkupInterface;
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\localgov_menu_link_group\Entity\LocalGovMenuLinkGroupInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

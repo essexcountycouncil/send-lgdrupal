@@ -32,7 +32,7 @@ class DeviceHtmlRouteProvider extends AdminHtmlRouteProvider {
   /**
    * {@inheritdoc}
    */
-  protected function getCollectionRoute(EntityTypeInterface $entity_type) {
+  protected function getCollectionRoute(EntityTypeInterface $entity_type): ?Route {
     if ($entity_type->hasLinkTemplate('collection') && $entity_type->hasListBuilderClass()) {
       $entity_type_id = $entity_type->id();
       $route = new Route($entity_type->getLinkTemplate('collection'));

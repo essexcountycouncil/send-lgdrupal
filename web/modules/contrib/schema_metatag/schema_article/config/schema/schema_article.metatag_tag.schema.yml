@@ -23,6 +23,9 @@ metatag.metatag_tag.schema_article_has_part:
 metatag.metatag_tag.schema_article_headline:
   type: text
   label: 'headline'
+metatag.metatag_tag.schema_article_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_article_image:
   type: text
   label: 'image'

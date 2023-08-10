@@ -7,9 +7,9 @@
 
 use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\NodeInterface;
 use Drupal\localgov_guides\ChildParentRelationship;
 use Drupal\localgov_roles\RolesHelper;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_theme().
@@ -191,6 +191,25 @@ function localgov_guides_modules_installed($modules) {
   if ($services || $topics) {
     localgov_guides_optional_fields_settings($services, $topics);
   }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Sets the Guide overview page title.  Adds the guide_overview_title
+ * template variable.
+ */
+function localgov_guides_preprocess_node__localgov_guides_overview__full(&$vars) {
+
+  $guide_overview_node = $vars['node'];
+  $guide_overview_default_title = t('Overview');
+  $guide_overview_title = '';
+
+  if ($guide_overview_node->hasField('localgov_guides_section_title') && !$guide_overview_node->localgov_guides_section_title->isEmpty()) {
+    $guide_overview_title = $guide_overview_node->localgov_guides_section_title->value;
+  };
+
+  $vars['guide_overview_title'] = $guide_overview_title ?: $guide_overview_default_title;
 }
 
 /**

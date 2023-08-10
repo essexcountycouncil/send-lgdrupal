@@ -2,10 +2,10 @@
 
 namespace Drupal\localgov_openreferral\Normalizer;
 
-use Drupal\serialization\Normalizer\NormalizerBase;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\TypedData\TypedDataInternalPropertiesHelper;
 use Drupal\localgov_openreferral\MappingInformation;
+use Drupal\serialization\Normalizer\NormalizerBase;
 
 /**
  * Normalizes/denormalizes Drupal content entities into an array structure.

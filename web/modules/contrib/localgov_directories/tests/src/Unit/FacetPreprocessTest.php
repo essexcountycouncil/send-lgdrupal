@@ -11,10 +11,9 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacets;
 use Drupal\localgov_directories\Entity\LocalgovDirectoriesFacetsType;
-use Drupal\localgov_directories\DirectoryExtraFieldDisplay;
-
 use Drupal\Tests\UnitTestCase;
 
 /**

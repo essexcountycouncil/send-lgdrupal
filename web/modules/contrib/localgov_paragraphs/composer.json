@@ -20,7 +20,7 @@
         "drupal/paragraphs": "^1.13",
         "drupal/tablefield": "^2.3",
         "drupal/viewsreference": "^2.0",
-        "localgovdrupal/localgov_core": "^2.0",
+        "localgovdrupal/localgov_core": "^2.12",
         "localgovdrupal/localgov_topics": "^1.0"
     },
     "extra": {

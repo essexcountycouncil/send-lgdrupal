@@ -43,11 +43,15 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
     $this->assertSession()->titleEquals('Responsive preview device | Drupal');
 
     // Test for the table.
-    $element = $this->xpath('//div[@class="layout-content"]//table');
+    // @todo fix failing test as part of #3359983
+    // $element = $this->xpath('//div[@class="layout-content"]//table');
+    $element = $this->xpath('//*[@id="edit-entities"]');
     $this->assertNotEmpty($element, 'Device entity list table found.');
 
     // Test the table header.
-    $elements = $this->xpath('//div[@class="layout-content"]//table/thead/tr/th');
+    // @todo fix failing test as part of #3359983
+    // $elements = $this->xpath('//div[@class="layout-content"]//table/thead/tr/th');
+    $elements = $this->xpath('//*[@id="edit-entities"]/thead/tr/th');
     $this->assertEquals(count($elements), 5, 'Correct number of table header cells found.');
 
     // Test the contents of each th cell.
@@ -65,8 +69,7 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
     // Ensures that all default devices are listed in the table.
     $default_devices = $this->getDefaultDevices();
     foreach ($default_devices as $label) {
-      $xpath = $this->assertSession()
-        ->buildXPathQuery('//table//tr//td[text()=:text]', [':text' => $label]);
+      $xpath = $this->assertSession()->buildXPathQuery('//table//tr//td[text()=:text]', [':text' => $label]);
       $this->assertSession()->elementExists('xpath', $xpath);
     }
 
@@ -85,14 +88,16 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
       'dimensions[dppx]' => '3',
       'orientation' => 'portrait',
     ];
-    $this->drupalPostForm('admin/config/user-interface/responsive-preview/add', $edit, $this->t('Save'));
+    $this->drupalGet('admin/config/user-interface/responsive-preview/add');
+    $this->submitForm($edit, $this->t('Save'));
     $this->assertSession()
       ->responseContains($this->t('Device %name has been added.', ['%name' => 'Smartwatch']));
     $this->assertSession()
       ->elementExists('xpath', '//table//tr//td[text()="Smartwatch"]');
 
     // Ensures that is not possible to insert a non-unique device id.
-    $this->drupalPostForm('admin/config/user-interface/responsive-preview/add', $edit, $this->t('Save'));
+    $this->drupalGet('admin/config/user-interface/responsive-preview/add');
+    $this->submitForm($edit, $this->t('Save'));
     $this->assertSession()
       ->responseContains($this->t('The machine-readable name is already in use. It must be unique.'));
 
@@ -105,7 +110,9 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
       'dimensions[dppx]' => '2.5',
       'orientation' => 'landscape',
     ];
-    $this->drupalPostForm('admin/config/user-interface/responsive-preview/small/edit', $edit, $this->t('Save'));
+
+    $this->drupalGet('admin/config/user-interface/responsive-preview/small/edit');
+    $this->submitForm($edit, $this->t('Save'));
     $this->assertSession()
       ->responseContains($this->t('Device %name has been updated.', ['%name' => 'Smart phone updated']));
     $this->assertSession()
@@ -113,7 +120,8 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
     $this->assertSession()->checkboxChecked('entities[small][status]');
 
     // Tests the delete of a predefined devices.
-    $this->drupalPostForm('admin/config/user-interface/responsive-preview/large/delete', [], $this->t('Delete'));
+    $this->drupalGet('admin/config/user-interface/responsive-preview/large/delete');
+    $this->submitForm([], $this->t('Delete'));
     $this->assertSession()
       ->responseContains($this->t('Device %name has been deleted.', ['%name' => 'Typical desktop']));
     $this->assertSession()
@@ -125,7 +133,8 @@ class ResponsivePreviewAdminTest extends ResponsivePreviewTestBase {
       'entities[small][status]' => 0,
       'entities[smartwatch][status]' => 0,
     ];
-    $this->drupalPostForm('admin/config/user-interface/responsive-preview', $edit, $this->t('Save'));
+    $this->drupalGet('admin/config/user-interface/responsive-preview');
+    $this->submitForm($edit, $this->t('Save'));
     $this->assertSession()
       ->responseContains($this->t('The device settings have been updated.'));
     $this->assertSession()->checkboxChecked('entities[medium][status]');

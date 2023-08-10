@@ -2,7 +2,7 @@ type: module
 name: Dummy homepage
 description: A dummy Homepage content type.
 package: LocalGovDrupal
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   # Core modules
   - drupal:path

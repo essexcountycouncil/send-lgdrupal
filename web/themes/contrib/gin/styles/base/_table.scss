@@ -11,7 +11,7 @@ table.sticky-header {
   z-index: 98;
   position: fixed;
   left: auto !important;
-  top: calc(var(--ginHorizontalToolbarOffset) + var(--ginStickyOffset)) !important;
+  top: calc(var(--gin-toolbar-y-offset) + var(--gin-sticky-offset)) !important;
   background: transparent;
 
   &::before,
@@ -56,7 +56,7 @@ table {
     border-radius: var(--gin-border-m);
 
     tr {
-      border-bottom: 1px solid var(--gin-border-color-table-header);
+      border-bottom: 2px solid var(--gin-border-color-table-header);
 
       &:hover {
         background: transparent;

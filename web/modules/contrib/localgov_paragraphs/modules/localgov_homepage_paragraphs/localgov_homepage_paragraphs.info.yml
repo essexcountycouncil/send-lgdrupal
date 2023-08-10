@@ -2,7 +2,7 @@ type: module
 name: LocalGov Drupal homepage paragraphs
 description: Paragraph bundles used in the LocalGov Drupal homepage.
 package: LocalGov Drupal
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   # Drupal core modules.
   - drupal:link

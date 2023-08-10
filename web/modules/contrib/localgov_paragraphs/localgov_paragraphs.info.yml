@@ -2,7 +2,7 @@ name: LocalGov Paragraphs
 description: Provides core paragraph components for the LocalGov Drupal distribution.
 package: LocalGov Drupal
 type: module
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 
 dependencies:
   # Drupal

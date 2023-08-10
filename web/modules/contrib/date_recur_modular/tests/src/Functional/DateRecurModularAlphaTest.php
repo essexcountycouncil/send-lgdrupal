@@ -18,7 +18,7 @@ class DateRecurModularAlphaTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
@@ -70,7 +70,7 @@ class DateRecurModularAlphaTest extends WebDriverTestBase {
     $entity->save();
     $this->drupalGet($entity->toUrl('edit-form'));
 
-    $this->drupalPostForm(NULL, $values, 'Save');
+    $this->submitForm($values, 'Save');
     $this->assertSession()->pageTextContains('has been updated.');
 
     $entity = DrEntityTest::load($entity->id());
@@ -434,7 +434,7 @@ class DateRecurModularAlphaTest extends WebDriverTestBase {
       // Change to UTC+4.
       'dr[0][time_zone]' => 'Indian/Mauritius',
     ];
-    $this->drupalPostForm(NULL, $values, 'Save');
+    $this->submitForm($values, 'Save');
     $this->assertSession()->pageTextContains('has been updated.');
 
     // All values should be updated to account for different time zone, all

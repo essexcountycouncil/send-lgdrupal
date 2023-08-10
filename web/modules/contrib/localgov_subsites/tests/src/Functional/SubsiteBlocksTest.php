@@ -2,15 +2,15 @@
 
 namespace Drupal\Tests\localgov_subsites\Functional;
 
+use Drupal\Core\Database\Database;
 use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Tests\BrowserTestBase;
-use Drupal\Tests\TestFileCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
-use Drupal\Core\Database\Database;
+use Drupal\Tests\TestFileCreationTrait;
 
 /**
  * Tests user blocks.
@@ -39,7 +39,7 @@ class SubsiteBlocksTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $profile = 'localgov';
+  protected $profile = 'testing';
 
   /**
    * A user with the 'administer blocks' permission.
@@ -233,6 +233,17 @@ class SubsiteBlocksTest extends BrowserTestBase {
     $this->assertSession()->responseNotContains('block-localgov-subsite-navigation');
     $this->drupalGet($subsite_page1->toUrl()->toString());
     $this->assertSession()->responseNotContains('block-localgov-subsite-navigation');
+
+    // Test the navigation is still avalible with an unpublished overview node.
+    $subsite_overview->set('localgov_subsites_hide_menu', ['value' => 0]);
+    $subsite_overview->set('status', NodeInterface::NOT_PUBLISHED);
+    $subsite_overview->save();
+    drupal_flush_all_caches();
+    $this->drupalGet($subsite_page1->toUrl()->toString());
+    $this->assertSession()->responseContains('block-localgov-subsite-navigation');
+    $this->assertSession()->responseContains($subsite_page1_title);
+    $this->assertSession()->responseContains($subsite_page2_title);
+    $this->assertSession()->pageTextNotContains($subsite_overview_title);
   }
 
 }

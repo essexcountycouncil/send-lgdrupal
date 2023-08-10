@@ -1,0 +1,8 @@
+name: LocalGov Geo Update
+type: module
+description: 'Bridging module to Geo Entity.'
+package: LocalGov Drupal
+core_version_requirement: ^9||^10
+dependencies:
+  - localgov_geo:localgov_geo
+hidden: true

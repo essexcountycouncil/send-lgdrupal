@@ -3,8 +3,8 @@
 namespace Drupal\Tests\localgov_search\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\search_api\Entity\Index;
+use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\views\Entity\View;
 
 /**

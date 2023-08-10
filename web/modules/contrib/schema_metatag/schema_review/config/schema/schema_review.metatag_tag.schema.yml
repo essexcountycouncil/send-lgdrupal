@@ -7,6 +7,9 @@ metatag.metatag_tag.schema_review_type:
 metatag.metatag_tag.schema_review_name:
   type: text
   label: 'name'
+metatag.metatag_tag.schema_review_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_review_item_reviewed:
   type: text
   label: 'itemReviewed'

@@ -28,10 +28,14 @@ class VariablesTest extends BrowserTestBase {
    * @dataProvider variablesDataProvider
    */
   public function testVariable($plugin_id) {
-    $this->drupalLogin($this->createUser(['access administration pages']));
+    $this->drupalLogin($this->createUser($this->getUserPermissions()));
     $this->drupalGet(Url::fromRoute('help.page', ['name' => 'mgv']));
     $this->assertSession()
-      ->elementContains('css', '[data-mgv-id="' . $plugin_id . '"]', $this->getValue($plugin_id));
+      ->elementContains(
+        'css',
+        '[data-mgv-id="' . str_replace('\\', '--', $plugin_id) . '"]',
+        $this->getValue($plugin_id)
+      );
   }
 
   /**
@@ -137,8 +141,12 @@ class VariablesTest extends BrowserTestBase {
 
       case 'social_sharing\email':
         /* @see \Drupal\mgv\Plugin\GlobalVariable\SocialSharingEmail::getValue() */
-        $url = str_replace(':', '%3A', $this->baseUrl);
-        $value = 'mailto:?subject=Help&amp;body=Check%20this%20out%20from%20Drupal%3A%20' . $url . '/admin/help/mgv';
+        $url = Url::fromUri($this->baseUrl . '/admin/help/mgv');
+        $query = [
+          'subject' => 'Help',
+          'body' => 'Check this out from Drupal: ' . $url->toString(),
+        ];
+        $value = htmlentities(Url::fromUri('mailto:', ['query' => $query])->toString());
         break;
 
       case 'social_sharing\facebook':
@@ -156,7 +164,7 @@ class VariablesTest extends BrowserTestBase {
       case 'social_sharing\twitter':
         /* @see \Drupal\mgv\Plugin\GlobalVariable\SocialSharingTwitter::getValue() */
         $url = str_replace(':', '%3A', $this->baseUrl);
-        $value = 'https://twitter.com/share?url=' . $url . '/admin/help/mgv&amp;text=Help';
+        $value = 'https://twitter.com/intent/tweet?url=' . $url . '/admin/help/mgv&amp;text=Help';
         break;
 
       case 'social_sharing\whatsapp':
@@ -168,6 +176,44 @@ class VariablesTest extends BrowserTestBase {
       default;
     }
     return $value;
+  }
+
+  /**
+   * Test is query params are present in link for sharing via email plugin.
+   */
+  public function testEmailQueryTrimIssue() {
+    $this->drupalLogin($this->createUser($this->getUserPermissions()));
+    $url = Url::fromRoute('help.page', ['name' => 'mgv'], [
+      'query' => [
+        'filter1' => 'test',
+      ],
+    ]);
+    $this->drupalGet($url);
+    $query = [
+      'subject' => 'Help',
+      'body' => 'Check this out from Drupal: ' . $url->toString(),
+    ];
+    $expect = Url::fromUri('mailto:', ['query' => $query])->toString();
+    $this->assertSession()
+      ->elementContains(
+        'css',
+        '[data-mgv-id="social_sharing--email"]',
+        htmlentities($expect)
+      );
+  }
+
+  /**
+   * User permissions needed for testing.
+   *
+   * @return string[]
+   *   Permissions list.
+   */
+  protected function getUserPermissions() {
+    $permissions = ['access administration pages'];
+    if (version_compare(\Drupal::VERSION, '10.2.0', '>=')) {
+      $permissions += ['access help pages'];
+    }
+    return $permissions;
   }
 
 }

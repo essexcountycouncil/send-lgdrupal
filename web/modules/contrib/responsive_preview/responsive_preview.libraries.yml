@@ -1,6 +1,7 @@
 drupal.responsive-preview:
   version: VERSION
   js:
+    js/popperjs/popper.min.js: {}
     js/responsive-preview.js: {}
   css:
     component:
@@ -9,7 +10,6 @@ drupal.responsive-preview:
       css/responsive-preview.theme.css: {}
       css/responsive-preview.icons.css: {}
   dependencies:
-    - core/jquery.once
+    - core/once
     - core/drupal.displace
-    - core/backbone
-    - core/popperjs
+    - core/internal.backbone

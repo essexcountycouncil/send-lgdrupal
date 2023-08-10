@@ -264,13 +264,6 @@ function locale_form_redirect_edit_form_alter(array &$form, FormStateInterface $
 }
 
 /**
- * Ajax callback for the redirect link widget.
- */
-function redirect_source_link_get_status_messages(array $form, FormStateInterface $form_state) {
-  return $form['redirect_source']['widget'][0]['status_box'];
-}
-
-/**
  * Implements hook_entity_extra_field_info().
  */
 function redirect_entity_extra_field_info() {

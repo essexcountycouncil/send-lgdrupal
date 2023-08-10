@@ -39,7 +39,7 @@ function localgov_events_install($is_syncing) {
   // in the config/optional folder.
   // Discussed on https://www.drupal.org/project/simple_sitemap/issues/3156080
   if (\Drupal::moduleHandler()->moduleExists('simple_sitemap')) {
-    $generator = \Drupal::service('simple_sitemap.generator');
+    $generator = \Drupal::service('simple_sitemap.entity_manager');
     $generator->setBundleSettings('node', 'localgov_event', [
       'index' => TRUE,
       'priority' => 0.5,

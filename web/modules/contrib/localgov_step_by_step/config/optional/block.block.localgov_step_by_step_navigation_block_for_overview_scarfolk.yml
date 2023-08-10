@@ -24,7 +24,7 @@ settings:
   context_mapping: {  }
 visibility:
   node_type:
-    id: node_type
+    id: entity_bundle:node
     bundles:
       localgov_step_by_step_overview: localgov_step_by_step_overview
     negate: false

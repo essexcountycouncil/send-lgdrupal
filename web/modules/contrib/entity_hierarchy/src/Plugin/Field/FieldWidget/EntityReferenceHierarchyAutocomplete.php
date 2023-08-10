@@ -72,7 +72,6 @@ class EntityReferenceHierarchyAutocomplete extends EntityReferenceAutocompleteWi
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $widget = [
-      '#attributes' => ['class' => ['form--inline', 'clearfix']],
       '#theme_wrappers' => ['container'],
     ];
     $widget['target_id'] = parent::formElement($items, $delta, $element, $form, $form_state);
@@ -83,6 +82,7 @@ class EntityReferenceHierarchyAutocomplete extends EntityReferenceAutocompleteWi
       ];
     }
     else {
+      $widget['#attributes'] = ['class' => ['form--inline', 'clearfix']];
       $widget['weight'] = [
         '#type' => 'number',
         '#size' => '4',

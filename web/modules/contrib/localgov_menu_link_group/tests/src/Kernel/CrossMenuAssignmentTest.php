@@ -3,10 +3,10 @@
 namespace Drupal\Tests\localgov_menu_link_group\Kernel;
 
 use Drupal\Core\Form\FormState;
-use Drupal\user\Entity\User;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\localgov_menu_link_group\Entity\LocalGovMenuLinkGroup;
 use Drupal\localgov_menu_link_group\Form\LocalGovMenuLinkGroupForm;
+use Drupal\user\Entity\User;
 
 /**
  * Tests for the Entity form.

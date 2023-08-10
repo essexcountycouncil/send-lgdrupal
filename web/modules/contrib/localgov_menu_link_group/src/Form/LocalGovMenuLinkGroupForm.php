@@ -204,6 +204,7 @@ class LocalGovMenuLinkGroupForm extends EntityForm {
     $group_id = self::ENTITY_ID_PREFIX . $id;
 
     $entity = $this->entityTypeManager->getStorage('localgov_menu_link_group')->getQuery()
+      ->accessCheck(TRUE)
       ->condition('id', $group_id)
       ->execute();
     return (bool) $entity;

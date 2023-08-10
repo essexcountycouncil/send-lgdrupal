@@ -5,6 +5,8 @@
  * LocalGovDrupal Services: Page module file.
  */
 
+use Drupal\localgov_roles\RolesHelper;
+
 /**
  * Implements hook_theme().
  */
@@ -23,4 +25,58 @@ function localgov_services_page_theme() {
       'render element' => 'block',
     ],
   ];
+}
+
+/**
+ * Implements hook_localgov_roles_default().
+ */
+function localgov_services_page_localgov_roles_default(): array {
+
+  // Content editing permissions.
+  $perms = [
+    RolesHelper::EDITOR_ROLE => [
+      'create localgov_services_page content',
+      'delete any localgov_services_page content',
+      'delete localgov_services_page revisions',
+      'delete own localgov_services_page content',
+      'edit any localgov_services_page content',
+      'edit own localgov_services_page content',
+      'revert localgov_services_page revisions',
+      'view localgov_services_page revisions',
+    ],
+    RolesHelper::AUTHOR_ROLE => [
+      'create localgov_services_page content',
+      'delete own localgov_services_page content',
+      'edit own localgov_services_page content',
+      'revert localgov_services_page revisions',
+      'view localgov_services_page revisions',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create localgov_services_page content',
+      'delete own localgov_services_page content',
+      'edit own localgov_services_page content',
+      'view localgov_services_page revisions',
+    ],
+  ];
+
+  // Content scheduling permissions required by localgov_workflows.
+  if (\Drupal::moduleHandler()->moduleExists('localgov_workflows')) {
+    $perms[RolesHelper::EDITOR_ROLE] = array_merge($perms[RolesHelper::EDITOR_ROLE], [
+      'add scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_page',
+    ]);
+    $perms[RolesHelper::AUTHOR_ROLE] = array_merge($perms[RolesHelper::AUTHOR_ROLE], [
+      'add scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_page',
+    ]);
+    $perms[RolesHelper::CONTRIBUTOR_ROLE] = array_merge($perms[RolesHelper::CONTRIBUTOR_ROLE], [
+      'add scheduled transitions node localgov_services_page',
+      'reschedule scheduled transitions node localgov_services_page',
+      'view scheduled transitions node localgov_services_page',
+    ]);
+  }
+
+  return $perms;
 }

@@ -2,11 +2,11 @@
 
 namespace Drupal\Tests\localgov_workflows\Kernel;
 
-use Drupal\Tests\pathauto\Functional\PathautoTestHelperTrait;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
 use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
+use Drupal\Tests\pathauto\Functional\PathautoTestHelperTrait;
 use Drupal\workflows\Entity\Workflow;
 
 /**

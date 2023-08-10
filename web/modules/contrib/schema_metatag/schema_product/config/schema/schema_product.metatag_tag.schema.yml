@@ -4,6 +4,9 @@
 metatag.metatag_tag.schema_product_description:
   type: text
   label: 'description'
+metatag.metatag_tag.schema_product_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_product_image:
   type: text
   label: 'image'
@@ -22,9 +25,6 @@ metatag.metatag_tag.schema_product_offers:
 metatag.metatag_tag.schema_product_type:
   type: string
   label: '@type'
-metatag.metatag_tag.schema_product_id:
-  type: text
-  label: '@id'
 metatag.metatag_tag.schema_product_aggregate_rating:
   type: text
   label: 'aggregateRating'

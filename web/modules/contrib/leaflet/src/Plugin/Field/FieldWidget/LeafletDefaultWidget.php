@@ -92,7 +92,7 @@ class LeafletDefaultWidget extends GeofieldDefaultWidget {
    * @param array $settings
    *   The formatter settings.
    * @param array $third_party_settings
-   *   Any third party settings settings.
+   *   Any third party settings.
    * @param \Drupal\geofield\GeoPHP\GeoPHPInterface $geophp_wrapper
    *   The geoPhpWrapper.
    * @param \Drupal\geofield\WktGeneratorInterface $wkt_generator
@@ -426,12 +426,11 @@ class LeafletDefaultWidget extends GeofieldDefaultWidget {
   ) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
-    /* @var \Drupal\Core\Entity\EntityInterface $entity */
+    /** @var \Drupal\Core\Entity\EntityInterface $entity */
     $entity = $items->getEntity();
     $entity_type = $entity->getEntityTypeId();
     $bundle = $entity->bundle();
     $entity_id = $entity->id();
-    /* @var \Drupal\Core\Field\FieldDefinitionInterface $field */
     $field = $items->getFieldDefinition();
 
     // Get token context.

@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\localgov_directories_db\Kernel;
 
-use Drupal\search_api\Entity\Index;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\search_api\Entity\Index;
 
 /**
  * Kernel test enabling server.

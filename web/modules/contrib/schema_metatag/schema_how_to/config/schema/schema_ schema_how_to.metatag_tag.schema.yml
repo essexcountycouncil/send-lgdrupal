@@ -13,6 +13,9 @@ metatag.metatag_tag.schema_how_to_step:
 metatag.metatag_tag.schema_how_to_description:
   type: text
   label: 'description'
+metatag.metatag_tag.schema_how_to_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_how_to_image:
   type: text
   label: 'image'
@@ -25,3 +28,6 @@ metatag.metatag_tag.schema_how_to_supply:
 metatag.metatag_tag.schema_how_to_tool:
   type: text
   label: 'tool'
+metatag.metatag_tag.schema_how_to_url:
+  type: text
+  label: 'url'

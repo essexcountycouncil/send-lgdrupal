@@ -1,6 +1,6 @@
 name: LocalGov Subsites Paragraphs
 description: Page builder paragraph types for use with LocalGov Subsites.
-core_version_requirement: ^8.9 || ^9
+core_version_requirement: ^9 || ^10
 type: module
 package: LocalGov Drupal
 

@@ -126,6 +126,13 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
     $count = max(array_map([__CLASS__, 'countNumericKeys'], $content));
     $pivoted = [];
     $exploded = [];
+
+    // If there is only one item in the pivot (no numeric keys), return the
+    // content unchanged.
+    if ($count === 0) {
+      return $content;
+    }
+
     for ($i = 0; $i < $count; $i++) {
       foreach ($content as $key => $item) {
         // If a lower array is pivoted, pivot that first.
@@ -139,6 +146,11 @@ class SchemaMetatagManager implements SchemaMetatagManagerInterface {
         if (is_string($item) || (!is_string($item) && self::countNumericKeys($item) <= $count)) {
           $exploded[$key] = [];
           $prev = '';
+          // When multiple fields are used, if the first is empty, the keys
+          // may not start with zero and need to be reset.
+          if (!is_string($item)) {
+            $item = array_values($item);
+          }
           for ($x = 0; $x < $count; $x++) {
             if (!is_string($item) && self::countNumericKeys($item) > $x) {
               $exploded[$key][$x] = $item[$x];

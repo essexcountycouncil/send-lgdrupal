@@ -21,12 +21,12 @@ function localgov_step_by_step_install() {
     // Install default config, as this does not appear to work in the
     // config/optional folder.
     // Discussed on https://www.drupal.org/project/simple_sitemap/issues/3156080
-    $generator = \Drupal::service('simple_sitemap.generator');
-    $generator->setBundleSettings('node', 'localgov_step_by_step_overview', [
+    $entity_manager = \Drupal::service('simple_sitemap.entity_manager');
+    $entity_manager->setBundleSettings('node', 'localgov_step_by_step_overview', [
       'index' => TRUE,
       'priority' => 0.5,
     ]);
-    $generator->setBundleSettings('node', 'localgov_step_by_step_page', [
+    $entity_manager->setBundleSettings('node', 'localgov_step_by_step_page', [
       'index' => TRUE,
       'priority' => 0.5,
     ]);

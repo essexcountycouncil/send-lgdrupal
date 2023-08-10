@@ -2,7 +2,7 @@ type: module
 name: LocalGov Drupal layouts
 description: Layouts used in the LocalGov Drupal page
 package: LocalGov Drupal
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:menu_ui
   - layout_paragraphs:layout_paragraphs

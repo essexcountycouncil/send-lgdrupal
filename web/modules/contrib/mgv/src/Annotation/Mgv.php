@@ -5,7 +5,7 @@ namespace Drupal\mgv\Annotation;
 use Drupal\Component\Annotation\Plugin;
 
 /**
- * Class Mgv.
+ * An annotation class for MGV plugins.
  *
  * @package Drupal\mgv\Annotation
  *

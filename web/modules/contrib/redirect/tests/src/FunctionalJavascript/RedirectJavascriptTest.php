@@ -125,32 +125,29 @@ class RedirectJavascriptTest extends WebDriverTestBase {
     $redirect = array_shift($redirects);
     $this->assertEquals(Url::fromUri('base:non-existing', ['query' => ['key' => 'value']])->toString(), $redirect->getSourceUrl());
 
-    // Test the source url hints.
-    // The hint about an existing base path.
-    $this->drupalGet('admin/config/search/redirect/add');
-    $page->fillField('redirect_source[0][path]', 'non-existing?key=value');
-    $page->fillField('redirect_redirect[0][uri]', '');
-    $this->assertSession()->assertWaitOnAjaxRequest();
-    $this->assertSession()->responseContains(
-      'The base source path <em class="placeholder">non-existing?key=value</em> is already being redirected. Do you want to <a href="' . $redirect->toUrl('edit-form')->toString() . '">edit the existing redirect</a>?'
-    );
-
+    // Test validation.
     // The hint about a valid path.
     $this->drupalGet('admin/config/search/redirect/add');
-    $page->fillField('redirect_source[0][path]', 'node');
-    $page->fillField('redirect_redirect[0][uri]', '');
-    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->submitForm([
+      'redirect_source[0][path]' => 'node',
+      'redirect_redirect[0][uri]' => '<front>',
+    ], 'Save');
     $this->assertSession()->responseContains(
-      'The source path <em class="placeholder">node</em> is likely a valid path. It is preferred to <a href="' . Url::fromRoute('entity.path_alias.add_form')->toString() . '">create URL aliases</a> for existing paths rather than redirects.'
+     'The source path <em class="placeholder">node</em> appears to be a valid path. It is preferred to <a href="' . Url::fromRoute('entity.path_alias.add_form')->toString() . '">create URL aliases</a> for existing paths rather than redirects.',
     );
 
-    // Test validation.
+    // This warning should only happen once.
+    $page->pressButton('Save');
+    $this->assertSession()->pageTextContains('The redirect has been saved.');
+    // Delete the redirect that was just created.
+    $nodeRedirect = $this->repository->findMatchingRedirect('node');
+    $nodeRedirect->delete();
+
     // Duplicate redirect.
     $this->drupalGet('admin/config/search/redirect/add');
     $page = $this->getSession()->getPage();
     $page->fillField('redirect_source[0][path]', 'non-existing?key=value');
     $page->fillField('redirect_redirect[0][uri]', '/node');
-    $this->assertSession()->assertWaitOnAjaxRequest();
     $page->pressButton('Save');
     $this->assertSession()->responseContains(
       'The source path <em class="placeholder">non-existing?key=value</em> is already being redirected. Do you want to <a href="' . $redirect->toUrl('edit-form')->toString() . '">edit the existing redirect</a>?'

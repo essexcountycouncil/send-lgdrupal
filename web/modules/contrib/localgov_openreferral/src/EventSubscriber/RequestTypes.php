@@ -2,9 +2,9 @@
 
 namespace Drupal\localgov_openreferral\EventSubscriber;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Event subscriber for adding our content types to the request.

@@ -6,9 +6,9 @@
  */
 
 use Drupal\Core\Config\Config;
-use Drupal\user\RoleInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\localgov_geo\Entity\LocalgovGeo;
+use Drupal\user\RoleInterface;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -579,4 +579,12 @@ function localgov_geo_update_8809() {
       }
     }
   }
+}
+
+/**
+ * Enable the empty upgrade module in advance of using it in Drupal 10.
+ */
+function localgov_geo_update_8810() {
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install(['localgov_geo_update']);
 }
