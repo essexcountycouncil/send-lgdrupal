@@ -49,7 +49,7 @@ interface SchemaMetatagClientInterface {
   /**
    * Retrieve object properties.
    *
-   * This data constains detailed property information for each object.
+   * This data contains detailed property information for each object.
    *
    * @param bool $clear
    *   Whether to clear the cached array created by getProperties().
@@ -145,7 +145,7 @@ interface SchemaMetatagClientInterface {
   /**
    * Create a @type option list from a given tree section.
    *
-   * Used to create a psuedo "nested" option list used for @type.
+   * Used to create a pseudo "nested" option list used for @type.
    *
    * @param string $parent_name
    *   The key of the desired sub-array, if any.

@@ -16,7 +16,7 @@ date_recur_modular_sierra_widget:
     js/date-recur-modular-sierra-widget.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
     - core/drupal
     - core/drupalSettings
     - core/drupal.form

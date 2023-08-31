@@ -2,24 +2,22 @@
 
 namespace Drupal\webform_workflows_element_maestro\Plugin\EngineTasks;
 
-use Drupal\maestro\MaestroEngineTaskInterface;
-use Drupal\maestro\MaestroTaskTrait;
+use Drupal;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\TrustedRedirectResponse;
 use Drupal\maestro\Engine\MaestroEngine;
 use Drupal\maestro\Form\MaestroExecuteInteractive;
+use Drupal\maestro\MaestroEngineTaskInterface;
 use Drupal\maestro\Plugin\EngineTasks\MaestroInteractiveTask;
-use Drupal\webform\Entity\WebformSubmission;
 use Drupal\webform_workflows_element\Element\WebformWorkflowsElement;
-use Drupal\webform_workflows_element_maestro\Plugin\EngineTasks\MaestroWebformWorkflowsTrait;
-use Drupal\workflow\Entity\WorkflowTransition;
 
 /**
  * Require user to transition the submission.
  *
  * @Plugin(
  *   id = "MaestroTransitionWebformWorkflowTask",
- *   task_description = @Translation("Require user to transition the submission."),
+ *   task_description = @Translation("Require user to transition the
+ *   submission."),
  * )
  */
 class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implements MaestroEngineTaskInterface {
@@ -93,38 +91,41 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
     ];
 
     // Get rendered submission:
-    $entity = \Drupal::entityTypeManager()->getStorage('webform_submission')->load($submission->id());
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('webform_submission');
+    $entity = Drupal::entityTypeManager()
+      ->getStorage('webform_submission')
+      ->load($submission->id());
+    $view_builder = Drupal::entityTypeManager()
+      ->getViewBuilder('webform_submission');
     $pre_render = $view_builder->view($entity, 'full');
-    $render_output = \Drupal::service('renderer')->render($pre_render);
+    $render_output = Drupal::service('renderer')->render($pre_render);
 
     $form['submission'] = [
       '#type' => 'markup',
       '#markup' => $render_output,
     ];
 
-    $workflowsManager = \Drupal::service('webform_workflows_element.manager');
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
     $workflowElements = $workflowsManager->getWorkflowElementsForWebform($submission->getWebform());
     $form['actions'] = [];
     foreach ($workflowElements as $elementId => $workflowElement) {
       $elementValue = $submission->getElementData($elementId);
       $workflowElement['#value']['workflow_state'] = $elementValue['workflow_state'];
-      $transitions = WebformWorkflowsElement::getAvailableTransitions($workflowElement, TRUE);
+      $transitions = WebformWorkflowsElement::getAvailableTransitions($workflowElement, $submission, TRUE);
 
       if ($workflowElement['#log_public_setting'] != 'Disabled') {
         $form[$elementId . ':log_public'] = [
-          '#title'    => t('@workflowName: log message for submitter', ['@workflowName' => $workflowElement['#title']]),
-          '#type'     => 'textarea',
-          '#rows'     => 2,
+          '#title' => t('@workflowName: log message for submitter', ['@workflowName' => $workflowElement['#title']]),
+          '#type' => 'textarea',
+          '#rows' => 2,
           '#required' => $workflowElement['#log_public_setting'] === 'Required',
         ];
       }
 
       if ($workflowElement['#log_admin_setting'] != 'Disabled') {
         $form[$elementId . ':log_admin'] = [
-          '#title'    => t('@workflowName: log message - admin only', ['@workflowName' => $workflowElement['#title']]),
-          '#type'     => 'textarea',
-          '#rows'     => 2,
+          '#title' => t('@workflowName: log message - admin only', ['@workflowName' => $workflowElement['#title']]),
+          '#type' => 'textarea',
+          '#rows' => 2,
           '#required' => $workflowElement['#log_admin_setting'] === 'Required',
         ];
       }
@@ -133,7 +134,8 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
         $id = $elementId . ':' . $transition->id();
         if (count($workflowElements) > 1) {
           $title = $workflowElement['#title'] . ': ' . $transition->label();
-        } else {
+        }
+        else {
           $title = $transition->label();
         }
 
@@ -159,7 +161,8 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
   public function handleExecuteSubmit(array &$form, FormStateInterface $form_state) {
     $queueID = intval($form_state->getValue('maestro_queue_id'));
 
-    $canExecute = MaestroEngine::canUserExecuteTask($queueID, \Drupal::currentUser()->id());
+    $canExecute = MaestroEngine::canUserExecuteTask($queueID, Drupal::currentUser()
+      ->id());
 
     if ($queueID > 0 && $canExecute) {
       $submission = static::getSubmission($queueID);
@@ -181,7 +184,7 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
       $submission->setElementData($workflowElementId, $workflowValue);
       $submission->save();
 
-      MaestroEngine::completeTask($queueID, \Drupal::currentUser()->id());
+      MaestroEngine::completeTask($queueID, Drupal::currentUser()->id());
     }
 
     $task = MaestroEngine::getTemplateTaskByQueueID($queueID);
@@ -233,7 +236,8 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
     $button_text = $form_state->getValue('button_text');
     if (isset($button_text)) {
       $task['data']['button_text'] = $button_text;
-    } else {
+    }
+    else {
       $task['data']['button_text'] = t('Review and transition through workflow');
     }
   }
@@ -243,4 +247,5 @@ class MaestroTransitionWebformWorkflowTask extends MaestroInteractiveTask implem
    */
   public function performValidityCheck(array &$validation_failure_tasks, array &$validation_information_tasks, array $task) {
   }
+
 }

@@ -42,7 +42,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: email_mailto
     region: content
   localgov_contact_facebook:
     weight: 11

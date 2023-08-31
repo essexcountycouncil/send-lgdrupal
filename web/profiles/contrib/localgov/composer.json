@@ -13,11 +13,11 @@
     "require": {
         "drupal/admin_toolbar": "^3.0",
         "drupal/core": "^9.1",
-        "drupal/devel": "^4.1",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_login": "^1.0@RC",
         "drupal/gin_toolbar": "^1.0@beta",
-        "drupal/simple_sitemap": "^3.7",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/preview_link": "^1.7",
         "drupal/search_api": "^1.21",
         "drush/drush": ">=10",
         "localgovdrupal/localgov_alert_banner": "^1.2.0",
@@ -40,7 +40,8 @@
         "localgovdrupal/localgov_workflows": "^1.0.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^9.1"
+        "drupal/core-dev": "^9.1",
+        "drupal/devel": "^4.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

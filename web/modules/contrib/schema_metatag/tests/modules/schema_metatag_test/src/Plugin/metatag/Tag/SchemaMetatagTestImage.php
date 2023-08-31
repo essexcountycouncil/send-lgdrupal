@@ -2,7 +2,7 @@
 
 namespace Drupal\schema_metatag_test\Plugin\metatag\Tag;
 
-use Drupal\schema_metatag\Plugin\metatag\Tag\SchemaNameBase;
+use Drupal\schema_metatag\Plugin\metatag\Tag\SchemaImageObjectBase;
 
 /**
  * A metatag tag for testing.
@@ -24,6 +24,6 @@ use Drupal\schema_metatag\Plugin\metatag\Tag\SchemaNameBase;
  *   tree_depth = -1,
  * )
  */
-class SchemaMetatagTestImage extends SchemaNameBase {
+class SchemaMetatagTestImage extends SchemaImageObjectBase {
 
 }

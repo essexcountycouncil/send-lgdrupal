@@ -42,7 +42,7 @@ third_party_settings:
     group_common_tasks:
       children:
         - localgov_common_tasks
-      label: 'Task buttons'
+      label: 'Top tasks'
       region: content
       parent_name: group_tabs
       weight: 8

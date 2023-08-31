@@ -124,6 +124,10 @@ topic-list-builder:
     theme:
       css/components/topic-list-builder.css: {}
 
+guides:
+  js:
+    js/guides.js: {}
+
 guide-nav:
   css:
     theme:
@@ -178,6 +182,11 @@ image-with-caption:
   css:
     theme:
       css/components/image-with-caption.css: {}
+
+media-with-text:
+  css:
+    theme:
+      css/components/media-with-text.css: {}
 
 quote:
   css:

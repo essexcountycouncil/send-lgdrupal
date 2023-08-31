@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
+class ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -153,7 +153,6 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'M' => 
         array (
-            'MyCLabs\\Enum\\' => 13,
             'Masterminds\\' => 12,
         ),
         'L' => 
@@ -256,8 +255,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'cweagans\\Composer\\' => 
         array (
@@ -473,8 +472,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -529,10 +528,6 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'MyCLabs\\Enum\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
-        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
@@ -575,8 +570,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message/src',
-            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
+            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+            1 => __DIR__ . '/..' . '/php-http/message/src',
         ),
         'Http\\Discovery\\' => 
         array (
@@ -716,10 +711,10 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
         'DeepCopy\\' => 
         array (
@@ -795,8 +790,8 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         ),
         'Behat\\Mink\\Driver\\' => 
         array (
-            0 => __DIR__ . '/..' . '/behat/mink-selenium2-driver/src',
-            1 => __DIR__ . '/..' . '/friends-of-behat/mink-browserkit-driver/src',
+            0 => __DIR__ . '/..' . '/friends-of-behat/mink-browserkit-driver/src',
+            1 => __DIR__ . '/..' . '/behat/mink-selenium2-driver/src',
         ),
         'Behat\\Mink\\' => 
         array (
@@ -1578,7 +1573,7 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'Stringable' => __DIR__ . '/..' . '/myclabs/php-enum/stubs/Stringable.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
@@ -1595,11 +1590,11 @@ class ComposerStaticInit0debe0de544d4682bd07600a0b645e56
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0debe0de544d4682bd07600a0b645e56::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0debe0de544d4682bd07600a0b645e56::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit0debe0de544d4682bd07600a0b645e56::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit0debe0de544d4682bd07600a0b645e56::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit0debe0de544d4682bd07600a0b645e56::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit61f142b506b0c6012c97b38903ea7a8f::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -33,7 +33,7 @@ class SocialSharingTwitter extends GlobalVariable {
    */
   public function getValue() {
     return Url::fromUri(
-      'https://twitter.com/share',
+      'https://twitter.com/intent/tweet',
       [
         'absolute' => TRUE,
         'https' => TRUE,

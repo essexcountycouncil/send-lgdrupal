@@ -2,8 +2,12 @@
 
 namespace Drupal\mgv\Plugin\GlobalVariable;
 
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\mgv\Plugin\GlobalVariable;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class SocialSharingEmail.
@@ -22,12 +26,44 @@ use Drupal\mgv\Plugin\GlobalVariable;
  *   variableDependencies={
  *     "current_page_title",
  *     "site_name",
- *     "base_url",
- *     "current_path",
  *   }
  * );
  */
-class SocialSharingEmail extends GlobalVariable {
+class SocialSharingEmail extends GlobalVariable implements ContainerFactoryPluginInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static($configuration, $plugin_id, $plugin_definition,
+      $container->get('current_route_match'),
+      $container->get('request_stack')
+    );
+  }
+
+  /**
+   * Constructs Social Sharing Email plugin.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
+   *   The route match service.
+   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+   *   The request stack instance.
+   */
+  public function __construct(
+    array $configuration,
+          $plugin_id,
+          $plugin_definition,
+    protected RouteMatchInterface $routeMatch,
+    protected RequestStack $requestStack
+  ) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+  }
 
   /**
    * {@inheritdoc}
@@ -42,8 +78,14 @@ class SocialSharingEmail extends GlobalVariable {
             'Check this out from @sitename: :base_url:current_path',
             [
               '@sitename' => $this->getDependency('site_name'),
-              ':base_url' => $this->getDependency('base_url'),
-              ':current_path' => $this->getDependency('current_path'),
+              ':base_url' => '',
+              ':current_path' => Url::fromRoute(
+                $this->routeMatch->getRouteName(),
+                $this->routeMatch->getRawParameters()->all(),
+                [
+                  'query' => $this->requestStack->getCurrentRequest()->query->all(),
+                  'absolute' => TRUE,
+                ])->toString(),
             ]
           ),
         ],

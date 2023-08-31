@@ -127,6 +127,7 @@ class DateRecurModularSierraModalForm extends FormBase {
     $form['basics']['interval'] = [
       '#title' => $this->t('Repeat every'),
       '#type' => 'number',
+      '#required' => TRUE,
       '#default_value' => $parts['INTERVAL'] ?? NULL,
       '#min' => 1,
     ];

@@ -264,7 +264,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
           'users',
           'permissions',
           'group_roles',
-          'group_membership_record',
+          'group_permissions',
         ];
         foreach ($permissions_properties as $property) {
           if (isset($form['access']['access_update']['access_update_' . $property])) {
@@ -309,7 +309,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
         'users',
         'permissions',
         'group_roles',
-        'group_membership_record',
+        'group_permissions',
       ];
       foreach ($permissions_properties as $property) {
         if (isset($form['access']['access_update']['access_update_' . $property])) {
@@ -380,7 +380,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
       ];
     }
     $composite_elements = $this->getInitializedCompositeElement($element);
-    $composite_elements += $composite_elements['workflow_fieldset'];
+    $composite_elements += $composite_elements['workflow_fieldset'] ?? [];
 
     if (in_array($format, $composite_elements)) {
       return $this->formatCompositeHtml($element, $webform_submission, ['composite_key' => $format] + $options);
@@ -476,7 +476,9 @@ class WebformWorkflowsElement extends WebformCompositeBase {
     foreach ($workflows as $workflow) {
       $workflowsManager = Drupal::service('webform_workflows_element.manager');
       $workflowType = $workflowsManager->getWorkflowType($workflow->id());
-      $options = array_merge($options, $workflowType->getTransitions());
+      if ($workflowType) {
+        $options = array_merge($options, $workflowType->getTransitions());
+      }
     }
     return $options;
   }
@@ -491,7 +493,9 @@ class WebformWorkflowsElement extends WebformCompositeBase {
     $workflows = Workflow::loadMultipleByType('webform_workflows_element');
     foreach ($workflows as $workflow) {
       $workflowType = $workflowsManager->getWorkflowType($workflow->id());
-      $options = array_merge($options, $workflowType->getStates());
+      if ($workflowType) {
+        $options = array_merge($options, $workflowType->getStates());
+      }
     }
     return $options;
   }

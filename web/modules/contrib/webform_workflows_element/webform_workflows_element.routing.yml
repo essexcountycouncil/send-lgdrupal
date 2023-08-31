@@ -31,3 +31,11 @@ entity.webform.workflows_summary:
     _title: "Workflows summary"
   requirements:
     _entity_access: "webform.update"
+
+entity.webform.transition:
+  path: "/admin/structure/webform/manage/{webform}/submission/{webform_submission}/workflow/{workflow_element}/{transition}"
+  defaults:
+    _form: '\Drupal\webform_workflows_element\Form\WebformWorkflowTransitionConfirmForm'
+    _title: "Perform workflow transition"
+  requirements:
+    _custom_access: '\Drupal\webform_workflows_element\Form\WebformWorkflowTransitionConfirmForm::checkAccess'

@@ -2,9 +2,9 @@
 
 namespace Drupal\localgov_services_page\Plugin\Block;
 
-use Drupal\taxonomy\TermInterface;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\localgov_services\Plugin\Block\ServicesBlockBase;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Provides a 'Services Related Topics Block' block.

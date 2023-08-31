@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\localgov_menu_link_group\Kernel;
 
-use Drupal\KernelTests\KernelTestBase;
 use Drupal\Component\Utility\Html;
+use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 
 /**

@@ -2,7 +2,7 @@ type: module
 name: LocalGov Drupal Paragraphs Views
 description: Paragraphs referencing views
 package: LocalGov Drupal
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - viewsreference:viewsreference
   - localgov_paragraphs:localgov_subsites_paragraphs

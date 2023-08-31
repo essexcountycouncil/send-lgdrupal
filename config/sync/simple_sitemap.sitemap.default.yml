@@ -1,0 +1,11 @@
+uuid: 51a929ba-0c64-4a47-8c4f-2d6f2c2e8fee
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.default
+id: default
+label: Default
+description: ''
+type: default
+weight: 0

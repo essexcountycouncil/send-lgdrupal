@@ -13,4 +13,5 @@ dependencies:
   - geofield_map:geofield_map
   - leaflet:leaflet
   - token:token
+  - localgov_geo:localgov_geo_update
 configure: entity.localgov_geo_type.collection

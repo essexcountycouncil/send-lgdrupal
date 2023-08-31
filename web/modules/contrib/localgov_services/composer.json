@@ -11,9 +11,9 @@
         "drupal/field_group": "~3.0",
         "drupal/link_attributes": "^1.2",
         "drupal/pathauto": "~1.0",
-        "localgovdrupal/localgov_core": "^2.1",
-        "localgovdrupal/localgov_paragraphs": "^2.0",
-        "localgovdrupal/localgov_topics": "^1.0",
-        "localgovdrupal/localgov_page_components": "^1.0"
+        "localgovdrupal/localgov_core": "^2.12",
+        "localgovdrupal/localgov_page_components": "^1.1",
+        "localgovdrupal/localgov_paragraphs": "^2.3",
+        "localgovdrupal/localgov_topics": "^1.0"
     }
 }

@@ -7,8 +7,3 @@ dependencies:
   - webform:webform
   - workflows
   - token:token
-
-# Information added by Drupal.org packaging script on 2022-07-07
-version: '1.0.0-alpha3'
-project: 'webform_workflows_element'
-datestamp: 1657169710

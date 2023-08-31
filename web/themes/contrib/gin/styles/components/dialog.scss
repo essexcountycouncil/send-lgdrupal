@@ -110,7 +110,7 @@
     left: auto;
     right: 0;
     opacity: .8;
-    margin: 0 var(--gin-spacing-l);
+    margin: 0 var(--gin-spacing-m);
     transform: translateY(-50%);
     background: none;
     border: none;
@@ -220,4 +220,9 @@ table.treetable {
   tr.branch {
     background-color: transparent;
   }
+}
+
+.ui-dialog .gin-layer-wrapper {
+  margin-bottom: var(--gin-spacing-l);
+  margin-top: var(--gin-spacing-l);
 }

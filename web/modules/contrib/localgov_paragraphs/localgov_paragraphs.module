@@ -4,3 +4,28 @@
  * @file
  * LocalGovDrupal Paragraphs module file.
  */
+
+use Drupal\localgov_roles\RolesHelper;
+
+/**
+ * Implements hook_localgov_role_default().
+ */
+function localgov_paragraphs_localgov_roles_default() {
+  return [
+    RolesHelper::AUTHOR_ROLE => [
+      'create paragraph library item',
+      'edit paragraph library item',
+      'view unpublished paragraphs',
+    ],
+    RolesHelper::CONTRIBUTOR_ROLE => [
+      'create paragraph library item',
+      'edit paragraph library item',
+      'view unpublished paragraphs',
+    ],
+    RolesHelper::EDITOR_ROLE => [
+      'create paragraph library item',
+      'edit paragraph library item',
+      'view unpublished paragraphs',
+    ],
+  ];
+}

@@ -29,13 +29,16 @@ function webform_workflows_element_queries_get_submission_with_state(Webform $we
 /**
  * @param $submissions
  * @param $workflowElementId
- * @param $stateId
+ * @param array|int $stateIds
  * @param $uid
  *
  * @return array
  */
-function webform_workflows_element_queries_filter_by_state($submissions, $workflowElementId, $stateId, $uid = NULL): array {
+function webform_workflows_element_queries_filter_by_state($submissions, $workflowElementId, $stateIds, $uid = NULL): array {
   $returnSubmissions = [];
+  if (!is_array($stateIds)) {
+    $stateIds = [$stateIds];
+  }
   foreach ($submissions as $submission) {
     $workflowValues = $submission->getElementOriginalData($workflowElementId);
 
@@ -48,7 +51,7 @@ function webform_workflows_element_queries_filter_by_state($submissions, $workfl
     }
 
     $state = $workflowValues['workflow_state'];
-    if ($state == $stateId) {
+    if (in_array($state, $stateIds)) {
       $returnSubmissions[] = $submission;
     }
   }

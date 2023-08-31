@@ -33,7 +33,7 @@ class SitewideSearchBase extends BrowserTestBase {
    *
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stable';
+  protected $defaultTheme = 'stark';
 
   /**
    * Modules to enable.

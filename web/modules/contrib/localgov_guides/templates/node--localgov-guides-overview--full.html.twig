@@ -2,6 +2,9 @@
 /**
  * @file
  * Default node template for localgov_guides_overview pages.
+ *
+ * Apart from the usual node template variables, also starring:
+ * - guide_overview_title: Guide section title.
  */
 #}
 {%
@@ -17,6 +20,7 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  <h2>{{ 'Overview'|t }}</h2>
+  <h2>{{ guide_overview_title }}</h2>
+
   {{ content }}
 </article>

@@ -10,7 +10,7 @@ use Drupal\Core\Plugin\Factory\ContainerFactory;
 use Drupal\mgv\Plugin\GlobalVariableInterface;
 
 /**
- * Class MgvPluginManager.
+ * A custom plugin manager class for MGV plugins.
  *
  * @package Drupal\mgv\Annotation
  *

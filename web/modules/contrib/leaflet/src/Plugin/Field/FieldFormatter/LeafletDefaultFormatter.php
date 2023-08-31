@@ -260,7 +260,11 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
 
     $summary = [];
     $summary[] = $this->t('Leaflet Map: @map', ['@map' => $settings['leaflet_map']]);
-    $summary[] = $this->t('Map height: @height @height_unit', ['@height' => $settings['height'], '@height_unit' => $settings['height_unit']]);
+    $summary[] = $this->t('Map height: @height @height_unit', [
+      '@height' => $settings['height'],
+      '@height_unit' => $settings['height_unit'],
+    ],
+    );
     $summary[] = $this->t('Popup Infowindow: @popup', ['@popup' => $popup_control ? $this->t('Yes') : $this->t('No')]);
     if ($popup_control && $popup_content) {
       $summary[] = $this->t('Popup content: @popup_content', ['@popup_content' => $popup_content]);
@@ -275,10 +279,10 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
 
-    /* @var \Drupal\Core\Entity\EntityInterface $entity */
+    /** @var \Drupal\Core\Entity\EntityInterface $entity */
     $entity = $items->getEntity();
     // Take the entity translation, if existing.
-    /* @var \Drupal\Core\TypedData\TranslatableInterface $entity */
+    /** @var \Drupal\Core\TypedData\TranslatableInterface $entity */
     if ($entity->hasTranslation($langcode)) {
       $entity = $entity->getTranslation($langcode);
     }
@@ -286,7 +290,7 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
     $entity_type = $entity->getEntityTypeId();
     $bundle = $entity->bundle();
     $entity_id = $entity->id();
-    /* @var \Drupal\Core\Field\FieldDefinitionInterface $field */
+    /** @var \Drupal\Core\Field\FieldDefinitionInterface $field */
     $field = $items->getFieldDefinition();
 
     // Sets/consider possibly existing previous Zoom settings.
@@ -356,7 +360,7 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
         $settings['icon'] = array_replace($map['icon'], $settings['icon']);
       }
 
-      $icon_type = isset($settings['icon']['iconType']) ? $settings['icon']['iconType'] : 'marker';
+      $icon_type = $settings['icon']['iconType'] ?? 'marker';
 
       // Eventually set the custom Marker icon (DivIcon, Icon Url or
       // Circle Marker).
@@ -382,7 +386,7 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
         switch ($icon_type) {
           case 'html':
             $feature['icon']['html'] = $this->token->replace($settings['icon']['html'], $tokens);
-            $feature['icon']['html_class'] = isset($settings['icon']['html_class']) ? $settings['icon']['html_class'] : '';
+            $feature['icon']['html_class'] = $settings['icon']['html_class'] ?? '';
             break;
 
           case 'circle_marker':
@@ -420,7 +424,8 @@ class LeafletDefaultFormatter extends FormatterBase implements ContainerFactoryP
       }
 
       // Associate dynamic className property (token based) to icon.
-      $feature['className'] = !empty($settings['className']) ? str_replace(["\n", "\r"], "", $this->token->replace($settings['className'], $tokens)) : '';
+      $feature['className'] = !empty($settings['className']) ?
+        str_replace(["\n", "\r"], "", $this->token->replace($settings['className'], $tokens)) : '';
 
       // Add Feature additional Properties (if present).
       if (!empty($settings['feature_properties']['values'])) {

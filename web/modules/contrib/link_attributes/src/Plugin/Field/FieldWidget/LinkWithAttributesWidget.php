@@ -91,7 +91,13 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
     $item = $items[$delta];
 
     $options = $item->get('options')->getValue();
-    $attributes = isset($options['attributes']) ? $options['attributes'] : [];
+    $attributes = $options['attributes'] ?? [];
+
+    // Condition to check if there are any enabled attributes, if not, an
+    // empty element is returned:
+    if (empty(array_filter($this->getSetting('enabled_attributes')))) {
+      return $element;
+    }
     $element['options']['attributes'] = [
       '#type' => 'details',
       '#title' => $this->t('Attributes'),
@@ -111,7 +117,7 @@ class LinkWithAttributesWidget extends LinkWidget implements ContainerFactoryPlu
 
         // Set the default value, in case of a class that is stored as array,
         // convert it back to a string.
-        $default_value = isset($attributes[$attribute]) ? $attributes[$attribute] : NULL;
+        $default_value = $attributes[$attribute] ?? NULL;
         if ($attribute === 'class' && is_array($default_value)) {
           $default_value = implode(' ', $default_value);
         }

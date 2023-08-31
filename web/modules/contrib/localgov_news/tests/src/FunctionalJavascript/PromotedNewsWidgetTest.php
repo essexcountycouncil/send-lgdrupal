@@ -22,14 +22,14 @@ class PromotedNewsWidgetTest extends WebDriverTestBase {
   /**
    * Newsrooms.
    *
-   * @var Drupal\node\NodeInterface[]
+   * @var \Drupal\node\NodeInterface[]
    */
   protected $newsrooms;
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'field_ui',
     'localgov_core',
     'localgov_media',
@@ -45,7 +45,7 @@ class PromotedNewsWidgetTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Create a Content type and two test nodes.

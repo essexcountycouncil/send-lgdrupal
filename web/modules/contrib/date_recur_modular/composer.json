@@ -11,8 +11,8 @@
     "source": "http://cgit.drupalcode.org/date_recur_modular"
   },
   "require": {
-    "php": ">=7.3",
-    "drupal/core": "^9",
-    "drupal/date_recur": "^3"
+    "php": ">=8.0",
+    "drupal/core": ">=9.5",
+    "drupal/date_recur": "^3.2"
   }
 }

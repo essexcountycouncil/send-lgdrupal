@@ -225,6 +225,25 @@ class PropertyTypeBase extends PluginBase implements PropertyTypeInterface, Sche
             $form['pivot']['#states'] = $this->getVisibility($input_values);
           }
         }
+        // Add pivot field to sub properties.
+        if (isset($form[$sub_property_name]['@type']) && isset($form['pivot'])) {
+          $value_sub_property = $input_values['value'][$sub_property_name]['pivot'] ?? 0;
+          $pivot_form = $this->pivotForm($value_sub_property);
+          $pivot_form['#states'] = $this->getVisibility($sub_input_values);
+          // Move the pivot right after @type field.
+          $index = array_search('@type', array_keys($form[$sub_property_name]), TRUE);
+          if ($index === FALSE) {
+            $form[$sub_property_name]['pivot'] = $pivot_form;
+          }
+          else {
+            $count = $index + 1;
+            $form[$sub_property_name] = array_merge(
+              array_slice($form[$sub_property_name], 0, $count),
+              ['pivot' => $pivot_form],
+              array_slice($form[$sub_property_name], $count)
+            );
+          }
+        }
 
       }
     }

@@ -1,6 +1,7 @@
 administer matomo:
   title: 'Administer Matomo'
   description: 'Perform maintenance tasks for Matomo.'
+  restrict access: true
 opt-in or out of matomo tracking:
   title: 'Opt-in or out of tracking'
   description: 'Allow users to decide if tracking code will be added to pages or not.'

@@ -3,9 +3,9 @@
 namespace Drupal\mgv\Plugin\GlobalVariable;
 
 use Drupal\Core\Controller\TitleResolverInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class CurrentPageTitle.

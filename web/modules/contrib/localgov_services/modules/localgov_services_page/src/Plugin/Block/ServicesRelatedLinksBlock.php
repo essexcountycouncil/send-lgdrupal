@@ -4,9 +4,9 @@ namespace Drupal\localgov_services_page\Plugin\Block;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Url;
+use Drupal\localgov_services\Plugin\Block\ServicesBlockBase;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\TermInterface;
-use Drupal\localgov_services\Plugin\Block\ServicesBlockBase;
 
 /**
  * Provides a 'Services Related Links Block' block.

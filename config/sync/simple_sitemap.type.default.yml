@@ -1,0 +1,14 @@
+uuid: 734e4cee-8a11-4a81-a7d1-e50f8dfed032
+langcode: en
+status: true
+dependencies: {  }
+id: default
+label: Default
+description: ''
+sitemap_generator: default
+url_generators:
+  entity_menu_link_content: entity_menu_link_content
+  entity: entity
+  index: index
+  arbitrary: arbitrary
+  custom: custom

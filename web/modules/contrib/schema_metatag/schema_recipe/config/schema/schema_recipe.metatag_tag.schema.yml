@@ -13,6 +13,9 @@ metatag.metatag_tag.schema_recipe_date_published:
 metatag.metatag_tag.schema_recipe_description:
   type: text
   label: 'description'
+metatag.metatag_tag.schema_recipe_id:
+  type: text
+  label: '@id'
 metatag.metatag_tag.schema_recipe_image:
   type: text
   label: 'image'

@@ -13,12 +13,12 @@ class StepByStepSummariesTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'localgov_base';
+  protected $profile = 'testing';
 
   /**
    * {@inheritdoc}
    */
-  protected $profile = 'localgov';
+  protected $defaultTheme = 'localgov_base';
 
   /**
    * Modules to enable.
@@ -54,6 +54,8 @@ class StepByStepSummariesTest extends WebDriverTestBase {
         'localgov_step_parent' => ['target_id' => $overview->id()],
       ]);
     }
+
+    $this->drupalPlaceBlock('step_part_of_block', ['region' => 'sidebar_second']);
 
     // Load overview page.
     $this->drupalGet('/node/1');

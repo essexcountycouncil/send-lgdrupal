@@ -97,7 +97,7 @@ interface PropertyTypeInterface extends PluginInspectionInterface {
   /**
    * Create an option list for a given tree section.
    *
-   * Used to create a psuedo "nested" option list used for the @type selector.
+   * Used to create a pseudo "nested" option list used for the @type selector.
    *
    * @param mixed $parent
    *   Null or Array of the top level Schema.org object(s) used by this

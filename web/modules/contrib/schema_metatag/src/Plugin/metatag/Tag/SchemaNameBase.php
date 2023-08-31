@@ -145,7 +145,7 @@ class SchemaNameBase extends MetaNameBase implements ContainerFactoryPluginInter
 
       // If the item is an array of values,
       // walk the array and process the values.
-      array_walk_recursive($value, 'static::processItem');
+      array_walk_recursive($value, [$this, 'processItem']);
 
       // Recursively pivot each branch of the array.
       $value = $this->pivotItem($value);
@@ -255,6 +255,7 @@ class SchemaNameBase extends MetaNameBase implements ContainerFactoryPluginInter
    */
   protected function neverExplode() {
     return [
+      'name',      
       'streetAddress',
       'reviewBody',
       'recipeInstructions',
@@ -285,7 +286,7 @@ class SchemaNameBase extends MetaNameBase implements ContainerFactoryPluginInter
       $value = $this->schemaMetatagManager()->explode($value);
       // Clean out any empty values that might have been added by explode().
       if (is_array($value)) {
-        $value = array_filter($value);
+        $value = array_values(array_filter($value));
       }
     }
   }

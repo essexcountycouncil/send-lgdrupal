@@ -8,8 +8,8 @@
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
-use Drupal\image\ImageStyleInterface;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\image\ImageStyleInterface;
 
 /**
  * Implements hook_theme().

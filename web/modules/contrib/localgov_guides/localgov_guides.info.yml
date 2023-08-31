@@ -2,7 +2,7 @@ name: LocalGov Guides
 description: Guides with overview, pages, and navigation.
 type: module
 package: LocalGov Drupal
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 
 dependencies:
   - localgov_core:localgov_core

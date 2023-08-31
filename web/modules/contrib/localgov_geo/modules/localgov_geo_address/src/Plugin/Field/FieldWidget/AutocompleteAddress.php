@@ -2,8 +2,8 @@
 
 namespace Drupal\localgov_geo_address\Plugin\Field\FieldWidget;
 
-use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\address\Plugin\Field\FieldWidget\AddressDefaultWidget;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;

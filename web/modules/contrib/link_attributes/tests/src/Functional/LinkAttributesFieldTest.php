@@ -173,6 +173,10 @@ class LinkAttributesFieldTest extends BrowserTestBase {
     $web_assert = $this->assertSession();
     // Link attributes.
     $web_assert->elementExists('css', '.field--widget-link-attributes');
+
+    // The "Attributes" details form should not be present, since no attributes
+    // are enabled:
+    $web_assert->elementNotExists('css', 'edit-field-' . $field_name . '-0-options-attributes');
     // Create a node.
     $edit = [
       'title[0][value]' => 'A multi field link test',

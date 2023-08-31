@@ -16,11 +16,9 @@ class NewsPageTest extends BrowserTestBase {
   use NodeCreationTrait;
 
   /**
-   * Test breadcrumbs in the Standard profile.
-   *
-   * @var string
+   * {@inheritdoc}
    */
-  protected $profile = 'localgov';
+  protected $profile = 'testing';
 
   /**
    * {@inheritdoc}
@@ -39,7 +37,7 @@ class NewsPageTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'localgov_core',
     'localgov_media',
     'localgov_topics',
@@ -51,7 +49,7 @@ class NewsPageTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->adminUser = $this->drupalCreateUser([
@@ -94,6 +92,7 @@ class NewsPageTest extends BrowserTestBase {
     $this->drupalLogin($this->adminUser);
 
     // If there are no newsrooms a warning message is displayed.
+    $this->drupalPlaceBlock('system_messages_block', ['region' => 'messages']);
     $this->drupalGet('/node/add/localgov_news_article');
     $this->assertSession()->pageTextContains('Warning message');
     $this->assertSession()->pageTextContains('There are no Newsrooms.');

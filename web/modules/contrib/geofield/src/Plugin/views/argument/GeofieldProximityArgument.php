@@ -206,7 +206,7 @@ class GeofieldProximityArgument extends Formula implements ContainerFactoryPlugi
    */
   public function getParsedReferenceLocation() {
     // Process argument values into an array.
-    preg_match('/^([0-9\-.]+),+([0-9\-.]+)([<>=]+)([0-9.]+)(.*$)/', trim($this->getValue()), $values);
+    preg_match('/^([0-9\-.]+),+([0-9\-.]+)([<>=]+)([0-9.]+)(.*$)/', trim((string) $this->getValue()), $values);
     // Validate and return the passed argument.
     return is_array($values) && !empty($values) ? [
       'lat' => (isset($values[1]) && is_numeric($values[1]) && $values[1] >= -90 && $values[1] <= 90) ? floatval($values[1]) : FALSE,

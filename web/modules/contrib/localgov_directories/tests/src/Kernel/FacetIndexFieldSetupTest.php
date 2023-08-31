@@ -6,9 +6,9 @@ namespace Drupal\Tests\localgov_directories\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\NodeType;
+use Drupal\search_api\Entity\Index as SearchIndex;
 use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
-use Drupal\search_api\Entity\Index as SearchIndex;
 
 /**
  * Tests that indexing has been setup on the Facet selection field.

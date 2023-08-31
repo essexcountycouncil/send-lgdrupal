@@ -9,7 +9,6 @@ install:
   - drupal:breakpoint
   - drupal:block
   - drupal:block_content
-  - drupal:ckeditor
   - drupal:config
   - drupal:contextual
   - drupal:datetime
@@ -27,7 +26,6 @@ install:
   - drupal:options
   - drupal:page_cache
   - drupal:path
-  - drupal:quickedit
   - drupal:taxonomy
   - drupal:toolbar
   - drupal:views
@@ -38,8 +36,10 @@ install:
   - entity_browser:entity_browser
   - gin_login:gin_login
   - gin_toolbar:gin_toolbar
+  - preview_link:preview_link
   - simple_sitemap:simple_sitemap
   # LocalGov Drupal
+  - localgov:localgov_login_redirect
   - localgov_core:localgov_core
   - localgov_core:localgov_media
   - localgov_core:localgov_roles

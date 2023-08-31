@@ -5,7 +5,7 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:link
 
-# Information added by Drupal.org packaging script on 2023-02-21
-version: '8.x-1.13'
+# Information added by Drupal.org packaging script on 2023-06-22
+version: '8.x-1.14'
 project: 'link_attributes'
-datestamp: 1677018563
+datestamp: 1687393689

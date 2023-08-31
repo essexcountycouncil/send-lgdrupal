@@ -17,6 +17,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Stage file proxy subscriber for controller requests.
+ *
+ * @deprecated in 2.1, will be removed in 3.0.
  */
 class ProxySubscriber implements EventSubscriberInterface {
 
@@ -141,20 +143,22 @@ class ProxySubscriber implements EventSubscriberInterface {
     // Note if the origin server files location is different. This
     // must be the exact path for the remote site's public file
     // system path, and defaults to the local public file system path.
-    $remote_file_dir = trim($config->get('origin_dir'));
-    if (!$remote_file_dir) {
+    $origin_dir = $config->get('origin_dir') ?? '';
+    $remote_file_dir = trim($origin_dir);
+    if (!empty($remote_file_dir)) {
       $remote_file_dir = $file_dir;
     }
 
     $request_path = rawurldecode($request_path);
     // Path relative to file directory. Used for hotlinking.
-    $relative_path = mb_substr($request_path, mb_strlen($file_dir) + 1);
+    $relative_path = mb_substr($request_path, mb_strlen($file_dir));
     // If file is fetched and use_imagecache_root is set, original is used.
     $paths = [$relative_path];
 
     // Webp support.
     if (str_ends_with($relative_path, '.webp')) {
       $paths[] = str_replace('.webp', '', $relative_path);
+      $paths = array_reverse($paths);
     }
 
     foreach ($paths as $relative_path) {

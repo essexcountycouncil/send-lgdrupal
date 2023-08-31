@@ -2,10 +2,10 @@
  * Javascript for Sierra widget.
  */
 
-(function ($, Drupal, debounce) {
+(function ($, Drupal, debounce, once) {
   Drupal.behaviors.sierraWidgetRecurrences = {
     attach: function attach(context, settings) {
-      var $recurrenceOptionDropdowns = $(context).find('.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-recurrence-option').once('date-recur-modular-sierra-widget-recurrence-option');
+      var $recurrenceOptionDropdowns = $(once('date-recur-modular-sierra-widget-recurrence-option', '.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-recurrence-option', context));
       $recurrenceOptionDropdowns.each(function () {
         $(this).change(function() {
           var value = $(this).val();
@@ -23,7 +23,7 @@
       });
 
       // Click the reload button when the value changes, with debounce.
-      var $startDates = $(context).find('.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-start-date').once('date-recur-modular-sierra-widget-start-date');
+      var $startDates = $(once('date-recur-modular-sierra-widget-start-date', '.date-recur-modular-sierra-widget .date-recur-modular-sierra-widget-start-date', context));
       $startDates.each(function () {
         $(this).on('change', debounce(function () {
           $(this).closest('.date-recur-modular-sierra-widget').find('.date-recur-modular-sierra-widget-reload-recurrence-options').click();
@@ -48,4 +48,4 @@
       });
     }
   };
-})(jQuery, Drupal, Drupal.debounce);
+})(jQuery, Drupal, Drupal.debounce, once);

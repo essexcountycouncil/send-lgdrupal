@@ -97,8 +97,16 @@ function webform_workflows_element_tokens(
           $element = $webform_submission->getWebform()
             ->getElementDecoded($element_id);
           $workflowType = $workflowsManager->getWorkflowTypeFromElement($element);
-          $transition = $workflowType->getTransition($transition_id);
-          $label = $transition->label();
+
+          // It's unclear why $workflowType wouldn't be set here,
+          // but we fail gracefully by showing the transition ID
+          if ($workflowType) {
+            $transition = $workflowType->getTransition($transition_id);
+            $label = $transition->label();
+          }
+          else {
+            $label = $transition_id;
+          }
 
           // Get URL:
           $url = _webform_workflows_element_token_get_url_to_transition($name, $options, $webform_submission);

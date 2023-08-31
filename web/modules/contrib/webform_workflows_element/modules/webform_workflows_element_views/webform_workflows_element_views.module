@@ -3,7 +3,7 @@
 /**
  * Implements hook_views_data().
  */
-function webform_workflows_element_views_views_data() {
+function webform_workflows_element_views_views_data(): array {
   $data = [];
 
   // Filters

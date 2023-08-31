@@ -3,8 +3,8 @@
 namespace Drupal\localgov_directories\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Field\Plugin\Field\FieldWidget\OptionsWidgetBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Plugin to display directory channels.
