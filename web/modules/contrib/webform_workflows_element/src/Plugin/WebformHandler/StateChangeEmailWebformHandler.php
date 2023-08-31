@@ -2,9 +2,11 @@
 
 namespace Drupal\webform_workflows_element\Plugin\WebformHandler;
 
+use Drupal;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Plugin\WebformHandler\EmailWebformHandler;
 use Drupal\webform\WebformSubmissionInterface;
+use Drupal\webform_workflows_element\Plugin\WorkflowType\WebformWorkflowsElement;
 
 /**
  * Webform submission action handler.
@@ -13,10 +15,13 @@ use Drupal\webform\WebformSubmissionInterface;
  *   id = "workflows_transition_email",
  *   label = @Translation("E-mail on workflow state change"),
  *   category = @Translation("Notification"),
- *   description = @Translation("Sends an email when a submission status changes."),
- *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
- *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
- *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
+ *   description = @Translation("Sends an email when a submission status
+ *   changes."), cardinality =
+ *   \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
+ *   results =
+ *   \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
+ *   submission =
+ *   \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
  *   tokens = TRUE,
  * )
  */
@@ -39,9 +44,8 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildConfigurationForm($form, $form_state);
-    // dd($form);
 
-    $workflowsManager = \Drupal::service('webform_workflows_element.manager');
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
     $options = [];
 
     // Load all available transitions on the form per workflow element
@@ -61,7 +65,7 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
 
     $form['states_container'] = [
       '#type' => 'details',
-      '#open' => true,
+      '#open' => TRUE,
       '#title' => t('Triggers to send handler'),
       'states' => $form['additional']['states'],
       '#weight' => -10,
@@ -84,7 +88,7 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
       return FALSE;
     }
 
-    $workflowsManager = \Drupal::service('webform_workflows_element.manager');
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
     $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($this->webform);
 
     foreach ($workflow_elements as $element_id => $element) {
@@ -92,7 +96,7 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
 
       // Send e-mail if running a transition:
       if (isset($data['transition']) && $data['transition'] != '' && in_array($element_id . ':' . $data['transition'], $this->configuration['states'])) {
-        $originalState = $data['workflow_state_previous'];
+        $originalState = $data['workflow_state_previous'] ?? '';
         $changedState = $data['workflow_state'];
         if ($originalState != $changedState) {
           $message = $this->getMessage($webform_submission);
@@ -102,7 +106,8 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
     }
 
     if (isset($data['transition'])) {
-      \Drupal::logger('webform_workflows_element')->debug('Sending e-mail for workflow transition ' . $data['transition']);
+      Drupal::logger('webform_workflows_element')
+        ->debug('Sending e-mail for workflow transition ' . $data['transition']);
     }
   }
 
@@ -134,11 +139,15 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
 
     $states = $this->getEmailConfiguration()['states'];
 
-    $workflowsManager = \Drupal::service('webform_workflows_element.manager');
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
     $workflow_elements = $workflowsManager->getWorkflowElementsForWebform($this->webform);
     foreach ($workflow_elements as $element_id => $element) {
-      /** @var \Drupal\webform_workflows_element\Plugin\WorkflowType\WebformWorkflowsElement $workflowType */
+      /** @var WebformWorkflowsElement $workflowType */
       $workflowType = $workflowsManager->getWorkflowType($element['#workflow']);
+      if (!$workflowType) {
+        continue;
+      }
+      
       foreach ($states as $state) {
         $exploded = explode(':', $state);
         if ($exploded[0] != $element_id) {
@@ -156,4 +165,5 @@ class StateChangeEmailWebformHandler extends EmailWebformHandler {
     $summary['#settings'] = $settings;
     return $summary;
   }
+
 }

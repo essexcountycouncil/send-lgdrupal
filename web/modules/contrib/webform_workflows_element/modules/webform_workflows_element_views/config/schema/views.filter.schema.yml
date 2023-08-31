@@ -8,3 +8,9 @@ views.filter.webform_workflows_element_state:
     workflow_element_id:
       type: string
       label: 'Workflow element ID'
+    value:
+      type: sequence
+      label: 'Workflow states'
+      sequence:
+        type: string
+        label: 'State'

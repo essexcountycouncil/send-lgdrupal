@@ -3,7 +3,7 @@
         'name' => 'localgovdrupal/localgov-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c7198b48de8f3fcfd4a69a99078bc75c6ee123d9',
+        'reference' => 'ef2c548ee88e39a77e7acca1122aa5bd1678f227',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1411,12 +1411,14 @@
             'dev_requirement' => false,
         ),
         'drupal/webform_workflows_element' => array(
-            'pretty_version' => '1.0.0-alpha3',
-            'version' => '1.0.0.0-alpha3',
-            'reference' => '1.0.0-alpha3',
+            'pretty_version' => 'dev-1.0.x',
+            'version' => 'dev-1.0.x',
+            'reference' => '6a33e374',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/webform_workflows_element',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '1.0.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'drush/drush' => array(
@@ -1641,7 +1643,7 @@
         'localgovdrupal/localgov-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c7198b48de8f3fcfd4a69a99078bc75c6ee123d9',
+            'reference' => 'ef2c548ee88e39a77e7acca1122aa5bd1678f227',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

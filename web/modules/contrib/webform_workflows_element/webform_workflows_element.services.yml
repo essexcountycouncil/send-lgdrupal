@@ -1,4 +1,8 @@
 services:
   webform_workflows_element.manager:
     class: Drupal\webform_workflows_element\Service\WebformWorkflowsManager
-    arguments: []
+    arguments: [ ]
+  webform_workflows_element.transition_events_subscriber:
+    class: '\Drupal\webform_workflows_element\EventSubscriber\TransitionEventSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

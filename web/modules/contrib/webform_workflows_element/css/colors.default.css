@@ -41,11 +41,25 @@ select.webform_workflows_element_filter_states > option.clear-webform-color {
   stroke: #2b4d7a;
 }
 
+.webform-workflow-color-blue-dark {
+  background-color: #2b4d7a !important;
+  fill: #2b4d7a;
+  color: #fff !important;
+  stroke: #fff;
+}
+
 .webform-workflow-color-yellow {
-  background-color: #f7df92 !important;
-  fill: #f7df92;
+  background-color: #fff68a !important;
+  fill: #fff68a;
   color: #6c530f !important;
   stroke: #6c530f;
+}
+
+.webform-workflow-color-yellow-dark {
+  background-color: #6e6420 !important;
+  fill: #6e6420;
+  color: #fff !important;
+  stroke: #fff;
 }
 
 .webform-workflow-color-orange {
@@ -55,11 +69,25 @@ select.webform_workflows_element_filter_states > option.clear-webform-color {
   stroke: #6a2900;
 }
 
+.webform-workflow-color-orange-dark {
+  background-color: #b85c00 !important;
+  fill: #b85c00;
+  color: #fff !important;
+  stroke: #fff;
+}
+
 .webform-workflow-color-red {
   background-color: #f4b8bf !important;
   fill: #f4b8bf;
   color: #5e2128 !important;
   stroke: #5e2128;
+}
+
+.webform-workflow-color-red-dark {
+  background-color: #ad1a2b !important;
+  fill: #ad1a2b;
+  color: #fff !important;
+  stroke: #fff;
 }
 
 .webform-workflow-color-green {
@@ -69,11 +97,39 @@ select.webform_workflows_element_filter_states > option.clear-webform-color {
   stroke: #324e2b;
 }
 
+.webform-workflow-color-green-dark {
+  background-color: #324e2b !important;
+  fill: #324e2b;
+  color: #c2f7bc !important;
+  stroke: #c2f7bc;
+}
+
 .webform-workflow-color-purple {
-  background-color: #c4a9dc !important;
-  fill: #c4a9dc;
+  background-color: #e9dff2 !important;
+  fill: #e9dff2;
   color: #573d7d !important;
   stroke: #573d7d;
+}
+
+.webform-workflow-color-purple-dark {
+  background-color: #573d7d !important;
+  fill: #573d7d;
+  color: #e7cffc !important;
+  stroke: #e7cffc;
+}
+
+.webform-workflow-color-aqua {
+  background-color: #00e5ff !important;
+  fill: #00e5ff;
+  color: #000 !important;
+  stroke: #000;
+}
+
+.webform-workflow-color-aqua-dark {
+  background-color: #00606b !important;
+  fill: #00606b;
+  color: #fff !important;
+  stroke: #fff;
 }
 
 .webform-workflow-color-grey {
@@ -83,11 +139,11 @@ select.webform_workflows_element_filter_states > option.clear-webform-color {
   stroke: #1e2027;
 }
 
-.webform-workflow-color-aqua {
-  background-color: #0ff !important;
-  fill: #0ff;
-  color: #004e4e !important;
-  stroke: #004e4e;
+.webform-workflow-color-grey-dark {
+  background-color: #71737a !important;
+  fill: #71737a;
+  color: #fff !important;
+  stroke: #fff;
 }
 
 .webform-workflow-color-black {
@@ -103,4 +159,3 @@ select.webform_workflows_element_filter_states > option.clear-webform-color {
   color: #000 !important;
   stroke: #000;
 }
-

@@ -1,5 +1,5 @@
 ui:
-  color_options: "Blue|webform-workflow-color-blue\r\nGrey|webform-workflow-color-grey\r\nGreen|webform-workflow-color-green\r\nRed|webform-workflow-color-red\r\nOrange|webform-workflow-color-orange\r\nYellow|webform-workflow-color-yellow\r\nPurple|webform-workflow-color-purple\r\nBlack|webform-workflow-color-black\r\nWhite|webform-workflow-color-white"
+  color_options: "Blue|webform-workflow-color-blue\r\nDark blue|webform-workflow-color-blue-dark\r\nGrey|webform-workflow-color-grey\r\nDark grey|webform-workflow-color-grey-dark\r\nGreen|webform-workflow-color-green\r\nDark green|webform-workflow-color-green-dark\r\nRed|webform-workflow-color-red\r\nDark red|webform-workflow-color-red-dark\r\nOrange|webform-workflow-color-orange\r\nDark orange|webform-workflow-color-orange-dark\r\nYellow|webform-workflow-color-yellow\r\nDark yellow|webform-workflow-color-yellow-dark\r\nPurple|webform-workflow-color-purple\r\nDark purple|webform-workflow-color-purple-dark\r\nBlack|webform-workflow-color-black\r\nWhite|webform-workflow-color-white"
 mail:
   default_body_text: |
     The submission has been changed to: [webform_submission:values:workflow:workflow_state_label].

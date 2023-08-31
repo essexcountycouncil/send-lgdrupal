@@ -13,6 +13,7 @@ use Drupal\user\Entity\User;
 use Drupal\webform\WebformInterface;
 use Drupal\workflows\Entity\Workflow;
 use Drupal\workflows\StateInterface;
+use Drupal\workflows\TransitionInterface;
 use Drupal\workflows\WorkflowInterface;
 
 class WorkflowsSummaryController extends ControllerBase implements ContainerInjectionInterface {
@@ -21,7 +22,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
    * Return a set of details containing summaries of the transitions for each
    * webform workflow.
    *
-   * @param \Drupal\webform\WebformInterface|null $webform
+   * @param WebformInterface|null $webform
    *
    * @return array
    *   Render array
@@ -58,7 +59,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
    * Render a summary table for a workflow.
    *
    * @param WorkflowInterface $workflow
-   * @param \Drupal\webform\WebformInterface|null $webform
+   * @param WebformInterface|null $webform
    * @param string|null $element_id
    *
    * @return array
@@ -75,9 +76,12 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
       $element = $webform->getElementDecoded($element_id);
     }
 
+    if (!$element) {
+      return [];
+    }
+
     foreach ($transitions as $transition) {
-      $enabled_key = '#access_transition_' . $transition->id() . '_workflow_enabled';
-      $disabled = $element && isset($element[$enabled_key]) && !$element[$enabled_key];
+      $enabled = webform_workflows_element_check_transition_enabled($element, $transition->id());
 
       $fromStates = $transition->from();
       $fromStateNames = [];
@@ -132,11 +136,11 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
         $row['E-mails'] = Drupal::service('renderer')->render($emails_list);
       }
 
-      if ($disabled) {
-        $rows_disabled[] = $row;
+      if ($enabled) {
+        $rows_enabled[] = $row;
       }
       else {
-        $rows_enabled[] = $row;
+        $rows_disabled[] = $row;
       }
     }
 
@@ -241,7 +245,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
    * @return array
    *   Array keyed by element_access and transition_access.
    */
-  public function getTransitionAccessSummary($transition, $webform, $element_id): array {
+  public function getTransitionAccessSummary(TransitionInterface $transition, WebformInterface $webform, string $element_id): array {
     $element_access = [];
     $transition_access = [];
     $element = $webform->getElementDecoded($element_id);
@@ -252,7 +256,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
       $access_key = '#access_update_';
       if (strstr($key, '#access_update_')) {
         $access_type = str_replace($access_key, '', $key);
-        $element_access = $element_access + $this->getTransitionAccessSummaryConvertToText($access_type, $value);
+        $element_access = array_merge($element_access, $this->getTransitionAccessSummaryConvertToText($access_type, $value));
       }
 
       // Get transition-specific access:
@@ -261,22 +265,23 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
         continue;
       }
 
+      // Get access permission type, e.g. roles, group_roles, etc.
       $access_type = str_replace($access_key, '', $key);
+
       // Sometimes transition is just completely disabled:
       if ($access_type == 'workflow_enabled' && !$value) {
         return [
-          'element_access' => [t('Transition is disabled for this form.')],
+          'element_access' => [t('Transition is disabled for this element.')],
           'transition_access' => [],
         ];
       }
       else {
-        $transition_access = $transition_access + $this->getTransitionAccessSummaryConvertToText($access_type, $value);
+        $transition_access = array_merge($transition_access, $this->getTransitionAccessSummaryConvertToText($access_type, $value));
       }
     }
 
     $element_access = array_unique($element_access);
     $transition_access = array_unique($transition_access);
-    $transition_access = array_diff_key($transition_access, $element_access);
 
     return [
       'element_access' => $element_access,
@@ -350,7 +355,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
    * @return array
    *   Array of markup links.
    */
-  public function getTransitionEmailSummary($transition, $webform, $element_id): array {
+  public function getTransitionEmailSummary(TransitionInterface $transition, WebformInterface $webform, string $element_id): array {
     $emails = [];
     $handlers = $webform->getHandlers('workflows_transition_email');
     foreach ($handlers as $handler) {
@@ -380,7 +385,7 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
   }
 
   /**
-   * @param \Drupal\webform\WebformInterface|NULL $webform
+   * @param WebformInterface|NULL $webform
    *
    * @return array
    */
@@ -426,40 +431,64 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
   /**
    * @param array $element
    * @param string $element_id
-   * @param \Drupal\webform\WebformInterface|NULL $webform
+   * @param WebformInterface|NULL $webform
    *
    * @return array[]
    */
   function renderSummaryForWebformElement(array $element, string $element_id, WebformInterface $webform = NULL): array {
     $workflow = Workflow::load($element['#workflow']);
     $workflowType = $workflow->getTypePlugin();
-    $initialState = $workflowType->getInitialState();
 
-    $render = [
-      'overall_summary' => [
-        '#type' => 'details',
-        '#open' => TRUE,
-        '#title' => t('Overall summary'),
-        'workflow' => [
-          '#prefix' => t('<b>Workflow: </b>'),
-          '#type' => 'link',
-          '#url' => Url::fromRoute('entity.workflow.edit_form', ['workflow' => $workflow->id()]),
-          '#title' => t('@label', [
-            '@label' => $workflow->label(),
-          ]),
-        ],
-        'initial_state' => [
-          '#type' => 'markup',
-          '#prefix' => t('<div><b>Initial state for new submissions: </b>'),
-          '#markup' => '<span class="webform-workflow-state-label with-color ' . webform_workflows_element_get_color_class_for_state_from_element($element, $initialState->id()) . '">' . $initialState->label() . '</span>',
-          '#suffix' => t('</div>'),
-        ],
-        'table' => $this->renderWorkflowSummaryTable($workflow, $webform, $element_id),
-        'table_help' => [
-          '#type' => 'markup',
-          '#markup' => t('<p>"From" indicates what states can start the transition.</p><p>"To" indicates what the state will be after the transition.</p><p>"Access" outlines who can run the transition, e.g. they have to meet at least one of the user roles. If access is split into element and transition access, the user must meet both element access and transition access.</p>'),
-        ],
-      ],
+    $initialState = $workflowType->getInitialState();
+    if (!$initialState) {
+      // If no initial state is set, use the first state by default.
+      // Initial states not being set when saving the workflow
+      // seems to be a bug in the workflows module.
+      $workflowStates = $workflowType->getStates();
+      $initialState = count($workflowStates) > 0 ? reset($workflowStates) : NULL;
+    }
+
+    $render['overall_summary'] = [
+      '#type' => 'details',
+      '#open' => TRUE,
+      '#title' => t('Overall summary'),
+    ];
+
+    $render['overall_summary']['workflow'] = [
+      '#prefix' => t('<b>Workflow: </b>'),
+      '#type' => 'link',
+      '#url' => Url::fromRoute('entity.workflow.edit_form', ['workflow' => $workflow->id()]),
+      '#title' => t('@label', [
+        '@label' => $workflow->label(),
+      ]),
+    ];
+
+    if ($initialState) {
+      $render['overall_summary']['initial_state'] = [
+        '#type' => 'markup',
+        '#prefix' => '<div>',
+        '#markup' => t('<b>Initial state for new submissions: </b>') . '<span class="webform-workflow-state-label with-color ' . webform_workflows_element_get_color_class_for_state_from_element($element, $initialState->id()) . '">' . $initialState->label() . '</span>',
+        '#suffix' => '</div>',
+      ];
+    }
+    else {
+      $render['overall_summary']['initial_state'] = [
+        '#type' => 'markup',
+        '#markup' => t('Cannot identify an initial state for this workflow. Check the workflow configuration.'),
+      ];
+    }
+
+    $render['transitions'] = [
+      '#type' => 'details',
+      '#open' => TRUE,
+      '#title' => t('Transitions'),
+    ];
+
+    $render['transitions']['table'] = $this->renderWorkflowSummaryTable($workflow, $webform, $element_id);
+
+    $render['transitions']['table_help'] = [
+      '#type' => 'markup',
+      '#markup' => t('<p>"From" indicates what states can start the transition.</p><p>"To" indicates what the state will be after the transition.</p><p>"Access" outlines who can run the transition, e.g. they have to meet at least one of the user roles. If access is split into element and transition access, the user must meet both element access and transition access.</p>'),
     ];
 
     if (Drupal::moduleHandler()->moduleExists('workflows_diagram')) {
@@ -488,8 +517,8 @@ class WorkflowsSummaryController extends ControllerBase implements ContainerInje
   }
 
   /**
-   * @param \Drupal\workflows\WorkflowInterface $workflow
-   * @param \Drupal\webform\WebformInterface $webform
+   * @param WorkflowInterface $workflow
+   * @param WebformInterface $webform
    * @param string $element_id
    *
    * @return array

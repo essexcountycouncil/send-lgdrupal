@@ -9908,18 +9908,12 @@
         },
         {
             "name": "drupal/webform_workflows_element",
-            "version": "1.0.0-alpha3",
-            "version_normalized": "1.0.0.0-alpha3",
+            "version": "dev-1.0.x",
+            "version_normalized": "dev-1.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform_workflows_element.git",
-                "reference": "1.0.0-alpha3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform_workflows_element-1.0.0-alpha3.zip",
-                "reference": "1.0.0-alpha3",
-                "shasum": "d05915c196edbae07b122fb1e2c59f0d813ecccc"
+                "reference": "6a33e374"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -9933,16 +9927,19 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
                 "drupal": {
-                    "version": "1.0.0-alpha3",
-                    "datestamp": "1657169706",
+                    "version": "1.0.0-alpha3+33-dev",
+                    "datestamp": "1687467463",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
                 "GPL-2.0-or-later"

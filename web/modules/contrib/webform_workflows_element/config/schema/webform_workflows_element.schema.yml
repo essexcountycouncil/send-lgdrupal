@@ -13,3 +13,19 @@ workflow.type_settings.webform_workflows_element:
       type: sequence
       sequence:
         type: workflows.transition
+action.configuration.webform_workflow_state_change:*:
+  type: mapping
+  label: 'Run workflow transition'
+  mapping:
+    workflow:
+      type: string
+      label: 'The ID of the workflow'
+    transition:
+      type: string
+      label: 'The ID of the transition'
+    element:
+      type: string
+      label: 'The ID of the element'
+    log_public:
+      type: string
+      label: 'Log message'

@@ -3,6 +3,7 @@
 namespace Drupal\webform_workflows_element\Element;
 
 use Drupal;
+use Drupal\Core\Render\Annotation\FormElement;
 use Drupal\user\Entity\User;
 use Drupal\webform\Element\WebformCompositeBase;
 use Drupal\webform\Entity\Webform;
@@ -21,21 +22,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
    * {@inheritdoc}
    */
   public static function getCompositeElements(array $element): array {
-    $workflowsManager = Drupal::service('webform_workflows_element.manager');
     $elements = [];
-
-    // Form just for workflow, or prioritising it:
-    $workflow_form = Drupal::request()->query->get('transition') || Drupal::request()->query->get('workflow_element');
-
-    $state = NULL;
-
-    if (isset($element['#value']['workflow_state']) && $element['#value']['workflow_state'] != '') {
-      $state = $workflowsManager->getStateFromElementAndId($element, $element['#value']['workflow_state']);
-    }
-
-    if (!$state) {
-      $state = $workflowsManager->getInitialStateForElement($element);
-    }
 
     // Set hidden values to manage the states:
     $elements['workflow_state'] = [
@@ -68,6 +55,28 @@ class WebformWorkflowsElement extends WebformCompositeBase {
       '#type' => 'hidden',
     ];
 
+    // If this method is being called for something other than a render, we
+    // only return the subfield definitions. Past this point, we're returning
+    // a renderable array for rendering the element on the page.
+    if (!isset($element['#value'])) {
+      return $elements;
+    }
+
+    $workflowsManager = Drupal::service('webform_workflows_element.manager');
+
+    // Form just for workflow, or prioritising it:
+    $workflow_form = Drupal::request()->query->get('transition') || Drupal::request()->query->get('workflow_element');
+
+    $state = NULL;
+
+    if (isset($element['#value']['workflow_state']) && $element['#value']['workflow_state'] != '') {
+      $state = $workflowsManager->getStateFromElementAndId($element, $element['#value']['workflow_state']);
+    }
+
+    if (!$state) {
+      $state = $workflowsManager->getInitialStateForElement($element);
+    }
+
     $elements['workflow_fieldset'] = [
       '#title' => $element['#title'] ?? t('Workflow'),
       '#type' => 'fieldset',
@@ -86,12 +95,16 @@ class WebformWorkflowsElement extends WebformCompositeBase {
       ];
       $html = Drupal::service('renderer')->render($build)->__toString();
     }
+
     $elements['workflow_fieldset']['workflow_state_markup'] = [
       '#markup' => $state ? $html : t('No current workflow state'),
     ];
 
-    // Allow user to select a transition if there are any available:
-    $availableTransitions = static::getAvailableTransitions($element);
+    // Allow user to select a transition if there are any available.
+    // We can't load the webform submission here, or it seems to get in an infinite recursion.
+    // So we will form_alter later in src/Plugin/WebformElement/WebformWorkflowsElement.php
+    $webform_submission = NULL;
+    $availableTransitions = static::getAvailableTransitions($element, $webform_submission);
 
     // If setting enabled, hide completely
     if (count($availableTransitions) == 0 && isset($element['#hide_if_no_transitions']) && $element['#hide_if_no_transitions']) {
@@ -126,13 +139,19 @@ class WebformWorkflowsElement extends WebformCompositeBase {
           $required = TRUE;
         }
 
+        $default_value = '';
+        if (count($options) == 1) {
+          $keys = array_keys($options);
+          $default_value = reset($keys);
+        }
+
         $elements['workflow_fieldset']['transition'] = [
           '#title' => t('Transition'),
           '#type' => $transition_element_type,
           '#description' => t('Some transitions may be hidden if you do not have access, e.g. certain roles.'),
           '#options' => $options,
           '#empty_option' => t('- select transition -'),
-          '#default_value' => '',
+          '#default_value' => $default_value,
           '#required' => $required,
           '#attributes' => [
             'class' => ['workflow-transition'],
@@ -140,31 +159,31 @@ class WebformWorkflowsElement extends WebformCompositeBase {
         ];
       }
 
-      if ($element['#log_public_setting'] != 'Disabled') {
-        $elements['workflow_fieldset']['log_public'] = [
-          '#title' => t('Log message for submitter'),
-          '#type' => 'textarea',
-          '#rows' => 2,
-          '#required' => $element['#log_public_setting'] === 'Required',
-        ];
-      }
+      $elements['workflow_fieldset']['log_public'] = [
+        '#title' => t('Log message for submitter'),
+        '#type' => $element['#log_public_setting'] != 'Disabled' ? 'textarea' : 'hidden',
+        '#rows' => 2,
+        '#required' => $element['#log_public_setting'] === 'Required',
+      ];
 
-      if ($element['#log_admin_setting'] != 'Disabled') {
-        $elements['workflow_fieldset']['log_admin'] = [
-          '#title' => t('Log message - admin only'),
-          '#type' => 'textarea',
-          '#rows' => 2,
-          '#required' => $element['#log_admin_setting'] === 'Required',
-        ];
-      }
+      $elements['workflow_fieldset']['log_admin'] = [
+        '#title' => t('Log message - admin only'),
+        '#type' => $element['#log_admin_setting'] != 'Disabled' ? 'textarea' : 'hidden',
+        '#rows' => 2,
+        '#required' => $element['#log_admin_setting'] === 'Required',
+      ];
     }
     else {
-      // @todo different message if it's access preventing transitions, versus just not having any available transitions
       $elements['workflow_fieldset']['transitions_message'] = [
         '#title' => t('Transitions'),
         '#type' => 'markup',
-        '#markup' => t("No transitions are available to you. You may not have the required access, or the workflow may have reached the end of a process."),
       ];
+      if (count(WebformWorkflowsElement::getAvailableTransitions($element, NULL, FALSE)) == 0) {
+        $elements['workflow_fieldset']['transitions_message']['#markup'] = t("No transitions are possible from the current state.");
+      }
+      else {
+        $elements['workflow_fieldset']['transitions_message']['#markup'] = t("No transitions are available to you from this state. You may not have the required access.");
+      }
       $elements['transition'] = [
         '#title' => t('Transition'),
         '#type' => 'hidden',
@@ -185,7 +204,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
    * @return array
    *   Of available transitions.
    */
-  public static function getAvailableTransitions(array $element, bool $checkAccess = TRUE): array {
+  public static function getAvailableTransitions(array $element, $webform_submission = NULL, bool $checkAccess = TRUE): array {
     if (!isset($element['#workflow'])) {
       return [];
     }
@@ -205,7 +224,7 @@ class WebformWorkflowsElement extends WebformCompositeBase {
     }
 
     $workflow_id = $element['#workflow'];
-    return $workflowsManager->getAvailableTransitionsForWorkflow($workflow_id, $current_state, $checkAccess ? $account : NULL, $webform);
+    return $workflowsManager->getAvailableTransitionsForWorkflow($workflow_id, $current_state, $checkAccess ? $account : NULL, $webform, $webform_submission);
   }
 
   /**
